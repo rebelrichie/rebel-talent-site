@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials | Rebel Talent Systems</title>
+    <meta name="description" content="Real results from real clients. Read testimonials from hiring managers, HR leaders, and candidates who've worked with Richie Lampani and Rebel Talent Systems.">
+    <link rel="canonical" href="https://rebeltalentsystems.com/testimonials.html">
+    <meta property="og:title" content="Testimonials | Rebel Talent Systems">
+    <meta property="og:description" content="Real results from real clients. Read testimonials from hiring managers, HR leaders, and candidates who've worked with Richie Lampani and Rebel Talent Systems.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rebeltalentsystems.com/testimonials.html">
+    <meta property="og:image" content="https://rebeltalentsystems.com/rebel-logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Testimonials | Rebel Talent Systems">
+    <meta name="twitter:description" content="Real results from real clients. Read testimonials from hiring managers, HR leaders, and candidates who've worked with Richie Lampani and Rebel Talent Systems.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+        :root {
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --red-primary: #dc2626;
+            --red-dark: #991b1b;
+            --red-light: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--black);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%);
+            border-bottom: 3px solid #dc2626;
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3), 0 2px 8px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo a {
+            font-family: 'Abril Fatface', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            text-shadow: 2px 2px 0px #dc2626, 0 0 20px rgba(220, 38, 38, 0.4);
+        }
+
+        .nav-logo a:hover {
+            color: #ef4444;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0.25rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #dc2626, #ef4444);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: #dc2626;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            gap: 0.35rem;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                padding: 2rem 0;
+                gap: 0;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                border-bottom: 3px solid #dc2626;
+            }
+
+            .nav-menu.active {
+                transform: translateX(0);
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(220, 38, 38, 0.2);
+            }
+
+            .nav-link {
+                display: block;
+                padding: 1rem;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px 80px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-bottom: 80px;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border: 2px solid var(--red-primary);
+            border-radius: 12px;
+            padding: 3rem 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--red-light);
+            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(220, 38, 38, 0.3);
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid var(--red-primary);
+            background: rgba(220, 38, 38, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--red-primary);
+            flex-shrink: 0;
+        }
+
+        .testimonial-info h3 {
+            color: var(--white);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-info p {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-body {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-body p {
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .quote-mark {
+            color: var(--red-primary);
+            font-size: 3rem;
+            line-height: 1;
+            margin-bottom: 1rem;
+            font-family: Georgia, serif;
+        }
+
+        .linkedin-cta {
+            background: linear-gradient(135deg, var(--red-dark) 0%, rgba(220, 38, 38, 0.1) 100%);
+            border: 2px solid var(--red-primary);
+            border-radius: 12px;
+            padding: 4rem 3rem;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .linkedin-cta h2 {
+            color: var(--white);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .linkedin-cta p {
+            color: #b0b0b0;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.25rem 3rem;
+            background: var(--red-primary);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--red-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .testimonial-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .testimonial-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .testimonial-avatar {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .linkedin-cta {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .linkedin-cta h2 {
+                font-size: 2rem;
+            }
+        }
+    /* Newsletter CTA Section */
+.newsletter-cta {
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+    border-top: 3px solid #dc2626;
+    padding: 60px 20px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.newsletter-cta h3 {
+    font-family: 'Abril Fatface', Georgia, serif;
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.newsletter-cta p {
+    color: #b0b0b0;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 25px auto;
+    line-height: 1.6;
+}
+
+.newsletter-cta .cta-button {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #dc2626;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+}
+
+.newsletter-cta .cta-button:hover {
+    background: #ef4444;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.5);
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="rebel.html">Rebel Talent</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+                <li><a href="testimonials.html" class="nav-link active">Testimonials</a></li>
+                <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+                <li><a href="podcast-appearances.html" class="nav-link">Podcast</a></li>
+                <li><a href="free-tools.html" class="nav-link">Free Tools</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>What Clients Say</h1>
+            <p>Real results from real people. No fluff, no embellishment—just honest feedback from clients who've worked with me.</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">KA</div>
+                    <div class="testimonial-info">
+                        <h3>Keisha Ah Loo-Yates</h3>
+                        <p>Strategic IT Leader | Support Engineering Manager | U.S. Army (Airborne) Combat Veteran</p>
+                    </div>
+                </div>
+                <div class="testimonial-body">
+                    <div class="quote-mark">"</div>
+                    <p>I've had the pleasure of working with Richie Lampani and let me tell you, he's not your average talent finder. Richie consistently delivers high-caliber candidates who aren't just a fit on paper, but a true match for the team and the culture.</p>
+                    <p>One standout IT candidate he brought to us has already proven to be a rockstar—within just over 13 months, they've grown into a more valuable role within the organization and are thriving. That's the kind of long-term impact Richie brings to the table.</p>
+                    <p>What sets Richie apart is his attention to detail and the extra layer of diligence he puts into screening candidates. I'm used to recruiters sending half-vetted resumes that I still need to comb through. With Richie? Not the case. He does the heavy lifting, and the quality speaks for itself.</p>
+                    <p>If you're looking for someone who takes the time to truly understand what you're looking for and then actually delivers on it, Richie's your guy.</p>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">CG</div>
+                    <div class="testimonial-info">
+                        <h3>Colleen Garrett</h3>
+                        <p>Fractional HR Leader, Leadership Coach, MBA</p>
+                    </div>
+                </div>
+                <div class="testimonial-body">
+                    <div class="quote-mark">"</div>
+                    <p>I have worked with Richie since he started Underground Admins. He successfully performed searches for my company's open roles in Sales, Sales Enablement, and technical roles. Richie is the most collaborative and positive person I get the privilege to work with and I deeply trust his judgment.</p>
+                    <p>He has an impressive expertise in finding the right candidates for jobs and for understanding and resonating with a company's culture. He also has the patience of a saint! My company isn't easy to please and it is exceptionally picky at a maddening level. Richie kept giving us amazing candidates and moving forward, reflecting on our feedback and adjusting on the go.</p>
+                    <p>I plan to work with Underground Admins wherever I go with whatever vacancy I need to fill—he guarantees my success in hiring. Highly recommend!</p>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">NP</div>
+                    <div class="testimonial-info">
+                        <h3>Natalie Pochomis</h3>
+                        <p>Data-Driven Solutions</p>
+                    </div>
+                </div>
+                <div class="testimonial-body">
+                    <div class="quote-mark">"</div>
+                    <p>Richie is amazing. I've been creeping on his LinkedIn for ages—partly for the insights, partly for the entertainment—even though the roles he posts have nothing to do with the ones I'm pursuing. So when he offered resume reviews, I signed up immediately like a total fangirl.</p>
+                    <p>My existing resume was solid—actually, it was pretty great—but it was built for a career I'm no longer pursuing. I reached out to Richie to help me make the leap from corporate nerd to laboratory nerd. When I first opened my shiny new resume, I was totally baffled. It was…unexpected. Short. And not typical chronological style. I was a little skeptical.</p>
+                    <p>Fast-forward two weeks and about 10 applications later: I heard back from a technical staffing agency—for multiple roles I applied to. I had a phone screen for a direct-hire position. I even got a cold outreach from a recruiter. All of this for jobs that represent a complete career pivot.</p>
+                    <p><strong>I'm a believer.</strong></p>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">MH</div>
+                    <div class="testimonial-info">
+                        <h3>Martyn J Hill</h3>
+                        <p>Blue Collar Recruitment Specialist | Australia</p>
+                    </div>
+                </div>
+                <div class="testimonial-body">
+                    <div class="quote-mark">"</div>
+                    <p>An exceptional human being with genuine care for others and a passion for recruitment.</p>
+                    <p>Through the magic of LinkedIn, we somehow connected at the perfect time for us both, despite being on opposite ends of the planet. Richie had just taken the plunge to start his own agency and was seeking clients for his Underground Administration business, while I was looking for a complete branding and resume overhaul.</p>
+                    <p>A true professional, he set up a video chat at a time that worked for us both, accommodating children's bedtimes and time zones. He's the type of person you feel like you've known since childhood, asking genuine, probing questions to understand your "why" and effectively sell your niche.</p>
+                    <p>I haven't touched my LinkedIn profile since the overhaul, and it has been a lead funnel for me in the highly competitive Australian recruitment industry.</p>
+                    <p>One of the good guys, I highly recommend Richie.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="linkedin-cta">
+            <h2>See More Recommendations</h2>
+            <p>These are just a few highlights. Want to see the full collection? Check out all my LinkedIn recommendations from clients, candidates, and colleagues spanning 15+ years.</p>
+            <a href="https://www.linkedin.com/in/richielampani/details/recommendations/" target="_blank" class="cta-button">
+                View All LinkedIn Recommendations &rarr;
+            </a>
+        </div>
+    </div>
+
+    <section class="newsletter-cta">
+    <h3>Get Free Recruiting Tools</h3>
+    <p>Optimize your resume and LinkedIn profile with tools built by someone who actually understands recruiting.</p>
+    <a href="free-tools.html" class="cta-button" data-testid="button-newsletter-cta">Access Free Tools</a>
+</section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggle = document.querySelector('.nav-toggle');
+        const menu = document.querySelector('.nav-menu');
+        if (toggle && menu) {
+            toggle.addEventListener('click', function() {
+                menu.classList.toggle('active');
+            });
+        }
+    });
+    </script>
+</body>
+</html>

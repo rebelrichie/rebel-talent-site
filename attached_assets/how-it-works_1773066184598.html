@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works & FAQ | Rebel Talent Systems</title>
+    <meta name="description" content="From discovery call to full infrastructure build, learn exactly what working with Rebel Talent Systems looks like. FAQ on fractional Head of Talent services.">
+    <link rel="canonical" href="https://rebeltalentsystems.com/how-it-works.html">
+    <meta property="og:title" content="How It Works & FAQ | Rebel Talent Systems">
+    <meta property="og:description" content="From discovery call to full infrastructure build, learn exactly what working with Rebel Talent Systems looks like. FAQ on fractional Head of Talent services.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rebeltalentsystems.com/how-it-works.html">
+    <meta property="og:image" content="https://rebeltalentsystems.com/rebel-logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How It Works & FAQ | Rebel Talent Systems">
+    <meta name="twitter:description" content="From discovery call to full infrastructure build, learn exactly what working with Rebel Talent Systems looks like. FAQ on fractional Head of Talent services.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+        :root {
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --red-primary: #dc2626;
+            --red-dark: #991b1b;
+            --red-light: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--black);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%);
+            border-bottom: 3px solid #dc2626;
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3), 0 2px 8px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo a {
+            font-family: 'Abril Fatface', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            text-shadow: 2px 2px 0px #dc2626, 0 0 20px rgba(220, 38, 38, 0.4);
+        }
+
+        .nav-logo a:hover {
+            color: #ef4444;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0.25rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #dc2626, #ef4444);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: #dc2626;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            gap: 0.35rem;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                padding: 2rem 0;
+                gap: 0;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                border-bottom: 3px solid #dc2626;
+            }
+
+            .nav-menu.active {
+                transform: translateX(0);
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(220, 38, 38, 0.2);
+            }
+
+            .nav-link {
+                display: block;
+                padding: 1rem;
+            }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 100px 20px 80px 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 0;
+        }
+
+        .hero-section h1 {
+            font-family: 'Abril Fatface', Georgia, serif;
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .hero-hook {
+            font-size: 1.5rem;
+            color: #b0b0b0;
+            margin-bottom: 10px;
+        }
+
+        .hero-hook strong {
+            color: var(--red-primary);
+        }
+
+        .hero-punchline {
+            font-size: 1.2rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.08) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border-left: 4px solid var(--red-primary);
+            padding: 40px;
+            margin-bottom: 80px;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .problem-section h2 {
+            color: var(--red-primary);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .problem-list {
+            list-style: none;
+        }
+
+        .problem-list li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            color: #c0c0c0;
+            font-size: 1.15rem;
+            line-height: 1.6;
+        }
+
+        .problem-list li::before {
+            content: "X";
+            position: absolute;
+            left: 0;
+            color: var(--red-primary);
+            font-weight: 900;
+            font-size: 1.1rem;
+        }
+
+        /* Process Header */
+        .process-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .process-header h2 {
+            font-size: 2.2rem;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        /* Timeline Cards */
+        .timeline-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .timeline-card {
+            background: linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(15, 15, 15, 0.9) 100%);
+            border: 2px solid #333;
+            border-radius: 12px;
+            padding: 35px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-card:hover {
+            border-color: var(--red-primary);
+            transform: translateX(5px);
+        }
+
+        .timeline-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: var(--red-primary);
+        }
+
+        .timeline-label {
+            display: inline-block;
+            background: var(--red-primary);
+            color: var(--white);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 6px 14px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .timeline-card h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .timeline-card .intro {
+            color: #999;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .timeline-card ul {
+            list-style: none;
+        }
+
+        .timeline-card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #c0c0c0;
+            font-size: 1.05rem;
+        }
+
+        .timeline-card li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: var(--red-primary);
+            font-weight: bold;
+        }
+
+        .timeline-card .highlight {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* Handoff Section */
+        .handoff-section {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.05) 0%, rgba(0, 0, 0, 0.2) 100%);
+            border-radius: 12px;
+            padding: 50px 40px;
+            margin-bottom: 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .handoff-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--red-primary);
+            border-radius: 2px;
+        }
+
+        .handoff-section h3 {
+            color: var(--red-primary);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .handoff-section .subtitle {
+            color: #777;
+            font-size: 1rem;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .handoff-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .handoff-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .handoff-item {
+            background: linear-gradient(180deg, rgba(220, 38, 38, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+            padding: 30px 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .handoff-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--red-primary), var(--red-light));
+        }
+
+        .handoff-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--red-primary);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+        }
+
+        .handoff-item .icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .handoff-item span {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1rem;
+            display: block;
+        }
+
+        /* FAQ Section */
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-header h2 {
+            font-size: 2.2rem;
+            color: var(--red-primary);
+            margin-bottom: 10px;
+        }
+
+        .faq-header p {
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 500px) {
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .faq-item {
+            background: linear-gradient(135deg, rgba(30, 30, 30, 0.6) 0%, rgba(15, 15, 15, 0.8) 100%);
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--red-primary);
+        }
+
+        .faq-question {
+            color: var(--white);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .faq-answer {
+            color: #a0a0a0;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .faq-answer strong {
+            color: var(--red-light);
+        }
+
+        .faq-answer a {
+            color: var(--red-light);
+            text-decoration: underline;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .faq-answer a:hover {
+            color: var(--white);
+        }
+
+        .faq-compare {
+            margin: 15px 0;
+            padding-left: 15px;
+            border-left: 2px solid #444;
+        }
+
+        .faq-compare p {
+            margin: 8px 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--red-dark) 0%, rgba(220, 38, 38, 0.2) 100%);
+            border: 2px solid var(--red-primary);
+            border-radius: 12px;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            color: #c0c0c0;
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: var(--white);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Newsletter Section */
+        .newsletter-cta {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border-top: 3px solid #dc2626;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .newsletter-cta h3 {
+            font-family: 'Abril Fatface', Georgia, serif;
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-cta p {
+            color: #b0b0b0;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 25px auto;
+            line-height: 1.6;
+        }
+
+        .newsletter-cta .cta-button {
+            display: inline-block;
+            padding: 14px 32px;
+            background: #dc2626;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-cta .cta-button:hover {
+            background: #ef4444;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-hook {
+                font-size: 1.2rem;
+            }
+
+            .problem-section {
+                padding: 25px;
+            }
+
+            .timeline-card {
+                padding: 25px;
+            }
+
+            .handoff-section {
+                padding: 30px 20px;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section {
+                padding: 35px 25px;
+            }
+
+            .cta-section h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="rebel.html">Rebel Talent</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="how-it-works.html" class="nav-link active">How It Works</a></li>
+                <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+                <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+                <li><a href="podcast-appearances.html" class="nav-link">Podcast</a></li>
+                <li><a href="free-tools.html" class="nav-link">Free Tools</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero -->
+        <div class="hero-section">
+            <h1>How Rebel Talent Systems Actually Works</h1>
+            <p class="hero-hook">Most founders think hiring is the problem. <strong>It's not.</strong></p>
+            <p class="hero-punchline">It's the symptom.</p>
+        </div>
+
+        <!-- The Real Problem -->
+        <div class="problem-section">
+            <h2>Your real problem:</h2>
+            <ul class="problem-list">
+                <li>No repeatable process</li>
+                <li>Burning cash on agencies that vanish after placement</li>
+                <li>Hiring managers who hate recruiting (and suck at it)</li>
+                <li>No infrastructure when your internal hire finally arrives</li>
+            </ul>
+        </div>
+
+        <!-- Process -->
+        <div class="process-header">
+            <h2>Here's what happens when you work with me:</h2>
+        </div>
+
+        <div class="timeline-cards">
+            <!-- Week 1 -->
+            <div class="timeline-card">
+                <span class="timeline-label">Week 1</span>
+                <h3>I See What You're Actually Up Against</h3>
+                <p class="intro">No templates. We map your mess:</p>
+                <ul>
+                    <li>Broken ATS? <span class="highlight">Fixed.</span></li>
+                    <li>Sourcing that's not working? <span class="highlight">Rewired.</span></li>
+                    <li>Hiring managers interviewing like it's 1999? <span class="highlight">Trained.</span></li>
+                </ul>
+                <p style="color: #888; margin-top: 20px; font-size: 1rem;">You get a custom plan - not "hire 3 people." Deliverables, timeline, metrics.</p>
+            </div>
+
+            <!-- Month 1 -->
+            <div class="timeline-card">
+                <span class="timeline-label">Month 1</span>
+                <h3>The Machine Goes Live</h3>
+                <p class="intro">Infrastructure first, candidates second:</p>
+                <ul>
+                    <li>Screening frameworks that filter 90% of noise</li>
+                    <li>Sourcing automation for your niche (cleared, technical, GTM)</li>
+                    <li>Role profiles hiring managers actually read</li>
+                </ul>
+                <p style="color: #999; margin-top: 20px; font-size: 1rem;">Priority roles get filled while this happens.</p>
+            </div>
+
+            <!-- Months 2-3 -->
+            <div class="timeline-card">
+                <span class="timeline-label">Months 2-3</span>
+                <h3>Results + Refinement</h3>
+                <ul>
+                    <li><span class="highlight">2-5 roles filled</span> (your hardest ones first)</li>
+                    <li>Weekly pipeline reviews - no black box</li>
+                    <li>Systems battle-tested, not theoretical</li>
+                </ul>
+            </div>
+
+            <!-- Month 4+ -->
+            <div class="timeline-card">
+                <span class="timeline-label">Month 4+</span>
+                <h3>You Own It</h3>
+                <p class="intro">I stay on a reduced scope (unless negotiated otherwise), we find you a fantastic internal person, or I exit cleanly.</p>
+                <p style="color: #999; margin-top: 15px; font-size: 1rem;">Any way we go, you get the finished product.</p>
+            </div>
+        </div>
+
+        <!-- Handoff -->
+        <div class="handoff-section">
+            <h3>You keep:</h3>
+            <p class="subtitle">No vendor lock-in. Everything transfers to you.</p>
+            <div class="handoff-grid">
+                <div class="handoff-item">
+                    <span class="icon">&#128196;</span>
+                    <span>All documentation</span>
+                </div>
+                <div class="handoff-item">
+                    <span class="icon">&#9881;</span>
+                    <span>Custom workflows</span>
+                </div>
+                <div class="handoff-item">
+                    <span class="icon">&#128269;</span>
+                    <span>Sourcing guides</span>
+                </div>
+                <div class="handoff-item">
+                    <span class="icon">&#128202;</span>
+                    <span>Active pipelines</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq-header">
+            <h2>FAQ</h2>
+            <p>Half the length, twice the punch.</p>
+        </div>
+
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="faq-question">"Fractional Head of Talent" = ?</div>
+                <div class="faq-answer">
+                    Strategic leadership without the full-time salary. I embed with your team (weekly syncs, ATS access), build your recruiting machine, fill your hardest roles, then scale down or exit.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Agency vs. Me?</div>
+                <div class="faq-answer">
+                    <div class="faq-compare">
+                        <p><strong>Agency:</strong> Transactional. Paid per hire. Gone after placement.</p>
+                        <p><strong>Me:</strong> Embedded. Infrastructure + execution. Measured by retention and pipeline velocity.</p>
+                    </div>
+                    <p style="margin-top: 15px;">If you need 1-2 hires per year, <a href="https://undergroundadmins.com" target="_blank">Underground Admins</a> is a better fit. If you're scaling and need talent infrastructure, Rebel Talent is what you need.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Contingency?</div>
+                <div class="faq-answer">
+                    <p>No. I build systems. Contingency is for order-takers.</p>
+                    <p style="margin-top: 10px;">If you need speed and one-off contingent placements, <a href="https://undergroundadmins.com" target="_blank">Underground Admins</a> can handle that separately.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How long?</div>
+                <div class="faq-answer">
+                    3-6 months to build + fill. Month-to-month after. Walk anytime.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Company size?</div>
+                <div class="faq-answer">
+                    <p>Series A-C startups, defense contractors. 20-200 people scaling fast but not ready for full-time TA leadership.</p>
+                    <p style="margin-top: 10px;">If you're hiring 1-2 people per year, <a href="https://undergroundadmins.com" target="_blank">Underground Admins</a> is a better fit. If you're hiring 10+ and need talent strategy, we should talk.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Roles?</div>
+                <div class="faq-answer">
+                    Technical, GTM, ops, leadership. Cleared/DoD specialist. No high-volume hourly.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Already have a recruiter?</div>
+                <div class="faq-answer">
+                    Perfect. I build what they execute within. Or handle overflow when they're slammed.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">After I'm gone?</div>
+                <div class="faq-answer">
+                    You own everything. Systems, docs, pipelines, trained team. No vendor lock-in.
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h2>Ready to fix the real problem?</h2>
+            <p>Let's talk about what infrastructure you're missing and how fast we can build it.</p>
+            <a href="services.html" class="cta-button">See Services & Pricing</a>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="newsletter-cta">
+        <h3>Get the Rebel Talent Newsletter</h3>
+        <p>Weekly insights on recruiting infrastructure, hiring strategy, and scaling teams. No fluff.</p>
+        <div class="beehiiv-container" style="min-height: 500px; overflow-y: auto;">
+            <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+            <iframe src="https://subscribe-forms.beehiiv.com/2d530cee-e921-4c35-bea8-b1dba4dd71d1" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="yes" style="width: 100%; max-width: 610px; height: 450px; margin: 0 auto; display: block; border-radius: 0px; background-color: transparent;"></iframe>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://rebeltalentsystems.com/sitemap.xml
+
+# Block old case study file if it still exists
+Disallow: /case-study-2.html

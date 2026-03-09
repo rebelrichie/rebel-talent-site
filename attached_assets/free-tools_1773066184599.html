@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Tools | Rebel Talent Systems</title>
+    <meta name="description" content="Free resources for jobseekers and recruiters. Resume optimizer, LinkedIn cheat sheet, and career coaching from Richie Lampani at Rebel Talent Systems.">
+    <link rel="canonical" href="https://rebeltalentsystems.com/free-tools.html">
+    <meta property="og:title" content="Free Tools | Rebel Talent Systems">
+    <meta property="og:description" content="Free resources for jobseekers and recruiters. Resume optimizer, LinkedIn cheat sheet, and career coaching from Richie Lampani at Rebel Talent Systems.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rebeltalentsystems.com/free-tools.html">
+    <meta property="og:image" content="https://rebeltalentsystems.com/rebel-logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Tools | Rebel Talent Systems">
+    <meta name="twitter:description" content="Free resources for jobseekers and recruiters. Resume optimizer, LinkedIn cheat sheet, and career coaching from Richie Lampani at Rebel Talent Systems.">
+    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+        :root {
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --red-primary: #dc2626;
+            --red-dark: #991b1b;
+            --red-light: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--black);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%);
+            border-bottom: 3px solid #dc2626;
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3), 0 2px 8px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo a {
+            font-family: 'Abril Fatface', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            text-shadow: 2px 2px 0px #dc2626, 0 0 20px rgba(220, 38, 38, 0.4);
+        }
+
+        .nav-logo a:hover {
+            color: #ef4444;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0.25rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #dc2626, #ef4444);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: #dc2626;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            gap: 0.35rem;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                padding: 2rem 0;
+                gap: 0;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                border-bottom: 3px solid #dc2626;
+            }
+
+            .nav-menu.active {
+                transform: translateX(0);
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(220, 38, 38, 0.2);
+            }
+
+            .nav-link {
+                display: block;
+                padding: 1rem;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px 80px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .tools-section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--red-primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tool-card {
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            padding: 2.5rem 2rem;
+            border: 2px solid var(--red-primary);
+            border-radius: 12px;
+            background: rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            border-color: var(--white);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.4);
+        }
+
+        .tool-label {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--red-light);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .tool-card h3 {
+            margin: 0.5rem 0;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .tool-card p {
+            color: #9CA3AF;
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+
+        .tool-button {
+            display: inline-block;
+            background: var(--red-primary);
+            color: var(--white);
+            padding: 0.875rem 2rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        .book-section {
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .book-card {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.15) 0%, rgba(0, 0, 0, 0.6) 100%);
+            border: 2px solid var(--red-primary);
+            border-radius: 12px;
+            padding: 3rem 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .book-label {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--red-light);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .book-card h3 {
+            color: var(--white);
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .book-card .subtitle {
+            color: #9CA3AF;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .book-card p {
+            color: #b0b0b0;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .book-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .book-button-primary {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--red-primary);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .book-button-primary:hover {
+            background: var(--red-light);
+            transform: translateY(-2px);
+        }
+
+        .book-button-secondary {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: transparent;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 6px;
+            border: 2px solid var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .book-button-secondary:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .coaching-card {
+            background: linear-gradient(135deg, var(--red-dark) 0%, rgba(220, 38, 38, 0.1) 100%);
+            border: 2px solid var(--red-primary);
+            border-radius: 12px;
+            padding: 3rem 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .coaching-label {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--red-light);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .beehiiv-embed {
+                min-height: 500px !important;
+            }
+
+            .coaching-card h3 {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .coaching-card ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .coaching-card li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #e0e0e0;
+        }
+
+        .coaching-card li:before {
+            content: "\2192";
+            position: absolute;
+            left: 0;
+            color: var(--red-primary);
+            font-weight: bold;
+        }
+
+        .coaching-card p {
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+            color: #b0b0b0;
+        }
+
+        .coaching-card a {
+            color: var(--white);
+            font-weight: bold;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--red-primary);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background: var(--red-light);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .coaching-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .beehiiv-embed {
+                min-height: 500px !important;
+            }
+
+            .coaching-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .book-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="rebel.html">Rebel Talent</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+                <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+                <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+                <li><a href="podcast-appearances.html" class="nav-link">Podcast</a></li>
+                <li><a href="free-tools.html" class="nav-link active">Free Tools</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Free Tools</h1>
+            <p>Free resources for jobseekers and leaders. Built by someone who actually understands recruiting.</p>
+        </div>
+
+        <div class="tools-section">
+            <h2 class="section-title">For Jobseekers</h2>
+            <div class="tools-grid">
+                <div class="tool-card" style="cursor: default;">
+                    <span class="tool-label">Free Tool</span>
+                    <h3>The Richie Lampani Resume Breakthrough</h3>
+                    <p>For people who've actually done real work. Rebuild your resume so it reads like you drive outcomes&mdash;not just participated.</p>
+                    <div style="margin-top: 1rem; display: flex; justify-content: center; width: 100%;">
+                        <iframe src="https://subscribe-forms.beehiiv.com/2d530cee-e921-4c35-bea8-b1dba4dd71d1" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0"  style="width: 100%; max-width: 480px; min-height: 500px; height: auto; margin: 0; border-radius: 0px; background-color: transparent;"></iframe>
+                    </div>
+                </div>
+
+                <div class="tool-card" style="cursor: default;">
+                    <span class="tool-label">Free Tool</span>
+                    <h3>Fix My LinkedIn Cheat Sheet</h3>
+                    <p>2025 Edition. Optimized for AI search algorithms, video content, and collaborative features. Recruiter-magnet in 10 minutes.</p>
+                    <div style="margin-top: 1rem; display: flex; justify-content: center; width: 100%;">
+                        <iframe src="https://subscribe-forms.beehiiv.com/2d530cee-e921-4c35-bea8-b1dba4dd71d1" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0"  style="width: 100%; max-width: 480px; min-height: 500px; height: auto; margin: 0; border-radius: 0px; background-color: transparent;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="book-section">
+            <h2 class="section-title">For Recruiters</h2>
+            <div class="book-card">
+                <span class="book-label">From the Book</span>
+                <h3>Head and Heart</h3>
+                <p class="subtitle">Winning the AI Recruiting War</p>
+                <p>The recruiting playbook for the AI era. Get "The Creed & The Oath"&mdash;the code for recruiters who give a damn. Print it. Pin it. Live it.</p>
+                
+                <div style="max-width: 500px; margin: 1.5rem auto 0;">
+                    <iframe src="https://subscribe-forms.beehiiv.com/2d530cee-e921-4c35-bea8-b1dba4dd71d1" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0"  style="width: 100%; max-width: 480px; min-height: 500px; height: auto; margin: 0; border-radius: 0px; background-color: transparent;"></iframe>
+                </div>
+                <p style="font-size: 0.8rem; color: #666; margin-top: 1rem;"><a href="https://a.co/d/ecfHaoh" target="_blank" style="color: var(--red-light);" data-testid="link-amazon-book">Buy on Amazon &rarr;</a></p>
+            </div>
+        </div>
+
+        <div class="book-section">
+            <h2 class="section-title">For Employers</h2>
+            <div class="book-card">
+                <span class="book-label">Coming March 2026</span>
+                <h3>Unfinished Rooms</h3>
+                <p class="subtitle">Why Great Employees Keep One Foot Out the Door</p>
+                <p>Retention isn't about perks or surveys. It's about closing the psychological loops you opened in the interview. Get the Retention Autopsy Checklist free and be first to know when the book drops.</p>
+                
+                <div style="max-width: 500px; margin: 1.5rem auto 0;">
+                    <iframe src="https://subscribe-forms.beehiiv.com/2d530cee-e921-4c35-bea8-b1dba4dd71d1" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0"  style="width: 100%; max-width: 480px; min-height: 500px; height: auto; margin: 0; border-radius: 0px; background-color: transparent;"></iframe>
+                </div>
+                <p style="font-size: 0.8rem; color: #666; margin-top: 1rem;">No spam. Just the checklist + launch notification.</p>
+            </div>
+        </div>
+
+        <div class="tools-section">
+            <h2 class="section-title">Jobseeker Services</h2>
+            <div class="coaching-card">
+                <span class="coaching-label">Career Services</span>
+                <h3>Resume Review &amp; Strategy Session &mdash; $149</h3>
+                
+                <ul>
+                    <li>Get more interviews with a resume focused on your target roles</li>
+                    <li>30-minute video call to discuss your career goals and strategy</li>
+                    <li>Line-by-line resume feedback with specific improvement suggestions</li>
+                    <li>LinkedIn profile optimization tips</li>
+                </ul>
+                
+                <p>Book directly through Calendly. Pay securely via Stripe.</p>
+                
+                <a href="https://calendly.com/richielam" class="cta-button" data-testid="button-book-session">Book Your Session</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggle = document.querySelector('.nav-toggle');
+        const menu = document.querySelector('.nav-menu');
+        if (toggle && menu) {
+            toggle.addEventListener('click', function() {
+                menu.classList.toggle('active');
+            });
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast Appearances | Rebel Talent Systems</title>
+    <meta name="description" content="Richie Lampani's podcast appearances discussing recruiting systems, AI in hiring, fractional leadership, and talent strategy. No corporate scripts, just real answers.">
+    <link rel="canonical" href="https://rebeltalentsystems.com/podcast-appearances.html">
+    <meta property="og:title" content="Podcast Appearances | Rebel Talent Systems">
+    <meta property="og:description" content="Richie Lampani's podcast appearances discussing recruiting systems, AI in hiring, fractional leadership, and talent strategy. No corporate scripts, just real answers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rebeltalentsystems.com/podcast-appearances.html">
+    <meta property="og:image" content="https://rebeltalentsystems.com/rebel-logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Podcast Appearances | Rebel Talent Systems">
+    <meta name="twitter:description" content="Richie Lampani's podcast appearances discussing recruiting systems, AI in hiring, fractional leadership, and talent strategy. No corporate scripts, just real answers.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%);
+            border-bottom: 3px solid #dc2626;
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3), 0 2px 8px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo a {
+            font-family: 'Abril Fatface', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            text-shadow: 2px 2px 0px #dc2626, 0 0 20px rgba(220, 38, 38, 0.4);
+        }
+
+        .nav-logo a:hover {
+            color: #ef4444;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0.25rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #dc2626, #ef4444);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: #dc2626;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            gap: 0.35rem;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                padding: 2rem 0;
+                gap: 0;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                border-bottom: 3px solid #dc2626;
+            }
+
+            .nav-menu.active {
+                transform: translateX(0);
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(220, 38, 38, 0.2);
+            }
+
+            .nav-link {
+                display: block;
+                padding: 1rem;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px 80px 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.5rem;
+            color: #dc2626;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .hero-content .intro {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 50px;
+        }
+
+        .content-section {
+            margin-bottom: 60px;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            color: #dc2626;
+            margin-bottom: 25px;
+            font-weight: 700;
+            border-bottom: 2px solid #dc2626;
+            padding-bottom: 10px;
+        }
+
+        .content-section h3 {
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .episode-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .episode-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: rgba(220, 38, 38, 0.1);
+            border: 2px solid #dc2626;
+            border-radius: 6px;
+            color: #dc2626;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .episode-links a:hover {
+            background: #dc2626;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+        }
+
+        .booking-cta {
+            background: rgba(220, 38, 38, 0.05);
+            border: 2px solid #dc2626;
+            border-radius: 12px;
+            padding: 50px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .booking-cta h3 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .booking-cta p {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px 40px;
+            background: rgba(220, 38, 38, 0.1);
+            border: 2px solid #dc2626;
+            border-radius: 6px;
+            color: #dc2626;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #dc2626;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content .tagline {
+                font-size: 1.2rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .content-section h3 {
+                font-size: 1.1rem;
+            }
+
+            .episode-links {
+                flex-direction: column;
+            }
+
+            .booking-cta {
+                padding: 30px 20px;
+            }
+
+            .booking-cta h3 {
+                font-size: 1.5rem;
+            }
+        }
+    /* Newsletter CTA Section */
+.newsletter-cta {
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+    border-top: 3px solid #dc2626;
+    padding: 60px 20px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.newsletter-cta h3 {
+    font-family: 'Abril Fatface', Georgia, serif;
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.newsletter-cta p {
+    color: #b0b0b0;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 25px auto;
+    line-height: 1.6;
+}
+
+.newsletter-cta .cta-button {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #dc2626;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+}
+
+.newsletter-cta .cta-button:hover {
+    background: #ef4444;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.5);
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="rebel.html">Rebel Talent</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+                <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+                <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+                <li><a href="podcast-appearances.html" class="nav-link active">Podcast</a></li>
+                <li><a href="free-tools.html" class="nav-link">Free Tools</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero-content">
+            <h1>Podcast Appearances</h1>
+            <div class="tagline">Straight talk on recruiting, AI, talent systems, and why most hiring is broken.</div>
+            <p class="intro">
+                I've been featured on recruiting, cybersecurity, and business podcasts to discuss fractional leadership, talent infrastructure, AI in hiring, and why most companies fail at building effective talent systems. No corporate scripts. No fluff. Just real answers.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>Is This Still A Good Time? – Purple Acorn Network</h2>
+            <h3>Episode #11: Why Agency Recruiting Feels Like a Knife Fight</h3>
+            <p>
+                Why agency recruiting burns people out, what clients actually want, and how to build systems that don't depend on heroics.
+            </p>
+            <div class="episode-links">
+                <a href="https://www.purpleacornnetwork.com/podcasts/is-this-still-a-good-time" target="_blank">Listen on Purple Acorn</a>
+                <a href="https://www.youtube.com/watch?v=XEwzniH_bXs" target="_blank">Watch on YouTube</a>
+                <a href="https://www.audible.co.uk/podcast/Is-This-Still-A-Good-Time/B0FRZ72T1F" target="_blank">Audible</a>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Decline Invite Podcast</h2>
+            <h3>with Richie Lampani</h3>
+            <p>
+                Unfiltered conversations about recruiting, talent systems, and what actually works in hiring.
+            </p>
+            <div class="episode-links">
+                <a href="https://lnkd.in/g4MZRyWK" target="_blank">Watch on YouTube</a>
+                <a href="https://lnkd.in/g5_jdWtt" target="_blank">Listen on Spotify</a>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Risk and Reels: A Cybersecurity Podcast</h2>
+            <h3>This Isn't the Wolf of Wall Street: Recruitment, Rewired</h3>
+            <p>
+                Hiring for cybersecurity and defense contractors. Cleared roles, compliance, and why most recruiters get it wrong.
+            </p>
+            <div class="episode-links">
+                <a href="https://open.spotify.com/episode/46Kswxd0IwbXhH8IAIemUc" target="_blank">Listen on Spotify</a>
+                <a href="https://podcasts.apple.com/us/podcast/risk-and-reels-a-cybersecurity-podcast/id1672128521" target="_blank">Apple Podcasts</a>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Empire Launch Podcast</h2>
+            <h3>ELP 0004 – Attract Top Talent</h3>
+            <p>
+                How to stop losing good people to bad processes. Recruiting strategy for startups and scale-ups.
+            </p>
+            <div class="episode-links">
+                <a href="https://www.youtube.com/playlist?list=PLXpu8mSbTQX9h3xPqikc1WAL_MMwiwwwo" target="_blank">Watch on YouTube</a>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Rectec Reels</h2>
+            <h3>Rectec Reels with Richie Lampani</h3>
+            <p>
+                Real talk on recruiting tech, AI tools, and what actually moves the needle.
+            </p>
+            <div class="episode-links">
+                <a href="https://www.youtube.com/watch?v=jOqHp6SwNmU" target="_blank">Watch on YouTube</a>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Friday Career Lunch Break</h2>
+            <h3>Job search advice from a recruiter</h3>
+            <p>
+                What candidates get wrong, what actually works, and how to stop wasting time on applications that go nowhere.
+            </p>
+            <div class="episode-links">
+                <a href="https://www.youtube.com/watch?v=EMsWKG_CUPE" target="_blank">Watch on YouTube</a>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Exclusive Interview with Richie Lampani</h2>
+            <h3>Take Me Or Leave Me</h3>
+            <p>
+                The unfiltered version. No corporate scripts, no recruiting fluff.
+            </p>
+            <div class="episode-links">
+                <a href="https://open.spotify.com/episode/1igCYRVZqk2mpIjsfZi9FF" target="_blank">Listen on Spotify</a>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>How AI is shaping the future of consulting</h2>
+            <h3>with Richie Lampani</h3>
+            <p>
+                AI's impact on fractional work, consulting models, and what happens when everyone has access to the same tools.
+            </p>
+            <div class="episode-links">
+                <a href="https://www.youtube.com/watch?v=OZNHGYM9p6s" target="_blank">Watch on YouTube</a>
+            </div>
+        </div>
+
+        <div class="booking-cta">
+            <h3>Want me on your show?</h3>
+            <p>
+                I talk recruiting systems, AI in hiring, fractional leadership, and why most talent strategies fail. No pitches, no fluff—just useful answers.
+            </p>
+            <a href="services.html" class="cta-button">
+                Book a guest spot &rarr;
+            </a>
+        </div>
+
+    </div>
+
+    <section class="newsletter-cta">
+    <h3>Get Free Recruiting Tools</h3>
+    <p>Optimize your resume and LinkedIn profile with tools built by someone who actually understands recruiting.</p>
+    <a href="free-tools.html" class="cta-button" data-testid="button-newsletter-cta">Access Free Tools</a>
+</section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggle = document.querySelector('.nav-toggle');
+        const menu = document.querySelector('.nav-menu');
+        if (toggle && menu) {
+            toggle.addEventListener('click', function() {
+                menu.classList.toggle('active');
+            });
+        }
+    });
+    </script>
+</body>
+</html>
