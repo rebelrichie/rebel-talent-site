@@ -81,7 +81,7 @@ export default function Testimonials() {
                   View LinkedIn Profile
                 </Button>
               </a>
-              <a href="https://calendar.app.google/TqhGeNMKZPcRmb4o8" target="_blank" rel="noopener noreferrer" data-testid="button-testimonials-cta">
+              <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-testimonials-cta">
                 <Button className="font-display tracking-wider uppercase text-sm">
                   Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>

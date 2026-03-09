@@ -34,7 +34,7 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://calendar.app.google/TqhGeNMKZPcRmb4o8"
+              href="https://calendly.com/richielam"
               target="_blank"
               rel="noopener noreferrer"
               data-testid="button-book-call"
@@ -143,7 +143,7 @@ export default function Home() {
 
           <div className="text-center mt-10">
             <p className="text-zinc-500 text-sm mb-4">Not sure which option fits? Let's talk through your situation.</p>
-            <a href="https://calendar.app.google/TqhGeNMKZPcRmb4o8" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-2">
+            <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-2">
               <Button className="font-display tracking-wider uppercase text-sm">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -214,7 +214,7 @@ export default function Home() {
 
           <div className="text-center mt-10">
             <p className="text-zinc-500 text-sm mb-4">If any of these sound like your company, we should talk.</p>
-            <a href="https://calendar.app.google/TqhGeNMKZPcRmb4o8" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-3">
+            <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-3">
               <Button className="font-display tracking-wider uppercase text-sm">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -276,7 +276,7 @@ export default function Home() {
           <p className="text-zinc-400 text-base mb-8 max-w-xl mx-auto">
             Stop losing talent to broken processes. Book a strategy call and let's build something that actually works.
           </p>
-          <a href="https://calendar.app.google/TqhGeNMKZPcRmb4o8" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-4">
+          <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-4">
             <Button size="lg" className="font-display tracking-wider uppercase text-sm px-10">
               Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
             </Button>

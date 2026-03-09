@@ -44,7 +44,7 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <a href="https://calendar.app.google/TqhGeNMKZPcRmb4o8" target="_blank" rel="noopener noreferrer">
+                <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer">
                   <Button className="w-full font-display tracking-wider uppercase text-sm">
                     Book Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
@@ -65,7 +65,7 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <a href="https://calendar.app.google/TqhGeNMKZPcRmb4o8" target="_blank" rel="noopener noreferrer">
+                <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer">
                   <Button className="w-full font-display tracking-wider uppercase text-sm">
                     Book Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
@@ -133,7 +133,7 @@ export default function Services() {
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
               Every engagement starts with a conversation. Book a strategy call and we'll map out the right approach for your hiring challenges.
             </p>
-            <a href="https://calendar.app.google/TqhGeNMKZPcRmb4o8" target="_blank" rel="noopener noreferrer" data-testid="button-services-cta">
+            <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-services-cta">
               <Button className="font-display tracking-wider uppercase text-sm">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>

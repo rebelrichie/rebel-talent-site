@@ -188,7 +188,7 @@ export default function HowItWorks() {
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
               Stop guessing. Stop overpaying. Let's build a recruiting function that actually works.
             </p>
-            <a href="https://calendar.app.google/TqhGeNMKZPcRmb4o8" target="_blank" rel="noopener noreferrer" data-testid="button-hiw-cta">
+            <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-hiw-cta">
               <Button className="font-display tracking-wider uppercase text-sm">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>

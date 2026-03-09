@@ -129,7 +129,7 @@ export default function About() {
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
               Book a strategy call and let's figure out how to fix your hiring.
             </p>
-            <a href="https://calendar.app.google/TqhGeNMKZPcRmb4o8" target="_blank" rel="noopener noreferrer" data-testid="button-about-cta">
+            <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-about-cta">
               <Button className="font-display tracking-wider uppercase text-sm">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
