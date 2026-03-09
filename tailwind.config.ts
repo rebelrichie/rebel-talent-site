@@ -6,12 +6,11 @@ export default {
   theme: {
     extend: {
       borderRadius: {
-        lg: ".5625rem", /* 9px */
-        md: ".375rem", /* 6px */
-        sm: ".1875rem", /* 3px */
+        lg: ".375rem",
+        md: ".25rem",
+        sm: ".125rem",
       },
       colors: {
-        // Flat / base colors (regular buttons)
         background: "hsl(var(--background) / <alpha-value>)",
         foreground: "hsl(var(--foreground) / <alpha-value>)",
         border: "hsl(var(--border) / <alpha-value>)",
@@ -81,11 +80,21 @@ export default {
           busy: "rgb(239 68 68)",
           offline: "rgb(156 163 175)",
         },
+        rebel: {
+          red: "#DC2626",
+          "red-dark": "#991B1B",
+          "red-light": "#EF4444",
+          black: "#0A0A0A",
+          charcoal: "#111111",
+          steel: "#1a1a1a",
+          gunmetal: "#2a2a2a",
+        },
       },
       fontFamily: {
-        sans: ["var(--font-sans)"],
-        serif: ["var(--font-serif)"],
-        mono: ["var(--font-mono)"],
+        sans: ["'Inter'", "system-ui", "sans-serif"],
+        serif: ["Georgia", "serif"],
+        mono: ["'JetBrains Mono'", "'Fira Code'", "monospace"],
+        display: ["'Oswald'", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
