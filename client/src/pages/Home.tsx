@@ -56,7 +56,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { value: "200%+", label: "ROI Proven" },
+              { value: "350%+", label: "ROI Proven" },
               { value: "<30", label: "Days to Hire" },
               { value: "14+", label: "Years Experience" },
               { value: "90%", label: "Retention Rate" },
