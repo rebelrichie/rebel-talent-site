@@ -33,9 +33,8 @@ export default function CaseStudies() {
               What a monthly retainer engagement actually produces.
             </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-3 gap-4 mb-8">
               {[
-                { value: "$62,400", label: "INVESTMENT", sub: "4.5 months fractional" },
                 { value: "~$178K", label: "FEES AVOIDED", sub: "6 roles, no agency" },
                 { value: "~350%", label: "ROI", sub: "growing as roles close" },
                 { value: "6", label: "ROLES PLACED", sub: "3 more in pipeline" },
