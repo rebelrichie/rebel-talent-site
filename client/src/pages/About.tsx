@@ -10,7 +10,7 @@ export default function About() {
           <div className="grid md:grid-cols-[280px_1fr] gap-12 items-start mb-16">
             <div className="text-center md:text-left">
               <div className="w-48 h-48 mx-auto md:mx-0 border-2 border-rebel-red/30 bg-zinc-900 flex items-center justify-center mb-4">
-                <img src="/logo.png" alt="Richie Lampani" className="w-40 h-40 rounded-sm" data-testid="img-profile" />
+                <img src="/logo.png" alt="Richie Lampani" className="w-40 h-40" data-testid="img-profile" />
               </div>
               <div className="flex flex-wrap gap-2 justify-center md:justify-start mt-4">
                 <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-linkedin">

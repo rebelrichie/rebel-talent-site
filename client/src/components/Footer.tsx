@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src="/logo.png" alt="Rebel Talent" className="w-8 h-8 rounded-sm" />
+              <img src="/logo.png" alt="Rebel Talent" className="w-8 h-8" />
               <span className="font-display text-base font-bold tracking-wider text-white uppercase">
                 REBEL TALENT
               </span>
@@ -63,7 +63,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Rebel Talent. All rights reserved.
           </p>
           <p className="text-zinc-700 text-xs tracking-wider uppercase font-mono">
-            BUILD RIGHT. HIRE RIGHT. GIVE A SHIT.
+            BUILD RIGHT. HIRE RIGHT. REBEL FOREVER.
           </p>
         </div>
       </div>

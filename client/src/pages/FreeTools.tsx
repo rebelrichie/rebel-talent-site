@@ -133,7 +133,7 @@ export default function FreeTools() {
           </div>
 
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center">
-            <img src="/logo.png" alt="Rebel Talent" className="w-12 h-12 mx-auto mb-4 rounded-sm" />
+            <img src="/logo.png" alt="Rebel Talent" className="w-12 h-12 mx-auto mb-4" />
             <h2 className="font-display text-xl font-bold text-white uppercase tracking-tight mb-3">
               Get Free Recruiting Tools
             </h2>

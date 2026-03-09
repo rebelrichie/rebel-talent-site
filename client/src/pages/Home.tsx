@@ -15,7 +15,7 @@ export default function Home() {
             src="/logo.png"
             alt="Rebel Talent"
             data-testid="img-hero-logo"
-            className="w-32 h-32 sm:w-44 sm:h-44 mx-auto mb-8 rounded-lg"
+            className="w-32 h-32 sm:w-44 sm:h-44 mx-auto mb-8"
           />
 
           <div className="font-mono text-rebel-red text-xs sm:text-sm tracking-[0.3em] uppercase mb-4">
@@ -25,7 +25,7 @@ export default function Home() {
           <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white uppercase leading-none mb-6">
             BUILD RIGHT.<br />
             HIRE RIGHT.<br />
-            <span className="text-rebel-red">GIVE A SHIT.</span>
+            <span className="text-rebel-red">REBEL FOREVER.</span>
           </h1>
 
           <p className="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -225,7 +225,7 @@ export default function Home() {
 
       <section data-testid="section-cta" className="py-20 border-t border-zinc-800/50 bg-gradient-to-b from-rebel-red/5 to-transparent">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <img src="/logo.png" alt="Rebel Talent" className="w-16 h-16 mx-auto mb-6 rounded-sm" />
+          <img src="/logo.png" alt="Rebel Talent" className="w-16 h-16 mx-auto mb-6" />
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight mb-4">
             Ready to Fix Your Hiring?
           </h2>
