@@ -90,11 +90,13 @@ export default function FreeTools() {
                 <h3 className="font-display text-lg font-bold text-white uppercase mb-1">Unfinished Rooms</h3>
                 <p className="text-zinc-500 text-sm mb-3">Why Great Employees Keep One Foot Out the Door</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-                  A psychological framework for understanding employee turnover and disengagement. Coming March 31, 2026.
+                  A psychological framework for understanding employee turnover and disengagement. Available for pre-order on Kindle.
                 </p>
-                <Button variant="outline" className="w-full font-display tracking-wider uppercase text-sm border-zinc-700 text-zinc-400" disabled>
-                  Coming Soon
-                </Button>
+                <a href="https://a.co/d/00tv2nOX" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" className="w-full font-display tracking-wider uppercase text-sm border-zinc-700 text-zinc-300">
+                    Pre-Order on Kindle <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
