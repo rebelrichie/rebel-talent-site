@@ -1,6 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
+import headAndHeartCover from "@assets/Head_And_Heart_1773068092478.PNG";
+import unfinishedRoomsCover from "@assets/UR-BookCover_1773068071585.png";
 
 export default function About() {
   return (
@@ -85,21 +87,27 @@ export default function About() {
               Published Work
             </h2>
             <div className="grid sm:grid-cols-2 gap-6">
-              <div className="border border-zinc-800 bg-zinc-900/30 p-6">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">BOOK</div>
-                <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Head and Heart</h3>
-                <p className="text-zinc-500 text-sm mb-2">Winning the AI Recruiting War</p>
-                <p className="text-zinc-400 text-sm leading-relaxed">
-                  My framework for combining strategic thinking with authentic human connection in recruiting. In an industry increasingly automated and transactional, you need both the head and the heart to win.
-                </p>
+              <div className="border border-zinc-800 bg-zinc-900/30 p-6 flex flex-col sm:flex-row gap-5 items-start">
+                <img src={headAndHeartCover} alt="Head and Heart book cover" className="w-28 shrink-0 border border-zinc-700" />
+                <div>
+                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">BOOK</div>
+                  <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Head and Heart</h3>
+                  <p className="text-zinc-500 text-sm mb-2">Winning the AI Recruiting War</p>
+                  <p className="text-zinc-400 text-sm leading-relaxed">
+                    My framework for combining strategic thinking with authentic human connection in recruiting. In an industry increasingly automated and transactional, you need both the head and the heart to win.
+                  </p>
+                </div>
               </div>
-              <div className="border border-zinc-800 bg-zinc-900/30 p-6">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">BOOK</div>
-                <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Unfinished Rooms</h3>
-                <p className="text-zinc-500 text-sm mb-2">Why Great Employees Keep One Foot Out the Door</p>
-                <p className="text-zinc-400 text-sm leading-relaxed">
-                  A psychological framework for understanding employee turnover and disengagement. Unresolved interactions, unclear expectations, and abandoned projects create "unfinished rooms" in employees' minds.
-                </p>
+              <div className="border border-zinc-800 bg-zinc-900/30 p-6 flex flex-col sm:flex-row gap-5 items-start">
+                <img src={unfinishedRoomsCover} alt="Unfinished Rooms book cover" className="w-28 shrink-0 border border-zinc-700" />
+                <div>
+                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">BOOK</div>
+                  <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Unfinished Rooms</h3>
+                  <p className="text-zinc-500 text-sm mb-2">Why Great Employees Keep One Foot Out the Door</p>
+                  <p className="text-zinc-400 text-sm leading-relaxed">
+                    A psychological framework for understanding employee turnover and disengagement. Unresolved interactions, unclear expectations, and abandoned projects create "unfinished rooms" in employees' minds.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

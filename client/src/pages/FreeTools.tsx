@@ -1,6 +1,8 @@
-import { ArrowRight, FileText, Linkedin, BookOpen, Video } from "lucide-react";
+import { ArrowRight, FileText, Linkedin, Video } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
+import headAndHeartCover from "@assets/Head_And_Heart_1773068092478.PNG";
+import unfinishedRoomsCover from "@assets/UR-BookCover_1773068071585.png";
 
 export default function FreeTools() {
   return (
@@ -68,9 +70,7 @@ export default function FreeTools() {
             </h2>
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="border border-zinc-800 bg-zinc-900/30 p-6 text-center" data-testid="card-book-head-heart">
-                <div className="w-12 h-12 border border-rebel-red/30 bg-rebel-red/10 flex items-center justify-center text-rebel-red mx-auto mb-4">
-                  <BookOpen className="w-5 h-5" />
-                </div>
+                <img src={headAndHeartCover} alt="Head and Heart book cover" className="w-36 mx-auto mb-4 border border-zinc-700" />
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">BOOK</div>
                 <h3 className="font-display text-lg font-bold text-white uppercase mb-1">Head and Heart</h3>
                 <p className="text-zinc-500 text-sm mb-3">Winning the AI Recruiting War</p>
@@ -85,9 +85,7 @@ export default function FreeTools() {
               </div>
 
               <div className="border border-zinc-800 bg-zinc-900/30 p-6 text-center" data-testid="card-book-unfinished">
-                <div className="w-12 h-12 border border-rebel-red/30 bg-rebel-red/10 flex items-center justify-center text-rebel-red mx-auto mb-4">
-                  <BookOpen className="w-5 h-5" />
-                </div>
+                <img src={unfinishedRoomsCover} alt="Unfinished Rooms book cover" className="w-36 mx-auto mb-4 border border-zinc-700" />
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">BOOK</div>
                 <h3 className="font-display text-lg font-bold text-white uppercase mb-1">Unfinished Rooms</h3>
                 <p className="text-zinc-500 text-sm mb-3">Why Great Employees Keep One Foot Out the Door</p>
