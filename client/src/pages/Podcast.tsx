@@ -131,6 +131,25 @@ export default function Podcast() {
             ))}
           </div>
 
+          <a
+            href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="link-newsletter-podcast"
+            className="group block border border-zinc-800 bg-zinc-900/30 p-8 text-center no-underline hover:border-rebel-red/50 transition-colors mb-6"
+          >
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">NEWSLETTER</div>
+            <h3 className="font-display text-xl font-bold text-white uppercase tracking-tight mb-3">
+              Subscribe to Rebel Built
+            </h3>
+            <p className="text-zinc-400 text-sm leading-relaxed mb-4 max-w-lg mx-auto">
+              More of this — recruiting strategies, hiring frameworks, and unfiltered takes. Delivered to your LinkedIn feed.
+            </p>
+            <span className="inline-flex items-center font-display text-sm tracking-wider uppercase text-rebel-red group-hover:text-white transition-colors">
+              Subscribe on LinkedIn <ArrowRight className="ml-2 w-4 h-4" />
+            </span>
+          </a>
+
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-4">
               Want Me on Your Podcast?

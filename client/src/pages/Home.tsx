@@ -223,6 +223,50 @@ export default function Home() {
         </div>
       </section>
 
+      <section data-testid="section-newsletter-shop" className="py-16 border-t border-zinc-800/50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="grid sm:grid-cols-2 gap-6">
+            <a
+              href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="link-newsletter-cta"
+              className="group border border-zinc-800 bg-zinc-900/30 p-8 text-center no-underline hover:border-rebel-red/50 transition-colors"
+            >
+              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">NEWSLETTER</div>
+              <h3 className="font-display text-xl font-bold text-white uppercase tracking-tight mb-3">
+                Rebel Built
+              </h3>
+              <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+                Recruiting strategies, hiring frameworks, and unfiltered takes on talent. Subscribe on LinkedIn.
+              </p>
+              <span className="inline-flex items-center font-display text-sm tracking-wider uppercase text-rebel-red group-hover:text-white transition-colors">
+                Subscribe Now <ArrowRight className="ml-2 w-4 h-4" />
+              </span>
+            </a>
+
+            <a
+              href="https://rebel-talent-shop.fourthwall.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="link-shop-cta"
+              className="group border border-zinc-800 bg-zinc-900/30 p-8 text-center no-underline hover:border-rebel-red/50 transition-colors"
+            >
+              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">MERCH</div>
+              <h3 className="font-display text-xl font-bold text-white uppercase tracking-tight mb-3">
+                Rebel Talent Shop
+              </h3>
+              <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+                Gear for people who build right, hire right, and rebel forever.
+              </p>
+              <span className="inline-flex items-center font-display text-sm tracking-wider uppercase text-rebel-red group-hover:text-white transition-colors">
+                Shop Now <ArrowRight className="ml-2 w-4 h-4" />
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section data-testid="section-cta" className="py-20 border-t border-zinc-800/50 bg-gradient-to-b from-rebel-red/5 to-transparent">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <img src="/logo.png" alt="Rebel Talent" className="w-16 h-16 mx-auto mb-6" />

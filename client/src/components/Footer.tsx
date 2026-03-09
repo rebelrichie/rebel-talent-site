@@ -37,6 +37,8 @@ export default function Footer() {
               <Link href="/testimonials" data-testid="link-footer-testimonials" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Testimonials</Link>
               <Link href="/podcast" data-testid="link-footer-podcast" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Podcast</Link>
               <Link href="/free-tools" data-testid="link-footer-free-tools" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Free Tools</Link>
+              <a href="https://rebel-talent-shop.fourthwall.com/" target="_blank" rel="noopener noreferrer" data-testid="link-footer-shop" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Shop</a>
+              <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824" target="_blank" rel="noopener noreferrer" data-testid="link-footer-newsletter" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Rebel Built Newsletter</a>
             </div>
           </div>
 

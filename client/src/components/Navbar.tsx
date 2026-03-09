@@ -10,7 +10,8 @@ const navLinks = [
   { href: "/podcast", label: "PODCAST" },
   { href: "/free-tools", label: "FREE TOOLS" },
   { href: "/services", label: "SERVICES" },
-];
+  { href: "https://rebel-talent-shop.fourthwall.com/", label: "SHOP", external: true },
+] as const;
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,41 +42,68 @@ export default function Navbar() {
           </button>
 
           <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
-                className={`px-3 py-2 text-xs font-semibold tracking-widest transition-colors duration-200 no-underline ${
-                  location === link.href
-                    ? "text-rebel-red"
-                    : "text-zinc-400 hover:text-white"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) =>
+              "external" in link && link.external ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+                  className="px-3 py-2 text-xs font-semibold tracking-widest transition-colors duration-200 no-underline text-rebel-red hover:text-white"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+                  className={`px-3 py-2 text-xs font-semibold tracking-widest transition-colors duration-200 no-underline ${
+                    location === link.href
+                      ? "text-rebel-red"
+                      : "text-zinc-400 hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
           </div>
         </div>
       </div>
 
       {isOpen && (
         <div className="md:hidden border-t border-zinc-800" style={{ background: "#050505" }}>
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              data-testid={`link-mobile-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
-              className={`block px-6 py-3 text-xs font-semibold tracking-widest border-b border-zinc-900 no-underline ${
-                location === link.href
-                  ? "text-rebel-red"
-                  : "text-zinc-400"
-              }`}
-              onClick={() => setIsOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) =>
+            "external" in link && link.external ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid={`link-mobile-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+                className="block px-6 py-3 text-xs font-semibold tracking-widest border-b border-zinc-900 no-underline text-rebel-red"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                data-testid={`link-mobile-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
+                className={`block px-6 py-3 text-xs font-semibold tracking-widest border-b border-zinc-900 no-underline ${
+                  location === link.href
+                    ? "text-rebel-red"
+                    : "text-zinc-400"
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </div>
       )}
     </nav>
