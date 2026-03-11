@@ -1,7 +1,89 @@
+import { useState, useEffect, useMemo } from "react";
 import { Link } from "wouter";
 import { ArrowRight, Shield, Target, Zap, Users, Clock, TrendingUp } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
+
+function GraffitiHero() {
+  const [phase, setPhase] = useState(0);
+
+  useEffect(() => {
+    const t1 = setTimeout(() => setPhase(1), 200);
+    const t2 = setTimeout(() => setPhase(2), 850);
+    const t3 = setTimeout(() => setPhase(3), 1600);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+  }, []);
+
+  const particles = useMemo(() =>
+    Array.from({ length: 32 }, (_, i) => ({
+      id: i,
+      x: (Math.random() - 0.5) * 420,
+      y: (Math.random() - 0.5) * 110,
+      size: Math.random() * 6 + 2,
+      delay: Math.floor(Math.random() * 350),
+      dur: Math.floor(Math.random() * 350 + 450),
+    })), []
+  );
+
+  return (
+    <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white uppercase leading-none mb-6">
+      <span
+        className="block"
+        style={{
+          opacity: 0,
+          animation: phase >= 1 ? "heroLineIn 0.55s ease-out 0s forwards" : "none",
+        }}
+      >
+        BUILD RIGHT.
+      </span>
+      <span
+        className="block"
+        style={{
+          opacity: 0,
+          animation: phase >= 2 ? "heroLineIn 0.55s ease-out 0s forwards" : "none",
+        }}
+      >
+        HIRE RIGHT.
+      </span>
+      <span className="block relative" style={{ minHeight: "1.2em" }}>
+        {phase >= 3 && (
+          <>
+            {particles.map((p) => (
+              <span
+                key={p.id}
+                className="absolute rounded-full pointer-events-none"
+                style={{
+                  left: `calc(50% + ${p.x}px)`,
+                  top: `calc(50% + ${p.y}px)`,
+                  width: p.size,
+                  height: p.size,
+                  background: Math.random() > 0.3 ? "#DC2626" : "#b91c1c",
+                  opacity: 0,
+                  animation: `sprayDot ${p.dur}ms ${p.delay}ms ease-out forwards`,
+                }}
+              />
+            ))}
+            <span
+              style={{
+                display: "inline-block",
+                fontFamily: '"Permanent Marker", cursive',
+                color: "#DC2626",
+                fontSize: "inherit",
+                lineHeight: "inherit",
+                textTransform: "uppercase",
+                opacity: 0,
+                animation: "sprayReveal 0.75s ease-out 0s forwards",
+                textShadow: "0 0 30px rgba(220,38,38,0.5), 2px 2px 0px rgba(0,0,0,0.8)",
+              }}
+            >
+              REBEL FOREVER.
+            </span>
+          </>
+        )}
+      </span>
+    </h1>
+  );
+}
 
 export default function Home() {
   return (
@@ -22,11 +104,7 @@ export default function Home() {
             FRACTIONAL RECRUITING LEADERSHIP
           </div>
 
-          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white uppercase leading-none mb-6">
-            BUILD RIGHT.<br />
-            HIRE RIGHT.<br />
-            <span className="text-rebel-red">REBEL FOREVER.</span>
-          </h1>
+          <GraffitiHero />
 
           <p className="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
             Fractional Head of Talent for Series A-C startups and defense contractors. I build recruiting infrastructure and close critical hires in under 30 days.

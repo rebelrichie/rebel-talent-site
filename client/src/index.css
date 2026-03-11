@@ -218,3 +218,55 @@
     inset: -1px;
   }
 }
+
+@keyframes heroLineIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sprayReveal {
+  0% {
+    opacity: 0;
+    filter: blur(18px);
+    transform: scale(1.18) rotate(-3deg);
+    letter-spacing: 0.25em;
+  }
+  45% {
+    filter: blur(3px);
+    opacity: 0.85;
+    letter-spacing: 0.04em;
+  }
+  70% {
+    filter: blur(0px);
+    opacity: 1;
+    transform: scale(0.97) rotate(-2deg);
+    letter-spacing: 0.02em;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+    transform: scale(1) rotate(-2deg);
+    letter-spacing: 0.02em;
+  }
+}
+
+@keyframes sprayDot {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  25% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
