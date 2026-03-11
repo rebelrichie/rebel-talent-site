@@ -37,7 +37,7 @@ export default function FreeTools() {
                 <p className="text-zinc-400 text-sm leading-relaxed mb-4">
                   The resume framework that actually gets callbacks. Built from 14+ years of knowing what recruiters look for.
                 </p>
-                <a href="https://www.rebeltalentsystems.com/resume-tool" target="_blank" rel="noopener noreferrer">
+                <a href="https://docs.google.com/document/d/1j9cd_68Q51xRU_tnTMo6FBVtAqPU9wwT9FhtZWX5ExE/edit?usp=drive_link" target="_blank" rel="noopener noreferrer">
                   <Button className="w-full font-display tracking-wider uppercase text-sm">
                     Get It Free <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
@@ -55,7 +55,7 @@ export default function FreeTools() {
                 <p className="text-zinc-400 text-sm leading-relaxed mb-4">
                   Quick-hit guide to making your LinkedIn profile work for you. What to fix, what to cut, and what actually matters.
                 </p>
-                <a href="https://www.rebeltalentsystems.com/linkedin-tool" target="_blank" rel="noopener noreferrer">
+                <a href="https://docs.google.com/document/d/1xL7B0Zo96RUAdccDR9dgoqjSIgXrZHQsMTEPxr3BjoA/edit?usp=drive_link" target="_blank" rel="noopener noreferrer">
                   <Button className="w-full font-display tracking-wider uppercase text-sm">
                     Get It Free <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
@@ -77,7 +77,7 @@ export default function FreeTools() {
                 <p className="text-zinc-400 text-sm leading-relaxed mb-4">
                   My framework for combining strategic thinking with authentic human connection in recruiting. Available on Amazon.
                 </p>
-                <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://a.co/d/03vIkspN" target="_blank" rel="noopener noreferrer">
                   <Button className="w-full font-display tracking-wider uppercase text-sm">
                     Buy on Amazon <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
