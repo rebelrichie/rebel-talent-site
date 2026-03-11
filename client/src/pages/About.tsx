@@ -3,6 +3,7 @@ import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 import headAndHeartCover from "@assets/Head_And_Heart_1773068092478.PNG";
 import unfinishedRoomsCover from "@assets/UR-BookCover_1773068071585.png";
+import richiePfp from "@assets/RichiePFP4_(4)_1773228453685.png";
 
 export default function About() {
   return (
@@ -11,8 +12,8 @@ export default function About() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-[280px_1fr] gap-12 items-start mb-16">
             <div className="text-center md:text-left">
-              <div className="w-48 h-48 mx-auto md:mx-0 border-2 border-rebel-red/30 bg-zinc-900 flex items-center justify-center mb-4">
-                <img src="/logo.png" alt="Richie Lampani" className="w-40 h-40" data-testid="img-profile" />
+              <div className="w-48 h-48 mx-auto md:mx-0 mb-4 overflow-hidden border-2 border-rebel-red/30">
+                <img src={richiePfp} alt="Richie Lampani" className="w-full h-full object-cover object-top" data-testid="img-profile" />
               </div>
               <div className="flex flex-wrap gap-2 justify-center md:justify-start mt-4">
                 <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-linkedin">
