@@ -298,36 +298,19 @@
   100% { transform: translate(0, 0) scale(1); }
 }
 
-@keyframes shootingStar {
+@keyframes starShoot {
   0% {
-    transform: rotate(-30deg) translateX(0);
+    transform: translateX(-120px);
     opacity: 0;
   }
-  5% {
+  6% {
     opacity: 1;
   }
-  90% {
+  92% {
     opacity: 1;
   }
   100% {
-    transform: rotate(-30deg) translateX(130vw);
-    opacity: 0;
-  }
-}
-
-@keyframes shootingStarB {
-  0% {
-    transform: rotate(-22deg) translateX(0);
-    opacity: 0;
-  }
-  8% {
-    opacity: 0.8;
-  }
-  88% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: rotate(-22deg) translateX(120vw);
+    transform: translateX(130vw);
     opacity: 0;
   }
 }

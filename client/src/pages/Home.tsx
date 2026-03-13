@@ -4,52 +4,71 @@ import { ArrowRight, Shield, Target, Zap, Users, Clock, TrendingUp } from "lucid
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 
+const STARS = [
+  { top: "8%",  angle: -33, delay: 150,  dur: 680,  len: 520, thick: 2.5, color: "255,255,255",    glow: "200,215,255" },
+  { top: "22%", angle: -27, delay: 550,  dur: 560,  len: 360, thick: 2,   color: "255,255,255",    glow: "200,215,255" },
+  { top: "5%",  angle: -40, delay: 1050, dur: 500,  len: 280, thick: 1.5, color: "220,230,255",    glow: "180,200,255" },
+  { top: "18%", angle: -30, delay: 1700, dur: 640,  len: 440, thick: 2,   color: "255,210,160",    glow: "234,88,12"   },
+  { top: "32%", angle: -24, delay: 2600, dur: 750,  len: 490, thick: 2.5, color: "255,255,255",    glow: "200,215,255" },
+];
+
 function ShootingStars() {
   const [fired, setFired] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setFired(true), 300);
+    const t = setTimeout(() => setFired(true), 100);
     return () => clearTimeout(t);
   }, []);
 
   if (!fired) return null;
 
   return (
-    <>
-      <div
-        className="absolute pointer-events-none overflow-hidden"
-        style={{ inset: 0, zIndex: 5 }}
-      >
+    <div
+      className="absolute pointer-events-none"
+      style={{ inset: 0, zIndex: 5, overflow: "hidden" }}
+    >
+      {STARS.map((s, i) => (
         <div
+          key={i}
           style={{
             position: "absolute",
-            top: "18%",
-            left: "-10%",
-            width: "260px",
-            height: "2px",
-            background: "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 40%, rgba(255,255,255,1) 100%)",
-            borderRadius: "2px",
-            boxShadow: "0 0 6px 2px rgba(255,255,255,0.6), 0 0 20px 4px rgba(200,200,255,0.3)",
-            animation: "shootingStar 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards",
-            opacity: 0,
+            top: s.top,
+            left: "-5%",
+            transform: `rotate(${s.angle}deg)`,
+            transformOrigin: "left center",
           }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            top: "38%",
-            left: "-15%",
-            width: "180px",
-            height: "1.5px",
-            background: "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,220,180,0.85) 40%, rgba(255,220,180,1) 100%)",
-            borderRadius: "2px",
-            boxShadow: "0 0 5px 2px rgba(255,200,150,0.5), 0 0 14px 3px rgba(234,88,12,0.25)",
-            animation: "shootingStarB 1.1s cubic-bezier(0.4, 0, 0.2, 1) 1.1s forwards",
-            opacity: 0,
-          }}
-        />
-      </div>
-    </>
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              opacity: 0,
+              animation: `starShoot ${s.dur}ms cubic-bezier(0.25, 0.1, 0.4, 1) ${s.delay}ms forwards`,
+            }}
+          >
+            <div
+              style={{
+                width: s.len,
+                height: s.thick,
+                background: `linear-gradient(to right, transparent 0%, rgba(${s.color},0.15) 40%, rgba(${s.color},0.8) 80%, rgba(${s.color},1) 100%)`,
+                borderRadius: "0 2px 2px 0",
+                boxShadow: `0 0 ${s.thick * 3}px ${s.thick}px rgba(${s.glow},0.4)`,
+              }}
+            />
+            <div
+              style={{
+                width: s.thick * 5,
+                height: s.thick * 5,
+                borderRadius: "50%",
+                background: `rgba(${s.color},1)`,
+                boxShadow: `0 0 ${s.thick * 5}px ${s.thick * 3}px rgba(${s.color},0.9), 0 0 ${s.thick * 14}px ${s.thick * 6}px rgba(${s.glow},0.5), 0 0 ${s.thick * 28}px ${s.thick * 10}px rgba(${s.glow},0.2)`,
+                flexShrink: 0,
+              }}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }
 
