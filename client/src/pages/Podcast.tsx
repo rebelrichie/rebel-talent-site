@@ -84,8 +84,8 @@ const podcasts = [
 export default function Podcast() {
   return (
     <PageLayout>
-      <section className="py-20 sm:py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+      <section className="space-hero py-20 sm:py-28">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="mb-16">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
               MEDIA

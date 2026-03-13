@@ -7,7 +7,7 @@ interface PageLayoutProps {
 
 export default function PageLayout({ children }: PageLayoutProps) {
   return (
-    <div className="min-h-screen bg-rebel-black text-white">
+    <div className="min-h-screen bg-rebel-space text-white">
       <Navbar />
       <main className="pt-16">{children}</main>
       <Footer />

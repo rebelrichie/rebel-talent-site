@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 export default function Services() {
   return (
     <PageLayout>
-      <section className="py-20 sm:py-28">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+      <section className="space-hero py-20 sm:py-28">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-16">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
               SERVICES

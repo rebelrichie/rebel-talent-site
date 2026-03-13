@@ -8,8 +8,8 @@ import richiePfp from "@assets/RichiePFP4_(4)_1773228453685.png";
 export default function About() {
   return (
     <PageLayout>
-      <section className="py-20 sm:py-28">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+      <section className="space-hero py-20 sm:py-28">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid md:grid-cols-[280px_1fr] gap-12 items-start mb-16">
             <div className="text-center md:text-left">
               <div className="w-48 h-48 mx-auto md:mx-0 mb-4 overflow-hidden border-2 border-rebel-red/30">

@@ -21,7 +21,7 @@ export default function Navbar() {
     <nav
       data-testid="navbar"
       className="fixed top-0 left-0 w-full z-50 border-b-2 border-rebel-red"
-      style={{ background: "linear-gradient(135deg, #050505 0%, #0a0a0a 50%, #050505 100%)" }}
+      style={{ background: "linear-gradient(135deg, #05050a 0%, #08080f 60%, #0a050d 100%)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">

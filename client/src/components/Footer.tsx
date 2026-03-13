@@ -2,7 +2,7 @@ import { Link } from "wouter";
 
 export default function Footer() {
   return (
-    <footer data-testid="footer" className="border-t-2 border-rebel-red bg-rebel-black">
+    <footer data-testid="footer" className="border-t border-rebel-red/60 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #07060f 0%, #05050a 100%)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>

@@ -85,9 +85,11 @@ export default {
           "red-dark": "#991B1B",
           "red-light": "#EF4444",
           black: "#0A0A0A",
+          space: "#05050a",
           charcoal: "#111111",
           steel: "#1a1a1a",
           gunmetal: "#2a2a2a",
+          orbit: "#EA580C",
         },
       },
       fontFamily: {

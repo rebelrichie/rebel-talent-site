@@ -88,9 +88,18 @@ function GraffitiHero() {
 export default function Home() {
   return (
     <PageLayout>
-      <section data-testid="section-hero" className="relative py-20 sm:py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-rebel-red/5 via-transparent to-transparent pointer-events-none" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-rebel-red/5 rounded-full blur-[120px] pointer-events-none" />
+      <section
+        data-testid="section-hero"
+        className="relative py-20 sm:py-28 overflow-hidden"
+        style={{
+          backgroundImage: "url('/hero-banner.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center top",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/75 to-rebel-space pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40 pointer-events-none" />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <img
