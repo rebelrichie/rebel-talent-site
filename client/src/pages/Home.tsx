@@ -1,74 +1,191 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { Link } from "wouter";
 import { ArrowRight, Shield, Target, Zap, Users, Clock, TrendingUp } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 
-const STARS = [
-  { top: "8%",  angle: -33, delay: 150,  dur: 680,  len: 520, thick: 2.5, color: "255,255,255",    glow: "200,215,255" },
-  { top: "22%", angle: -27, delay: 550,  dur: 560,  len: 360, thick: 2,   color: "255,255,255",    glow: "200,215,255" },
-  { top: "5%",  angle: -40, delay: 1050, dur: 500,  len: 280, thick: 1.5, color: "220,230,255",    glow: "180,200,255" },
-  { top: "18%", angle: -30, delay: 1700, dur: 640,  len: 440, thick: 2,   color: "255,210,160",    glow: "234,88,12"   },
-  { top: "32%", angle: -24, delay: 2600, dur: 750,  len: 490, thick: 2.5, color: "255,255,255",    glow: "200,215,255" },
+interface Sparkle {
+  x: number; y: number;
+  vx: number; vy: number;
+  life: number; maxLife: number;
+  size: number; color: string;
+  rot: number; rotV: number;
+  shape: "star4" | "dot";
+}
+
+interface MeteorState {
+  x: number; y: number;
+  dx: number; dy: number;
+  active: boolean;
+  done: boolean;
+}
+
+const SPARKLE_COLORS = ["#FFE87C","#FFD700","#FFFBE8","#FFB347","#FFFFFF","#FFF4C2","#FFE4A0"];
+
+function draw4Star(ctx: CanvasRenderingContext2D, cx: number, cy: number, r: number, rot: number) {
+  ctx.beginPath();
+  for (let i = 0; i < 8; i++) {
+    const a = (i * Math.PI) / 4 + rot;
+    const len = i % 2 === 0 ? r : r * 0.38;
+    i === 0 ? ctx.moveTo(cx + Math.cos(a) * len, cy + Math.sin(a) * len)
+             : ctx.lineTo(cx + Math.cos(a) * len, cy + Math.sin(a) * len);
+  }
+  ctx.closePath();
+  ctx.fill();
+}
+
+const METEORS_CFG = [
+  { delay: 300,  angle: -28, sy: 0.10, speed: 900  },
+  { delay: 1400, angle: -20, sy: 0.28, speed: 800  },
+  { delay: 2700, angle: -34, sy: 0.08, speed: 1000 },
 ];
 
 function ShootingStars() {
-  const [fired, setFired] = useState(false);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const t = setTimeout(() => setFired(true), 100);
-    return () => clearTimeout(t);
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const resize = () => {
+      canvas.width  = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    const sparkles: Sparkle[] = [];
+    const meteors: MeteorState[] = METEORS_CFG.map(() => ({
+      x: 0, y: 0, dx: 0, dy: 0, active: false, done: false,
+    }));
+
+    const spawn = (x: number, y: number, speed: number) => {
+      const count = Math.floor(Math.random() * 4) + 3;
+      for (let i = 0; i < count; i++) {
+        const spd = Math.random() * 1.8 + 0.4;
+        const a   = Math.random() * Math.PI * 2;
+        sparkles.push({
+          x, y,
+          vx: Math.cos(a) * spd * 0.6,
+          vy: Math.sin(a) * spd - 0.5,
+          life: 0, maxLife: Math.random() * 55 + 35,
+          size: Math.random() * 4.5 + 1.5,
+          color: SPARKLE_COLORS[Math.floor(Math.random() * SPARKLE_COLORS.length)],
+          rot: Math.random() * Math.PI * 2,
+          rotV: (Math.random() - 0.5) * 0.18,
+          shape: Math.random() > 0.35 ? "star4" : "dot",
+        });
+      }
+    };
+
+    const drawStar = (m: MeteorState, trailLen: number) => {
+      const tx = m.x - m.dx * trailLen;
+      const ty = m.y - m.dy * trailLen;
+      const grad = ctx.createLinearGradient(tx, ty, m.x, m.y);
+      grad.addColorStop(0, "rgba(255,235,100,0)");
+      grad.addColorStop(0.6, "rgba(255,245,180,0.5)");
+      grad.addColorStop(1, "rgba(255,255,255,0.95)");
+      ctx.beginPath();
+      ctx.moveTo(tx, ty);
+      ctx.lineTo(m.x, m.y);
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 2.5;
+      ctx.shadowColor = "#FFD700";
+      ctx.shadowBlur = 12;
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      const gr = ctx.createRadialGradient(m.x, m.y, 0, m.x, m.y, 14);
+      gr.addColorStop(0, "rgba(255,255,255,1)");
+      gr.addColorStop(0.35, "rgba(255,245,160,0.9)");
+      gr.addColorStop(1, "rgba(255,200,80,0)");
+      ctx.fillStyle = gr;
+      ctx.beginPath();
+      ctx.arc(m.x, m.y, 14, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = "#FFFFFF";
+      ctx.shadowColor = "#FFE87C";
+      ctx.shadowBlur = 20;
+      draw4Star(ctx, m.x, m.y, 7, performance.now() * 0.003);
+      ctx.shadowBlur = 0;
+    };
+
+    const timers = METEORS_CFG.map((cfg, i) =>
+      setTimeout(() => {
+        const w = canvas.width, h = canvas.height;
+        const rad = (cfg.angle * Math.PI) / 180;
+        const spd = cfg.speed / 60;
+        meteors[i].x  = w * -0.05;
+        meteors[i].y  = h * cfg.sy;
+        meteors[i].dx = Math.cos(rad) * spd;
+        meteors[i].dy = Math.sin(rad) * spd;
+        meteors[i].active = true;
+      }, cfg.delay)
+    );
+
+    let raf: number;
+    const loop = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      meteors.forEach((m, i) => {
+        if (!m.active || m.done) return;
+        m.x += m.dx;
+        m.y += m.dy;
+        const trailLen = Math.sqrt(m.dx ** 2 + m.dy ** 2) * 28;
+        drawStar(m, trailLen);
+        if (Math.random() > 0.25) spawn(
+          m.x + (Math.random() - 0.5) * 6,
+          m.y + (Math.random() - 0.5) * 6,
+          METEORS_CFG[i].speed,
+        );
+        if (m.x > canvas.width * 1.1 || m.y > canvas.height * 1.2) m.done = true;
+      });
+
+      for (let i = sparkles.length - 1; i >= 0; i--) {
+        const s = sparkles[i];
+        s.x  += s.vx;
+        s.y  += s.vy;
+        s.vy += 0.055;
+        s.vx *= 0.97;
+        s.rot += s.rotV;
+        s.life++;
+        if (s.life >= s.maxLife) { sparkles.splice(i, 1); continue; }
+        const alpha = 1 - s.life / s.maxLife;
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = s.color;
+        ctx.shadowColor = s.color;
+        ctx.shadowBlur = s.size * 3;
+        if (s.shape === "star4") {
+          draw4Star(ctx, s.x, s.y, s.size, s.rot);
+        } else {
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.size * 0.6, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.shadowBlur = 0;
+        ctx.globalAlpha = 1;
+      }
+
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      timers.forEach(clearTimeout);
+      window.removeEventListener("resize", resize);
+    };
   }, []);
 
-  if (!fired) return null;
-
   return (
-    <div
-      className="absolute pointer-events-none"
-      style={{ inset: 0, zIndex: 5, overflow: "hidden" }}
-    >
-      {STARS.map((s, i) => (
-        <div
-          key={i}
-          style={{
-            position: "absolute",
-            top: s.top,
-            left: "-5%",
-            transform: `rotate(${s.angle}deg)`,
-            transformOrigin: "left center",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              opacity: 0,
-              animation: `starShoot ${s.dur}ms cubic-bezier(0.25, 0.1, 0.4, 1) ${s.delay}ms forwards`,
-            }}
-          >
-            <div
-              style={{
-                width: s.len,
-                height: s.thick,
-                background: `linear-gradient(to right, transparent 0%, rgba(${s.color},0.15) 40%, rgba(${s.color},0.8) 80%, rgba(${s.color},1) 100%)`,
-                borderRadius: "0 2px 2px 0",
-                boxShadow: `0 0 ${s.thick * 3}px ${s.thick}px rgba(${s.glow},0.4)`,
-              }}
-            />
-            <div
-              style={{
-                width: s.thick * 5,
-                height: s.thick * 5,
-                borderRadius: "50%",
-                background: `rgba(${s.color},1)`,
-                boxShadow: `0 0 ${s.thick * 5}px ${s.thick * 3}px rgba(${s.color},0.9), 0 0 ${s.thick * 14}px ${s.thick * 6}px rgba(${s.glow},0.5), 0 0 ${s.thick * 28}px ${s.thick * 10}px rgba(${s.glow},0.2)`,
-                flexShrink: 0,
-              }}
-            />
-          </div>
-        </div>
-      ))}
-    </div>
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none"
+      style={{ zIndex: 5 }}
+    />
   );
 }
 
