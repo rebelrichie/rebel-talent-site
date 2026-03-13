@@ -171,12 +171,32 @@ export default function Home() {
         <ShootingStars />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
-          <img
-            src="/logo.png"
-            alt="Rebel Talent"
-            data-testid="img-hero-logo"
-            className="w-64 h-64 sm:w-[352px] sm:h-[352px] mx-auto mb-8"
-          />
+          <div className="relative mx-auto mb-8 w-64 h-64 sm:w-[352px] sm:h-[352px]">
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: "radial-gradient(circle, rgba(0,0,0,0.72) 35%, rgba(0,0,0,0.35) 60%, transparent 80%)",
+              }}
+            />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                borderRadius: "50%",
+                boxShadow: "0 0 60px 20px rgba(220,38,38,0.12), 0 0 120px 40px rgba(234,88,12,0.08)",
+                animation: "logoGlow 3.5s ease-in-out infinite alternate",
+              }}
+            />
+            <img
+              src="/logo.png"
+              alt="Rebel Talent"
+              data-testid="img-hero-logo"
+              className="w-full h-full relative z-10"
+              style={{
+                filter: "drop-shadow(0 0 16px rgba(220,38,38,0.55)) drop-shadow(0 0 36px rgba(234,88,12,0.30)) drop-shadow(0 0 70px rgba(200,215,255,0.15)) brightness(1.25) contrast(1.05)",
+                animation: "logoFloat 3.5s ease-in-out infinite alternate",
+              }}
+            />
+          </div>
 
           <div className="font-mono text-rebel-red text-xs sm:text-sm tracking-[0.3em] uppercase mb-4">
             FRACTIONAL RECRUITING LEADERSHIP
