@@ -97,7 +97,7 @@ export default function Home() {
             src="/logo.png"
             alt="Rebel Talent"
             data-testid="img-hero-logo"
-            className="w-32 h-32 sm:w-44 sm:h-44 mx-auto mb-8"
+            className="w-64 h-64 sm:w-[352px] sm:h-[352px] mx-auto mb-8"
           />
 
           <div className="font-mono text-rebel-red text-xs sm:text-sm tracking-[0.3em] uppercase mb-4">
