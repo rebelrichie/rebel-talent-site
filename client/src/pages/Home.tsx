@@ -4,6 +4,55 @@ import { ArrowRight, Shield, Target, Zap, Users, Clock, TrendingUp } from "lucid
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 
+function ShootingStars() {
+  const [fired, setFired] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setFired(true), 300);
+    return () => clearTimeout(t);
+  }, []);
+
+  if (!fired) return null;
+
+  return (
+    <>
+      <div
+        className="absolute pointer-events-none overflow-hidden"
+        style={{ inset: 0, zIndex: 5 }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "18%",
+            left: "-10%",
+            width: "260px",
+            height: "2px",
+            background: "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 40%, rgba(255,255,255,1) 100%)",
+            borderRadius: "2px",
+            boxShadow: "0 0 6px 2px rgba(255,255,255,0.6), 0 0 20px 4px rgba(200,200,255,0.3)",
+            animation: "shootingStar 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards",
+            opacity: 0,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "38%",
+            left: "-15%",
+            width: "180px",
+            height: "1.5px",
+            background: "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,220,180,0.85) 40%, rgba(255,220,180,1) 100%)",
+            borderRadius: "2px",
+            boxShadow: "0 0 5px 2px rgba(255,200,150,0.5), 0 0 14px 3px rgba(234,88,12,0.25)",
+            animation: "shootingStarB 1.1s cubic-bezier(0.4, 0, 0.2, 1) 1.1s forwards",
+            opacity: 0,
+          }}
+        />
+      </div>
+    </>
+  );
+}
+
 function GraffitiHero() {
   const [phase, setPhase] = useState(0);
 
@@ -100,6 +149,7 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/75 to-rebel-space pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40 pointer-events-none" />
+        <ShootingStars />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <img
