@@ -283,18 +283,12 @@ export default function Home() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/75 to-rebel-space pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/45 to-rebel-space pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/25 pointer-events-none" />
         <ShootingStars />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <div className="relative mx-auto mb-8 w-64 h-64 sm:w-[352px] sm:h-[352px]">
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background: "radial-gradient(circle, rgba(0,0,0,0.72) 35%, rgba(0,0,0,0.35) 60%, transparent 80%)",
-              }}
-            />
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
