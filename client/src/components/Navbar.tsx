@@ -26,7 +26,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           <Link href="/" data-testid="link-home" className="flex items-center gap-3 no-underline">
-            <img src="/logo.png" alt="Rebel Talent" className="w-9 h-9" style={{ mixBlendMode: "screen" }} />
+            <img src="/logo.png" alt="Rebel Talent" className="w-9 h-9" />
             <span className="font-display text-lg font-bold tracking-wider text-white uppercase">
               REBEL TALENT
             </span>
