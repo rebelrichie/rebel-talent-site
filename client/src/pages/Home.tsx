@@ -283,8 +283,8 @@ export default function Home() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/45 to-rebel-space pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-black/25 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/65 to-rebel-space pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30 pointer-events-none" />
         <ShootingStars />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
@@ -305,7 +305,6 @@ export default function Home() {
               style={{
                 filter: "drop-shadow(0 0 16px rgba(220,38,38,0.55)) drop-shadow(0 0 36px rgba(234,88,12,0.30)) drop-shadow(0 0 70px rgba(200,215,255,0.15)) brightness(1.25) contrast(1.05)",
                 animation: "logoFloat 3.5s ease-in-out infinite alternate",
-                mixBlendMode: "screen",
               }}
             />
           </div>
