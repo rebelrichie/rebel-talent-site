@@ -35,9 +35,9 @@ function draw4Star(ctx: CanvasRenderingContext2D, cx: number, cy: number, r: num
 }
 
 const METEORS_CFG = [
-  { delay: 300,  angle: -28, sy: 0.10, speed: 900  },
-  { delay: 1400, angle: -20, sy: 0.28, speed: 800  },
-  { delay: 2700, angle: -34, sy: 0.08, speed: 1000 },
+  { delay: 300,  angle: -28, sy: 0.30, speed: 900  },
+  { delay: 1400, angle: -20, sy: 0.52, speed: 800  },
+  { delay: 2700, angle: -34, sy: 0.22, speed: 1000 },
 ];
 
 function ShootingStars() {
@@ -305,6 +305,7 @@ export default function Home() {
               style={{
                 filter: "drop-shadow(0 0 16px rgba(220,38,38,0.55)) drop-shadow(0 0 36px rgba(234,88,12,0.30)) drop-shadow(0 0 70px rgba(200,215,255,0.15)) brightness(1.25) contrast(1.05)",
                 animation: "logoFloat 3.5s ease-in-out infinite alternate",
+                mixBlendMode: "screen",
               }}
             />
           </div>
