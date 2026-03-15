@@ -271,15 +271,29 @@ function GraffitiHero() {
 }
 
 export default function Home() {
+  const heroRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!heroRef.current) return;
+      const y = window.scrollY;
+      heroRef.current.style.backgroundPositionY = `calc(top + ${y * 0.38}px)`;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <PageLayout>
       <section
+        ref={heroRef}
         data-testid="section-hero"
         className="relative py-20 sm:py-28 overflow-hidden"
         style={{
           backgroundImage: "url('/hero-banner.png')",
           backgroundSize: "cover",
-          backgroundPosition: "center top",
+          backgroundPositionX: "center",
+          backgroundPositionY: "top",
           backgroundRepeat: "no-repeat",
         }}
       >
