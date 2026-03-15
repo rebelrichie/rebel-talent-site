@@ -283,8 +283,8 @@ export default function Home() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/65 to-rebel-space pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/50 to-rebel-space pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20 pointer-events-none" />
         <ShootingStars />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
