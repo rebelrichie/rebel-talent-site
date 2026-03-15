@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "wmrL3abJsq7TaU7y9AzpL"
+uri = "file://netlify-deploy.zip"
+type = "unspecified"
+title = "netlify-deploy.zip — Rebel Talent Systems (latest build)"
