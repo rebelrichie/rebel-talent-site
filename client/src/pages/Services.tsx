@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 export default function Services() {
   return (
@@ -29,8 +30,8 @@ export default function Services() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="border border-zinc-800 bg-zinc-900/50 p-8" data-testid="card-service-fractional">
+            <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
+              <div className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-service-fractional">
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">CORE SERVICE</div>
                 <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Fractional Head of Talent</h3>
                 <p className="text-rebel-red font-mono text-sm mb-4">$12K - $30K/month</p>
@@ -51,7 +52,7 @@ export default function Services() {
                 </a>
               </div>
 
-              <div className="border border-zinc-800 bg-zinc-900/50 p-8" data-testid="card-service-critical">
+              <div className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-service-critical">
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">PROJECT-BASED</div>
                 <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Critical Hire Execution</h3>
                 <p className="text-rebel-red font-mono text-sm mb-4">Project-Based Pricing</p>
@@ -72,7 +73,7 @@ export default function Services() {
                 </a>
               </div>
 
-              <div className="border border-zinc-800 bg-zinc-900/50 p-8" data-testid="card-service-contract">
+              <div className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-service-contract">
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">ON-DEMAND</div>
                 <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Rebel Contract Recruiters</h3>
                 <p className="text-rebel-red font-mono text-sm mb-4">Hourly Engagement</p>
@@ -105,7 +106,7 @@ export default function Services() {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Accordion type="multiple" className="border border-zinc-800 divide-y divide-zinc-800">
               {[
                 {
                   label: "CORPORATE",
@@ -137,14 +138,20 @@ export default function Services() {
                   title: "Team Assessment",
                   desc: "Complete talent function audit. Strategic recommendations and roadmap. Identify gaps, redundancies, and opportunities in your current recruiting setup.",
                 },
-              ].map((service) => (
-                <div key={service.title} className="border border-zinc-800 bg-zinc-900/30 p-6" data-testid={`card-training-${service.title.toLowerCase().replace(/\s+/g, "-")}`}>
-                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">{service.label}</div>
-                  <h3 className="font-display text-base font-bold text-white uppercase mb-3">{service.title}</h3>
-                  <p className="text-zinc-400 text-sm leading-relaxed">{service.desc}</p>
-                </div>
+              ].map((service, i) => (
+                <AccordionItem key={service.title} value={`training-${i}`} className="border-b-0 bg-zinc-900/30 px-5" data-testid={`card-training-${service.title.toLowerCase().replace(/\s+/g, "-")}`}>
+                  <AccordionTrigger className="hover:no-underline hover:text-rebel-red py-5 [&[data-state=open]]:text-rebel-red gap-4">
+                    <div className="flex items-center gap-3 text-left">
+                      <span className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase shrink-0">{service.label}</span>
+                      <span className="font-display text-sm font-bold text-white uppercase tracking-wide">{service.title}</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-zinc-400 text-sm leading-relaxed pb-5 pt-0 pl-1">
+                    {service.desc}
+                  </AccordionContent>
+                </AccordionItem>
               ))}
-            </div>
+            </Accordion>
           </div>
 
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center">

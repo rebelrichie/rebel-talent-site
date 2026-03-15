@@ -1,6 +1,7 @@
 import { ArrowRight, FileText, Workflow, BookOpen, Users } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 export default function HowItWorks() {
   return (
@@ -138,7 +139,7 @@ export default function HowItWorks() {
             </h2>
             <p className="text-zinc-500 text-sm text-center mb-10">No fluff. Real answers.</p>
 
-            <div className="grid sm:grid-cols-2 gap-4">
+            <Accordion type="multiple" className="border border-zinc-800 divide-y divide-zinc-800">
               {[
                 {
                   q: '"Fractional Head of Talent" = ?',
@@ -172,13 +173,17 @@ export default function HowItWorks() {
                   q: "What happens after you leave?",
                   a: "You own everything: systems, docs, pipelines, trained team. No vendor lock-in.",
                 },
-              ].map((faq) => (
-                <div key={faq.q} className="border border-zinc-800 bg-zinc-900/30 p-5">
-                  <h3 className="font-display text-sm font-bold text-white uppercase mb-2">{faq.q}</h3>
-                  <p className="text-zinc-400 text-sm leading-relaxed">{faq.a}</p>
-                </div>
+              ].map((faq, i) => (
+                <AccordionItem key={faq.q} value={`faq-${i}`} className="border-b-0 bg-zinc-900/30 px-5">
+                  <AccordionTrigger className="font-display text-sm font-bold text-white uppercase tracking-wide hover:no-underline hover:text-rebel-red py-5 [&[data-state=open]]:text-rebel-red">
+                    {faq.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-zinc-400 text-sm leading-relaxed pb-5 pt-0">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
               ))}
-            </div>
+            </Accordion>
           </div>
 
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center">

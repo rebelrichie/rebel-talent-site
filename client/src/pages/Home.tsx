@@ -386,8 +386,8 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="border border-zinc-800 bg-zinc-900/50 p-8 group transition-colors hover:border-rebel-red/30" data-testid="card-fractional">
+          <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
+            <div className="border border-zinc-800 bg-zinc-900/50 p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-fractional">
               <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
                 OPTION 01
               </div>
@@ -414,7 +414,7 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="border border-zinc-800 bg-zinc-900/50 p-8 group transition-colors hover:border-rebel-red/30" data-testid="card-critical-hire">
+            <div className="border border-zinc-800 bg-zinc-900/50 p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-critical-hire">
               <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
                 OPTION 02
               </div>
@@ -441,7 +441,7 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="border border-zinc-800 bg-zinc-900/50 p-8 group transition-colors hover:border-rebel-red/30" data-testid="card-contract-recruiters">
+            <div className="border border-zinc-800 bg-zinc-900/50 p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-contract-recruiters">
               <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
                 OPTION 03
               </div>
