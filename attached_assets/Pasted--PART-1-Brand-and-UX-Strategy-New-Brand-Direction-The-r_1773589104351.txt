@@ -1,0 +1,609 @@
+### PART 1: Brand and UX Strategy
+
+#### New Brand Direction
+The redesigned brand elevates Rebel Talent Systems from a service provider to a category-defining authority in talent infrastructure. We shift the narrative from "recruiting help" to "building unbreakable hiring systems" that outlast engagements. This positions the company as the elite operator's choice for fixing systemic failures, with a rebellious edge that critiques agency profiteering without descending into gimmicks. The site becomes a manifesto for serious builders: founders and executives who view hiring as mission-critical infrastructure, not a transactional fix.
+
+#### What the Site Should Emotionally Communicate
+Authority and urgency. Visitors should feel a spark of recognition—"This gets my pain"—followed by trust in a no-nonsense partner who delivers lasting power. It evokes controlled rebellion: the satisfaction of ditching chaos for precision, like upgrading from duct tape to engineered steel. Premium polish ensures it feels expensive and exclusive, signaling "This is for operators who win."
+
+#### Buyer Psychology We're Tapping Into
+Buyers here are battle-tested leaders frustrated by agency excuses, slow pipelines, and talent leaks that threaten growth or contracts. We tap into their desire for ownership—regaining control over a core function—while addressing skepticism toward consultants. By framing hiring as a "systems problem" agencies exploit, we position Rebel as the credible disruptor: proven, embedded, and accountable. Conversion leverages FOMO (e.g., metrics showing speed others can't match) and reciprocity (free strategy calls that deliver immediate value).
+
+#### Recommended Visual Direction
+Dark-dominant aesthetic with high-contrast accents: deep black backgrounds, crisp white text, and strategic red/orange bursts for CTAs and highlights. Clean, minimalist layouts with generous whitespace for a premium feel. Imagery: Abstract geometric patterns suggesting systems and machinery; subtle futuristic edges like subtle glows or sharp lines. No stock photos—use custom illustrations or icons that evoke precision engineering. Mobile-first responsiveness ensures seamless authority on any device.
+
+#### Recommended Conversion Strategy
+Funnel users from awareness to action with a linear flow: Hero hooks with pain/solution contrast, builds trust via metrics and founder cred, teases services, then pushes to CTAs. Primary CTA: "Book Strategy Call" on every page, linked to Calendly. Secondary: Lead magnet opt-in for a "Hiring Systems Audit Checklist." Use scarcity (e.g., "Limited slots for defense deadlines") and social proof placeholders. Track with simple analytics; A/B test headlines for engagement.
+
+### PART 2: Full Sitemap
+
+- **Home**: Core entry point, overview of positioning, services teaser, proof, and CTAs.
+- **Fractional Head of Talent**: Deep dive into the primary offer, benefits, process, and pricing.
+- **Critical Hire Execution**: Focused on secondary offer, targeting high-stakes roles, with defense emphasis.
+- **Cleared Talent**: Specialized page for defense contractors, addressing compliance and cleared hires.
+- **How We Build**: Explains the systems methodology, embedding process, and lasting value.
+- **About Richie**: Founder bio, expertise, and authority-building narrative.
+- **Results**: Metrics, case studies (placeholders), and proof points.
+- **Book a Call**: Dedicated conversion page with form, calendar embed, and qualifying questions.
+
+This sitemap streamlines navigation, prioritizes conversion pages, and avoids bloat. Footer links to all, plus privacy/terms if needed.
+
+### PART 3: Homepage Wireframe and Copy
+
+#### Hero Section
+**Headline**: Fix the System. Hire Better.  
+**Subheadline**: Agencies profit from your chaos. We build the hiring infrastructure that ends it.  
+**Body Copy**: Hiring stalls growth. Broken processes leak talent. Rebel Talent Systems embeds leadership to create repeatable systems for startups and defense firms that can't afford delays.  
+**CTA Buttons**: Book Strategy Call (primary, red button) | Download Audit Checklist (secondary)  
+**Visual**: Dark background with abstract system diagram fading in.
+
+#### Trust/Credibility Section
+**Headline**: Proven in the Trenches  
+**Body Copy**: 350%+ ROI on talent investments. Hires closed in under 30 days. 90% retention. 14 years fixing what agencies break.  
+**Elements**: Metric cards with icons (e.g., ROI gauge, speed clock).  
+**CTA**: See Results  
+
+#### Problem Section
+**Headline**: Your Hiring Is a Systems Failure  
+**Body Copy**: Agencies throw candidates at walls. Startups scale blind. Defense contracts hang on cleared bottlenecks. Result: Churn, fees, lost momentum. It's not candidates. It's the machine.  
+**Elements**: Bullet points of pains: Endless ghosting. Compliance risks. Agency markups without accountability.  
+
+#### Solution Section
+**Headline**: We Build the Machine  
+**Body Copy**: Embedded fractional leadership owns your function. Critical hires executed with precision. Systems you keep forever. No excuses. Just results.  
+**CTA**: Explore Offers  
+
+#### Services Overview
+**Headline**: Two Paths to Infrastructure  
+**Body Copy**:  
+- **Fractional Head of Talent**: Own your scaling. $12K–$30K/month.  
+- **Critical Hire Execution**: Close the gap. Project-based.  
+**Elements**: Teaser cards linking to full pages.  
+**CTA**: Book Strategy Call  
+
+#### Why Rebel Section
+**Headline**: The Anti-Agency Standard  
+**Body Copy**: We don't profit from repeat failures. We embed, fix, and exit with you stronger. Operator-led. No jargon. Pure execution.  
+**Elements**: Contrast table: Agencies vs. Rebel (e.g., Outsourced chaos vs. Embedded ownership).  
+
+#### Results/Proof Section
+**Headline**: Numbers That Matter  
+**Body Copy**: Closed TS/SCI roles in 21 days. Scaled startup teams 3x without churn. Placeholders for case studies: "Defense firm met contract deadline, saved $200K in fees."  
+**CTA**: View Full Results  
+
+#### Founder Authority Section
+**Headline**: Built by an Operator  
+**Body Copy**: Richie Lampani: 14 years in talent trenches. Scaled defense and tech firms. Now building systems for those who demand better.  
+**Elements**: Short bio tease, photo placeholder.  
+**CTA**: Learn About Richie  
+
+#### FAQ Section
+**Headline**: Straight Answers  
+**Body Copy**:  
+- What makes this different? Systems over searches.  
+- Pricing? Transparent, value-based.  
+- Defense fit? Cleared expertise, CMMC compliant.  
+(5-7 Q&A pairs, concise.)  
+
+#### Final CTA Section
+**Headline**: Stop the Bleed  
+**Body Copy**: Book now. Fix tomorrow.  
+**CTA Buttons**: Book Strategy Call | Download Checklist  
+
+### PART 4: Full Page Copy for Every Major Page
+
+#### Fractional Head of Talent Page
+**Headline**: Fractional Head of Talent  
+**Subhead**: Embed Leadership. Build Systems. Scale Without Breaking.  
+**Body Structure**:  
+- **The Offer**: Own your recruiting function without full-time overhead. We integrate as your Head of Talent, fixing processes and delivering hires.  
+- **What You Get**: Roadmap design. ATS optimization. Interview training. Coaching. All embedded.  
+- **Pricing**: $12K–$30K/month, based on scope.  
+- **Process**: Discovery > Embed > Build > Handover.  
+- **Why It Works**: Leaves you with infrastructure that runs itself.  
+**CTAs**: Book Strategy Call (multiple placements).  
+**Distinct Angle**: Focus on longevity—systems clients own post-engagement.
+
+#### Critical Hire Execution Page
+**Headline**: Critical Hire Execution  
+**Subhead**: Close Must-Fill Roles. No Delays. No Excuses.  
+**Body Structure**:  
+- **The Offer**: Project-based precision for executives, tech specialists, or cleared positions. We hunt, close, and document.  
+- **What You Get**: Targeted sourcing. Workflow integration. Repeatable process handover.  
+- **Pricing**: Custom, based on role complexity.  
+- **Timeline**: Under 30 days typical.  
+- **Defense Tie-In**: Secret/TS/SCI expertise.  
+**CTAs**: Book Strategy Call.  
+**Distinct Angle**: Surgical focus on high-impact hires that unblock growth.
+
+#### Cleared Talent Page
+**Headline**: Cleared Talent for Defense  
+**Subhead**: Secure Roles. Meet Deadlines. Build Compliance.  
+**Body Structure**:  
+- **The Challenge**: Cleared bottlenecks kill contracts. Agencies fumble compliance.  
+- **Our Edge**: TS/SCI sourcing. CMMC alignment. Fast execution.  
+- **Services**: Integrated into fractional or critical offers.  
+- **Proof**: 21-day closes on cleared roles.  
+**CTAs**: Book Strategy Call.  
+**Distinct Angle**: Mission-critical for federal work, emphasizing security and speed.
+
+#### How We Build Page
+**Headline**: How We Build  
+**Subhead**: Systems That Last. Ownership That Delivers.  
+**Body Structure**:  
+- **Step 1: Assess**: Audit your current mess.  
+- **Step 2: Embed**: Own the function.  
+- **Step 3: Execute**: Hire and optimize.  
+- **Step 4: Handover**: Documented infrastructure.  
+- **Core Principle**: Hiring as engineering, not art.  
+**CTAs**: Get Started.  
+**Distinct Angle**: Methodology as a blueprint for independence.
+
+#### About Richie Page
+**Headline**: About Richie Lampani  
+**Subhead**: Operator. Builder. Anti-Agency Force.  
+**Body Structure**:  
+- **Story**: 14 years fixing talent systems in tech and defense. Scaled teams under fire. Founded Rebel to end the nonsense.  
+- **Expertise**: Startups to contractors. Metrics-driven. No fluff.  
+- **Why This**: Saw agencies profit from pain. Built a better way.  
+**CTAs**: Connect Now.  
+**Distinct Angle**: Personal authority as the weapon buyers need.
+
+#### Results Page
+**Headline**: Results  
+**Subhead**: Proof in the Metrics.  
+**Body Structure**:  
+- **Key Wins**: 350% ROI. 90% retention. Under-30-day hires.  
+- **Case Placeholders**: Startup scaled 3x. Defense met deadline.  
+- **Data Viz**: Simple charts.  
+**CTAs**: See If We Fit.  
+**Distinct Angle**: Quantifiable impact, no vague claims.
+
+#### Book a Call Page
+**Headline**: Book Your Strategy Call  
+**Subhead**: Let's Fix Your Systems.  
+**Body Structure**:  
+- **What to Expect**: 30-min audit. No sales pitch. Real value.  
+- **Qualifier**: For serious operators only.  
+- **Embed**: Calendly integration.  
+**CTAs**: Schedule Now.  
+**Distinct Angle**: Low-friction entry to value.
+
+### PART 5: Messaging System
+
+#### Brand One-Liner
+Build the hiring machine that agencies can't.
+
+#### Elevator Pitch
+Rebel Talent Systems provides embedded talent infrastructure for startups and defense firms tired of agency failures. We fix systems, close critical hires, and leave you with ownership that lasts.
+
+#### Short Bio
+Richie Lampani: 14-year talent operator. Scaled defense and tech teams. Founder of Rebel Talent Systems, building hiring infrastructure that ends the chaos.
+
+#### Long Founder Bio
+Richie Lampani built his career in the trenches of high-stakes hiring, leading talent functions for defense contractors and growth-stage tech firms. With 14 years of experience, he's closed hundreds of roles—from cleared TS/SCI positions to executive searches—while navigating compliance, scaling bottlenecks, and agency pitfalls. Frustrated by models that profit from repeated failures, he founded Rebel Talent Systems to deliver embedded leadership and systems that clients own forever. Based in Atlanta, Richie brings operator grit to every engagement, ensuring speed, rigor, and lasting impact.
+
+#### 10 Homepage Headline Options
+1. Systems Over Searches.  
+2. End Agency Chaos. Build Infrastructure.  
+3. Hiring Fixed. Momentum Regained.  
+4. The Anti-Agency Engine.  
+5. Break the Bottleneck. Build the System.  
+6. Talent Infrastructure for Winners.  
+7. Fix What Agencies Break.  
+8. Embedded Power. Lasting Systems.  
+9. Speed. Rigor. Ownership.  
+10. Rebel Against Hiring Hell.
+
+#### 10 CTA Options
+1. Claim Your Strategy Call.  
+2. Fix It Now.  
+3. Build Better—Book Now.  
+4. Get the Edge.  
+5. Secure Your Slot.  
+6. Start the Fix.  
+7. Own Your Hiring.  
+8. Break Free—Call.  
+9. Infrastructure Awaits.  
+10. No More Excuses.
+
+#### 10 Punchy Value Proposition Statements
+1. Systems you keep. Agencies you ditch.  
+2. 30-day hires. Lifetime infrastructure.  
+3. Embedded ownership beats outsourced noise.  
+4. Defense deadlines met. No compliance drama.  
+5. Scale without the bleed.  
+6. Precision over volume.  
+7. ROI that agencies envy.  
+8. Fix the machine. Forget the mess.  
+9. Operator-led. Results-driven.  
+10. Rebellion with rigor.
+
+#### 10 Anti-Agency Lines (Smart, Not Corny)
+1. Agencies invoice excuses. We deliver systems.  
+2. They profit from churn. We end it.  
+3. No markups on mediocrity here.  
+4. Outsourced bandaids vs. our engineered fix.  
+5. They ghost. We own.  
+6. Fees for failures? Not our model.  
+7. Volume searches? We prefer precision strikes.  
+8. Their chaos. Our infrastructure.  
+9. Ditch the middlemen. Build direct.  
+10. Agencies extend problems. We solve them.
+
+### PART 6: Visual and Design Direction
+
+#### Layout Style
+Minimalist grid-based layouts with asymmetrical accents for edge. Hero full-width, sections in 2-3 columns for desktop, stacking on mobile. Fixed navigation bar with simple menu. Footer with links and contact.
+
+#### Color Palette
+- Primary: #000000 (black background)  
+- Secondary: #FFFFFF (white text)  
+- Accent: #FF4500 (orange-red for CTAs, highlights)  
+- Neutral: #333333 (dark gray for subtle elements)  
+- Hover: #CC3700 (darker orange)
+
+#### Typography Direction
+- Headings: Bold sans-serif (e.g., Montserrat Black) for impact, sizes 48px+ on desktop.  
+- Body: Clean sans-serif (e.g., Inter Regular) for readability, 18px base.  
+- Emphasis: Italic or uppercase for punch, no overkill.
+
+#### Imagery Style
+Abstract, high-contrast vectors: Gears, circuits, or fractured patterns symbolizing broken/fixed systems. Monochrome with accent overlays. No people—focus on machinery metaphors. Placeholders for founder photo: Professional, intense.
+
+#### Iconography Style
+Sharp, line-based icons (e.g., speed arrows, lock for cleared, gears for systems). Custom or from sets like Line Awesome. Minimal, with accent color fills on hover.
+
+#### UI Feel
+Sleek and responsive: Subtle fade-ins on scroll, no heavy animations. Buttons with shadow lifts on hover. Dark mode native, premium spacing (e.g., 80px section padding). Feels like a high-end dashboard—authoritative, not flashy.
+
+### PART 7: Conversion Assets
+
+#### Lead Magnet Idea
+"Hiring Systems Audit Checklist": 10-point downloadable PDF assessing process gaps. Opt-in form: Email for instant download. Tease: "Spot the leaks before they sink you."
+
+#### Call Booking Page Copy
+**Headline**: Secure Your Strategy Session  
+**Body**: 30 minutes to diagnose your systems. Get actionable fixes on the spot. For founders and execs ready to build.  
+**Microcopy**: "Name" / "Email" / "Company Stage" / "Biggest Hiring Pain"  
+**CTA**: Schedule (with Calendly embed).  
+**Success Message**: "Locked in. Prepare for clarity."
+
+#### Contact Form Microcopy
+- Fields: Name (Your Name), Email (Business Email), Message (Tell Us Your Challenge).  
+- Submit: Send It.  
+- Placeholder: "Defense deadline looming? Spill it."  
+- Validation: "Fix that field."
+
+#### Footer Copy
+Rebel Talent Systems | Build Right. Hire Right. | Atlanta, GA | [Privacy] | [Terms]  
+Links to sitemap pages. Social placeholders (X, LinkedIn).
+
+#### Short Testimonial Placeholders
+- "Closed our TS role in 25 days. Systems still running strong." — Defense Exec  
+- "Scaled team without agency drama. Pure gold." — Startup Founder  
+(Use 3-5, attributed generically until real.)
+
+#### Suggested Trust Builders
+- Client logos placeholders (e.g., "Trusted by Series B startups and DoD contractors").  
+- Metric badges.  
+- "As Seen In" section for future press.  
+- Guarantee: "Results or rework—no questions."
+
+### PART 8: SEO Foundations
+
+#### Home
+- SEO Title: Rebel Talent Systems | Talent Infrastructure for Startups & Defense  
+- Meta Description: Build hiring systems that end agency chaos. Embedded leadership for fast scaling and cleared roles. Book a strategy call.  
+- H1: Fix the System. Hire Better.  
+- Target Keyword: talent infrastructure startups
+
+#### Fractional Head of Talent
+- SEO Title: Fractional Head of Talent | Build Hiring Infrastructure  
+- Meta Description: Embedded recruiting leadership for growth companies. Systems, execution, and ownership. $12K–$30K/month.  
+- H1: Fractional Head of Talent  
+- Target Keyword: fractional head of talent
+
+#### Critical Hire Execution
+- SEO Title: Critical Hire Execution | Close Key Roles Fast  
+- Meta Description: Project-based hiring for executives and cleared talent. Under 30 days. No excuses.  
+- H1: Critical Hire Execution  
+- Target Keyword: critical hire execution
+
+#### Cleared Talent
+- SEO Title: Cleared Talent Hiring | Defense Contractors  
+- Meta Description: Secure Secret/TS/SCI roles with compliance. Meet federal deadlines. Embedded expertise.  
+- H1: Cleared Talent for Defense  
+- Target Keyword: cleared talent defense
+
+#### How We Build
+- SEO Title: How Rebel Builds Hiring Systems  
+- Meta Description: Step-by-step methodology for talent infrastructure. Assess, embed, execute, handover.  
+- H1: How We Build  
+- Target Keyword: building hiring systems
+
+#### About Richie
+- SEO Title: About Richie Lampani | Founder, Rebel Talent Systems  
+- Meta Description: 14 years in talent operations. Scaling defense and startups. Anti-agency authority.  
+- H1: About Richie Lampani  
+- Target Keyword: richie lampani
+
+#### Results
+- SEO Title: Results & Proof | Rebel Talent Systems  
+- Meta Description: 350% ROI, 90% retention, fast hires. See the impact.  
+- H1: Results  
+- Target Keyword: talent systems results
+
+#### Book a Call
+- SEO Title: Book a Strategy Call | Rebel Talent Systems  
+- Meta Description: Schedule your free hiring audit. Fix systems now.  
+- H1: Book Your Strategy Call  
+- Target Keyword: book talent strategy call
+
+### PART 9: Development Output
+
+Below is the complete, responsive website code. I've built it using plain HTML, CSS (with media queries for responsiveness), and minimal JS for basic interactions (e.g., smooth scroll). This stack is ideal for Replit—create an index.html, style.css, and script.js. It's organized with reusable sections, easy-to-edit content (e.g., via classes), and placeholders (e.g., <!-- Placeholder for image -->). No external dependencies for fast loading. Add Calendly embed script where noted.
+
+#### index.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebel Talent Systems | Talent Infrastructure for Startups & Defense</title>
+    <meta name="description" content="Build hiring systems that end agency chaos. Embedded leadership for fast scaling and cleared roles. Book a strategy call.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Rebel Talent Systems</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="fractional.html">Fractional Head of Talent</a></li>
+                <li><a href="critical.html">Critical Hire Execution</a></li>
+                <li><a href="cleared.html">Cleared Talent</a></li>
+                <li><a href="how.html">How We Build</a></li>
+                <li><a href="about.html">About Richie</a></li>
+                <li><a href="results.html">Results</a></li>
+                <li><a href="book.html">Book a Call</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h1>Fix the System. Hire Better.</h1>
+        <p>Agencies profit from your chaos. We build the hiring infrastructure that ends it.</p>
+        <p>Hiring stalls growth. Broken processes leak talent. Rebel Talent Systems embeds leadership to create repeatable systems for startups and defense firms that can't afford delays.</p>
+        <a href="book.html" class="cta">Book Strategy Call</a>
+        <a href="#checklist" class="cta secondary">Download Audit Checklist</a>
+    </section>
+
+    <section id="trust">
+        <h2>Proven in the Trenches</h2>
+        <div class="metrics">
+            <div>350%+ ROI</div>
+            <div><30 Days to Hire</div>
+            <div>90% Retention</div>
+            <div>14 Years Experience</div>
+        </div>
+        <a href="results.html">See Results</a>
+    </section>
+
+    <section id="problem">
+        <h2>Your Hiring Is a Systems Failure</h2>
+        <p>Agencies throw candidates at walls. Startups scale blind. Defense contracts hang on cleared bottlenecks. Result: Churn, fees, lost momentum. It's not candidates. It's the machine.</p>
+        <ul>
+            <li>Endless ghosting.</li>
+            <li>Compliance risks.</li>
+            <li>Agency markups without accountability.</li>
+        </ul>
+    </section>
+
+    <section id="solution">
+        <h2>We Build the Machine</h2>
+        <p>Embedded fractional leadership owns your function. Critical hires executed with precision. Systems you keep forever. No excuses. Just results.</p>
+        <a href="#services">Explore Offers</a>
+    </section>
+
+    <section id="services">
+        <h2>Two Paths to Infrastructure</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Fractional Head of Talent</h3>
+                <p>Own your scaling. $12K–$30K/month.</p>
+                <a href="fractional.html">Learn More</a>
+            </div>
+            <div class="card">
+                <h3>Critical Hire Execution</h3>
+                <p>Close the gap. Project-based.</p>
+                <a href="critical.html">Learn More</a>
+            </div>
+        </div>
+        <a href="book.html" class="cta">Book Strategy Call</a>
+    </section>
+
+    <section id="why">
+        <h2>The Anti-Agency Standard</h2>
+        <p>We don't profit from repeat failures. We embed, fix, and exit with you stronger. Operator-led. No jargon. Pure execution.</p>
+        <table>
+            <tr><th>Agencies</th><th>Rebel</th></tr>
+            <tr><td>Outsourced chaos</td><td>Embedded ownership</td></tr>
+        </table>
+    </section>
+
+    <section id="results-tease">
+        <h2>Numbers That Matter</h2>
+        <p>Closed TS/SCI roles in 21 days. Scaled startup teams 3x without churn.</p>
+        <!-- Placeholder for case studies -->
+        <a href="results.html">View Full Results</a>
+    </section>
+
+    <section id="founder">
+        <h2>Built by an Operator</h2>
+        <p>Richie Lampani: 14 years in talent trenches. Scaled defense and tech firms. Now building systems for those who demand better.</p>
+        <!-- Placeholder for photo -->
+        <a href="about.html">Learn About Richie</a>
+    </section>
+
+    <section id="faq">
+        <h2>Straight Answers</h2>
+        <details>
+            <summary>What makes this different?</summary>
+            <p>Systems over searches.</p>
+        </details>
+        <!-- Add more -->
+    </section>
+
+    <section id="final-cta">
+        <h2>Stop the Bleed</h2>
+        <p>Book now. Fix tomorrow.</p>
+        <a href="book.html" class="cta">Book Strategy Call</a>
+        <a href="#checklist" class="cta secondary">Download Checklist</a>
+    </section>
+
+    <footer>
+        <p>Rebel Talent Systems | Build Right. Hire Right. | Atlanta, GA</p>
+        <ul>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="terms.html">Terms</a></li>
+        </ul>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+#### style.css
+```css
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    background: #000;
+    padding: 20px;
+    z-index: 10;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FF4500;
+}
+
+section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+.cta {
+    background: #FF4500;
+    padding: 15px 30px;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 10px;
+}
+
+.secondary {
+    background: #333;
+}
+
+.metrics, .cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.metrics div, .card {
+    background: #333;
+    padding: 20px;
+    border-radius: 5px;
+    width: 200px;
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #333;
+}
+
+footer {
+    background: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+    h1 {
+        font-size: 32px;
+    }
+    .metrics, .cards {
+        flex-direction: column;
+    }
+}
+```
+
+#### script.js
+```javascript
+// Basic smooth scroll for anchors
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Placeholder for animations or form handling
+console.log('Site loaded');
+```
+
+For other pages (e.g., fractional.html), duplicate index.html structure and replace content with PART 4 copy. Add <!-- Placeholder for testimonials --> etc. in relevant sections. For Calendly on book.html: Add <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script> and <div class="calendly-inline-widget" data-url="https://calendly.com/richielam" style="min-width:320px;height:630px;"></div>. This setup is maintainable—edit HTML for content, CSS for styles.
