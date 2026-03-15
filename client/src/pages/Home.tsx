@@ -324,13 +324,13 @@ export default function Home() {
           </div>
 
           <div className="font-mono text-rebel-red text-xs sm:text-sm tracking-[0.3em] uppercase mb-4">
-            FRACTIONAL RECRUITING LEADERSHIP
+            TALENT INFRASTRUCTURE FOR STARTUPS & DEFENSE
           </div>
 
           <GraffitiHero />
 
           <p className="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-            Fractional Head of Talent for Series A-C startups and defense contractors. I build recruiting infrastructure and close critical hires in under 30 days.
+            Agencies profit from your chaos. Rebel Talent Systems embeds leadership to build the hiring infrastructure that ends it — for startups and defense firms that can't afford delays.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -379,10 +379,10 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-              TWO WAYS TO ENGAGE
+              TWO PATHS TO INFRASTRUCTURE
             </div>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight">
-              Two Ways to Work Together
+              Two Paths to Infrastructure
             </h2>
           </div>
 
@@ -443,7 +443,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-10">
-            <p className="text-zinc-500 text-sm mb-4">Not sure which option fits? Let's talk through your situation.</p>
+            <p className="text-zinc-500 text-sm mb-4">Agencies invoice excuses. We deliver systems. Not sure which fits? Let's talk.</p>
             <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-2">
               <Button className="font-display tracking-wider uppercase text-sm">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
@@ -514,7 +514,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-10">
-            <p className="text-zinc-500 text-sm mb-4">If any of these sound like your company, we should talk.</p>
+            <p className="text-zinc-500 text-sm mb-4">Scale without the bleed. Build the machine agencies can't.</p>
             <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-3">
               <Button className="font-display tracking-wider uppercase text-sm">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
@@ -572,10 +572,10 @@ export default function Home() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <img src="/logo.png" alt="Rebel Talent" className="w-16 h-16 mx-auto mb-6" />
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight mb-4">
-            Ready to Fix Your Hiring?
+            Stop the Bleed
           </h2>
           <p className="text-zinc-400 text-base mb-8 max-w-xl mx-auto">
-            Stop losing talent to broken processes. Book a strategy call and let's build something that actually works.
+            Book now. Fix tomorrow. 30 minutes to diagnose your systems — no sales pitch, just real answers for operators ready to build.
           </p>
           <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-4">
             <Button size="lg" className="font-display tracking-wider uppercase text-sm px-10">

@@ -9,23 +9,23 @@ export default function Services() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-16">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-              SERVICES
+              TALENT INFRASTRUCTURE
             </div>
             <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-4" data-testid="heading-services">
-              Services
+              Two Paths to Infrastructure
             </h1>
             <p className="text-zinc-400 text-base max-w-2xl mx-auto leading-relaxed">
-              Fractional recruiting leadership for startups and defense contractors who need results. From embedded leadership to project-based execution, I bring 14+ years of recruiting experience to solve your hardest hiring challenges.
+              Build the hiring machine that agencies can't. Embedded fractional leadership or surgical critical hire execution — both leave you with systems you own forever.
             </p>
           </div>
 
           <div className="mb-16">
             <div className="text-center mb-8">
               <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight" data-testid="heading-fractional">
-                Fractional Recruiting Leadership
+                The Anti-Agency Standard
               </h2>
               <p className="text-zinc-500 text-sm mt-2 max-w-lg mx-auto">
-                Choose the engagement model that fits your needs. Both options deliver infrastructure and results -- not just recruiter hours.
+                We don't profit from repeat failures. Both paths deliver infrastructure and results — not just recruiter hours. Systems you keep. Agencies you ditch.
               </p>
             </div>
 
@@ -128,10 +128,10 @@ export default function Services() {
 
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-4">
-              Let's Build Your Recruiting Machine
+              Build the Machine Agencies Can't
             </h2>
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
-              Every engagement starts with a conversation. Book a strategy call and we'll map out the right approach for your hiring challenges.
+              Every engagement starts with a 30-minute strategy call. Real value, no pitch. Let's map out the fix for your hiring.
             </p>
             <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-services-cta">
               <Button className="font-display tracking-wider uppercase text-sm">

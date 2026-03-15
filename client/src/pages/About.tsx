@@ -37,13 +37,13 @@ export default function About() {
                 Richie Lampani
               </h1>
               <p className="text-rebel-red font-display text-lg uppercase tracking-wider mb-6" data-testid="text-tagline">
-                Fractional Head of Talent
+                Operator. Builder. Anti-Agency Force.
               </p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-4" data-testid="text-intro">
-                14+ years of recruiting experience. PMP certified. Author. I've built talent acquisition functions from zero for defense tech companies, legal managed services firms, and high-growth startups. I don't do surface-level recruiting -- I build the infrastructure that makes great hiring repeatable.
+                Richie Lampani built his career in the trenches of high-stakes hiring, leading talent functions for defense contractors and growth-stage tech firms. With 14 years of experience, he's closed hundreds of roles — from cleared TS/SCI positions to executive searches — while navigating compliance, scaling bottlenecks, and agency pitfalls.
               </p>
               <p className="text-zinc-400 text-sm leading-relaxed">
-                I specialize in cleared hiring (Secret, TS, TS/SCI), defense contractor talent, geospatial intelligence recruiting, and startup scaling. If your hiring is broken, I fix the system -- not just the symptoms.
+                Frustrated by models that profit from repeated failures, he founded Rebel Talent Systems to deliver embedded leadership and systems that clients own forever. Operator grit. No jargon. Pure execution.
               </p>
             </div>
           </div>
@@ -133,10 +133,10 @@ export default function About() {
 
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-4">
-              Ready to Talk?
+              Connect Now
             </h2>
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
-              Book a strategy call and let's figure out how to fix your hiring.
+              30 minutes. No pitch. Real answers for operators ready to stop the bleed and build something that lasts.
             </p>
             <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-about-cta">
               <Button className="font-display tracking-wider uppercase text-sm">

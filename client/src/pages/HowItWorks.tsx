@@ -9,16 +9,16 @@ export default function HowItWorks() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-16">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-              THE PROCESS
+              HOW WE BUILD
             </div>
             <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-4" data-testid="heading-how">
-              How It Works
+              How We Build
             </h1>
             <p className="text-zinc-400 text-lg mb-2">
-              Most companies don't have a recruiting problem. <span className="text-white font-semibold">They have an infrastructure problem.</span>
+              Systems That Last. <span className="text-white font-semibold">Ownership That Delivers.</span>
             </p>
             <p className="text-zinc-500 text-sm italic">
-              I fix the system. Then I fill the roles. Then I hand you the keys.
+              Hiring as engineering, not art. Assess, embed, execute, handover — you own it all.
             </p>
           </div>
 
@@ -183,10 +183,10 @@ export default function HowItWorks() {
 
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-4">
-              Ready to Build the Machine?
+              Start Building
             </h2>
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
-              Stop guessing. Stop overpaying. Let's build a recruiting function that actually works.
+              Precision over volume. Embedded ownership beats outsourced noise. Let's fix the machine.
             </p>
             <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-hiw-cta">
               <Button className="font-display tracking-wider uppercase text-sm">

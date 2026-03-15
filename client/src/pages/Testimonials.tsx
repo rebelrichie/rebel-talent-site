@@ -70,10 +70,10 @@ export default function Testimonials() {
 
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center mt-16">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-4">
-              See More on LinkedIn
+              Operator-Led. Results-Driven.
             </h2>
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
-              These are just a few. Check out my LinkedIn for dozens more recommendations from hiring managers, HR leaders, and candidates.
+              These are just a few. Dozens more on LinkedIn from hiring managers, HR leaders, and candidates who've seen the system work.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-linkedin-testimonials">

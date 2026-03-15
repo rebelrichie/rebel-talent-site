@@ -9,13 +9,13 @@ export default function CaseStudies() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-16 pb-10 border-b border-rebel-red/30">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-              RESULTS
+              PROOF IN THE METRICS
             </div>
             <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-4" data-testid="heading-case-studies">
-              Case Studies
+              Results
             </h1>
             <p className="text-zinc-400 text-base max-w-2xl mx-auto">
-              Real engagements. Measurable outcomes. Infrastructure that lasts beyond any single hire.
+              350% ROI. 90% retention. Under-30-day hires. Real engagements, quantifiable impact, no vague claims.
             </p>
           </div>
 
@@ -238,10 +238,10 @@ export default function CaseStudies() {
 
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-4">
-              Your Company Could Be Next
+              See If We Fit
             </h2>
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
-              Same approach. Custom execution. Measurable results. Let's talk about what your recruiting function needs.
+              ROI that agencies envy. Same approach, custom execution. Let's talk about what your recruiting function needs.
             </p>
             <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-casestudies-cta">
               <Button className="font-display tracking-wider uppercase text-sm">
