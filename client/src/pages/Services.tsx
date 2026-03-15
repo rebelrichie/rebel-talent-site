@@ -15,7 +15,7 @@ export default function Services() {
               Two Paths to Infrastructure
             </h1>
             <p className="text-zinc-400 text-base max-w-2xl mx-auto leading-relaxed">
-              Build the hiring machine that agencies can't. Embedded fractional leadership or surgical critical hire execution — both leave you with systems you own forever.
+              Build the hiring machine that agencies can't. Embedded fractional leadership or surgical critical hire execution. Both leave you with systems you own forever.
             </p>
           </div>
 
@@ -25,7 +25,7 @@ export default function Services() {
                 The Anti-Agency Standard
               </h2>
               <p className="text-zinc-500 text-sm mt-2 max-w-lg mx-auto">
-                We don't profit from repeat failures. Both paths deliver infrastructure and results — not just recruiter hours. Systems you keep. Agencies you ditch.
+                We don't profit from repeat failures. Both paths deliver infrastructure and results, not just recruiter hours. Systems you keep. Agencies you ditch.
               </p>
             </div>
 

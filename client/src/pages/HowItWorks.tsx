@@ -18,7 +18,7 @@ export default function HowItWorks() {
               Systems That Last. <span className="text-white font-semibold">Ownership That Delivers.</span>
             </p>
             <p className="text-zinc-500 text-sm italic">
-              Hiring as engineering, not art. Assess, embed, execute, handover — you own it all.
+              Hiring as engineering, not art. Assess, embed, execute, handover. You own it all.
             </p>
           </div>
 

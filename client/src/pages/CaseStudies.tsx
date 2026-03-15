@@ -52,7 +52,7 @@ export default function CaseStudies() {
                 <h3 className="font-display text-base font-bold text-rebel-red uppercase mb-4">The Situation</h3>
                 <ul className="space-y-2">
                   {[
-                    "Zero recruiting infrastructure — no ATS, no process, no playbooks",
+                    "Zero recruiting infrastructure: no ATS, no process, no playbooks",
                     "Leadership running hiring on instinct and available time",
                     "Slow cycles, inconsistent candidate experiences",
                     "Full dependence on expensive agency relationships",

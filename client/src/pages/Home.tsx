@@ -330,7 +330,7 @@ export default function Home() {
           <GraffitiHero />
 
           <p className="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-            Agencies profit from your chaos. Rebel Talent Systems embeds leadership to build the hiring infrastructure that ends it — for startups and defense firms that can't afford delays.
+            Agencies profit from your chaos. Rebel Talent Systems embeds leadership to build the hiring infrastructure that ends it, for startups and defense firms that can't afford delays.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -575,7 +575,7 @@ export default function Home() {
             Stop the Bleed
           </h2>
           <p className="text-zinc-400 text-base mb-8 max-w-xl mx-auto">
-            Book now. Fix tomorrow. 30 minutes to diagnose your systems — no sales pitch, just real answers for operators ready to build.
+            Book now. Fix tomorrow. 30 minutes to diagnose your systems: no sales pitch, just real answers for operators ready to build.
           </p>
           <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-4">
             <Button size="lg" className="font-display tracking-wider uppercase text-sm px-10">

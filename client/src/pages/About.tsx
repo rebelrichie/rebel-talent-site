@@ -40,7 +40,7 @@ export default function About() {
                 Operator. Builder. Anti-Agency Force.
               </p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-4" data-testid="text-intro">
-                Richie Lampani built his career in the trenches of high-stakes hiring, leading talent functions for defense contractors and growth-stage tech firms. With 14 years of experience, he's closed hundreds of roles — from cleared TS/SCI positions to executive searches — while navigating compliance, scaling bottlenecks, and agency pitfalls.
+                Richie Lampani built his career in the trenches of high-stakes hiring, leading talent functions for defense contractors and growth-stage tech firms. With 14 years of experience, he's closed hundreds of roles (from cleared TS/SCI positions to executive searches) while navigating compliance, scaling bottlenecks, and agency pitfalls.
               </p>
               <p className="text-zinc-400 text-sm leading-relaxed">
                 Frustrated by models that profit from repeated failures, he founded Rebel Talent Systems to deliver embedded leadership and systems that clients own forever. Operator grit. No jargon. Pure execution.
