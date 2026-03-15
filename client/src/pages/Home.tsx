@@ -379,14 +379,14 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-              TWO PATHS TO INFRASTRUCTURE
+              THREE PATHS TO INFRASTRUCTURE
             </div>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight">
-              Two Paths to Infrastructure
+              Three Paths to Infrastructure
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             <div className="border border-zinc-800 bg-zinc-900/50 p-8 group transition-colors hover:border-rebel-red/30" data-testid="card-fractional">
               <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
                 OPTION 01
@@ -432,6 +432,33 @@ export default function Home() {
                   "Specialized technical talent",
                   "Embedded into your workflows",
                   "Documented repeatable process left with you",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
+                    <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="border border-zinc-800 bg-zinc-900/50 p-8 group transition-colors hover:border-rebel-red/30" data-testid="card-contract-recruiters">
+              <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
+                OPTION 03
+              </div>
+              <h3 className="font-display text-xl font-bold text-white uppercase mb-2">
+                Rebel Contract Recruiters
+              </h3>
+              <p className="text-rebel-red font-mono text-sm mb-4">Hourly Engagement</p>
+              <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+                Vetted recruiters who execute under the Rebel Talent flag. Same standards, same playbooks -- deployed into your workflow on demand.
+              </p>
+              <ul className="space-y-2 mb-6">
+                {[
+                  "Sourced and vetted by Rebel Talent",
+                  "Execute to our documented standards",
+                  "Scale up or down as hiring demands shift",
+                  "Fully briefed on your roles and culture",
+                  "No long-term commitment required",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
                     <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />
