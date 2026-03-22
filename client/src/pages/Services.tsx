@@ -98,6 +98,53 @@ export default function Services() {
 
           <div className="mb-16">
             <div className="text-center mb-8">
+              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">ROLE SPECIALIZATIONS</div>
+              <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight" data-testid="heading-roles">
+                Roles We Source
+              </h2>
+              <p className="text-zinc-500 text-sm mt-2 max-w-xl mx-auto">
+                Every hire is hard. These are the ones most recruiters get wrong. We don't.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-3 gap-6">
+              {[
+                {
+                  category: "ENGINEERING",
+                  title: "Forward Deployed Engineers",
+                  desc: "FDEs are a rare hybrid: technical enough to build, commercial enough to close. We know how to find operators who can live in both worlds.",
+                  roles: ["Forward Deployed Engineers", "Field Engineers", "Implementation Engineers", "Solutions Architects"],
+                },
+                {
+                  category: "AI / ML",
+                  title: "AI & Machine Learning",
+                  desc: "From research scientists to applied ML engineers, we source candidates who can ship, not just theorize. Across defense, fintech, and growth-stage AI companies.",
+                  roles: ["AI Engineers", "ML Engineers", "Research Scientists", "Data Scientists", "MLOps Engineers"],
+                },
+                {
+                  category: "GTM",
+                  title: "Go-To-Market Talent",
+                  desc: "Full GTM buildouts for technical companies. We understand the nuance between a great SE and a great AE, and build pipelines accordingly.",
+                  roles: ["Account Executives", "Solutions Engineers", "Sales Engineers", "Customer Success Managers", "RevOps"],
+                },
+              ].map((group) => (
+                <div key={group.title} className="border border-zinc-800 bg-zinc-900/30 p-6" data-testid={`card-roles-${group.category.toLowerCase()}`}>
+                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">{group.category}</div>
+                  <h3 className="font-display text-base font-bold text-white uppercase mb-3">{group.title}</h3>
+                  <p className="text-zinc-500 text-xs leading-relaxed mb-4">{group.desc}</p>
+                  <ul className="space-y-1">
+                    {group.roles.map((r) => (
+                      <li key={r} className="flex items-center gap-2 text-xs text-zinc-400">
+                        <span className="text-rebel-red font-mono">&gt;</span>{r}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mb-16">
+            <div className="text-center mb-8">
               <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight" data-testid="heading-training">
                 Training & Workshops
               </h2>

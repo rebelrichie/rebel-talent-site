@@ -68,6 +68,9 @@ export default function About() {
             </h2>
             <div className="grid sm:grid-cols-2 gap-4">
               {[
+                "Forward Deployed Engineers (FDEs)",
+                "AI/ML Engineers & Research Scientists",
+                "GTM: AEs, SEs, Solutions Engineers, RevOps, CSMs",
                 "Cleared positions (Secret, TS, TS/SCI)",
                 "Geospatial scientists & intelligence analysts",
                 "Backend engineers & technical talent",
