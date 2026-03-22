@@ -39,6 +39,8 @@ export default function Footer() {
               <Link href="/free-tools" data-testid="link-footer-free-tools" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Free Tools</Link>
               <a href="https://rebel-talent-shop.fourthwall.com/" target="_blank" rel="noopener noreferrer" data-testid="link-footer-shop" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Shop</a>
               <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824" target="_blank" rel="noopener noreferrer" data-testid="link-footer-newsletter" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Rebel Built Newsletter</a>
+              <a href="https://app.rebeltalent.dev/blog" target="_blank" rel="noopener noreferrer" data-testid="link-footer-blog" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Rebel Built Blog</a>
+              <a href="https://rebelapply.com" target="_blank" rel="noopener noreferrer" data-testid="link-footer-apply" className="text-rebel-red text-sm no-underline hover:text-white transition-colors font-semibold">Apply to Open Jobs / Start a Rebel Job Profile</a>
             </div>
           </div>
 

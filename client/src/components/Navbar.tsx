@@ -11,6 +11,8 @@ const navLinks = [
   { href: "/free-tools", label: "FREE TOOLS" },
   { href: "/services", label: "SERVICES" },
   { href: "https://rebel-talent-shop.fourthwall.com/", label: "SHOP", external: true },
+  { href: "https://app.rebeltalent.dev/blog", label: "BLOG", external: true },
+  { href: "https://rebelapply.com", label: "APPLY", external: true, cta: true },
 ] as const;
 
 export default function Navbar() {
@@ -50,7 +52,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="px-3 py-2 text-xs font-semibold tracking-widest transition-colors duration-200 no-underline text-rebel-red hover:text-white"
+                  className={`px-3 py-2 text-xs font-semibold tracking-widest transition-colors duration-200 no-underline ${"cta" in link && link.cta ? "border border-rebel-red text-rebel-red hover:bg-rebel-red hover:text-white" : "text-rebel-red hover:text-white"}`}
                 >
                   {link.label}
                 </a>
@@ -83,10 +85,10 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid={`link-mobile-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
-                className="block px-6 py-3 text-xs font-semibold tracking-widest border-b border-zinc-900 no-underline text-rebel-red"
+                className={`block px-6 py-3 text-xs font-semibold tracking-widest border-b border-zinc-900 no-underline ${"cta" in link && link.cta ? "text-white bg-rebel-red/10" : "text-rebel-red"}`}
                 onClick={() => setIsOpen(false)}
               >
-                {link.label}
+                {"cta" in link && link.cta ? "APPLY / START JOB PROFILE" : link.label}
               </a>
             ) : (
               <Link
