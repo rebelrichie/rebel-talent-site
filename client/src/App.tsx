@@ -11,6 +11,7 @@ import Testimonials from "@/pages/Testimonials";
 import CaseStudies from "@/pages/CaseStudies";
 import Podcast from "@/pages/Podcast";
 import FreeTools from "@/pages/FreeTools";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -24,6 +25,7 @@ function Router() {
       <Route path="/case-studies" component={CaseStudies} />
       <Route path="/podcast" component={Podcast} />
       <Route path="/free-tools" component={FreeTools} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route component={NotFound} />
     </Switch>
   );

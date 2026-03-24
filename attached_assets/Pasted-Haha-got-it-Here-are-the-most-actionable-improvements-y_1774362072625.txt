@@ -1,0 +1,31 @@
+Haha got it! Here are the most actionable improvements you can make in Replit, roughly in order of impact:
+
+---
+
+**1. Fix the hero above the fold**
+The giant circular logo pushes the headline and CTA buttons below the visible area on load. Shrink the logo, move it inline or to the side, and make sure "Build Right. Hire Right." + the "Book Strategy Call" button are both visible without scrolling. This is the single highest-leverage change.
+
+**2. Tighten the massive empty gaps between sections**
+There are huge stretches of blank dark space as you scroll — especially between the stats bar and the "Three Paths" section, and after "Who This Is For." The starfield background makes it look intentional but it just reads as unfinished. Reduce those vertical padding values significantly.
+
+**3. Add a "recommended" highlight to the pricing cards**
+The three service options (Fractional Head of Talent, Critical Hire, Contract Recruiters) are visually identical. Give the Fractional Head of Talent card a slightly brighter border or a small "Most Popular" label to guide decision-making and reduce choice paralysis.
+
+**4. Add real headshots to testimonials**
+Right now it's colored squares with initials. Even a small circular photo would dramatically increase the trust and warmth of those quotes, which are genuinely strong.
+
+**5. Surface the case study on the homepage**
+The EarthDaily Federal case study (~$178K fees avoided, 350% ROI) is your best conversion asset and it's completely hidden behind a nav click. Add a small "Proof" module on the homepage that previews those numbers with a "See the full case study →" link.
+
+**6. Slim down the nav**
+9 nav items is a lot. Consider grouping Podcast, Blog, Free Tools, and Shop under a single "Resources" dropdown, which would let "Apply" and "Book a Call" breathe and get more visual attention.
+
+**7. Add a privacy policy link in the footer**
+Enterprise and defense clients will notice it's missing. It's a quick trust signal to add.
+
+**8. Fix the "About to hire a recruiter for six months" pain point copy**
+The "Sound Familiar?" pain list on the How It Works page is excellent — but it's only on that inner page. A condensed version of it would work great on the homepage right before the services section to prime the reader.
+
+---
+
+Most of these are CSS/layout tweaks you can knock out quickly in Replit — the above-the-fold fix and the gap reduction alone would make a noticeable difference on first impression.

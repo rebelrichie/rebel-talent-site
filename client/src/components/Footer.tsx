@@ -66,9 +66,12 @@ export default function Footer() {
           <p className="text-zinc-600 text-xs tracking-wider uppercase">
             &copy; {new Date().getFullYear()} Rebel Talent. All rights reserved.
           </p>
-          <p className="text-zinc-700 text-xs tracking-wider uppercase font-mono">
-            BUILD RIGHT. HIRE RIGHT. REBEL FOREVER.
-          </p>
+          <div className="flex items-center gap-4">
+            <a href="/privacy-policy" data-testid="link-footer-privacy" className="text-zinc-700 text-xs hover:text-zinc-500 no-underline transition-colors">Privacy Policy</a>
+            <p className="text-zinc-700 text-xs tracking-wider uppercase font-mono">
+              BUILD RIGHT. HIRE RIGHT. REBEL FOREVER.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

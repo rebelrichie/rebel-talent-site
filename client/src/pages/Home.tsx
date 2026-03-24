@@ -288,7 +288,7 @@ export default function Home() {
       <section
         ref={heroRef}
         data-testid="section-hero"
-        className="relative py-20 sm:py-28 overflow-hidden"
+        className="relative py-10 sm:py-14 overflow-hidden"
         style={{
           backgroundImage: "url('/hero-banner.png')",
           backgroundSize: "cover",
@@ -302,22 +302,14 @@ export default function Home() {
         <ShootingStars />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
-          <div className="relative mx-auto mb-8 w-64 h-64 sm:w-[352px] sm:h-[352px]">
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                borderRadius: "50%",
-                boxShadow: "0 0 60px 20px rgba(220,38,38,0.12), 0 0 120px 40px rgba(234,88,12,0.08)",
-                animation: "logoGlow 3.5s ease-in-out infinite alternate",
-              }}
-            />
+          <div className="mb-5">
             <img
               src="/logo.png"
               alt="Rebel Talent"
               data-testid="img-hero-logo"
-              className="w-full h-full relative z-10"
+              className="w-20 h-20 mx-auto"
               style={{
-                filter: "drop-shadow(0 0 16px rgba(220,38,38,0.55)) drop-shadow(0 0 36px rgba(234,88,12,0.30)) drop-shadow(0 0 70px rgba(200,215,255,0.15)) brightness(1.25) contrast(1.05)",
+                filter: "drop-shadow(0 0 16px rgba(220,38,38,0.55)) drop-shadow(0 0 36px rgba(234,88,12,0.30)) brightness(1.25) contrast(1.05)",
                 animation: "logoFloat 3.5s ease-in-out infinite alternate",
               }}
             />
@@ -353,7 +345,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="section-stats" className="py-16 border-y border-zinc-800/50">
+      <section data-testid="section-stats" className="py-10 border-y border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
@@ -375,9 +367,70 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="section-services" className="py-20">
+      <section data-testid="section-proof" className="py-10 border-b border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14">
+          <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/5 to-transparent p-6 sm:p-8 flex flex-col sm:flex-row gap-6 sm:gap-10 items-start">
+            <div className="flex-1">
+              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">PROOF OF CONCEPT</div>
+              <h2 className="font-display text-xl font-bold text-white uppercase mb-2">EarthDaily Federal</h2>
+              <p className="text-zinc-400 text-sm leading-relaxed mb-5">
+                Defense-sector geospatial intelligence firm. We built their entire hiring infrastructure from scratch and eliminated agency dependency in under 90 days.
+              </p>
+              <div className="grid grid-cols-3 gap-4 mb-5">
+                {[
+                  { value: "$178K", label: "Agency Fees Avoided" },
+                  { value: "350%", label: "ROI Delivered" },
+                  { value: "<30 days", label: "Avg. Time to Hire" },
+                ].map((s) => (
+                  <div key={s.label}>
+                    <div className="font-display text-xl sm:text-2xl font-bold text-rebel-red">{s.value}</div>
+                    <div className="text-zinc-500 text-xs uppercase tracking-wide leading-tight mt-0.5">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+              <Link href="/case-studies" data-testid="link-case-study-proof">
+                <Button variant="outline" size="sm" className="font-display tracking-wider uppercase text-xs border-zinc-700 text-zinc-300">
+                  See Full Case Study <ArrowRight className="ml-2 w-3 h-3" />
+                </Button>
+              </Link>
+            </div>
+            <div className="hidden sm:flex flex-col justify-center items-center border-l border-zinc-800 pl-8 shrink-0">
+              <div className="font-mono text-zinc-600 text-xs tracking-widest uppercase mb-1">Sector</div>
+              <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">Defense / Geo-Intel</div>
+              <div className="font-mono text-zinc-600 text-xs tracking-widest uppercase mt-4 mb-1">Clearances</div>
+              <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">TS / TS-SCI</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-testid="section-pain" className="py-10 border-b border-zinc-800/50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-6">
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">SOUND FAMILIAR?</div>
+            <h2 className="font-display text-2xl font-bold text-white uppercase">If Any of These Hit, We Need to Talk</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-3 max-w-3xl mx-auto">
+            {[
+              "Paying agencies $30K+ per hire and still getting bad fits",
+              "Your ATS is a graveyard of unreviewed resumes",
+              "Hiring managers winging interviews with zero structure",
+              "You've been 'about to hire a recruiter' for six months",
+              "Your 'recruiting process' is LinkedIn InMails and prayers",
+              "Open roles costing more every day than filling them would",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3 border border-zinc-800/50 bg-zinc-900/20 px-4 py-3" data-testid={`item-pain-${item.slice(0, 20).toLowerCase().replace(/\s+/g, "-")}`}>
+                <span className="text-rebel-red font-mono font-bold text-xs mt-0.5 shrink-0">X</span>
+                <span className="text-zinc-400 text-sm">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section data-testid="section-services" className="py-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
               THREE PATHS TO INFRASTRUCTURE
             </div>
@@ -387,7 +440,10 @@ export default function Home() {
           </div>
 
           <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
-            <div className="border border-zinc-800 bg-zinc-900/50 p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-fractional">
+            <div className="border border-rebel-red/50 bg-rebel-red/5 p-8 group transition-colors hover:border-rebel-red snap-start shrink-0 w-[82vw] md:w-auto relative overflow-hidden" data-testid="card-fractional">
+              <div className="absolute top-0 right-0 bg-rebel-red px-3 py-1 font-mono text-white text-[10px] tracking-widest uppercase">
+                MOST POPULAR
+              </div>
               <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
                 OPTION 01
               </div>
@@ -480,9 +536,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="section-who" className="py-20 border-t border-zinc-800/50">
+      <section data-testid="section-who" className="py-12 border-t border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
               IDEAL CLIENTS
             </div>
@@ -551,7 +607,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="section-newsletter-shop" className="py-16 border-t border-zinc-800/50">
+      <section data-testid="section-newsletter-shop" className="py-10 border-t border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid sm:grid-cols-2 gap-6">
             <a
@@ -595,7 +651,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="section-cta" className="py-20 border-t border-zinc-800/50 bg-gradient-to-b from-rebel-red/5 to-transparent">
+      <section data-testid="section-cta" className="py-12 border-t border-zinc-800/50 bg-gradient-to-b from-rebel-red/5 to-transparent">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <img src="/logo.png" alt="Rebel Talent" className="w-16 h-16 mx-auto mb-6" />
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight mb-4">

@@ -50,7 +50,7 @@ export default function Testimonials() {
             {testimonials.map((t, i) => (
               <div key={i} className="border border-zinc-800 bg-zinc-900/30 p-6 sm:p-8" data-testid={`card-testimonial-${i}`}>
                 <div className="flex items-center gap-4 mb-5 pb-5 border-b border-zinc-800">
-                  <div className="w-12 h-12 border border-rebel-red/30 bg-rebel-red/10 flex items-center justify-center text-rebel-red font-display font-bold text-sm shrink-0">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-display font-bold text-sm shrink-0 ring-2 ring-rebel-red/40" style={{ background: "linear-gradient(135deg, #7f1d1d 0%, #dc2626 50%, #ea580c 100%)" }}>
                     {t.initials}
                   </div>
                   <div>
