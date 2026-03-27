@@ -1,11 +1,79 @@
 import { ArrowRight, FileText, Workflow, BookOpen, Users } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Fractional Head of Talent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Fractional Head of Talent is an embedded recruiting leader who owns your entire talent acquisition function part-time — without the full-time executive cost. You get strategy, execution, ATS setup, process design, and hiring manager coaching, all in one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is fractional recruiting different from using an agency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Agencies charge 20-25% per hire and leave nothing behind. A fractional recruiter embeds into your company, builds systems you own, and transfers all knowledge — ATS, SOPs, sourcing playbooks — when the engagement ends. You own the recruiting function, not just a hire."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a fractional recruiting engagement last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most engagements run 3-6 months. The goal is to build a recruiting infrastructure your team can own and operate independently. Month 1 is infrastructure build, Months 2-3 are execution and refinement, Month 4+ transitions ownership to your internal team."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What size companies does Rebel Talent work with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Series A-C startups without an internal recruiting function, defense contractors needing cleared talent (Secret, TS, TS/SCI), and growth companies where hiring has become a bottleneck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What roles does Rebel Talent fill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Forward Deployed Engineers (FDEs), AI/ML Engineers, GTM roles (AEs, SEs, RevOps, CSMs), cleared positions (Secret, TS, TS/SCI), backend engineers, geospatial scientists, executive and leadership searches."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after the engagement ends?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You own everything — full ATS configuration, sourcing playbooks, SOPs, interview scorecards, active pipelines, and documented workflows. There is no vendor lock-in. Rebel Talent also helps you hire your internal TA person before exiting."
+      }
+    }
+  ]
+};
 
 export default function HowItWorks() {
   return (
     <PageLayout>
+      <PageSEO
+        title="How Embedded Recruiting Works | Rebel Talent"
+        description="See how Rebel Talent's embedded recruiting model works — from infrastructure audit to full recruiting ownership in 90 days. No agency. No lock-in. You own it all."
+        path="/how-it-works"
+        ogTitle="How Embedded Recruiting Works | Rebel Talent"
+        ogDescription="Week 1 audit, Month 1 go-live, Month 4+ you own it. This is fractional recruiting that builds systems — not dependency."
+        schemas={[faqSchema]}
+        breadcrumbs={[
+          { name: "Home", item: "https://rebeltalentsystems.com/" },
+          { name: "How It Works", item: "https://rebeltalentsystems.com/how-it-works" },
+        ]}
+      />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-16">

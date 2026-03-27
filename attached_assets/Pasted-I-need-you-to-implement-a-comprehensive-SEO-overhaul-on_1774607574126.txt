@@ -1,0 +1,430 @@
+I need you to implement a comprehensive SEO overhaul on this Next.js / React website (rebeltalentsystems.com). Do NOT touch the blog (it lives on app.rebeltalent.dev and links back to this site — leave those links as-is). Here is every change needed, page by page.
+
+---
+
+## GLOBAL CHANGES (apply to every page)
+
+### 1. Add Canonical Tags
+Every page is missing a canonical tag. Add a self-referencing canonical to the <head> of every page:
+<link rel="canonical" href="https://rebeltalentsystems.com/[PAGE-PATH]" />
+Use the correct path for each page (e.g., "/" for homepage, "/services" for services, etc.)
+
+### 2. Add Twitter/X Card Meta Tags
+Add these to the <head> of every page (globally, can pull values from og: tags):
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="[same as og:title]" />
+<meta name="twitter:description" content="[same as og:description]" />
+<meta name="twitter:image" content="https://rebeltalentsystems.com/og-image.png" />
+
+### 3. Fix og:image to Absolute URL
+The og:image is currently a relative path (/og-image.png). Change it to the full absolute URL on every page:
+<meta property="og:image" content="https://rebeltalentsystems.com/og-image.png" />
+
+### 4. Add Performance Hints to <head>
+Add these preconnect/dns-prefetch hints globally in the site <head>:
+<link rel="preconnect" href="https://calendly.com" />
+<link rel="dns-prefetch" href="https://www.linkedin.com" />
+
+---
+
+## PAGE-SPECIFIC TITLE TAGS & META DESCRIPTIONS
+Change every page to have a UNIQUE title tag and meta description. Currently every page shares the same ones, which is killing SEO.
+
+### Homepage (/)
+- Title: Fractional Recruiting for Startups & Defense | Rebel Talent
+- Meta description: Rebel Talent provides fractional recruiting and embedded talent leadership for Series A-C startups and defense contractors. 350%+ ROI proven. 14+ years experience.
+- og:title: Fractional Recruiting for Startups & Defense | Rebel Talent
+- og:description: Agencies profit from your chaos. Rebel Talent embeds fractional recruiting leadership to build the hiring infrastructure startups and defense firms need — without the agency fees, bad fits, or delays.
+
+### /services
+- Title: Fractional Recruiting Services | Rebel Talent Systems
+- Meta description: Explore Rebel Talent's fractional recruiting services: Fractional Head of Talent, Critical Hire Execution, and Contract Recruiters for startups and defense firms.
+- og:title: Fractional Recruiting Services | Rebel Talent Systems
+- og:description: Fractional Head of Talent from $12K/mo, Critical Hire Execution, and vetted contract recruiters — embedded into your workflow, owned by you.
+
+### /about
+- Title: Richie Lampani | Fractional Head of Talent | Rebel Talent
+- Meta description: Richie Lampani is a fractional recruiter with 14+ years placing Forward Deployed Engineers, AI/ML talent, and cleared TS/SCI roles for startups and defense contractors.
+- og:title: Richie Lampani | Fractional Head of Talent | Rebel Talent
+- og:description: Operator. Builder. Anti-Agency force. Richie Lampani founded Rebel Talent Systems to deliver embedded recruiting leadership and systems that clients own forever.
+
+### /how-it-works
+- Title: How Embedded Recruiting Works | Rebel Talent
+- Meta description: See how Rebel Talent's embedded recruiting model works — from infrastructure audit to full recruiting ownership in 90 days. No agency. No lock-in. You own it all.
+- og:title: How Embedded Recruiting Works | Rebel Talent
+- og:description: Week 1 audit, Month 1 go-live, Month 4+ you own it. This is fractional recruiting that builds systems — not dependency.
+
+### /case-studies
+- Title: Startup & Defense Recruiting Case Studies | Rebel Talent
+- Meta description: Real results from real engagements. See how Rebel Talent delivered 350% ROI, $178K in agency fees avoided, 18 hires with 90% retention, and more.
+- og:title: Startup & Defense Recruiting Case Studies | Rebel Talent
+- og:description: Proof over promises. EarthDaily Federal: $178K saved, 350% ROI. Legal Managed Services: 18 hires, 90% retention. See how fractional recruiting actually performs.
+
+### /podcast
+- Title: Podcast Appearances | Fractional Recruiting with Richie Lampani
+- Meta description: Richie Lampani featured on recruiting, cybersecurity, and startup podcasts discussing fractional leadership, AI in hiring, talent infrastructure, and cleared hiring.
+- og:title: Podcast Appearances | Richie Lampani on Fractional Recruiting
+- og:description: Straight talk on recruiting systems, AI in hiring, and why most talent acquisition is broken. Featured on Purple Acorn, Risk and Reels, Empire Launch, and more.
+
+### /testimonials
+- Title: Client Testimonials | Rebel Talent Systems
+- Meta description: Real feedback from startup founders, defense contractors, and hiring managers who have worked with Rebel Talent's fractional recruiting model.
+- og:title: What Clients Say About Rebel Talent
+- og:description: No fluff, no embellishment — honest feedback from operators who've worked with Rebel Talent's embedded fractional recruiting model.
+
+### /free-tools
+- Title: Free Recruiting Tools & Resources | Rebel Talent
+- Meta description: Free hiring tools and recruiting resources for startup founders and operators — from Rebel Talent's fractional recruiting team.
+- og:title: Free Recruiting Tools & Resources | Rebel Talent
+- og:description: Tools, templates, and resources to help startups hire better, cut agency dependency, and build recruiting infrastructure that lasts.
+
+---
+
+## HOMEPAGE KEYWORD FIXES
+
+### 5. Update Hero Subtext
+Find the hero subtext paragraph on the homepage that currently reads:
+"Agencies profit from your chaos. Rebel Talent Systems embeds leadership to build the hiring infrastructure that ends it, for startups and defense firms that can't afford delays."
+
+Change it to:
+"Agencies profit from your chaos. Rebel Talent embeds fractional recruiting leadership to build the hiring infrastructure startups and defense firms need — without the agency fees, bad fits, or endless delays."
+
+### 6. Update Footer Tagline
+Find the footer tagline that currently reads:
+"Fractional recruiting leadership for companies that refuse to settle."
+
+Keep it as-is — it already contains the keyword. No change needed here.
+
+### 7. Add Target Keywords to Homepage Section Subtext
+In the "THREE PATHS TO INFRASTRUCTURE" section, find the closing line:
+"Agencies invoice excuses. We deliver systems. Not sure which fits? Let's talk."
+
+Change it to:
+"Agencies invoice excuses. We deliver fractional recruiting systems built for startup scale and defense complexity. Not sure which fits? Let's talk."
+
+---
+
+## SCHEMA MARKUP CHANGES
+
+### 8. Update Homepage ProfessionalService Schema
+The existing schema on the homepage is a good start. Update it to add a sameAs array and expand serviceType. Find the existing <script type="application/ld+json"> on the homepage and update it to:
+
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Rebel Talent",
+  "description": "Fractional recruiting leadership and embedded talent infrastructure for startups and defense contractors. Specializing in Forward Deployed Engineers, AI/ML, GTM, and cleared TS/SCI hiring.",
+  "url": "https://rebeltalentsystems.com",
+  "logo": "https://rebeltalentsystems.com/logo.png",
+  "telephone": "+1-770-233-7548",
+  "email": "richie@rebeltalentsystems.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Alpharetta",
+    "addressRegion": "GA",
+    "addressCountry": "US"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Richie Lampani",
+    "jobTitle": "Fractional Head of Talent",
+    "url": "https://rebeltalentsystems.com/about",
+    "sameAs": ["https://linkedin.com/in/richielampani"]
+  },
+  "sameAs": [
+    "https://linkedin.com/in/richielampani",
+    "https://rebeltalentsystems.com"
+  ],
+  "areaServed": ["United States", "Remote"],
+  "serviceType": [
+    "Fractional Recruiting",
+    "Fractional Head of Talent",
+    "Embedded Recruiting",
+    "Startup Recruiting",
+    "Defense Recruiting",
+    "Cleared Hiring (Secret, TS, TS/SCI)",
+    "Forward Deployed Engineer Recruiting",
+    "AI/ML Engineer Recruiting",
+    "GTM Hiring",
+    "Contract Recruiting",
+    "ATS Implementation"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Rebel Talent Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Fractional Head of Talent",
+          "description": "Embedded fractional recruiting leadership that owns your entire talent function. Strategy, execution, ATS, process design, and hiring manager coaching.",
+          "url": "https://rebeltalentsystems.com/services"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Critical Hire Execution",
+          "description": "Surgical execution for must-fill roles. Executive searches, cleared roles (TS/SCI), and specialized technical talent closed in weeks.",
+          "url": "https://rebeltalentsystems.com/services"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Rebel Contract Recruiters",
+          "description": "Vetted contract recruiters deployed under Rebel Talent standards on an hourly basis. Scale up or down as hiring demands shift.",
+          "url": "https://rebeltalentsystems.com/services"
+        }
+      }
+    ]
+  }
+}
+
+### 9. Add Person Schema to /about Page
+Add a new <script type="application/ld+json"> to the /about page:
+
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Richie Lampani",
+  "jobTitle": "Fractional Head of Talent",
+  "url": "https://rebeltalentsystems.com/about",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Rebel Talent",
+    "url": "https://rebeltalentsystems.com"
+  },
+  "description": "Fractional recruiter with 14+ years specializing in Forward Deployed Engineers, AI/ML talent, cleared TS/SCI hiring, and GTM roles for Series A-C startups and defense contractors.",
+  "knowsAbout": [
+    "Fractional Recruiting",
+    "Embedded Recruiting",
+    "Startup Recruiting",
+    "Defense Recruiting",
+    "Cleared Hiring",
+    "Forward Deployed Engineers",
+    "AI/ML Recruiting",
+    "GTM Hiring",
+    "Talent Infrastructure",
+    "ATS Implementation"
+  ],
+  "sameAs": ["https://linkedin.com/in/richielampani"],
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Fractional Head of Talent",
+    "occupationLocation": {
+      "@type": "Country",
+      "name": "United States"
+    }
+  }
+}
+
+### 10. Add FAQPage Schema to /how-it-works
+Add a new <script type="application/ld+json"> to the /how-it-works page. Use the existing FAQ section content to populate it:
+
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Fractional Head of Talent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Fractional Head of Talent is an embedded recruiting leader who owns your entire talent acquisition function part-time — without the full-time executive cost. You get strategy, execution, ATS setup, process design, and hiring manager coaching, all in one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is fractional recruiting different from using an agency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Agencies charge 20-25% per hire and leave nothing behind. A fractional recruiter embeds into your company, builds systems you own, and transfers all knowledge — ATS, SOPs, sourcing playbooks — when the engagement ends. You own the recruiting function, not just a hire."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a fractional recruiting engagement last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most engagements run 3-6 months. The goal is to build a recruiting infrastructure your team can own and operate independently. Month 1 is infrastructure build, Months 2-3 are execution and refinement, Month 4+ transitions ownership to your internal team."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What size companies does Rebel Talent work with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Series A-C startups without an internal recruiting function, defense contractors needing cleared talent (Secret, TS, TS/SCI), and growth companies where hiring has become a bottleneck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What roles does Rebel Talent fill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Forward Deployed Engineers (FDEs), AI/ML Engineers, GTM roles (AEs, SEs, RevOps, CSMs), cleared positions (Secret, TS, TS/SCI), backend engineers, geospatial scientists, executive and leadership searches."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after the engagement ends?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You own everything — full ATS configuration, sourcing playbooks, SOPs, interview scorecards, active pipelines, and documented workflows. There is no vendor lock-in. Rebel Talent also helps you hire your internal TA person before exiting."
+      }
+    }
+  ]
+}
+
+### 11. Add CaseStudy / Article Schema to /case-studies
+Add a new <script type="application/ld+json"> to the /case-studies page:
+
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Rebel Talent Case Studies",
+  "description": "Real results from fractional recruiting engagements with startups and defense contractors.",
+  "url": "https://rebeltalentsystems.com/case-studies",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Article",
+        "headline": "EarthDaily Federal: $178K Agency Fees Avoided, 350% ROI in 4.5 Months",
+        "description": "Defense-sector geospatial intelligence firm. Zero recruiting infrastructure. Built ATS, SOPs, sourcing playbooks, and placed 6 roles with 350% ROI on a fractional recruiting retainer.",
+        "url": "https://rebeltalentsystems.com/case-studies",
+        "author": {
+          "@type": "Person",
+          "name": "Richie Lampani"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Rebel Talent"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Article",
+        "headline": "Legal Managed Services: 18 Hires in 14 Months with 90% Retention",
+        "description": "Built complete GTM talent infrastructure from zero, delivering 18 hires over 14 months with 90% retention rate. Fully automated pipeline continues generating qualified candidates.",
+        "url": "https://rebeltalentsystems.com/case-studies",
+        "author": {
+          "@type": "Person",
+          "name": "Richie Lampani"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Rebel Talent"
+        }
+      }
+    }
+  ]
+}
+
+### 12. Add BreadcrumbList Schema to all inner pages
+Add breadcrumb schema to /services, /about, /how-it-works, /case-studies, /podcast, /testimonials, /free-tools. Example for /services:
+
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://rebeltalentsystems.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://rebeltalentsystems.com/services"
+    }
+  ]
+}
+Apply the same pattern to each inner page with the correct page name and URL in position 2.
+
+---
+
+## SITEMAP UPDATES
+
+### 13. Add Missing Pages to sitemap.xml
+The sitemap is missing /testimonials is present but double-check all pages are included. Also ensure the sitemap includes lastmod dates. Update sitemap.xml to include all these URLs with appropriate priorities:
+
+https://rebeltalentsystems.com/ — priority 1.0, changefreq weekly
+https://rebeltalentsystems.com/about — priority 0.9, changefreq monthly
+https://rebeltalentsystems.com/services — priority 0.9, changefreq monthly
+https://rebeltalentsystems.com/how-it-works — priority 0.8, changefreq monthly
+https://rebeltalentsystems.com/case-studies — priority 0.9, changefreq monthly
+https://rebeltalentsystems.com/testimonials — priority 0.8, changefreq monthly
+https://rebeltalentsystems.com/podcast — priority 0.7, changefreq weekly
+https://rebeltalentsystems.com/free-tools — priority 0.7, changefreq monthly
+https://rebeltalentsystems.com/privacy-policy — priority 0.3, changefreq yearly
+
+Add a lastmod tag to each URL using today's date in YYYY-MM-DD format.
+
+Also add a <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" /> tag to the global <head>.
+
+---
+
+## HEADING STRUCTURE FIXES
+
+### 14. Homepage H1
+The current H1 is the brand tagline ("BUILD RIGHT. HIRE RIGHT. REBEL FOREVER."). Add a visually hidden but SEO-readable H1 above it, or change the section label from a generic element to an H1. The goal is for the page's primary H1 to signal the topic to Google.
+
+Add an SEO-focused H1 that is either visible (preferred) or visually hidden using a sr-only class:
+<h1 class="sr-only">Fractional Recruiting for Startups & Defense Contractors</h1>
+
+Place this just inside the hero section, before the existing tagline heading. If the site already uses a "sr-only" utility class, use that. If not, add this CSS:
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+### 15. /podcast Page H1 & H2
+Change the current H1 from "PODCAST APPEARANCES" to: "Fractional Recruiting Podcast Appearances | Richie Lampani"
+Add a descriptive paragraph under the H1 that includes the phrase "startup recruiting" and "fractional recruiting" naturally — the intro text already does this partially, make sure those phrases appear.
+
+### 16. /case-studies Page H1
+Change the current H1 from "RESULTS" to: "Fractional Recruiting Case Studies & Results"
+Keep the subheading "350% ROI. 90% retention. Under-30-day hires." as a subtitle/H2.
+
+### 17. /about Page H1
+The current H1 is "RICHIE LAMPANI" — the person's name is important but add a subtitle directly below it (as an H2 or paragraph) that reads:
+"Fractional Head of Talent | Startup Recruiting & Defense Hiring Specialist"
+This gives Google a keyword-rich description anchored to the named entity.
+
+---
+
+## IMAGE ALT TEXT
+
+### 18. All Logo Images
+The site has 4 <img> tags all with alt="Rebel Talent". This is correct for logo images. No change needed for those.
+
+When any new images are added (case study thumbnails, Richie's headshot, service graphics), ensure they have descriptive alt text like:
+- Richie Lampani headshot: alt="Richie Lampani, Fractional Head of Talent at Rebel Talent Systems"
+- Service graphic: alt="Fractional recruiting infrastructure diagram"
+
+---
+
+## SUMMARY OF ALL FILES LIKELY NEEDING CHANGES
+
+- Global layout/head component (canonical, og:image, twitter cards, preconnect, sitemap link)
+- Homepage component (hero subtext, services section copy, H1 sr-only, schema update)
+- /services page (title, meta, canonical, breadcrumb schema)
+- /about page (title, meta, canonical, H2 subtitle, Person schema, breadcrumb schema)
+- /how-it-works page (title, meta, canonical, FAQ schema, breadcrumb schema)
+- /case-studies page (title, meta, canonical, H1 text, CaseStudy schema, breadcrumb schema)
+- /podcast page (title, meta, canonical, H1 text, breadcrumb schema)
+- /testimonials page (title, meta, canonical, breadcrumb schema)
+- /free-tools page (title, meta, canonical, breadcrumb schema)
+- sitemap.xml (add missing pages, lastmod dates)
+- Global CSS (add .sr-only if not present)
+
+DO NOT modify anything related to the blog (app.rebeltalent.dev links). Leave all links to the blog as-is.
+After making changes, confirm each file was updated and list what was changed.

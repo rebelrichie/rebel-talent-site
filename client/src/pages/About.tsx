@@ -1,13 +1,64 @@
 import { ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
+
 import headAndHeartCover from "@assets/Head_And_Heart_1773068092478.PNG";
 import unfinishedRoomsCover from "@assets/UR-BookCover_1773068071585.png";
 import richiePfp from "@assets/RichiePFP4_(4)_1773228453685.png";
 
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Richie Lampani",
+  "jobTitle": "Fractional Head of Talent",
+  "url": "https://rebeltalentsystems.com/about",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Rebel Talent",
+    "url": "https://rebeltalentsystems.com"
+  },
+  "description": "Fractional recruiter with 14+ years specializing in Forward Deployed Engineers, AI/ML talent, cleared TS/SCI hiring, and GTM roles for Series A-C startups and defense contractors.",
+  "knowsAbout": [
+    "Fractional Recruiting",
+    "Embedded Recruiting",
+    "Startup Recruiting",
+    "Defense Recruiting",
+    "Cleared Hiring",
+    "Forward Deployed Engineers",
+    "AI/ML Recruiting",
+    "GTM Hiring",
+    "Talent Infrastructure",
+    "ATS Implementation"
+  ],
+  "sameAs": ["https://linkedin.com/in/richielampani"],
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Fractional Head of Talent",
+    "occupationLocation": {
+      "@type": "Country",
+      "name": "United States"
+    }
+  }
+};
+
+const BREADCRUMBS = [
+  { name: "Home", item: "https://rebeltalentsystems.com/" },
+  { name: "About", item: "https://rebeltalentsystems.com/about" },
+];
+
 export default function About() {
   return (
     <PageLayout>
+      <PageSEO
+        title="Richie Lampani | Fractional Head of Talent | Rebel Talent"
+        description="Richie Lampani is a fractional recruiter with 14+ years placing Forward Deployed Engineers, AI/ML talent, and cleared TS/SCI roles for startups and defense contractors."
+        path="/about"
+        ogTitle="Richie Lampani | Fractional Head of Talent | Rebel Talent"
+        ogDescription="Operator. Builder. Anti-Agency force. Richie Lampani founded Rebel Talent Systems to deliver embedded recruiting leadership and systems that clients own forever."
+        schemas={[personSchema]}
+        breadcrumbs={BREADCRUMBS}
+      />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid md:grid-cols-[280px_1fr] gap-12 items-start mb-16">
@@ -36,6 +87,9 @@ export default function About() {
               <h1 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight mb-2" data-testid="text-name">
                 Richie Lampani
               </h1>
+              <h2 className="font-display text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-2">
+                Fractional Head of Talent | Startup Recruiting & Defense Hiring Specialist
+              </h2>
               <p className="text-rebel-red font-display text-lg uppercase tracking-wider mb-6" data-testid="text-tagline">
                 Operator. Builder. Anti-Agency Force.
               </p>

@@ -1,11 +1,23 @@
 import { ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 export default function Services() {
   return (
     <PageLayout>
+      <PageSEO
+        title="Fractional Recruiting Services | Rebel Talent Systems"
+        description="Explore Rebel Talent's fractional recruiting services: Fractional Head of Talent, Critical Hire Execution, and Contract Recruiters for startups and defense firms."
+        path="/services"
+        ogTitle="Fractional Recruiting Services | Rebel Talent Systems"
+        ogDescription="Fractional Head of Talent from $12K/mo, Critical Hire Execution, and vetted contract recruiters — embedded into your workflow, owned by you."
+        breadcrumbs={[
+          { name: "Home", item: "https://rebeltalentsystems.com/" },
+          { name: "Services", item: "https://rebeltalentsystems.com/services" },
+        ]}
+      />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-16">

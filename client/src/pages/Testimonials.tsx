@@ -1,5 +1,6 @@
 import { ArrowRight, Quote } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 
 const testimonials = [
@@ -32,6 +33,17 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <PageLayout>
+      <PageSEO
+        title="Client Testimonials | Rebel Talent Systems"
+        description="Real feedback from startup founders, defense contractors, and hiring managers who have worked with Rebel Talent's fractional recruiting model."
+        path="/testimonials"
+        ogTitle="What Clients Say About Rebel Talent"
+        ogDescription="No fluff, no embellishment — honest feedback from operators who've worked with Rebel Talent's embedded fractional recruiting model."
+        breadcrumbs={[
+          { name: "Home", item: "https://rebeltalentsystems.com/" },
+          { name: "Testimonials", item: "https://rebeltalentsystems.com/testimonials" },
+        ]}
+      />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-16">

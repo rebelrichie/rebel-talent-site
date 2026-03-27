@@ -6,3 +6,9 @@ id = "wmrL3abJsq7TaU7y9AzpL"
 uri = "file://netlify-deploy.zip"
 type = "unspecified"
 title = "netlify-deploy.zip — UX + nav + proof module update"
+
+[[outputs]]
+id = "DKpS1Jky9ZvgaRXmvc3iz"
+uri = "file://rebel-talent-netlify.zip"
+type = "unspecified"
+title = "Rebel Talent — Netlify Deploy Package (SEO Complete)"

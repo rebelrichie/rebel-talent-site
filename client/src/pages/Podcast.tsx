@@ -1,5 +1,6 @@
 import { ArrowRight, ExternalLink } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 
 const podcasts = [
@@ -84,6 +85,17 @@ const podcasts = [
 export default function Podcast() {
   return (
     <PageLayout>
+      <PageSEO
+        title="Podcast Appearances | Fractional Recruiting with Richie Lampani"
+        description="Richie Lampani featured on recruiting, cybersecurity, and startup podcasts discussing fractional leadership, AI in hiring, talent infrastructure, and cleared hiring."
+        path="/podcast"
+        ogTitle="Podcast Appearances | Richie Lampani on Fractional Recruiting"
+        ogDescription="Straight talk on recruiting systems, AI in hiring, and why most talent acquisition is broken. Featured on Purple Acorn, Risk and Reels, Empire Launch, and more."
+        breadcrumbs={[
+          { name: "Home", item: "https://rebeltalentsystems.com/" },
+          { name: "Podcast", item: "https://rebeltalentsystems.com/podcast" },
+        ]}
+      />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="mb-16">
@@ -91,13 +103,13 @@ export default function Podcast() {
               MEDIA
             </div>
             <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-4" data-testid="heading-podcast">
-              Podcast Appearances
+              Fractional Recruiting Podcast Appearances | Richie Lampani
             </h1>
             <p className="text-rebel-red font-display text-lg uppercase tracking-wider mb-4">
               Straight talk on recruiting, AI, talent systems, and why most hiring is broken.
             </p>
             <p className="text-zinc-400 text-sm leading-relaxed max-w-2xl">
-              I've been featured on recruiting, cybersecurity, and business podcasts to discuss fractional leadership, talent infrastructure, AI in hiring, and why most companies fail at building effective talent systems. No corporate scripts. No fluff. Just real answers.
+              I've been featured on recruiting, cybersecurity, and startup podcasts to discuss fractional recruiting, startup recruiting strategy, talent infrastructure, AI in hiring, cleared hiring for defense contractors, and why most companies fail at building effective talent systems. No corporate scripts. No fluff. Just real answers.
             </p>
           </div>
 

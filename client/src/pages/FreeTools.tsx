@@ -1,5 +1,6 @@
 import { ArrowRight, FileText, Linkedin, Video } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import headAndHeartCover from "@assets/Head_And_Heart_1773068092478.PNG";
 import unfinishedRoomsCover from "@assets/UR-BookCover_1773068071585.png";
@@ -7,6 +8,17 @@ import unfinishedRoomsCover from "@assets/UR-BookCover_1773068071585.png";
 export default function FreeTools() {
   return (
     <PageLayout>
+      <PageSEO
+        title="Free Recruiting Tools & Resources | Rebel Talent"
+        description="Free hiring tools and recruiting resources for startup founders and operators — from Rebel Talent's fractional recruiting team."
+        path="/free-tools"
+        ogTitle="Free Recruiting Tools & Resources | Rebel Talent"
+        ogDescription="Tools, templates, and resources to help startups hire better, cut agency dependency, and build recruiting infrastructure that lasts."
+        breadcrumbs={[
+          { name: "Home", item: "https://rebeltalentsystems.com/" },
+          { name: "Free Tools", item: "https://rebeltalentsystems.com/free-tools" },
+        ]}
+      />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-16">

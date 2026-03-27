@@ -2,7 +2,83 @@ import { useState, useEffect, useMemo, useRef } from "react";
 import { Link } from "wouter";
 import { ArrowRight, Shield, Target, Zap, Users, Clock, TrendingUp } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
+
+const homepageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Rebel Talent",
+  "description": "Fractional recruiting leadership and embedded talent infrastructure for startups and defense contractors. Specializing in Forward Deployed Engineers, AI/ML, GTM, and cleared TS/SCI hiring.",
+  "url": "https://rebeltalentsystems.com",
+  "logo": "https://rebeltalentsystems.com/logo.png",
+  "telephone": "+1-770-233-7548",
+  "email": "richie@rebeltalentsystems.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Alpharetta",
+    "addressRegion": "GA",
+    "addressCountry": "US"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Richie Lampani",
+    "jobTitle": "Fractional Head of Talent",
+    "url": "https://rebeltalentsystems.com/about",
+    "sameAs": ["https://linkedin.com/in/richielampani"]
+  },
+  "sameAs": [
+    "https://linkedin.com/in/richielampani",
+    "https://rebeltalentsystems.com"
+  ],
+  "areaServed": ["United States", "Remote"],
+  "serviceType": [
+    "Fractional Recruiting",
+    "Fractional Head of Talent",
+    "Embedded Recruiting",
+    "Startup Recruiting",
+    "Defense Recruiting",
+    "Cleared Hiring (Secret, TS, TS/SCI)",
+    "Forward Deployed Engineer Recruiting",
+    "AI/ML Engineer Recruiting",
+    "GTM Hiring",
+    "Contract Recruiting",
+    "ATS Implementation"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Rebel Talent Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Fractional Head of Talent",
+          "description": "Embedded fractional recruiting leadership that owns your entire talent function. Strategy, execution, ATS, process design, and hiring manager coaching.",
+          "url": "https://rebeltalentsystems.com/services"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Critical Hire Execution",
+          "description": "Surgical execution for must-fill roles. Executive searches, cleared roles (TS/SCI), and specialized technical talent closed in weeks.",
+          "url": "https://rebeltalentsystems.com/services"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Rebel Contract Recruiters",
+          "description": "Vetted contract recruiters deployed under Rebel Talent standards on an hourly basis. Scale up or down as hiring demands shift.",
+          "url": "https://rebeltalentsystems.com/services"
+        }
+      }
+    ]
+  }
+};
 
 interface Sparkle {
   x: number; y: number;
@@ -285,6 +361,14 @@ export default function Home() {
 
   return (
     <PageLayout>
+      <PageSEO
+        title="Fractional Recruiting for Startups & Defense | Rebel Talent"
+        description="Rebel Talent provides fractional recruiting and embedded talent leadership for Series A-C startups and defense contractors. 350%+ ROI proven. 14+ years experience."
+        path="/"
+        ogTitle="Fractional Recruiting for Startups & Defense | Rebel Talent"
+        ogDescription="Agencies profit from your chaos. Rebel Talent embeds fractional recruiting leadership to build the hiring infrastructure startups and defense firms need — without the agency fees, bad fits, or delays."
+        schemas={[homepageSchema]}
+      />
       <section
         ref={heroRef}
         data-testid="section-hero"
@@ -315,6 +399,7 @@ export default function Home() {
             />
           </div>
 
+          <h1 className="sr-only">Fractional Recruiting for Startups &amp; Defense Contractors</h1>
           <div className="font-mono text-rebel-red text-xs sm:text-sm tracking-[0.3em] uppercase mb-4">
             TALENT INFRASTRUCTURE FOR STARTUPS & DEFENSE
           </div>
@@ -322,7 +407,7 @@ export default function Home() {
           <GraffitiHero />
 
           <p className="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-            Agencies profit from your chaos. Rebel Talent Systems embeds leadership to build the hiring infrastructure that ends it, for startups and defense firms that can't afford delays.
+            Agencies profit from your chaos. Rebel Talent embeds fractional recruiting leadership to build the hiring infrastructure startups and defense firms need — without the agency fees, bad fits, or endless delays.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -526,7 +611,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-10">
-            <p className="text-zinc-500 text-sm mb-4">Agencies invoice excuses. We deliver systems. Not sure which fits? Let's talk.</p>
+            <p className="text-zinc-500 text-sm mb-4">Agencies invoice excuses. We deliver fractional recruiting systems built for startup scale and defense complexity. Not sure which fits? Let's talk.</p>
             <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-2">
               <Button className="font-display tracking-wider uppercase text-sm">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />

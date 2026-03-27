@@ -1,21 +1,71 @@
 import { ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
+
+const caseStudySchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Rebel Talent Case Studies",
+  "description": "Real results from fractional recruiting engagements with startups and defense contractors.",
+  "url": "https://rebeltalentsystems.com/case-studies",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Article",
+        "headline": "EarthDaily Federal: $178K Agency Fees Avoided, 350% ROI in 4.5 Months",
+        "description": "Defense-sector geospatial intelligence firm. Zero recruiting infrastructure. Built ATS, SOPs, sourcing playbooks, and placed 6 roles with 350% ROI on a fractional recruiting retainer.",
+        "url": "https://rebeltalentsystems.com/case-studies",
+        "author": { "@type": "Person", "name": "Richie Lampani" },
+        "publisher": { "@type": "Organization", "name": "Rebel Talent" }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Article",
+        "headline": "Legal Managed Services: 18 Hires in 14 Months with 90% Retention",
+        "description": "Built complete GTM talent infrastructure from zero, delivering 18 hires over 14 months with 90% retention rate. Fully automated pipeline continues generating qualified candidates.",
+        "url": "https://rebeltalentsystems.com/case-studies",
+        "author": { "@type": "Person", "name": "Richie Lampani" },
+        "publisher": { "@type": "Organization", "name": "Rebel Talent" }
+      }
+    }
+  ]
+};
 
 export default function CaseStudies() {
   return (
     <PageLayout>
+      <PageSEO
+        title="Startup & Defense Recruiting Case Studies | Rebel Talent"
+        description="Real results from real engagements. See how Rebel Talent delivered 350% ROI, $178K in agency fees avoided, 18 hires with 90% retention, and more."
+        path="/case-studies"
+        ogTitle="Startup & Defense Recruiting Case Studies | Rebel Talent"
+        ogDescription="Proof over promises. EarthDaily Federal: $178K saved, 350% ROI. Legal Managed Services: 18 hires, 90% retention. See how fractional recruiting actually performs."
+        schemas={[caseStudySchema]}
+        breadcrumbs={[
+          { name: "Home", item: "https://rebeltalentsystems.com/" },
+          { name: "Case Studies", item: "https://rebeltalentsystems.com/case-studies" },
+        ]}
+      />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="text-center mb-16 pb-10 border-b border-rebel-red/30">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
               PROOF IN THE METRICS
             </div>
-            <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-4" data-testid="heading-case-studies">
-              Results
+            <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-3" data-testid="heading-case-studies">
+              Fractional Recruiting Case Studies & Results
             </h1>
+            <h2 className="font-display text-lg font-semibold text-rebel-red uppercase tracking-wider mb-3">
+              350% ROI. 90% Retention. Under-30-Day Hires.
+            </h2>
             <p className="text-zinc-400 text-base max-w-2xl mx-auto">
-              350% ROI. 90% retention. Under-30-day hires. Real engagements, quantifiable impact, no vague claims.
+              Real engagements, quantifiable impact, no vague claims.
             </p>
           </div>
 
