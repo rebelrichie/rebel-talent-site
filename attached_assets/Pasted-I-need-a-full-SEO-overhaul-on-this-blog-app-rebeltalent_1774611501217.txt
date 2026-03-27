@@ -1,0 +1,198 @@
+I need a full SEO overhaul on this blog (app.rebeltalent.dev/blog). The blog stays where it is — do NOT move it. Just maximize all on-page SEO metrics. Here is every fix needed:
+
+---
+
+## ⚠️ IMPORTANT CONSTRAINTS
+- Do NOT change any visual design, colors, fonts, layout, or component structure
+- The blog stays on app.rebeltalent.dev — do not migrate anything
+- All changes are metadata, schema, head tags, link hrefs, and copy only
+
+---
+
+## 1. CANONICAL TAGS — Add to every page
+
+Every page on this blog is missing a canonical tag. Add self-referencing canonicals everywhere.
+
+Blog index page:
+<link rel="canonical" href="https://app.rebeltalent.dev/blog" />
+
+Each individual post page (dynamic — use the current page's full URL):
+<link rel="canonical" href="https://app.rebeltalent.dev/blog/[post-slug]" />
+
+In the Next.js/React head component, generate this dynamically using the current route so every post automatically gets its own correct canonical.
+
+---
+
+## 2. og:url — Add to every page
+
+The og:url tag is missing on every page. Add it dynamically using the current page's full URL.
+
+Blog index:
+<meta property="og:url" content="https://app.rebeltalent.dev/blog" />
+
+Each post (dynamic):
+<meta property="og:url" content="https://app.rebeltalent.dev/blog/[post-slug]" />
+
+---
+
+## 3. og:image and twitter:image — Add to every page
+
+Every page and post is missing og:image and twitter:image. When a post has a featured/cover image, use that. If no image is set for a post, fall back to a default OG image.
+
+Create a default OG image fallback at /public/og-default.png (if one doesn't exist, use the existing logo or create a simple branded placeholder — just make sure the path resolves).
+
+Add to every page:
+<meta property="og:image" content="[post featured image URL, or https://app.rebeltalent.dev/og-default.png as fallback]" />
+<meta name="twitter:image" content="[same as og:image]" />
+
+Make sure og:image uses an absolute URL, not a relative path.
+
+---
+
+## 4. Fix twitter:card on the blog index page
+
+The blog index page has twitter:card set to "summary" instead of "summary_large_image". Change it to:
+<meta name="twitter:card" content="summary_large_image" />
+
+Individual post pages already have summary_large_image — leave those as-is.
+
+---
+
+## 5. Fix ALL navigation and internal links to rebeltalentsystems.com
+
+Currently every link back to the main site points to https://rebeltalentsystems.com (homepage only). Fix every link to point to the correct specific page:
+
+Nav bar:
+- "Services" link: change href from https://rebeltalentsystems.com to https://rebeltalentsystems.com/services
+- "Work With Us" button: change href from https://rebeltalentsystems.com to https://calendly.com/richielam
+
+Footer:
+- "Website" link: change href from https://rebeltalentsystems.com to https://rebeltalentsystems.com (this one is fine as-is — homepage is correct for the footer logo/brand link)
+
+In-article CTA (the "Work with Richie →" link that appears at the bottom of every post):
+- Change href from https://rebeltalentsystems.com to https://rebeltalentsystems.com/services
+
+---
+
+## 6. Add og:site_name to individual post pages
+
+The blog index has og:site_name but individual post pages are missing it. Add to every post page's head:
+<meta property="og:site_name" content="Rebel Built" />
+
+---
+
+## 7. Improve BlogPosting schema on every post
+
+The existing BlogPosting schema is a good start but is missing required and recommended fields. Update the schema on every post to include all of these fields dynamically:
+
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[post title]",
+  "description": "[post meta description]",
+  "url": "https://app.rebeltalent.dev/blog/[post-slug]",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://app.rebeltalent.dev/blog/[post-slug]"
+  },
+  "datePublished": "[post publish date in ISO 8601]",
+  "dateModified": "[post last modified date in ISO 8601, or same as datePublished if not tracked]",
+  "author": {
+    "@type": "Person",
+    "name": "Richie Lampani",
+    "url": "https://rebeltalentsystems.com/about",
+    "sameAs": ["https://linkedin.com/in/richielampani"]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rebel Talent Systems",
+    "url": "https://rebeltalentsystems.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://rebeltalentsystems.com/logo.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "[post featured image URL or https://app.rebeltalent.dev/og-default.png]"
+  },
+  "keywords": "[comma-separated post tags]",
+  "inLanguage": "en-US"
+}
+
+All fields should be populated dynamically from the post's data. Do not hardcode individual post values — this schema should be generated from whatever post data the component already receives as props.
+
+---
+
+## 8. Add WebSite schema to the blog index page
+
+Add a new <script type="application/ld+json"> to the blog index page only:
+
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Rebel Built",
+  "url": "https://app.rebeltalent.dev/blog",
+  "description": "Insights on recruiting, talent strategy, defense tech, and AI-powered operations from Richie Lampani.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rebel Talent Systems",
+    "url": "https://rebeltalentsystems.com"
+  }
+}
+
+---
+
+## 9. Add BreadcrumbList schema to every post page
+
+Add to each post's schema (as a second JSON-LD block):
+
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Rebel Built",
+      "item": "https://app.rebeltalent.dev/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "[post title]",
+      "item": "https://app.rebeltalent.dev/blog/[post-slug]"
+    }
+  ]
+}
+
+---
+
+## 10. Update the blog index meta description
+
+Current: "Insights on recruiting, talent strategy, defense tech, and AI-powered operations from Richie Lampani. Full-time, fractional, and contract hiring."
+
+Change to:
+"Rebel Built — recruiting strategies, fractional talent insights, startup hiring playbooks, and defense tech hiring from Richie Lampani at Rebel Talent Systems."
+
+Also update og:description and twitter:description on the index page to match.
+
+---
+
+## 11. Add robots meta tag
+
+No pages have a robots meta tag — Google is defaulting to index/follow which is fine, but being explicit is better practice. Add to every page globally:
+<meta name="robots" content="index, follow" />
+
+---
+
+## SUMMARY OF FILES LIKELY NEEDING CHANGES
+
+- Global head/layout component (canonical, og:url, og:image, twitter:image, robots, og:site_name — all dynamic)
+- Blog index page (twitter:card fix, WebSite schema, updated meta description)
+- Individual post page/template (all schema updates, BreadcrumbList, og:image from post data)
+- Nav component (Services href, Work With Us href)
+- Post author/CTA component (Work with Richie → href)
+- robots.txt — leave exactly as-is, it is already correctly configured
+
+After making all changes, confirm each file modified and what was changed.
