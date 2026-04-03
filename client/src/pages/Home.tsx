@@ -736,7 +736,7 @@ export default function Home() {
               In a review, I was told I had an amazing team, cohesive and indistinguishable from full time employees.
             </p>
             <footer className="text-zinc-500 text-sm">
-              <span className="text-zinc-300 font-semibold">Client Feedback</span> — On Richie's Embedded Recruiting Team
+              <span className="text-zinc-300 font-semibold">Arin, VP of Operations</span> — EarthDaily Federal
             </footer>
           </blockquote>
           <blockquote className="relative">
@@ -745,7 +745,7 @@ export default function Home() {
               You Da Bomb.
             </p>
             <footer className="text-zinc-500 text-sm">
-              <span className="text-zinc-300 font-semibold">Client</span> — Direct Quote
+              <span className="text-zinc-300 font-semibold">Arin, VP of Operations</span> — EarthDaily Federal
             </footer>
           </blockquote>
           </ScrollReveal>
