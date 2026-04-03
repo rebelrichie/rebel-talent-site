@@ -202,13 +202,22 @@ export default function FractionalHeadOfTalent() {
       <section className="py-12 border-t border-zinc-800/50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <ScrollReveal variant="fade-up">
-          <blockquote className="relative">
+          <blockquote className="relative mb-10">
             <span className="absolute -top-4 -left-2 text-rebel-red/20 text-6xl font-serif leading-none select-none">&ldquo;</span>
             <p className="text-zinc-200 text-lg sm:text-xl leading-relaxed italic mb-6">
-              Richie didn't just fill roles — he built us an entire recruiting machine. We went from bleeding agency fees to owning our pipeline in under 90 days. Best investment we've made.
+              In a review, I was told I had an amazing team, cohesive and indistinguishable from full time employees.
             </p>
             <footer className="text-zinc-500 text-sm">
-              <span className="text-zinc-300 font-semibold">VP of Operations</span> — EarthDaily Federal
+              <span className="text-zinc-300 font-semibold">Client Feedback</span> — On Richie's Embedded Recruiting Team
+            </footer>
+          </blockquote>
+          <blockquote className="relative">
+            <span className="absolute -top-4 -left-2 text-rebel-red/20 text-6xl font-serif leading-none select-none">&ldquo;</span>
+            <p className="text-zinc-200 text-2xl sm:text-3xl leading-relaxed italic mb-6 font-display">
+              You Da Bomb.
+            </p>
+            <footer className="text-zinc-500 text-sm">
+              <span className="text-zinc-300 font-semibold">Client</span> — Direct Quote
             </footer>
           </blockquote>
           </ScrollReveal>
