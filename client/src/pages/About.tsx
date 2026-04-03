@@ -115,9 +115,10 @@ export default function About() {
           </ScrollReveal>
 
           <ScrollReveal variant="fade-up" delay={200}>
-          <div className="grid sm:grid-cols-4 gap-4 mb-16">
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mb-16">
             {[
               { value: "14+", label: "Years Experience", numeric: true },
+              { value: "PMP", label: "Certified", numeric: false },
               { value: "53K+", label: "LinkedIn Followers", numeric: true },
               { value: "8K", label: "Newsletter Subs", numeric: true },
               { value: "TS/SCI", label: "Cleared Hiring", numeric: false },
