@@ -434,6 +434,24 @@ export default function Home() {
             ))}
           </div>
 
+          {/* Safe addition — Richie headshot above the fold */}
+          <div className="mb-6">
+            <img
+              src="/richie-headshot.png"
+              alt="Richie Lampani — Fractional Head of Talent"
+              className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-2 border-rebel-red/30 mx-auto"
+              style={{ filter: "drop-shadow(0 0 24px rgba(220,38,38,0.3))" }}
+            />
+          </div>
+
+          {/* Safe addition — Availability signal */}
+          <div className="mb-8">
+            <span className="inline-flex items-center gap-2 border border-green-500/30 bg-green-500/10 px-4 py-1.5 rounded-full">
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <span className="text-green-400 text-xs sm:text-sm font-mono tracking-wider uppercase">Currently accepting 2 new engagements</span>
+            </span>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="https://calendly.com/richielam"
@@ -452,66 +470,14 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Safe addition — Graffiti tagline as brand moment */}
-          <div className="mt-12 mb-6">
-            <GraffitiHero />
-          </div>
-
-          {/* Safe addition – App ecosystem icons */}
-          <div className="mt-8 flex items-center justify-center gap-8 sm:gap-12">
-            {[
-              { name: "Command", desc: "Your Hiring War Room", href: "/command", icon: "/icon-command.png?v=6", glow: "0 0 24px 6px rgba(255,69,0,0.35)" },
-              { name: "Apply", desc: "Proof-First Profiles", href: "https://rebelapply.com", icon: "/icon-apply.png?v=6", glow: "0 0 24px 6px rgba(56,189,248,0.35)" },
-              { name: "Talent", desc: "The Public Layer", href: "https://rebeltalentsystems.com", icon: "/icon-talent.png?v=6", glow: "0 0 24px 6px rgba(59,130,246,0.4)" },
-            ].map((app) => (
-              <a
-                key={app.name}
-                href={app.href}
-                {...(app.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="group flex flex-col items-center gap-2 transition-transform duration-300 hover:scale-105"
-              >
-                <img
-                  src={app.icon}
-                  alt={`Rebel ${app.name}`}
-                  style={{
-                    width: "clamp(5rem, 10vw, 7rem)",
-                    height: "clamp(5rem, 10vw, 7rem)",
-                    borderRadius: "20px",
-                    objectFit: "cover",
-                    display: "block",
-                    border: "none",
-                    outline: "none",
-                    boxShadow: app.glow,
-                    transition: "box-shadow 0.3s ease",
-                    padding: 0,
-                    margin: 0,
-                  }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = app.glow.replace("0.35)", "0.6)").replace("0.4)", "0.65)"); }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = app.glow; }}
-                />
-                <span className="text-zinc-500 text-[0.625rem] sm:text-xs font-mono tracking-wider uppercase group-hover:text-zinc-300 transition-colors">
-                  {app.name}
-                </span>
-                <span className="text-zinc-600 text-[0.5rem] sm:text-[0.65rem] tracking-wide group-hover:text-zinc-400 transition-colors">
-                  {app.desc}
-                </span>
-              </a>
-            ))}
-          </div>
-          <div className="mt-5 text-center">
-            <span
-              style={{
-                fontFamily: "'Permanent Marker', 'Bangers', cursive, sans-serif",
-                fontSize: "clamp(1rem, 2.5vw, 1.5rem)",
-                fontWeight: 700,
-                color: "#DC2626",
-                letterSpacing: "0.04em",
-                textShadow: "0 0 20px rgba(220,38,38,0.4), 2px 2px 0px rgba(0,0,0,0.7)",
-                textTransform: "uppercase",
-              }}
-            >
-              The Industry-Disrupting Platform.
-            </span>
+          {/* Safe addition — Social proof strip */}
+          <div className="mt-10 pt-8 border-t border-zinc-800/30">
+            <p className="text-zinc-600 text-xs font-mono tracking-[0.2em] uppercase mb-4">Trusted by teams at</p>
+            <div className="flex flex-wrap justify-center gap-x-8 gap-y-2">
+              {["EarthDaily Federal", "Palantir", "Anduril", "Series A Startups", "Defense Contractors"].map((name) => (
+                <span key={name} className="text-zinc-500 text-sm font-display tracking-wide">{name}</span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -533,31 +499,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Safe addition — Meet Richie personal intro */}
-      <section data-testid="section-meet" className="py-10 border-b border-zinc-800/50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <ScrollReveal variant="fade-up">
-          <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 items-center sm:items-start">
-            <img
-              src="/richie-headshot.png"
-              alt="Richie Lampani — Fractional Head of Talent"
-              className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-2 border-rebel-red/30 shrink-0"
-              style={{ filter: "drop-shadow(0 0 20px rgba(220,38,38,0.2))" }}
-            />
-            <div>
-              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">MEET RICHIE</div>
-              <p className="text-zinc-300 text-sm sm:text-base leading-relaxed mb-3">
-                I'm Richie Lampani — 14 years in recruiting, now embedded as Fractional Head of Talent for companies that are done settling for bad hires and agency excuses. I've built hiring infrastructure from scratch for defense contractors and Series A startups alike. When you bring me in, you get someone who runs your entire talent function — strategy, execution, and the systems that outlast my engagement.
-              </p>
-              <Link href="/about" data-testid="link-meet-about" className="inline-flex items-center gap-2 text-rebel-red text-sm font-semibold hover:text-white transition-colors no-underline">
-                Full Story <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
-          </ScrollReveal>
         </div>
       </section>
 
@@ -588,15 +529,56 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Safe addition — Agency vs Fractional comparison table */}
+      <section data-testid="section-compare" className="py-12 border-b border-zinc-800/50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <ScrollReveal variant="fade-up">
+          <div className="text-center mb-8">
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">THE MATH</div>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
+              Agency vs. Fractional
+            </h2>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr>
+                  <th className="text-left py-3 px-4 text-zinc-500 font-mono text-xs tracking-wider uppercase border-b border-zinc-800" />
+                  <th className="text-center py-3 px-4 text-zinc-500 font-mono text-xs tracking-wider uppercase border-b border-zinc-800">Contingent Agency</th>
+                  <th className="text-center py-3 px-4 text-rebel-red font-mono text-xs tracking-wider uppercase border-b border-rebel-red/30 bg-rebel-red/5">Fractional (Rebel)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { metric: "Cost per Hire", agency: "$25K–$40K", fractional: "~$5K–$8K" },
+                  { metric: "You Own the Process", agency: "No", fractional: "Yes — everything" },
+                  { metric: "Alignment", agency: "Fee-motivated", fractional: "Embedded in your team" },
+                  { metric: "Time to Fill", agency: "60–90 days", fractional: "<30 days" },
+                  { metric: "Infrastructure Left Behind", agency: "Nothing", fractional: "ATS, playbooks, systems" },
+                  { metric: "Candidate Quality", agency: "Resume spray", fractional: "Proof-first vetting" },
+                ].map((row, i) => (
+                  <tr key={row.metric} className={i % 2 === 0 ? "bg-zinc-900/20" : ""}>
+                    <td className="py-3 px-4 text-zinc-300 font-semibold border-b border-zinc-800/50">{row.metric}</td>
+                    <td className="py-3 px-4 text-center text-zinc-500 border-b border-zinc-800/50">{row.agency}</td>
+                    <td className="py-3 px-4 text-center text-white font-semibold border-b border-zinc-800/50 bg-rebel-red/5">{row.fractional}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       <section data-testid="section-services" className="py-12">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-8">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-              THREE PATHS TO INFRASTRUCTURE
+              CHOOSE YOUR PATH
             </div>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight">
-              Three Paths to Infrastructure
+              How We Work Together
             </h2>
           </div>
           </ScrollReveal>
@@ -739,6 +721,24 @@ export default function Home() {
             </div>
           </div>
           </ParallaxSection>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Safe addition — Client testimonial */}
+      <section data-testid="section-testimonial" className="py-12 border-b border-zinc-800/50">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+          <ScrollReveal variant="fade-up">
+          <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-6">WHAT CLIENTS SAY</div>
+          <blockquote className="relative">
+            <span className="absolute -top-4 -left-2 text-rebel-red/20 text-6xl font-serif leading-none select-none">&ldquo;</span>
+            <p className="text-zinc-200 text-lg sm:text-xl leading-relaxed italic mb-6">
+              Richie didn't just fill roles — he built us an entire recruiting machine. We went from bleeding agency fees to owning our pipeline in under 90 days. Best investment we've made.
+            </p>
+            <footer className="text-zinc-500 text-sm">
+              <span className="text-zinc-300 font-semibold">VP of Operations</span> — EarthDaily Federal
+            </footer>
+          </blockquote>
           </ScrollReveal>
         </div>
       </section>
