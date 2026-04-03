@@ -2,6 +2,9 @@ import { ArrowRight, Quote } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
+import ScrollReveal from "@/components/ScrollReveal";
+import GlowCard from "@/components/GlowCard";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 const testimonials = [
   {
@@ -46,60 +49,73 @@ export default function Testimonials() {
       />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="text-center mb-16">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-              PROOF
+          <ScrollReveal variant="fade-up">
+            <div className="text-center mb-16">
+              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
+                PROOF
+              </div>
+              <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-4" data-testid="heading-testimonials">
+                What Clients Say
+              </h1>
+              <p className="text-zinc-400 text-base max-w-xl mx-auto">
+                Real results from real people. No fluff, no embellishment -- just honest feedback from clients who've worked with me.
+              </p>
             </div>
-            <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-4" data-testid="heading-testimonials">
-              What Clients Say
-            </h1>
-            <p className="text-zinc-400 text-base max-w-xl mx-auto">
-              Real results from real people. No fluff, no embellishment -- just honest feedback from clients who've worked with me.
-            </p>
+          </ScrollReveal>
+
+          <div className="mb-12">
+            <TestimonialCarousel testimonials={testimonials} />
           </div>
 
-          <div className="space-y-6">
+          <ScrollReveal variant="fade-up">
+            <div className="text-center mb-6">
+              <div className="font-mono text-zinc-600 text-xs tracking-[0.3em] uppercase">ALL TESTIMONIALS</div>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid sm:grid-cols-2 gap-4">
             {testimonials.map((t, i) => (
-              <div key={i} className="border border-zinc-800 bg-zinc-900/30 p-6 sm:p-8" data-testid={`card-testimonial-${i}`}>
-                <div className="flex items-center gap-4 mb-5 pb-5 border-b border-zinc-800">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-display font-bold text-sm shrink-0 ring-2 ring-rebel-red/40" style={{ background: "linear-gradient(135deg, #7f1d1d 0%, #dc2626 50%, #ea580c 100%)" }}>
-                    {t.initials}
+              <ScrollReveal key={i} variant="fade-up" delay={i * 150}>
+                <GlowCard className="border border-zinc-800 bg-zinc-900/30 p-5">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-display font-bold text-xs shrink-0 ring-2 ring-rebel-red/40" style={{ background: "linear-gradient(135deg, #7f1d1d 0%, #dc2626 50%, #ea580c 100%)" }}>
+                      {t.initials}
+                    </div>
+                    <div>
+                      <h3 className="font-display text-sm font-bold text-white uppercase">{t.name}</h3>
+                      <p className="text-zinc-600 text-[10px]">{t.title}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-display text-base font-bold text-white uppercase">{t.name}</h3>
-                    <p className="text-zinc-500 text-xs">{t.title}</p>
-                  </div>
-                </div>
-                <div className="relative">
-                  <Quote className="w-6 h-6 text-rebel-red/20 absolute -top-1 -left-1" />
-                  <p className="text-zinc-300 text-sm leading-relaxed pl-4">
+                  <p className="text-zinc-400 text-xs leading-relaxed line-clamp-4">
                     {t.text}
                   </p>
-                </div>
-              </div>
+                </GlowCard>
+              </ScrollReveal>
             ))}
           </div>
 
-          <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center mt-16">
-            <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-4">
-              Operator-Led. Results-Driven.
-            </h2>
-            <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
-              These are just a few. Dozens more on LinkedIn from hiring managers, HR leaders, and candidates who've seen the system work.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-linkedin-testimonials">
-                <Button variant="outline" className="font-display tracking-wider uppercase text-sm border-zinc-700 text-zinc-300">
-                  View LinkedIn Profile
-                </Button>
-              </a>
-              <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-testimonials-cta">
-                <Button className="font-display tracking-wider uppercase text-sm">
-                  Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </a>
+          <ScrollReveal variant="scale">
+            <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center mt-16">
+              <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-4">
+                Operator-Led. Results-Driven.
+              </h2>
+              <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
+                These are just a few. Dozens more on LinkedIn from hiring managers, HR leaders, and candidates who've seen the system work.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-linkedin-testimonials">
+                  <Button variant="outline" className="font-display tracking-wider uppercase text-sm border-zinc-700 text-zinc-300">
+                    View LinkedIn Profile
+                  </Button>
+                </a>
+                <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-testimonials-cta">
+                  <Button className="font-display tracking-wider uppercase text-sm">
+                    Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </a>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
     </PageLayout>

@@ -2,6 +2,9 @@ import { ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
+import ScrollReveal from "@/components/ScrollReveal";
+import AnimatedCounter from "@/components/AnimatedCounter";
+import GlowCard from "@/components/GlowCard";
 
 import headAndHeartCover from "@assets/Head_And_Heart_1773068092478.PNG";
 import unfinishedRoomsCover from "@assets/UR-BookCover_1773068071585.png";
@@ -61,6 +64,7 @@ export default function About() {
       />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+          <ScrollReveal variant="fade-up">
           <div className="grid md:grid-cols-[280px_1fr] gap-12 items-start mb-16">
             <div className="text-center md:text-left">
               <div className="w-48 h-48 mx-auto md:mx-0 mb-4 overflow-hidden border-2 border-rebel-red/30">
@@ -101,21 +105,29 @@ export default function About() {
               </p>
             </div>
           </div>
+          </ScrollReveal>
 
+          <ScrollReveal variant="fade-up" delay={200}>
           <div className="grid sm:grid-cols-4 gap-4 mb-16">
             {[
-              { value: "14+", label: "Years Experience" },
-              { value: "PMP", label: "Certified" },
-              { value: "TS/SCI", label: "Cleared Hiring" },
-              { value: "50K+", label: "LinkedIn Network" },
+              { value: "14+", label: "Years Experience", numeric: true },
+              { value: "PMP", label: "Certified", numeric: false },
+              { value: "TS/SCI", label: "Cleared Hiring", numeric: false },
+              { value: "50K+", label: "LinkedIn Network", numeric: true },
             ].map((stat) => (
               <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-5 text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
-                <div className="font-display text-2xl font-bold text-rebel-red mb-1">{stat.value}</div>
+                {stat.numeric ? (
+                  <AnimatedCounter value={stat.value} className="font-display text-2xl font-bold text-rebel-red mb-1" />
+                ) : (
+                  <div className="font-display text-2xl font-bold text-rebel-red mb-1">{stat.value}</div>
+                )}
                 <div className="text-zinc-500 text-xs tracking-widest uppercase">{stat.label}</div>
               </div>
             ))}
           </div>
+          </ScrollReveal>
 
+          <ScrollReveal variant="fade-up">
           <div className="mb-16">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-6 pb-3 border-b border-rebel-red/30" data-testid="heading-specializations">
               Specializations
@@ -139,37 +151,51 @@ export default function About() {
               ))}
             </div>
           </div>
+          </ScrollReveal>
 
+          <ScrollReveal variant="fade-up">
           <div className="mb-16">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-6 pb-3 border-b border-rebel-red/30" data-testid="heading-books">
               Published Work
             </h2>
             <div className="grid sm:grid-cols-2 gap-6">
+              <GlowCard>
               <div className="border border-zinc-800 bg-zinc-900/30 p-6 flex flex-col sm:flex-row gap-5 items-start">
-                <img src={headAndHeartCover} alt="Head and Heart book cover" className="w-28 shrink-0 border border-zinc-700" />
+                <img src={headAndHeartCover} alt="Head and Heart book cover" className="w-28 shrink-0 border border-zinc-700" loading="lazy" />
                 <div>
                   <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">BOOK</div>
                   <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Head and Heart</h3>
                   <p className="text-zinc-500 text-sm mb-2">Winning the AI Recruiting War</p>
-                  <p className="text-zinc-400 text-sm leading-relaxed">
+                  <p className="text-zinc-400 text-sm leading-relaxed mb-3">
                     My framework for combining strategic thinking with authentic human connection in recruiting. In an industry increasingly automated and transactional, you need both the head and the heart to win.
                   </p>
+                  <a href="https://a.co/d/0hQXqHMm" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-rebel-red text-sm font-semibold no-underline hover:text-white transition-colors">
+                    Buy on Amazon <span className="text-xs">&#8594;</span>
+                  </a>
                 </div>
               </div>
+              </GlowCard>
+              <GlowCard>
               <div className="border border-zinc-800 bg-zinc-900/30 p-6 flex flex-col sm:flex-row gap-5 items-start">
-                <img src={unfinishedRoomsCover} alt="Unfinished Rooms book cover" className="w-28 shrink-0 border border-zinc-700" />
+                <img src={unfinishedRoomsCover} alt="Unfinished Rooms book cover" className="w-28 shrink-0 border border-zinc-700" loading="lazy" />
                 <div>
                   <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">BOOK</div>
                   <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Unfinished Rooms</h3>
                   <p className="text-zinc-500 text-sm mb-2">Why Great Employees Keep One Foot Out the Door</p>
-                  <p className="text-zinc-400 text-sm leading-relaxed">
+                  <p className="text-zinc-400 text-sm leading-relaxed mb-3">
                     A psychological framework for understanding employee turnover and disengagement. Unresolved interactions, unclear expectations, and abandoned projects create "unfinished rooms" in employees' minds.
                   </p>
+                  <a href="https://a.co/d/00XELail" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-rebel-red text-sm font-semibold no-underline hover:text-white transition-colors">
+                    Buy on Amazon <span className="text-xs">&#8594;</span>
+                  </a>
                 </div>
               </div>
+              </GlowCard>
             </div>
           </div>
+          </ScrollReveal>
 
+          <ScrollReveal variant="fade-up">
           <div className="mb-16">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-6 pb-3 border-b border-rebel-red/30">
               Engagement Models
@@ -187,7 +213,9 @@ export default function About() {
               </div>
             </div>
           </div>
+          </ScrollReveal>
 
+          <ScrollReveal variant="scale">
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-4">
               Connect Now
@@ -201,6 +229,7 @@ export default function About() {
               </Button>
             </a>
           </div>
+          </ScrollReveal>
         </div>
       </section>
     </PageLayout>

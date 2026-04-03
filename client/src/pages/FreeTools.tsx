@@ -2,6 +2,8 @@ import { ArrowRight, FileText, Linkedin, Video } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
+import ScrollReveal from "@/components/ScrollReveal";
+import GlowCard from "@/components/GlowCard";
 import headAndHeartCover from "@assets/Head_And_Heart_1773068092478.PNG";
 import unfinishedRoomsCover from "@assets/UR-BookCover_1773068071585.png";
 
@@ -21,6 +23,7 @@ export default function FreeTools() {
       />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+          <ScrollReveal variant="fade-up">
           <div className="text-center mb-16">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
               RESOURCES
@@ -32,13 +35,18 @@ export default function FreeTools() {
               Built by someone who actually understands recruiting. Optimize your resume and LinkedIn to land more interviews.
             </p>
           </div>
+          </ScrollReveal>
 
           <div className="mb-16">
+            <ScrollReveal variant="fade-up">
             <h2 className="font-display text-xl font-bold text-white uppercase tracking-tight text-center mb-8" data-testid="heading-jobseeker">
               For Jobseekers
             </h2>
+            </ScrollReveal>
             <div className="grid sm:grid-cols-2 gap-6">
-              <div className="border border-zinc-800 bg-zinc-900/30 p-6 text-center" data-testid="card-resume-tool">
+              <ScrollReveal variant="fade-up" delay={0}>
+              <GlowCard className="border border-zinc-800 bg-zinc-900/30 p-6 text-center">
+                <div data-testid="card-resume-tool">
                 <div className="w-12 h-12 border border-rebel-red/30 bg-rebel-red/10 flex items-center justify-center text-rebel-red mx-auto mb-4">
                   <FileText className="w-5 h-5" />
                 </div>
@@ -54,9 +62,13 @@ export default function FreeTools() {
                     Get It Free <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </a>
-              </div>
+                </div>
+              </GlowCard>
+              </ScrollReveal>
 
-              <div className="border border-zinc-800 bg-zinc-900/30 p-6 text-center" data-testid="card-linkedin-tool">
+              <ScrollReveal variant="fade-up" delay={150}>
+              <GlowCard className="border border-zinc-800 bg-zinc-900/30 p-6 text-center">
+                <div data-testid="card-linkedin-tool">
                 <div className="w-12 h-12 border border-rebel-red/30 bg-rebel-red/10 flex items-center justify-center text-rebel-red mx-auto mb-4">
                   <Linkedin className="w-5 h-5" />
                 </div>
@@ -72,47 +84,60 @@ export default function FreeTools() {
                     Get It Free <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </a>
-              </div>
+                </div>
+              </GlowCard>
+              </ScrollReveal>
             </div>
           </div>
 
           <div className="mb-16">
+            <ScrollReveal variant="fade-up">
             <h2 className="font-display text-xl font-bold text-white uppercase tracking-tight text-center mb-8" data-testid="heading-books">
               Books
             </h2>
+            </ScrollReveal>
             <div className="grid sm:grid-cols-2 gap-6">
-              <div className="border border-zinc-800 bg-zinc-900/30 p-6 text-center" data-testid="card-book-head-heart">
-                <img src={headAndHeartCover} alt="Head and Heart book cover" className="w-36 mx-auto mb-4 border border-zinc-700" />
+              <ScrollReveal variant="fade-up" delay={0}>
+              <GlowCard className="border border-zinc-800 bg-zinc-900/30 p-6 text-center">
+                <div data-testid="card-book-head-heart">
+                <img src={headAndHeartCover} alt="Head and Heart book cover" className="w-36 mx-auto mb-4 border border-zinc-700" loading="lazy" />
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">BOOK</div>
                 <h3 className="font-display text-lg font-bold text-white uppercase mb-1">Head and Heart</h3>
                 <p className="text-zinc-500 text-sm mb-3">Winning the AI Recruiting War</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-4">
                   My framework for combining strategic thinking with authentic human connection in recruiting. Available on Amazon.
                 </p>
-                <a href="https://a.co/d/03vIkspN" target="_blank" rel="noopener noreferrer">
+                <a href="https://a.co/d/0hQXqHMm" target="_blank" rel="noopener noreferrer">
                   <Button className="w-full font-display tracking-wider uppercase text-sm">
                     Buy on Amazon <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </a>
-              </div>
+                </div>
+              </GlowCard>
+              </ScrollReveal>
 
-              <div className="border border-zinc-800 bg-zinc-900/30 p-6 text-center" data-testid="card-book-unfinished">
-                <img src={unfinishedRoomsCover} alt="Unfinished Rooms book cover" className="w-36 mx-auto mb-4 border border-zinc-700" />
+              <ScrollReveal variant="fade-up" delay={150}>
+              <GlowCard className="border border-zinc-800 bg-zinc-900/30 p-6 text-center">
+                <div data-testid="card-book-unfinished">
+                <img src={unfinishedRoomsCover} alt="Unfinished Rooms book cover" className="w-36 mx-auto mb-4 border border-zinc-700" loading="lazy" />
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">BOOK</div>
                 <h3 className="font-display text-lg font-bold text-white uppercase mb-1">Unfinished Rooms</h3>
                 <p className="text-zinc-500 text-sm mb-3">Why Great Employees Keep One Foot Out the Door</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-                  A psychological framework for understanding employee turnover and disengagement. Available for pre-order on Kindle.
+                  A psychological framework for understanding employee turnover and disengagement. Available now on Amazon.
                 </p>
-                <a href="https://a.co/d/00tv2nOX" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" className="w-full font-display tracking-wider uppercase text-sm border-zinc-700 text-zinc-300">
-                    Pre-Order on Kindle <ArrowRight className="ml-2 w-4 h-4" />
+                <a href="https://a.co/d/00XELail" target="_blank" rel="noopener noreferrer">
+                  <Button className="w-full font-display tracking-wider uppercase text-sm">
+                    Buy on Amazon <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </a>
-              </div>
+                </div>
+              </GlowCard>
+              </ScrollReveal>
             </div>
           </div>
 
+          <ScrollReveal variant="scale">
           <div className="mb-16" data-testid="section-coaching">
             <div className="border border-rebel-red/30 bg-gradient-to-b from-rebel-red/10 to-zinc-900/30 p-8 text-center">
               <div className="w-12 h-12 border border-rebel-red/30 bg-rebel-red/10 flex items-center justify-center text-rebel-red mx-auto mb-4">
@@ -143,7 +168,9 @@ export default function FreeTools() {
               </a>
             </div>
           </div>
+          </ScrollReveal>
 
+          <ScrollReveal variant="fade-up">
           <div className="grid sm:grid-cols-2 gap-6">
             <a
               href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824"
@@ -183,6 +210,7 @@ export default function FreeTools() {
               </span>
             </a>
           </div>
+          </ScrollReveal>
         </div>
       </section>
     </PageLayout>

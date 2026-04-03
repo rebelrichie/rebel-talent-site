@@ -2,6 +2,10 @@ import { ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
+import ScrollReveal from "@/components/ScrollReveal";
+import AnimatedCounter from "@/components/AnimatedCounter";
+import GlowCard from "@/components/GlowCard";
+import TypedText from "@/components/TypedText";
 
 const caseStudySchema = {
   "@context": "https://schema.org",
@@ -54,6 +58,7 @@ export default function CaseStudies() {
       />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+          <ScrollReveal variant="blur">
           <div className="text-center mb-16 pb-10 border-b border-rebel-red/30">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
               PROOF IN THE METRICS
@@ -62,12 +67,13 @@ export default function CaseStudies() {
               Fractional Recruiting Case Studies & Results
             </h1>
             <h2 className="font-display text-lg font-semibold text-rebel-red uppercase tracking-wider mb-3">
-              350% ROI. 90% Retention. Under-30-Day Hires.
+              <TypedText text="350% ROI. 90% Retention. Under-30-Day Hires." speed={35} delay={500} />
             </h2>
             <p className="text-zinc-400 text-base max-w-2xl mx-auto">
               Real engagements, quantifiable impact, no vague claims.
             </p>
           </div>
+          </ScrollReveal>
 
           <div className="mb-20" data-testid="case-study-earthdaily">
             <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
@@ -90,13 +96,14 @@ export default function CaseStudies() {
                 { value: "6", label: "ROLES PLACED", sub: "3 more in pipeline" },
               ].map((stat) => (
                 <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-5 text-center">
-                  <div className="font-display text-2xl sm:text-3xl font-bold text-rebel-red mb-1">{stat.value}</div>
+                  <AnimatedCounter value={stat.value} className="font-display text-2xl sm:text-3xl font-bold text-rebel-red mb-1" />
                   <div className="text-zinc-500 text-xs tracking-widest uppercase">{stat.label}</div>
                   <div className="text-zinc-600 text-xs mt-1">{stat.sub}</div>
                 </div>
               ))}
             </div>
 
+            <ScrollReveal variant="fade-up">
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="border border-zinc-800 bg-zinc-900/30 p-6">
                 <h3 className="font-display text-base font-bold text-rebel-red uppercase mb-4">The Situation</h3>
@@ -134,7 +141,9 @@ export default function CaseStudies() {
                 </ul>
               </div>
             </div>
+            </ScrollReveal>
 
+            <ScrollReveal variant="fade-up" delay={100}>
             <div className="border border-zinc-800 bg-zinc-900/30 p-6 mb-8">
               <h3 className="font-display text-base font-bold text-rebel-red uppercase mb-4">Roles Placed</h3>
               <div className="overflow-x-auto">
@@ -172,7 +181,9 @@ export default function CaseStudies() {
                 <p className="text-zinc-600 text-xs mt-3">+ $72-135K projected on 3 sales roles in active evaluation</p>
               </div>
             </div>
+            </ScrollReveal>
 
+            <ScrollReveal variant="fade-up" delay={200}>
             <div className="border border-zinc-800 bg-zinc-900/30 p-6 mb-8">
               <h3 className="font-display text-base font-bold text-rebel-red uppercase mb-4">Agency vs. Fractional</h3>
               <div className="overflow-x-auto">
@@ -203,7 +214,9 @@ export default function CaseStudies() {
                 </table>
               </div>
             </div>
+            </ScrollReveal>
 
+            <ScrollReveal variant="fade-left">
             <div className="border border-rebel-red/20 bg-rebel-red/5 p-6">
               <h4 className="font-display text-base font-bold text-rebel-red uppercase mb-3">The Math</h4>
               <p className="text-zinc-300 text-sm leading-relaxed mb-3">
@@ -216,9 +229,11 @@ export default function CaseStudies() {
                 <span className="text-rebel-red font-mono font-bold">Projected full-engagement ROI: 400-500%+</span>
               </p>
             </div>
+            </ScrollReveal>
           </div>
 
           <div className="border-t border-zinc-800 pt-16 mb-16" data-testid="case-study-legal">
+            <ScrollReveal variant="fade-up">
             <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
               CASE STUDY 02
             </div>
@@ -228,6 +243,7 @@ export default function CaseStudies() {
             <p className="text-zinc-400 text-base mb-8">
               Built a complete GTM talent infrastructure from zero, delivering 18 hires over 14 months with 90% retention.
             </p>
+            </ScrollReveal>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
               {[
@@ -236,7 +252,7 @@ export default function CaseStudies() {
                 { value: "100%", label: "Automated Pipeline" },
               ].map((stat) => (
                 <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-5 text-center">
-                  <div className="font-display text-2xl sm:text-3xl font-bold text-rebel-red mb-1">{stat.value}</div>
+                  <AnimatedCounter value={stat.value} className="font-display text-2xl sm:text-3xl font-bold text-rebel-red mb-1" />
                   <div className="text-zinc-500 text-xs tracking-widest uppercase">{stat.label}</div>
                 </div>
               ))}
@@ -286,6 +302,7 @@ export default function CaseStudies() {
             </div>
           </div>
 
+          <ScrollReveal variant="scale">
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-4">
               See If We Fit
@@ -299,6 +316,7 @@ export default function CaseStudies() {
               </Button>
             </a>
           </div>
+          </ScrollReveal>
         </div>
       </section>
     </PageLayout>

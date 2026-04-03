@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import ScrollProgress from "./ScrollProgress";
+import PageTransition from "./PageTransition";
 
 
 interface PageLayoutProps {
@@ -48,8 +50,15 @@ export default function PageLayout({ children }: PageLayoutProps) {
 
   return (
     <div className="min-h-screen bg-rebel-space text-white relative">
+      {/* Safe addition — skip to main content link for keyboard/screen reader users */}
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[999] focus:px-4 focus:py-2 focus:bg-rebel-red focus:text-white focus:rounded-md focus:text-sm">
+        Skip to main content
+      </a>
       <Navbar />
-      <main className="pt-16 relative" style={{ zIndex: 1 }}>{children}</main>
+      <ScrollProgress />
+      <main id="main-content" className="pt-16 relative" style={{ zIndex: 1 }}>
+        <PageTransition>{children}</PageTransition>
+      </main>
       <Footer />
     </div>
   );

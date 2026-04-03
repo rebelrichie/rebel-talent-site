@@ -12,7 +12,12 @@ import Testimonials from "@/pages/Testimonials";
 import CaseStudies from "@/pages/CaseStudies";
 import Podcast from "@/pages/Podcast";
 import FreeTools from "@/pages/FreeTools";
+import Platform from "@/pages/Platform";
+import CommandDemo from "@/pages/CommandDemo";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import Blog from "@/pages/Blog";
+import BlogPost from "@/pages/BlogPost";
+import Certification from "@/pages/Certification";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -25,7 +30,12 @@ function Router() {
       <Route path="/testimonials" component={Testimonials} />
       <Route path="/case-studies" component={CaseStudies} />
       <Route path="/podcast" component={Podcast} />
+      <Route path="/platform" component={Platform} />
+      <Route path="/command" component={CommandDemo} />
       <Route path="/free-tools" component={FreeTools} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/blog/:slug" component={BlogPost} />
+      <Route path="/certification" component={Certification} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route component={NotFound} />
     </Switch>

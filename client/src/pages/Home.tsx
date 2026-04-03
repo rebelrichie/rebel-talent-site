@@ -4,6 +4,15 @@ import { ArrowRight, Shield, Target, Zap, Users, Clock, TrendingUp } from "lucid
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
+import AnimatedCounter from "@/components/AnimatedCounter";
+import ScrollReveal from "@/components/ScrollReveal";
+import GlowCard from "@/components/GlowCard";
+import ParallaxSection from "@/components/ParallaxSection";
+
+// Safe addition — haptic feedback for PWA CTA taps
+function hapticTap() {
+  if (navigator.vibrate) navigator.vibrate(15);
+}
 
 const homepageSchema = {
   "@context": "https://schema.org",
@@ -329,12 +338,13 @@ function GraffitiHero() {
                 display: "inline-block",
                 fontFamily: '"Permanent Marker", cursive',
                 color: "#DC2626",
-                fontSize: "inherit",
+                fontSize: "0.9em",
                 lineHeight: "inherit",
                 textTransform: "uppercase",
                 opacity: 0,
                 animation: "sprayReveal 0.75s ease-out 0s forwards",
                 textShadow: "0 0 30px rgba(220,38,38,0.5), 2px 2px 0px rgba(0,0,0,0.8)",
+                whiteSpace: "nowrap",
               }}
             >
               REBEL FOREVER.
@@ -417,7 +427,7 @@ export default function Home() {
               rel="noopener noreferrer"
               data-testid="button-book-call"
             >
-              <Button size="lg" className="w-full sm:w-auto font-display tracking-wider uppercase text-sm px-8">
+              <Button onClick={hapticTap} size="lg" className="w-full sm:w-auto font-display tracking-wider uppercase text-sm px-8">
                 Book Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>
@@ -426,6 +436,63 @@ export default function Home() {
                 View Services
               </Button>
             </Link>
+          </div>
+
+          {/* Safe addition – App ecosystem icons */}
+          <div className="mt-14 flex items-center justify-center gap-8 sm:gap-12">
+            {[
+              { name: "Command", desc: "Your Hiring War Room", href: "/command", icon: "/icon-command.png?v=6", glow: "0 0 24px 6px rgba(255,69,0,0.35)" },
+              { name: "Apply", desc: "Proof-First Profiles", href: "https://rebelapply.com", icon: "/icon-apply.png?v=6", glow: "0 0 24px 6px rgba(56,189,248,0.35)" },
+              { name: "Talent", desc: "The Public Layer", href: "https://rebeltalentsystems.com", icon: "/icon-talent.png?v=6", glow: "0 0 24px 6px rgba(59,130,246,0.4)" },
+            ].map((app) => (
+              <a
+                key={app.name}
+                href={app.href}
+                {...(app.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="group flex flex-col items-center gap-2 transition-transform duration-300 hover:scale-105"
+              >
+                <img
+                  src={app.icon}
+                  alt={`Rebel ${app.name}`}
+                  style={{
+                    width: "clamp(5rem, 10vw, 7rem)",
+                    height: "clamp(5rem, 10vw, 7rem)",
+                    borderRadius: "20px",
+                    objectFit: "cover",
+                    display: "block",
+                    border: "none",
+                    outline: "none",
+                    boxShadow: app.glow,
+                    transition: "box-shadow 0.3s ease",
+                    padding: 0,
+                    margin: 0,
+                  }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = app.glow.replace("0.35)", "0.6)").replace("0.4)", "0.65)"); }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = app.glow; }}
+                />
+                <span className="text-zinc-500 text-[0.625rem] sm:text-xs font-mono tracking-wider uppercase group-hover:text-zinc-300 transition-colors">
+                  {app.name}
+                </span>
+                <span className="text-zinc-600 text-[0.5rem] sm:text-[0.65rem] tracking-wide group-hover:text-zinc-400 transition-colors">
+                  {app.desc}
+                </span>
+              </a>
+            ))}
+          </div>
+          <div className="mt-5 text-center">
+            <span
+              style={{
+                fontFamily: "'Permanent Marker', 'Bangers', cursive, sans-serif",
+                fontSize: "clamp(1rem, 2.5vw, 1.5rem)",
+                fontWeight: 700,
+                color: "#DC2626",
+                letterSpacing: "0.04em",
+                textShadow: "0 0 20px rgba(220,38,38,0.4), 2px 2px 0px rgba(0,0,0,0.7)",
+                textTransform: "uppercase",
+              }}
+            >
+              The Industry-Disrupting Platform.
+            </span>
           </div>
         </div>
       </section>
@@ -440,9 +507,7 @@ export default function Home() {
               { value: "90%", label: "Retention Rate" },
             ].map((stat) => (
               <div key={stat.label} className="text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
-                <div className="font-display text-3xl sm:text-4xl font-bold text-rebel-red mb-1">
-                  {stat.value}
-                </div>
+                <AnimatedCounter value={stat.value} className="font-display text-3xl sm:text-4xl font-bold text-rebel-red mb-1" />
                 <div className="text-zinc-500 text-xs tracking-widest uppercase font-semibold">
                   {stat.label}
                 </div>
@@ -454,6 +519,8 @@ export default function Home() {
 
       <section data-testid="section-proof" className="py-10 border-b border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <ScrollReveal variant="fade-left">
+          <ParallaxSection speed={0.1}>
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/5 to-transparent p-6 sm:p-8 flex flex-col sm:flex-row gap-6 sm:gap-10 items-start">
             <div className="flex-1">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">PROOF OF CONCEPT</div>
@@ -468,7 +535,7 @@ export default function Home() {
                   { value: "<30 days", label: "Avg. Time to Hire" },
                 ].map((s) => (
                   <div key={s.label}>
-                    <div className="font-display text-xl sm:text-2xl font-bold text-rebel-red">{s.value}</div>
+                    <AnimatedCounter value={s.value} className="font-display text-xl sm:text-2xl font-bold text-rebel-red" />
                     <div className="text-zinc-500 text-xs uppercase tracking-wide leading-tight mt-0.5">{s.label}</div>
                   </div>
                 ))}
@@ -486,11 +553,52 @@ export default function Home() {
               <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">TS / TS-SCI</div>
             </div>
           </div>
+          </ParallaxSection>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Safe addition – Platform section */}
+      <section data-testid="section-platform" className="py-12 border-b border-zinc-800/50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8">
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">THE PLATFORM</div>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase leading-tight max-w-3xl mx-auto">
+              Why smaller teams choose Rebel instead of vibe-coding their own tools.
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            {[
+              { icon: <Zap className="w-5 h-5 text-rebel-red" />, title: "Ship in days, not quarters", desc: "Full recruiting infrastructure deployed and running before your next board meeting. No six-month implementation cycles." },
+              { icon: <Target className="w-5 h-5 text-rebel-red" />, title: "Proof-first signals", desc: "Every candidate surfaces with portfolio evidence, video intros, and AI-scored match signals — not just a resume and a prayer." },
+              { icon: <Shield className="w-5 h-5 text-rebel-red" />, title: "Ownable infrastructure", desc: "Your ATS, your pipeline, your data. Not locked into some vendor's ecosystem that disappears when you cancel." },
+              { icon: <TrendingUp className="w-5 h-5 text-rebel-red" />, title: "AI that works for you", desc: "23 specialized agents handle sourcing, briefs, interview prep, and follow-ups — while you focus on closing." },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm p-5 flex gap-4 items-start hover:border-zinc-700 transition-colors"
+              >
+                <div className="shrink-0 mt-0.5">{item.icon}</div>
+                <div>
+                  <div className="font-display text-sm font-bold text-white uppercase mb-1">{item.title}</div>
+                  <div className="text-zinc-400 text-sm leading-relaxed">{item.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <a href="https://rebelapply.com/spotlight" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="sm" className="font-display tracking-wider uppercase text-xs border-zinc-700 text-zinc-300">
+                Browse Spotlight Talent <ArrowRight className="ml-2 w-3 h-3" />
+              </Button>
+            </a>
+          </div>
         </div>
       </section>
 
       <section data-testid="section-pain" className="py-10 border-b border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <ScrollReveal variant="fade-up">
           <div className="text-center mb-6">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">SOUND FAMILIAR?</div>
             <h2 className="font-display text-2xl font-bold text-white uppercase">If Any of These Hit, We Need to Talk</h2>
@@ -510,11 +618,13 @@ export default function Home() {
               </div>
             ))}
           </div>
+          </ScrollReveal>
         </div>
       </section>
 
       <section data-testid="section-services" className="py-12">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <ScrollReveal variant="fade-up">
           <div className="text-center mb-8">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
               THREE PATHS TO INFRASTRUCTURE
@@ -523,9 +633,10 @@ export default function Home() {
               Three Paths to Infrastructure
             </h2>
           </div>
+          </ScrollReveal>
 
           <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
-            <div className="border border-rebel-red/50 bg-rebel-red/5 p-8 group transition-colors hover:border-rebel-red snap-start shrink-0 w-[82vw] md:w-auto relative overflow-hidden" data-testid="card-fractional">
+            <GlowCard className="border border-rebel-red/50 bg-rebel-red/5 p-8 group transition-colors hover:border-rebel-red snap-start shrink-0 w-[82vw] md:w-auto relative overflow-hidden" data-testid="card-fractional">
               <div className="absolute top-0 right-0 bg-rebel-red px-3 py-1 font-mono text-white text-[10px] tracking-widest uppercase">
                 MOST POPULAR
               </div>
@@ -553,9 +664,9 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </GlowCard>
 
-            <div className="border border-zinc-800 bg-zinc-900/50 p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-critical-hire">
+            <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-critical-hire">
               <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
                 OPTION 02
               </div>
@@ -580,9 +691,9 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </GlowCard>
 
-            <div className="border border-zinc-800 bg-zinc-900/50 p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-contract-recruiters">
+            <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-contract-recruiters">
               <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
                 OPTION 03
               </div>
@@ -607,13 +718,13 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </GlowCard>
           </div>
 
           <div className="text-center mt-10">
             <p className="text-zinc-500 text-sm mb-4">Agencies invoice excuses. We deliver fractional recruiting systems built for startup scale and defense complexity. Not sure which fits? Let's talk.</p>
             <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-2">
-              <Button className="font-display tracking-wider uppercase text-sm">
+              <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>
@@ -623,6 +734,7 @@ export default function Home() {
 
       <section data-testid="section-who" className="py-12 border-t border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <ScrollReveal variant="fade-up">
           <div className="text-center mb-8">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
               IDEAL CLIENTS
@@ -631,7 +743,9 @@ export default function Home() {
               Who This Is For
             </h2>
           </div>
+          </ScrollReveal>
 
+          <ParallaxSection speed={0.08}>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
@@ -661,8 +775,9 @@ export default function Home() {
                   "Need ownership and accountability",
                 ],
               },
-            ].map((cat) => (
-              <div key={cat.title} className="border border-zinc-800 bg-zinc-900/30 p-6" data-testid={`card-who-${cat.title.toLowerCase().replace(/\s+/g, "-")}`}>
+            ].map((cat, i) => (
+              <ScrollReveal key={cat.title} variant="fade-up" delay={i * 150}>
+              <div className="border border-zinc-800 bg-zinc-900/30 p-6" data-testid={`card-who-${cat.title.toLowerCase().replace(/\s+/g, "-")}`}>
                 <div className="w-10 h-10 border border-rebel-red/30 bg-rebel-red/10 flex items-center justify-center text-rebel-red mb-4">
                   {cat.icon}
                 </div>
@@ -678,13 +793,15 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
+              </ScrollReveal>
             ))}
           </div>
+          </ParallaxSection>
 
           <div className="text-center mt-10">
             <p className="text-zinc-500 text-sm mb-4">Scale without the bleed. Build the machine agencies can't.</p>
             <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-3">
-              <Button className="font-display tracking-wider uppercase text-sm">
+              <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>
@@ -694,6 +811,7 @@ export default function Home() {
 
       <section data-testid="section-newsletter-shop" className="py-10 border-t border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <ScrollReveal variant="fade-up">
           <div className="grid sm:grid-cols-2 gap-6">
             <a
               href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824"
@@ -733,10 +851,12 @@ export default function Home() {
               </span>
             </a>
           </div>
+          </ScrollReveal>
         </div>
       </section>
 
       <section data-testid="section-cta" className="py-12 border-t border-zinc-800/50 bg-gradient-to-b from-rebel-red/5 to-transparent">
+        <ScrollReveal variant="scale">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <img src="/logo.png" alt="Rebel Talent" className="w-16 h-16 mx-auto mb-6" />
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight mb-4">
@@ -746,11 +866,12 @@ export default function Home() {
             Book now. Fix tomorrow. 30 minutes to diagnose your systems: no sales pitch, just real answers for operators ready to build.
           </p>
           <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-4">
-            <Button size="lg" className="font-display tracking-wider uppercase text-sm px-10">
+            <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-10">
               Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </a>
         </div>
+        </ScrollReveal>
       </section>
     </PageLayout>
   );

@@ -3,6 +3,9 @@ import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+import ScrollReveal from "@/components/ScrollReveal";
+import GlowCard from "@/components/GlowCard";
+import TypedText from "@/components/TypedText";
 
 export default function Services() {
   return (
@@ -20,6 +23,7 @@ export default function Services() {
       />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+          <ScrollReveal variant="fade-up">
           <div className="text-center mb-16">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
               TALENT INFRASTRUCTURE
@@ -31,6 +35,7 @@ export default function Services() {
               Build the hiring machine that agencies can't. Choose embedded leadership, surgical execution, or on-demand recruiting muscle. Every path leaves you with systems you own forever.
             </p>
           </div>
+          </ScrollReveal>
 
           <div className="mb-16">
             <div className="text-center mb-8">
@@ -38,12 +43,13 @@ export default function Services() {
                 The Anti-Agency Standard
               </h2>
               <p className="text-zinc-500 text-sm mt-2 max-w-lg mx-auto">
-                We don't profit from repeat failures. Every path delivers infrastructure and results, not just recruiter hours. Systems you keep. Agencies you ditch.
+                <TypedText text="We don't profit from repeat failures. Every path delivers infrastructure and results, not just recruiter hours. Systems you keep. Agencies you ditch." speed={20} />
               </p>
             </div>
 
             <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
-              <div className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-service-fractional">
+              <ScrollReveal variant="fade-up" delay={0}>
+              <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full" data-testid="card-service-fractional">
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">CORE SERVICE</div>
                 <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Fractional Head of Talent</h3>
                 <p className="text-rebel-red font-mono text-sm mb-4">$12K - $30K/month</p>
@@ -62,9 +68,11 @@ export default function Services() {
                     Book Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </a>
-              </div>
+              </GlowCard>
+              </ScrollReveal>
 
-              <div className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-service-critical">
+              <ScrollReveal variant="fade-up" delay={150}>
+              <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full" data-testid="card-service-critical">
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">PROJECT-BASED</div>
                 <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Critical Hire Execution</h3>
                 <p className="text-rebel-red font-mono text-sm mb-4">Project-Based Pricing</p>
@@ -83,9 +91,11 @@ export default function Services() {
                     Book Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </a>
-              </div>
+              </GlowCard>
+              </ScrollReveal>
 
-              <div className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-service-contract">
+              <ScrollReveal variant="fade-up" delay={300}>
+              <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full" data-testid="card-service-contract">
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">ON-DEMAND</div>
                 <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Rebel Contract Recruiters</h3>
                 <p className="text-rebel-red font-mono text-sm mb-4">Hourly Engagement</p>
@@ -104,11 +114,13 @@ export default function Services() {
                     Book Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </a>
-              </div>
+              </GlowCard>
+              </ScrollReveal>
             </div>
           </div>
 
           <div className="mb-16">
+            <ScrollReveal variant="fade-up">
             <div className="text-center mb-8">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">ROLE SPECIALIZATIONS</div>
               <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight" data-testid="heading-roles">
@@ -118,6 +130,7 @@ export default function Services() {
                 Every hire is hard. These are the ones most recruiters get wrong. We don't.
               </p>
             </div>
+            </ScrollReveal>
             <div className="grid sm:grid-cols-3 gap-6">
               {[
                 {
@@ -138,8 +151,9 @@ export default function Services() {
                   desc: "Full GTM buildouts for technical companies. We understand the nuance between a great SE and a great AE, and build pipelines accordingly.",
                   roles: ["Account Executives", "Solutions Engineers", "Sales Engineers", "Customer Success Managers", "RevOps"],
                 },
-              ].map((group) => (
-                <div key={group.title} className="border border-zinc-800 bg-zinc-900/30 p-6" data-testid={`card-roles-${group.category.toLowerCase()}`}>
+              ].map((group, i) => (
+                <ScrollReveal key={group.title} variant="fade-up" delay={i * 120}>
+                <div className="border border-zinc-800 bg-zinc-900/30 p-6" data-testid={`card-roles-${group.category.toLowerCase()}`}>
                   <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">{group.category}</div>
                   <h3 className="font-display text-base font-bold text-white uppercase mb-3">{group.title}</h3>
                   <p className="text-zinc-500 text-xs leading-relaxed mb-4">{group.desc}</p>
@@ -151,11 +165,13 @@ export default function Services() {
                     ))}
                   </ul>
                 </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
 
           <div className="mb-16">
+            <ScrollReveal variant="fade-up">
             <div className="text-center mb-8">
               <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight" data-testid="heading-training">
                 Training & Workshops
@@ -164,6 +180,7 @@ export default function Services() {
                 Corporate training and education programs built on real recruiting experience.
               </p>
             </div>
+            </ScrollReveal>
 
             <Accordion type="multiple" className="border border-zinc-800 divide-y divide-zinc-800">
               {[
@@ -213,6 +230,7 @@ export default function Services() {
             </Accordion>
           </div>
 
+          <ScrollReveal variant="scale">
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-4">
               Build the Machine Agencies Can't
@@ -226,6 +244,7 @@ export default function Services() {
               </Button>
             </a>
           </div>
+          </ScrollReveal>
         </div>
       </section>
     </PageLayout>

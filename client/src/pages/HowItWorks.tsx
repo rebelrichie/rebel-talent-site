@@ -3,6 +3,9 @@ import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+import ScrollReveal from "@/components/ScrollReveal";
+import GlowCard from "@/components/GlowCard";
+import ParallaxSection from "@/components/ParallaxSection";
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -76,6 +79,7 @@ export default function HowItWorks() {
       />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+          <ScrollReveal variant="blur">
           <div className="text-center mb-16">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
               HOW WE BUILD
@@ -90,8 +94,11 @@ export default function HowItWorks() {
               Hiring as engineering, not art. Assess, embed, execute, handover. You own it all.
             </p>
           </div>
+          </ScrollReveal>
 
+          <ScrollReveal variant="fade-left">
           <div className="border border-zinc-800 bg-rebel-red/5 p-6 mb-16" data-testid="section-problem">
+            <ParallaxSection speed={0.08} direction="down">
             <h2 className="font-display text-xl font-bold text-rebel-red uppercase mb-4">
               Sound Familiar?
             </h2>
@@ -109,7 +116,9 @@ export default function HowItWorks() {
                 </li>
               ))}
             </ul>
+            </ParallaxSection>
           </div>
+          </ScrollReveal>
 
           <div className="mb-16">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight text-center mb-10" data-testid="heading-timeline">
@@ -159,8 +168,9 @@ export default function HowItWorks() {
                     "Clean exit with full documentation",
                   ],
                 },
-              ].map((step) => (
-                <div key={step.phase} className="border border-zinc-800 bg-zinc-900/30 p-6 relative border-l-2 border-l-rebel-red" data-testid={`card-phase-${step.phase.toLowerCase().replace(/\s+/g, "-")}`}>
+              ].map((step, i) => (
+                <ScrollReveal key={step.phase} variant="fade-up" delay={i * 150}>
+                <GlowCard className="border border-zinc-800 bg-zinc-900/30 p-6 relative border-l-2 border-l-rebel-red" data-testid={`card-phase-${step.phase.toLowerCase().replace(/\s+/g, "-")}`}>
                   <div className="inline-block bg-rebel-red px-3 py-1 mb-3">
                     <span className="font-mono text-white text-xs font-bold tracking-widest">{step.phase}</span>
                   </div>
@@ -174,38 +184,47 @@ export default function HowItWorks() {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </GlowCard>
+                </ScrollReveal>
               ))}
             </div>
           </div>
 
           <div className="text-center mb-16" data-testid="section-handoff">
+            <ScrollReveal variant="fade-up">
             <div className="inline-block w-16 h-0.5 bg-rebel-red mb-6" />
             <h2 className="font-display text-2xl font-bold text-rebel-red uppercase mb-2">What You Get When I Leave</h2>
             <p className="text-zinc-500 text-sm italic mb-8">Everything. No vendor lock-in. You own it all.</p>
+            </ScrollReveal>
 
+            <ParallaxSection speed={0.12}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
                 { icon: <FileText className="w-5 h-5" />, label: "All Documentation" },
                 { icon: <Workflow className="w-5 h-5" />, label: "Custom Workflows" },
                 { icon: <BookOpen className="w-5 h-5" />, label: "Sourcing Guides" },
                 { icon: <Users className="w-5 h-5" />, label: "Active Pipelines" },
-              ].map((item) => (
-                <div key={item.label} className="border border-zinc-800 bg-zinc-900/30 p-6 text-center">
+              ].map((item, i) => (
+                <ScrollReveal key={item.label} variant="fade-up" delay={i * 150}>
+                <div className="border border-zinc-800 bg-zinc-900/30 p-6 text-center">
                   <div className="w-10 h-10 border border-rebel-red/30 bg-rebel-red/10 flex items-center justify-center text-rebel-red mx-auto mb-3">
                     {item.icon}
                   </div>
                   <span className="text-white text-sm font-semibold">{item.label}</span>
                 </div>
+                </ScrollReveal>
               ))}
             </div>
+            </ParallaxSection>
           </div>
 
           <div className="mb-16" data-testid="section-faq">
+            <ScrollReveal variant="fade-up">
             <h2 className="font-display text-2xl font-bold text-rebel-red uppercase text-center mb-2">
               FAQ
             </h2>
             <p className="text-zinc-500 text-sm text-center mb-10">No fluff. Real answers.</p>
+            </ScrollReveal>
 
             <Accordion type="multiple" className="border border-zinc-800 divide-y divide-zinc-800">
               {[
@@ -254,6 +273,7 @@ export default function HowItWorks() {
             </Accordion>
           </div>
 
+          <ScrollReveal variant="scale">
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-4">
               Start Building
@@ -267,6 +287,7 @@ export default function HowItWorks() {
               </Button>
             </a>
           </div>
+          </ScrollReveal>
         </div>
       </section>
     </PageLayout>

@@ -2,6 +2,8 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
+import ScrollReveal from "@/components/ScrollReveal";
+import GlowCard from "@/components/GlowCard";
 
 const podcasts = [
   {
@@ -98,6 +100,7 @@ export default function Podcast() {
       />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+          <ScrollReveal variant="fade-up">
           <div className="mb-16">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
               MEDIA
@@ -112,11 +115,13 @@ export default function Podcast() {
               I've been featured on recruiting, cybersecurity, and startup podcasts to discuss fractional recruiting, startup recruiting strategy, talent infrastructure, AI in hiring, cleared hiring for defense contractors, and why most companies fail at building effective talent systems. No corporate scripts. No fluff. Just real answers.
             </p>
           </div>
+          </ScrollReveal>
 
           <div className="space-y-4 mb-16">
             {podcasts.map((pod, i) => (
-              <div key={i} className="border border-zinc-800 bg-zinc-900/30 p-6" data-testid={`card-podcast-${i}`}>
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+              <ScrollReveal key={i} variant="fade-up" delay={i * 100}>
+              <GlowCard className="border border-zinc-800 bg-zinc-900/30 p-6">
+                <div data-testid={`card-podcast-${i}`} className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                   <div className="flex-1">
                     <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-1">
                       {pod.network || pod.show}
@@ -139,10 +144,12 @@ export default function Podcast() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </GlowCard>
+              </ScrollReveal>
             ))}
           </div>
 
+          <ScrollReveal variant="scale">
           <a
             href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824"
             target="_blank"
@@ -161,7 +168,9 @@ export default function Podcast() {
               Subscribe on LinkedIn <ArrowRight className="ml-2 w-4 h-4" />
             </span>
           </a>
+          </ScrollReveal>
 
+          <ScrollReveal variant="scale">
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-4">
               Want Me on Your Podcast?
@@ -175,6 +184,7 @@ export default function Podcast() {
               </Button>
             </a>
           </div>
+          </ScrollReveal>
         </div>
       </section>
     </PageLayout>
