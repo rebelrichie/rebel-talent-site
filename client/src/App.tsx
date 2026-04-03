@@ -38,6 +38,7 @@ function Router() {
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/certification" component={Certification} />
       <Route path="/fractional-head-of-talent" component={FractionalHeadOfTalent} />
+      <Route path="/fractional-recruiting-services" component={FractionalHeadOfTalent} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route component={NotFound} />
     </Switch>
