@@ -634,6 +634,62 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── THE TOOLKIT ── */}
+      <section data-testid="section-toolkit" className="py-12 border-t border-zinc-800/50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8">
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">WHAT YOU GET</div>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight">
+              The Toolkit
+            </h2>
+            <p className="text-zinc-400 text-sm max-w-xl mx-auto mt-3 leading-relaxed">
+              When you engage Rebel Talent, you get access to the full stack — not just a recruiter, but the infrastructure we've built to run a world-class hiring function.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              {
+                name: "Rebel Command",
+                url: "https://app.rebeltalent.dev",
+                label: "ATS & COMMAND CENTER",
+                description: "The ATS, pipeline manager, and recruiting ops center we run your entire hiring function through. Built for speed, not bureaucracy.",
+              },
+              {
+                name: "Rebel Apply",
+                url: "https://rebelapply.com",
+                label: "CANDIDATE PORTAL",
+                description: "A dedicated job portal where candidates apply to your open roles and build a Rebel Job Profile — attached to your pipeline from day one.",
+              },
+              {
+                name: "Rebel Built Blog",
+                url: "https://app.rebeltalent.dev/blog",
+                label: "INTEL & FRAMEWORKS",
+                description: "Recruiting strategies, hiring playbooks, and unfiltered takes on talent — published weekly so your team can learn what we know.",
+              },
+            ].map((tool) => (
+              <a
+                key={tool.name}
+                href={tool.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group border border-zinc-800 bg-zinc-900/30 p-6 no-underline hover:border-rebel-red/50 transition-colors"
+                data-testid={`card-toolkit-${tool.name.toLowerCase().replace(/\s+/g, "-")}`}
+              >
+                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">{tool.label}</div>
+                <h3 className="font-display text-lg font-bold text-white uppercase mb-2 group-hover:text-rebel-red transition-colors">
+                  {tool.name}
+                </h3>
+                <p className="text-zinc-400 text-sm leading-relaxed">{tool.description}</p>
+                <div className="mt-4 inline-flex items-center font-mono text-xs text-rebel-red tracking-wider uppercase">
+                  Access <ArrowRight className="ml-1 w-3 h-3" />
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── STATS ── */}
       <section data-testid="section-stats" className="py-10 border-b border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
@@ -725,6 +781,38 @@ export default function Home() {
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ABCR ── */}
+      <section data-testid="section-abcr" className="py-12 border-t border-zinc-800/50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/5 to-transparent p-6 sm:p-10 flex flex-col sm:flex-row gap-8 items-center">
+            <div className="flex-1">
+              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">RAISING THE BAR</div>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-3">
+                American Board of Certified Recruiters
+              </h2>
+              <p className="text-zinc-400 text-sm leading-relaxed mb-5">
+                I'm founding ABCR — the first exam-based professional credential for recruiters. The same standards I hold my team to, now available to the entire profession. If you want to work with recruiters who are held to a verified standard, this is where the bar gets set.
+              </p>
+              <a
+                href="https://certifiedrecruiters.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="link-abcr"
+                className="inline-flex items-center font-display text-sm tracking-wider uppercase text-rebel-red hover:text-white transition-colors no-underline"
+              >
+                Learn About ABCR <ArrowRight className="ml-2 w-4 h-4" />
+              </a>
+            </div>
+            <div className="shrink-0 text-center border-t sm:border-t-0 sm:border-l border-zinc-800 pt-6 sm:pt-0 sm:pl-8 w-full sm:w-auto">
+              <div className="font-display text-5xl font-bold text-rebel-red mb-1">CR</div>
+              <div className="font-mono text-zinc-500 text-xs tracking-widest uppercase mb-4">Certified Recruiter</div>
+              <div className="font-display text-3xl font-bold text-zinc-400 mb-1">CRA</div>
+              <div className="font-mono text-zinc-600 text-xs tracking-widest uppercase">Certified Recruiter Associate</div>
+            </div>
           </div>
         </div>
       </section>
