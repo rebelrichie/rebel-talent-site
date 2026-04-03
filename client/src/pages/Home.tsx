@@ -287,7 +287,7 @@ function GraffitiHero() {
   );
 
   return (
-    <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white uppercase leading-none mb-6">
+    <div className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white uppercase leading-none mb-6">
       <span
         className="block"
         style={{
@@ -342,7 +342,7 @@ function GraffitiHero() {
           </>
         )}
       </span>
-    </h1>
+    </div>
   );
 }
 
@@ -369,6 +369,8 @@ export default function Home() {
         ogDescription="Agencies profit from your chaos. Rebel Talent embeds fractional recruiting leadership to build the hiring infrastructure startups and defense firms need — without the agency fees, bad fits, or delays."
         schemas={[homepageSchema]}
       />
+
+      {/* ── HERO ── */}
       <section
         ref={heroRef}
         data-testid="section-hero"
@@ -399,18 +401,20 @@ export default function Home() {
             />
           </div>
 
-          <h1 className="sr-only">Fractional Recruiting for Startups &amp; Defense Contractors</h1>
           <div className="font-mono text-rebel-red text-xs sm:text-sm tracking-[0.3em] uppercase mb-4">
-            TALENT INFRASTRUCTURE FOR STARTUPS & DEFENSE
+            FRACTIONAL HEAD OF TALENT
           </div>
 
-          <GraffitiHero />
+          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white uppercase leading-none mb-6">
+            YOUR HIRING IS BROKEN.<br />
+            <span className="text-rebel-red">I FIX IT.</span>
+          </h1>
 
           <p className="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-            Agencies profit from your chaos. Rebel Talent embeds fractional recruiting leadership to build the hiring infrastructure startups and defense firms need — without the agency fees, bad fits, or endless delays.
+            Fractional Head of Talent for startups and defense contractors. I embed into your company, own the recruiting function, and build infrastructure that survives after I leave.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <a
               href="https://calendly.com/richielam"
               target="_blank"
@@ -427,68 +431,38 @@ export default function Home() {
               </Button>
             </Link>
           </div>
-        </div>
-      </section>
 
-      <section data-testid="section-stats" className="py-10 border-y border-zinc-800/50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              { value: "350%+", label: "ROI Proven" },
-              { value: "<30", label: "Days to Hire" },
-              { value: "14+", label: "Years Experience" },
-              { value: "90%", label: "Retention Rate" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
-                <div className="font-display text-3xl sm:text-4xl font-bold text-rebel-red mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-zinc-500 text-xs tracking-widest uppercase font-semibold">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+          <div className="border-t border-zinc-800/40 pt-8">
+            <GraffitiHero />
           </div>
         </div>
       </section>
 
-      <section data-testid="section-proof" className="py-10 border-b border-zinc-800/50">
+      {/* ── MEET RICHIE ── */}
+      <section data-testid="section-meet-richie" className="py-12 border-b border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/5 to-transparent p-6 sm:p-8 flex flex-col sm:flex-row gap-6 sm:gap-10 items-start">
-            <div className="flex-1">
-              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">PROOF OF CONCEPT</div>
-              <h2 className="font-display text-xl font-bold text-white uppercase mb-2">EarthDaily Federal</h2>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-5">
-                Defense-sector geospatial intelligence firm. We built their entire hiring infrastructure from scratch and eliminated agency dependency in under 90 days.
+          <div className="flex flex-col sm:flex-row gap-8 items-center">
+            <div className="shrink-0">
+              <img
+                src="/richie.png"
+                alt="Richie Lampani"
+                className="w-32 h-32 sm:w-40 sm:h-40 object-cover border-2 border-rebel-red/40 grayscale"
+              />
+            </div>
+            <div>
+              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">MEET RICHIE</div>
+              <p className="text-zinc-300 text-base sm:text-lg leading-relaxed">
+                I'm Richie Lampani — 14 years in recruiting, now embedded as Fractional Head of Talent for companies that are done settling for bad hires and agency excuses. I've built hiring infrastructure from scratch for defense contractors and Series A startups alike. When you bring me in, you get someone who runs your entire talent function — strategy, execution, and the systems that outlast my engagement.
               </p>
-              <div className="grid grid-cols-3 gap-4 mb-5">
-                {[
-                  { value: "$178K", label: "Agency Fees Avoided" },
-                  { value: "350%", label: "ROI Delivered" },
-                  { value: "<30 days", label: "Avg. Time to Hire" },
-                ].map((s) => (
-                  <div key={s.label}>
-                    <div className="font-display text-xl sm:text-2xl font-bold text-rebel-red">{s.value}</div>
-                    <div className="text-zinc-500 text-xs uppercase tracking-wide leading-tight mt-0.5">{s.label}</div>
-                  </div>
-                ))}
-              </div>
-              <Link href="/case-studies" data-testid="link-case-study-proof">
-                <Button variant="outline" size="sm" className="font-display tracking-wider uppercase text-xs border-zinc-700 text-zinc-300">
-                  See Full Case Study <ArrowRight className="ml-2 w-3 h-3" />
-                </Button>
+              <Link href="/about" data-testid="link-meet-richie-about" className="inline-flex items-center font-display text-sm tracking-wider uppercase text-rebel-red hover:text-white transition-colors mt-4 no-underline">
+                Full Story <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </div>
-            <div className="hidden sm:flex flex-col justify-center items-center border-l border-zinc-800 pl-8 shrink-0">
-              <div className="font-mono text-zinc-600 text-xs tracking-widest uppercase mb-1">Sector</div>
-              <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">Defense / Geo-Intel</div>
-              <div className="font-mono text-zinc-600 text-xs tracking-widest uppercase mt-4 mb-1">Clearances</div>
-              <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">TS / TS-SCI</div>
-            </div>
           </div>
         </div>
       </section>
 
+      {/* ── PAIN POINTS ── */}
       <section data-testid="section-pain" className="py-10 border-b border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-6">
@@ -513,6 +487,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── PRICING ── */}
       <section data-testid="section-services" className="py-12">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8">
@@ -621,7 +596,69 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="section-who" className="py-12 border-t border-zinc-800/50">
+      {/* ── CASE STUDY ── */}
+      <section data-testid="section-proof" className="py-10 border-t border-b border-zinc-800/50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/5 to-transparent p-6 sm:p-8 flex flex-col sm:flex-row gap-6 sm:gap-10 items-start">
+            <div className="flex-1">
+              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">PROOF OF CONCEPT</div>
+              <h2 className="font-display text-xl font-bold text-white uppercase mb-2">EarthDaily Federal</h2>
+              <p className="text-zinc-400 text-sm leading-relaxed mb-5">
+                Defense-sector geospatial intelligence firm. We built their entire hiring infrastructure from scratch and eliminated agency dependency in under 90 days.
+              </p>
+              <div className="grid grid-cols-3 gap-4 mb-5">
+                {[
+                  { value: "$178K", label: "Agency Fees Avoided" },
+                  { value: "350%", label: "ROI Delivered" },
+                  { value: "<30 days", label: "Avg. Time to Hire" },
+                ].map((s) => (
+                  <div key={s.label}>
+                    <div className="font-display text-xl sm:text-2xl font-bold text-rebel-red">{s.value}</div>
+                    <div className="text-zinc-500 text-xs uppercase tracking-wide leading-tight mt-0.5">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+              <Link href="/case-studies" data-testid="link-case-study-proof">
+                <Button variant="outline" size="sm" className="font-display tracking-wider uppercase text-xs border-zinc-700 text-zinc-300">
+                  See Full Case Study <ArrowRight className="ml-2 w-3 h-3" />
+                </Button>
+              </Link>
+            </div>
+            <div className="hidden sm:flex flex-col justify-center items-center border-l border-zinc-800 pl-8 shrink-0">
+              <div className="font-mono text-zinc-600 text-xs tracking-widest uppercase mb-1">Sector</div>
+              <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">Defense / Geo-Intel</div>
+              <div className="font-mono text-zinc-600 text-xs tracking-widest uppercase mt-4 mb-1">Clearances</div>
+              <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">TS / TS-SCI</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── STATS ── */}
+      <section data-testid="section-stats" className="py-10 border-b border-zinc-800/50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { value: "350%+", label: "ROI Proven" },
+              { value: "<30", label: "Days to Hire" },
+              { value: "14+", label: "Years Experience" },
+              { value: "90%", label: "Retention Rate" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
+                <div className="font-display text-3xl sm:text-4xl font-bold text-rebel-red mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-zinc-500 text-xs tracking-widest uppercase font-semibold">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── ICP ── */}
+      <section data-testid="section-who" className="py-12 border-b border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
@@ -692,50 +729,31 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="section-newsletter-shop" className="py-10 border-t border-zinc-800/50">
+      {/* ── NEWSLETTER ── */}
+      <section data-testid="section-newsletter" className="py-10 border-b border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="grid sm:grid-cols-2 gap-6">
-            <a
-              href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-testid="link-newsletter-cta"
-              className="group border border-zinc-800 bg-zinc-900/30 p-8 text-center no-underline hover:border-rebel-red/50 transition-colors"
-            >
-              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">NEWSLETTER</div>
-              <h3 className="font-display text-xl font-bold text-white uppercase tracking-tight mb-3">
-                Rebel Built
-              </h3>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-                Recruiting strategies, hiring frameworks, and unfiltered takes on talent. Subscribe on LinkedIn.
-              </p>
-              <span className="inline-flex items-center font-display text-sm tracking-wider uppercase text-rebel-red group-hover:text-white transition-colors">
-                Subscribe Now <ArrowRight className="ml-2 w-4 h-4" />
-              </span>
-            </a>
-
-            <a
-              href="https://rebel-talent-shop.fourthwall.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-testid="link-shop-cta"
-              className="group border border-zinc-800 bg-zinc-900/30 p-8 text-center no-underline hover:border-rebel-red/50 transition-colors"
-            >
-              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">MERCH</div>
-              <h3 className="font-display text-xl font-bold text-white uppercase tracking-tight mb-3">
-                Rebel Talent Shop
-              </h3>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-                Gear for people who build right, hire right, and rebel forever.
-              </p>
-              <span className="inline-flex items-center font-display text-sm tracking-wider uppercase text-rebel-red group-hover:text-white transition-colors">
-                Shop Now <ArrowRight className="ml-2 w-4 h-4" />
-              </span>
-            </a>
-          </div>
+          <a
+            href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="link-newsletter-cta"
+            className="group border border-zinc-800 bg-zinc-900/30 p-8 text-center no-underline hover:border-rebel-red/50 transition-colors flex flex-col items-center"
+          >
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">NEWSLETTER</div>
+            <h3 className="font-display text-xl font-bold text-white uppercase tracking-tight mb-3">
+              Rebel Built
+            </h3>
+            <p className="text-zinc-400 text-sm leading-relaxed mb-4 max-w-lg">
+              Recruiting strategies, hiring frameworks, and unfiltered takes on talent. Subscribe on LinkedIn.
+            </p>
+            <span className="inline-flex items-center font-display text-sm tracking-wider uppercase text-rebel-red group-hover:text-white transition-colors">
+              Subscribe Now <ArrowRight className="ml-2 w-4 h-4" />
+            </span>
+          </a>
         </div>
       </section>
 
+      {/* ── FINAL CTA ── */}
       <section data-testid="section-cta" className="py-12 border-t border-zinc-800/50 bg-gradient-to-b from-rebel-red/5 to-transparent">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <img src="/logo.png" alt="Rebel Talent" className="w-16 h-16 mx-auto mb-6" />
