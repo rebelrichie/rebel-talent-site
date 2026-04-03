@@ -118,9 +118,9 @@ export default function About() {
           <div className="grid sm:grid-cols-4 gap-4 mb-16">
             {[
               { value: "14+", label: "Years Experience", numeric: true },
-              { value: "PMP", label: "Certified", numeric: false },
+              { value: "53K+", label: "LinkedIn Followers", numeric: true },
+              { value: "8K", label: "Newsletter Subs", numeric: true },
               { value: "TS/SCI", label: "Cleared Hiring", numeric: false },
-              { value: "50K+", label: "LinkedIn Network", numeric: true },
             ].map((stat) => (
               <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-5 text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
                 {stat.numeric ? (

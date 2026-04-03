@@ -57,7 +57,7 @@ export default function FractionalHeadOfTalent() {
                 <span className="text-rebel-red">Own Your Hiring.</span>
               </h1>
               <p className="text-zinc-300 text-base sm:text-lg leading-relaxed mb-6">
-                I'm Richie Lampani. I embed into your company as your Fractional Head of Talent — owning strategy, execution, ATS, process design, and hiring manager coaching. You get a full recruiting function at a fraction of the cost of an agency or full-time VP.
+                I'm Richie Lampani — 53K LinkedIn followers, 8K newsletter subscribers, and I built my own ATS/CRM from scratch. I embed into your company as your Fractional Head of Talent — owning strategy, execution, process design, and hiring manager coaching. You get a full recruiting function at a fraction of the cost of an agency or full-time VP.
               </p>
               <div className="mb-6">
                 <span className="inline-flex items-center gap-2 border border-green-500/30 bg-green-500/10 px-4 py-1.5 rounded-full">
@@ -175,10 +175,10 @@ export default function FractionalHeadOfTalent() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
             {[
-              { value: "350%+", label: "ROI Proven" },
-              { value: "<30", label: "Days to Hire" },
+              { value: "53K+", label: "LinkedIn Followers" },
+              { value: "8K", label: "Newsletter Subs" },
               { value: "$178K", label: "Agency Fees Saved" },
-              { value: "90%", label: "Retention Rate" },
+              { value: "<30", label: "Days to Hire" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <AnimatedCounter value={stat.value} className="font-display text-3xl sm:text-4xl font-bold text-rebel-red mb-1" />

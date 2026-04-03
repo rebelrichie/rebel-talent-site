@@ -491,10 +491,10 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { value: "350%+", label: "ROI Proven" },
-              { value: "<30", label: "Days to Hire" },
+              { value: "53K+", label: "LinkedIn Followers" },
+              { value: "8K", label: "Newsletter Subs" },
               { value: "14+", label: "Years Experience" },
-              { value: "90%", label: "Retention Rate" },
+              { value: "<30", label: "Days to Hire" },
             ].map((stat) => (
               <div key={stat.label} className="text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
                 <AnimatedCounter value={stat.value} className="font-display text-3xl sm:text-4xl font-bold text-rebel-red mb-1" />
@@ -765,6 +765,7 @@ export default function Home() {
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase leading-tight max-w-3xl mx-auto">
               The Toolkit That Comes With Every Engagement
             </h2>
+            <p className="text-zinc-500 text-sm mt-3 max-w-2xl mx-auto">Built from scratch by Richie — not licensed from a vendor. A proprietary ATS, CRM, and talent portal that you get access to as part of every engagement.</p>
           </div>
           <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
             {[
