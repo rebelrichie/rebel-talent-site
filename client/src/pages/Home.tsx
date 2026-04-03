@@ -479,7 +479,7 @@ export default function Home() {
           <div className="mt-10 pt-8 border-t border-zinc-800/30">
             <p className="text-zinc-600 text-xs font-mono tracking-[0.2em] uppercase mb-4">Trusted by teams at</p>
             <div className="flex flex-wrap justify-center gap-x-8 gap-y-2">
-              {["EarthDaily Federal", "Palantir", "Anduril", "Series A Startups", "Defense Contractors"].map((name) => (
+              {["EarthDaily Federal", "Wells Fargo", "Tiffany & Co", "Travelers", "WK Kellogg Foundation", "Roadrunner", "Enveil"].map((name) => (
                 <span key={name} className="text-zinc-500 text-sm font-display tracking-wide">{name}</span>
               ))}
             </div>
