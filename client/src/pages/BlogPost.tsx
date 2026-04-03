@@ -68,9 +68,54 @@ function renderBody(body: string): string {
   let inList = false;
   let inOl = false;
   let inBlockquote = false;
+  let inTable = false;
+  let tableHeaderDone = false;
 
   for (const line of lines) {
     const trimmed = line.trim();
+
+    // Safe addition — Table support
+    const isTableRow = trimmed.startsWith("|") && trimmed.endsWith("|") && trimmed.includes("|");
+    const isSeparator = isTableRow && /^\|[\s\-:|]+\|$/.test(trimmed);
+
+    if (isTableRow) {
+      if (inList) { html.push("</ul>"); inList = false; }
+      if (inOl) { html.push("</ol>"); inOl = false; }
+      if (inBlockquote) { html.push("</blockquote>"); inBlockquote = false; }
+
+      if (isSeparator) {
+        tableHeaderDone = true;
+        continue;
+      }
+
+      const cells = trimmed.split("|").filter((c, i, arr) => i > 0 && i < arr.length - 1).map(c => c.trim());
+
+      if (!inTable) {
+        html.push('<div class="overflow-x-auto my-6"><table class="w-full border-collapse text-sm">');
+        inTable = true;
+        // First row is header
+        html.push("<thead><tr>");
+        cells.forEach(cell => {
+          html.push(`<th class="text-left py-3 px-4 text-zinc-400 font-semibold text-xs tracking-wider uppercase border-b border-zinc-700 bg-zinc-900/50">${inlineFormat(cell)}</th>`);
+        });
+        html.push("</tr></thead><tbody>");
+        tableHeaderDone = false;
+      } else {
+        html.push("<tr>");
+        cells.forEach((cell, i) => {
+          const cls = i === 0
+            ? "py-3 px-4 text-zinc-300 font-semibold border-b border-zinc-800/50"
+            : "py-3 px-4 text-zinc-400 border-b border-zinc-800/50";
+          html.push(`<td class="${cls}">${inlineFormat(cell)}</td>`);
+        });
+        html.push("</tr>");
+      }
+      continue;
+    } else if (inTable) {
+      html.push("</tbody></table></div>");
+      inTable = false;
+      tableHeaderDone = false;
+    }
 
     // Code block placeholder
     const codeMatch = trimmed.match(/^__CODE_BLOCK_(\d+)__$/);
@@ -138,6 +183,7 @@ function renderBody(body: string): string {
   if (inList) html.push("</ul>");
   if (inOl) html.push("</ol>");
   if (inBlockquote) html.push("</blockquote>");
+  if (inTable) html.push("</tbody></table></div>");
   return html.join("\n");
 }
 
