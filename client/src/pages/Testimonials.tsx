@@ -8,6 +8,12 @@ import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 const testimonials = [
   {
+    initials: "A",
+    name: "Arin",
+    title: "VP of Operations | EarthDaily Federal",
+    text: "In a review, I was told I had an amazing team, cohesive and indistinguishable from full time employees. You Da Bomb.",
+  },
+  {
     initials: "KA",
     name: "Keisha Ah Loo-Yates",
     title: "Strategic IT Leader | Support Engineering Manager | U.S. Army (Airborne) Combat Veteran",

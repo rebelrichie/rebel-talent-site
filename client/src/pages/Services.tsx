@@ -26,14 +26,21 @@ export default function Services() {
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-16">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-              TALENT INFRASTRUCTURE
+              CHOOSE YOUR PATH
             </div>
             <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-4" data-testid="heading-services">
-              Three Paths to Infrastructure
+              How We Work Together
             </h1>
-            <p className="text-zinc-400 text-base max-w-2xl mx-auto leading-relaxed">
+            <p className="text-zinc-400 text-base max-w-2xl mx-auto leading-relaxed mb-6">
               Build the hiring machine that agencies can't. Choose embedded leadership, surgical execution, or on-demand recruiting muscle. Every path leaves you with systems you own forever.
             </p>
+            {/* Safe addition — Availability signal */}
+            <div className="flex justify-center">
+              <span className="inline-flex items-center gap-2 border border-green-500/30 bg-green-500/10 px-4 py-1.5 rounded-full">
+                <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                <span className="text-green-400 text-xs sm:text-sm font-mono tracking-wider uppercase">Currently accepting 2 new engagements</span>
+              </span>
+            </div>
           </div>
           </ScrollReveal>
 
@@ -229,6 +236,22 @@ export default function Services() {
               ))}
             </Accordion>
           </div>
+
+          {/* Safe addition — Client testimonial */}
+          <ScrollReveal variant="fade-up">
+          <div className="mb-16 max-w-3xl mx-auto text-center">
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-6">WHAT CLIENTS SAY</div>
+            <blockquote className="relative mb-8">
+              <span className="absolute -top-4 -left-2 text-rebel-red/20 text-6xl font-serif leading-none select-none">&ldquo;</span>
+              <p className="text-zinc-200 text-lg leading-relaxed italic mb-4">
+                In a review, I was told I had an amazing team, cohesive and indistinguishable from full time employees.
+              </p>
+              <footer className="text-zinc-500 text-sm">
+                <span className="text-zinc-300 font-semibold">Arin, VP of Operations</span> — EarthDaily Federal
+              </footer>
+            </blockquote>
+          </div>
+          </ScrollReveal>
 
           <ScrollReveal variant="scale">
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center">

@@ -94,9 +94,16 @@ export default function About() {
               <h2 className="font-display text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-2">
                 Fractional Head of Talent | Startup Recruiting & Defense Hiring Specialist
               </h2>
-              <p className="text-rebel-red font-display text-lg uppercase tracking-wider mb-6" data-testid="text-tagline">
+              <p className="text-rebel-red font-display text-lg uppercase tracking-wider mb-4" data-testid="text-tagline">
                 Operator. Builder. Anti-Agency Force.
               </p>
+              {/* Safe addition — Availability signal */}
+              <div className="mb-6">
+                <span className="inline-flex items-center gap-2 border border-green-500/30 bg-green-500/10 px-4 py-1.5 rounded-full">
+                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                  <span className="text-green-400 text-xs font-mono tracking-wider uppercase">Currently accepting 2 new engagements</span>
+                </span>
+              </div>
               <p className="text-zinc-400 text-sm leading-relaxed mb-4" data-testid="text-intro">
                 Richie Lampani built his career in the trenches of high-stakes hiring, leading talent functions for defense contractors and growth-stage tech firms. With 14 years of experience, he's closed hundreds of roles (from cleared TS/SCI positions to executive searches) while navigating compliance, scaling bottlenecks, and agency pitfalls.
               </p>
@@ -212,6 +219,21 @@ export default function About() {
                 <p className="text-zinc-400 text-sm leading-relaxed">Full talent function audit and strategic recommendations.</p>
               </div>
             </div>
+          </div>
+          </ScrollReveal>
+
+          {/* Safe addition — Client testimonial */}
+          <ScrollReveal variant="fade-up">
+          <div className="mb-16 max-w-3xl mx-auto text-center">
+            <blockquote className="relative">
+              <span className="absolute -top-4 -left-2 text-rebel-red/20 text-6xl font-serif leading-none select-none">&ldquo;</span>
+              <p className="text-zinc-200 text-lg leading-relaxed italic mb-4">
+                In a review, I was told I had an amazing team, cohesive and indistinguishable from full time employees.
+              </p>
+              <footer className="text-zinc-500 text-sm">
+                <span className="text-zinc-300 font-semibold">Arin, VP of Operations</span> — EarthDaily Federal
+              </footer>
+            </blockquote>
           </div>
           </ScrollReveal>
 
