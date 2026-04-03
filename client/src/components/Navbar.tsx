@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 
 // Nav order: money first — fractional recruiting is the core business
 const mainLinks = [
+  { href: "/fractional-head-of-talent", label: "FRACTIONAL" },
   { href: "/services", label: "SERVICES" },
   { href: "/how-it-works", label: "HOW IT WORKS" },
   { href: "/about", label: "ABOUT" },

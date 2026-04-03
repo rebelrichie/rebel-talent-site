@@ -40,6 +40,7 @@ export default function Footer() {
               NAVIGATE
             </h4>
             <div className="flex flex-col gap-2.5">
+              <Link href="/fractional-head-of-talent" data-testid="link-footer-fractional" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Fractional Head of Talent</Link>
               <Link href="/services" data-testid="link-footer-services" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Services</Link>
               <Link href="/how-it-works" data-testid="link-footer-how-it-works" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">How It Works</Link>
               <Link href="/testimonials" data-testid="link-footer-testimonials" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Testimonials</Link>

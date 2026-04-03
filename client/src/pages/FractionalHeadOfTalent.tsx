@@ -71,13 +71,18 @@ export default function FractionalHeadOfTalent() {
                 </Button>
               </a>
             </div>
-            <div className="shrink-0">
-              <img
-                src="/richie-headshot.png"
-                alt="Richie Lampani — Fractional Head of Talent"
-                className="w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover border-2 border-rebel-red/30"
-                style={{ filter: "drop-shadow(0 0 30px rgba(220,38,38,0.3))" }}
-              />
+            <div className="shrink-0 text-center">
+              <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="inline-block group">
+                <img
+                  src="/richie-headshot.png"
+                  alt="Richie Lampani — Fractional Head of Talent"
+                  className="w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover border-2 border-rebel-red/30 group-hover:border-rebel-red/60 transition-colors"
+                  style={{ filter: "drop-shadow(0 0 30px rgba(220,38,38,0.3))" }}
+                />
+              </a>
+              <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="block mt-3 text-zinc-500 text-xs font-mono tracking-wider hover:text-white transition-colors no-underline">
+                LinkedIn Profile
+              </a>
             </div>
           </div>
         </div>

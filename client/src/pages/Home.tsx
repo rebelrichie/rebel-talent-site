@@ -436,12 +436,17 @@ export default function Home() {
 
           {/* Safe addition — Richie headshot above the fold */}
           <div className="mb-6">
-            <img
-              src="/richie-headshot.png"
-              alt="Richie Lampani — Fractional Head of Talent"
-              className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-2 border-rebel-red/30 mx-auto"
-              style={{ filter: "drop-shadow(0 0 24px rgba(220,38,38,0.3))" }}
-            />
+            <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="inline-block group">
+              <img
+                src="/richie-headshot.png"
+                alt="Richie Lampani — Fractional Head of Talent"
+                className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-2 border-rebel-red/30 mx-auto group-hover:border-rebel-red/60 transition-colors"
+                style={{ filter: "drop-shadow(0 0 24px rgba(220,38,38,0.3))" }}
+              />
+            </a>
+            <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="block mt-2 text-zinc-500 text-xs font-mono tracking-wider hover:text-white transition-colors no-underline">
+              linkedin.com/in/richielampani
+            </a>
           </div>
 
           {/* Safe addition — Availability signal */}
