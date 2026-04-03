@@ -409,16 +409,30 @@ export default function Home() {
             />
           </div>
 
-          <h1 className="sr-only">Fractional Recruiting for Startups &amp; Defense Contractors</h1>
+          <h1 className="sr-only">Fractional Head of Talent for Startups &amp; Defense Contractors — Richie Lampani</h1>
+
+          {/* Safe addition — Lead with the service, not the brand */}
           <div className="font-mono text-rebel-red text-xs sm:text-sm tracking-[0.3em] uppercase mb-4">
-            TALENT INFRASTRUCTURE FOR STARTUPS & DEFENSE
+            FRACTIONAL HEAD OF TALENT
           </div>
 
-          <GraffitiHero />
+          <div className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white uppercase leading-tight mb-5">
+            <span className="block">YOUR HIRING IS BROKEN.</span>
+            <span className="block text-rebel-red">I FIX IT.</span>
+          </div>
 
-          <p className="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-            Agencies profit from your chaos. Rebel Talent embeds fractional recruiting leadership to build the hiring infrastructure startups and defense firms need — without the agency fees, bad fits, or endless delays.
+          <p className="text-zinc-300 text-base sm:text-lg max-w-2xl mx-auto mb-4 leading-relaxed">
+            Fractional Head of Talent for startups and defense contractors. I embed into your company, own the recruiting function, and build infrastructure that survives after I leave.
           </p>
+
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-10">
+            {["Embedded Leadership", "Not an Agency", "You Own Everything"].map((tag) => (
+              <span key={tag} className="text-zinc-500 text-xs sm:text-sm font-mono tracking-wider uppercase flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-rebel-red rounded-full inline-block" />
+                {tag}
+              </span>
+            ))}
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -438,8 +452,13 @@ export default function Home() {
             </Link>
           </div>
 
+          {/* Safe addition — Graffiti tagline as brand moment */}
+          <div className="mt-12 mb-6">
+            <GraffitiHero />
+          </div>
+
           {/* Safe addition – App ecosystem icons */}
-          <div className="mt-14 flex items-center justify-center gap-8 sm:gap-12">
+          <div className="mt-8 flex items-center justify-center gap-8 sm:gap-12">
             {[
               { name: "Command", desc: "Your Hiring War Room", href: "/command", icon: "/icon-command.png?v=6", glow: "0 0 24px 6px rgba(255,69,0,0.35)" },
               { name: "Apply", desc: "Proof-First Profiles", href: "https://rebelapply.com", icon: "/icon-apply.png?v=6", glow: "0 0 24px 6px rgba(56,189,248,0.35)" },
@@ -517,85 +536,32 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="section-proof" className="py-10 border-b border-zinc-800/50">
+      {/* Safe addition — Meet Richie personal intro */}
+      <section data-testid="section-meet" className="py-10 border-b border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <ScrollReveal variant="fade-left">
-          <ParallaxSection speed={0.1}>
-          <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/5 to-transparent p-6 sm:p-8 flex flex-col sm:flex-row gap-6 sm:gap-10 items-start">
-            <div className="flex-1">
-              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">PROOF OF CONCEPT</div>
-              <h2 className="font-display text-xl font-bold text-white uppercase mb-2">EarthDaily Federal</h2>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-5">
-                Defense-sector geospatial intelligence firm. We built their entire hiring infrastructure from scratch and eliminated agency dependency in under 90 days.
+          <ScrollReveal variant="fade-up">
+          <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 items-center sm:items-start">
+            <img
+              src="/richie-headshot.png"
+              alt="Richie Lampani — Fractional Head of Talent"
+              className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-2 border-rebel-red/30 shrink-0"
+              style={{ filter: "drop-shadow(0 0 20px rgba(220,38,38,0.2))" }}
+            />
+            <div>
+              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">MEET RICHIE</div>
+              <p className="text-zinc-300 text-sm sm:text-base leading-relaxed mb-3">
+                I'm Richie Lampani — 14 years in recruiting, now embedded as Fractional Head of Talent for companies that are done settling for bad hires and agency excuses. I've built hiring infrastructure from scratch for defense contractors and Series A startups alike. When you bring me in, you get someone who runs your entire talent function — strategy, execution, and the systems that outlast my engagement.
               </p>
-              <div className="grid grid-cols-3 gap-4 mb-5">
-                {[
-                  { value: "$178K", label: "Agency Fees Avoided" },
-                  { value: "350%", label: "ROI Delivered" },
-                  { value: "<30 days", label: "Avg. Time to Hire" },
-                ].map((s) => (
-                  <div key={s.label}>
-                    <AnimatedCounter value={s.value} className="font-display text-xl sm:text-2xl font-bold text-rebel-red" />
-                    <div className="text-zinc-500 text-xs uppercase tracking-wide leading-tight mt-0.5">{s.label}</div>
-                  </div>
-                ))}
-              </div>
-              <Link href="/case-studies" data-testid="link-case-study-proof">
-                <Button variant="outline" size="sm" className="font-display tracking-wider uppercase text-xs border-zinc-700 text-zinc-300">
-                  See Full Case Study <ArrowRight className="ml-2 w-3 h-3" />
-                </Button>
+              <Link href="/about" data-testid="link-meet-about" className="inline-flex items-center gap-2 text-rebel-red text-sm font-semibold hover:text-white transition-colors no-underline">
+                Full Story <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-            <div className="hidden sm:flex flex-col justify-center items-center border-l border-zinc-800 pl-8 shrink-0">
-              <div className="font-mono text-zinc-600 text-xs tracking-widest uppercase mb-1">Sector</div>
-              <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">Defense / Geo-Intel</div>
-              <div className="font-mono text-zinc-600 text-xs tracking-widest uppercase mt-4 mb-1">Clearances</div>
-              <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">TS / TS-SCI</div>
-            </div>
           </div>
-          </ParallaxSection>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Safe addition – Platform section */}
-      <section data-testid="section-platform" className="py-12 border-b border-zinc-800/50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-8">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">THE PLATFORM</div>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase leading-tight max-w-3xl mx-auto">
-              Why smaller teams choose Rebel instead of vibe-coding their own tools.
-            </h2>
-          </div>
-          <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
-            {[
-              { icon: <Zap className="w-5 h-5 text-rebel-red" />, title: "Ship in days, not quarters", desc: "Full recruiting infrastructure deployed and running before your next board meeting. No six-month implementation cycles." },
-              { icon: <Target className="w-5 h-5 text-rebel-red" />, title: "Proof-first signals", desc: "Every candidate surfaces with portfolio evidence, video intros, and AI-scored match signals — not just a resume and a prayer." },
-              { icon: <Shield className="w-5 h-5 text-rebel-red" />, title: "Ownable infrastructure", desc: "Your ATS, your pipeline, your data. Not locked into some vendor's ecosystem that disappears when you cancel." },
-              { icon: <TrendingUp className="w-5 h-5 text-rebel-red" />, title: "AI that works for you", desc: "23 specialized agents handle sourcing, briefs, interview prep, and follow-ups — while you focus on closing." },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm p-5 flex gap-4 items-start hover:border-zinc-700 transition-colors"
-              >
-                <div className="shrink-0 mt-0.5">{item.icon}</div>
-                <div>
-                  <div className="font-display text-sm font-bold text-white uppercase mb-1">{item.title}</div>
-                  <div className="text-zinc-400 text-sm leading-relaxed">{item.desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <a href="https://rebelapply.com/spotlight" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="sm" className="font-display tracking-wider uppercase text-xs border-zinc-700 text-zinc-300">
-                Browse Spotlight Talent <ArrowRight className="ml-2 w-3 h-3" />
-              </Button>
-            </a>
-          </div>
-        </div>
-      </section>
-
+      {/* Safe addition — Pain points moved up to hook visitors */}
       <section data-testid="section-pain" className="py-10 border-b border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
@@ -646,7 +612,8 @@ export default function Home() {
               <h3 className="font-display text-xl font-bold text-white uppercase mb-2">
                 Fractional Head of Talent
               </h3>
-              <p className="text-rebel-red font-mono text-sm mb-4">$12K - $30K/month</p>
+              <p className="text-rebel-red font-mono text-sm mb-1">Monthly Retainer</p>
+              <p className="text-zinc-500 font-mono text-xs mb-4">50%+ less than contingent agency fees</p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-6">
                 Embedded leadership that owns your entire recruiting function. Strategy, execution, and systems -- all in one.
               </p>
@@ -673,7 +640,8 @@ export default function Home() {
               <h3 className="font-display text-xl font-bold text-white uppercase mb-2">
                 Critical Hire Execution
               </h3>
-              <p className="text-rebel-red font-mono text-sm mb-4">Project-Based Pricing</p>
+              <p className="text-rebel-red font-mono text-sm mb-1">Project-Based Retainer</p>
+              <p className="text-zinc-500 font-mono text-xs mb-4">50%+ less than contingent search fees</p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-6">
                 Surgical execution for must-fill roles. I close hard-to-find talent in weeks, not months.
               </p>
@@ -700,7 +668,8 @@ export default function Home() {
               <h3 className="font-display text-xl font-bold text-white uppercase mb-2">
                 Rebel Contract Recruiters
               </h3>
-              <p className="text-rebel-red font-mono text-sm mb-4">Hourly Engagement</p>
+              <p className="text-rebel-red font-mono text-sm mb-1">Hourly Engagement</p>
+              <p className="text-zinc-500 font-mono text-xs mb-4">Scale up or down — no long-term lock-in</p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-6">
                 Vetted recruiters who execute under the Rebel Talent flag. Same standards, same playbooks -- deployed into your workflow on demand.
               </p>
@@ -726,6 +695,86 @@ export default function Home() {
             <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-2">
               <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Safe addition — Proof/Case Study moved after pricing */}
+      <section data-testid="section-proof" className="py-10 border-b border-zinc-800/50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <ScrollReveal variant="fade-left">
+          <ParallaxSection speed={0.1}>
+          <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/5 to-transparent p-6 sm:p-8 flex flex-col sm:flex-row gap-6 sm:gap-10 items-start">
+            <div className="flex-1">
+              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">PROOF OF CONCEPT</div>
+              <h2 className="font-display text-xl font-bold text-white uppercase mb-2">EarthDaily Federal</h2>
+              <p className="text-zinc-400 text-sm leading-relaxed mb-5">
+                Defense-sector geospatial intelligence firm. We built their entire hiring infrastructure from scratch and eliminated agency dependency in under 90 days.
+              </p>
+              <div className="grid grid-cols-3 gap-4 mb-5">
+                {[
+                  { value: "$178K", label: "Agency Fees Avoided" },
+                  { value: "350%", label: "ROI Delivered" },
+                  { value: "<30 days", label: "Avg. Time to Hire" },
+                ].map((s) => (
+                  <div key={s.label}>
+                    <AnimatedCounter value={s.value} className="font-display text-xl sm:text-2xl font-bold text-rebel-red" />
+                    <div className="text-zinc-500 text-xs uppercase tracking-wide leading-tight mt-0.5">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+              <Link href="/case-studies" data-testid="link-case-study-proof">
+                <Button variant="outline" size="sm" className="font-display tracking-wider uppercase text-xs border-zinc-700 text-zinc-300">
+                  See Full Case Study <ArrowRight className="ml-2 w-3 h-3" />
+                </Button>
+              </Link>
+            </div>
+            <div className="hidden sm:flex flex-col justify-center items-center border-l border-zinc-800 pl-8 shrink-0">
+              <div className="font-mono text-zinc-600 text-xs tracking-widest uppercase mb-1">Sector</div>
+              <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">Defense / Geo-Intel</div>
+              <div className="font-mono text-zinc-600 text-xs tracking-widest uppercase mt-4 mb-1">Clearances</div>
+              <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">TS / TS-SCI</div>
+            </div>
+          </div>
+          </ParallaxSection>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Safe addition – Toolkit section (reframed from Platform) */}
+      <section data-testid="section-platform" className="py-12 border-b border-zinc-800/50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8">
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">WHAT YOU GET</div>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase leading-tight max-w-3xl mx-auto">
+              The Toolkit That Comes With Every Engagement
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            {[
+              { icon: <Zap className="w-5 h-5 text-rebel-red" />, title: "Ship in days, not quarters", desc: "Full recruiting infrastructure deployed and running before your next board meeting. No six-month implementation cycles." },
+              { icon: <Target className="w-5 h-5 text-rebel-red" />, title: "Proof-first signals", desc: "Every candidate surfaces with portfolio evidence, video intros, and AI-scored match signals — not just a resume and a prayer." },
+              { icon: <Shield className="w-5 h-5 text-rebel-red" />, title: "Ownable infrastructure", desc: "Your ATS, your pipeline, your data. Not locked into some vendor's ecosystem that disappears when you cancel." },
+              { icon: <TrendingUp className="w-5 h-5 text-rebel-red" />, title: "AI that works for you", desc: "23 specialized agents handle sourcing, briefs, interview prep, and follow-ups — while you focus on closing." },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm p-5 flex gap-4 items-start hover:border-zinc-700 transition-colors"
+              >
+                <div className="shrink-0 mt-0.5">{item.icon}</div>
+                <div>
+                  <div className="font-display text-sm font-bold text-white uppercase mb-1">{item.title}</div>
+                  <div className="text-zinc-400 text-sm leading-relaxed">{item.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <a href="https://rebelapply.com/spotlight" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="sm" className="font-display tracking-wider uppercase text-xs border-zinc-700 text-zinc-300">
+                Browse Spotlight Talent <ArrowRight className="ml-2 w-3 h-3" />
               </Button>
             </a>
           </div>
@@ -812,45 +861,24 @@ export default function Home() {
       <section data-testid="section-newsletter-shop" className="py-10 border-t border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
-          <div className="grid sm:grid-cols-2 gap-6">
-            <a
-              href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-testid="link-newsletter-cta"
-              className="group border border-zinc-800 bg-zinc-900/30 p-8 text-center no-underline hover:border-rebel-red/50 transition-colors"
-            >
-              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">NEWSLETTER</div>
-              <h3 className="font-display text-xl font-bold text-white uppercase tracking-tight mb-3">
-                Rebel Built
-              </h3>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-                Recruiting strategies, hiring frameworks, and unfiltered takes on talent. Subscribe on LinkedIn.
-              </p>
-              <span className="inline-flex items-center font-display text-sm tracking-wider uppercase text-rebel-red group-hover:text-white transition-colors">
-                Subscribe Now <ArrowRight className="ml-2 w-4 h-4" />
-              </span>
-            </a>
-
-            <a
-              href="https://rebel-talent-shop.fourthwall.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-testid="link-shop-cta"
-              className="group border border-zinc-800 bg-zinc-900/30 p-8 text-center no-underline hover:border-rebel-red/50 transition-colors"
-            >
-              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">MERCH</div>
-              <h3 className="font-display text-xl font-bold text-white uppercase tracking-tight mb-3">
-                Rebel Talent Shop
-              </h3>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-                Gear for people who build right, hire right, and rebel forever.
-              </p>
-              <span className="inline-flex items-center font-display text-sm tracking-wider uppercase text-rebel-red group-hover:text-white transition-colors">
-                Shop Now <ArrowRight className="ml-2 w-4 h-4" />
-              </span>
-            </a>
-          </div>
+          <a
+            href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="link-newsletter-cta"
+            className="group block border border-zinc-800 bg-zinc-900/30 p-8 text-center no-underline hover:border-rebel-red/50 transition-colors max-w-2xl mx-auto"
+          >
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">NEWSLETTER</div>
+            <h3 className="font-display text-xl font-bold text-white uppercase tracking-tight mb-3">
+              Rebel Built
+            </h3>
+            <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+              Recruiting strategies, hiring frameworks, and unfiltered takes on talent. Subscribe on LinkedIn.
+            </p>
+            <span className="inline-flex items-center font-display text-sm tracking-wider uppercase text-rebel-red group-hover:text-white transition-colors">
+              Subscribe Now <ArrowRight className="ml-2 w-4 h-4" />
+            </span>
+          </a>
           </ScrollReveal>
         </div>
       </section>
