@@ -8,6 +8,8 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import ScrollReveal from "@/components/ScrollReveal";
 import GlowCard from "@/components/GlowCard";
 import ParallaxSection from "@/components/ParallaxSection";
+import CapacityBadge from "@/components/CapacityBadge";
+import CurrentEngagements from "@/components/CurrentEngagements";
 
 // Safe addition — haptic feedback for PWA CTA taps
 function hapticTap() {
@@ -377,6 +379,7 @@ export default function Home() {
         path="/"
         ogTitle="Fractional Recruiting for Startups & Defense | Rebel Talent"
         ogDescription="Agencies profit from your chaos. Rebel Talent embeds fractional recruiting leadership to build the hiring infrastructure startups and defense firms need — without the agency fees, bad fits, or delays."
+        ogImage="og-home.png"
         schemas={[homepageSchema]}
       />
       <section
@@ -450,11 +453,13 @@ export default function Home() {
           </div>
 
           {/* Safe addition — Availability signal */}
-          <div className="mb-8">
-            <span className="inline-flex items-center gap-2 border border-green-500/30 bg-green-500/10 px-4 py-1.5 rounded-full">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              <span className="text-green-400 text-xs sm:text-sm font-mono tracking-wider uppercase">Currently accepting 2 new engagements</span>
-            </span>
+          <div className="mb-6">
+            <CapacityBadge />
+          </div>
+
+          {/* Safe addition — Current engagements */}
+          <div className="mb-8 flex justify-center">
+            <CurrentEngagements />
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -504,6 +509,31 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Safe addition — Testimonials above the fold */}
+      <section className="py-8 border-b border-zinc-800/50">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+          <blockquote className="relative mb-6">
+            <span className="absolute -top-4 -left-2 text-rebel-red/20 text-6xl font-serif leading-none select-none">&ldquo;</span>
+            <p className="text-zinc-200 text-lg sm:text-xl leading-relaxed italic mb-4">
+              In a review, I was told I had an amazing team, cohesive and indistinguishable from full time employees.
+            </p>
+            <footer className="text-zinc-500 text-sm">
+              <span className="text-zinc-300 font-semibold">Arin, VP of Operations</span> — EarthDaily Federal
+            </footer>
+          </blockquote>
+          {/* Safe addition — Colleen Garrett short testimonial */}
+          <blockquote className="relative">
+            <span className="absolute -top-4 -left-2 text-rebel-red/20 text-6xl font-serif leading-none select-none">&ldquo;</span>
+            <p className="text-zinc-300 text-base leading-relaxed italic mb-4">
+              My company is exceptionally picky at a maddening level. Richie kept giving us amazing candidates, reflecting on our feedback and adjusting on the go. I plan to work with him wherever I go.
+            </p>
+            <footer className="text-zinc-500 text-sm">
+              <span className="text-zinc-300 font-semibold">Colleen Garrett</span> — Fractional HR Leader
+            </footer>
+          </blockquote>
         </div>
       </section>
 
@@ -697,14 +727,17 @@ export default function Home() {
             <div className="flex-1">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">PROOF OF CONCEPT</div>
               <h2 className="font-display text-xl font-bold text-white uppercase mb-2">EarthDaily Federal</h2>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-5">
-                Defense-sector geospatial intelligence firm. We built their entire hiring infrastructure from scratch and eliminated agency dependency in under 90 days.
+              <p className="text-zinc-400 text-sm leading-relaxed mb-3">
+                Defense-sector geospatial intelligence firm. 5 full-time hires + 2 contractors placed in 5 months — Controller ($140K), Backend Engineer ($180K), AI Engineer ($195K), Part-time IT Manager, and 2 contractors. At 20-25 hrs/week, $120/hr.
+              </p>
+              <p className="text-zinc-500 text-xs leading-relaxed mb-5">
+                VP of Growth ($220K) and PM ($200K) currently in finals.
               </p>
               <div className="grid grid-cols-3 gap-4 mb-5">
                 {[
-                  { value: "$178K", label: "Agency Fees Avoided" },
-                  { value: "350%", label: "ROI Delivered" },
-                  { value: "<30 days", label: "Avg. Time to Hire" },
+                  { value: "$229K", label: "Agency Fees Avoided" },
+                  { value: "285%", label: "ROI Delivered" },
+                  { value: "<21 days", label: "Avg. Time to Hire" },
                 ].map((s) => (
                   <div key={s.label}>
                     <AnimatedCounter value={s.value} className="font-display text-xl sm:text-2xl font-bold text-rebel-red" />
@@ -744,13 +777,14 @@ export default function Home() {
               <span className="text-zinc-300 font-semibold">Arin, VP of Operations</span> — EarthDaily Federal
             </footer>
           </blockquote>
+          {/* Safe addition — replaced with higher-credibility testimonial */}
           <blockquote className="relative">
             <span className="absolute -top-4 -left-2 text-rebel-red/20 text-6xl font-serif leading-none select-none">&ldquo;</span>
-            <p className="text-zinc-200 text-2xl sm:text-3xl leading-relaxed italic mb-6 font-display">
-              You Da Bomb.
+            <p className="text-zinc-200 text-base sm:text-lg leading-relaxed italic mb-6">
+              My company isn't easy to please and it is exceptionally picky at a maddening level. Richie kept giving us amazing candidates and moving forward, reflecting on our feedback and adjusting on the go. I plan to work with him wherever I go with whatever vacancy I need to fill — he guarantees my success in hiring.
             </p>
             <footer className="text-zinc-500 text-sm">
-              <span className="text-zinc-300 font-semibold">Arin, VP of Operations</span> — EarthDaily Federal
+              <span className="text-zinc-300 font-semibold">Colleen Garrett</span> — Fractional HR Leader, Leadership Coach, MBA
             </footer>
           </blockquote>
           </ScrollReveal>

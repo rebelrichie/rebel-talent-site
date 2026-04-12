@@ -71,6 +71,7 @@ export default function HowItWorks() {
         path="/how-it-works"
         ogTitle="How Embedded Recruiting Works | Rebel Talent"
         ogDescription="Week 1 audit, Month 1 go-live, Month 4+ you own it. This is fractional recruiting that builds systems — not dependency."
+        ogImage="og-how-it-works.png"
         schemas={[faqSchema]}
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
@@ -79,7 +80,7 @@ export default function HowItWorks() {
       />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <ScrollReveal variant="blur">
+          <ScrollReveal variant="blur" immediate>
           <div className="text-center mb-16">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
               HOW WE BUILD

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import GlowCard from "@/components/GlowCard";
+import CapacityBadge from "@/components/CapacityBadge";
 
 import headAndHeartCover from "@assets/Head_And_Heart_1773068092478.PNG";
 import unfinishedRoomsCover from "@assets/UR-BookCover_1773068071585.png";
@@ -59,12 +60,13 @@ export default function About() {
         path="/about"
         ogTitle="Richie Lampani | Fractional Head of Talent | Rebel Talent"
         ogDescription="Operator. Builder. Anti-Agency force. Richie Lampani founded Rebel Talent Systems to deliver embedded recruiting leadership and systems that clients own forever."
+        ogImage="og-about.png"
         schemas={[personSchema]}
         breadcrumbs={BREADCRUMBS}
       />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-          <ScrollReveal variant="fade-up">
+          <ScrollReveal variant="fade-up" immediate>
           <div className="grid md:grid-cols-[280px_1fr] gap-12 items-start mb-16">
             <div className="text-center md:text-left">
               <div className="w-48 h-48 mx-auto md:mx-0 mb-4 overflow-hidden border-2 border-rebel-red/30">
@@ -99,10 +101,7 @@ export default function About() {
               </p>
               {/* Safe addition — Availability signal */}
               <div className="mb-6">
-                <span className="inline-flex items-center gap-2 border border-green-500/30 bg-green-500/10 px-4 py-1.5 rounded-full">
-                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                  <span className="text-green-400 text-xs font-mono tracking-wider uppercase">Currently accepting 2 new engagements</span>
-                </span>
+                <CapacityBadge />
               </div>
               <p className="text-zinc-400 text-sm leading-relaxed mb-4" data-testid="text-intro">
                 Richie Lampani built his career in the trenches of high-stakes hiring, leading talent functions for defense contractors and growth-stage tech firms. With 14 years of experience, he's closed hundreds of roles (from cleared TS/SCI positions to executive searches) while navigating compliance, scaling bottlenecks, and agency pitfalls.

@@ -48,6 +48,7 @@ export default function Testimonials() {
         path="/testimonials"
         ogTitle="What Clients Say About Rebel Talent"
         ogDescription="No fluff, no embellishment — honest feedback from operators who've worked with Rebel Talent's embedded fractional recruiting model."
+        ogImage="og-testimonials.png"
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
           { name: "Testimonials", item: "https://rebeltalentsystems.com/testimonials" },
@@ -55,7 +56,7 @@ export default function Testimonials() {
       />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <ScrollReveal variant="fade-up">
+          <ScrollReveal variant="fade-up" immediate>
             <div className="text-center mb-16">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
                 PROOF

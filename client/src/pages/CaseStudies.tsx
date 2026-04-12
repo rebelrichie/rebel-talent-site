@@ -50,6 +50,7 @@ export default function CaseStudies() {
         path="/case-studies"
         ogTitle="Startup & Defense Recruiting Case Studies | Rebel Talent"
         ogDescription="Proof over promises. EarthDaily Federal: $178K saved, 350% ROI. Legal Managed Services: 18 hires, 90% retention. See how fractional recruiting actually performs."
+        ogImage="og-case-studies.png"
         schemas={[caseStudySchema]}
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
@@ -58,7 +59,7 @@ export default function CaseStudies() {
       />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-          <ScrollReveal variant="blur">
+          <ScrollReveal variant="blur" immediate>
           <div className="text-center mb-16 pb-10 border-b border-rebel-red/30">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
               PROOF IN THE METRICS

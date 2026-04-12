@@ -18,19 +18,25 @@ function parseTarget(value: string): { prefix: string; number: number; suffix: s
   };
 }
 
-export default function AnimatedCounter({ value, duration = 1800, className = "" }: AnimatedCounterProps) {
+export default function AnimatedCounter({ value, duration = 1200, className = "" }: AnimatedCounterProps) {
   const { ref, isInView } = useInView({ threshold: 0.3 });
-  const [displayValue, setDisplayValue] = useState("0");
   const { prefix, number: target, suffix } = parseTarget(value);
   const isDecimal = value.includes(".");
+  // Safe addition — show target value immediately so numbers never display as 0
+  // The counter animates FROM the target value when scrolled into view (resets to 0 then counts up)
+  const [displayValue, setDisplayValue] = useState(
+    isDecimal ? target.toFixed(1) : Math.floor(target).toString()
+  );
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   const animate = useCallback(() => {
+    setDisplayValue("0");
     const start = performance.now();
     const step = (now: number) => {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
-      const eased = 1 - Math.pow(1 - progress, 3);
+      // Safe addition — Ease out quint for snappier feel
+      const eased = 1 - Math.pow(1 - progress, 5);
       const current = eased * target;
       setDisplayValue(isDecimal ? current.toFixed(1) : Math.floor(current).toString());
       if (progress < 1) requestAnimationFrame(step);
@@ -39,8 +45,11 @@ export default function AnimatedCounter({ value, duration = 1800, className = ""
   }, [target, duration, isDecimal]);
 
   useEffect(() => {
-    if (isInView) animate();
-  }, [isInView, animate]);
+    if (isInView && !hasAnimated) {
+      setHasAnimated(true);
+      animate();
+    }
+  }, [isInView, hasAnimated, animate]);
 
   return (
     <span ref={ref} className={className}>

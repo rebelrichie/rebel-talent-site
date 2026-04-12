@@ -4,7 +4,6 @@ import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
 import GlowCard from "@/components/GlowCard";
-import ParallaxSection from "@/components/ParallaxSection";
 
 export default function Platform() {
   return (
@@ -15,6 +14,7 @@ export default function Platform() {
         path="/platform"
         ogTitle="The Rebel Platform | Rebel Talent Systems"
         ogDescription="Stop vibe-coding your own recruiting tools. The Rebel Platform gives you pipeline management, talent capture, and public branding in one integrated system."
+        ogImage="og-platform.png"
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
           { name: "Platform", item: "https://rebeltalentsystems.com/platform" },
@@ -24,7 +24,7 @@ export default function Platform() {
       {/* Hero */}
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-          <ScrollReveal variant="blur">
+          <ScrollReveal variant="blur" immediate>
           <div className="text-center mb-16">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
               THE REBEL PLATFORM
@@ -77,7 +77,7 @@ export default function Platform() {
       </section>
 
       {/* Rebel Command */}
-      <section className="py-16 border-t border-zinc-800/50">
+      <section className="py-12 border-t border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 items-start">
             <ScrollReveal variant="fade-up">
@@ -115,7 +115,7 @@ export default function Platform() {
       </section>
 
       {/* Rebel Apply */}
-      <section className="py-16 border-t border-zinc-800/50">
+      <section className="py-12 border-t border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 items-start">
             <ScrollReveal variant="fade-up">
@@ -153,7 +153,7 @@ export default function Platform() {
       </section>
 
       {/* Rebel Talent */}
-      <section className="py-16 border-t border-zinc-800/50">
+      <section className="py-12 border-t border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 items-start">
             <ScrollReveal variant="fade-up">
@@ -184,7 +184,7 @@ export default function Platform() {
       </section>
 
       {/* How It All Connects */}
-      <section className="py-16 border-t border-zinc-800/50">
+      <section className="py-12 border-t border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-10">
@@ -192,7 +192,6 @@ export default function Platform() {
             <h2 className="font-display text-2xl font-bold text-white uppercase">How It All Connects</h2>
           </div>
           </ScrollReveal>
-          <ParallaxSection speed={0.1}>
           <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
             {[
               { step: "01", title: "Candidates apply through Rebel Apply", desc: "Portfolio, video intro, evidence. No cover letters. No fluff. The profile auto-syncs to Command." },
@@ -208,12 +207,11 @@ export default function Platform() {
               </ScrollReveal>
             ))}
           </div>
-          </ParallaxSection>
         </div>
       </section>
 
       {/* Why Not Just Build Your Own */}
-      <section className="py-16 border-t border-zinc-800/50">
+      <section className="py-12 border-t border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-10">

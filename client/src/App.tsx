@@ -13,6 +13,7 @@ import CaseStudies from "@/pages/CaseStudies";
 import Podcast from "@/pages/Podcast";
 import FreeTools from "@/pages/FreeTools";
 import Platform from "@/pages/Platform";
+import ClientPortal from "@/pages/ClientPortal";
 import CommandDemo from "@/pages/CommandDemo";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import Blog from "@/pages/Blog";
@@ -32,6 +33,7 @@ function Router() {
       <Route path="/case-studies" component={CaseStudies} />
       <Route path="/podcast" component={Podcast} />
       <Route path="/platform" component={Platform} />
+      <Route path="/client-portal" component={ClientPortal} />
       <Route path="/command" component={CommandDemo} />
       <Route path="/free-tools" component={FreeTools} />
       <Route path="/blog" component={Blog} />
@@ -40,6 +42,9 @@ function Router() {
       <Route path="/fractional-head-of-talent" component={FractionalHeadOfTalent} />
       <Route path="/fractional-recruiting-services" component={FractionalHeadOfTalent} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
+      {/* Safe addition — redirect /shop to external store */}
+      <Route path="/shop">{() => { window.location.href = "https://rebel-talent-shop.fourthwall.com/"; return null; }}</Route>
+      <Route path="/abcr-certification">{() => { window.location.href = "/certification"; return null; }}</Route>
       <Route component={NotFound} />
     </Switch>
   );

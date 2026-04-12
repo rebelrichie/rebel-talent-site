@@ -7,6 +7,15 @@ import GlowCard from "@/components/GlowCard";
 
 const podcasts = [
   {
+    show: "Guidance Counselor 2.0",
+    network: "",
+    episode: "Episode 508 — Finding Your Next Job w/ Recruiter Richie Lampani",
+    desc: "Best practices for finding a job in this market. What recruiters actually look for, how to stand out, and what most candidates get wrong.",
+    links: [
+      { label: "Spotify", url: "https://open.spotify.com/episode/1dhrouxEGZjljlQUzXwgLx" },
+    ],
+  },
+  {
     show: "Is This Still A Good Time?",
     network: "Purple Acorn Network",
     episode: "Episode #11: Why Agency Recruiting Feels Like a Knife Fight",
@@ -100,7 +109,7 @@ export default function Podcast() {
       />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <ScrollReveal variant="fade-up">
+          <ScrollReveal variant="fade-up" immediate>
           <div className="mb-16">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
               MEDIA

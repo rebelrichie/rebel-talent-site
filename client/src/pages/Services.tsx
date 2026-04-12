@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import ScrollReveal from "@/components/ScrollReveal";
 import GlowCard from "@/components/GlowCard";
+import CapacityBadge from "@/components/CapacityBadge";
 import TypedText from "@/components/TypedText";
 
 export default function Services() {
@@ -16,6 +17,7 @@ export default function Services() {
         path="/services"
         ogTitle="Fractional Recruiting Services | Rebel Talent Systems"
         ogDescription="Fractional Head of Talent from $12K/mo, Critical Hire Execution, and vetted contract recruiters — embedded into your workflow, owned by you."
+        ogImage="og-services.png"
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
           { name: "Services", item: "https://rebeltalentsystems.com/services" },
@@ -23,7 +25,7 @@ export default function Services() {
       />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-          <ScrollReveal variant="fade-up">
+          <ScrollReveal variant="fade-up" immediate>
           <div className="text-center mb-16">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
               CHOOSE YOUR PATH
@@ -36,10 +38,7 @@ export default function Services() {
             </p>
             {/* Safe addition — Availability signal */}
             <div className="flex justify-center">
-              <span className="inline-flex items-center gap-2 border border-green-500/30 bg-green-500/10 px-4 py-1.5 rounded-full">
-                <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                <span className="text-green-400 text-xs sm:text-sm font-mono tracking-wider uppercase">Currently accepting 2 new engagements</span>
-              </span>
+              <CapacityBadge />
             </div>
           </div>
           </ScrollReveal>

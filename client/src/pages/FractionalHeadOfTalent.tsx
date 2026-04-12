@@ -5,6 +5,8 @@ import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ScrollReveal from "@/components/ScrollReveal";
+import CapacityBadge from "@/components/CapacityBadge";
+import CurrentEngagements from "@/components/CurrentEngagements";
 
 // Safe addition — haptic feedback for PWA CTA taps
 function hapticTap() {
@@ -40,6 +42,7 @@ export default function FractionalHeadOfTalent() {
         title="Fractional Head of Talent — Embedded Recruiting Leadership | Richie Lampani"
         description="Hire a Fractional Head of Talent who embeds into your company, owns the recruiting function, and builds infrastructure that survives after I leave. 14+ years experience. Startups & defense contractors."
         path="/fractional-head-of-talent"
+        ogImage="og-fractional.png"
         schemas={[fractionalSchema]}
       />
 
@@ -59,11 +62,12 @@ export default function FractionalHeadOfTalent() {
               <p className="text-zinc-300 text-base sm:text-lg leading-relaxed mb-6">
                 I'm Richie Lampani — 53K LinkedIn followers, 8K newsletter subscribers, and I built my own ATS/CRM from scratch. I embed into your company as your Fractional Head of Talent — owning strategy, execution, process design, and hiring manager coaching. You get a full recruiting function at a fraction of the cost of an agency or full-time VP.
               </p>
+              <div className="mb-4">
+                <CapacityBadge />
+              </div>
+              {/* Safe addition — Current engagements */}
               <div className="mb-6">
-                <span className="inline-flex items-center gap-2 border border-green-500/30 bg-green-500/10 px-4 py-1.5 rounded-full">
-                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                  <span className="text-green-400 text-xs font-mono tracking-wider uppercase">Currently accepting 2 new engagements</span>
-                </span>
+                <CurrentEngagements />
               </div>
               <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer">
                 <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-8">
@@ -268,10 +272,7 @@ export default function FractionalHeadOfTalent() {
             30-minute strategy call. No sales pitch — just a real diagnosis of your recruiting gaps and a plan to fix them.
           </p>
           <div className="mb-6">
-            <span className="inline-flex items-center gap-2 border border-green-500/30 bg-green-500/10 px-4 py-1.5 rounded-full">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              <span className="text-green-400 text-xs font-mono tracking-wider uppercase">Currently accepting 2 new engagements</span>
-            </span>
+            <CapacityBadge />
           </div>
           <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer">
             <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-10">
