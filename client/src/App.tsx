@@ -21,6 +21,7 @@ import BlogPost from "@/pages/BlogPost";
 import Certification from "@/pages/Certification";
 import FractionalHeadOfTalent from "@/pages/FractionalHeadOfTalent";
 import Pricing from "@/pages/Pricing";
+import RachaelProtocol from "@/pages/RachaelProtocol";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -43,6 +44,7 @@ function Router() {
       <Route path="/fractional-head-of-talent" component={FractionalHeadOfTalent} />
       <Route path="/fractional-recruiting-services" component={FractionalHeadOfTalent} />
       <Route path="/pricing" component={Pricing} />
+      <Route path="/rachael" component={RachaelProtocol} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       {/* Safe addition — redirect /shop to external store */}
       <Route path="/shop">{() => { window.location.href = "https://rebel-talent-shop.fourthwall.com/"; return null; }}</Route>

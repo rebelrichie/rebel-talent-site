@@ -28,6 +28,7 @@ const ROUTES = [
   "/certification",
   "/fractional-head-of-talent",
   "/fractional-recruiting-services",
+  "/rachael",
   "/privacy-policy",
 ];
 
