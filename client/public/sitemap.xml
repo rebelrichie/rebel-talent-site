@@ -2,73 +2,73 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rebeltalentsystems.com/</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://rebeltalentsystems.com/about</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://rebeltalentsystems.com/services</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://rebeltalentsystems.com/platform</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://rebeltalentsystems.com/how-it-works</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rebeltalentsystems.com/case-studies</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://rebeltalentsystems.com/testimonials</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rebeltalentsystems.com/blog</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rebeltalentsystems.com/podcast</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://rebeltalentsystems.com/free-tools</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://rebeltalentsystems.com/command</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://rebeltalentsystems.com/certification</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -85,8 +85,20 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://rebeltalentsystems.com/pricing</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rebeltalentsystems.com/client-portal</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://rebeltalentsystems.com/privacy-policy</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
