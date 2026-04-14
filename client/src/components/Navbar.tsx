@@ -7,6 +7,7 @@ const servicesLinks = [
   { href: "/fractional-head-of-talent", label: "Fractional Head of Talent", external: false },
   { href: "/services", label: "All Services", external: false },
   { href: "/how-it-works", label: "How It Works", external: false },
+  { href: "/pricing", label: "Pricing", external: false },
   { href: "/platform", label: "Platform", external: false },
 ];
 
