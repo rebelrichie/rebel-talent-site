@@ -10,6 +10,7 @@ import GlowCard from "@/components/GlowCard";
 import ParallaxSection from "@/components/ParallaxSection";
 import CapacityBadge from "@/components/CapacityBadge";
 import CurrentEngagements from "@/components/CurrentEngagements";
+import EmailCapture from "@/components/EmailCapture";
 
 // Safe addition — haptic feedback for PWA CTA taps
 function hapticTap() {
@@ -910,24 +911,28 @@ export default function Home() {
       <section data-testid="section-newsletter-shop" className="py-10 border-t border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
-          <a
-            href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-testid="link-newsletter-cta"
-            className="group block border border-zinc-800 bg-zinc-900/30 p-8 text-center no-underline hover:border-rebel-red/50 transition-colors max-w-2xl mx-auto"
-          >
+          <div className="border border-zinc-800 bg-zinc-900/30 p-8 text-center max-w-2xl mx-auto" data-testid="newsletter-capture">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">NEWSLETTER</div>
             <h3 className="font-display text-xl font-bold text-white uppercase tracking-tight mb-3">
               Rebel Built
             </h3>
-            <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-              Recruiting strategies, hiring frameworks, and unfiltered takes on talent. Subscribe on LinkedIn.
+            <p className="text-zinc-400 text-sm leading-relaxed mb-5">
+              Recruiting strategies, hiring frameworks, and unfiltered takes on talent. Delivered to your inbox.
             </p>
-            <span className="inline-flex items-center font-display text-sm tracking-wider uppercase text-rebel-red group-hover:text-white transition-colors">
-              Subscribe Now <ArrowRight className="ml-2 w-4 h-4" />
-            </span>
-          </a>
+            {/* Safe addition — owned email capture */}
+            <EmailCapture source="homepage_newsletter" placeholder="your@email.com" buttonText="Get It" />
+            <p className="text-zinc-600 text-xs mt-4">
+              Or subscribe on{" "}
+              <a
+                href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-500 hover:text-white underline transition-colors"
+              >
+                LinkedIn
+              </a>
+            </p>
+          </div>
           </ScrollReveal>
         </div>
       </section>
