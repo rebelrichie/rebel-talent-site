@@ -14,6 +14,7 @@ function hapticTap() {
   if (navigator.vibrate) navigator.vibrate(15);
 }
 
+
 const pricingFaqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
