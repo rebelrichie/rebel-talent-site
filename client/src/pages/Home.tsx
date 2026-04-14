@@ -831,6 +831,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Safe addition — Rachael Protocol teaser */}
+      <section className="py-12 border-t border-zinc-800/50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <ScrollReveal variant="fade-up">
+            <div className="border border-zinc-800 bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-center">
+              <div className="shrink-0">
+                <img
+                  src="/rachael-tyrell.jpg"
+                  alt="Rachael Tyrell, AI Operations Agent"
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-2 border-rebel-red/30"
+                  style={{ filter: "drop-shadow(0 0 20px rgba(220,38,38,0.25))" }}
+                />
+              </div>
+              <div className="flex-1 text-center sm:text-left">
+                <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">THE RACHAEL PROTOCOL</div>
+                <h3 className="font-display text-lg sm:text-xl font-bold text-white uppercase mb-2">
+                  Meet the AI That Runs My Operations
+                </h3>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+                  Most companies hide their AI. I built mine a name, a face, and a page that explains exactly what she does. Rachael handles outreach, scheduling, and operations. I handle your hiring. Full transparency, always.
+                </p>
+                <Link href="/rachael">
+                  <Button variant="outline" size="sm" className="font-display tracking-wider uppercase text-xs border-zinc-700 text-zinc-300">
+                    Meet Rachael <ArrowRight className="ml-2 w-3 h-3" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       <section data-testid="section-who" className="py-12 border-t border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
