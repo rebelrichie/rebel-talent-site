@@ -13,7 +13,6 @@ import CaseStudies from "@/pages/CaseStudies";
 import Podcast from "@/pages/Podcast";
 import FreeTools from "@/pages/FreeTools";
 import Platform from "@/pages/Platform";
-import ClientPortal from "@/pages/ClientPortal";
 import CommandDemo from "@/pages/CommandDemo";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import Blog from "@/pages/Blog";
@@ -22,6 +21,7 @@ import Certification from "@/pages/Certification";
 import FractionalHeadOfTalent from "@/pages/FractionalHeadOfTalent";
 import Pricing from "@/pages/Pricing";
 import RachaelProtocol from "@/pages/RachaelProtocol";
+import Advisory from "@/pages/Advisory";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -33,9 +33,9 @@ function Router() {
       <Route path="/how-it-works" component={HowItWorks} />
       <Route path="/testimonials" component={Testimonials} />
       <Route path="/case-studies" component={CaseStudies} />
+      <Route path="/results" component={CaseStudies} />
       <Route path="/podcast" component={Podcast} />
       <Route path="/platform" component={Platform} />
-      <Route path="/client-portal" component={ClientPortal} />
       <Route path="/command" component={CommandDemo} />
       <Route path="/free-tools" component={FreeTools} />
       <Route path="/blog" component={Blog} />
@@ -45,6 +45,7 @@ function Router() {
       <Route path="/fractional-recruiting-services" component={FractionalHeadOfTalent} />
       <Route path="/pricing" component={Pricing} />
       <Route path="/rachael" component={RachaelProtocol} />
+      <Route path="/advisory" component={Advisory} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       {/* Safe addition — redirect /shop to external store */}
       <Route path="/shop">{() => { window.location.href = "https://rebel-talent-shop.fourthwall.com/"; return null; }}</Route>

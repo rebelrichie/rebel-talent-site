@@ -21,7 +21,6 @@ const ROUTES = [
   "/case-studies",
   "/podcast",
   "/platform",
-  "/client-portal",
   "/command",
   "/free-tools",
   "/blog",
