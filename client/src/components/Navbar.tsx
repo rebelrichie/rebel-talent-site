@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown } from "lucide-react";
 
-// Safe addition — consolidated nav: Services dropdown replaces 4 individual links
+// Safe addition, consolidated nav: Services dropdown replaces 4 individual links
 const servicesLinks = [
   { href: "/fractional-head-of-talent", label: "Fractional Head of Talent", external: false },
   { href: "/services", label: "All Services", external: false },
@@ -102,7 +102,7 @@ export default function Navbar() {
           </button>
 
           <div className="hidden md:flex items-center gap-0.5">
-            {/* Safe addition — Services dropdown */}
+            {/* Safe addition, Services dropdown */}
             <div ref={servicesRef} className="relative">
               <button
                 data-testid="button-services-dropdown"
@@ -119,7 +119,7 @@ export default function Navbar() {
               {renderDropdown(servicesLinks, servicesOpen)}
             </div>
 
-            {/* About — standalone link */}
+            {/* About, standalone link */}
             <Link
               href="/about"
               data-testid="link-nav-about"
@@ -162,17 +162,6 @@ export default function Navbar() {
               {renderDropdown(resourceLinks, resourcesOpen)}
             </div>
 
-            {/* Safe addition — Client Portal CTA */}
-            <a
-              href="https://clients.rebeltalentsystems.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-testid="link-nav-client-portal"
-              className="ml-2 px-3.5 py-2 text-[11px] font-semibold tracking-widest bg-rebel-red text-white hover:bg-red-600 transition-colors no-underline whitespace-nowrap rounded-md"
-            >
-              CLIENT PORTAL
-            </a>
-
             <a
               href="https://rebelapply.com"
               target="_blank"
@@ -188,7 +177,7 @@ export default function Navbar() {
 
       {isOpen && (
         <div className="md:hidden border-t border-zinc-800" style={{ background: "#050505" }}>
-          {/* Safe addition — Mobile: Services dropdown */}
+          {/* Safe addition, Mobile: Services dropdown */}
           <button
             data-testid="button-mobile-services"
             aria-expanded={mobileServicesOpen}
@@ -212,7 +201,7 @@ export default function Navbar() {
             </Link>
           ))}
 
-          {/* About — standalone */}
+          {/* About, standalone */}
           <Link
             href="/about"
             data-testid="link-mobile-about"
@@ -285,18 +274,6 @@ export default function Navbar() {
               </Link>
             )
           )}
-
-          {/* Safe addition — Client Portal mobile CTA */}
-          <a
-            href="https://clients.rebeltalentsystems.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-testid="link-mobile-client-portal"
-            className="block px-6 py-3 text-xs font-semibold tracking-widest border-b border-zinc-900 no-underline text-white bg-rebel-red/20"
-            onClick={() => setIsOpen(false)}
-          >
-            CLIENT PORTAL
-          </a>
 
           <a
             href="https://rebelapply.com"
