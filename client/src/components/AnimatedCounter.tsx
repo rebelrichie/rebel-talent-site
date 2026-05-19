@@ -1,4 +1,4 @@
-// Safe addition — Animated counter that counts up when scrolled into view
+// Safe addition, Animated counter that counts up when scrolled into view
 import { useState, useEffect, useCallback } from "react";
 import { useInView } from "@/hooks/useInView";
 
@@ -22,27 +22,20 @@ export default function AnimatedCounter({ value, duration = 1200, className = ""
   const { ref, isInView } = useInView({ threshold: 0.3 });
   const { prefix, number: target, suffix } = parseTarget(value);
   const isDecimal = value.includes(".");
-  // Safe addition — show target value immediately so numbers never display as 0
+  // Safe addition, show target value immediately so numbers never display as 0
   // The counter animates FROM the target value when scrolled into view (resets to 0 then counts up)
   const [displayValue, setDisplayValue] = useState(
     isDecimal ? target.toFixed(1) : Math.floor(target).toString()
   );
   const [hasAnimated, setHasAnimated] = useState(false);
 
+  // Safe addition — counter no longer resets to 0 before animating. The previous
+  // behavior caused pre-rendered HTML to capture the "0" state mid-animation,
+  // leaving stats showing 0 in production. Now we just show the target value
+  // immediately. (Visual count-up sacrificed for correctness — net win.)
   const animate = useCallback(() => {
-    setDisplayValue("0");
-    const start = performance.now();
-    const step = (now: number) => {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      // Safe addition — Ease out quint for snappier feel
-      const eased = 1 - Math.pow(1 - progress, 5);
-      const current = eased * target;
-      setDisplayValue(isDecimal ? current.toFixed(1) : Math.floor(current).toString());
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }, [target, duration, isDecimal]);
+    setDisplayValue(isDecimal ? target.toFixed(1) : Math.floor(target).toString());
+  }, [target, isDecimal]);
 
   useEffect(() => {
     if (isInView && !hasAnimated) {

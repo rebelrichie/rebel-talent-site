@@ -300,11 +300,13 @@
   80%       { opacity: 1.0;  transform: scale(1.2); }
 }
 
+/* Safe addition — disabled the hidden state. Scroll-reveal was leaving entire
+   pages at 15% opacity because IntersectionObserver fires unreliably after
+   hydration of pre-rendered HTML. Content now renders at full opacity always;
+   the in-view class is still added for compatibility but does nothing. */
 .reveal-ready {
-  opacity: 0.15;
-  transform: translateY(20px);
-  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 1;
+  transform: none;
 }
 
 .reveal-ready.in-view {
