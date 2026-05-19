@@ -39,6 +39,11 @@ export default function JobApply() {
   const [email, setEmail] = useState("");
   const [whyThisRole, setWhyThisRole] = useState("");
   const [file, setFile] = useState<File | null>(null);
+  // Knock-out screening answers
+  const [workAuth, setWorkAuth] = useState<string>("");
+  const [clearance, setClearance] = useState<string>("");
+  const [targetComp, setTargetComp] = useState<string>("");
+  const [availability, setAvailability] = useState<string>("");
   const [submit, setSubmit] = useState<SubmitState>({ kind: "idle" });
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -66,6 +71,8 @@ export default function JobApply() {
     lastName.trim().length >= 1 &&
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()) &&
     !!file &&
+    !!workAuth &&
+    !!availability &&
     submit.kind !== "submitting";
 
   async function handleSubmit(e: React.FormEvent) {
@@ -79,6 +86,10 @@ export default function JobApply() {
       fd.append("lastName", lastName.trim());
       fd.append("email", email.trim().toLowerCase());
       fd.append("whyThisRole", whyThisRole.trim());
+      fd.append("workAuth", workAuth);
+      fd.append("clearance", clearance);
+      fd.append("targetComp", targetComp.trim());
+      fd.append("availability", availability);
       fd.append("file", file);
 
       const res = await fetch(APPLY_API, { method: "POST", body: fd });
@@ -251,6 +262,115 @@ export default function JobApply() {
                   )}
                 </div>
               </button>
+            </div>
+
+            {/* ── Knock-out questions ─────────────────────── */}
+            <div className="pt-2 pb-1 border-t border-zinc-800/60">
+              <p className="text-[10px] text-rebel-red font-semibold tracking-[0.2em] uppercase pt-5">
+                Quick Screening
+              </p>
+              <p className="text-xs text-zinc-500 mt-1 mb-4">
+                Helps us match you to roles that actually fit. ~15 seconds.
+              </p>
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
+                Work authorization <span className="text-rebel-red">*</span>
+              </label>
+              <div className="space-y-2">
+                {[
+                  { value: "citizen", label: "US citizen or permanent resident" },
+                  { value: "visa-no-sponsor", label: "Authorized via visa (H-1B, OPT, etc.) — no sponsorship needed" },
+                  { value: "needs-sponsor", label: "I'll need visa sponsorship" },
+                ].map((opt) => (
+                  <label
+                    key={opt.value}
+                    className={`flex items-start gap-3 px-3 py-2.5 border rounded-md cursor-pointer transition-colors ${
+                      workAuth === opt.value
+                        ? "border-rebel-red bg-rebel-red/10"
+                        : "border-zinc-800 hover:border-zinc-700 bg-zinc-950"
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="workAuth"
+                      value={opt.value}
+                      checked={workAuth === opt.value}
+                      onChange={(e) => setWorkAuth(e.target.value)}
+                      className="mt-0.5 accent-rebel-red"
+                    />
+                    <span className="text-sm text-zinc-200">{opt.label}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="clearance" className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
+                Active security clearance <span className="font-normal normal-case tracking-normal text-zinc-600">— optional, only if you have one</span>
+              </label>
+              <select
+                id="clearance"
+                value={clearance}
+                onChange={(e) => setClearance(e.target.value)}
+                className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-md text-white focus:outline-none focus:border-rebel-red transition-colors"
+              >
+                <option value="">— Select if applicable —</option>
+                <option value="none">None</option>
+                <option value="public-trust">Public Trust</option>
+                <option value="secret">Secret</option>
+                <option value="ts">Top Secret (TS)</option>
+                <option value="ts-sci">TS/SCI</option>
+                <option value="ts-sci-poly">TS/SCI w/ Poly</option>
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="targetComp" className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
+                Target total comp <span className="font-normal normal-case tracking-normal text-zinc-600">— optional</span>
+              </label>
+              <input
+                id="targetComp"
+                type="text"
+                value={targetComp}
+                onChange={(e) => setTargetComp(e.target.value.slice(0, 200))}
+                placeholder="e.g. $180-220k base, or $250k OTE, or $400k total comp"
+                className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-md text-white placeholder:text-zinc-600 focus:outline-none focus:border-rebel-red transition-colors"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
+                When could you start? <span className="text-rebel-red">*</span>
+              </label>
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  { value: "immediate", label: "Immediately" },
+                  { value: "2-weeks", label: "2 weeks" },
+                  { value: "1-month", label: "1 month" },
+                  { value: "2-plus-months", label: "2+ months" },
+                ].map((opt) => (
+                  <label
+                    key={opt.value}
+                    className={`flex items-center gap-2 px-3 py-2.5 border rounded-md cursor-pointer transition-colors ${
+                      availability === opt.value
+                        ? "border-rebel-red bg-rebel-red/10"
+                        : "border-zinc-800 hover:border-zinc-700 bg-zinc-950"
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="availability"
+                      value={opt.value}
+                      checked={availability === opt.value}
+                      onChange={(e) => setAvailability(e.target.value)}
+                      className="accent-rebel-red"
+                    />
+                    <span className="text-sm text-zinc-200">{opt.label}</span>
+                  </label>
+                ))}
+              </div>
             </div>
 
             <div>
