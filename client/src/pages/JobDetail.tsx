@@ -284,7 +284,7 @@ export default function JobDetail() {
             {/* Primary apply CTA */}
             <div className="flex flex-wrap items-center gap-3 mb-10 pb-10 border-b border-zinc-800">
               <a
-                href={`${APPLY_BASE}/${job.id}`}
+                href={`https://rebelapply.com/login-talent?redirect=/jobs/${job.id}/apply`}
                 data-testid="button-apply"
                 className="inline-flex items-center gap-2 px-6 py-3.5 bg-rebel-red hover:bg-red-700 text-white font-semibold rounded-md transition-colors no-underline group"
               >
@@ -342,7 +342,7 @@ export default function JobDetail() {
                 Build a profile once, get matched to roles like this — and others — before they go public.
               </p>
               <a
-                href={`${APPLY_BASE}/${job.id}`}
+                href={`https://rebelapply.com/login-talent?redirect=/jobs/${job.id}/apply`}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-rebel-red hover:bg-red-700 text-white font-semibold rounded-md transition-colors no-underline group"
               >
                 Apply Now
