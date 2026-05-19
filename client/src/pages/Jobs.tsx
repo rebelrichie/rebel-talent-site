@@ -4,13 +4,16 @@
 // gets HTML with the data baked in.
 
 import { useEffect, useState, useMemo } from "react";
+import { Link } from "wouter";
 import { ArrowRight, MapPin, DollarSign, Briefcase, Search } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const JOBS_API = "https://rebelapply.com/api/public/jobs";
-const APPLY_BASE = "https://rebelapply.com/jobs";
+// Detail page is now in-app at /jobs/:id (dark theme, stays on rebeltalentsystems.com).
+// The apply step is the only thing that crosses to the rebelapply.com light portal.
+const APPLY_PORTAL = "https://rebelapply.com/login-talent";
 
 interface Job {
   id: string;
@@ -39,7 +42,7 @@ function jobJsonLd(jobs: Job[]) {
   const itemList = jobs.slice(0, 50).map((j, idx) => ({
     "@type": "ListItem",
     position: idx + 1,
-    url: `${APPLY_BASE}/${j.id}`,
+    url: `https://rebeltalentsystems.com/jobs/${j.id}`,
     name: `${j.title} at ${j.companyName}`,
   }));
   return {
@@ -149,10 +152,10 @@ export default function Jobs() {
             <div className="text-center py-16 text-zinc-400">
               <p className="mb-4">Couldn&apos;t load roles right now.</p>
               <a
-                href={APPLY_BASE}
+                href={APPLY_PORTAL}
                 className="inline-flex items-center gap-2 text-rebel-red hover:text-white transition-colors"
               >
-                View on Rebel Talent <ArrowRight className="h-4 w-4" />
+                Sign in to view roles <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           )}
@@ -173,8 +176,8 @@ export default function Jobs() {
               <div className="space-y-3" data-testid="job-list">
                 {filtered.map((j) => (
                   <ScrollReveal key={j.id} immediate>
-                    <a
-                      href={`${APPLY_BASE}/${j.id}`}
+                    <Link
+                      href={`/jobs/${j.id}`}
                       data-testid={`link-job-${j.id}`}
                       className="block bg-zinc-950 border border-zinc-800 rounded-lg p-5 sm:p-6 hover:border-rebel-red/60 hover:bg-zinc-900/50 transition-all group no-underline"
                     >
@@ -205,7 +208,7 @@ export default function Jobs() {
                           </span>
                         )}
                       </div>
-                    </a>
+                    </Link>
                   </ScrollReveal>
                 ))}
               </div>
@@ -226,7 +229,7 @@ export default function Jobs() {
                 Build your profile once, get matched when something fits.
               </p>
               <a
-                href={`${APPLY_BASE.replace('/jobs', '')}/login-talent`}
+                href={APPLY_PORTAL}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-rebel-red hover:bg-red-700 text-white font-semibold rounded-md transition-colors no-underline"
                 data-testid="button-build-profile"
               >
