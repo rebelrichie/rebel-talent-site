@@ -130,6 +130,17 @@ export default function Navbar() {
               ABOUT
             </Link>
 
+            {/* Safe addition — Jobs (replaces APPLY as the candidate front door) */}
+            <Link
+              href="/jobs"
+              data-testid="link-nav-jobs"
+              className={`px-2.5 py-2 text-[11px] font-semibold tracking-widest transition-colors duration-200 no-underline whitespace-nowrap ${
+                location === "/jobs" ? "text-rebel-red" : "text-zinc-400 hover:text-white"
+              }`}
+            >
+              JOBS
+            </Link>
+
             {/* Proof dropdown (Testimonials + Case Studies) */}
             <div ref={proofRef} className="relative">
               <button
@@ -211,6 +222,18 @@ export default function Navbar() {
             onClick={() => setIsOpen(false)}
           >
             ABOUT
+          </Link>
+
+          {/* Safe addition — Jobs */}
+          <Link
+            href="/jobs"
+            data-testid="link-mobile-jobs"
+            className={`block px-6 py-3 text-xs font-semibold tracking-widest border-b border-zinc-900 no-underline ${
+              location === "/jobs" ? "text-rebel-red" : "text-zinc-400"
+            }`}
+            onClick={() => setIsOpen(false)}
+          >
+            JOBS
           </Link>
 
           {/* Mobile: Results */}

@@ -29,6 +29,7 @@ const ROUTES = [
   "/fractional-recruiting-services",
   "/rachael",
   "/privacy-policy",
+  "/jobs",
 ];
 
 // Simple static file server for the built dist
