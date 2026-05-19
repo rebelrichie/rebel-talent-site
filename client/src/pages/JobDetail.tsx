@@ -10,7 +10,6 @@ import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 
 const API_BASE = "https://rebelapply.com/api/public/jobs";
-const APPLY_BASE = "https://rebelapply.com/jobs";
 
 interface Job {
   id: string;
@@ -283,16 +282,16 @@ export default function JobDetail() {
 
             {/* Primary apply CTA */}
             <div className="flex flex-wrap items-center gap-3 mb-10 pb-10 border-b border-zinc-800">
-              <a
-                href={`https://rebelapply.com/login-talent?redirect=/jobs/${job.id}/apply`}
+              <Link
+                href={`/jobs/${job.id}/apply`}
                 data-testid="button-apply"
                 className="inline-flex items-center gap-2 px-6 py-3.5 bg-rebel-red hover:bg-red-700 text-white font-semibold rounded-md transition-colors no-underline group"
               >
                 Apply for This Role
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
               <span className="text-xs text-zinc-500">
-                Applying takes ~3 minutes. Free for candidates.
+                Quick application. Free for candidates. We reply within 48h.
               </span>
             </div>
 
@@ -341,13 +340,13 @@ export default function JobDetail() {
               <p className="text-sm text-zinc-400 mb-6 max-w-md mx-auto">
                 Build a profile once, get matched to roles like this — and others — before they go public.
               </p>
-              <a
-                href={`https://rebelapply.com/login-talent?redirect=/jobs/${job.id}/apply`}
+              <Link
+                href={`/jobs/${job.id}/apply`}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-rebel-red hover:bg-red-700 text-white font-semibold rounded-md transition-colors no-underline group"
               >
                 Apply Now
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </div>
           </>
         )}

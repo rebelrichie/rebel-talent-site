@@ -24,6 +24,7 @@ import RachaelProtocol from "@/pages/RachaelProtocol";
 import Advisory from "@/pages/Advisory";
 import Jobs from "@/pages/Jobs";
 import JobDetail from "@/pages/JobDetail";
+import JobApply from "@/pages/JobApply";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -49,6 +50,7 @@ function Router() {
       <Route path="/rachael" component={RachaelProtocol} />
       <Route path="/advisory" component={Advisory} />
       <Route path="/jobs" component={Jobs} />
+      <Route path="/jobs/:id/apply" component={JobApply} />
       <Route path="/jobs/:id" component={JobDetail} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       {/* Safe addition — redirect /shop to external store */}
