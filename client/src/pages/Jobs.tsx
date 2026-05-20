@@ -11,9 +11,9 @@ import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const JOBS_API = "https://rebelapply.com/api/public/jobs";
-// Detail page is now in-app at /jobs/:id (dark theme, stays on rebeltalentsystems.com).
-// The apply step is the only thing that crosses to the rebelapply.com light portal.
-const APPLY_PORTAL = "https://rebelapply.com/login-talent";
+// Detail + apply flow live in-app at /jobs/:id and /jobs/:id/apply.
+// Nothing on this page should link to rebelapply.com directly — that domain
+// 301-redirects back here, which would create a loop.
 
 interface Job {
   id: string;
@@ -150,13 +150,8 @@ export default function Jobs() {
 
           {error && !loading && (
             <div className="text-center py-16 text-zinc-400">
-              <p className="mb-4">Couldn&apos;t load roles right now.</p>
-              <a
-                href={APPLY_PORTAL}
-                className="inline-flex items-center gap-2 text-rebel-red hover:text-white transition-colors"
-              >
-                Sign in to view roles <ArrowRight className="h-4 w-4" />
-              </a>
+              <p className="mb-2">Couldn&apos;t load roles right now.</p>
+              <p className="text-sm text-zinc-500">Try refreshing the page in a moment.</p>
             </div>
           )}
 
@@ -215,28 +210,9 @@ export default function Jobs() {
             </>
           )}
 
-          {/* CTA — passive talent capture */}
-          {!loading && !error && (
-            <div className="mt-16 border-t border-zinc-800 pt-12 text-center">
-              <p className="text-xs text-rebel-red font-semibold tracking-[0.2em] uppercase mb-3">
-                Not seeing your role?
-              </p>
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-                Build your profile anyway.
-              </h3>
-              <p className="text-zinc-400 max-w-xl mx-auto mb-6">
-                We surface candidates to companies before roles go public.
-                Build your profile once, get matched when something fits.
-              </p>
-              <a
-                href={APPLY_PORTAL}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-rebel-red hover:bg-red-700 text-white font-semibold rounded-md transition-colors no-underline"
-                data-testid="button-build-profile"
-              >
-                Build Your Profile <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
-          )}
+          {/* Bottom CTA removed — it pointed to rebelapply.com/login-talent which now
+              301-redirects back to /jobs, creating a loop. Apply flow lives on each
+              role's detail page (/jobs/[id] → /jobs/[id]/apply). */}
         </div>
       </section>
     </PageLayout>
