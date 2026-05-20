@@ -401,40 +401,40 @@ export default function Home() {
 
         <h1 className="sr-only">Fractional Head of Talent for Startups &amp; Defense Contractors, Richie Lampani</h1>
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-20 sm:pt-28 lg:pt-36 pb-16 sm:pb-20 z-10">
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 pt-14 sm:pt-24 lg:pt-36 pb-12 sm:pb-20 z-10">
           {/* Eyebrow */}
-          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-500 mb-10 sm:mb-12">
+          <p className="text-[10px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-500 mb-8 sm:mb-12">
             Fractional Head of Talent · Startups &amp; Defense
           </p>
 
           {/* MASSIVE bold headline — left-aligned, mixed-case */}
-          <h2 className="text-5xl sm:text-7xl lg:text-[7.5rem] font-extrabold tracking-[-0.035em] text-white leading-[0.98] max-w-5xl">
+          <h2 className="text-[2.25rem] xs:text-4xl sm:text-6xl lg:text-7xl xl:text-[7.5rem] font-extrabold tracking-[-0.035em] text-white leading-[1.02] sm:leading-[0.98] max-w-5xl">
             <span className="block">Your talent problem</span>
             <span className="block text-rebel-red">isn&rsquo;t talent.</span>
             <span className="block">It&rsquo;s infrastructure.</span>
           </h2>
 
           {/* Subhead — restrained, max 2 lines */}
-          <p className="mt-10 text-lg sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
+          <p className="mt-7 sm:mt-10 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
             I embed with your team, build the recruiting system from scratch, close your critical hires, and hand it all back when I leave. Not a coordinator. Not a pitch deck.
           </p>
 
           {/* Single primary CTA + understated secondary link */}
-          <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
+          <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-y-3 sm:gap-y-4 gap-x-8">
             <a
               href="https://calendly.com/richielam"
               target="_blank"
               rel="noopener noreferrer"
               data-testid="button-book-call"
               onClick={hapticTap}
-              className="inline-flex items-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-semibold text-base px-7 py-3.5 rounded-full transition-colors no-underline"
+              className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-semibold text-base px-7 py-3.5 rounded-full transition-colors no-underline w-full sm:w-auto"
             >
               Book a strategy call <ArrowRight className="w-4 h-4" />
             </a>
             <Link
               href="/services"
               data-testid="link-view-services"
-              className="text-zinc-300 hover:text-white text-base font-medium underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red transition-colors no-underline"
+              className="text-zinc-300 hover:text-white text-base font-medium underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red transition-colors no-underline text-center sm:text-left"
             >
               See how I work →
             </Link>

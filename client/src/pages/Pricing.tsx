@@ -1,4 +1,4 @@
-// Safe addition — Transparent Pricing page
+// Safe addition, Transparent Pricing page
 import { ArrowRight, Shield, Eye, Clock, FileText, Bot, Database } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
@@ -9,7 +9,7 @@ import GlowCard from "@/components/GlowCard";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import CapacityBadge from "@/components/CapacityBadge";
 
-// Safe addition — haptic feedback for PWA CTA taps
+// Safe addition, haptic feedback for PWA CTA taps
 function hapticTap() {
   if (navigator.vibrate) navigator.vibrate(15);
 }
@@ -24,7 +24,7 @@ const pricingFaqSchema = {
       "name": "What does the first 30 days look like?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sourcing starts within 24 hours of kickoff. Day one: meet the team, get the roles, start recruiting. The infrastructure — ATS, interview plans, scorecards, process docs — gets built in parallel while candidates are already flowing. By day 30, you have a full pipeline, interviews happening, and a recruiting machine that didn't exist a month ago."
+        "text": "Sourcing starts within 24 hours of kickoff. Day one: meet the team, get the roles, start recruiting. The infrastructure, ATS, interview plans, scorecards, process docs, gets built in parallel while candidates are already flowing. By day 30, you have a full pipeline, interviews happening, and a recruiting machine that didn't exist a month ago."
       }
     },
     {
@@ -40,7 +40,7 @@ const pricingFaqSchema = {
       "name": "Is there a contract?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — a straightforward SOW with scope, deliverables, timeline, and rates. No 12-month lock-ins. Fractional engagements are typically month-to-month after an initial 90-day commitment. Project engagements have defined milestones. Contract recruiters can scale with 2 weeks notice."
+        "text": "Yes, a straightforward SOW with scope, deliverables, timeline, and rates. No 12-month lock-ins. Fractional engagements are typically month-to-month after an initial 90-day commitment. Project engagements have defined milestones. Contract recruiters can scale with 2 weeks notice."
       }
     },
     {
@@ -48,7 +48,7 @@ const pricingFaqSchema = {
       "name": "Why no contingency?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Because contingency breaks incentives. A contingency recruiter gets paid $30K+ only when someone gets hired — so they're incentivized to push candidates through fast, oversell fits, and move on. I'm incentivized to build systems that make your hiring permanently better."
+        "text": "Because contingency breaks incentives. A contingency recruiter gets paid $30K+ only when someone gets hired, so they're incentivized to push candidates through fast, oversell fits, and move on. I'm incentivized to build systems that make your hiring permanently better."
       }
     }
   ]
@@ -59,10 +59,10 @@ export default function Pricing() {
     <PageLayout>
       <PageSEO
         title="Transparent Pricing & Engagement Models | Rebel Talent Systems"
-        description="No contingency. No success fees. Rebel Talent works on hourly and project-based models only. Fractional Head of Talent from $12K/mo, Critical Hire Execution from $8K, Contract Recruiters from $90/hr."
+        description="No contingency. No success fees. Two engagement shapes: Fractional Head of Talent ($12K–$30K/mo) or Critical Hire Execution ($8K–$25K+ per search). Scale either with a vetted recruiter team from $90/hr."
         path="/pricing"
         ogTitle="Transparent Pricing | Rebel Talent Systems"
-        ogDescription="No contingency fees. No hidden costs. Hourly and project-based recruiting that leaves you with systems you own forever. See exact pricing."
+        ogDescription="No contingency fees. Two engagements plus team capacity when you need more horsepower. See exact pricing."
         ogImage="og-services.png"
         schemas={[pricingFaqSchema]}
         breadcrumbs={[
@@ -71,74 +71,81 @@ export default function Pricing() {
         ]}
       />
 
-      {/* Hero */}
-      <section className="space-hero py-20 sm:py-28">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-          <ScrollReveal variant="fade-up" immediate>
-            <div className="text-center mb-12">
-              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-                FULL TRANSPARENCY
-              </div>
-              <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-5">
-                No Contingency. No Success Fees.<br />No Games.
-              </h1>
-              <p className="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-4">
-                You pay for the actual time, expertise, and infrastructure I deliver. Every hour is logged. Every deliverable is documented. Every dollar is accounted for in your dashboard — in real time.
-              </p>
-              <p className="text-zinc-500 text-sm max-w-xl mx-auto leading-relaxed mb-6">
-                Contingency recruiting is broken by design. When a recruiter only gets paid on placement, their incentive is to fill the seat fast — not to build the systems that make your next 50 hires easier. I'm building a machine that survives after I leave. That requires alignment, not a bounty.
-              </p>
-              <div className="flex justify-center">
-                <CapacityBadge />
-              </div>
-            </div>
-          </ScrollReveal>
+      {/* HERO — Hunt Club / Riviera register */}
+      <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%)",
+          }}
+        />
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
+          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-500 mb-6 sm:mb-10">
+            Pricing &amp; Engagement Models
+          </p>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-4xl">
+            No contingency.<br />
+            <span className="text-rebel-red">No success fees.</span><br />
+            No games.
+          </h1>
+          <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
+            You pay for the actual time, expertise, and infrastructure I deliver. Every hour is logged. Every deliverable is documented. Every dollar is accounted for in your dashboard, in real time.
+          </p>
+          <p className="mt-4 text-sm sm:text-base text-zinc-500 max-w-2xl leading-[1.6]">
+            Contingency recruiting is broken by design — when a recruiter only gets paid on placement, their incentive is to fill the seat fast, not build the systems that make your next 50 hires easier.
+          </p>
+          <div className="mt-8 sm:mt-10">
+            <CapacityBadge />
+          </div>
+        </div>
 
-          {/* Proof strip */}
-          <ScrollReveal variant="fade-up" delay={200}>
-            <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-8">
+        {/* Proof strip — at bottom of hero */}
+        <div className="relative z-10 border-t border-zinc-900 bg-black/30">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 py-8 sm:py-10">
+            <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl">
               {[
                 { value: "$229K", label: "Agency Fees Avoided" },
                 { value: "285%", label: "ROI Delivered" },
                 { value: "<21", label: "Days Avg. Time to Hire" },
               ].map((s) => (
-                <div key={s.label} className="text-center">
-                  <AnimatedCounter value={s.value} className="font-display text-2xl sm:text-3xl font-bold text-rebel-red" />
-                  <div className="text-zinc-500 text-xs uppercase tracking-wide mt-1">{s.label}</div>
+                <div key={s.label}>
+                  <AnimatedCounter value={s.value} className="block text-3xl sm:text-5xl font-extrabold text-rebel-red tracking-[-0.03em]" />
+                  <div className="text-zinc-500 text-[10px] sm:text-xs uppercase tracking-[0.18em] mt-2 font-medium">{s.label}</div>
                 </div>
               ))}
             </div>
-            <p className="text-center text-zinc-600 text-xs font-mono tracking-wider uppercase">
+            <p className="text-zinc-600 text-[11px] font-medium tracking-wider uppercase mt-5">
               EarthDaily Federal — 5 FTE + 2 contractors in 5 months
             </p>
-          </ScrollReveal>
+          </div>
         </div>
       </section>
 
-      {/* Three engagement models */}
+      {/* Two engagement models + team capacity */}
       <section className="py-16 border-t border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
             <div className="text-center mb-10">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-                CHOOSE YOUR MODEL
+                TWO ENGAGEMENTS. ONE OPERATOR.
               </div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
-                Three Ways to Work Together
+                Two Ways to Work Together
               </h2>
+              <p className="text-zinc-500 text-sm mt-3 max-w-xl mx-auto">
+                No SaaS tiers. Two engagement shapes built around how you actually buy — embed me as your Head of Talent, or scope a specific search. Either one scales with a vetted recruiter team when the pipeline demands it.
+              </p>
             </div>
           </ScrollReveal>
 
-          <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
-            {/* Fractional — MOST POPULAR */}
+          <div className="flex md:grid md:grid-cols-2 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
+            {/* Embedded */}
             <ScrollReveal variant="fade-up" delay={0}>
-              <GlowCard className="border border-rebel-red/50 bg-rebel-red/5 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-rebel-red px-3 py-1 font-mono text-white text-[10px] tracking-widest uppercase">
-                  MOST POPULAR
-                </div>
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">OPTION 01</div>
+              <GlowCard className="border border-rebel-red/50 bg-rebel-red/5 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full">
+                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">EMBEDDED</div>
                 <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Fractional Head of Talent</h3>
-                <p className="text-rebel-red font-mono text-sm mb-1">$12K – $30K/month</p>
+                <p className="text-rebel-red font-mono text-sm mb-1">$12K – $30K / month · 3-month minimum</p>
                 <p className="text-zinc-500 font-mono text-xs mb-4">10–40 hours/month depending on scope</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
                   I embed into your company as your Head of Talent. I'm in your Slack, your ATS, your hiring manager 1:1s, your candidate calls. Not consulting from the sidelines.
@@ -166,12 +173,12 @@ export default function Pricing() {
               </GlowCard>
             </ScrollReveal>
 
-            {/* Critical Hire */}
+            {/* Project */}
             <ScrollReveal variant="fade-up" delay={150}>
               <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">OPTION 02</div>
+                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">PROJECT</div>
                 <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Critical Hire Execution</h3>
-                <p className="text-rebel-red font-mono text-sm mb-1">$8K – $25K+ per search</p>
+                <p className="text-rebel-red font-mono text-sm mb-1">$8K – $25K+ per search · fixed fee</p>
                 <p className="text-zinc-500 font-mono text-xs mb-4">Scoped project with defined milestones</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
                   Surgical execution for must-fill roles. I scope the search, define milestones, execute, and hand off a documented process when it's done. You know the cost before we start.
@@ -198,40 +205,50 @@ export default function Pricing() {
                 </p>
               </GlowCard>
             </ScrollReveal>
-
-            {/* Contract Recruiters */}
-            <ScrollReveal variant="fade-up" delay={300}>
-              <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">OPTION 03</div>
-                <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Rebel Contract Recruiters</h3>
-                <p className="text-rebel-red font-mono text-sm mb-1">$90 – $300+/hour</p>
-                <p className="text-zinc-500 font-mono text-xs mb-4">Scale up or down — no long-term lock-in</p>
-                <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                  Vetted recruiters deployed under Rebel Talent standards. Every hour tracked and visible in your dashboard. No mystery invoices.
-                </p>
-                <ul className="space-y-2 mb-6">
-                  {[
-                    "Recruiters sourced & vetted by me personally",
-                    "Execute to documented Rebel playbooks",
-                    "Fully briefed on your roles & culture",
-                    "Time logs visible in Rebel Command",
-                    "Scale from 10 to 40+ hours/week",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
-                      <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-zinc-600 text-xs leading-relaxed">
-                  Best for: Surge hiring, backfilling while you hire full-time, companies that need execution capacity without full engagement overhead.
-                </p>
-                <p className="text-zinc-600 text-xs mt-2 leading-relaxed">
-                  Rate factors: Recruiter seniority, clearance level, technical complexity, weekly commitment.
-                </p>
-              </GlowCard>
-            </ScrollReveal>
           </div>
+
+          {/* Team Capacity Extension — applies to either engagement */}
+          <ScrollReveal variant="fade-up" delay={300}>
+            <GlowCard className="mt-6 border border-zinc-800/70 bg-zinc-900/30 p-6 sm:p-8" data-testid="band-team-capacity">
+              <div className="flex flex-col md:flex-row md:items-start md:gap-8 mb-6">
+                <div className="md:shrink-0 mb-4 md:mb-0 md:w-56">
+                  <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">
+                    + TEAM CAPACITY
+                  </div>
+                  <h3 className="font-display text-lg font-bold text-white uppercase tracking-tight leading-tight">
+                    Need more horsepower?
+                  </h3>
+                  <p className="text-rebel-red font-mono text-sm mt-2">$90 – $300+ / hour</p>
+                  <p className="text-zinc-500 font-mono text-xs">monthly or hourly · no long-term lock-in</p>
+                </div>
+                <div className="flex-1">
+                  <p className="text-zinc-300 text-sm leading-relaxed mb-4">
+                    Either engagement above scales with a vetted recruiter team deployed under my direction. Same standards, same playbooks. You still get me on every call — the team extends my reach; it doesn't replace me.
+                  </p>
+                  <ul className="space-y-2 mb-3">
+                    {[
+                      "Recruiters sourced & vetted by me personally",
+                      "Execute to documented Rebel playbooks",
+                      "Fully briefed on your roles & culture",
+                      "Time logs visible in Rebel Command",
+                      "Scale from 10 to 40+ hours/week",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
+                        <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-zinc-600 text-xs leading-relaxed">
+                    Best for: Surge hiring, backfilling while you hire full-time, any engagement that needs execution capacity beyond what I alone can deliver.
+                  </p>
+                  <p className="text-zinc-600 text-xs mt-2 leading-relaxed">
+                    Rate factors: Recruiter seniority, clearance level, technical complexity, weekly commitment.
+                  </p>
+                </div>
+              </div>
+            </GlowCard>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -259,12 +276,12 @@ export default function Pricing() {
                 </thead>
                 <tbody>
                   {[
-                    { metric: "Pricing Model", agency: "20–25% of salary", retained: "$30K–$80K+ upfront", rebel: "Hourly or project — you see every dollar" },
+                    { metric: "Pricing Model", agency: "20–25% of salary", retained: "$30K–$80K+ upfront", rebel: "Hourly or project. You see every dollar." },
                     { metric: "What You Pay For", agency: "A placement", retained: "Access to a search", rebel: "Time, systems, infrastructure & outcomes" },
                     { metric: "Cost per Hire", agency: "$25K–$40K+", retained: "$30K–$80K+", rebel: "~$5K–$8K" },
                     { metric: "Incentive Alignment", agency: "Fill fast, collect fee", retained: "Fee already paid", rebel: "Build infrastructure that lasts" },
                     { metric: "Time to Fill", agency: "60–90 days", retained: "90–120 days", rebel: "<21 days avg" },
-                    { metric: "You Own the Process", agency: "No", retained: "No", rebel: "Yes — everything" },
+                    { metric: "You Own the Process", agency: "No", retained: "No", rebel: "Yes. Everything." },
                     { metric: "Infrastructure Left Behind", agency: "Nothing", retained: "A report", rebel: "ATS, playbooks, pipeline, trained managers" },
                     { metric: "Transparency", agency: "Invoice after placement", retained: "Monthly status calls", rebel: "Real-time dashboard, time logs, ROI" },
                     { metric: "When It's Over", agency: "They disappear", retained: "They disappear", rebel: "You keep everything" },
@@ -290,10 +307,10 @@ export default function Pricing() {
             <div className="text-center mb-8">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">THE TRANSPARENCY ENGINE</div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-3">
-                Rebel Command — Your Recruiting War Room
+                Rebel Command: Your Recruiting War Room
               </h2>
               <p className="text-zinc-500 text-sm max-w-2xl mx-auto">
-                Every engagement comes with access to the proprietary platform I built from scratch. This isn't a vendor dashboard — it's full visibility into every dollar and every action.
+                Every engagement comes with access to the proprietary platform I built from scratch. This isn't a vendor dashboard, it's full visibility into every dollar and every action.
               </p>
             </div>
           </ScrollReveal>
@@ -338,7 +355,7 @@ export default function Pricing() {
                   What does the first 30 days look like?
                 </AccordionTrigger>
                 <AccordionContent className="text-zinc-400 text-sm leading-relaxed pb-5">
-                  I'm sourcing candidates within 24 hours of kickoff. Not after a "discovery phase." Not after a deck. Day one I meet the team, get the roles, and start recruiting that same week. The infrastructure — ATS, interview plans, scorecards, process docs — gets built in parallel while candidates are already flowing. By day 30, you have a full pipeline, interviews happening, and a recruiting machine that didn't exist a month ago.
+                  I'm sourcing candidates within 24 hours of kickoff. Not after a "discovery phase." Not after a deck. Day one I meet the team, get the roles, and start recruiting that same week. The infrastructure, ATS, interview plans, scorecards, process docs, gets built in parallel while candidates are already flowing. By day 30, you have a full pipeline, interviews happening, and a recruiting machine that didn't exist a month ago.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="hours" className="border border-zinc-800 bg-zinc-900/30 px-6">
@@ -354,7 +371,7 @@ export default function Pricing() {
                   Is there a contract?
                 </AccordionTrigger>
                 <AccordionContent className="text-zinc-400 text-sm leading-relaxed pb-5">
-                  Yes — a straightforward SOW with scope, deliverables, timeline, and rates. No 12-month lock-ins. Fractional engagements are typically month-to-month after an initial 90-day commitment. Project engagements have defined milestones. Contract recruiters can scale up or down with 2 weeks notice.
+                  Yes, a straightforward SOW with scope, deliverables, timeline, and rates. No 12-month lock-ins. Fractional engagements are typically month-to-month after an initial 90-day commitment. Project engagements have defined milestones. Contract recruiters can scale up or down with 2 weeks notice.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="why-no-contingency" className="border border-zinc-800 bg-zinc-900/30 px-6">
@@ -362,7 +379,7 @@ export default function Pricing() {
                   Why no contingency?
                 </AccordionTrigger>
                 <AccordionContent className="text-zinc-400 text-sm leading-relaxed pb-5">
-                  Because contingency breaks incentives. A contingency recruiter gets paid $30K+ only when someone gets hired. That means they're incentivized to push candidates through fast, oversell fits, and move on to the next fee. I'm incentivized to build systems that make your hiring permanently better — because that's what you're paying me to do. The math works out in your favor: $229K in agency fees avoided for one client in 5 months.
+                  Because contingency breaks incentives. A contingency recruiter gets paid $30K+ only when someone gets hired. That means they're incentivized to push candidates through fast, oversell fits, and move on to the next fee. I'm incentivized to build systems that make your hiring permanently better, because that's what you're paying me to do. The math works out in your favor: $229K in agency fees avoided for one client in 5 months.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

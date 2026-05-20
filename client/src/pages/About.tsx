@@ -64,55 +64,52 @@ export default function About() {
         schemas={[personSchema]}
         breadcrumbs={BREADCRUMBS}
       />
-      <section className="space-hero py-20 sm:py-28">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-          <ScrollReveal variant="fade-up" immediate>
-          <div className="grid md:grid-cols-[280px_1fr] gap-12 items-start mb-16">
-            <div className="text-center md:text-left">
-              <div className="w-48 h-48 mx-auto md:mx-0 mb-4 overflow-hidden border-2 border-rebel-red/30">
+      {/* HERO — Hunt Club / Riviera register */}
+      <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%)",
+          }}
+        />
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-16 sm:pb-20 z-10">
+          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-500 mb-6 sm:mb-10">
+            About
+          </p>
+          <div className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-end">
+            <div>
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] mb-4 sm:mb-6" data-testid="text-name">
+                Richie Lampani.<br />
+                <span className="text-rebel-red">14 years in the trenches.</span>
+              </h1>
+              <p className="text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55] mb-3" data-testid="text-intro">
+                Built recruiting functions for defense contractors and growth-stage tech firms. Closed hundreds of roles from cleared TS/SCI positions to executive searches, while navigating compliance, scaling bottlenecks, and agency pitfalls.
+              </p>
+              <p className="text-base sm:text-lg text-zinc-500 max-w-2xl leading-[1.55] mb-6">
+                Frustrated by models that profit from repeated failures, I founded Rebel Talent Systems to deliver embedded leadership and systems clients own forever. No jargon. Pure execution.
+              </p>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-6">
+                <CapacityBadge />
+                <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-linkedin" className="text-zinc-400 hover:text-white text-sm transition-colors no-underline">
+                  LinkedIn ↗
+                </a>
+                <a href="mailto:richie@rebeltalentsystems.com" data-testid="link-email" className="text-zinc-400 hover:text-white text-sm transition-colors no-underline">
+                  Email ↗
+                </a>
+              </div>
+            </div>
+            <div className="shrink-0">
+              <div className="w-44 h-44 sm:w-56 sm:h-56 lg:w-64 lg:h-64 overflow-hidden border border-zinc-800 rounded-sm">
                 <img src={richiePfp} alt="Richie Lampani" className="w-full h-full object-cover object-top" data-testid="img-profile" />
               </div>
-              <div className="flex flex-wrap gap-2 justify-center md:justify-start mt-4">
-                <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-linkedin">
-                  <Button variant="outline" size="sm" className="font-mono text-xs tracking-wider border-zinc-700 text-zinc-300">
-                    LinkedIn
-                  </Button>
-                </a>
-                <a href="mailto:richie@rebeltalentsystems.com" data-testid="link-email">
-                  <Button variant="outline" size="sm" className="font-mono text-xs tracking-wider border-zinc-700 text-zinc-300">
-                    Email
-                  </Button>
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-                ABOUT
-              </div>
-              <h1 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight mb-2" data-testid="text-name">
-                Richie Lampani
-              </h1>
-              <h2 className="font-display text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-2">
-                Fractional Head of Talent | Startup Recruiting & Defense Hiring Specialist
-              </h2>
-              <p className="text-rebel-red font-display text-lg uppercase tracking-wider mb-4" data-testid="text-tagline">
-                Operator. Builder. Anti-Agency Force.
-              </p>
-              {/* Safe addition — Availability signal */}
-              <div className="mb-6">
-                <CapacityBadge />
-              </div>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-4" data-testid="text-intro">
-                Richie Lampani built his career in the trenches of high-stakes hiring, leading talent functions for defense contractors and growth-stage tech firms. With 14 years of experience, he's closed hundreds of roles (from cleared TS/SCI positions to executive searches) while navigating compliance, scaling bottlenecks, and agency pitfalls.
-              </p>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                Frustrated by models that profit from repeated failures, he founded Rebel Talent Systems to deliver embedded leadership and systems that clients own forever. Operator grit. No jargon. Pure execution.
-              </p>
             </div>
           </div>
-          </ScrollReveal>
+        </div>
+      </section>
 
+      <section className="bg-rebel-space pt-4 pb-16 sm:pb-20 border-t border-zinc-900">
+        <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10">
           <ScrollReveal variant="fade-up" delay={200}>
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mb-16">
             {[
@@ -222,7 +219,7 @@ export default function About() {
           </div>
           </ScrollReveal>
 
-          {/* Safe addition — Client testimonial */}
+          {/* Safe addition, Client testimonial */}
           <ScrollReveal variant="fade-up">
           <div className="mb-16 max-w-3xl mx-auto text-center">
             <blockquote className="relative">
@@ -231,7 +228,7 @@ export default function About() {
                 In a review, I was told I had an amazing team, cohesive and indistinguishable from full time employees.
               </p>
               <footer className="text-zinc-500 text-sm">
-                <span className="text-zinc-300 font-semibold">Arin, VP of Operations</span> — EarthDaily Federal
+                <span className="text-zinc-300 font-semibold">Arin, VP of Operations</span>, EarthDaily Federal
               </footer>
             </blockquote>
           </div>
@@ -243,7 +240,7 @@ export default function About() {
               Connect Now
             </h2>
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
-              30 minutes. No pitch. Real answers for operators ready to stop the bleed and build something that lasts.
+              30 minutes of straight answers for operators ready to stop the bleed and build something that lasts.
             </p>
             <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-about-cta">
               <Button className="font-display tracking-wider uppercase text-sm">

@@ -510,6 +510,62 @@ button,
 .max-w-4xl { max-width: 56rem; }
 .max-w-7xl { max-width: 80rem; }
 
+/* ─────────────────────────────────────────────────────────────────────────
+   MOBILE TUNING — small phones (< 480px)
+   Hero headlines need to scale down hard on small screens. The bold
+   extrabold text-4xl baseline doesn't fit "Your talent problem" or
+   "Two engagements." on a 375px wide screen.
+   ───────────────────────────────────────────────────────────────────── */
+@media (max-width: 479px) {
+  [data-testid="section-hero"] h1,
+  [data-testid="section-hero"] h2 {
+    font-size: 2rem !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.025em !important;
+  }
+  [data-testid="section-hero"] h1.font-extrabold,
+  [data-testid="section-hero"] h2.font-extrabold {
+    font-size: 2.125rem !important;
+  }
+  /* CTAs full-width on tiny phones */
+  [data-testid="section-hero"] a[class*="rounded-full"] {
+    justify-content: center;
+  }
+  /* Eyebrows quieter */
+  [data-testid="section-hero"] > div > p:first-child {
+    letter-spacing: 0.18em !important;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 639px) {
+  /* Slightly larger headlines on bigger phones */
+  [data-testid="section-hero"] h1.font-extrabold,
+  [data-testid="section-hero"] h2.font-extrabold {
+    font-size: 2.5rem !important;
+    line-height: 1.04 !important;
+  }
+}
+
+/* Pricing stat grid — keep 3 cols but allow smaller text on mobile */
+@media (max-width: 479px) {
+  .grid-cols-3 [class*="text-3xl"],
+  .grid-cols-3 [class*="text-4xl"],
+  .grid-cols-3 [class*="text-5xl"] {
+    font-size: 1.5rem !important;
+    line-height: 1 !important;
+  }
+}
+
+/* About / FHoT hero with headshot — stack vertically on mobile */
+@media (max-width: 767px) {
+  [data-testid="section-hero"] .grid.md\\:grid-cols-\\[1fr_auto\\] {
+    grid-template-columns: 1fr !important;
+  }
+  [data-testid="section-hero"] .grid.md\\:grid-cols-\\[1fr_auto\\] > div:last-child {
+    margin-top: 1rem;
+  }
+}
+
 /* Honor reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   .bg-zinc-950.border.border-zinc-800,
