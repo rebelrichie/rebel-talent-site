@@ -445,102 +445,70 @@ button {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   EDITORIAL LAYER — boutique-firm refinement
-   Softens the militant uppercase feel toward executive-search energy.
+   AGENCY-GRADE LAYER — Hunt Club / Riviera Partners register
+   Bold heavy sans-serif on dark, generous whitespace, restrained color,
+   one accent phrase per headline, sentence case throughout.
    ───────────────────────────────────────────────────────────────────── */
 
 /* Better text rendering across the site */
 body {
-  font-feature-settings: "ss01" 1, "cv11" 1, "kern" 1;
+  font-feature-settings: "kern" 1, "ss01" 1, "cv11" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   letter-spacing: -0.005em;
-  color: #E5E2DE;
+  color: #E4E4E7;
+  font-family: "Inter", system-ui, sans-serif;
 }
 
-/* Warmer body text instead of pure white-gray */
-.text-white {
-  color: #F5F3EF !important;
-}
-.text-zinc-300 {
-  color: #C8C4BE !important;
-}
-.text-zinc-400 {
-  color: #9B9890 !important;
-}
-.text-zinc-500 {
-  color: #74716A !important;
+/* Heading tightness — Hunt Club style */
+h1, h2, h3, h4 {
+  letter-spacing: -0.025em;
 }
 
-/* Refined eyebrow style — used everywhere via text-rebel-red + tracking */
-.text-rebel-red.tracking-wider,
-.text-rebel-red.tracking-widest,
-.text-rebel-red[class*="tracking-["] {
-  color: #E1574A !important;
-  text-shadow: 0 0 14px rgba(225, 87, 74, 0.3);
-  font-weight: 500;
+/* Generous body line-height */
+p {
+  line-height: 1.6;
 }
 
-/* Soften the loud red — uses a warmer ember in display contexts */
-h1 .text-rebel-red,
-h2 .text-rebel-red,
-.font-display .text-rebel-red {
-  color: #E1574A;
+/* Bold red accent only — keep the loud red for headline emphasis,
+   not warmed/softened. Hunt Club uses full-saturation green; Riviera
+   uses full-saturation orange-red. */
+.text-rebel-red {
+  color: #DC2626;
 }
 
-/* Editorial heading defaults — only applies if author hasn't set uppercase explicitly */
-h1, h2, h3 {
-  letter-spacing: -0.02em;
+/* Body bg — pure dark with very subtle ambient glow only at the top */
+body {
+  background-color: #07060B;
+  background-image:
+    radial-gradient(ellipse 90% 50% at 20% 0%, rgba(220, 38, 38, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 40% at 100% 100%, rgba(234, 88, 12, 0.03) 0%, transparent 55%);
+  background-attachment: fixed;
 }
 
-/* Section padding rhythm — quieter, more confident */
-section {
-  position: relative;
+/* Cards — restrained, no gradient drama */
+.bg-zinc-950.border.border-zinc-800 {
+  background: #0E0D14 !important;
+  border-color: rgba(255, 255, 255, 0.07) !important;
+}
+.bg-zinc-950.border.border-zinc-800:hover {
+  border-color: rgba(220, 38, 38, 0.4) !important;
+  background: #11101A !important;
 }
 
-/* Generous container max-widths for editorial feel */
-.max-w-5xl {
-  max-width: 64rem;
-}
-.max-w-4xl {
-  max-width: 56rem;
-}
-
-/* Buttons — refined, less shouty */
+/* Buttons — match Hunt Club's simple pill style */
 button,
 .btn,
 [role="button"] {
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0;
 }
 
-/* Refine the loud "BOOK STRATEGY CALL" pattern — preserves it but softens */
-.font-display.uppercase.tracking-wider {
-  letter-spacing: 0.08em;
-  font-weight: 600;
-}
-
-/* Subtle red bullet markers (the dot-and-label pattern) */
-.bg-rebel-red.rounded-full.inline-block {
-  background: #E1574A !important;
-  box-shadow: 0 0 8px rgba(225, 87, 74, 0.5);
-}
-
-/* Cards — slightly warmer base than pure black */
-.bg-zinc-950.border.border-zinc-800 {
-  background:
-    linear-gradient(135deg, rgba(14, 12, 18, 0.96) 0%, rgba(10, 9, 14, 0.94) 50%, rgba(16, 12, 20, 0.96) 100%) !important;
-}
-
-/* Body gets a soft warm undertone */
-body {
-  background-color: #0A0810;
-  background-image:
-    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(225, 87, 74, 0.07) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 100% 30%, rgba(234, 88, 12, 0.04) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at 0% 70%, rgba(91, 33, 182, 0.03) 0%, transparent 60%);
-}
+/* Generous container max-widths */
+.max-w-5xl { max-width: 64rem; }
+.max-w-4xl { max-width: 56rem; }
+.max-w-7xl { max-width: 80rem; }
 
 /* Honor reduced-motion */
 @media (prefers-reduced-motion: reduce) {

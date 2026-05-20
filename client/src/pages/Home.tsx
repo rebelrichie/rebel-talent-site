@@ -383,116 +383,128 @@ export default function Home() {
         ogImage="og-home.png"
         schemas={[homepageSchema]}
       />
+      {/* ========== HERO — Hunt Club / Riviera Partners register ========== */}
       <section
         ref={heroRef}
         data-testid="section-hero"
-        className="relative py-10 sm:py-14 overflow-hidden"
-        style={{
-          backgroundImage: "url('/hero-banner.png')",
-          backgroundSize: "cover",
-          backgroundPositionX: "center",
-          backgroundPositionY: "top",
-          backgroundRepeat: "no-repeat",
-        }}
+        className="relative overflow-hidden bg-rebel-space"
+        style={{ minHeight: "82vh" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/50 to-rebel-space pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20 pointer-events-none" />
+        {/* Subtle ambient glow — restrained, not starfield */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.10) 0%, transparent 55%), radial-gradient(ellipse 60% 40% at 100% 100%, rgba(234,88,12,0.06) 0%, transparent 55%)",
+          }}
+        />
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
-          <div className="mb-5">
-            <img
-              src="/logo.png"
-              alt="Rebel Talent"
-              data-testid="img-hero-logo"
-              className="w-20 h-20 mx-auto"
-              style={{
-                filter: "drop-shadow(0 0 16px rgba(220,38,38,0.55)) drop-shadow(0 0 36px rgba(234,88,12,0.30)) brightness(1.25) contrast(1.05)",
-                animation: "logoFloat 3.5s ease-in-out infinite alternate",
-              }}
-            />
-          </div>
+        <h1 className="sr-only">Fractional Head of Talent for Startups &amp; Defense Contractors, Richie Lampani</h1>
 
-          <h1 className="sr-only">Fractional Head of Talent for Startups &amp; Defense Contractors, Richie Lampani</h1>
-
-          {/* Editorial eyebrow — quieter, more refined */}
-          <div className="font-mono text-rebel-red text-[11px] sm:text-xs tracking-[0.32em] uppercase mb-6 opacity-80">
-            Fractional Head of Talent
-          </div>
-
-          {/* Editorial hero — mixed case with serif italic emphasis on the pivot phrase */}
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.05] mb-7" style={{ fontFamily: "'Fraunces', Georgia, serif" }}>
-            <span className="block font-light">Your talent problem</span>
-            <span className="block italic" style={{ color: "#E1574A", fontWeight: 300 }}>isn&rsquo;t talent.</span>
-            <span className="block font-light">It&rsquo;s infrastructure.</span>
-          </h2>
-
-          <p className="text-zinc-400 text-lg sm:text-xl max-w-2xl mx-auto mb-6 leading-[1.55] font-light">
-            I embed with your team, build the recruiting system from scratch, close your critical hires, and hand it all back when I leave. You get me on every call. Not a coordinator. Not a pitch deck.
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-20 sm:pt-28 lg:pt-36 pb-16 sm:pb-20 z-10">
+          {/* Eyebrow */}
+          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-500 mb-10 sm:mb-12">
+            Fractional Head of Talent · Startups &amp; Defense
           </p>
 
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-10">
-            {["Embedded Leadership", "Not an Agency", "You Own Everything"].map((tag) => (
-              <span key={tag} className="text-zinc-500 text-xs sm:text-sm font-mono tracking-wider uppercase flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-rebel-red rounded-full inline-block" />
-                {tag}
-              </span>
-            ))}
-          </div>
+          {/* MASSIVE bold headline — left-aligned, mixed-case */}
+          <h2 className="text-5xl sm:text-7xl lg:text-[7.5rem] font-extrabold tracking-[-0.035em] text-white leading-[0.98] max-w-5xl">
+            <span className="block">Your talent problem</span>
+            <span className="block text-rebel-red">isn&rsquo;t talent.</span>
+            <span className="block">It&rsquo;s infrastructure.</span>
+          </h2>
 
-          {/* Safe addition, Richie headshot above the fold */}
-          <div className="mb-6">
-            <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="inline-block group">
-              <img
-                src="/richie-headshot.png"
-                alt="Richie Lampani, Fractional Head of Talent"
-                className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-2 border-rebel-red/30 mx-auto group-hover:border-rebel-red/60 transition-colors"
-                style={{ filter: "drop-shadow(0 0 24px rgba(220,38,38,0.3))" }}
-              />
-            </a>
-            <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="block mt-2 text-zinc-500 text-xs font-mono tracking-wider hover:text-white transition-colors no-underline">
-              linkedin.com/in/richielampani
-            </a>
-          </div>
+          {/* Subhead — restrained, max 2 lines */}
+          <p className="mt-10 text-lg sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
+            I embed with your team, build the recruiting system from scratch, close your critical hires, and hand it all back when I leave. Not a coordinator. Not a pitch deck.
+          </p>
 
-          {/* Safe addition, Availability signal */}
-          <div className="mb-6">
-            <CapacityBadge />
-          </div>
-
-          {/* Safe addition, Current engagements */}
-          <div className="mb-8 flex justify-center">
-            <CurrentEngagements />
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          {/* Single primary CTA + understated secondary link */}
+          <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
             <a
               href="https://calendly.com/richielam"
               target="_blank"
               rel="noopener noreferrer"
               data-testid="button-book-call"
+              onClick={hapticTap}
+              className="inline-flex items-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-semibold text-base px-7 py-3.5 rounded-full transition-colors no-underline"
             >
-              <Button onClick={hapticTap} size="lg" className="w-full sm:w-auto text-sm px-7 font-medium tracking-normal">
-                Book a strategy call <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
+              Book a strategy call <ArrowRight className="w-4 h-4" />
             </a>
-            <Link href="/services" data-testid="link-view-services">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto text-sm px-7 font-medium tracking-normal border-zinc-700 text-zinc-300">
-                View services
-              </Button>
+            <Link
+              href="/services"
+              data-testid="link-view-services"
+              className="text-zinc-300 hover:text-white text-base font-medium underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red transition-colors no-underline"
+            >
+              See how I work →
             </Link>
           </div>
+        </div>
 
-          {/* Editorial social-proof strip — quieter, with serif accent */}
-          <div className="mt-14 pt-10 border-t border-zinc-800/40">
-            <p className="text-zinc-500 text-[11px] font-mono tracking-[0.28em] uppercase mb-5" style={{ fontFamily: "'Fraunces', Georgia, serif", fontStyle: "italic", letterSpacing: "0.05em", textTransform: "none", fontSize: "0.95rem", fontWeight: 300 }}>
-              Currently and previously trusted by teams at
-            </p>
-            <div className="flex flex-wrap justify-center gap-x-7 gap-y-2.5">
+        {/* Trust strip — bottom of hero, restrained */}
+        <div className="relative z-10 border-t border-zinc-900 bg-black/30">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 py-7">
+            <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
+              <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-zinc-600 shrink-0">
+                Trusted by teams at
+              </p>
               {["EarthDaily Federal", "Wells Fargo", "Tiffany & Co", "Travelers", "WK Kellogg Foundation", "Roadrunner", "Enveil"].map((name) => (
-                <span key={name} className="text-zinc-400 text-sm tracking-wide font-light">{name}</span>
+                <span key={name} className="text-zinc-400 text-sm tracking-wide font-medium">{name}</span>
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ========== ABOUT-RICHIE BAND — moved below the hero ========== */}
+      <section data-testid="section-richie-band" className="border-b border-zinc-900 bg-rebel-space">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 sm:py-20">
+          <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center">
+            {/* Headshot */}
+            <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="inline-block group shrink-0">
+              <img
+                src="/richie-headshot.png"
+                alt="Richie Lampani, Fractional Head of Talent"
+                className="w-28 h-28 sm:w-36 sm:h-36 rounded-full object-cover border border-zinc-800 group-hover:border-rebel-red/60 transition-colors"
+              />
+            </a>
+
+            <div>
+              <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-rebel-red mb-3">
+                Who you're working with
+              </p>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
+                Richie Lampani — 14 years closing critical hires.
+              </h3>
+              <p className="text-zinc-400 text-base sm:text-lg max-w-3xl leading-[1.55] mb-5">
+                You get me on every call, not a coordinator. I&rsquo;ve built recruiting functions for cleared defense work, AI/ML, GTM, and Series A-C startups. I leave you with the systems, not just the hires.
+              </p>
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                <CapacityBadge />
+                <a
+                  href="https://linkedin.com/in/richielampani"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-500 text-sm hover:text-white transition-colors no-underline"
+                >
+                  linkedin.com/in/richielampani →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== CURRENT ENGAGEMENTS BAND ========== */}
+      <section data-testid="section-engagements-band" className="border-b border-zinc-900 bg-rebel-space">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 sm:py-20">
+          <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-rebel-red mb-3">
+            Current engagements
+          </p>
+          <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-8 max-w-2xl">
+            Real teams, currently hiring.
+          </h3>
+          <CurrentEngagements />
         </div>
       </section>
 
