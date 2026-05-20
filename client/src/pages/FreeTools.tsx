@@ -12,7 +12,7 @@ export default function FreeTools() {
     <PageLayout>
       <PageSEO
         title="Free Recruiting Tools & Resources | Rebel Talent"
-        description="Free hiring tools and recruiting resources for startup founders and operators — from Rebel Talent's fractional recruiting team."
+        description="Free hiring tools and recruiting resources for startup founders and operators, from Rebel Talent's fractional recruiting team."
         path="/free-tools"
         ogTitle="Free Recruiting Tools & Resources | Rebel Talent"
         ogDescription="Tools, templates, and resources to help startups hire better, cut agency dependency, and build recruiting infrastructure that lasts."
@@ -21,21 +21,25 @@ export default function FreeTools() {
           { name: "Free Tools", item: "https://rebeltalentsystems.com/free-tools" },
         ]}
       />
-      <section className="space-hero py-20 sm:py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <ScrollReveal variant="fade-up" immediate>
-          <div className="text-center mb-16">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-              RESOURCES
-            </div>
-            <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-4" data-testid="heading-free-tools">
-              Free Tools
-            </h1>
-            <p className="text-zinc-400 text-base max-w-xl mx-auto">
-              Built by someone who actually understands recruiting. Optimize your resume and LinkedIn to land more interviews.
-            </p>
-          </div>
-          </ScrollReveal>
+      {/* HERO — Hunt Club / Riviera register */}
+      <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%)" }} />
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
+          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-500 mb-6 sm:mb-10">
+            Resources
+          </p>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-4xl" data-testid="heading-free-tools">
+            Tools that<br />
+            <span className="text-rebel-red">actually work.</span>
+          </h1>
+          <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
+            Built by someone who actually understands recruiting. Optimize your resume and LinkedIn to land more interviews.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-rebel-space pt-4 pb-16 sm:pb-24 border-t border-zinc-900">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
 
           <div className="mb-16">
             <ScrollReveal variant="fade-up">

@@ -20,7 +20,7 @@ export default function Certification() {
         title="ABCR Recruiter Certification | Rebel Talent"
         description="The American Board of Certified Recruiters (ABCR) is establishing the first exam-based professional credential for recruiting. Founded by Richie Lampani."
         path="/certification"
-        ogTitle="ABCR — The Standard for Recruiting Professionals"
+        ogTitle="ABCR: The Standard for Recruiting Professionals"
         ogDescription="The first exam-based professional credential for the recruiting profession. The CR designation signals verified competency, ethical conduct, and commitment to excellence."
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
@@ -28,35 +28,37 @@ export default function Certification() {
         ]}
       />
 
-      {/* Hero */}
-      <section className="space-hero py-20 sm:py-28">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="text-center mb-16">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-              A REBEL TALENT INITIATIVE
-            </div>
-            <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold text-white uppercase tracking-tight mb-4">
-              THE STANDARD FOR{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
-                RECRUITING PROFESSIONALS
-              </span>
-            </h1>
-            <p className="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
-              The American Board of Certified Recruiters is establishing the first exam-based professional credential for the recruiting profession. The CR designation signals verified competency, ethical conduct, and commitment to excellence.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href="https://certifiedrecruiters.org/" target="_blank" rel="noopener noreferrer">
-                <Button className="font-display tracking-wider uppercase text-sm px-8 py-3 bg-amber-500 hover:bg-amber-600 text-black">
-                  Join the Founding Class <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </a>
-              <a href="https://certifiedrecruiters.org/#certification" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" className="font-display tracking-wider uppercase text-sm px-8 py-3 border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500">
-                  Learn About Certification
-                </Button>
-              </a>
-            </div>
+      {/* HERO — Hunt Club / Riviera register */}
+      <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(245,158,11,0.08) 0%, transparent 55%)" }} />
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
+          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-amber-400 mb-6 sm:mb-10">
+            A Rebel Talent Initiative
+          </p>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-5xl">
+            The standard for{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">recruiting professionals.</span>
+          </h1>
+          <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
+            The American Board of Certified Recruiters is establishing the first exam-based professional credential for the recruiting profession. The CR designation signals verified competency, ethical conduct, and commitment to excellence.
+          </p>
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3">
+            <a href="https://certifiedrecruiters.org/" target="_blank" rel="noopener noreferrer">
+              <Button className="font-display tracking-wider uppercase text-sm px-8 py-3 bg-amber-500 hover:bg-amber-600 text-black">
+                Join the Founding Class <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </a>
+            <a href="https://certifiedrecruiters.org/#certification" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="font-display tracking-wider uppercase text-sm px-8 py-3 border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500">
+                Learn About Certification
+              </Button>
+            </a>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-rebel-space pt-4 pb-16 sm:pb-24 border-t border-zinc-900">
+        <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10">
 
           {/* Stats */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
@@ -68,7 +70,7 @@ export default function Certification() {
             ].map((stat) => (
               <div key={stat.label} className="text-center border border-zinc-800 bg-zinc-900/30 rounded-lg p-4">
                 <div className="font-display text-xl sm:text-2xl font-bold text-amber-400 mb-1">{stat.value}</div>
-                <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-zinc-500">{stat.label}</div>
+                <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-zinc-500">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -119,7 +121,7 @@ export default function Certification() {
               WHAT DOES CR MEAN?
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-              CR — Certified Recruiter — is an exam-based professional designation awarded by ABCR to individuals who demonstrate mastery of the knowledge, skills, and ethical standards required for professional recruiting practice.
+              CR, Certified Recruiter, is an exam-based professional designation awarded by ABCR to individuals who demonstrate mastery of the knowledge, skills, and ethical standards required for professional recruiting practice.
             </p>
           </div>
 

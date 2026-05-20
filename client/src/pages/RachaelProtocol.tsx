@@ -1,4 +1,4 @@
-// Safe addition — The Rachael Protocol: transparency page about our AI operations persona
+// Safe addition, The Rachael Protocol: transparency page about our AI operations persona
 import { Link } from "wouter";
 import { ArrowRight, Bot, Shield, Eye, Clock, Mail, Zap, ChevronDown } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
@@ -27,49 +27,48 @@ export default function RachaelProtocol() {
         ]}
       />
 
-      {/* Hero — tightened padding, dual CTAs, image labeled */}
-      <section className="space-hero py-16 sm:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <ScrollReveal variant="fade-up" immediate>
-            <div className="text-center">
-              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-4">
-                THE RACHAEL PROTOCOL
-              </div>
-
-              <div className="mb-5">
-                <img
-                  src="/rachael-tyrell.jpg"
-                  alt="Rachael Tyrell, AI Operations Agent at Rebel Talent Systems"
-                  className="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover border-2 border-rebel-red/30 mx-auto"
-                  style={{ filter: "drop-shadow(0 0 24px rgba(220,38,38,0.3))" }}
-                />
-                <p className="text-zinc-600 text-[10px] font-mono tracking-wider mt-2">AI-GENERATED AVATAR / RACHAEL TYRELL / OPERATIONS</p>
-              </div>
-
-              <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-5">
-                Did Rachael Reach Out to You?
+      {/* HERO — Hunt Club / Riviera register */}
+      <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%)" }} />
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
+          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-500 mb-6 sm:mb-10">
+            The Rachael Protocol
+          </p>
+          <div className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-end">
+            <div>
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] mb-4 sm:mb-6">
+                Did Rachael<br />
+                <span className="text-rebel-red">reach out to you?</span>
               </h1>
-              <p className="text-zinc-300 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-3">
+              <p className="text-base sm:text-xl text-zinc-300 max-w-2xl leading-[1.55] mb-3">
                 Good. That means the system is working.
               </p>
-              <p className="text-zinc-500 text-base max-w-2xl mx-auto leading-relaxed mb-6">
+              <p className="text-base sm:text-lg text-zinc-500 max-w-2xl leading-[1.55] mb-6">
                 Rachael Tyrell is an AI agent I built. She handles follow-ups, scheduling, and operations at Rebel Talent Systems. Not a chatbot. Not a template. A trained system that runs my business development while I focus on recruiting for my clients.
               </p>
-
-              <div className="flex flex-col sm:flex-row gap-3 justify-center mb-4">
-                <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer">
-                  <Button onClick={hapticTap} size="lg" className="w-full sm:w-auto font-display tracking-wider uppercase text-sm px-8">
-                    Talk to Richie <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </a>
-                <a href="#how-it-works">
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto font-display tracking-wider uppercase text-sm px-8 border-zinc-700 text-zinc-300">
-                    See How It Works <ChevronDown className="ml-2 w-4 h-4" />
-                  </Button>
-                </a>
-              </div>
             </div>
-          </ScrollReveal>
+            <div className="shrink-0">
+              <img
+                src="/rachael-tyrell.jpg"
+                alt="Rachael Tyrell, AI Operations Agent at Rebel Talent Systems"
+                className="w-40 h-40 sm:w-52 sm:h-52 lg:w-64 lg:h-64 rounded-full object-cover border border-zinc-800"
+              />
+              <p className="text-zinc-600 text-[10px] font-mono tracking-wider mt-3 text-center">AI-GENERATED AVATAR · OPERATIONS</p>
+            </div>
+          </div>
+
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3">
+            <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer">
+              <Button onClick={hapticTap} size="lg" className="w-full sm:w-auto font-display tracking-wider uppercase text-sm px-8">
+                Talk to Richie <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </a>
+            <a href="#how-it-works">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto font-display tracking-wider uppercase text-sm px-8 border-zinc-700 text-zinc-300">
+                See How It Works <ChevronDown className="ml-2 w-4 h-4" />
+              </Button>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -121,7 +120,7 @@ export default function RachaelProtocol() {
         </div>
       </section>
 
-      {/* The split — stacks cleanly on mobile */}
+      {/* The split, stacks cleanly on mobile */}
       <section className="py-14 border-t border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
@@ -169,7 +168,7 @@ export default function RachaelProtocol() {
 
             <ScrollReveal variant="fade-up" delay={150}>
               <GlowCard className="border border-rebel-red/50 bg-rebel-red/5 p-6 sm:p-8 h-full relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-rebel-red px-3 py-1 font-mono text-white text-[10px] tracking-widest uppercase">
+                <div className="absolute top-0 right-0 bg-rebel-red px-3 py-1 font-mono text-white text-[11px] tracking-widest uppercase">
                   HUMAN
                 </div>
                 <div className="flex items-center gap-3 mb-5">
@@ -204,7 +203,7 @@ export default function RachaelProtocol() {
         </div>
       </section>
 
-      {/* Under the hood — icons more prominent */}
+      {/* Under the hood, icons more prominent */}
       <section className="py-14 border-t border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
@@ -261,7 +260,7 @@ export default function RachaelProtocol() {
         </div>
       </section>
 
-      {/* FAQ — tighter answers, added the disclosure question */}
+      {/* FAQ, tighter answers, added the disclosure question */}
       <section className="py-14 border-t border-zinc-800/50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
@@ -307,7 +306,7 @@ export default function RachaelProtocol() {
         </div>
       </section>
 
-      {/* CTA — filled button, friction reducer */}
+      {/* CTA, filled button, friction reducer */}
       <section className="py-14 border-t border-zinc-800/50 bg-gradient-to-b from-rebel-red/5 to-transparent">
         <ScrollReveal variant="scale">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">

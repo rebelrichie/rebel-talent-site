@@ -16,7 +16,7 @@ const faqSchema = {
       "name": "What is a Fractional Head of Talent?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A Fractional Head of Talent is an embedded recruiting leader who owns your entire talent acquisition function part-time — without the full-time executive cost. You get strategy, execution, ATS setup, process design, and hiring manager coaching, all in one."
+        "text": "A Fractional Head of Talent is an embedded recruiting leader who owns your entire talent acquisition function part-time, without the full-time executive cost. You get strategy, execution, ATS setup, process design, and hiring manager coaching, all in one."
       }
     },
     {
@@ -24,7 +24,7 @@ const faqSchema = {
       "name": "How is fractional recruiting different from using an agency?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Agencies charge 20-25% per hire and leave nothing behind. A fractional recruiter embeds into your company, builds systems you own, and transfers all knowledge — ATS, SOPs, sourcing playbooks — when the engagement ends. You own the recruiting function, not just a hire."
+        "text": "Agencies charge 20-25% per hire and leave nothing behind. A fractional recruiter embeds into your company, builds systems you own, and transfers all knowledge, ATS, SOPs, sourcing playbooks, when the engagement ends. You own the recruiting function, not just a hire."
       }
     },
     {
@@ -56,7 +56,7 @@ const faqSchema = {
       "name": "What happens after the engagement ends?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You own everything — full ATS configuration, sourcing playbooks, SOPs, interview scorecards, active pipelines, and documented workflows. There is no vendor lock-in. Rebel Talent also helps you hire your internal TA person before exiting."
+        "text": "You own everything, full ATS configuration, sourcing playbooks, SOPs, interview scorecards, active pipelines, and documented workflows. There is no vendor lock-in. Rebel Talent also helps you hire your internal TA person before exiting."
       }
     }
   ]
@@ -67,10 +67,10 @@ export default function HowItWorks() {
     <PageLayout>
       <PageSEO
         title="How Embedded Recruiting Works | Rebel Talent"
-        description="See how Rebel Talent's embedded recruiting model works — from infrastructure audit to full recruiting ownership in 90 days. No agency. No lock-in. You own it all."
+        description="See how Rebel Talent's embedded recruiting model works, from infrastructure audit to full recruiting ownership in 90 days. No agency. No lock-in. You own it all."
         path="/how-it-works"
         ogTitle="How Embedded Recruiting Works | Rebel Talent"
-        ogDescription="Week 1 audit, Month 1 go-live, Month 4+ you own it. This is fractional recruiting that builds systems — not dependency."
+        ogDescription="Week 1 audit, Month 1 go-live, Month 4+ you own it. This is fractional recruiting that builds systems, not dependency."
         ogImage="og-how-it-works.png"
         schemas={[faqSchema]}
         breadcrumbs={[
@@ -78,24 +78,25 @@ export default function HowItWorks() {
           { name: "How It Works", item: "https://rebeltalentsystems.com/how-it-works" },
         ]}
       />
-      <section className="space-hero py-20 sm:py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <ScrollReveal variant="blur" immediate>
-          <div className="text-center mb-16">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-              HOW WE BUILD
-            </div>
-            <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-4" data-testid="heading-how">
-              How We Build
-            </h1>
-            <p className="text-zinc-400 text-lg mb-2">
-              Systems That Last. <span className="text-white font-semibold">Ownership That Delivers.</span>
-            </p>
-            <p className="text-zinc-500 text-sm italic">
-              Hiring as engineering, not art. Assess, embed, execute, handover. You own it all.
-            </p>
-          </div>
-          </ScrollReveal>
+      {/* HERO — Hunt Club / Riviera register */}
+      <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%)" }} />
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
+          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-500 mb-6 sm:mb-10">
+            How We Build
+          </p>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-4xl" data-testid="heading-how">
+            Hiring as engineering,<br />
+            <span className="text-rebel-red">not art.</span>
+          </h1>
+          <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
+            Assess, embed, execute, handover. Systems that last. Ownership that delivers. You own it all.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-rebel-space pt-4 pb-16 sm:pb-24 border-t border-zinc-900">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
 
           <ScrollReveal variant="fade-left">
           <div className="border border-zinc-800 bg-rebel-red/5 p-6 mb-16" data-testid="section-problem">
