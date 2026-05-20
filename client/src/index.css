@@ -323,7 +323,7 @@ body {
     radial-gradient(ellipse 60% 40% at 50% 0%, rgba(220, 38, 38, 0.06) 0%, transparent 55%),
     radial-gradient(ellipse 50% 30% at 100% 30%, rgba(234, 88, 12, 0.04) 0%, transparent 60%),
     radial-gradient(ellipse 40% 30% at 0% 70%, rgba(91, 33, 182, 0.04) 0%, transparent 60%);
-  background-attachment: fixed;
+  /* Removed background-attachment:fixed — causes scroll jank/jiggle on iOS Safari */
 }
 
 /* ── Dark-card depth (matches the .bg-zinc-950.border-zinc-800 pattern) ── */
@@ -343,17 +343,20 @@ body {
   position: relative;
 }
 
-/* Hover bloom — subtle red glow, gentle lift */
-.bg-zinc-950.border.border-zinc-800:hover,
-.space-card:hover {
-  border-color: rgba(220, 38, 38, 0.4) !important;
-  box-shadow:
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
-    inset 0 -1px 0 0 rgba(0, 0, 0, 0.4),
-    0 1px 2px rgba(0, 0, 0, 0.5),
-    0 12px 32px -10px rgba(0, 0, 0, 0.7),
-    0 0 32px -4px rgba(220, 38, 38, 0.18) !important;
-  transform: translateY(-2px);
+/* Hover bloom — subtle red glow. Scoped to devices with hover capability
+   so it doesn't trigger as touch users scroll past cards on mobile. */
+@media (hover: hover) and (pointer: fine) {
+  .bg-zinc-950.border.border-zinc-800:hover,
+  .space-card:hover {
+    border-color: rgba(220, 38, 38, 0.4) !important;
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.4),
+      0 1px 2px rgba(0, 0, 0, 0.5),
+      0 12px 32px -10px rgba(0, 0, 0, 0.7),
+      0 0 32px -4px rgba(220, 38, 38, 0.18) !important;
+    transform: translateY(-2px);
+  }
 }
 
 /* Subtle red top-edge accent on hover */
@@ -385,14 +388,16 @@ body {
   transition: all 0.25s cubic-bezier(0.34, 1.4, 0.64, 1) !important;
 }
 
-.bg-rebel-red:hover,
-.hover\:bg-red-700:hover {
-  background: linear-gradient(145deg, #FF5722 0%, #E62E2E 100%) !important;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.24),
-    0 4px 12px rgba(220, 38, 38, 0.35),
-    0 0 32px -2px rgba(255, 69, 0, 0.5) !important;
-  transform: translateY(-1px);
+@media (hover: hover) and (pointer: fine) {
+  .bg-rebel-red:hover,
+  .hover\:bg-red-700:hover {
+    background: linear-gradient(145deg, #FF5722 0%, #E62E2E 100%) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.24),
+      0 4px 12px rgba(220, 38, 38, 0.35),
+      0 0 32px -2px rgba(255, 69, 0, 0.5) !important;
+    transform: translateY(-1px);
+  }
 }
 
 .bg-rebel-red:active {
@@ -400,21 +405,8 @@ body {
   transition-duration: 0.1s !important;
 }
 
-/* ── Section visual rhythm — soft red divider on transition between sections ── */
-section + section {
-  position: relative;
-}
-section + section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(60%, 480px);
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.12), transparent);
-  pointer-events: none;
-}
+/* Section dividers removed — were creating absolutely-positioned pseudo-elements
+   that could trigger repaints during scroll. */
 
 /* ── Display headings: subtle red text-shadow for depth ── */
 h1.font-display,
@@ -478,13 +470,13 @@ p {
   color: #DC2626;
 }
 
-/* Body bg — pure dark with very subtle ambient glow only at the top */
+/* Body bg — pure dark with very subtle ambient glow only at the top.
+   No background-attachment:fixed (caused scroll jiggle on iOS Safari). */
 body {
   background-color: #07060B;
   background-image:
     radial-gradient(ellipse 90% 50% at 20% 0%, rgba(220, 38, 38, 0.06) 0%, transparent 55%),
     radial-gradient(ellipse 70% 40% at 100% 100%, rgba(234, 88, 12, 0.03) 0%, transparent 55%);
-  background-attachment: fixed;
 }
 
 /* Cards — restrained, no gradient drama */
