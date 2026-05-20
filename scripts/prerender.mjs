@@ -20,7 +20,6 @@ const ROUTES = [
   "/testimonials",
   "/case-studies",
   "/podcast",
-  "/platform",
   "/command",
   "/free-tools",
   "/blog",

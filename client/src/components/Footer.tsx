@@ -46,7 +46,6 @@ export default function Footer() {
               <Link href="/testimonials" data-testid="link-footer-testimonials" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Testimonials</Link>
               <Link href="/case-studies" data-testid="link-footer-case-studies" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Case Studies</Link>
               <Link href="/about" data-testid="link-footer-about" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">About</Link>
-              <Link href="/platform" data-testid="link-footer-platform" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Platform</Link>
               <Link href="/command" data-testid="link-footer-command" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Command Demo</Link>
             </div>
           </div>
@@ -97,6 +96,11 @@ export default function Footer() {
               BUILD RIGHT. HIRE RIGHT. REBEL FOREVER.
             </p>
           </div>
+        </div>
+        <div className="border-t border-zinc-800/40 mt-4 pt-4 flex flex-wrap gap-x-6 gap-y-1">
+          <span className="text-zinc-700 text-[11px] font-mono tracking-wider">SAM.gov Registered</span>
+          <span className="text-zinc-700 text-[11px] font-mono tracking-wider">CAGE: 202V6</span>
+          <span className="text-zinc-700 text-[11px] font-mono tracking-wider">UEI: JQ4MZ69FNAK4</span>
         </div>
       </div>
     </footer>

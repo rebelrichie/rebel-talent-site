@@ -83,15 +83,15 @@ const STAGE_COLORS: Record<string, string> = {
 
 const AI_BRIEF = `Good morning. Here's your pipeline snapshot for today.
 
-URGENT: Ryan Mitchell's offer for Engineering Manager at Stripe needs final approval. The candidate has a competing offer expiring Friday — this is your #1 priority.
+URGENT: Ryan Mitchell's offer for Engineering Manager at Stripe needs final approval. The candidate has a competing offer expiring Friday, this is your #1 priority.
 
 PIPELINE HEALTH: 12 active roles, 47 candidates in motion. 3 candidates moved to interviewing stage yesterday. Conversion from screening → submitted is 72% this week, up from 61% last week.
 
 STALE ALERT: Marcus Chen has been in screening for 5 days with zero movement. Anduril's hiring manager hasn't responded to the submission brief. Recommended action: direct call to hiring manager today.
 
-REVENUE: Nina Patel placed at Cloudflare — $24K placement fee invoice ready. Weekly pipeline value: $142K across active placements. Monthly projected close: $67K.
+REVENUE: Nina Patel placed at Cloudflare, $24K placement fee invoice ready. Weekly pipeline value: $142K across active placements. Monthly projected close: $67K.
 
-SOURCING: The AI/ML Lead role at Anthropic has 3 strong candidates but needs 2 more. I've pre-matched 4 passive candidates from the network — review their profiles in the Sourcing tab.
+SOURCING: The AI/ML Lead role at Anthropic has 3 strong candidates but needs 2 more. I've pre-matched 4 passive candidates from the network, review their profiles in the Sourcing tab.
 
 Generated 6 tasks from this brief. 2 marked high priority.`;
 
@@ -99,7 +99,7 @@ const AI_EMAIL = `Hi Daria,
 
 Thanks for the great conversation yesterday about the Head of Growth opportunity at Notion. The team was impressed with your PLG experience at Scale and your approach to developer community building.
 
-We'd love to move forward with a final round. I've set up a few time slots that work for the team — pick whichever works best for you:
+We'd love to move forward with a final round. I've set up a few time slots that work for the team, pick whichever works best for you:
 
 [Schedule Final Interview →]
 
@@ -111,7 +111,7 @@ Rebel Talent Systems`;
 
 const AGENT_LOG = [
   { name: "Daily Brief", status: "completed", time: "8:02 AM", tokens: "4,218", cost: "$0.02", duration: "3.2s" },
-  { name: "Sourcing: AI/ML Lead — Anthropic", status: "completed", time: "9:15 AM", tokens: "6,441", cost: "$0.03", duration: "4.8s" },
+  { name: "Sourcing: AI/ML Lead at Anthropic", status: "completed", time: "9:15 AM", tokens: "6,441", cost: "$0.03", duration: "4.8s" },
   { name: "Interview Prep: Daria Okonkwo", status: "completed", time: "10:30 AM", tokens: "3,872", cost: "$0.02", duration: "2.9s" },
   { name: "Candidate Brief: Alex Volkov → Datadog", status: "completed", time: "11:45 AM", tokens: "5,103", cost: "$0.02", duration: "3.7s" },
   { name: "Follow-Up: Marcus Chen scheduling", status: "running", time: "Now", tokens: "—", cost: "—", duration: "—" },
@@ -251,11 +251,11 @@ function PipelineSection() {
           <h3 className="font-display text-2xl font-bold text-white uppercase">Pipeline</h3>
           <select className="bg-zinc-900 border border-zinc-800 text-zinc-300 text-base rounded-lg px-4 py-2">
             <option>All Roles (12)</option>
-            <option>AI/ML Lead — Anthropic</option>
-            <option>Sr. Platform Engineer — Palantir</option>
-            <option>Engineering Manager — Stripe</option>
-            <option>Head of Growth — Notion</option>
-            <option>Forward Deployed Engineer — Palantir</option>
+            <option>AI/ML Lead at Anthropic</option>
+            <option>Sr. Platform Engineer at Palantir</option>
+            <option>Engineering Manager at Stripe</option>
+            <option>Head of Growth at Notion</option>
+            <option>Forward Deployed Engineer at Palantir</option>
           </select>
           <span className="text-sm bg-zinc-800 text-zinc-400 px-3 py-1 rounded-lg">47 candidates</span>
         </div>
@@ -311,7 +311,7 @@ function EmailSection() {
             <p className="text-base text-zinc-600 italic">AI drafts a personalized scheduling email in seconds...</p>
           ) : (
             <div className="text-base text-zinc-300 whitespace-pre-wrap leading-relaxed">
-              <div className="text-sm text-zinc-600 mb-3">To: daria.okonkwo@gmail.com · Subject: Next Steps — Head of Growth at Notion</div>
+              <div className="text-sm text-zinc-600 mb-3">To: daria.okonkwo@gmail.com · Subject: Next Steps, Head of Growth at Notion</div>
               {displayed}
               {!done && <span className="inline-block w-2 h-4 bg-blue-400 ml-0.5 animate-pulse" />}
             </div>
@@ -343,7 +343,7 @@ function AgentSection() {
       </div>
       <div className="border border-zinc-800 bg-zinc-900/60 rounded-xl overflow-hidden">
         <div className="px-5 py-3 border-b border-zinc-800/50 flex items-center justify-between">
-          <span className="text-sm font-semibold text-zinc-400 uppercase tracking-wider">Agent Run Log — Today</span>
+          <span className="text-sm font-semibold text-zinc-400 uppercase tracking-wider">Agent Run Log, Today</span>
         </div>
         <table className="w-full">
           <thead>
@@ -401,14 +401,13 @@ export default function CommandDemo() {
   return (
     <PageLayout>
       <PageSEO
-        title="Rebel Command — Live Product Demo | Rebel Talent Systems"
+        title="Rebel Command: Live Product Demo | Rebel Talent Systems"
         description="See inside Rebel Command: AI-powered recruiting command center with real-time pipeline, 23 agents, and full audit trails."
         path="/command"
-        ogTitle="Rebel Command — Live Product Demo"
+        ogTitle="Rebel Command: Live Product Demo"
         ogDescription="The operator war room. See it in action."
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
-          { name: "Platform", item: "https://rebeltalentsystems.com/platform" },
           { name: "Command Demo", item: "https://rebeltalentsystems.com/command" },
         ]}
       />
@@ -476,9 +475,9 @@ export default function CommandDemo() {
                 Book a Live Demo <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>
-            <a href="/platform">
+            <a href="/services">
               <Button variant="outline" size="lg" className="w-full sm:w-auto font-display tracking-wider uppercase text-sm px-8 border-zinc-700 text-zinc-300">
-                Back to Platform
+                See services
               </Button>
             </a>
           </div>

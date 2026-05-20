@@ -8,7 +8,6 @@ const servicesLinks = [
   { href: "/services", label: "All Services", external: false },
   { href: "/how-it-works", label: "How It Works", external: false },
   { href: "/pricing", label: "Pricing", external: false },
-  { href: "/platform", label: "Platform", external: false },
 ];
 
 const proofLinks = [
@@ -110,7 +109,7 @@ export default function Navbar() {
                 aria-haspopup="true"
                 onClick={() => { setServicesOpen(!servicesOpen); setProofOpen(false); setResourcesOpen(false); }}
                 className={`flex items-center gap-1 px-2.5 py-2 text-[11px] font-semibold tracking-widest transition-colors duration-200 whitespace-nowrap ${
-                  ["/fractional-head-of-talent", "/services", "/how-it-works", "/platform"].includes(location) ? "text-rebel-red" : "text-zinc-400 hover:text-white"
+                  ["/fractional-head-of-talent", "/services", "/how-it-works", "/pricing"].includes(location) ? "text-rebel-red" : "text-zinc-400 hover:text-white"
                 }`}
               >
                 SERVICES

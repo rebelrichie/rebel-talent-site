@@ -10,7 +10,6 @@ const quickLinks = [
   { href: "/case-studies", label: "Case Studies", icon: "▸" },
   { href: "/blog", label: "Blog", icon: "▸" },
   { href: "/free-tools", label: "Free Tools", icon: "▸" },
-  { href: "/platform", label: "Platform", icon: "▸" },
 ];
 
 const scanLines = [
@@ -71,7 +70,7 @@ function ScanLog() {
   return (
     <div
       ref={containerRef}
-      className="font-mono text-[10px] sm:text-xs text-left max-w-xs mx-auto h-28 overflow-hidden border border-zinc-800/50 bg-black/40 p-3 mb-8"
+      className="font-mono text-[11px] sm:text-xs text-left max-w-xs mx-auto h-28 overflow-hidden border border-zinc-800/50 bg-black/40 p-3 mb-8"
     >
       {lines.map((line, idx) => (
         <div key={idx} className="flex items-center gap-2 mb-1">
@@ -177,12 +176,12 @@ export default function NotFound() {
           {/* Animated scan log */}
           <ScanLog />
 
-          {/* Quick nav — fades in after scan completes */}
+          {/* Quick nav, fades in after scan completes */}
           <div
             className="transition-all duration-700"
             style={{ opacity: showLinks ? 1 : 0, transform: showLinks ? "translateY(0)" : "translateY(10px)" }}
           >
-            <div className="font-mono text-zinc-600 text-[10px] tracking-[0.3em] uppercase mb-4">
+            <div className="font-mono text-zinc-600 text-[11px] tracking-[0.3em] uppercase mb-4">
               AVAILABLE TARGETS
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-8">
