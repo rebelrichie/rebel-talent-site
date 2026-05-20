@@ -721,12 +721,12 @@ export default function Home() {
 
       {/* Safe addition, Proof/Case Study moved after pricing */}
       <section data-testid="section-proof" className="py-10 border-b border-zinc-800/50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 space-y-5">
+          {/* EARTHDAILY FEDERAL */}
           <ScrollReveal variant="fade-left">
-          <ParallaxSection speed={0.1}>
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/5 to-transparent p-6 sm:p-8 flex flex-col sm:flex-row gap-6 sm:gap-10 items-start">
             <div className="flex-1">
-              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">PROOF OF CONCEPT</div>
+              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">CASE STUDY 01 · FRACTIONAL</div>
               <h2 className="font-display text-xl font-bold text-white uppercase mb-2">EarthDaily Federal</h2>
               <p className="text-zinc-400 text-sm leading-relaxed mb-3">
                 Defense-sector geospatial intelligence firm. 5 FTE + 3 contractors placed over 8 months: VP of Growth, Backend Engineer, AI Engineer, Controller, IT Manager, and 3 contractors. 5 more in active pipeline. 20 hrs/week at $120/hr.
@@ -743,7 +743,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <Link href="/case-studies" data-testid="link-case-study-proof">
+              <Link href="/case-studies" data-testid="link-case-study-edf">
                 <Button variant="outline" size="sm" className="font-display tracking-wider uppercase text-xs border-zinc-700 text-zinc-300">
                   See Full Case Study <ArrowRight className="ml-2 w-3 h-3" />
                 </Button>
@@ -756,7 +756,53 @@ export default function Home() {
               <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">TS / TS-SCI</div>
             </div>
           </div>
-          </ParallaxSection>
+          </ScrollReveal>
+
+          {/* KALIBRI LABS */}
+          <ScrollReveal variant="fade-left" delay={100}>
+          <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/5 to-transparent p-6 sm:p-8 flex flex-col sm:flex-row gap-6 sm:gap-10 items-start" data-testid="proof-card-kalibri">
+            <div className="flex-1">
+              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">CASE STUDY 02 · RETAINED SEARCH</div>
+              <h2 className="font-display text-xl font-bold text-white uppercase mb-2">Kalibri Labs</h2>
+              <p className="text-zinc-400 text-sm leading-relaxed mb-3">
+                ML Engineer search run as an embedded 50/50 retained project — half down, half on placement, operating inside their email, Slack, and ATS. Signed offer in 34 days against a flooded inbound funnel of 360+ AI-polished applications. Saved ~$20K against the agency quote.
+              </p>
+              <div className="grid grid-cols-3 gap-4 mb-5">
+                {[
+                  { value: "34 days", label: "To Signed Offer" },
+                  { value: "$20K", label: "Saved vs. Agency" },
+                  { value: "1 hire", label: "ML Engineer Placed" },
+                ].map((s) => (
+                  <div key={s.label}>
+                    <AnimatedCounter value={s.value} className="font-display text-xl sm:text-2xl font-bold text-rebel-red" />
+                    <div className="text-zinc-500 text-xs uppercase tracking-wide leading-tight mt-0.5">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Inline pull quote from the engineering director */}
+              <blockquote className="border-l-2 border-rebel-red/60 pl-4 mb-5">
+                <p className="text-zinc-200 text-sm leading-relaxed italic mb-2">
+                  &ldquo;I just want to thank you for all your assistance moving this pipeline to completion. It means a lot to me, and the tech org.&rdquo;
+                </p>
+                <footer className="text-zinc-500 text-xs">
+                  <span className="text-zinc-300 font-semibold">Michael Tracey</span>, Director of Engineering, Kalibri Labs
+                </footer>
+              </blockquote>
+
+              <Link href="/case-studies" data-testid="link-case-study-kalibri">
+                <Button variant="outline" size="sm" className="font-display tracking-wider uppercase text-xs border-zinc-700 text-zinc-300">
+                  See Full Case Study <ArrowRight className="ml-2 w-3 h-3" />
+                </Button>
+              </Link>
+            </div>
+            <div className="hidden sm:flex flex-col justify-center items-center border-l border-zinc-800 pl-8 shrink-0">
+              <div className="font-mono text-zinc-600 text-xs tracking-widest uppercase mb-1">Sector</div>
+              <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">Hospitality / AI</div>
+              <div className="font-mono text-zinc-600 text-xs tracking-widest uppercase mt-4 mb-1">Engagement</div>
+              <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">50 / 50 Retained</div>
+            </div>
+          </div>
           </ScrollReveal>
         </div>
       </section>
