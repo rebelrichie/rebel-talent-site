@@ -172,15 +172,13 @@ export default function Navbar() {
               {renderDropdown(resourceLinks, resourcesOpen)}
             </div>
 
-            <a
-              href="https://rebelapply.com"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/jobs"
               data-testid="link-nav-apply"
               className="ml-1.5 px-3.5 py-2 text-[11px] font-semibold tracking-widest border border-rebel-red text-rebel-red hover:bg-rebel-red hover:text-white transition-colors no-underline whitespace-nowrap rounded-md"
             >
               APPLY
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -297,16 +295,14 @@ export default function Navbar() {
             )
           )}
 
-          <a
-            href="https://rebelapply.com"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/jobs"
             data-testid="link-mobile-apply"
             className="block px-6 py-3 text-xs font-semibold tracking-widest border-b border-zinc-900 no-underline text-white bg-rebel-red/10"
             onClick={() => setIsOpen(false)}
           >
-            APPLY / START JOB PROFILE
-          </a>
+            APPLY / SEE OPEN ROLES
+          </Link>
         </div>
       )}
     </nav>

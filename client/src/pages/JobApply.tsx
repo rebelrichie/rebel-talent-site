@@ -166,12 +166,6 @@ export default function JobApply() {
               >
                 <ArrowLeft className="h-3.5 w-3.5" /> Browse more roles
               </Link>
-              <a
-                href="https://rebelapply.com/login-talent"
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-zinc-400 hover:text-white transition-colors no-underline"
-              >
-                Build full profile (optional) <ArrowRight className="h-3.5 w-3.5" />
-              </a>
             </div>
           </div>
         ) : (

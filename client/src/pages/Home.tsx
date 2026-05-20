@@ -865,11 +865,11 @@ export default function Home() {
             ))}
           </div>
           <div className="text-center mt-8">
-            <a href="https://rebelapply.com/spotlight" target="_blank" rel="noopener noreferrer">
+            <Link href="/jobs">
               <Button variant="outline" size="sm" className="font-display tracking-wider uppercase text-xs border-zinc-700 text-zinc-300">
-                Browse Spotlight Talent <ArrowRight className="ml-2 w-3 h-3" />
+                Browse Open Roles <ArrowRight className="ml-2 w-3 h-3" />
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
