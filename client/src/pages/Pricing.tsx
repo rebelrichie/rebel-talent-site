@@ -48,7 +48,15 @@ const pricingFaqSchema = {
       "name": "Why no contingency?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Because contingency breaks incentives. A contingency recruiter gets paid $30K+ only when someone gets hired, so they're incentivized to push candidates through fast, oversell fits, and move on. I'm incentivized to build systems that make your hiring permanently better."
+        "text": "Because contingency breaks incentives. A contingency recruiter gets paid $30K+ only when someone gets hired, so they're incentivized to push candidates through fast, oversell fits, and move on. I'm incentivized to build systems that make your hiring permanently better. The math works out in your favor: $240K+ in agency fees avoided for one client over 8 months."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if it's not working?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At day 30, you should have a working pipeline. If you don't, we restructure — adjusted scope, adjusted approach, or an honest call that we're not the right fit. No additional charge. This is written into the SOW. After the initial 90-day minimum, the engagement is month-to-month with 2 weeks notice to pause or end. You keep all infrastructure built regardless of how or when the engagement ends."
       }
     }
   ]
@@ -105,9 +113,9 @@ export default function Pricing() {
           <div className="max-w-7xl mx-auto px-6 lg:px-12 py-8 sm:py-10">
             <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl">
               {[
-                { value: "$229K", label: "Agency Fees Avoided" },
-                { value: "285%", label: "ROI Delivered" },
-                { value: "<21", label: "Days Avg. Time to Hire" },
+                { value: "$240K+", label: "Agency Fees Avoided" },
+                { value: "275%", label: "ROI Delivered" },
+                { value: "~30", label: "Days Median Time to Hire" },
               ].map((s) => (
                 <div key={s.label}>
                   <AnimatedCounter value={s.value} className="block text-3xl sm:text-5xl font-extrabold text-rebel-red tracking-[-0.03em]" />
@@ -116,7 +124,7 @@ export default function Pricing() {
               ))}
             </div>
             <p className="text-zinc-600 text-[11px] font-medium tracking-wider uppercase mt-5">
-              EarthDaily Federal — 5 FTE + 2 contractors in 5 months
+              EarthDaily Federal — 5 FTE + 3 contractors in 8 months
             </p>
           </div>
         </div>
@@ -252,49 +260,41 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Comparison table */}
+      {/* Safe addition, differentiators (replaces agency/retained/rebel comparison per Richie's no-comparison framing) */}
       <section className="py-16 border-t border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
             <div className="text-center mb-8">
-              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">THE REAL MATH</div>
+              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">HOW THIS WORKS</div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
-                Agency vs. Retained vs. Rebel
+                The Rebel Talent Standard
               </h2>
+              <p className="text-zinc-500 text-sm mt-3 max-w-2xl mx-auto">
+                Nine commitments built into every engagement. Concrete, measurable, and visible in your dashboard from day one.
+              </p>
             </div>
           </ScrollReveal>
           <ScrollReveal variant="fade-up" delay={200}>
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse text-sm">
-                <thead>
-                  <tr>
-                    <th className="text-left py-3 px-4 text-zinc-500 font-mono text-xs tracking-wider uppercase border-b border-zinc-800" />
-                    <th className="text-center py-3 px-4 text-zinc-500 font-mono text-xs tracking-wider uppercase border-b border-zinc-800">Contingent Agency</th>
-                    <th className="text-center py-3 px-4 text-zinc-500 font-mono text-xs tracking-wider uppercase border-b border-zinc-800">Retained Search</th>
-                    <th className="text-center py-3 px-4 text-rebel-red font-mono text-xs tracking-wider uppercase border-b border-rebel-red/30 bg-rebel-red/5">Rebel Talent</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { metric: "Pricing Model", agency: "20–25% of salary", retained: "$30K–$80K+ upfront", rebel: "Hourly or project. You see every dollar." },
-                    { metric: "What You Pay For", agency: "A placement", retained: "Access to a search", rebel: "Time, systems, infrastructure & outcomes" },
-                    { metric: "Cost per Hire", agency: "$25K–$40K+", retained: "$30K–$80K+", rebel: "~$5K–$8K" },
-                    { metric: "Incentive Alignment", agency: "Fill fast, collect fee", retained: "Fee already paid", rebel: "Build infrastructure that lasts" },
-                    { metric: "Time to Fill", agency: "60–90 days", retained: "90–120 days", rebel: "<21 days avg" },
-                    { metric: "You Own the Process", agency: "No", retained: "No", rebel: "Yes. Everything." },
-                    { metric: "Infrastructure Left Behind", agency: "Nothing", retained: "A report", rebel: "ATS, playbooks, pipeline, trained managers" },
-                    { metric: "Transparency", agency: "Invoice after placement", retained: "Monthly status calls", rebel: "Real-time dashboard, time logs, ROI" },
-                    { metric: "When It's Over", agency: "They disappear", retained: "They disappear", rebel: "You keep everything" },
-                  ].map((row, i) => (
-                    <tr key={row.metric} className={i % 2 === 0 ? "bg-zinc-900/20" : ""}>
-                      <td className="py-3 px-4 text-zinc-300 font-semibold border-b border-zinc-800/50 whitespace-nowrap">{row.metric}</td>
-                      <td className="py-3 px-4 text-center text-zinc-500 border-b border-zinc-800/50">{row.agency}</td>
-                      <td className="py-3 px-4 text-center text-zinc-500 border-b border-zinc-800/50">{row.retained}</td>
-                      <td className="py-3 px-4 text-center text-white font-semibold border-b border-zinc-800/50 bg-rebel-red/5">{row.rebel}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { label: "Pricing Model", value: "Hourly or project. Every dollar in your dashboard." },
+                { label: "What You Pay For", value: "Time, systems, infrastructure & outcomes — not just a placement." },
+                { label: "Cost per Hire", value: "~$5K–$8K on average across embedded engagements." },
+                { label: "Incentive Alignment", value: "Paid to build infrastructure that lasts, not to fill seats fast." },
+                { label: "Time to Fill", value: "~30 days median across embedded engagements." },
+                { label: "Process Ownership", value: "Yours. Everything we build, you keep." },
+                { label: "Infrastructure You Keep", value: "ATS, playbooks, pipeline, trained hiring managers." },
+                { label: "Transparency", value: "Real-time dashboard, time logs, ROI — visible every day." },
+                { label: "When It's Over", value: "You keep everything: data, systems, process, relationships." },
+              ].map((row) => (
+                <div
+                  key={row.label}
+                  className="border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm p-5 hover:border-zinc-700 transition-colors"
+                >
+                  <div className="font-mono text-rebel-red text-[10px] tracking-[0.18em] uppercase mb-2">{row.label}</div>
+                  <div className="text-zinc-200 text-sm leading-relaxed">{row.value}</div>
+                </div>
+              ))}
             </div>
           </ScrollReveal>
         </div>
@@ -342,6 +342,41 @@ export default function Pricing() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
             <div className="text-center mb-8">
+              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">MY COMMITMENT</div>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
+                How I make it safe to start
+              </h2>
+              <p className="text-zinc-500 text-sm mt-3 max-w-2xl mx-auto">
+                A 3-month minimum is a real commitment. Here's what I commit to in return — specific, measurable, written into the SOW.
+              </p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal variant="fade-up" delay={150}>
+            <div className="grid sm:grid-cols-3 gap-4 mb-16">
+              {[
+                {
+                  headline: "Qualified pipeline by day 30",
+                  body: "If you don't have a working pipeline 30 days after kickoff, I restructure the engagement at no additional charge — adjusted scope, adjusted approach, or an honest call that we're not the right fit. You don't burn a quarter to find out something isn't working.",
+                },
+                {
+                  headline: "Month-to-month after 90 days",
+                  body: "Three-month minimum to give the systems time to compound. After that, pause, scale down, or end the engagement with 2 weeks notice. No annual lock-ins. The engagement flexes with what your team actually needs.",
+                },
+                {
+                  headline: "You keep everything, always",
+                  body: "ATS, scorecards, sourcing playbooks, candidate pipeline, process docs — yours from day one, exportable any time, no claw-back if the engagement ends. Even work-in-progress goes with you.",
+                },
+              ].map((c) => (
+                <div key={c.headline} className="border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm p-6 hover:border-rebel-red/30 transition-colors">
+                  <div className="font-display text-base font-bold text-white uppercase mb-3 leading-tight">{c.headline}</div>
+                  <div className="text-zinc-400 text-sm leading-relaxed">{c.body}</div>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal variant="fade-up">
+            <div className="text-center mb-8">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">FAQ</div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
                 The Questions Everyone Asks
@@ -379,7 +414,15 @@ export default function Pricing() {
                   Why no contingency?
                 </AccordionTrigger>
                 <AccordionContent className="text-zinc-400 text-sm leading-relaxed pb-5">
-                  Because contingency breaks incentives. A contingency recruiter gets paid $30K+ only when someone gets hired. That means they're incentivized to push candidates through fast, oversell fits, and move on to the next fee. I'm incentivized to build systems that make your hiring permanently better, because that's what you're paying me to do. The math works out in your favor: $229K in agency fees avoided for one client in 5 months.
+                  Because contingency breaks incentives. A contingency recruiter gets paid $30K+ only when someone gets hired. That means they're incentivized to push candidates through fast, oversell fits, and move on to the next fee. I'm incentivized to build systems that make your hiring permanently better, because that's what you're paying me to do. The math works out in your favor: $240K+ in agency fees avoided for one client over 8 months.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="what-if-not-working" className="border border-zinc-800 bg-zinc-900/30 px-6">
+                <AccordionTrigger className="font-display text-sm font-bold text-white uppercase tracking-wide py-5">
+                  What if it's not working?
+                </AccordionTrigger>
+                <AccordionContent className="text-zinc-400 text-sm leading-relaxed pb-5">
+                  At day 30, you should have a working pipeline. If you don't, we restructure — adjusted scope, adjusted approach, or an honest call that we're not the right fit. No additional charge. This is written into the SOW, not a verbal promise. After the initial 90-day minimum, the engagement is month-to-month with 2 weeks notice to pause or end. You should never have to argue your way out of a recruiting engagement that isn't producing.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

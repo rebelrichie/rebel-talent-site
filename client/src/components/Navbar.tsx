@@ -13,7 +13,6 @@ const servicesLinks = [
 const proofLinks = [
   { href: "/testimonials", label: "Testimonials", external: false },
   { href: "/case-studies", label: "Case Studies", external: false },
-  { href: "/rachael", label: "The Rachael Protocol", external: false },
 ];
 
 const resourceLinks = [

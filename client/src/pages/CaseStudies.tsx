@@ -58,10 +58,10 @@ export default function CaseStudies() {
     <PageLayout>
       <PageSEO
         title="Startup & Defense Recruiting Case Studies | Rebel Talent"
-        description="Real results from real engagements. EarthDaily Federal: $178K saved, 350% ROI. Kalibri Labs: 360 applications, 0 applicants made finals. Legal: 18 hires, 90% retention."
+        description="Real results from real engagements. EarthDaily Federal: $240K+ saved, 275% ROI delivered (470%+ projected). Kalibri Labs: 34 days to signed offer against 360+ AI-polished apps. Legal: 18 hires, 90% retention."
         path="/case-studies"
         ogTitle="Startup & Defense Recruiting Case Studies | Rebel Talent"
-        ogDescription="Proof over promises. EarthDaily: $178K saved, 350% ROI. Kalibri Labs: 360 apps, 2 finalists, zero were applicants. Legal: 18 hires, 90% retention."
+        ogDescription="Proof over promises. EarthDaily: $240K+ saved, 275% ROI delivered. Kalibri Labs: 34 days to signed offer, zero applicants from 360+ inbound made finals. Legal: 18 hires, 90% retention."
         ogImage="og-case-studies.png"
         schemas={[caseStudySchema]}
         breadcrumbs={[
@@ -206,34 +206,22 @@ export default function CaseStudies() {
 
             <ScrollReveal variant="fade-up" delay={200}>
             <div className="border border-zinc-800 bg-zinc-900/30 p-6 mb-8">
-              <h3 className="font-display text-base font-bold text-rebel-red uppercase mb-4">Agency vs. Fractional</h3>
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-zinc-700">
-                      <th className="text-left text-zinc-500 font-mono text-xs tracking-wider uppercase py-2 pr-4"></th>
-                      <th className="text-left text-zinc-500 font-mono text-xs tracking-wider uppercase py-2 pr-4">Agency / Contingent</th>
-                      <th className="text-left text-zinc-500 font-mono text-xs tracking-wider uppercase py-2">Fractional (Rebel Talent)</th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-zinc-400">
-                    {[
-                      { label: "Cost per hire", agency: "20-25% of salary", fractional: "Flat monthly retainer" },
-                      { label: "Institutional knowledge", agency: "Leaves with the recruiter", fractional: "Stays with your company" },
-                      { label: "Process ownership", agency: "Theirs", fractional: "Yours" },
-                      { label: "Candidate experience", agency: "Inconsistent", fractional: "Standardized across roles" },
-                      { label: "Infrastructure built", agency: "None", fractional: "ATS, SOPs, pipelines" },
-                      { label: "What you own at the end", agency: "A hire", fractional: "A recruiting function" },
-                    ].map((row) => (
-                      <tr key={row.label} className="border-b border-zinc-800/50">
-                        <td className="py-2 pr-4 text-zinc-300 font-medium text-xs">{row.label}</td>
-                        <td className="py-2 pr-4 text-zinc-500 text-xs">{row.agency}</td>
-                        <td className="py-2 text-zinc-300 text-xs">{row.fractional}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              <h3 className="font-display text-base font-bold text-rebel-red uppercase mb-4">What this engagement actually delivered</h3>
+              <ul className="space-y-2.5 text-sm">
+                {[
+                  { label: "Cost structure", value: "Flat monthly retainer — no success fees, no surprise invoices when each hire closed." },
+                  { label: "Institutional knowledge", value: "Process documentation, sourcing playbooks, and pipeline history stayed inside EDF when the engagement scaled down." },
+                  { label: "Process ownership", value: "Custom ATS, scorecards, and SOPs handed off to the internal team — owned, exportable, and auditable." },
+                  { label: "Candidate experience", value: "Standardized across all 8 placements: same screening rigor, same interview frameworks, same communication cadence." },
+                  { label: "Infrastructure built", value: "Custom ATS with clearance tracking, sourcing playbooks by role type, interview scorecards, and reporting dashboards." },
+                  { label: "What EDF owns at the end", value: "A working recruiting function — not just a stack of hires." },
+                ].map((row) => (
+                  <li key={row.label} className="flex gap-3 border-b border-zinc-800/50 pb-2.5">
+                    <div className="shrink-0 w-44 sm:w-52 text-zinc-300 font-medium text-xs uppercase tracking-wider">{row.label}</div>
+                    <div className="flex-1 text-zinc-400 text-xs leading-relaxed">{row.value}</div>
+                  </li>
+                ))}
+              </ul>
             </div>
             </ScrollReveal>
 
@@ -266,10 +254,10 @@ export default function CaseStudies() {
               </div>
 
               <p className="text-zinc-400 text-sm leading-relaxed mb-3">
-                A contingency agency on the same roles at 20-25% would have cost $240K+ and left nothing behind. No ATS. No playbooks. No process. Just placements they own the relationship on.
+                $240K+ in fees avoided across 8 placements. A custom ATS with clearance tracking, sourcing playbooks by role type, structured interview scorecards, and a documented hiring process — all handed off and owned by EDF when the engagement scaled down.
               </p>
               <p className="text-zinc-300 text-sm leading-relaxed">
-                <span className="text-rebel-red font-mono font-bold">Every future hire they make runs on infrastructure I built. That compounds.</span>
+                <span className="text-rebel-red font-mono font-bold">Every future hire EDF makes runs on infrastructure I built. That compounds.</span>
               </p>
             </div>
             </ScrollReveal>

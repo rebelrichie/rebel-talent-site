@@ -19,7 +19,6 @@ import BlogPost from "@/pages/BlogPost";
 import Certification from "@/pages/Certification";
 import FractionalHeadOfTalent from "@/pages/FractionalHeadOfTalent";
 import Pricing from "@/pages/Pricing";
-import RachaelProtocol from "@/pages/RachaelProtocol";
 import Advisory from "@/pages/Advisory";
 import Jobs from "@/pages/Jobs";
 import JobDetail from "@/pages/JobDetail";
@@ -47,7 +46,8 @@ function Router() {
       <Route path="/fractional-head-of-talent" component={FractionalHeadOfTalent} />
       <Route path="/fractional-recruiting-services" component={FractionalHeadOfTalent} />
       <Route path="/pricing" component={Pricing} />
-      <Route path="/rachael" component={RachaelProtocol} />
+      {/* /rachael retired. 301 to home. */}
+      <Route path="/rachael">{() => { window.location.href = "/"; return null; }}</Route>
       <Route path="/advisory" component={Advisory} />
       <Route path="/jobs" component={Jobs} />
       <Route path="/jobs/:id/apply" component={JobApply} />

@@ -370,7 +370,7 @@ export default function Home() {
     <PageLayout>
       <PageSEO
         title="Fractional Recruiting for Startups & Defense | Rebel Talent"
-        description="Rebel Talent provides fractional recruiting and embedded talent leadership for Series A-C startups and defense contractors. 350%+ ROI proven. 14+ years experience."
+        description="Rebel Talent provides fractional recruiting and embedded talent leadership for Series A-C startups and defense contractors. 275% ROI delivered on flagship engagement. 14+ years experience."
         path="/"
         ogTitle="Fractional Recruiting for Startups & Defense | Rebel Talent"
         ogDescription="Agencies profit from your chaos. Rebel Talent embeds fractional recruiting leadership to build the hiring infrastructure startups and defense firms need, without the agency fees, bad fits, or delays."
@@ -577,42 +577,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Safe addition, Agency vs Fractional comparison table */}
-      <section data-testid="section-compare" className="py-12 border-b border-zinc-800/50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+      {/* Safe addition, differentiators (replaces vs-agency table per Richie's no-comparison framing) */}
+      <section data-testid="section-difference" className="py-12 border-b border-zinc-800/50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-8">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">THE MATH</div>
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">THE DIFFERENCE</div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
-              Agency vs. Fractional
+              What every engagement delivers
             </h2>
           </div>
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse text-sm">
-              <thead>
-                <tr>
-                  <th className="text-left py-3 px-4 text-zinc-500 font-mono text-xs tracking-wider uppercase border-b border-zinc-800" />
-                  <th className="text-center py-3 px-4 text-zinc-500 font-mono text-xs tracking-wider uppercase border-b border-zinc-800">Contingent Agency</th>
-                  <th className="text-center py-3 px-4 text-rebel-red font-mono text-xs tracking-wider uppercase border-b border-rebel-red/30 bg-rebel-red/5">Fractional (Rebel)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { metric: "Cost per Hire", agency: "$25K–$40K", fractional: "~$5K–$8K" },
-                  { metric: "You Own the Process", agency: "No", fractional: "Yes. Everything." },
-                  { metric: "Alignment", agency: "Fee-motivated", fractional: "Embedded in your team" },
-                  { metric: "Time to Fill", agency: "60–90 days", fractional: "<30 days" },
-                  { metric: "Infrastructure Left Behind", agency: "Nothing", fractional: "ATS, playbooks, systems" },
-                  { metric: "Candidate Quality", agency: "Resume spray", fractional: "Proof-first vetting" },
-                ].map((row, i) => (
-                  <tr key={row.metric} className={i % 2 === 0 ? "bg-zinc-900/20" : ""}>
-                    <td className="py-3 px-4 text-zinc-300 font-semibold border-b border-zinc-800/50">{row.metric}</td>
-                    <td className="py-3 px-4 text-center text-zinc-500 border-b border-zinc-800/50">{row.agency}</td>
-                    <td className="py-3 px-4 text-center text-white font-semibold border-b border-zinc-800/50 bg-rebel-red/5">{row.fractional}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            {[
+              { icon: <Users className="w-5 h-5 text-rebel-red" />, title: "Embedded execution", desc: "In your Slack, your ATS, your hiring manager 1:1s, your candidate calls. Not consulting from the sidelines. You get me on every call." },
+              { icon: <TrendingUp className="w-5 h-5 text-rebel-red" />, title: "~$5K–$8K cost per hire", desc: "Hourly or fixed-fee billing, logged in your dashboard. No success fees. No invoice surprises when the hire closes." },
+              { icon: <Clock className="w-5 h-5 text-rebel-red" />, title: "~30 days median time to hire", desc: "Across embedded engagements. Under 30 on EDF's 8 placements. 34 days on Kalibri against a 360-application flooded funnel." },
+              { icon: <Shield className="w-5 h-5 text-rebel-red" />, title: "You own everything we build", desc: "ATS, candidate pipeline, interview scorecards, sourcing playbooks, hiring manager training. Exportable, transferable, yours forever." },
+              { icon: <Target className="w-5 h-5 text-rebel-red" />, title: "Proof-first vetting", desc: "Every candidate ships with portfolio evidence, structured technical screens, and AI-scored match signals. Resume polish isn't a pipeline." },
+              { icon: <Zap className="w-5 h-5 text-rebel-red" />, title: "Infrastructure that compounds", desc: "470%+ projected ROI on the EDF flagship — $240K+ in fees avoided on ~$88K invested. Every system built carries to your next 50 hires." },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm p-5 flex gap-4 items-start hover:border-zinc-700 transition-colors"
+              >
+                <div className="shrink-0 mt-0.5">{item.icon}</div>
+                <div>
+                  <div className="font-display text-sm font-bold text-white uppercase mb-1">{item.title}</div>
+                  <div className="text-zinc-400 text-sm leading-relaxed">{item.desc}</div>
+                </div>
+              </div>
+            ))}
           </div>
           </ScrollReveal>
         </div>
@@ -874,38 +868,6 @@ export default function Home() {
               </Button>
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* Safe addition, Rachael Protocol teaser */}
-      <section className="py-12 border-t border-zinc-800/50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <ScrollReveal variant="fade-up">
-            <div className="border border-zinc-800 bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-center">
-              <div className="shrink-0">
-                <img
-                  src="/rachael-tyrell.jpg"
-                  alt="Rachael Tyrell, AI Operations Agent"
-                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-2 border-rebel-red/30"
-                  style={{ filter: "drop-shadow(0 0 20px rgba(220,38,38,0.25))" }}
-                />
-              </div>
-              <div className="flex-1 text-center sm:text-left">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">THE RACHAEL PROTOCOL</div>
-                <h3 className="font-display text-lg sm:text-xl font-bold text-white uppercase mb-2">
-                  Meet the AI That Runs My Operations
-                </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-                  Most companies hide their AI. I built mine a name, a face, and a page that explains exactly what she does. Rachael handles outreach, scheduling, and operations. I handle your hiring. Full transparency, always.
-                </p>
-                <Link href="/rachael">
-                  <Button variant="outline" size="sm" className="font-display tracking-wider uppercase text-xs border-zinc-700 text-zinc-300">
-                    Meet Rachael <ArrowRight className="ml-2 w-3 h-3" />
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 

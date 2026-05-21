@@ -133,44 +133,37 @@ export default function FractionalHeadOfTalent() {
         </div>
       </section>
 
-      {/* Agency vs Fractional comparison */}
+      {/* Safe addition, differentiators (replaces vs-agency table per Richie's no-comparison framing) */}
       <section className="py-12 border-t border-zinc-800/50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-8">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">THE MATH</div>
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">THE DIFFERENCE</div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
-              Why Fractional Beats Agency
+              What you get when I embed
             </h2>
           </div>
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse text-sm">
-              <thead>
-                <tr>
-                  <th className="text-left py-3 px-4 text-zinc-500 font-mono text-xs tracking-wider uppercase border-b border-zinc-800" />
-                  <th className="text-center py-3 px-4 text-zinc-500 font-mono text-xs tracking-wider uppercase border-b border-zinc-800">Contingent Agency</th>
-                  <th className="text-center py-3 px-4 text-rebel-red font-mono text-xs tracking-wider uppercase border-b border-rebel-red/30 bg-rebel-red/5">Fractional (Rebel)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { metric: "Cost per Hire", agency: "$25K–$40K", fractional: "~$5K–$8K" },
-                  { metric: "You Own the Process", agency: "No", fractional: "Yes. Everything." },
-                  { metric: "Alignment", agency: "Fee-motivated", fractional: "Embedded in your team" },
-                  { metric: "Time to Fill", agency: "60–90 days", fractional: "<30 days" },
-                  { metric: "Infrastructure Left Behind", agency: "Nothing", fractional: "ATS, playbooks, systems" },
-                  { metric: "Candidate Quality", agency: "Resume spray", fractional: "Proof-first vetting" },
-                  { metric: "Hiring Manager Coaching", agency: "None", fractional: "Built into every engagement" },
-                  { metric: "Long-Term ROI", agency: "Zero. Pay again next hire", fractional: "350%+. Systems compound." },
-                ].map((row, i) => (
-                  <tr key={row.metric} className={i % 2 === 0 ? "bg-zinc-900/20" : ""}>
-                    <td className="py-3 px-4 text-zinc-300 font-semibold border-b border-zinc-800/50">{row.metric}</td>
-                    <td className="py-3 px-4 text-center text-zinc-500 border-b border-zinc-800/50">{row.agency}</td>
-                    <td className="py-3 px-4 text-center text-white font-semibold border-b border-zinc-800/50 bg-rebel-red/5">{row.fractional}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            {[
+              { icon: <Users className="w-5 h-5 text-rebel-red" />, title: "Embedded execution", desc: "In your Slack, ATS, hiring-manager 1:1s, candidate calls. You get me on every call — not a coordinator, not a recruiter farm." },
+              { icon: <TrendingUp className="w-5 h-5 text-rebel-red" />, title: "~$5K–$8K cost per hire", desc: "Hourly or fixed-fee billing. No success fees. Every hour logged in your dashboard with task descriptions." },
+              { icon: <Clock className="w-5 h-5 text-rebel-red" />, title: "~30 days median time to hire", desc: "Across embedded engagements. Under 30 on EDF's 8 placements. 34 days on Kalibri against a 360-application funnel." },
+              { icon: <Shield className="w-5 h-5 text-rebel-red" />, title: "You own the infrastructure", desc: "ATS, candidate pipeline, interview scorecards, sourcing playbooks, trained hiring managers. Exportable, transferable, yours forever." },
+              { icon: <Target className="w-5 h-5 text-rebel-red" />, title: "Proof-first vetting", desc: "Portfolio evidence, structured technical screens, AI-scored match signals on every candidate. Resume polish isn't a pipeline." },
+              { icon: <CheckCircle className="w-5 h-5 text-rebel-red" />, title: "Hiring manager coaching built in", desc: "Interview calibration, scorecard training, decision frameworks. Your team gets better at hiring even after the engagement ends." },
+              { icon: <Zap className="w-5 h-5 text-rebel-red" />, title: "Long-term ROI that compounds", desc: "470%+ projected on the EDF flagship — $240K+ in fees avoided on ~$88K invested. Every system carries to the next 50 hires." },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm p-5 flex gap-4 items-start hover:border-zinc-700 transition-colors"
+              >
+                <div className="shrink-0 mt-0.5">{item.icon}</div>
+                <div>
+                  <div className="font-display text-sm font-bold text-white uppercase mb-1">{item.title}</div>
+                  <div className="text-zinc-400 text-sm leading-relaxed">{item.desc}</div>
+                </div>
+              </div>
+            ))}
           </div>
           </ScrollReveal>
         </div>
@@ -190,7 +183,7 @@ export default function FractionalHeadOfTalent() {
             {[
               { value: "53K+", label: "LinkedIn Followers" },
               { value: "8K", label: "Newsletter Subs" },
-              { value: "$178K", label: "Agency Fees Saved" },
+              { value: "$240K+", label: "Agency Fees Avoided" },
               { value: "<30", label: "Days to Hire" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
