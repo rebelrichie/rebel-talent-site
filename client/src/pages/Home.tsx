@@ -442,7 +442,7 @@ export default function Home() {
               <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-zinc-600 shrink-0">
                 Trusted by teams at
               </p>
-              {["EarthDaily Federal", "Wells Fargo", "Tiffany & Co", "Travelers", "WK Kellogg Foundation", "Roadrunner", "Enveil"].map((name) => (
+              {["EarthDaily Federal", "Waveguide", "Kalibri Labs", "Wells Fargo", "Tiffany & Co", "Travelers", "WK Kellogg Foundation", "Roadrunner", "Enveil"].map((name) => (
                 <span key={name} className="text-zinc-400 text-sm tracking-wide font-medium">{name}</span>
               ))}
             </div>
