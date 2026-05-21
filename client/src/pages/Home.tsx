@@ -450,7 +450,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* (Who-you're-working-with and Workstation bands moved to /about for tighter Home flow) */}
+      {/* ========== HI-I'M-RICHIE INTRO ==========
+          Placeholder for a future video intro. To swap: replace the <img> with a
+          <video src="/richie-intro.mp4" /> (or embedded player). Keep the rest. */}
+      <section data-testid="section-richie-intro" className="border-b border-zinc-900 bg-rebel-space">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-14 sm:py-20">
+          <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center">
+            <Link href="/about" className="inline-block group shrink-0 relative">
+              <img
+                src="/richie-portrait.jpg"
+                alt="Richie Lampani — Fractional Head of Talent"
+                className="w-40 h-40 sm:w-52 sm:h-52 rounded-2xl object-cover border border-zinc-800 group-hover:border-rebel-red/60 transition-colors"
+              />
+              {/* Soft play-button hint — will become a real video control later */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="w-14 h-14 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                  <div className="w-0 h-0 border-y-[8px] border-y-transparent border-l-[12px] border-l-white ml-1" />
+                </div>
+              </div>
+            </Link>
+            <div>
+              <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-rebel-red mb-3">
+                Hi, I&rsquo;m Richie
+              </p>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
+                You don&rsquo;t hire an agency.<br />
+                <span className="text-rebel-red">You hire me.</span>
+              </h3>
+              <p className="text-zinc-400 text-base sm:text-lg max-w-2xl leading-[1.55] mb-5">
+                Fractional Head of Talent. 14 years closing critical hires across defense, AI/ML, and growth-stage tech. Embedded into your team — not a recruiter farm.
+              </p>
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 text-rebel-red hover:text-white text-sm font-semibold tracking-wide transition-colors no-underline group"
+              >
+                More about me
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ========== CURRENT ENGAGEMENTS BAND ========== */}
       <section data-testid="section-engagements-band" className="border-b border-zinc-900 bg-rebel-space">
