@@ -1,4 +1,4 @@
-// Safe addition — Auto-rotating testimonial carousel with fade transitions
+// Safe addition, Auto-rotating testimonial carousel with fade transitions
 import { useState, useEffect, useCallback } from "react";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import GlowCard from "./GlowCard";

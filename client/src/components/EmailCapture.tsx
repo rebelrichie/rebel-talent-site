@@ -1,4 +1,4 @@
-// Safe addition — Email capture form for newsletter/lead gen
+// Safe addition, Email capture form for newsletter/lead gen
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 

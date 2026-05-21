@@ -14,7 +14,7 @@ interface PageSEOProps {
   path: string;
   ogTitle?: string;
   ogDescription?: string;
-  /** Safe addition — per-page OG image override (filename in /public, e.g. "og-services.png") */
+  /** Safe addition, per-page OG image override (filename in /public, e.g. "og-services.png") */
   ogImage?: string;
   schemas?: object[];
   breadcrumbs?: BreadcrumbItem[];
@@ -46,7 +46,7 @@ export default function PageSEO({
   const canonical = `${BASE_URL}${path}`;
   const resolvedOgTitle = ogTitle || title;
   const resolvedOgDesc = ogDescription || description;
-  // Safe addition — use per-page OG image if provided, otherwise fall back to default
+  // Safe addition, use per-page OG image if provided, otherwise fall back to default
   const resolvedOgImage = ogImage ? `${BASE_URL}/${ogImage}` : OG_IMAGE;
 
   const allSchemas = [
@@ -55,7 +55,7 @@ export default function PageSEO({
   ];
 
   return (
-    <Helmet>
+    <Helmet defer={false}>
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={canonical} />

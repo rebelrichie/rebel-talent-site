@@ -42,7 +42,7 @@ function estimateReadTime(body: string | null): string {
   return `${minutes} min read`;
 }
 
-// Safe addition — Markdown → HTML renderer with code blocks, blockquotes, hr, inline code, and XSS protection
+// Safe addition, Markdown → HTML renderer with code blocks, blockquotes, hr, inline code, and XSS protection
 function escapeHtml(text: string): string {
   return text
     .replace(/&/g, "&amp;")
@@ -74,7 +74,7 @@ function renderBody(body: string): string {
   for (const line of lines) {
     const trimmed = line.trim();
 
-    // Safe addition — Table support
+    // Safe addition, Table support
     const isTableRow = trimmed.startsWith("|") && trimmed.endsWith("|") && trimmed.includes("|");
     const isSeparator = isTableRow && /^\|[\s\-:|]+\|$/.test(trimmed);
 
@@ -193,7 +193,7 @@ function inlineFormat(text: string): string {
     .replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded bg-zinc-800 text-rebel-red text-sm font-mono">$1</code>')
     .replace(/\*\*(.+?)\*\*/g, '<strong class="font-bold text-white">$1</strong>')
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
-    // Links — only allow http/https/mailto protocols (XSS protection)
+    // Links, only allow http/https/mailto protocols (XSS protection)
     .replace(/\[([^\]]+)\]\(((?:https?:\/\/|mailto:)[^)]+)\)/g, '<a href="$2" class="text-rebel-red font-medium underline hover:text-red-400" target="_blank" rel="noopener noreferrer">$1</a>');
 }
 

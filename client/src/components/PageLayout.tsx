@@ -18,7 +18,7 @@ export default function PageLayout({ children }: PageLayoutProps) {
     const timer = setTimeout(() => {
       if (observerRef.current) observerRef.current.disconnect();
 
-      // Safe addition — skip the first section (hero/above-fold) so it renders
+      // Safe addition, skip the first section (hero/above-fold) so it renders
       // immediately without waiting for scroll. Prevents the black-screen-on-load
       // issue where IntersectionObserver hasn't fired yet.
       const allSections = Array.from(document.querySelectorAll("section"));
@@ -56,7 +56,7 @@ export default function PageLayout({ children }: PageLayoutProps) {
 
   return (
     <div className="min-h-screen bg-rebel-space text-white relative">
-      {/* Safe addition — skip to main content link for keyboard/screen reader users */}
+      {/* Safe addition, skip to main content link for keyboard/screen reader users */}
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[999] focus:px-4 focus:py-2 focus:bg-rebel-red focus:text-white focus:rounded-md focus:text-sm">
         Skip to main content
       </a>
