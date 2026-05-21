@@ -454,12 +454,12 @@ export default function Home() {
       <section data-testid="section-richie-band" className="border-b border-zinc-900 bg-rebel-space">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 sm:py-20">
           <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center">
-            {/* Headshot */}
+            {/* Headshot — operator on-call: headphones + branded jacket */}
             <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="inline-block group shrink-0">
               <img
-                src="/richie-headshot.png"
-                alt="Richie Lampani, Fractional Head of Talent"
-                className="w-28 h-28 sm:w-36 sm:h-36 rounded-full object-cover border border-zinc-800 group-hover:border-rebel-red/60 transition-colors"
+                src="/richie-operator.jpg"
+                alt="Richie Lampani — Fractional Head of Talent, mid-call"
+                className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl object-cover border border-zinc-800 group-hover:border-rebel-red/60 transition-colors"
               />
             </a>
 
@@ -484,6 +484,34 @@ export default function Home() {
                   linkedin.com/in/richielampani →
                 </a>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== WORKSTATION BAND — visual proof of the operator setup ========== */}
+      <section data-testid="section-workstation" className="border-b border-zinc-900 bg-rebel-space">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-14 sm:py-20">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-8 md:gap-12 items-center">
+            <div>
+              <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-rebel-red mb-3">
+                Where the work happens
+              </p>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">
+                Not a SaaS pitch deck.<br />
+                <span className="text-rebel-red">A real operator&rsquo;s station.</span>
+              </h3>
+              <p className="text-zinc-400 text-base sm:text-lg leading-[1.55]">
+                Dual monitors. Custom ATS/CRM I built from scratch. Mic on the desk for every interview. When you engage me, this is what&rsquo;s actually running your search — not a coordinator with a job board login.
+              </p>
+            </div>
+            <div className="relative rounded-xl overflow-hidden border border-zinc-800">
+              <img
+                src="/richie-workstation.jpg"
+                alt="Richie's home-office workstation — ultrawide monitor, MacBook, custom ATS on screen"
+                className="w-full h-auto block"
+              />
+              <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, transparent 70%, rgba(5,5,10,0.5) 100%)" }} />
             </div>
           </div>
         </div>

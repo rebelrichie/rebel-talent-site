@@ -88,9 +88,9 @@ export default function FractionalHeadOfTalent() {
             <div className="shrink-0">
               <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="inline-block group">
                 <img
-                  src="/richie-headshot.png"
-                  alt="Richie Lampani, Fractional Head of Talent"
-                  className="w-40 h-40 sm:w-52 sm:h-52 lg:w-64 lg:h-64 rounded-full object-cover border border-zinc-800 group-hover:border-rebel-red/60 transition-colors"
+                  src="/richie-operator.jpg"
+                  alt="Richie Lampani — Fractional Head of Talent"
+                  className="w-40 h-40 sm:w-52 sm:h-52 lg:w-64 lg:h-64 rounded-2xl object-cover border border-zinc-800 group-hover:border-rebel-red/60 transition-colors"
                 />
               </a>
               <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="block mt-3 text-zinc-500 text-xs tracking-wider hover:text-white transition-colors no-underline text-center">

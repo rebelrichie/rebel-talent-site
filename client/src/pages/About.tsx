@@ -101,7 +101,7 @@ export default function About() {
             </div>
             <div className="shrink-0">
               <div className="w-44 h-44 sm:w-56 sm:h-56 lg:w-64 lg:h-64 overflow-hidden border border-zinc-800 rounded-sm">
-                <img src={richiePfp} alt="Richie Lampani" className="w-full h-full object-cover object-top" data-testid="img-profile" />
+                <img src="/richie-portrait.jpg" alt="Richie Lampani, Fractional Head of Talent" className="w-full h-full object-cover object-top" data-testid="img-profile" />
               </div>
             </div>
           </div>
