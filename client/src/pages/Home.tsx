@@ -450,72 +450,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== ABOUT-RICHIE BAND — moved below the hero ========== */}
-      <section data-testid="section-richie-band" className="border-b border-zinc-900 bg-rebel-space">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 sm:py-20">
-          <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center">
-            {/* Headshot — operator on-call: headphones + branded jacket */}
-            <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="inline-block group shrink-0">
-              <img
-                src="/richie-operator.jpg"
-                alt="Richie Lampani — Fractional Head of Talent, mid-call"
-                className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl object-cover border border-zinc-800 group-hover:border-rebel-red/60 transition-colors"
-              />
-            </a>
-
-            <div>
-              <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-rebel-red mb-3">
-                Who you're working with
-              </p>
-              <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
-                Richie Lampani — 14 years closing critical hires.
-              </h3>
-              <p className="text-zinc-400 text-base sm:text-lg max-w-3xl leading-[1.55] mb-5">
-                You get me on every call, not a coordinator. I&rsquo;ve built recruiting functions for cleared defense work, AI/ML, GTM, and Series A-C startups. I leave you with the systems, not just the hires.
-              </p>
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-                <CapacityBadge />
-                <a
-                  href="https://linkedin.com/in/richielampani"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-zinc-500 text-sm hover:text-white transition-colors no-underline"
-                >
-                  linkedin.com/in/richielampani →
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== WORKSTATION BAND — visual proof of the operator setup ========== */}
-      <section data-testid="section-workstation" className="border-b border-zinc-900 bg-rebel-space">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-14 sm:py-20">
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-8 md:gap-12 items-center">
-            <div>
-              <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-rebel-red mb-3">
-                Where the work happens
-              </p>
-              <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">
-                Not a SaaS pitch deck.<br />
-                <span className="text-rebel-red">A real operator&rsquo;s station.</span>
-              </h3>
-              <p className="text-zinc-400 text-base sm:text-lg leading-[1.55]">
-                Dual monitors. Custom ATS/CRM I built from scratch. Mic on the desk for every interview. When you engage me, this is what&rsquo;s actually running your search — not a coordinator with a job board login.
-              </p>
-            </div>
-            <div className="relative rounded-xl overflow-hidden border border-zinc-800">
-              <img
-                src="/richie-workstation.jpg"
-                alt="Richie's home-office workstation — ultrawide monitor, MacBook, custom ATS on screen"
-                className="w-full h-auto block"
-              />
-              <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, transparent 70%, rgba(5,5,10,0.5) 100%)" }} />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* (Who-you're-working-with and Workstation bands moved to /about for tighter Home flow) */}
 
       {/* ========== CURRENT ENGAGEMENTS BAND ========== */}
       <section data-testid="section-engagements-band" className="border-b border-zinc-900 bg-rebel-space">
