@@ -168,34 +168,6 @@ export default function About() {
           </section>
           </ScrollReveal>
 
-          {/* ========== WORKSTATION BAND ========== */}
-          <ScrollReveal variant="fade-up">
-          <section data-testid="section-workstation" className="-mx-6 lg:-mx-12 px-6 lg:px-12 py-12 sm:py-16 border-b border-zinc-900 mb-16">
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-8 md:gap-12 items-center">
-              <div>
-                <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-rebel-red mb-3">
-                  Where the work happens
-                </p>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">
-                  Not a SaaS pitch deck.<br />
-                  <span className="text-rebel-red">A real operator&rsquo;s station.</span>
-                </h3>
-                <p className="text-zinc-400 text-base sm:text-lg leading-[1.55]">
-                  Dual monitors. Custom ATS/CRM I built from scratch. Mic on the desk for every interview. When you engage me, this is what&rsquo;s actually running your search — not a coordinator with a job board login.
-                </p>
-              </div>
-              <div className="relative rounded-xl overflow-hidden border border-zinc-800">
-                <img
-                  src="/richie-workstation.jpg"
-                  alt="Richie's home-office workstation — ultrawide monitor, MacBook, custom ATS on screen"
-                  className="w-full h-auto block"
-                />
-                <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, transparent 70%, rgba(5,5,10,0.5) 100%)" }} />
-              </div>
-            </div>
-          </section>
-          </ScrollReveal>
-
           <ScrollReveal variant="fade-up">
           <div className="mb-16">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-6 pb-3 border-b border-rebel-red/30" data-testid="heading-specializations">
