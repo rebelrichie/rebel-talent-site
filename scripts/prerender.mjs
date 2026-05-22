@@ -27,6 +27,7 @@ const ROUTES = [
   "/fractional-head-of-talent",
   "/fractional-recruiting-services",
   "/strategy-call",
+  "/hiring-readiness",
   "/privacy-policy",
   "/jobs",
 ];
