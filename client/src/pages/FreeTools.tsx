@@ -165,7 +165,7 @@ export default function FreeTools() {
                   </li>
                 ))}
               </ul>
-              <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer">
+              <a href="/strategy-call" target="_blank" rel="noopener noreferrer">
                 <Button className="font-display tracking-wider uppercase text-sm px-8">
                   Book Your Session <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>

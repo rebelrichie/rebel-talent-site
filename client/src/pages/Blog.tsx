@@ -152,7 +152,7 @@ export default function Blog() {
           <p className="text-zinc-400 text-base mb-8 max-w-lg mx-auto leading-relaxed">
             We place senior operators, build recruiting engines, and run talent strategy, so you can focus on growth.
           </p>
-          <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer"
+          <a href="/strategy-call" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-3 bg-rebel-red text-white font-display text-sm font-semibold uppercase tracking-wider rounded-md hover:bg-red-600 transition-colors no-underline"
           >
             Book a Call <ArrowRight className="w-4 h-4" />

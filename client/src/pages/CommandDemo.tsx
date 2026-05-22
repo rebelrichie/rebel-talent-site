@@ -423,7 +423,7 @@ export default function CommandDemo() {
                 <p className="text-zinc-500 text-sm">Interactive product demo · All data is fictional</p>
               </div>
             </div>
-            <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer">
+            <a href="/strategy-call" target="_blank" rel="noopener noreferrer">
               <Button size="default" className="font-display tracking-wider uppercase text-sm px-6">
                 Book Live Demo <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -470,7 +470,7 @@ export default function CommandDemo() {
             Book a 15-minute demo. We'll walk you through the real dashboard with your data and show you how it maps to your hiring needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer">
+            <a href="/strategy-call" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="w-full sm:w-auto font-display tracking-wider uppercase text-sm px-8">
                 Book a Live Demo <ArrowRight className="ml-2 w-4 h-4" />
               </Button>

@@ -416,7 +416,7 @@ export default function Home() {
           {/* Single primary CTA + understated secondary link */}
           <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-y-3 sm:gap-y-4 gap-x-8">
             <a
-              href="https://calendly.com/richielam"
+              href="/strategy-call"
               target="_blank"
               rel="noopener noreferrer"
               data-testid="button-book-call"
@@ -707,7 +707,7 @@ export default function Home() {
 
           <div className="text-center mt-10">
             <p className="text-zinc-500 text-sm mb-4">You don't get an agency. You get me, every engagement, every call, every hire. Not sure which fits? Most engagements start with a scoping conversation, not a quote.</p>
-            <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-2">
+            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-2">
               <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -943,7 +943,7 @@ export default function Home() {
 
           <div className="text-center mt-10">
             <p className="text-zinc-500 text-sm mb-4">Scale without the bleed. Build the machine agencies can't.</p>
-            <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-3">
+            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-3">
               <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm">
                 Start a Confidential Conversation <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -1175,7 +1175,7 @@ export default function Home() {
           <p className="text-zinc-400 text-base mb-8 max-w-xl mx-auto">
             30 minutes. Walk me through one of your hardest open reqs and I'll tell you straight whether I can help — and if not, I'll point you somewhere better.
           </p>
-          <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-4">
+          <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-4">
             <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-10">
               Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
             </Button>

@@ -307,7 +307,7 @@ export default function About() {
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
               30 minutes of straight answers for operators ready to stop the bleed and build something that lasts.
             </p>
-            <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-about-cta">
+            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-about-cta">
               <Button className="font-display tracking-wider uppercase text-sm">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>

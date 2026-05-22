@@ -74,7 +74,7 @@ export default function FractionalHeadOfTalent() {
               <div className="flex flex-wrap items-center gap-x-6 gap-y-4 mb-6">
                 <CapacityBadge />
                 <a
-                  href="https://calendly.com/richielam"
+                  href="/strategy-call"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={hapticTap}
@@ -276,7 +276,7 @@ export default function FractionalHeadOfTalent() {
           <div className="mb-6">
             <CapacityBadge />
           </div>
-          <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer">
+          <a href="/strategy-call" target="_blank" rel="noopener noreferrer">
             <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-10">
               Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
             </Button>

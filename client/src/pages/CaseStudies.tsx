@@ -522,7 +522,7 @@ export default function CaseStudies() {
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
               ROI that agencies envy. Same approach, custom execution. Let's talk about what your recruiting function needs.
             </p>
-            <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-casestudies-cta">
+            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-casestudies-cta">
               <Button className="font-display tracking-wider uppercase text-sm">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>

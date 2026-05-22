@@ -297,7 +297,7 @@ export default function BlogPost() {
               <p className="text-sm text-zinc-400 mt-1 leading-relaxed">
                 Founder of Rebel Talent Systems. Full-time, fractional, and contract recruiting powered by AI.
               </p>
-              <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer"
+              <a href="/strategy-call" target="_blank" rel="noopener noreferrer"
                 className="text-sm text-rebel-red font-semibold no-underline hover:text-red-400 transition-colors mt-3 inline-block"
               >
                 Work with Richie →

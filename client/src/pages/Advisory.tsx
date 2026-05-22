@@ -239,7 +239,7 @@ export default function Advisory() {
             <p className="text-[#555] text-[17px] leading-[1.7] max-w-[480px] mb-10">
               Thirty minutes on a call. Walk me through one of your slow searches and I'll tell you straight whether AI helps or hurts on it, where I'd start, and what I wouldn't touch. If we're a fit, we'll talk about which engagement makes sense. If we're not, you'll leave with a real read on the req either way.
             </p>
-            <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer">
+            <a href="/strategy-call" target="_blank" rel="noopener noreferrer">
               <button
                 onClick={hapticTap}
                 className="inline-flex items-center gap-2 bg-[#C41E3A] text-[#F5F0E8] font-semibold text-[14px] tracking-wider uppercase px-8 py-4 transition-colors hover:bg-[#a01830]"

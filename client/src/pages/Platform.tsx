@@ -242,7 +242,7 @@ export default function Platform() {
             The platform isn't something you buy. It's what you get when you bring me in.
             Book a call and let's talk about what your hiring actually needs.
           </p>
-          <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer">
+          <a href="/strategy-call" target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="font-display tracking-wider uppercase text-sm px-8">
               Book a Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
             </Button>

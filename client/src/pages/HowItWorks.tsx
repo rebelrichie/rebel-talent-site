@@ -283,7 +283,7 @@ export default function HowItWorks() {
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
               Precision over volume. Embedded ownership beats outsourced noise. Let's fix the machine.
             </p>
-            <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer" data-testid="button-hiw-cta">
+            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-hiw-cta">
               <Button className="font-display tracking-wider uppercase text-sm">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>

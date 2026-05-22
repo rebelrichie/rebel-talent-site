@@ -20,6 +20,7 @@ import Certification from "@/pages/Certification";
 import FractionalHeadOfTalent from "@/pages/FractionalHeadOfTalent";
 import Pricing from "@/pages/Pricing";
 import Advisory from "@/pages/Advisory";
+import StrategyCall from "@/pages/StrategyCall";
 import Jobs from "@/pages/Jobs";
 import JobDetail from "@/pages/JobDetail";
 import JobApply from "@/pages/JobApply";
@@ -49,6 +50,7 @@ function Router() {
       {/* /rachael retired. 301 to home. */}
       <Route path="/rachael">{() => { window.location.href = "/"; return null; }}</Route>
       <Route path="/advisory" component={Advisory} />
+      <Route path="/strategy-call" component={StrategyCall} />
       <Route path="/jobs" component={Jobs} />
       <Route path="/jobs/:id/apply" component={JobApply} />
       <Route path="/jobs/:id" component={JobDetail} />
