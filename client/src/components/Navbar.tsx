@@ -8,6 +8,7 @@ const servicesLinks = [
   { href: "/services", label: "All Services", external: false },
   { href: "/how-it-works", label: "How It Works", external: false },
   { href: "/pricing", label: "Pricing", external: false },
+  { href: "/hiring-readiness", label: "Hiring Readiness Scorecard", external: false },
 ];
 
 const proofLinks = [
@@ -19,6 +20,7 @@ const resourceLinks = [
   { href: "/blog", label: "Blog", external: false },
   { href: "/podcast", label: "Podcast", external: false },
   { href: "/free-tools", label: "Free Tools", external: false },
+  { href: "/hiring-readiness", label: "Hiring Readiness Scorecard", external: false },
   { href: "/certification", label: "ABCR Certification", external: false },
   { href: "https://rebel-talent-shop.fourthwall.com/", label: "Shop", external: true },
 ];
