@@ -307,7 +307,7 @@ export default function About() {
                 <div className="text-zinc-300 text-base leading-[1.7]">
                   <figure className="mb-5 max-w-sm">
                     <img
-                      src="/richie-now.jpg"
+                      src="/richie-now-v2.jpg"
                       alt="Richie Lampani, present day"
                       loading="lazy"
                       className="w-full border border-zinc-800"
