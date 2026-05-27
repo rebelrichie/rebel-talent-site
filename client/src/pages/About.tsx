@@ -164,8 +164,14 @@ export default function About() {
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-2 pb-3 border-b border-rebel-red/30">
               How I got here
             </h2>
-            <p className="text-zinc-500 text-sm mb-10 italic">
+            <p className="text-zinc-500 text-sm mb-8 italic">
               Hudsonville &rarr; Grand Rapids &rarr; New York &rarr; Chicago &rarr; Atlanta.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal variant="fade-up">
+            <p className="text-zinc-300 text-base sm:text-lg leading-[1.7] mb-14 max-w-3xl">
+              Grew up on a farm. Went to school in the city. Bartended for years. Moved to New York the first chance I got, then Chicago. Atlanta&rsquo;s home now.
             </p>
           </ScrollReveal>
 
