@@ -174,15 +174,15 @@ export default function About() {
             <ScrollReveal variant="fade-up">
               <div className="grid sm:grid-cols-[160px_1fr] gap-6 sm:gap-10">
                 <div>
-                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">2009 to 2013</div>
+                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">2005 to 2013</div>
                   <div className="text-zinc-300 font-semibold mt-1">Music venues</div>
                 </div>
                 <div className="text-zinc-300 text-base leading-[1.7]">
                   <p className="mb-3">
-                    Director of Marketing at <span className="text-white">The Intersection</span> in Grand Rapids. Managing Partner at <span className="text-white">Rocket Entertainment Group</span>. Booking bands, running rooms, writing a column on music and dating for <span className="text-white">Recoil Magazine</span>.
+                    Started in 2005 booking shows at a small Grand Rapids venue and renting the big room at <span className="text-white">The Intersection</span> whenever I had a name big enough to fill it. Worked my way in. Later co-founded <span className="text-white">Rocket Entertainment Group</span> and wrote a column on music and dating for <span className="text-white">Recoil Magazine</span> on the side.
                   </p>
                   <p className="text-zinc-400">
-                    Worked for a guy named Dave who taught me audiences prefer authenticity over polish. That&rsquo;s the line I&rsquo;d come back to a decade later when I sat down to write a book about recruiting.
+                    A guy named Dave taught me audiences prefer authenticity over polish. That&rsquo;s the line I&rsquo;d come back to almost two decades later when I sat down to write a book about recruiting.
                   </p>
                 </div>
               </div>
