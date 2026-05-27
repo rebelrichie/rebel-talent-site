@@ -483,6 +483,18 @@ export default function About() {
             </footer>
           </blockquote>
           </ScrollReveal>
+
+          <ScrollReveal variant="fade-up">
+          <blockquote className="relative">
+            <span className="absolute -top-4 -left-2 text-rebel-red/20 text-6xl font-serif leading-none select-none">&ldquo;</span>
+            <p className="text-zinc-200 text-lg leading-relaxed italic mb-4 pl-4">
+              I just want to thank you for all your assistance moving this pipeline to completion. It means a lot to me, and the tech org.
+            </p>
+            <footer className="text-zinc-500 text-sm pl-4">
+              <span className="text-zinc-300 font-semibold">Michael Tracey</span>, Director of Engineering &middot; Kalibri Labs
+            </footer>
+          </blockquote>
+          </ScrollReveal>
         </div>
       </section>
 
