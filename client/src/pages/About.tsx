@@ -170,9 +170,22 @@ export default function About() {
           </ScrollReveal>
 
           <ScrollReveal variant="fade-up">
-            <p className="text-zinc-300 text-base sm:text-lg leading-[1.7] mb-14 max-w-3xl">
-              Grew up on a farm. Went to school in the city. Bartended for years. Moved to New York the first chance I got, then Chicago. Atlanta&rsquo;s home now.
-            </p>
+            <div className="grid sm:grid-cols-[1fr_220px] gap-8 items-start mb-14">
+              <p className="text-zinc-300 text-base sm:text-lg leading-[1.7] max-w-3xl">
+                Grew up on a farm. Went to school in the city. Bartended for years. Moved to New York the first chance I got, then Chicago. Atlanta&rsquo;s home now.
+              </p>
+              <figure className="shrink-0">
+                <img
+                  src="/richie-hudsonville-1990.jpg"
+                  alt="Hudsonville Rocket Football team photo, 1990"
+                  loading="lazy"
+                  className="w-full border border-zinc-800"
+                />
+                <figcaption className="text-zinc-500 text-xs italic mt-2 leading-snug">
+                  Hudsonville Rocket Football, 1990. Find me in the lineup.
+                </figcaption>
+              </figure>
+            </div>
           </ScrollReveal>
 
           <div className="space-y-12">
@@ -184,6 +197,17 @@ export default function About() {
                   <div className="text-zinc-300 font-semibold mt-1">Music venues</div>
                 </div>
                 <div className="text-zinc-300 text-base leading-[1.7]">
+                  <figure className="mb-5">
+                    <img
+                      src="/richie-music-venue.jpg"
+                      alt="Richie Lampani center stage with a music venue ensemble in Grand Rapids"
+                      loading="lazy"
+                      className="w-full border border-zinc-800"
+                    />
+                    <figcaption className="text-zinc-500 text-xs italic mt-2 leading-snug">
+                      Grand Rapids music ensemble. That&rsquo;s me in the middle.
+                    </figcaption>
+                  </figure>
                   <p className="mb-3">
                     Started in 2005 booking shows at a small Grand Rapids venue and renting the big room at <span className="text-white">The Intersection</span> whenever I had a name big enough to fill it. Worked my way in. Later co-founded <span className="text-white">Rocket Entertainment Group</span> and wrote a column on music and dating for <span className="text-white">Recoil Magazine</span> on the side.
                   </p>
