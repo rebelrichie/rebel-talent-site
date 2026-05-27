@@ -170,21 +170,45 @@ export default function About() {
           </ScrollReveal>
 
           <ScrollReveal variant="fade-up">
-            <div className="grid sm:grid-cols-[1fr_220px] gap-8 items-start mb-14">
-              <p className="text-zinc-300 text-base sm:text-lg leading-[1.7] max-w-3xl">
+            <div className="mb-14">
+              <p className="text-zinc-300 text-base sm:text-lg leading-[1.7] max-w-3xl mb-8">
                 Grew up on a farm. Went to school in the city. Bartended for years. Moved to New York the first chance I got, then Chicago. Atlanta&rsquo;s home now.
               </p>
-              <figure className="shrink-0">
-                <img
-                  src="/richie-hudsonville-1990.jpg"
-                  alt="Hudsonville Rocket Football team photo, 1990"
-                  loading="lazy"
-                  className="w-full border border-zinc-800"
-                />
-                <figcaption className="text-zinc-500 text-xs italic mt-2 leading-snug">
-                  Hudsonville Rocket Football, 1990. Find me in the lineup.
-                </figcaption>
-              </figure>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <figure>
+                  <img
+                    src="/richie-hudsonville-1990.jpg"
+                    alt="Hudsonville Rocket Football team photo, 1990"
+                    loading="lazy"
+                    className="w-full aspect-[4/3] object-cover border border-zinc-800"
+                  />
+                  <figcaption className="text-zinc-500 text-xs italic mt-2 leading-snug">
+                    Hudsonville, 1990. Find me in the lineup.
+                  </figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="/richie-bartending.jpg"
+                    alt="Richie Lampani behind the bar, Patagonia trucker hat"
+                    loading="lazy"
+                    className="w-full aspect-[4/3] object-cover border border-zinc-800"
+                  />
+                  <figcaption className="text-zinc-500 text-xs italic mt-2 leading-snug">
+                    Behind the bar. Years of it.
+                  </figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="/richie-longboard.jpg"
+                    alt="Richie Lampani on a longboard at golden hour in Atlanta"
+                    loading="lazy"
+                    className="w-full aspect-[4/3] object-cover border border-zinc-800"
+                  />
+                  <figcaption className="text-zinc-500 text-xs italic mt-2 leading-snug">
+                    Atlanta now. Golden hour, longboard, headphones.
+                  </figcaption>
+                </figure>
+              </div>
             </div>
           </ScrollReveal>
 
@@ -211,9 +235,20 @@ export default function About() {
                   <p className="mb-3">
                     Started in 2005 booking shows at a small Grand Rapids venue and renting the big room at <span className="text-white">The Intersection</span> whenever I had a name big enough to fill it. Worked my way in. Later co-founded <span className="text-white">Rocket Entertainment Group</span> and wrote a column on music and dating for <span className="text-white">Recoil Magazine</span> on the side.
                   </p>
-                  <p className="text-zinc-400">
+                  <p className="text-zinc-400 mb-5">
                     A guy named Dave taught me audiences prefer authenticity over polish. That&rsquo;s the line I&rsquo;d come back to almost two decades later when I sat down to write a book about recruiting.
                   </p>
+                  <figure className="flex items-center gap-4">
+                    <img
+                      src="/rocket-entertainment-logo.jpg"
+                      alt="Rocket Entertainment Group logo"
+                      loading="lazy"
+                      className="w-20 h-20 rounded-full border border-zinc-800"
+                    />
+                    <figcaption className="text-zinc-500 text-xs italic leading-snug">
+                      Rocket Entertainment Group.<br />Co-founded, late 2000s.
+                    </figcaption>
+                  </figure>
                 </div>
               </div>
             </ScrollReveal>
@@ -225,6 +260,17 @@ export default function About() {
                   <div className="text-zinc-300 font-semibold mt-1">Staffing trenches</div>
                 </div>
                 <div className="text-zinc-300 text-base leading-[1.7]">
+                  <figure className="mb-5 max-w-md">
+                    <img
+                      src="/richie-agency-era.jpg"
+                      alt="Richie Lampani during his agency-recruiting years, black and white portrait"
+                      loading="lazy"
+                      className="w-full border border-zinc-800"
+                    />
+                    <figcaption className="text-zinc-500 text-xs italic mt-2 leading-snug">
+                      Agency era. Sales rankings and quarterly contests.
+                    </figcaption>
+                  </figure>
                   <p className="mb-3">
                     Robert Half. Addison Group. Eleven years inside the agency model. Sales rankings, quarterly contests, resumes by the hundred. I learned how to read a JD between the lines, how to pull a cleared candidate out of nowhere on a Friday afternoon, and how to talk to engineers who hate being talked to by recruiters.
                   </p>
@@ -259,6 +305,17 @@ export default function About() {
                   <div className="text-zinc-300 font-semibold mt-1">Rebel Talent Systems</div>
                 </div>
                 <div className="text-zinc-300 text-base leading-[1.7]">
+                  <figure className="mb-5">
+                    <img
+                      src="/richie-now.jpg"
+                      alt="Richie Lampani today: MLB hat, hoodie, Air Jordans"
+                      loading="lazy"
+                      className="w-full border border-zinc-800"
+                    />
+                    <figcaption className="text-zinc-500 text-xs italic mt-2 leading-snug">
+                      Now. Same hustle, better tools.
+                    </figcaption>
+                  </figure>
                   <p className="mb-3">
                     Rebel Talent is the strategy and infrastructure layer. I embed as your head of talent for a quarter, six months, a year. I build the funnel, write the JDs, source candidates myself, run interview loops, close hires. Underground Admins is the execution muscle when a client needs scale. Two engagements, one operator.
                   </p>
