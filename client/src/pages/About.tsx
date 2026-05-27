@@ -21,7 +21,7 @@ const personSchema = {
     "name": "Rebel Talent",
     "url": "https://rebeltalentsystems.com"
   },
-  "description": "Founder of Rebel Talent Systems. 14+ years in recruiting — from booking bands at music venues in Grand Rapids to fractional Head of Talent for defense contractors and AI startups. Author of Head and Heart and Unfinished Rooms.",
+  "description": "Founder of Rebel Talent Systems. 14+ years in recruiting. From booking bands at music venues in Grand Rapids to fractional Head of Talent for defense contractors and AI startups. Author of Head and Heart and Unfinished Rooms.",
   "knowsAbout": [
     "Fractional Recruiting",
     "Embedded Recruiting",
@@ -104,10 +104,10 @@ export default function About() {
                 <span className="text-rebel-red">Five cities. One thesis.</span>
               </h1>
               <p className="text-base sm:text-xl text-zinc-300 max-w-2xl leading-[1.55] mb-4" data-testid="text-intro">
-                I started in music venues in Grand Rapids, reading rooms and booking bands. I spent more than a decade in the staffing trenches — Robert Half, Addison, Kforce — watching the agency model up close and learning exactly what was broken about it.
+                I started in music venues in Grand Rapids, reading rooms and booking bands. I spent more than a decade in the staffing trenches at Robert Half and Addison Group, watching the agency model up close and learning exactly what was broken about it.
               </p>
               <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-[1.55] mb-6">
-                In 2023 I got laid off, started <span className="text-zinc-200 font-semibold">Underground Admins</span> the same week with my partner Amy, then broke off to build <span className="text-zinc-200 font-semibold">Rebel Talent Systems</span> — the firm I wished existed when I was on the other side of the desk. I don&rsquo;t run an agency. I become your head of talent for a quarter, two, a year. I leave you with the system. I don&rsquo;t take a placement fee.
+                In 2023 I got laid off, started <span className="text-zinc-200 font-semibold">Underground Admins</span> the same week with my partner Amy, then broke off to build <span className="text-zinc-200 font-semibold">Rebel Talent Systems</span>: the firm I wished existed when I was on the other side of the desk. I don&rsquo;t run an agency. I become your head of talent for a quarter, two, a year. I leave you with the system. I don&rsquo;t take a placement fee.
               </p>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-6">
                 <CapacityBadge />
@@ -174,7 +174,7 @@ export default function About() {
             <ScrollReveal variant="fade-up">
               <div className="grid sm:grid-cols-[160px_1fr] gap-6 sm:gap-10">
                 <div>
-                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">2009 &mdash; 2013</div>
+                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">2009 to 2013</div>
                   <div className="text-zinc-300 font-semibold mt-1">Music venues</div>
                 </div>
                 <div className="text-zinc-300 text-base leading-[1.7]">
@@ -191,15 +191,15 @@ export default function About() {
             <ScrollReveal variant="fade-up">
               <div className="grid sm:grid-cols-[160px_1fr] gap-6 sm:gap-10">
                 <div>
-                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">2012 &mdash; 2023</div>
+                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">2012 to 2023</div>
                   <div className="text-zinc-300 font-semibold mt-1">Staffing trenches</div>
                 </div>
                 <div className="text-zinc-300 text-base leading-[1.7]">
                   <p className="mb-3">
-                    Robert Half. Addison Group. Kforce. Eleven years inside the agency model — sales rankings, quarterly contests, resumes by the hundred. I learned how to read a JD between the lines, how to pull a cleared candidate out of nowhere on a Friday afternoon, and how to talk to engineers who hate being talked to by recruiters.
+                    Robert Half. Addison Group. Eleven years inside the agency model. Sales rankings, quarterly contests, resumes by the hundred. I learned how to read a JD between the lines, how to pull a cleared candidate out of nowhere on a Friday afternoon, and how to talk to engineers who hate being talked to by recruiters.
                   </p>
                   <p className="text-zinc-400">
-                    I also learned why operators hate agencies: the incentives are broken. A contingency recruiter gets paid $30K&ndash;$90K only when someone signs an offer. So they push fast. Oversell fits. Move on. Quality of hire, retention, fit, your CFO&rsquo;s blood pressure — none of that pays them.
+                    I also learned why operators hate agencies: the incentives are broken. A contingency recruiter gets paid $30K to $90K only when someone signs an offer. So they push fast. Oversell fits. Move on. Quality of hire, retention, fit, your CFO&rsquo;s blood pressure. None of that pays them.
                   </p>
                 </div>
               </div>
@@ -213,7 +213,7 @@ export default function About() {
                 </div>
                 <div className="text-zinc-300 text-base leading-[1.7]">
                   <p className="mb-3">
-                    My partner Amy and I got laid off from the same company in the same week. Five days later we started <span className="text-white">Underground Admins</span> — execution arm, boots on the ground, the people we wished we&rsquo;d had at our last gig.
+                    My partner Amy and I got laid off from the same company in the same week. Five days later we started <span className="text-white">Underground Admins</span>. Execution arm, boots on the ground, the people we wished we&rsquo;d had at our last gig.
                   </p>
                   <p className="text-zinc-400">
                     Someone suggested we change the name. I said no, this is rad. The name stuck.
@@ -225,7 +225,7 @@ export default function About() {
             <ScrollReveal variant="fade-up">
               <div className="grid sm:grid-cols-[160px_1fr] gap-6 sm:gap-10">
                 <div>
-                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">2024 &mdash; now</div>
+                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">2024 to now</div>
                   <div className="text-zinc-300 font-semibold mt-1">Rebel Talent Systems</div>
                 </div>
                 <div className="text-zinc-300 text-base leading-[1.7]">
@@ -233,7 +233,7 @@ export default function About() {
                     Rebel Talent is the strategy and infrastructure layer. I embed as your head of talent for a quarter, six months, a year. I build the funnel, write the JDs, source candidates myself, run interview loops, close hires. Underground Admins is the execution muscle when a client needs scale. Two engagements, one operator.
                   </p>
                   <p className="text-zinc-400">
-                    Got PMP-certified in August. Wrote my first book in December. Wrote the second in March. Built the operator stack I run my business on from scratch — 27 AI agents, a custom ATS/CRM, embedded sourcing pipelines. My clients run inside it.
+                    Got PMP-certified in August. Wrote my first book in December. Wrote the second in March. Built the operator stack I run my business on from scratch: 27 AI agents, a custom ATS/CRM, embedded sourcing pipelines. My clients run inside it.
                   </p>
                 </div>
               </div>
@@ -264,13 +264,13 @@ export default function About() {
           <ScrollReveal variant="fade-up">
           <div className="text-zinc-300 text-base sm:text-lg leading-[1.7] space-y-5 max-w-3xl">
             <p>
-              Contingency breaks incentives. I&rsquo;ve watched too many founders pay $30K, $50K, $90K per hire to someone who never met their team, never read the roadmap, and won&rsquo;t be around in six months when the hire flames out. The whole model is built on repeated failure — agencies only get paid the day someone signs, so they push fast, oversell fits, and move on.
+              Contingency breaks incentives. I&rsquo;ve watched too many founders pay $30K, $50K, $90K per hire to someone who never met their team, never read the roadmap, and won&rsquo;t be around in six months when the hire flames out. The whole model is built on repeated failure. Agencies only get paid the day someone signs, so they push fast, oversell fits, and move on.
             </p>
             <p>
-              I run the opposite play. You pay me a flat monthly fee. I become your head of talent. I build the funnel, write the JDs, source candidates myself, screen them properly, run the interview loop, run the close. When the engagement ends you keep everything — the ATS, the playbook, the candidate pipeline, the message templates, the search strings I burned weekends building. The system lives at your company. I don&rsquo;t.
+              I run the opposite play. You pay me a flat monthly fee. I become your head of talent. I build the funnel, write the JDs, source candidates myself, screen them properly, run the interview loop, run the close. When the engagement ends you keep everything: the ATS, the playbook, the candidate pipeline, the message templates, the search strings I burned weekends building. The system lives at your company. I don&rsquo;t.
             </p>
             <p className="text-zinc-400">
-              If you want someone who&rsquo;ll tell you what you want to hear, this isn&rsquo;t the right call. If you want someone who&rsquo;ll tell you what&rsquo;s actually broken about your hiring — and then fix it — let&rsquo;s talk.
+              If you want someone who&rsquo;ll tell you what you want to hear, this isn&rsquo;t the right call. If you want someone who&rsquo;ll tell you what&rsquo;s actually broken about your hiring, and then fix it, let&rsquo;s talk.
             </p>
           </div>
           </ScrollReveal>
@@ -285,7 +285,7 @@ export default function About() {
               What 14 years actually built
             </h2>
             <p className="text-zinc-500 text-sm mb-10 italic max-w-2xl">
-              Real engagements. Real numbers. Pulled straight from the case studies — go read them if you want the full receipts.
+              Real engagements. Real numbers. Pulled straight from the case studies. Go read them if you want the full receipts.
             </p>
           </ScrollReveal>
 
@@ -316,7 +316,7 @@ export default function About() {
                   <li>&bull; ML Engineer search, signed in 34 days</li>
                   <li>&bull; ~$20K saved vs. an agency placement</li>
                   <li>&bull; Both finalists came from outbound sourcing</li>
-                  <li>&bull; Zero of the 360 inbound made finals — by design</li>
+                  <li>&bull; Zero of the 360 inbound made finals (by design)</li>
                 </ul>
               </div>
             </GlowCard>
@@ -357,9 +357,9 @@ export default function About() {
             {[
               { area: "Forward Deployed Engineers (FDEs)", note: "Technical enough to build. Commercial enough to close. Rare." },
               { area: "AI/ML Engineers & Research Scientists", note: "From applied ML to research scientist with publications." },
-              { area: "Cleared positions — Secret, TS, TS/SCI", note: "FSP, CI-poly, lifestyle. I know what each gates." },
+              { area: "Cleared positions: Secret, TS, TS/SCI", note: "FSP, CI-poly, lifestyle. I know what each gates." },
               { area: "Geospatial scientists & intelligence analysts", note: "Defense and federal geo-intel programs." },
-              { area: "GTM — AEs, SEs, RevOps, CSMs", note: "Series A &mdash; C startups. Founder-led to first VP." },
+              { area: "GTM: AEs, SEs, RevOps, CSMs", note: "Series A to C startups. Founder-led to first VP." },
               { area: "Defense contractor workforce buildouts", note: "Standing up entire functions from scratch." },
               { area: "Backend & infrastructure engineers", note: "Distributed systems, platform, SRE." },
               { area: "ATS implementation & optimization", note: "Greenhouse, Ashby, Lever, Workable, custom." },
@@ -396,7 +396,7 @@ export default function About() {
                   <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Head and Heart</h3>
                   <p className="text-zinc-400 text-sm mb-3 italic">Winning the AI Recruiting War</p>
                   <p className="text-zinc-300 text-sm leading-relaxed mb-4">
-                    A war manual for the recruiters, jobseekers, and leaders who refuse to play the game safe. Raw stories from the front lines. The Code, Creed, and Oath every recruiter needs to survive the AI purge — plus a Candidate Playbook appendix for the other side of the table.
+                    A war manual for the recruiters, jobseekers, and leaders who refuse to play the game safe. Raw stories from the front lines. The Code, Creed, and Oath every recruiter needs to survive the AI purge. Plus a Candidate Playbook appendix for the other side of the table.
                   </p>
                   <a href="https://a.co/d/0hQXqHMm" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-rebel-red text-sm font-semibold no-underline hover:text-white transition-colors">
                     Buy on Amazon <span className="text-xs">&#8594;</span>
@@ -448,7 +448,7 @@ export default function About() {
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">Operator Stack</div>
                 <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Rebel Command</h3>
                 <p className="text-zinc-300 text-sm leading-relaxed">
-                  The system I run my business on, built from scratch. Custom ATS/CRM, 27 AI agents for sourcing &middot; outreach &middot; contract intelligence &middot; pipeline scoring, embedded into how I work — not bolted on top. My clients run inside it.
+                  The system I run my business on, built from scratch. Custom ATS/CRM, 27 AI agents for sourcing &middot; outreach &middot; contract intelligence &middot; pipeline scoring, embedded into how I work, not bolted on top. My clients run inside it.
                 </p>
               </div>
             </GlowCard>
@@ -476,7 +476,7 @@ export default function About() {
           <blockquote className="relative">
             <span className="absolute -top-4 -left-2 text-rebel-red/20 text-6xl font-serif leading-none select-none">&ldquo;</span>
             <p className="text-zinc-200 text-lg leading-relaxed italic mb-4 pl-4">
-              I&rsquo;m used to recruiters sending half-vetted resumes that I still need to comb through. With Richie? Not the case. He does the heavy lifting, and the quality speaks for itself. One standout IT candidate has already proven to be a rockstar &mdash; within just over 13 months, they&rsquo;ve grown into a more valuable role and are thriving.
+              I&rsquo;m used to recruiters sending half-vetted resumes that I still need to comb through. With Richie? Not the case. He does the heavy lifting, and the quality speaks for itself. One standout IT candidate has already proven to be a rockstar. Within just over 13 months, they&rsquo;ve grown into a more valuable role and are thriving.
             </p>
             <footer className="text-zinc-500 text-sm pl-4">
               <span className="text-zinc-300 font-semibold">Keisha Ah Loo-Yates</span>, Strategic IT Leader &middot; U.S. Army (Airborne) Combat Veteran
@@ -495,7 +495,7 @@ export default function About() {
               Talk to me directly
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base mb-6 max-w-lg mx-auto">
-              30 minutes of straight answers for operators ready to stop the bleed and build something that lasts. You get me on the call — not a coordinator, not a junior, not a discovery deck.
+              30 minutes of straight answers for operators ready to stop the bleed and build something that lasts. You get me on the call. Not a coordinator, not a junior, not a discovery deck.
             </p>
             <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-about-cta">
               <Button className="font-display tracking-wider uppercase text-sm">
