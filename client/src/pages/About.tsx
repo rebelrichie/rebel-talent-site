@@ -305,6 +305,17 @@ export default function About() {
                   <div className="text-zinc-300 font-semibold mt-1">Rebel Talent Systems</div>
                 </div>
                 <div className="text-zinc-300 text-base leading-[1.7]">
+                  <figure className="mb-5 max-w-sm">
+                    <img
+                      src="/richie-now.jpg"
+                      alt="Richie Lampani, present day"
+                      loading="lazy"
+                      className="w-full border border-zinc-800"
+                    />
+                    <figcaption className="text-zinc-500 text-xs italic mt-2 leading-snug">
+                      Now. Same hustle, better tools.
+                    </figcaption>
+                  </figure>
                   <p className="mb-3">
                     Rebel Talent is the strategy and infrastructure layer. I embed as your head of talent for a quarter, six months, a year. I build the funnel, write the JDs, source candidates myself, run interview loops, close hires. Underground Admins is the execution muscle when a client needs scale. Two engagements, one operator.
                   </p>
