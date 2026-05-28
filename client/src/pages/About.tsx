@@ -107,7 +107,7 @@ export default function About() {
                 I started in music venues in Grand Rapids, reading rooms and booking bands. I spent more than a decade in the staffing trenches at Robert Half and Addison Group, watching the agency model up close and learning exactly what was broken about it.
               </p>
               <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-[1.55] mb-6">
-                In 2023 I got laid off, started <span className="text-zinc-200 font-semibold">Underground Admins</span> the same week with my partner Amy, then broke off to build <span className="text-zinc-200 font-semibold">Rebel Talent Systems</span>: the firm I wished existed when I was on the other side of the desk. I don&rsquo;t run an agency. I become your head of talent for a quarter, two, a year. I leave you with the system. I don&rsquo;t take a placement fee.
+                In 2023 I got laid off and co-founded <span className="text-zinc-200 font-semibold">Underground Admins</span> the same week with my partner Amy. I&rsquo;m still a minority owner there, but it&rsquo;s a separate company. Then I built <span className="text-zinc-200 font-semibold">Rebel Talent Systems</span>: the firm I wished existed when I was on the other side of the desk. I don&rsquo;t run an agency. I become your head of talent for a quarter, two, a year. I leave you with the system. I don&rsquo;t take a placement fee.
               </p>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-6">
                 <CapacityBadge />
@@ -289,10 +289,13 @@ export default function About() {
                 </div>
                 <div className="text-zinc-300 text-base leading-[1.7]">
                   <p className="mb-3">
-                    My partner Amy and I got laid off from the same company in the same week. Five days later we started <span className="text-white">Underground Admins</span>. Execution arm, boots on the ground, the people we wished we&rsquo;d had at our last gig.
+                    My partner Amy and I got laid off from the same company in the same week. Five days later we started <span className="text-white">Underground Admins</span>, a staffing and recruiting shop built on the people we wished we&rsquo;d had at our last gig.
+                  </p>
+                  <p className="text-zinc-400 mb-3">
+                    Someone suggested we change the name. I said no, this is rad. The name stuck.
                   </p>
                   <p className="text-zinc-400">
-                    Someone suggested we change the name. I said no, this is rad. The name stuck.
+                    I&rsquo;m still a minority owner, but Underground Admins runs independently of Rebel Talent. If you need <span className="text-zinc-300">contingent or contract search</span>, that&rsquo;s its lane, not mine. Amy runs it: <a href="mailto:amy@undergroundadmins.com" className="text-rebel-red no-underline hover:text-white transition-colors">amy@undergroundadmins.com</a>.
                   </p>
                 </div>
               </div>
@@ -317,7 +320,7 @@ export default function About() {
                     </figcaption>
                   </figure>
                   <p className="mb-3">
-                    Rebel Talent is the strategy and infrastructure layer. I embed as your head of talent for a quarter, six months, a year. I build the funnel, write the JDs, source candidates myself, run interview loops, close hires. Underground Admins is the execution muscle when a client needs scale. Two engagements, one operator.
+                    Rebel Talent is all me. I embed as your head of talent for a quarter, six months, a year. I build the funnel, write the JDs, source candidates myself, run interview loops, close hires. No junior layer, no handoff, no agency. One operator, your seat.
                   </p>
                   <p className="text-zinc-400">
                     Got PMP-certified in August. Wrote my first book in December. Wrote the second in March. Built the operator stack I run my business on from scratch: 27 AI agents, a custom ATS/CRM, embedded sourcing pipelines. My clients run inside it.
