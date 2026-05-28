@@ -104,7 +104,7 @@ export default function About() {
                 <span className="text-rebel-red">Five cities. One thesis.</span>
               </h1>
               <p className="text-base sm:text-xl text-zinc-300 max-w-2xl leading-[1.55] mb-4" data-testid="text-intro">
-                I started in music venues in Grand Rapids, reading rooms and booking bands. I spent more than a decade in the staffing trenches at Robert Half and Addison Group, watching the agency model up close and learning exactly what was broken about it.
+                I started in music venues in Grand Rapids, reading rooms and booking bands. I spent more than a decade in the staffing trenches at firms like Robert Half and Addison Group, watching the agency model up close and learning exactly what was broken about it.
               </p>
               <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-[1.55] mb-6">
                 In 2023 I got laid off and co-founded <span className="text-zinc-200 font-semibold">Underground Admins</span> the same week with my partner Amy. I&rsquo;m still a minority owner there, but it&rsquo;s a separate company. Then I built <span className="text-zinc-200 font-semibold">Rebel Talent Systems</span>: the firm I wished existed when I was on the other side of the desk. I don&rsquo;t run an agency. I become your head of talent for a quarter, two, a year. I leave you with the system. I don&rsquo;t take a placement fee.
@@ -272,7 +272,7 @@ export default function About() {
                     </figcaption>
                   </figure>
                   <p className="mb-3">
-                    Robert Half. Addison Group. Eleven years inside the agency model. Sales rankings, quarterly contests, resumes by the hundred. I learned how to read a JD between the lines, how to pull a cleared candidate out of nowhere on a Friday afternoon, and how to talk to engineers who hate being talked to by recruiters.
+                    Robert Half. Addison Group. Tech Mobi. Jonathan Edwards Group. A handful of startups in between. Eleven years in the staffing trenches. Sales rankings, quarterly contests, resumes by the hundred. I learned how to read a JD between the lines, how to pull a cleared candidate out of nowhere on a Friday afternoon, and how to talk to engineers who hate being talked to by recruiters.
                   </p>
                   <p className="text-zinc-400">
                     I also learned why operators hate agencies: the incentives are broken. A contingency recruiter gets paid $30K to $90K only when someone signs an offer. So they push fast. Oversell fits. Move on. Quality of hire, retention, fit, your CFO&rsquo;s blood pressure. None of that pays them.
