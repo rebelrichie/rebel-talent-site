@@ -229,7 +229,7 @@ export default function About() {
                       className="w-full border border-zinc-800"
                     />
                     <figcaption className="text-zinc-500 text-xs italic mt-2 leading-snug">
-                      Grand Rapids music ensemble. That&rsquo;s me in the middle.
+                      Me and a bunch of the local artists I worked with directly. That&rsquo;s me in the middle.
                     </figcaption>
                   </figure>
                   <p className="mb-3">
