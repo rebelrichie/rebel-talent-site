@@ -36,6 +36,14 @@ const ENGAGEMENTS: Engagement[] = [
     url: "https://kalibrilabs.com",
     logoBg: "bg-white",
   },
+  {
+    client: "Ludus Labs",
+    logo: "/icon-talent.png",
+    role: "Lead Talent Consultant",
+    focus: "Mission-critical hires. Need-to-know basis.",
+    url: "/jobs",
+    logoBg: "bg-zinc-900",
+  },
 ];
 
 export default function CurrentEngagements({ className = "" }: { className?: string }) {
