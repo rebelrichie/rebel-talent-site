@@ -38,7 +38,7 @@ function Router() {
       <Route path="/case-studies" component={CaseStudies} />
       <Route path="/results" component={CaseStudies} />
       <Route path="/podcast" component={Podcast} />
-      {/* /platform retired — Rebel Apply scuttled. Redirect to /services. */}
+      {/* /platform retired, Rebel Apply scuttled. Redirect to /services. */}
       <Route path="/platform">{() => { window.location.href = "/services"; return null; }}</Route>
       <Route path="/command" component={CommandDemo} />
       <Route path="/free-tools" component={FreeTools} />
@@ -57,7 +57,7 @@ function Router() {
       <Route path="/jobs/:id/apply" component={JobApply} />
       <Route path="/jobs/:id" component={JobDetail} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
-      {/* Safe addition — redirect /shop to external store */}
+      {/* Safe addition, redirect /shop to external store */}
       <Route path="/shop">{() => { window.location.href = "https://rebel-talent-shop.fourthwall.com/"; return null; }}</Route>
       <Route path="/abcr-certification">{() => { window.location.href = "/certification"; return null; }}</Route>
       <Route component={NotFound} />

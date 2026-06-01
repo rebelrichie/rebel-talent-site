@@ -56,7 +56,7 @@ const pricingFaqSchema = {
       "name": "What if it's not working?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "At day 30, you should have a working pipeline. If you don't, we restructure — adjusted scope, adjusted approach, or an honest call that we're not the right fit. No additional charge. This is written into the SOW. After the initial 90-day minimum, the engagement is month-to-month with 2 weeks notice to pause or end. You keep all infrastructure built regardless of how or when the engagement ends."
+        "text": "At day 30, you should have a working pipeline. If you don't, we restructure, adjusted scope, adjusted approach, or an honest call that we're not the right fit. No additional charge. This is written into the SOW. After the initial 90-day minimum, the engagement is month-to-month with 2 weeks notice to pause or end. You keep all infrastructure built regardless of how or when the engagement ends."
       }
     }
   ]
@@ -79,7 +79,7 @@ export default function Pricing() {
         ]}
       />
 
-      {/* HERO — Hunt Club / Riviera register */}
+      {/* HERO, Hunt Club / Riviera register */}
       <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
         <div
           className="absolute inset-0 pointer-events-none"
@@ -101,14 +101,14 @@ export default function Pricing() {
             You pay for the actual time, expertise, and infrastructure I deliver. Every hour is logged. Every deliverable is documented. Every dollar is accounted for in your dashboard, in real time.
           </p>
           <p className="mt-4 text-sm sm:text-base text-zinc-500 max-w-2xl leading-[1.6]">
-            Contingency recruiting is broken by design — when a recruiter only gets paid on placement, their incentive is to fill the seat fast, not build the systems that make your next 50 hires easier.
+            Contingency recruiting is broken by design, when a recruiter only gets paid on placement, their incentive is to fill the seat fast, not build the systems that make your next 50 hires easier.
           </p>
           <div className="mt-8 sm:mt-10">
             <CapacityBadge />
           </div>
         </div>
 
-        {/* Proof strip — at bottom of hero */}
+        {/* Proof strip, at bottom of hero */}
         <div className="relative z-10 border-t border-zinc-900 bg-black/30">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 py-8 sm:py-10">
             <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl">
@@ -124,7 +124,7 @@ export default function Pricing() {
               ))}
             </div>
             <p className="text-zinc-600 text-[11px] font-medium tracking-wider uppercase mt-5">
-              EarthDaily Federal — 5 FTE + 3 contractors in 8 months
+              EarthDaily Federal, 5 FTE + 3 contractors in 8 months
             </p>
           </div>
         </div>
@@ -142,7 +142,7 @@ export default function Pricing() {
                 Two Ways to Work Together
               </h2>
               <p className="text-zinc-500 text-sm mt-3 max-w-xl mx-auto">
-                No SaaS tiers. Two engagement shapes built around how you actually buy — embed me as your Head of Talent, or scope a specific search. Either one scales with a vetted recruiter team when the pipeline demands it.
+                No SaaS tiers. Two engagement shapes built around how you actually buy, embed me as your Head of Talent, or scope a specific search. Either one scales with a vetted recruiter team when the pipeline demands it.
               </p>
             </div>
           </ScrollReveal>
@@ -215,7 +215,7 @@ export default function Pricing() {
             </ScrollReveal>
           </div>
 
-          {/* Team Capacity Extension — applies to either engagement */}
+          {/* Team Capacity Extension, applies to either engagement */}
           <ScrollReveal variant="fade-up" delay={300}>
             <GlowCard className="mt-6 border border-zinc-800/70 bg-zinc-900/30 p-6 sm:p-8" data-testid="band-team-capacity">
               <div className="flex flex-col md:flex-row md:items-start md:gap-8 mb-6">
@@ -231,7 +231,7 @@ export default function Pricing() {
                 </div>
                 <div className="flex-1">
                   <p className="text-zinc-300 text-sm leading-relaxed mb-4">
-                    Either engagement above scales with a vetted recruiter team deployed under my direction. Same standards, same playbooks. You still get me on every call — the team extends my reach; it doesn't replace me.
+                    Either engagement above scales with a vetted recruiter team deployed under my direction. Same standards, same playbooks. You still get me on every call, the team extends my reach; it doesn't replace me.
                   </p>
                   <ul className="space-y-2 mb-3">
                     {[
@@ -278,13 +278,13 @@ export default function Pricing() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
                 { label: "Pricing Model", value: "Hourly or project. Every dollar in your dashboard." },
-                { label: "What You Pay For", value: "Time, systems, infrastructure & outcomes — not just a placement." },
+                { label: "What You Pay For", value: "Time, systems, infrastructure & outcomes, not just a placement." },
                 { label: "Cost per Hire", value: "~$5K–$8K on average across embedded engagements." },
                 { label: "Incentive Alignment", value: "Paid to build infrastructure that lasts, not to fill seats fast." },
                 { label: "Time to Fill", value: "~30 days median across embedded engagements." },
                 { label: "Process Ownership", value: "Yours. Everything we build, you keep." },
                 { label: "Infrastructure You Keep", value: "ATS, playbooks, pipeline, trained hiring managers." },
-                { label: "Transparency", value: "Real-time dashboard, time logs, ROI — visible every day." },
+                { label: "Transparency", value: "Real-time dashboard, time logs, ROI, visible every day." },
                 { label: "When It's Over", value: "You keep everything: data, systems, process, relationships." },
               ].map((row) => (
                 <div
@@ -347,7 +347,7 @@ export default function Pricing() {
                 How I make it safe to start
               </h2>
               <p className="text-zinc-500 text-sm mt-3 max-w-2xl mx-auto">
-                A 3-month minimum is a real commitment. Here's what I commit to in return — specific, measurable, written into the SOW.
+                A 3-month minimum is a real commitment. Here's what I commit to in return, specific, measurable, written into the SOW.
               </p>
             </div>
           </ScrollReveal>
@@ -356,7 +356,7 @@ export default function Pricing() {
               {[
                 {
                   headline: "Qualified pipeline by day 30",
-                  body: "If you don't have a working pipeline 30 days after kickoff, I restructure the engagement at no additional charge — adjusted scope, adjusted approach, or an honest call that we're not the right fit. You don't burn a quarter to find out something isn't working.",
+                  body: "If you don't have a working pipeline 30 days after kickoff, I restructure the engagement at no additional charge, adjusted scope, adjusted approach, or an honest call that we're not the right fit. You don't burn a quarter to find out something isn't working.",
                 },
                 {
                   headline: "Month-to-month after 90 days",
@@ -364,7 +364,7 @@ export default function Pricing() {
                 },
                 {
                   headline: "You keep everything, always",
-                  body: "ATS, scorecards, sourcing playbooks, candidate pipeline, process docs — yours from day one, exportable any time, no claw-back if the engagement ends. Even work-in-progress goes with you.",
+                  body: "ATS, scorecards, sourcing playbooks, candidate pipeline, process docs, yours from day one, exportable any time, no claw-back if the engagement ends. Even work-in-progress goes with you.",
                 },
               ].map((c) => (
                 <div key={c.headline} className="border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm p-6 hover:border-rebel-red/30 transition-colors">
@@ -422,7 +422,7 @@ export default function Pricing() {
                   What if it's not working?
                 </AccordionTrigger>
                 <AccordionContent className="text-zinc-400 text-sm leading-relaxed pb-5">
-                  At day 30, you should have a working pipeline. If you don't, we restructure — adjusted scope, adjusted approach, or an honest call that we're not the right fit. No additional charge. This is written into the SOW, not a verbal promise. After the initial 90-day minimum, the engagement is month-to-month with 2 weeks notice to pause or end. You should never have to argue your way out of a recruiting engagement that isn't producing.
+                  At day 30, you should have a working pipeline. If you don't, we restructure, adjusted scope, adjusted approach, or an honest call that we're not the right fit. No additional charge. This is written into the SOW, not a verbal promise. After the initial 90-day minimum, the engagement is month-to-month with 2 weeks notice to pause or end. You should never have to argue your way out of a recruiting engagement that isn't producing.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

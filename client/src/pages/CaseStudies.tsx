@@ -69,7 +69,7 @@ export default function CaseStudies() {
           { name: "Case Studies", item: "https://rebeltalentsystems.com/case-studies" },
         ]}
       />
-      {/* HERO — Hunt Club / Riviera register */}
+      {/* HERO, Hunt Club / Riviera register */}
       <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
         <div
           className="absolute inset-0 pointer-events-none"
@@ -87,7 +87,7 @@ export default function CaseStudies() {
             <span className="text-rebel-red">Quantifiable impact.</span>
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            $240K saved. 470%+ projected ROI. Zero agency fees. No vague claims — only metrics that map to dollars.
+            $240K saved. 470%+ projected ROI. Zero agency fees. No vague claims, only metrics that map to dollars.
           </p>
         </div>
       </section>
@@ -209,12 +209,12 @@ export default function CaseStudies() {
               <h3 className="font-display text-base font-bold text-rebel-red uppercase mb-4">What this engagement actually delivered</h3>
               <ul className="space-y-2.5 text-sm">
                 {[
-                  { label: "Cost structure", value: "Flat monthly retainer — no success fees, no surprise invoices when each hire closed." },
+                  { label: "Cost structure", value: "Flat monthly retainer, no success fees, no surprise invoices when each hire closed." },
                   { label: "Institutional knowledge", value: "Process documentation, sourcing playbooks, and pipeline history stayed inside EDF when the engagement scaled down." },
-                  { label: "Process ownership", value: "Custom ATS, scorecards, and SOPs handed off to the internal team — owned, exportable, and auditable." },
+                  { label: "Process ownership", value: "Custom ATS, scorecards, and SOPs handed off to the internal team, owned, exportable, and auditable." },
                   { label: "Candidate experience", value: "Standardized across all 8 placements: same screening rigor, same interview frameworks, same communication cadence." },
                   { label: "Infrastructure built", value: "Custom ATS with clearance tracking, sourcing playbooks by role type, interview scorecards, and reporting dashboards." },
-                  { label: "What EDF owns at the end", value: "A working recruiting function — not just a stack of hires." },
+                  { label: "What EDF owns at the end", value: "A working recruiting function, not just a stack of hires." },
                 ].map((row) => (
                   <li key={row.label} className="flex gap-3 border-b border-zinc-800/50 pb-2.5">
                     <div className="shrink-0 w-44 sm:w-52 text-zinc-300 font-medium text-xs uppercase tracking-wider">{row.label}</div>
@@ -254,7 +254,7 @@ export default function CaseStudies() {
               </div>
 
               <p className="text-zinc-400 text-sm leading-relaxed mb-3">
-                $240K+ in fees avoided across 8 placements. A custom ATS with clearance tracking, sourcing playbooks by role type, structured interview scorecards, and a documented hiring process — all handed off and owned by EDF when the engagement scaled down.
+                $240K+ in fees avoided across 8 placements. A custom ATS with clearance tracking, sourcing playbooks by role type, structured interview scorecards, and a documented hiring process, all handed off and owned by EDF when the engagement scaled down.
               </p>
               <p className="text-zinc-300 text-sm leading-relaxed">
                 <span className="text-rebel-red font-mono font-bold">Every future hire EDF makes runs on infrastructure I built. That compounds.</span>
@@ -273,7 +273,7 @@ export default function CaseStudies() {
               Kalibri Labs
             </h2>
             <p className="text-zinc-400 text-base mb-2">
-              360 applications in 24 hours. Every company thinks that's good news. It isn't. It means your job post attracted a flood of AI-optimized applications — polished, technically fluent, confident on paper. It means your hiring team just got a second job. And it means the person you actually need probably isn't in that pile.
+              360 applications in 24 hours. Every company thinks that's good news. It isn't. It means your job post attracted a flood of AI-optimized applications, polished, technically fluent, confident on paper. It means your hiring team just got a second job. And it means the person you actually need probably isn't in that pile.
             </p>
             <p className="text-zinc-500 text-sm mb-8">
               Retained search, 50% down / 50% on placement. What this engagement proved about why posting and waiting doesn't work anymore.
@@ -302,7 +302,7 @@ export default function CaseStudies() {
                 <ul className="space-y-2">
                   {[
                     "Must-fill ML Engineer role, no margin for a slow search",
-                    "Posted to ATS day one — 360+ applications within 24 hours",
+                    "Posted to ATS day one, 360+ applications within 24 hours",
                     "No existing sourcing infrastructure for technical roles",
                     "First engagement with this client: one intro call, then execution",
                     "Operated as embedded agent: company email, Slack, their ATS",
@@ -407,13 +407,13 @@ export default function CaseStudies() {
             <div className="border border-rebel-red/20 bg-rebel-red/5 p-6 mb-8">
               <h4 className="font-display text-base font-bold text-rebel-red uppercase mb-4">The Market Is Broken. Here's What That Looks Like.</h4>
               <p className="text-zinc-300 text-sm leading-relaxed mb-4">
-                Sixty percent of the applicants we screened showed signs of misrepresentation. Near-perfect resumes. Matching LinkedIn profiles. Skills listed with complete confidence. When asked a technical question about something they claimed to know — they couldn't answer it. Not one made the first round.
+                Sixty percent of the applicants we screened showed signs of misrepresentation. Near-perfect resumes. Matching LinkedIn profiles. Skills listed with complete confidence. When asked a technical question about something they claimed to know, they couldn't answer it. Not one made the first round.
               </p>
               <p className="text-zinc-300 text-sm leading-relaxed mb-4">
                 The two people in finals weren't in the original 360. They came from me picking up the phone and going to find them, and from inside the organization itself. Both crushed every round. The decision is genuinely close. That doesn't happen if you're waiting on inbound.
               </p>
               <p className="text-zinc-300 text-sm leading-relaxed mb-4">
-                This isn't a data point. This is the market. AI didn't just change how people write resumes — it changed what "qualified" looks like on paper. And now you need someone who knows the difference between a real signal and a very good imitation of one.
+                This isn't a data point. This is the market. AI didn't just change how people write resumes, it changed what "qualified" looks like on paper. And now you need someone who knows the difference between a real signal and a very good imitation of one.
               </p>
               <p className="text-rebel-red text-sm font-semibold leading-relaxed">
                 The inbound funnel isn't dead. I still read every single one of those 360 applications. But you need someone who knows what they're looking at, built the infrastructure to process volume at speed, and can go source the real candidates in parallel. That's the job now.
@@ -425,7 +425,7 @@ export default function CaseStudies() {
             <div className="border border-zinc-800 bg-zinc-900/30 p-6">
               <h3 className="font-display text-base font-bold text-rebel-red uppercase mb-4">What Embedded Actually Means</h3>
               <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-                First engagement with this client. One meeting. Notes taken, job posted same day. Company email, Slack access, full run of their ATS. No handholding, no ramp period, no account manager in between. Just execution from inside their operation — the same day we shook hands.
+                First engagement with this client. One meeting. Notes taken, job posted same day. Company email, Slack access, full run of their ATS. No handholding, no ramp period, no account manager in between. Just execution from inside their operation, the same day we shook hands.
               </p>
               <div className="grid sm:grid-cols-4 gap-4">
                 {[

@@ -22,7 +22,7 @@ export default function FreeTools() {
           { name: "Free Tools", item: "https://rebeltalentsystems.com/free-tools" },
         ]}
       />
-      {/* HERO — Hunt Club / Riviera register */}
+      {/* HERO, Hunt Club / Riviera register */}
       <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%)" }} />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
@@ -42,7 +42,7 @@ export default function FreeTools() {
       <section className="bg-rebel-space pt-4 pb-16 sm:pb-24 border-t border-zinc-900">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
 
-          {/* Safe addition — buyer-side tool surfaced FIRST since clients are the paying customer */}
+          {/* Safe addition, buyer-side tool surfaced FIRST since clients are the paying customer */}
           <div className="mb-16">
             <ScrollReveal variant="fade-up">
             <h2 className="font-display text-xl font-bold text-white uppercase tracking-tight text-center mb-8" data-testid="heading-hiring-teams">

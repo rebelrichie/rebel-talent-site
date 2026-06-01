@@ -16,14 +16,14 @@ export default function Services() {
         description="Two engagement shapes for startups and defense firms: Fractional Head of Talent (embedded) or Critical Hire Execution (scoped per search). Scale either with a vetted recruiter team."
         path="/services"
         ogTitle="Fractional Recruiting Services | Rebel Talent Systems"
-        ogDescription="Fractional Head of Talent from $12K/mo or Critical Hire Execution scoped per search — with vetted recruiter team capacity when you need more horsepower."
+        ogDescription="Fractional Head of Talent from $12K/mo or Critical Hire Execution scoped per search, with vetted recruiter team capacity when you need more horsepower."
         ogImage="og-services.png"
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
           { name: "Services", item: "https://rebeltalentsystems.com/services" },
         ]}
       />
-      {/* HERO — Hunt Club / Riviera register */}
+      {/* HERO, Hunt Club / Riviera register */}
       <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
         <div
           className="absolute inset-0 pointer-events-none"
@@ -41,7 +41,7 @@ export default function Services() {
             <span className="text-rebel-red">One operator.</span>
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            No SaaS tiers. Two engagement shapes built around how you actually buy — embed me as your Head of Talent, or scope a specific search. Either one scales with a vetted recruiter team when the pipeline calls for it.
+            No SaaS tiers. Two engagement shapes built around how you actually buy, embed me as your Head of Talent, or scope a specific search. Either one scales with a vetted recruiter team when the pipeline calls for it.
           </p>
           <div className="mt-8 sm:mt-10">
             <CapacityBadge />
@@ -70,7 +70,7 @@ export default function Services() {
                 <p className="text-rebel-red font-mono text-sm mb-1">$12K – $30K / month · 3-month minimum</p>
                 <p className="text-zinc-500 font-mono text-xs mb-4">50%+ less than contingent agency fees</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                  I run your entire recruiting function as an embedded executive. Strategy, execution, systems, and hiring manager coaching — scoped to your stage.
+                  I run your entire recruiting function as an embedded executive. Strategy, execution, systems, and hiring manager coaching, scoped to your stage.
                 </p>
                 <ul className="space-y-2 mb-6">
                   {["Strategic hiring roadmap & prioritization", "End-to-end recruiting execution", "ATS setup, optimization & migration", "Interview process design & training", "Hiring manager coaching"].map((item) => (
@@ -94,7 +94,7 @@ export default function Services() {
                 <p className="text-rebel-red font-mono text-sm mb-1">Scoped per search · fixed fee</p>
                 <p className="text-zinc-500 font-mono text-xs mb-4">50%+ less than contingent search fees</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                  Surgical execution for must-fill roles. Executive, cleared, or specialized technical talent — closed in weeks, with the process documented and left with you.
+                  Surgical execution for must-fill roles. Executive, cleared, or specialized technical talent, closed in weeks, with the process documented and left with you.
                 </p>
                 <ul className="space-y-2 mb-6">
                   {["Executive & leadership searches", "Cleared roles (Secret, TS, TS/SCI)", "Specialized technical talent", "Embedded into your workflows", "Documented repeatable process left with you"].map((item) => (
@@ -112,7 +112,7 @@ export default function Services() {
               </ScrollReveal>
             </div>
 
-            {/* Team capacity band — applies to either engagement */}
+            {/* Team capacity band, applies to either engagement */}
             <ScrollReveal variant="fade-up" delay={300}>
             <div className="mt-6 border border-zinc-800/70 bg-zinc-900/30 p-6 sm:p-8" data-testid="band-team-capacity">
               <div className="flex flex-col md:flex-row md:items-start md:gap-8">
@@ -125,7 +125,7 @@ export default function Services() {
                   </h3>
                 </div>
                 <p className="text-zinc-300 text-sm leading-relaxed">
-                  Either engagement can scale with a vetted recruiter team deployed under my direction — same standards, same playbooks, monthly or hourly as the pipeline demands. You still get me on every call. The team extends my reach; it doesn't replace me.
+                  Either engagement can scale with a vetted recruiter team deployed under my direction, same standards, same playbooks, monthly or hourly as the pipeline demands. You still get me on every call. The team extends my reach; it doesn't replace me.
                 </p>
               </div>
             </div>
@@ -265,7 +265,7 @@ export default function Services() {
               Build the Machine Agencies Can't
             </h2>
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
-              Every engagement starts with a 30-minute strategy call. Walk me through your hardest open req — we'll map out the fix together.
+              Every engagement starts with a 30-minute strategy call. Walk me through your hardest open req, we'll map out the fix together.
             </p>
             <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-services-cta">
               <Button className="font-display tracking-wider uppercase text-sm">

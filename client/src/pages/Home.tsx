@@ -362,7 +362,7 @@ function GraffitiHero() {
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
 
-  // Parallax scroll handler removed — the hero no longer has a background
+  // Parallax scroll handler removed, the hero no longer has a background
   // image to shift, and the per-scroll style mutation was causing repaint
   // jiggle on iOS Safari.
 
@@ -377,14 +377,14 @@ export default function Home() {
         ogImage="og-home.png"
         schemas={[homepageSchema]}
       />
-      {/* ========== HERO — Hunt Club / Riviera Partners register ========== */}
+      {/* ========== HERO, Hunt Club / Riviera Partners register ========== */}
       <section
         ref={heroRef}
         data-testid="section-hero"
         className="relative overflow-hidden bg-rebel-space"
         style={{ minHeight: "82vh" }}
       >
-        {/* Subtle ambient glow — restrained, not starfield */}
+        {/* Subtle ambient glow, restrained, not starfield */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -401,14 +401,14 @@ export default function Home() {
             Fractional Head of Talent · Startups &amp; Defense
           </p>
 
-          {/* MASSIVE bold headline — left-aligned, mixed-case */}
+          {/* MASSIVE bold headline, left-aligned, mixed-case */}
           <h2 className="text-[2.25rem] xs:text-4xl sm:text-6xl lg:text-7xl xl:text-[7.5rem] font-extrabold tracking-[-0.035em] text-white leading-[1.02] sm:leading-[0.98] max-w-5xl">
             <span className="block">Your talent problem</span>
             <span className="block text-rebel-red">isn&rsquo;t talent.</span>
             <span className="block">It&rsquo;s infrastructure.</span>
           </h2>
 
-          {/* Subhead — restrained, max 2 lines */}
+          {/* Subhead, restrained, max 2 lines */}
           <p className="mt-7 sm:mt-10 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
             I embed with your team, build the recruiting system from scratch, close your critical hires, and hand it all back when I leave. Not a coordinator. Not a pitch deck.
           </p>
@@ -435,7 +435,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Trust strip — bottom of hero, restrained */}
+        {/* Trust strip, bottom of hero, restrained */}
         <div className="relative z-10 border-t border-zinc-900 bg-black/30">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 py-7">
             <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
@@ -459,10 +459,10 @@ export default function Home() {
             <Link href="/about" className="inline-block group shrink-0 relative">
               <img
                 src="/richie-portrait.jpg"
-                alt="Richie Lampani — Fractional Head of Talent"
+                alt="Richie Lampani, Fractional Head of Talent"
                 className="w-40 h-40 sm:w-52 sm:h-52 rounded-2xl object-cover border border-zinc-800 group-hover:border-rebel-red/60 transition-colors"
               />
-              {/* Soft play-button hint — will become a real video control later */}
+              {/* Soft play-button hint, will become a real video control later */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="w-14 h-14 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 flex items-center justify-center">
                   <div className="w-0 h-0 border-y-[8px] border-y-transparent border-l-[12px] border-l-white ml-1" />
@@ -478,7 +478,7 @@ export default function Home() {
                 <span className="text-rebel-red">You hire me.</span>
               </h3>
               <p className="text-zinc-400 text-base sm:text-lg max-w-2xl leading-[1.55] mb-5">
-                Fractional Head of Talent. 14 years closing critical hires across defense, AI/ML, and growth-stage tech. Embedded into your team — not a recruiter farm.
+                Fractional Head of Talent. 14 years closing critical hires across defense, AI/ML, and growth-stage tech. Embedded into your team, not a recruiter farm.
               </p>
               <Link
                 href="/about"
@@ -594,7 +594,7 @@ export default function Home() {
               { icon: <Clock className="w-5 h-5 text-rebel-red" />, title: "~30 days median time to hire", desc: "Across embedded engagements. Under 30 on EDF's 8 placements. 34 days on Kalibri against a 360-application flooded funnel." },
               { icon: <Shield className="w-5 h-5 text-rebel-red" />, title: "You own everything we build", desc: "ATS, candidate pipeline, interview scorecards, sourcing playbooks, hiring manager training. Exportable, transferable, yours forever." },
               { icon: <Target className="w-5 h-5 text-rebel-red" />, title: "Proof-first vetting", desc: "Every candidate ships with portfolio evidence, structured technical screens, and AI-scored match signals. Resume polish isn't a pipeline." },
-              { icon: <Zap className="w-5 h-5 text-rebel-red" />, title: "Infrastructure that compounds", desc: "470%+ projected ROI on the EDF flagship — $240K+ in fees avoided on ~$88K invested. Every system built carries to your next 50 hires." },
+              { icon: <Zap className="w-5 h-5 text-rebel-red" />, title: "Infrastructure that compounds", desc: "470%+ projected ROI on the EDF flagship, $240K+ in fees avoided on ~$88K invested. Every system built carries to your next 50 hires." },
             ].map((item) => (
               <div
                 key={item.title}
@@ -623,7 +623,7 @@ export default function Home() {
               Two Ways to Engage
             </h2>
             <p className="text-zinc-500 text-sm mt-3 max-w-xl mx-auto">
-              No tiers. No packages. Two engagement shapes built around how you actually buy — embed me as your Head of Talent, or scope a specific search. Either way, you get me on every call.
+              No tiers. No packages. Two engagement shapes built around how you actually buy, embed me as your Head of Talent, or scope a specific search. Either way, you get me on every call.
             </p>
           </div>
           </ScrollReveal>
@@ -639,7 +639,7 @@ export default function Home() {
               <p className="text-rebel-red font-mono text-sm mb-1">Monthly Retainer · 3-month minimum</p>
               <p className="text-zinc-500 font-mono text-xs mb-4">50%+ less than contingent agency fees</p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                I run your entire recruiting function as an embedded executive. Strategy, execution, systems, and hiring manager coaching — scoped to your stage.
+                I run your entire recruiting function as an embedded executive. Strategy, execution, systems, and hiring manager coaching, scoped to your stage.
               </p>
               <ul className="space-y-2 mb-6">
                 {[
@@ -667,7 +667,7 @@ export default function Home() {
               <p className="text-rebel-red font-mono text-sm mb-1">Scoped per search · fixed fee</p>
               <p className="text-zinc-500 font-mono text-xs mb-4">50%+ less than contingent search fees</p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                Surgical execution for must-fill roles. Executive, cleared, or specialized technical talent — closed in weeks, with the process documented and left with you.
+                Surgical execution for must-fill roles. Executive, cleared, or specialized technical talent, closed in weeks, with the process documented and left with you.
               </p>
               <ul className="space-y-2 mb-6">
                 {[
@@ -686,7 +686,7 @@ export default function Home() {
             </GlowCard>
           </div>
 
-          {/* Team capacity band — applies to either engagement */}
+          {/* Team capacity band, applies to either engagement */}
           <ScrollReveal variant="fade-up" delay={150}>
           <div className="mt-6 border border-zinc-800/70 bg-zinc-900/30 p-6 sm:p-8" data-testid="band-team-capacity">
             <div className="flex flex-col md:flex-row md:items-start md:gap-8">
@@ -699,7 +699,7 @@ export default function Home() {
                 </h3>
               </div>
               <p className="text-zinc-300 text-sm leading-relaxed">
-                Either engagement can scale with a vetted recruiter team deployed under my direction — same standards, same playbooks, monthly or hourly as the pipeline demands. You still get me on every call. The team extends my reach; it doesn't replace me.
+                Either engagement can scale with a vetted recruiter team deployed under my direction, same standards, same playbooks, monthly or hourly as the pipeline demands. You still get me on every call. The team extends my reach; it doesn't replace me.
               </p>
             </div>
           </div>
@@ -762,7 +762,7 @@ export default function Home() {
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">CASE STUDY 02 · RETAINED SEARCH</div>
               <h2 className="font-display text-xl font-bold text-white uppercase mb-2">Kalibri Labs</h2>
               <p className="text-zinc-400 text-sm leading-relaxed mb-3">
-                ML Engineer search run as an embedded 50/50 retained project — half down, half on placement, operating inside their email, Slack, and ATS. Signed offer in 34 days against a flooded inbound funnel of 360+ AI-polished applications. Saved ~$20K against the agency quote.
+                ML Engineer search run as an embedded 50/50 retained project, half down, half on placement, operating inside their email, Slack, and ATS. Signed offer in 34 days against a flooded inbound funnel of 360+ AI-polished applications. Saved ~$20K against the agency quote.
               </p>
               <div className="grid grid-cols-3 gap-4 mb-5">
                 {[
@@ -968,7 +968,7 @@ export default function Home() {
                 </h2>
                 <div className="space-y-4 mb-8">
                   <p className="text-[#3a3a3a] text-[15px] leading-relaxed">
-                    The people pitching AI to your team don't run searches. I do. Twenty-seven autonomous agents handling sourcing, screening, communication, and pipeline management — on my own client work, every week, with real candidates and real consequences when something breaks.
+                    The people pitching AI to your team don't run searches. I do. Twenty-seven autonomous agents handling sourcing, screening, communication, and pipeline management, on my own client work, every week, with real candidates and real consequences when something breaks.
                   </p>
                   <p className="text-[#3a3a3a] text-[15px] leading-relaxed">
                     Three ways to put that to work for your team. Pick the one that matches where you are.
@@ -1173,7 +1173,7 @@ export default function Home() {
             Start a Confidential Conversation.
           </h2>
           <p className="text-zinc-400 text-base mb-8 max-w-xl mx-auto">
-            30 minutes. Walk me through one of your hardest open reqs and I'll tell you straight whether I can help — and if not, I'll point you somewhere better.
+            30 minutes. Walk me through one of your hardest open reqs and I'll tell you straight whether I can help, and if not, I'll point you somewhere better.
           </p>
           <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-4">
             <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-10">

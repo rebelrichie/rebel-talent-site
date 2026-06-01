@@ -1,4 +1,4 @@
-// Safe addition — Hiring Readiness Scorecard, the middle-funnel buyer tool.
+// Safe addition, Hiring Readiness Scorecard, the middle-funnel buyer tool.
 // 10 yes/no questions across Strategy / Process / Metrics / Sourcing / etc.
 // Email-captured BEFORE submit so we don't lose anyone after they see the score.
 // POSTs to rebelapply.com/api/public/scorecard. Stores the lead in companies +
@@ -206,7 +206,7 @@ function IntroPanel({ onStart }: { onStart: () => void }) {
         Where does your<br className="hidden sm:block" /> recruiting actually stand?
       </h1>
       <p className="text-zinc-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-        Ten yes/no questions across the same dimensions I assess on every engagement —
+        Ten yes/no questions across the same dimensions I assess on every engagement -
         strategy, process, sourcing, metrics, candidate experience, retention.
         You get a score out of 100, the weakest areas, and a specific fix for each gap.
         No sales pitch, no follow-up sequence, no LinkedIn pop-up.
@@ -395,7 +395,7 @@ function ContactPanel({
         </h2>
         <p className="text-zinc-400 text-base leading-relaxed max-w-xl mx-auto">
           You answered <span className="text-white font-semibold">{yesCount} of 10 yes</span>.
-          Drop your details and the per-question breakdown — including the specific fix for every gap — comes up immediately.
+          Drop your details and the per-question breakdown, including the specific fix for every gap, comes up immediately.
         </p>
       </div>
 
@@ -424,7 +424,7 @@ function ContactPanel({
           <Field label="Company" required>
             <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} required autoComplete="organization" className={inputClass} />
           </Field>
-          <Field label="Your role" hint="Optional — helps me contextualize the report">
+          <Field label="Your role" hint="Optional, helps me contextualize the report">
             <input type="text" value={role} onChange={(e) => setRole(e.target.value)} placeholder="e.g. CTO, VP People, Founder" className={inputClass} />
           </Field>
         </div>

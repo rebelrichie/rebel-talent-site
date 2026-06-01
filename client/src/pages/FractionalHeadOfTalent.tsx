@@ -46,7 +46,7 @@ export default function FractionalHeadOfTalent() {
         schemas={[fractionalSchema]}
       />
 
-      {/* HERO — Hunt Club / Riviera register */}
+      {/* HERO, Hunt Club / Riviera register */}
       <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
         <div
           className="absolute inset-0 pointer-events-none"
@@ -66,7 +66,7 @@ export default function FractionalHeadOfTalent() {
                 <span className="text-rebel-red">Own your hiring.</span>
               </h1>
               <p className="text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55] mb-3">
-                53K LinkedIn followers. 8K newsletter subscribers. My own ATS/CRM built from scratch. I embed into your company as your Fractional Head of Talent — strategy, execution, process design, hiring manager coaching.
+                53K LinkedIn followers. 8K newsletter subscribers. My own ATS/CRM built from scratch. I embed into your company as your Fractional Head of Talent, strategy, execution, process design, hiring manager coaching.
               </p>
               <p className="text-base sm:text-lg text-zinc-500 max-w-2xl leading-[1.55] mb-6">
                 A full recruiting function at a fraction of the cost of an agency or a full-time VP.
@@ -89,7 +89,7 @@ export default function FractionalHeadOfTalent() {
               <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="inline-block group">
                 <img
                   src="/richie-operator.jpg"
-                  alt="Richie Lampani — Fractional Head of Talent"
+                  alt="Richie Lampani, Fractional Head of Talent"
                   className="w-40 h-40 sm:w-52 sm:h-52 lg:w-64 lg:h-64 rounded-2xl object-cover border border-zinc-800 group-hover:border-rebel-red/60 transition-colors"
                 />
               </a>
@@ -145,13 +145,13 @@ export default function FractionalHeadOfTalent() {
           </div>
           <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
             {[
-              { icon: <Users className="w-5 h-5 text-rebel-red" />, title: "Embedded execution", desc: "In your Slack, ATS, hiring-manager 1:1s, candidate calls. You get me on every call — not a coordinator, not a recruiter farm." },
+              { icon: <Users className="w-5 h-5 text-rebel-red" />, title: "Embedded execution", desc: "In your Slack, ATS, hiring-manager 1:1s, candidate calls. You get me on every call, not a coordinator, not a recruiter farm." },
               { icon: <TrendingUp className="w-5 h-5 text-rebel-red" />, title: "~$5K–$8K cost per hire", desc: "Hourly or fixed-fee billing. No success fees. Every hour logged in your dashboard with task descriptions." },
               { icon: <Clock className="w-5 h-5 text-rebel-red" />, title: "~30 days median time to hire", desc: "Across embedded engagements. Under 30 on EDF's 8 placements. 34 days on Kalibri against a 360-application funnel." },
               { icon: <Shield className="w-5 h-5 text-rebel-red" />, title: "You own the infrastructure", desc: "ATS, candidate pipeline, interview scorecards, sourcing playbooks, trained hiring managers. Exportable, transferable, yours forever." },
               { icon: <Target className="w-5 h-5 text-rebel-red" />, title: "Proof-first vetting", desc: "Portfolio evidence, structured technical screens, AI-scored match signals on every candidate. Resume polish isn't a pipeline." },
               { icon: <CheckCircle className="w-5 h-5 text-rebel-red" />, title: "Hiring manager coaching built in", desc: "Interview calibration, scorecard training, decision frameworks. Your team gets better at hiring even after the engagement ends." },
-              { icon: <Zap className="w-5 h-5 text-rebel-red" />, title: "Long-term ROI that compounds", desc: "470%+ projected on the EDF flagship — $240K+ in fees avoided on ~$88K invested. Every system carries to the next 50 hires." },
+              { icon: <Zap className="w-5 h-5 text-rebel-red" />, title: "Long-term ROI that compounds", desc: "470%+ projected on the EDF flagship, $240K+ in fees avoided on ~$88K invested. Every system carries to the next 50 hires." },
             ].map((item) => (
               <div
                 key={item.title}

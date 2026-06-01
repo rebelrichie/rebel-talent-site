@@ -130,7 +130,7 @@ export default function Navbar() {
               ABOUT
             </Link>
 
-            {/* Safe addition — Jobs (replaces APPLY as the candidate front door) */}
+            {/* Safe addition, Jobs (replaces APPLY as the candidate front door) */}
             <Link
               href="/jobs"
               data-testid="link-nav-jobs"
@@ -222,7 +222,7 @@ export default function Navbar() {
             ABOUT
           </Link>
 
-          {/* Safe addition — Jobs */}
+          {/* Safe addition, Jobs */}
           <Link
             href="/jobs"
             data-testid="link-mobile-jobs"

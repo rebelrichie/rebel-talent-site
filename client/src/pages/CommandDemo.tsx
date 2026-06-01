@@ -114,8 +114,8 @@ const AGENT_LOG = [
   { name: "Sourcing: AI/ML Lead at Anthropic", status: "completed", time: "9:15 AM", tokens: "6,441", cost: "$0.03", duration: "4.8s" },
   { name: "Interview Prep: Daria Okonkwo", status: "completed", time: "10:30 AM", tokens: "3,872", cost: "$0.02", duration: "2.9s" },
   { name: "Candidate Brief: Alex Volkov → Datadog", status: "completed", time: "11:45 AM", tokens: "5,103", cost: "$0.02", duration: "3.7s" },
-  { name: "Follow-Up: Marcus Chen scheduling", status: "running", time: "Now", tokens: "—", cost: "—", duration: "—" },
-  { name: "Onboarding Plan: Nina Patel → Cloudflare", status: "queued", time: "Queued", tokens: "—", cost: "—", duration: "—" },
+  { name: "Follow-Up: Marcus Chen scheduling", status: "running", time: "Now", tokens: "-", cost: "-", duration: "-" },
+  { name: "Onboarding Plan: Nina Patel → Cloudflare", status: "queued", time: "Queued", tokens: "-", cost: "-", duration: "-" },
 ];
 
 // ── Components ───────────────────────────────────────

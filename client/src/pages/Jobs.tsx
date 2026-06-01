@@ -1,4 +1,4 @@
-// Safe addition — public job board on rebeltalentsystems.com.
+// Safe addition, public job board on rebeltalentsystems.com.
 // Fetches from rebelapply.com/api/public/jobs and renders with multi-filter UI
 // (clearance, function, remote, company), sort, and a "what to expect" footer
 // so the candidate experience signals the recruiter brand.
@@ -79,7 +79,7 @@ function isRemote(j: Job): boolean {
   return /remote/.test(v);
 }
 
-// Best-effort compensation parsing — returns midpoint when a range is found,
+// Best-effort compensation parsing, returns midpoint when a range is found,
 // or top of a single number. Used only for sort, not display.
 function parseCompMidpoint(comp: string | null): number {
   if (!comp) return -1;
@@ -94,7 +94,7 @@ function parseCompMidpoint(comp: string | null): number {
   }).filter((n) => n > 0);
   if (parsed.length === 0) return -1;
   // Pick the highest "salary-looking" number (filters out OTE multipliers that
-  // are smaller, but is a heuristic — fine for sort).
+  // are smaller, but is a heuristic, fine for sort).
   return Math.max(...parsed);
 }
 
@@ -366,7 +366,7 @@ export default function Jobs() {
                     </button>
                   </>
                 )
-                : <p>No open roles right now — but new ones drop weekly.</p>}
+                : <p>No open roles right now, but new ones drop weekly.</p>}
             </div>
           )}
 
@@ -415,7 +415,7 @@ export default function Jobs() {
                         )}
                         <span className={`inline-flex items-center gap-1.5 ${j.compensationRange ? "text-emerald-400/90" : "text-zinc-600"}`}>
                           <DollarSign className="h-3.5 w-3.5" />
-                          {j.compensationRange || "Comp DOE — discussed on intro call"}
+                          {j.compensationRange || "Comp DOE, discussed on intro call"}
                         </span>
                       </div>
                     </Link>
@@ -448,22 +448,22 @@ export default function Jobs() {
               {
                 icon: <Eye className="w-5 h-5 text-rebel-red" />,
                 title: "Every resume read",
-                body: "Not auto-filtered to oblivion. I read every application personally — even the 360+ that came in for the last ML search.",
+                body: "Not auto-filtered to oblivion. I read every application personally, even the 360+ that came in for the last ML search.",
               },
               {
                 icon: <CheckCircle2 className="w-5 h-5 text-rebel-red" />,
                 title: "Proof-first vetting",
-                body: "Resume polish isn't a pipeline. Expect structured screens, portfolio review, and AI-scored match signals — not LinkedIn drive-bys.",
+                body: "Resume polish isn't a pipeline. Expect structured screens, portfolio review, and AI-scored match signals, not LinkedIn drive-bys.",
               },
               {
                 icon: <MessageSquare className="w-5 h-5 text-rebel-red" />,
                 title: "Reply within 48 hours",
-                body: "Yes or no — you'll hear back. If you're a fit, we move to a 30-min intro that same week. If not, I'll tell you why.",
+                body: "Yes or no, you'll hear back. If you're a fit, we move to a 30-min intro that same week. If not, I'll tell you why.",
               },
               {
                 icon: <Shield className="w-5 h-5 text-rebel-red" />,
                 title: "Cleared work supported",
-                body: "TS, TS/SCI, public trust — pipelines built on community knowledge, not guesswork. FOCI-sensitive engagements supported.",
+                body: "TS, TS/SCI, public trust, pipelines built on community knowledge, not guesswork. FOCI-sensitive engagements supported.",
               },
             ].map((item) => (
               <div

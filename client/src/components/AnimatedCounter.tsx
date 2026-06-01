@@ -29,10 +29,10 @@ export default function AnimatedCounter({ value, duration = 1200, className = ""
   );
   const [hasAnimated, setHasAnimated] = useState(false);
 
-  // Safe addition — counter no longer resets to 0 before animating. The previous
+  // Safe addition, counter no longer resets to 0 before animating. The previous
   // behavior caused pre-rendered HTML to capture the "0" state mid-animation,
   // leaving stats showing 0 in production. Now we just show the target value
-  // immediately. (Visual count-up sacrificed for correctness — net win.)
+  // immediately. (Visual count-up sacrificed for correctness, net win.)
   const animate = useCallback(() => {
     setDisplayValue(isDecimal ? target.toFixed(1) : Math.floor(target).toString());
   }, [target, isDecimal]);

@@ -10,7 +10,7 @@ export default function Platform() {
     <PageLayout>
       <PageSEO
         title="The Rebel Platform | Rebel Talent Systems"
-        description="I built this. Three integrated apps running my recruiting operation in production. It's not for sale — but when you work with me, it's what I work with."
+        description="I built this. Three integrated apps running my recruiting operation in production. It's not for sale, but when you work with me, it's what I work with."
         path="/platform"
         ogTitle="The Rebel Platform | Rebel Talent Systems"
         ogDescription="This isn't a SaaS product. It's the recruiting infrastructure I built from scratch and run on real client work daily. When you engage Rebel Talent, this is what's behind it."
@@ -99,7 +99,7 @@ export default function Platform() {
               <h2 className="font-display text-2xl font-bold text-white uppercase mb-2">Rebel Command</h2>
               <p className="text-zinc-400 text-base leading-relaxed">
                 My operating system. Pipeline management, AI agents, outreach, revenue tracking,
-                and the daily brief — all in one place. Clients get visibility. I get control.
+                and the daily brief, all in one place. Clients get visibility. I get control.
               </p>
               <a href="/command" className="inline-block mt-4">
                 <Button variant="outline" size="sm" className="font-display tracking-wider uppercase text-xs border-zinc-700 text-zinc-300">
@@ -111,10 +111,10 @@ export default function Platform() {
             <div className="sm:w-2/3 grid grid-cols-2 gap-3">
               {[
                 { icon: <BarChart3 className="w-4 h-4" />, title: "Real-Time Pipeline", desc: "Kanban board with customizable stages, drag-and-drop, and instant status updates across every active role." },
-                { icon: <Brain className="w-4 h-4" />, title: "27 AI Agents", desc: "Sourcing, interview prep, daily briefs, follow-ups, and outreach — all automated and running in production." },
+                { icon: <Brain className="w-4 h-4" />, title: "27 AI Agents", desc: "Sourcing, interview prep, daily briefs, follow-ups, and outreach, all automated and running in production." },
                 { icon: <Send className="w-4 h-4" />, title: "One-Click Outreach", desc: "Scheduling emails, follow-ups, and submission packets sent in a single click. No copy-paste, no manual formatting." },
                 { icon: <Layers className="w-4 h-4" />, title: "Templates Engine", desc: "Every agent prompt versioned and managed. Consistent output across every role and every client." },
-                { icon: <TrendingUp className="w-4 h-4" />, title: "Revenue Tracking", desc: "Contracts, invoices, time entries, and ROI — one dashboard, not four spreadsheets." },
+                { icon: <TrendingUp className="w-4 h-4" />, title: "Revenue Tracking", desc: "Contracts, invoices, time entries, and ROI, one dashboard, not four spreadsheets." },
                 { icon: <Eye className="w-4 h-4" />, title: "Full Audit Trail", desc: "Every action logged. Every pipeline change recorded. Nothing falls through the cracks." },
               ].map((f, i) => (
                 <ScrollReveal key={f.title} variant="fade-up" delay={i * 100}>
@@ -151,7 +151,7 @@ export default function Platform() {
             </ScrollReveal>
             <div className="sm:w-2/3 grid grid-cols-2 gap-3">
               {[
-                { icon: <Target className="w-4 h-4" />, title: "Portfolio-First Profiles", desc: "Work samples, deliverables, and proof — not buzzwords. I see what candidates have actually built." },
+                { icon: <Target className="w-4 h-4" />, title: "Portfolio-First Profiles", desc: "Work samples, deliverables, and proof, not buzzwords. I see what candidates have actually built." },
                 { icon: <Eye className="w-4 h-4" />, title: "60-Second Video Intros", desc: "Communication and personality before the first call. AI-transcribed, searchable, and linked to the pipeline." },
                 { icon: <Zap className="w-4 h-4" />, title: "AI Resume Parsing", desc: "Resume uploads auto-populate the entire profile. No manual entry, no reformatting." },
                 { icon: <Shield className="w-4 h-4" />, title: "Evidence Boost", desc: "Optional section for key deliverables that prove impact, not just job titles and dates." },
@@ -187,10 +187,10 @@ export default function Platform() {
             </ScrollReveal>
             <div className="sm:w-2/3 grid grid-cols-2 gap-3">
               {[
-                { icon: <Users className="w-4 h-4" />, title: "Talent Spotlight", desc: "Anonymous, categorized talent directory. AI/ML, Executive, Cleared, and ALLSTAR tiers — filtered and surfaced for hiring companies." },
+                { icon: <Users className="w-4 h-4" />, title: "Talent Spotlight", desc: "Anonymous, categorized talent directory. AI/ML, Executive, Cleared, and ALLSTAR tiers, filtered and surfaced for hiring companies." },
                 { icon: <Send className="w-4 h-4" />, title: "Intro Requests", desc: "Companies request intros to anonymous candidates. 4-step lead capture with full fee acknowledgment." },
                 { icon: <Zap className="w-4 h-4" />, title: "Job Syndication", desc: "Open roles from Command auto-publish to the public job board. One system of record, one source of truth." },
-                { icon: <TrendingUp className="w-4 h-4" />, title: "Proof in Public", desc: "Case studies, ROI numbers, and results — all live. $240K+ in agency fees avoided. 470%+ projected ROI." },
+                { icon: <TrendingUp className="w-4 h-4" />, title: "Proof in Public", desc: "Case studies, ROI numbers, and results, all live. $240K+ in agency fees avoided. 470%+ projected ROI." },
               ].map((f, i) => (
                 <ScrollReveal key={f.title} variant="fade-up" delay={i * 100}>
                 <GlowCard className="border border-zinc-800 bg-zinc-900/30 p-4">
@@ -217,7 +217,7 @@ export default function Platform() {
           <div className="grid sm:grid-cols-2 gap-3 max-w-3xl mx-auto">
             {[
               "You're not a beta user. This system runs on active client work, today.",
-              "Every agent, workflow, and integration was built for a real recruiting problem — not a demo.",
+              "Every agent, workflow, and integration was built for a real recruiting problem, not a demo.",
               "You don't pay for the platform separately. It's part of how I work.",
               "The infrastructure your engagement runs on took years and every mistake I made to build.",
               "No vendor dependency. No platform lock-in. No 'we're deprecating this feature.'",

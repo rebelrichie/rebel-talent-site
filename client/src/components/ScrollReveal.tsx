@@ -16,7 +16,7 @@ interface ScrollRevealProps {
   immediate?: boolean;
 }
 
-// Safe addition — opacity floor set to 1 so content always renders at full opacity.
+// Safe addition, opacity floor set to 1 so content always renders at full opacity.
 // The hide-then-reveal pattern was leaving pre-rendered pages broken because
 // IntersectionObserver doesn't fire reliably for already-visible elements after
 // hydration. Components still wrap children but no longer fade them.

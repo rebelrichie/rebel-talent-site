@@ -1,4 +1,4 @@
-// Safe addition — public quick-apply page on rebeltalentsystems.com.
+// Safe addition, public quick-apply page on rebeltalentsystems.com.
 // Candidates submit name, email, resume, and optional "why this role"
 // without leaving the dark marketing theme. POSTs to the public
 // /api/public/apply endpoint, which parses the resume and creates a
@@ -115,7 +115,7 @@ export default function JobApply() {
         title={job ? `Apply: ${job.title} | Rebel Talent` : "Apply | Rebel Talent"}
         description={
           job
-            ? `Apply for ${job.title} at ${job.companyName} through Rebel Talent. Quick application — no profile build required.`
+            ? `Apply for ${job.title} at ${job.companyName} through Rebel Talent. Quick application, no profile build required.`
             : "Apply for open roles through Rebel Talent."
         }
         path={id ? `/jobs/${id}/apply` : "/jobs"}
@@ -275,7 +275,7 @@ export default function JobApply() {
               <div className="space-y-2">
                 {[
                   { value: "citizen", label: "US citizen or permanent resident" },
-                  { value: "visa-no-sponsor", label: "Authorized via visa (H-1B, OPT, etc.) — no sponsorship needed" },
+                  { value: "visa-no-sponsor", label: "Authorized via visa (H-1B, OPT, etc.), no sponsorship needed" },
                   { value: "needs-sponsor", label: "I'll need visa sponsorship" },
                 ].map((opt) => (
                   <label
@@ -302,7 +302,7 @@ export default function JobApply() {
 
             <div>
               <label htmlFor="clearance" className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
-                Active security clearance <span className="font-normal normal-case tracking-normal text-zinc-600">— optional, only if you have one</span>
+                Active security clearance <span className="font-normal normal-case tracking-normal text-zinc-600">- optional, only if you have one</span>
               </label>
               <select
                 id="clearance"
@@ -310,7 +310,7 @@ export default function JobApply() {
                 onChange={(e) => setClearance(e.target.value)}
                 className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-md text-white focus:outline-none focus:border-rebel-red transition-colors"
               >
-                <option value="">— Select if applicable —</option>
+                <option value="">- Select if applicable -</option>
                 <option value="none">None</option>
                 <option value="public-trust">Public Trust</option>
                 <option value="secret">Secret</option>
@@ -322,7 +322,7 @@ export default function JobApply() {
 
             <div>
               <label htmlFor="targetComp" className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
-                Target total comp <span className="font-normal normal-case tracking-normal text-zinc-600">— optional</span>
+                Target total comp <span className="font-normal normal-case tracking-normal text-zinc-600">- optional</span>
               </label>
               <input
                 id="targetComp"
@@ -369,7 +369,7 @@ export default function JobApply() {
 
             <div>
               <label htmlFor="whyThisRole" className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
-                Why this role? <span className="font-normal normal-case tracking-normal text-zinc-600">— optional</span>
+                Why this role? <span className="font-normal normal-case tracking-normal text-zinc-600">- optional</span>
               </label>
               <textarea
                 id="whyThisRole"

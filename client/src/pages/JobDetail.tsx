@@ -1,7 +1,7 @@
-// Safe addition — public role detail page on rebeltalentsystems.com.
+// Safe addition, public role detail page on rebeltalentsystems.com.
 // Keeps candidates in the dark marketing theme while browsing. APPLY CTA
 // is the only thing that hops them to rebelapply.com (light apply portal),
-// signaling "you've decided — now the formal application step."
+// signaling "you've decided, now the formal application step."
 
 import { useEffect, useState, useMemo } from "react";
 import { useRoute, Link } from "wouter";
@@ -103,7 +103,7 @@ function parseSalary(comp: string | null): Record<string, unknown> | null {
     const value = parseFloat(hourly[1].replace(/,/g, ""));
     return { "@type": "MonetaryAmount", currency: "USD", value: { "@type": "QuantitativeValue", value, unitText: "HOUR" } };
   }
-  const range = comp.match(/\$\s*([\d,.]+)\s*k?\s*[-–—to]+\s*\$?\s*([\d,.]+)\s*k?/i);
+  const range = comp.match(/\$\s*([\d,.]+)\s*k?\s*[-–to]+\s*\$?\s*([\d,.]+)\s*k?/i);
   if (range) {
     let mn = parseFloat(range[1].replace(/,/g, ""));
     let mx = parseFloat(range[2].replace(/,/g, ""));
@@ -197,7 +197,7 @@ export default function JobDetail() {
   const schemas = useMemo(() => (job ? [buildJobJsonLd(job)] : []), [job]);
   const pageTitle = job ? `${job.title} at ${job.companyName} | Rebel Talent` : "Role | Rebel Talent";
   const pageDesc = job
-    ? `${job.title} at ${job.companyName}${job.location ? ` — ${job.location}` : ""}${job.compensationRange ? ` · ${job.compensationRange}` : ""}. Apply through Rebel Talent.`
+    ? `${job.title} at ${job.companyName}${job.location ? `, ${job.location}` : ""}${job.compensationRange ? ` · ${job.compensationRange}` : ""}. Apply through Rebel Talent.`
     : "Apply for open roles through Rebel Talent.";
 
   const remoteLabel = (() => {
@@ -338,7 +338,7 @@ export default function JobDetail() {
                 Ready to apply?
               </h3>
               <p className="text-sm text-zinc-400 mb-6 max-w-md mx-auto">
-                Build a profile once, get matched to roles like this — and others — before they go public.
+                Build a profile once, get matched to roles like this, and others, before they go public.
               </p>
               <Link
                 href={`/jobs/${job.id}/apply`}

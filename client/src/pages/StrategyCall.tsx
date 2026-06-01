@@ -1,4 +1,4 @@
-// Safe addition — async qualifier before the Calendly handoff.
+// Safe addition, async qualifier before the Calendly handoff.
 // Form posts to rebelapply.com/api/public/discovery. On success we show
 // the Calendly link so Richie's calendar is protected from random bookings.
 
@@ -17,7 +17,7 @@ type SubmitState =
   | { kind: "error"; message: string };
 
 const TIMELINES = [
-  { value: "urgent", label: "Urgent — hiring this week" },
+  { value: "urgent", label: "Urgent, hiring this week" },
   { value: "30-days", label: "Next 30 days" },
   { value: "90-days", label: "Next 90 days" },
   { value: "exploring", label: "Exploring / no fixed timeline" },
@@ -39,7 +39,7 @@ export default function StrategyCall() {
   const [timeline, setTimeline] = useState("");
   const [engagementType, setEngagementType] = useState("");
   const [blocker, setBlocker] = useState("");
-  // honeypot — bots fill it, humans never see it
+  // honeypot, bots fill it, humans never see it
   const [websiteUrl, setWebsiteUrl] = useState("");
   const [submit, setSubmit] = useState<SubmitState>({ kind: "idle" });
 
@@ -97,7 +97,7 @@ export default function StrategyCall() {
     <PageLayout>
       <PageSEO
         title="Book a Strategy Call | Rebel Talent"
-        description="30-minute strategy call with Richie Lampani. Share what you're hiring for first so the call is productive — not a sales pitch."
+        description="30-minute strategy call with Richie Lampani. Share what you're hiring for first so the call is productive, not a sales pitch."
         path="/strategy-call"
         ogTitle="Book a Strategy Call | Rebel Talent"
         ogDescription="30 minutes. Tell me what you're hiring for, and I'll come prepared with a real diagnosis."
@@ -126,12 +126,12 @@ export default function StrategyCall() {
                   Tell me what you're dealing with first.
                 </h1>
                 <p className="text-zinc-400 text-base leading-relaxed">
-                  30 minutes, no pitch deck, no upsell. Five questions below so I show up with your context already loaded — and so I can tell you fast if I'm not the right fit.
+                  30 minutes, no pitch deck, no upsell. Five questions below so I show up with your context already loaded, and so I can tell you fast if I'm not the right fit.
                 </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Honeypot — visually hidden, off-screen, no autofocus */}
+                {/* Honeypot, visually hidden, off-screen, no autofocus */}
                 <div className="hidden" aria-hidden="true">
                   <label htmlFor="website_url">Leave this empty</label>
                   <input
@@ -189,7 +189,7 @@ export default function StrategyCall() {
                   </Field>
                 </div>
 
-                <Field label="Role you're hiring for" hint="Title or short description — e.g. 'Forward Deployed Engineer with TS/SCI'">
+                <Field label="Role you're hiring for" hint="Title or short description, e.g. 'Forward Deployed Engineer with TS/SCI'">
                   <input
                     type="text"
                     value={roleToFill}
@@ -228,7 +228,7 @@ export default function StrategyCall() {
                   </div>
                 </Field>
 
-                <Field label="What's the biggest blocker right now?" hint="Be specific — broken process, wrong agency, no pipeline, can't close, etc.">
+                <Field label="What's the biggest blocker right now?" hint="Be specific, broken process, wrong agency, no pipeline, can't close, etc.">
                   <textarea
                     value={blocker}
                     onChange={(e) => setBlocker(e.target.value)}
@@ -257,7 +257,7 @@ export default function StrategyCall() {
                 </button>
 
                 <p className="text-zinc-600 text-xs text-center pt-2">
-                  Your info goes straight to me — no marketing automation, no list-building.
+                  Your info goes straight to me, no marketing automation, no list-building.
                   All inquiries handled with discretion. FOCI-sensitive engagements supported.
                 </p>
               </form>

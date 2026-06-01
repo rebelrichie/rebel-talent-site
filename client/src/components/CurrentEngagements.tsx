@@ -8,7 +8,7 @@ interface Engagement {
   role: string;
   focus: string;
   url: string;
-  logoBg: string; // tailwind bg class — match to logo's background needs
+  logoBg: string; // tailwind bg class, match to logo's background needs
 }
 
 const ENGAGEMENTS: Engagement[] = [
