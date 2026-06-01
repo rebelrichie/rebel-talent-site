@@ -40,7 +40,7 @@ const ENGAGEMENTS: Engagement[] = [
     client: "Kalibri Labs",
     logo: "/logo-kalibri.png",
     role: "Internal Recruiting Support",
-    focus: "ML Engineer Search",
+    focus: "Pause between searches to onboard",
     url: "https://kalibrilabs.com",
     logoBg: "bg-white",
   },
