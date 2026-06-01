@@ -29,20 +29,20 @@ const ENGAGEMENTS: Engagement[] = [
     logoBg: "bg-white",
   },
   {
-    client: "Kalibri Labs",
-    logo: "/logo-kalibri.png",
-    role: "Internal Recruiting Support",
-    focus: "ML Engineer Search",
-    url: "https://kalibrilabs.com",
-    logoBg: "bg-white",
-  },
-  {
     client: "Ludus Labs",
     logo: "/icon-talent.png",
     role: "Lead Talent Consultant",
     focus: "Mission-critical hires. Need-to-know basis.",
     url: "/jobs",
     logoBg: "bg-zinc-900",
+  },
+  {
+    client: "Kalibri Labs",
+    logo: "/logo-kalibri.png",
+    role: "Internal Recruiting Support",
+    focus: "ML Engineer Search",
+    url: "https://kalibrilabs.com",
+    logoBg: "bg-white",
   },
 ];
 
