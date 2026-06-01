@@ -505,7 +505,7 @@ export default function About() {
                   <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Unfinished Rooms</h3>
                   <p className="text-zinc-400 text-sm mb-3 italic">Why Great Employees Keep One Foot Out the Door</p>
                   <p className="text-zinc-300 text-sm leading-relaxed mb-4">
-                    Retention isn&rsquo;t satisfaction. It&rsquo;s cognitive closure. Every unresolved conversation, every unclear expectation, every abandoned project leaves an &ldquo;unfinished room&rdquo; in someone&rsquo;s mind. They keep returning to it. Smart companies close those rooms. Great ones never open them.
+                    Started as a single chapter in Head and Heart. I couldn&rsquo;t let go of the idea. Retention isn&rsquo;t satisfaction, it&rsquo;s cognitive closure. Every unresolved conversation, every unclear expectation, every abandoned project leaves an &ldquo;unfinished room&rdquo; in someone&rsquo;s mind. Smart companies close those rooms. Great ones never open them.
                   </p>
                   <a href="https://a.co/d/00XELail" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-rebel-red text-sm font-semibold no-underline hover:text-white transition-colors">
                     Buy on Amazon <span className="text-xs">&#8594;</span>
