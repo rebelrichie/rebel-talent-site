@@ -304,7 +304,7 @@ export default function About() {
             <ScrollReveal variant="fade-up">
               <div className="grid sm:grid-cols-[160px_1fr] gap-6 sm:gap-10">
                 <div>
-                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">2024 to now</div>
+                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">Oct 2025 to now</div>
                   <div className="text-zinc-300 font-semibold mt-1">Rebel Talent Systems</div>
                 </div>
                 <div className="text-zinc-300 text-base leading-[1.7]">
@@ -323,7 +323,7 @@ export default function About() {
                     Rebel Talent is all me. I embed as your head of talent for a quarter, six months, a year. I build the funnel, write the JDs, source candidates myself, run interview loops, close hires. No junior layer, no handoff, no agency. One operator, your seat.
                   </p>
                   <p className="text-zinc-400">
-                    Got PMP-certified in August. Wrote my first book in December. Wrote the second in March. Built the operator stack I run my business on from scratch: 27 AI agents, a custom ATS/CRM, embedded sourcing pipelines. My clients run inside it.
+                    Wrote the first book by month 3 (Head and Heart, December 2025). Second one by month 6 (Unfinished Rooms, March 2026). Built the operator stack I run my business on from scratch: 27 AI agents, a custom ATS/CRM, embedded sourcing pipelines. My clients run inside it.
                   </p>
                 </div>
               </div>
