@@ -7,10 +7,10 @@ import GlowCard from "@/components/GlowCard";
 
 const podcasts = [
   {
-    show: "The Friday Live with Lauren",
-    network: "LinkedIn Live",
-    episode: "with Richie Lampani",
-    desc: "Live conversation on fractional recruiting, AI in hiring, and what's actually working for operators trying to fill cleared and technical roles in this market.",
+    show: "The Friday Live with Lauren Show",
+    network: "Hosted by Lauren Surman",
+    episode: "Networking and job seeking, with Richie Lampani",
+    desc: "Live conversation with Lauren Surman on how networking actually drives job outcomes, what job seekers get wrong, and how recruiters cut through the noise. \"If I can't, my network can.\"",
     links: [
       { label: "LinkedIn", url: "https://www.linkedin.com/events/thefridaylivewithlaurenshow-sea7447423436546568192/theater/" },
     ],
