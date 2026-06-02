@@ -13,6 +13,7 @@ const podcasts = [
     desc: "Live conversation with Lauren Surman on how networking actually drives job outcomes, what job seekers get wrong, and how recruiters cut through the noise. \"If I can't, my network can.\"",
     links: [
       { label: "LinkedIn", url: "https://www.linkedin.com/events/thefridaylivewithlaurenshow-sea7447423436546568192/theater/" },
+      { label: "YouTube", url: "https://www.youtube.com/watch?v=HDU7gcgP1AU" },
     ],
   },
   {
