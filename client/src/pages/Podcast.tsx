@@ -17,10 +17,10 @@ const podcasts = [
     ],
   },
   {
-    show: "The Resume Is Dead",
+    show: "GovCon Unscripted",
     network: "",
-    episode: "So Are Job Boards. Here's What Federal Hiring Looks Like Now.",
-    desc: "Why traditional applications and job boards don't move the needle in cleared and federal hiring, what hiring managers actually filter on now, and what candidates have to do differently to get seen.",
+    episode: "The Resume Is Dead. So Are Job Boards. Here's What Federal Hiring Looks Like Now.",
+    desc: "Why traditional applications and job boards don't move the needle in cleared and federal hiring, what hiring managers actually filter on now, and what GovCon candidates have to do differently to get seen.",
     links: [
       { label: "YouTube", url: "https://youtu.be/sit2_XuX4v4" },
     ],
