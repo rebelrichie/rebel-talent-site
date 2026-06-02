@@ -29,14 +29,6 @@ const ENGAGEMENTS: Engagement[] = [
     logoBg: "bg-white",
   },
   {
-    client: "Ludus Labs / Ancora",
-    logo: "/icon-talent.png",
-    role: "Lead Talent Consultant",
-    focus: "Mission-critical hires. Need-to-know basis.",
-    url: "/jobs",
-    logoBg: "bg-zinc-900",
-  },
-  {
     client: "Kalibri Labs",
     logo: "/logo-kalibri.png",
     role: "Internal Recruiting Support",
