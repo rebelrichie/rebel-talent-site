@@ -7,6 +7,15 @@ import GlowCard from "@/components/GlowCard";
 
 const podcasts = [
   {
+    show: "The Friday Live with Lauren",
+    network: "LinkedIn Live",
+    episode: "with Richie Lampani",
+    desc: "Live conversation on fractional recruiting, AI in hiring, and what's actually working for operators trying to fill cleared and technical roles in this market.",
+    links: [
+      { label: "LinkedIn", url: "https://www.linkedin.com/events/thefridaylivewithlaurenshow-sea7447423436546568192/theater/" },
+    ],
+  },
+  {
     show: "The Resume Is Dead",
     network: "",
     episode: "So Are Job Boards. Here's What Federal Hiring Looks Like Now.",
