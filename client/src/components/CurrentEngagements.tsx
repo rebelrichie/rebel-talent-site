@@ -29,7 +29,7 @@ const ENGAGEMENTS: Engagement[] = [
     logoBg: "bg-white",
   },
   {
-    client: "Ludus Labs",
+    client: "Ludus Labs / Ancora",
     logo: "/icon-talent.png",
     role: "Lead Talent Consultant",
     focus: "Mission-critical hires. Need-to-know basis.",
