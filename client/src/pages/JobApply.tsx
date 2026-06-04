@@ -22,6 +22,27 @@ interface Job {
   companyName: string;
 }
 
+// Safe addition (2026-06-03): assessment template surfaced inline on the apply
+// form when a role has metadata.assessmentTemplate set. Knockout indices are
+// NOT exposed to the candidate, the server evaluates and silently rejects.
+interface AssessmentQuestion {
+  id: string;
+  prompt: string;
+  helpText?: string;
+  type: 'single_select' | 'multi_select' | 'short_text' | 'long_text' | 'scale';
+  required?: boolean;
+  options?: string[];
+}
+
+interface AssessmentTemplate {
+  id: string;
+  label: string;
+  intro: string;
+  closing: string;
+  estimatedMinutes: number;
+  questions: AssessmentQuestion[];
+}
+
 type SubmitState =
   | { kind: "idle" }
   | { kind: "submitting" }
@@ -46,6 +67,9 @@ export default function JobApply() {
   const [availability, setAvailability] = useState<string>("");
   const [submit, setSubmit] = useState<SubmitState>({ kind: "idle" });
   const fileInputRef = useRef<HTMLInputElement>(null);
+  // Safe addition (2026-06-03): inline screener for sales/high-volume roles
+  const [assessment, setAssessment] = useState<AssessmentTemplate | null>(null);
+  const [assessmentResponses, setAssessmentResponses] = useState<Record<string, unknown>>({});
 
   useEffect(() => {
     if (!id) return;
@@ -56,6 +80,8 @@ export default function JobApply() {
         const data = await r.json();
         if (cancelled) return;
         setJob(data.job);
+        // Safe addition (2026-06-03): pick up screener if role has one
+        if (data.assessment) setAssessment(data.assessment as AssessmentTemplate);
         setJobLoading(false);
       })
       .catch(() => {
@@ -65,6 +91,18 @@ export default function JobApply() {
     return () => { cancelled = true; };
   }, [id]);
 
+  // Safe addition (2026-06-03): assessment required questions must all be answered
+  const assessmentComplete =
+    !assessment ||
+    assessment.questions
+      .filter((q) => q.required)
+      .every((q) => {
+        const v = assessmentResponses[q.id];
+        if (v === undefined || v === null) return false;
+        if (typeof v === "string") return v.trim().length > 0;
+        return true;
+      });
+
   const canSubmit =
     !!id &&
     firstName.trim().length >= 1 &&
@@ -73,6 +111,7 @@ export default function JobApply() {
     !!file &&
     !!workAuth &&
     !!availability &&
+    assessmentComplete &&
     submit.kind !== "submitting";
 
   async function handleSubmit(e: React.FormEvent) {
@@ -91,6 +130,10 @@ export default function JobApply() {
       fd.append("targetComp", targetComp.trim());
       fd.append("availability", availability);
       fd.append("file", file);
+      // Safe addition (2026-06-03): inline screener responses
+      if (assessment) {
+        fd.append("assessmentResponses", JSON.stringify(assessmentResponses));
+      }
 
       const res = await fetch(APPLY_API, { method: "POST", body: fd });
       const data = await res.json().catch(() => ({}));
@@ -383,6 +426,128 @@ export default function JobApply() {
                 {whyThisRole.length}/1000
               </p>
             </div>
+
+            {/* Safe addition (2026-06-03): inline application gate. Renders only
+                when the role has a screener template attached. */}
+            {assessment && assessment.questions.length > 0 && (
+              <div className="rounded-md border border-zinc-800 bg-zinc-950/50 p-5 space-y-5">
+                <div>
+                  <p className="text-xs text-rebel-red font-semibold tracking-[0.2em] uppercase mb-2">
+                    {assessment.label}
+                  </p>
+                  <p className="text-sm text-zinc-300 leading-relaxed">
+                    {assessment.intro}
+                  </p>
+                  <p className="text-xs text-zinc-500 mt-2">
+                    About {assessment.estimatedMinutes} minutes.
+                  </p>
+                </div>
+
+                {assessment.questions.map((q, idx) => (
+                  <div key={q.id} className="border-t border-zinc-800/60 pt-4">
+                    <div className="flex gap-2 mb-2">
+                      <span className="text-rebel-red font-mono text-xs shrink-0 pt-0.5">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                      <div className="min-w-0">
+                        <div className="text-sm text-white font-medium leading-snug">
+                          {q.prompt}
+                          {q.required && <span className="text-rebel-red ml-1">*</span>}
+                        </div>
+                        {q.helpText && (
+                          <div className="text-xs text-zinc-500 mt-1">{q.helpText}</div>
+                        )}
+                      </div>
+                    </div>
+
+                    {q.type === "single_select" && q.options && (
+                      <div className="space-y-1.5 ml-6 mt-2">
+                        {q.options.map((opt, i) => (
+                          <label
+                            key={i}
+                            className={`flex items-center gap-2.5 rounded border px-3 py-2 cursor-pointer transition-colors ${
+                              assessmentResponses[q.id] === i
+                                ? "border-rebel-red/60 bg-red-950/30 text-white"
+                                : "border-zinc-800 hover:border-zinc-700 text-zinc-300"
+                            }`}
+                          >
+                            <input
+                              type="radio"
+                              name={q.id}
+                              checked={assessmentResponses[q.id] === i}
+                              onChange={() =>
+                                setAssessmentResponses((prev) => ({ ...prev, [q.id]: i }))
+                              }
+                              className="accent-rebel-red"
+                            />
+                            <span className="text-sm">{opt}</span>
+                          </label>
+                        ))}
+                      </div>
+                    )}
+
+                    {q.type === "long_text" && (
+                      <textarea
+                        value={
+                          typeof assessmentResponses[q.id] === "string"
+                            ? (assessmentResponses[q.id] as string)
+                            : ""
+                        }
+                        onChange={(e) =>
+                          setAssessmentResponses((prev) => ({
+                            ...prev,
+                            [q.id]: e.target.value,
+                          }))
+                        }
+                        rows={4}
+                        placeholder="Type your answer..."
+                        className="ml-6 w-[calc(100%-1.5rem)] mt-2 rounded border border-zinc-800 bg-black/40 px-3 py-2 text-sm text-white placeholder-zinc-600 focus:border-rebel-red/50 focus:outline-none resize-y"
+                      />
+                    )}
+
+                    {q.type === "short_text" && (
+                      <input
+                        type="text"
+                        value={
+                          typeof assessmentResponses[q.id] === "string"
+                            ? (assessmentResponses[q.id] as string)
+                            : ""
+                        }
+                        onChange={(e) =>
+                          setAssessmentResponses((prev) => ({
+                            ...prev,
+                            [q.id]: e.target.value,
+                          }))
+                        }
+                        placeholder="Type your answer..."
+                        className="ml-6 w-[calc(100%-1.5rem)] mt-2 rounded border border-zinc-800 bg-black/40 px-3 py-2 text-sm text-white placeholder-zinc-600 focus:border-rebel-red/50 focus:outline-none"
+                      />
+                    )}
+
+                    {q.type === "scale" && (
+                      <div className="ml-6 mt-2 flex gap-1.5 flex-wrap">
+                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
+                          <button
+                            key={n}
+                            type="button"
+                            onClick={() =>
+                              setAssessmentResponses((prev) => ({ ...prev, [q.id]: n }))
+                            }
+                            className={`w-8 h-8 rounded text-xs font-semibold transition-colors ${
+                              assessmentResponses[q.id] === n
+                                ? "bg-rebel-red text-white"
+                                : "bg-zinc-900 text-zinc-400 hover:bg-zinc-800"
+                            }`}
+                          >
+                            {n}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
 
             {submit.kind === "error" && (
               <div className="rounded-md border border-red-900 bg-red-950/40 p-3 flex items-start gap-2">
