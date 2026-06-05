@@ -370,7 +370,7 @@ export default function Home() {
     <PageLayout>
       <PageSEO
         title="Fractional Recruiting for Startups & Defense | Rebel Talent"
-        description="Rebel Talent provides fractional recruiting and embedded talent leadership for Series A-C startups and defense contractors. 275% ROI delivered on flagship engagement. 14+ years experience."
+        description="Rebel Talent provides fractional recruiting and embedded talent leadership for Series A-C startups and defense contractors. ~335% ROI delivered on flagship engagement. 14+ years experience."
         path="/"
         ogTitle="Fractional Recruiting for Startups & Defense | Rebel Talent"
         ogDescription="Agencies profit from your chaos. Rebel Talent embeds fractional recruiting leadership to build the hiring infrastructure startups and defense firms need, without the agency fees, bad fits, or delays."
