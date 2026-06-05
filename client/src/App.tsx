@@ -25,6 +25,7 @@ import HiringReadiness from "@/pages/HiringReadiness";
 import Jobs from "@/pages/Jobs";
 import JobDetail from "@/pages/JobDetail";
 import JobApply from "@/pages/JobApply";
+import GeneralApply from "@/pages/GeneralApply";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -54,6 +55,8 @@ function Router() {
       <Route path="/strategy-call" component={StrategyCall} />
       <Route path="/hiring-readiness" component={HiringReadiness} />
       <Route path="/jobs" component={Jobs} />
+      {/* Safe addition (2026-06-05): general application for future-role consideration. */}
+      <Route path="/jobs/general" component={GeneralApply} />
       <Route path="/jobs/:id/apply" component={JobApply} />
       <Route path="/jobs/:id" component={JobDetail} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />

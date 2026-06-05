@@ -352,7 +352,7 @@ export default function Jobs() {
           )}
 
           {!loading && !error && filtered.length === 0 && (
-            <div className="text-center py-16 text-zinc-400">
+            <div className="text-center py-16 text-zinc-400 space-y-5">
               {(query.trim() || activeFilterCount > 0)
                 ? (
                   <>
@@ -367,6 +367,12 @@ export default function Jobs() {
                   </>
                 )
                 : <p>No open roles right now, but new ones drop weekly.</p>}
+              {/* Safe addition (2026-06-05): general application CTA */}
+              <p className="text-sm text-zinc-500 pt-4">
+                Don&rsquo;t see what you&rsquo;re looking for? Submit a {" "}
+                <Link href="/jobs/general" className="text-rebel-red hover:underline">general application</Link>
+                {" "}for future openings.
+              </p>
             </div>
           )}
 
@@ -422,6 +428,21 @@ export default function Jobs() {
                   </ScrollReveal>
                 ))}
               </div>
+
+              {/* Safe addition (2026-06-05): general application discovery card */}
+              <Link
+                href="/jobs/general"
+                className="mt-6 block bg-zinc-950/50 border border-dashed border-zinc-700 rounded-lg p-5 sm:p-6 hover:border-rebel-red/60 hover:bg-zinc-900/40 transition-all group no-underline text-center"
+              >
+                <p className="text-sm text-zinc-300 group-hover:text-white transition-colors">
+                  Don&rsquo;t see your role? Submit a {" "}
+                  <span className="text-rebel-red font-semibold">general application</span>
+                  {" "}for future openings.
+                </p>
+                <p className="text-xs text-zinc-500 mt-1.5">
+                  Cleared, technical, sales, and exec searches open every week.
+                </p>
+              </Link>
             </>
           )}
         </div>
