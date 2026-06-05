@@ -147,11 +147,11 @@ export default function FractionalHeadOfTalent() {
             {[
               { icon: <Users className="w-5 h-5 text-rebel-red" />, title: "Embedded execution", desc: "In your Slack, ATS, hiring-manager 1:1s, candidate calls. You get me on every call, not a coordinator, not a recruiter farm." },
               { icon: <TrendingUp className="w-5 h-5 text-rebel-red" />, title: "~$5K–$8K cost per hire", desc: "Hourly or fixed-fee billing. No success fees. Every hour logged in your dashboard with task descriptions." },
-              { icon: <Clock className="w-5 h-5 text-rebel-red" />, title: "~30 days median time to hire", desc: "Across embedded engagements. Under 30 on EDF's 8 placements. 34 days on Kalibri against a 360-application funnel." },
+              { icon: <Clock className="w-5 h-5 text-rebel-red" />, title: "~30 days median time to hire", desc: "Across embedded engagements. Under 30 on EDF's 9 placements. 34 days on Kalibri against a 360-application funnel." },
               { icon: <Shield className="w-5 h-5 text-rebel-red" />, title: "You own the infrastructure", desc: "ATS, candidate pipeline, interview scorecards, sourcing playbooks, trained hiring managers. Exportable, transferable, yours forever." },
               { icon: <Target className="w-5 h-5 text-rebel-red" />, title: "Proof-first vetting", desc: "Portfolio evidence, structured technical screens, AI-scored match signals on every candidate. Resume polish isn't a pipeline." },
               { icon: <CheckCircle className="w-5 h-5 text-rebel-red" />, title: "Hiring manager coaching built in", desc: "Interview calibration, scorecard training, decision frameworks. Your team gets better at hiring even after the engagement ends." },
-              { icon: <Zap className="w-5 h-5 text-rebel-red" />, title: "Long-term ROI that compounds", desc: "470%+ projected on the EDF flagship, $240K+ in fees avoided on ~$88K invested. Every system carries to the next 50 hires." },
+              { icon: <Zap className="w-5 h-5 text-rebel-red" />, title: "Long-term ROI that compounds", desc: "470%+ projected on the EDF flagship, $294K+ in fees avoided across 9 placements on ~$88K invested. Every system carries to the next 50 hires." },
             ].map((item) => (
               <div
                 key={item.title}
@@ -183,7 +183,7 @@ export default function FractionalHeadOfTalent() {
             {[
               { value: "53K+", label: "LinkedIn Followers" },
               { value: "8K", label: "Newsletter Subs" },
-              { value: "$240K+", label: "Agency Fees Avoided" },
+              { value: "$294K+", label: "Agency Fees Avoided" },
               { value: "<30", label: "Days to Hire" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">

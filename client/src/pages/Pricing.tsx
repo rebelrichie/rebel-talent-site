@@ -48,7 +48,7 @@ const pricingFaqSchema = {
       "name": "Why no contingency?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Because contingency breaks incentives. A contingency recruiter gets paid $30K+ only when someone gets hired, so they're incentivized to push candidates through fast, oversell fits, and move on. I'm incentivized to build systems that make your hiring permanently better. The math works out in your favor: $240K+ in agency fees avoided for one client over 8 months."
+        "text": "Because contingency breaks incentives. A contingency recruiter gets paid $30K+ only when someone gets hired, so they're incentivized to push candidates through fast, oversell fits, and move on. I'm incentivized to build systems that make your hiring permanently better. The math works out in your favor: $294K+ in agency fees avoided for one client across 9 placements."
       }
     },
     {
@@ -113,8 +113,8 @@ export default function Pricing() {
           <div className="max-w-7xl mx-auto px-6 lg:px-12 py-8 sm:py-10">
             <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl">
               {[
-                { value: "$240K+", label: "Agency Fees Avoided" },
-                { value: "275%", label: "ROI Delivered" },
+                { value: "$294K+", label: "Agency Fees Avoided" },
+                { value: "335%", label: "ROI Delivered" },
                 { value: "~30", label: "Days Median Time to Hire" },
               ].map((s) => (
                 <div key={s.label}>
@@ -124,7 +124,7 @@ export default function Pricing() {
               ))}
             </div>
             <p className="text-zinc-600 text-[11px] font-medium tracking-wider uppercase mt-5">
-              EarthDaily Federal, 5 FTE + 3 contractors in 8 months
+              EarthDaily Federal, 6 FTE + 3 contractors across 9 placements
             </p>
           </div>
         </div>
@@ -414,7 +414,7 @@ export default function Pricing() {
                   Why no contingency?
                 </AccordionTrigger>
                 <AccordionContent className="text-zinc-400 text-sm leading-relaxed pb-5">
-                  Because contingency breaks incentives. A contingency recruiter gets paid $30K+ only when someone gets hired. That means they're incentivized to push candidates through fast, oversell fits, and move on to the next fee. I'm incentivized to build systems that make your hiring permanently better, because that's what you're paying me to do. The math works out in your favor: $240K+ in agency fees avoided for one client over 8 months.
+                  Because contingency breaks incentives. A contingency recruiter gets paid $30K+ only when someone gets hired. That means they're incentivized to push candidates through fast, oversell fits, and move on to the next fee. I'm incentivized to build systems that make your hiring permanently better, because that's what you're paying me to do. The math works out in your favor: $294K+ in agency fees avoided for one client across 9 placements.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="what-if-not-working" className="border border-zinc-800 bg-zinc-900/30 px-6">

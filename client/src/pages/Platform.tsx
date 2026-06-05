@@ -190,7 +190,7 @@ export default function Platform() {
                 { icon: <Users className="w-4 h-4" />, title: "Talent Spotlight", desc: "Anonymous, categorized talent directory. AI/ML, Executive, Cleared, and ALLSTAR tiers, filtered and surfaced for hiring companies." },
                 { icon: <Send className="w-4 h-4" />, title: "Intro Requests", desc: "Companies request intros to anonymous candidates. 4-step lead capture with full fee acknowledgment." },
                 { icon: <Zap className="w-4 h-4" />, title: "Job Syndication", desc: "Open roles from Command auto-publish to the public job board. One system of record, one source of truth." },
-                { icon: <TrendingUp className="w-4 h-4" />, title: "Proof in Public", desc: "Case studies, ROI numbers, and results, all live. $240K+ in agency fees avoided. 470%+ projected ROI." },
+                { icon: <TrendingUp className="w-4 h-4" />, title: "Proof in Public", desc: "Case studies, ROI numbers, and results, all live. $294K+ in agency fees avoided. 470%+ projected ROI." },
               ].map((f, i) => (
                 <ScrollReveal key={f.title} variant="fade-up" delay={i * 100}>
                 <GlowCard className="border border-zinc-800 bg-zinc-900/30 p-4">

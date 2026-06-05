@@ -19,8 +19,8 @@ const caseStudySchema = {
       "position": 1,
       "item": {
         "@type": "Article",
-        "headline": "EarthDaily Federal: $240K+ Agency Fees Avoided, 275% ROI in 8 Months",
-        "description": "Defense-sector geospatial intelligence firm. Zero recruiting infrastructure. Built ATS, SOPs, sourcing playbooks, and placed 8 roles (5 FTE + 3 contracts) with 275% ROI on a fractional recruiting retainer. 470%+ projected at full pipeline close.",
+        "headline": "EarthDaily Federal: $294K+ Agency Fees Avoided, 9 Placements",
+        "description": "Defense-sector geospatial intelligence firm. Zero recruiting infrastructure. Built ATS, SOPs, sourcing playbooks, and placed 9 roles (6 FTE + 3 contracts) with ~335% ROI on a fractional recruiting retainer. 470%+ projected at full pipeline close.",
         "url": "https://rebeltalentsystems.com/case-studies",
         "author": { "@type": "Person", "name": "Richie Lampani" },
         "publisher": { "@type": "Organization", "name": "Rebel Talent" }
@@ -58,10 +58,10 @@ export default function CaseStudies() {
     <PageLayout>
       <PageSEO
         title="Startup & Defense Recruiting Case Studies | Rebel Talent"
-        description="Real results from real engagements. EarthDaily Federal: $240K+ saved, 275% ROI delivered (470%+ projected). Kalibri Labs: 34 days to signed offer against 360+ AI-polished apps. Legal: 18 hires, 90% retention."
+        description="Real results from real engagements. EarthDaily Federal: $294K+ saved, ~335% ROI delivered (470%+ projected). Kalibri Labs: 34 days to signed offer against 360+ AI-polished apps. Legal: 18 hires, 90% retention."
         path="/case-studies"
         ogTitle="Startup & Defense Recruiting Case Studies | Rebel Talent"
-        ogDescription="Proof over promises. EarthDaily: $240K+ saved, 275% ROI delivered. Kalibri Labs: 34 days to signed offer, zero applicants from 360+ inbound made finals. Legal: 18 hires, 90% retention."
+        ogDescription="Proof over promises. EarthDaily: $294K+ saved across 9 placements. Kalibri Labs: 34 days to signed offer, zero applicants from 360+ inbound made finals. Legal: 18 hires, 90% retention."
         ogImage="og-case-studies.png"
         schemas={[caseStudySchema]}
         breadcrumbs={[
@@ -87,7 +87,7 @@ export default function CaseStudies() {
             <span className="text-rebel-red">Quantifiable impact.</span>
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            $240K saved. 470%+ projected ROI. Zero agency fees. No vague claims, only metrics that map to dollars.
+            $294K saved. 470%+ projected ROI. Zero agency fees. No vague claims, only metrics that map to dollars.
           </p>
         </div>
       </section>
@@ -111,8 +111,8 @@ export default function CaseStudies() {
 
             <div className="grid grid-cols-3 gap-4 mb-8">
               {[
-                { value: "$240K+", label: "FEES AVOIDED", sub: "8 placements, no agency" },
-                { value: "~275%", label: "ROI", sub: "8 months, ~$88K invested" },
+                { value: "$294K+", label: "FEES AVOIDED", sub: "9 placements, no agency" },
+                { value: "~335%", label: "ROI", sub: "~$88K invested to date" },
                 { value: "8", label: "ROLES PLACED", sub: "5 more in pipeline" },
               ].map((stat) => (
                 <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-5 text-center">
@@ -178,6 +178,7 @@ export default function CaseStudies() {
                   <tbody className="text-zinc-400">
                     {[
                       { role: "VP of Growth", type: "FTE", fee: "~$55,000" },
+                      { role: "Director of Strategic Partnerships", type: "FTE", fee: "~$50,000" },
                       { role: "AI Engineer", type: "FTE", fee: "~$43,000" },
                       { role: "Backend Engineer", type: "FTE", fee: "~$41,000" },
                       { role: "Controller", type: "FTE", fee: "~$31,000" },
@@ -195,8 +196,8 @@ export default function CaseStudies() {
                       </tr>
                     ))}
                     <tr className="border-t border-zinc-700">
-                      <td colSpan={2} className="py-2 pr-4 text-zinc-300 font-bold">TOTAL AVOIDED (8 placements)</td>
-                      <td className="py-2 text-right font-mono text-rebel-red font-bold">$244,000+</td>
+                      <td colSpan={2} className="py-2 pr-4 text-zinc-300 font-bold">TOTAL AVOIDED (9 placements)</td>
+                      <td className="py-2 text-right font-mono text-rebel-red font-bold">$294,000+</td>
                     </tr>
                   </tbody>
                 </table>
@@ -212,7 +213,7 @@ export default function CaseStudies() {
                   { label: "Cost structure", value: "Flat monthly retainer, no success fees, no surprise invoices when each hire closed." },
                   { label: "Institutional knowledge", value: "Process documentation, sourcing playbooks, and pipeline history stayed inside EDF when the engagement scaled down." },
                   { label: "Process ownership", value: "Custom ATS, scorecards, and SOPs handed off to the internal team, owned, exportable, and auditable." },
-                  { label: "Candidate experience", value: "Standardized across all 8 placements: same screening rigor, same interview frameworks, same communication cadence." },
+                  { label: "Candidate experience", value: "Standardized across all 9 placements: same screening rigor, same interview frameworks, same communication cadence." },
                   { label: "Infrastructure built", value: "Custom ATS with clearance tracking, sourcing playbooks by role type, interview scorecards, and reporting dashboards." },
                   { label: "What EDF owns at the end", value: "A working recruiting function, not just a stack of hires." },
                 ].map((row) => (
@@ -233,8 +234,8 @@ export default function CaseStudies() {
               <div className="grid grid-cols-2 gap-px bg-zinc-700/40 mb-5">
                 <div className="bg-[#0d0d14] px-4 py-3">
                   <div className="text-zinc-500 text-[10px] font-mono tracking-widest uppercase mb-2">Confirmed Fees Avoided</div>
-                  <div className="text-white font-display text-xl font-bold mb-0.5">$240K+</div>
-                  <div className="text-zinc-500 text-xs">8 placements closed, no agency</div>
+                  <div className="text-white font-display text-xl font-bold mb-0.5">$294K+</div>
+                  <div className="text-zinc-500 text-xs">9 placements closed, no agency</div>
                 </div>
                 <div className="bg-[#0d0d14] px-4 py-3">
                   <div className="text-zinc-500 text-[10px] font-mono tracking-widest uppercase mb-2">Projected at Full Pipeline Close</div>
@@ -243,7 +244,7 @@ export default function CaseStudies() {
                 </div>
                 <div className="bg-[#0d0d14] px-4 py-3">
                   <div className="text-zinc-500 text-[10px] font-mono tracking-widest uppercase mb-2">Current ROI</div>
-                  <div className="text-white font-display text-xl font-bold mb-0.5">~275%</div>
+                  <div className="text-white font-display text-xl font-bold mb-0.5">~335%</div>
                   <div className="text-zinc-500 text-xs">~$88K invested over 8 months</div>
                 </div>
                 <div className="bg-[#0d0d14] px-4 py-3">
@@ -254,7 +255,7 @@ export default function CaseStudies() {
               </div>
 
               <p className="text-zinc-400 text-sm leading-relaxed mb-3">
-                $240K+ in fees avoided across 8 placements. A custom ATS with clearance tracking, sourcing playbooks by role type, structured interview scorecards, and a documented hiring process, all handed off and owned by EDF when the engagement scaled down.
+                $294K+ in fees avoided across 9 placements. A custom ATS with clearance tracking, sourcing playbooks by role type, structured interview scorecards, and a documented hiring process, all handed off and owned by EDF when the engagement scaled down.
               </p>
               <p className="text-zinc-300 text-sm leading-relaxed">
                 <span className="text-rebel-red font-mono font-bold">Every future hire EDF makes runs on infrastructure I built. That compounds.</span>
