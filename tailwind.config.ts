@@ -94,9 +94,10 @@ export default {
       },
       fontFamily: {
         sans: ["'Inter'", "system-ui", "sans-serif"],
-        serif: ["Georgia", "serif"],
+        serif: ["'Fraunces'", "Georgia", "serif"],
         mono: ["'JetBrains Mono'", "'Fira Code'", "monospace"],
         display: ["'Oswald'", "sans-serif"],
+        editorial: ["'Fraunces'", "Georgia", "serif"],
       },
       keyframes: {
         "accordion-down": {
@@ -111,6 +112,14 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      // Lift the base type scale slightly for marketing readability.
+      // text-xs: 12 -> 13, text-sm: 14 -> 15, text-base: 16 -> 17.
+      // Larger sizes (lg/xl/2xl/etc.) keep Tailwind defaults so headlines aren't disturbed.
+      fontSize: {
+        xs:   ["0.8125rem", { lineHeight: "1.15rem" }],   // 13px
+        sm:   ["0.9375rem", { lineHeight: "1.4rem" }],    // 15px
+        base: ["1.0625rem", { lineHeight: "1.65rem" }],   // 17px
       },
     },
   },

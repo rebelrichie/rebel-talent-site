@@ -19,12 +19,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://rebeltalentsystems.com/platform</loc>
-    <lastmod>2026-04-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://rebeltalentsystems.com/how-it-works</loc>
     <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
@@ -91,10 +85,22 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://rebeltalentsystems.com/rachael</loc>
-    <lastmod>2026-04-14</lastmod>
+    <loc>https://rebeltalentsystems.com/jobs</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://rebeltalentsystems.com/strategy-call</loc>
+    <lastmod>2026-05-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://rebeltalentsystems.com/hiring-readiness</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://rebeltalentsystems.com/privacy-policy</loc>

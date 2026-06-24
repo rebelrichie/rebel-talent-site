@@ -10,10 +10,10 @@ export default function Platform() {
     <PageLayout>
       <PageSEO
         title="The Rebel Platform | Rebel Talent Systems"
-        description="Three apps, one ecosystem. Rebel Command, Rebel Apply, and Rebel Talent — AI-powered recruiting infrastructure that you own."
+        description="I built this. Three integrated apps running my recruiting operation in production. It's not for sale, but when you work with me, it's what I work with."
         path="/platform"
         ogTitle="The Rebel Platform | Rebel Talent Systems"
-        ogDescription="Stop vibe-coding your own recruiting tools. The Rebel Platform gives you pipeline management, talent capture, and public branding in one integrated system."
+        ogDescription="This isn't a SaaS product. It's the recruiting infrastructure I built from scratch and run on real client work daily. When you engage Rebel Talent, this is what's behind it."
         ogImage="og-platform.png"
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
@@ -30,11 +30,12 @@ export default function Platform() {
               THE REBEL PLATFORM
             </div>
             <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-4">
-              Three apps. One ecosystem.<br />Zero agency dependency.
+              I built this.<br />It's not for sale.
             </h1>
             <p className="text-zinc-400 text-base max-w-2xl mx-auto leading-relaxed">
-              Stop cobbling together Ashby, Lever, LinkedIn Recruiter, spreadsheets, and Notion.
-              The Rebel Platform is a fully integrated recruiting infrastructure built for operators who refuse to settle for broken tools.
+              Three integrated applications running my entire recruiting operation in production.
+              No off-the-shelf ATS. No bolted-together tool stack. I built what I needed because
+              nothing that existed was good enough. When you work with me, this is what you're working with.
             </p>
           </div>
           </ScrollReveal>
@@ -73,6 +74,18 @@ export default function Platform() {
               </a>
             ))}
           </div>
+
+          {/* Ownership statement */}
+          <ScrollReveal variant="fade-up">
+          <div className="max-w-2xl mx-auto border border-zinc-800 bg-zinc-900/30 px-8 py-6 text-center">
+            <p className="text-zinc-300 text-sm leading-relaxed">
+              This system runs on real client work. It is not a demo environment, not a prototype,
+              and not a pitch deck. It processes real candidates, real pipelines, and real placements
+              every day. I built it, I maintain it, and I own it completely.
+              <span className="text-rebel-red font-semibold"> It is not available as a standalone product.</span>
+            </p>
+          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -84,22 +97,25 @@ export default function Platform() {
             <div className="sm:w-1/3">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">APP 01</div>
               <h2 className="font-display text-2xl font-bold text-white uppercase mb-2">Rebel Command</h2>
-              <p className="text-zinc-400 text-base">The operator war room. Your single source of truth for pipeline, candidates, and revenue.</p>
+              <p className="text-zinc-400 text-base leading-relaxed">
+                My operating system. Pipeline management, AI agents, outreach, revenue tracking,
+                and the daily brief, all in one place. Clients get visibility. I get control.
+              </p>
               <a href="/command" className="inline-block mt-4">
                 <Button variant="outline" size="sm" className="font-display tracking-wider uppercase text-xs border-zinc-700 text-zinc-300">
-                  See Demo <ArrowRight className="ml-2 w-3 h-3" />
+                  See It Live <ArrowRight className="ml-2 w-3 h-3" />
                 </Button>
               </a>
             </div>
             </ScrollReveal>
             <div className="sm:w-2/3 grid grid-cols-2 gap-3">
               {[
-                { icon: <BarChart3 className="w-4 h-4" />, title: "Real-Time Pipeline", desc: "Kanban board with customizable stages, drag-and-drop, and instant status updates." },
-                { icon: <Brain className="w-4 h-4" />, title: "23 AI Agents", desc: "Sourcing, interview prep, briefs, follow-ups, and onboarding — all automated." },
-                { icon: <Send className="w-4 h-4" />, title: "One-Click Outreach", desc: "Send scheduling emails, follow-ups, and submission packets in a single click." },
-                { icon: <Layers className="w-4 h-4" />, title: "Templates Engine", desc: "Manage and version prompt templates for every agent across your workflow." },
-                { icon: <TrendingUp className="w-4 h-4" />, title: "Revenue Tracking", desc: "Contracts, invoices, time entries, and ROI — all in one dashboard." },
-                { icon: <Eye className="w-4 h-4" />, title: "Activity Audit Trail", desc: "Every action logged. Full visibility into pipeline changes and agent runs." },
+                { icon: <BarChart3 className="w-4 h-4" />, title: "Real-Time Pipeline", desc: "Kanban board with customizable stages, drag-and-drop, and instant status updates across every active role." },
+                { icon: <Brain className="w-4 h-4" />, title: "27 AI Agents", desc: "Sourcing, interview prep, daily briefs, follow-ups, and outreach, all automated and running in production." },
+                { icon: <Send className="w-4 h-4" />, title: "One-Click Outreach", desc: "Scheduling emails, follow-ups, and submission packets sent in a single click. No copy-paste, no manual formatting." },
+                { icon: <Layers className="w-4 h-4" />, title: "Templates Engine", desc: "Every agent prompt versioned and managed. Consistent output across every role and every client." },
+                { icon: <TrendingUp className="w-4 h-4" />, title: "Revenue Tracking", desc: "Contracts, invoices, time entries, and ROI, one dashboard, not four spreadsheets." },
+                { icon: <Eye className="w-4 h-4" />, title: "Full Audit Trail", desc: "Every action logged. Every pipeline change recorded. Nothing falls through the cracks." },
               ].map((f, i) => (
                 <ScrollReveal key={f.title} variant="fade-up" delay={i * 100}>
                 <GlowCard className="border border-zinc-800 bg-zinc-900/30 p-4">
@@ -122,7 +138,10 @@ export default function Platform() {
             <div className="sm:w-1/3">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">APP 02</div>
               <h2 className="font-display text-2xl font-bold text-white uppercase mb-2">Rebel Apply</h2>
-              <p className="text-zinc-400 text-base">The candidate portal. Proof-first profiles, video intros, and 1-click applications.</p>
+              <p className="text-zinc-400 text-base leading-relaxed">
+                The candidate-facing portal. Built because resume-only applications don't tell me what I need to know.
+                Candidates prove it before I pick up the phone.
+              </p>
               <a href="https://rebelapply.com" target="_blank" rel="noopener noreferrer" className="inline-block mt-4">
                 <Button variant="outline" size="sm" className="font-display tracking-wider uppercase text-xs border-zinc-700 text-zinc-300">
                   Visit Rebel Apply <ArrowRight className="ml-2 w-3 h-3" />
@@ -132,12 +151,12 @@ export default function Platform() {
             </ScrollReveal>
             <div className="sm:w-2/3 grid grid-cols-2 gap-3">
               {[
-                { icon: <Target className="w-4 h-4" />, title: "Portfolio-First Profiles", desc: "Candidates lead with work, not buzzwords. Portfolio projects, deliverables, and evidence." },
-                { icon: <Eye className="w-4 h-4" />, title: "60-Second Video Intros", desc: "See personality and communication before the first call. AI-transcribed and summarized." },
-                { icon: <Zap className="w-4 h-4" />, title: "AI Resume Parsing", desc: "Upload a resume, auto-populate the entire profile. Experience, education, skills — extracted." },
-                { icon: <Shield className="w-4 h-4" />, title: "Evidence Boost", desc: "Optional section for key deliverables that prove impact — not just job titles." },
-                { icon: <BarChart3 className="w-4 h-4" />, title: "Profile Studio", desc: "AI coaching that scores your profile, suggests improvements, and tracks discoverability." },
-                { icon: <Lock className="w-4 h-4" />, title: "Privacy First", desc: "Anonymous Spotlight profiles. Names never shown publicly. Candidates control visibility." },
+                { icon: <Target className="w-4 h-4" />, title: "Portfolio-First Profiles", desc: "Work samples, deliverables, and proof, not buzzwords. I see what candidates have actually built." },
+                { icon: <Eye className="w-4 h-4" />, title: "60-Second Video Intros", desc: "Communication and personality before the first call. AI-transcribed, searchable, and linked to the pipeline." },
+                { icon: <Zap className="w-4 h-4" />, title: "AI Resume Parsing", desc: "Resume uploads auto-populate the entire profile. No manual entry, no reformatting." },
+                { icon: <Shield className="w-4 h-4" />, title: "Evidence Boost", desc: "Optional section for key deliverables that prove impact, not just job titles and dates." },
+                { icon: <BarChart3 className="w-4 h-4" />, title: "Profile Studio", desc: "AI coaching that scores profiles and surfaces gaps before candidates hit the pipeline." },
+                { icon: <Lock className="w-4 h-4" />, title: "Privacy First", desc: "Anonymous Spotlight listings. Names never shown publicly. Candidates control their own visibility." },
               ].map((f, i) => (
                 <ScrollReveal key={f.title} variant="fade-up" delay={i * 100}>
                 <GlowCard className="border border-zinc-800 bg-zinc-900/30 p-4">
@@ -160,15 +179,18 @@ export default function Platform() {
             <div className="sm:w-1/3">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">APP 03</div>
               <h2 className="font-display text-2xl font-bold text-white uppercase mb-2">Rebel Talent</h2>
-              <p className="text-zinc-400 text-base">The public layer. Employer branding, talent spotlight, and the front door to your network.</p>
+              <p className="text-zinc-400 text-base leading-relaxed">
+                The public layer. Employer branding, talent spotlight, and the front door to the network.
+                Everything Command manages privately shows up here on my terms.
+              </p>
             </div>
             </ScrollReveal>
             <div className="sm:w-2/3 grid grid-cols-2 gap-3">
               {[
-                { icon: <Users className="w-4 h-4" />, title: "Talent Spotlight", desc: "Anonymous, categorized talent directory. Filtered by AI/ML, Executive, Cleared, and ALLSTAR tiers." },
-                { icon: <Send className="w-4 h-4" />, title: "Request Introductions", desc: "Companies request intros to anonymous candidates. 4-step lead capture with fee acknowledgment." },
-                { icon: <Zap className="w-4 h-4" />, title: "Job Syndication", desc: "Open roles from the Command Center auto-publish to the public job board." },
-                { icon: <TrendingUp className="w-4 h-4" />, title: "Case Studies & Proof", desc: "Real results — 350% ROI, $178K in agency fees avoided, 30-day average time to hire." },
+                { icon: <Users className="w-4 h-4" />, title: "Talent Spotlight", desc: "Anonymous, categorized talent directory. AI/ML, Executive, Cleared, and ALLSTAR tiers, filtered and surfaced for hiring companies." },
+                { icon: <Send className="w-4 h-4" />, title: "Intro Requests", desc: "Companies request intros to anonymous candidates. 4-step lead capture with full fee acknowledgment." },
+                { icon: <Zap className="w-4 h-4" />, title: "Job Syndication", desc: "Open roles from Command auto-publish to the public job board. One system of record, one source of truth." },
+                { icon: <TrendingUp className="w-4 h-4" />, title: "Proof in Public", desc: "Case studies, ROI numbers, and results, all live. $294K+ in agency fees avoided. 470%+ projected ROI." },
               ].map((f, i) => (
                 <ScrollReveal key={f.title} variant="fade-up" delay={i * 100}>
                 <GlowCard className="border border-zinc-800 bg-zinc-900/30 p-4">
@@ -183,53 +205,26 @@ export default function Platform() {
         </div>
       </section>
 
-      {/* How It All Connects */}
+      {/* Why it matters */}
       <section className="py-12 border-t border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-10">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">ARCHITECTURE</div>
-            <h2 className="font-display text-2xl font-bold text-white uppercase">How It All Connects</h2>
-          </div>
-          </ScrollReveal>
-          <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
-            {[
-              { step: "01", title: "Candidates apply through Rebel Apply", desc: "Portfolio, video intro, evidence. No cover letters. No fluff. The profile auto-syncs to Command." },
-              { step: "02", title: "Operators manage everything in Command", desc: "Pipeline, outreach, AI agents, templates, scheduling — one war room. Drag a card, send an email, generate a brief." },
-              { step: "03", title: "Companies discover talent on Rebel Talent", desc: "Anonymous Spotlight profiles, job listings, intro requests. The public layer that drives inbound." },
-            ].map((s, i) => (
-              <ScrollReveal key={s.step} variant="fade-up" delay={i * 150}>
-              <GlowCard className="border border-zinc-800 bg-zinc-900/30 p-6 text-center">
-                <div className="font-mono text-rebel-red text-2xl font-bold mb-3">{s.step}</div>
-                <div className="font-display text-sm font-bold text-white uppercase mb-2">{s.title}</div>
-                <div className="text-zinc-400 text-base leading-relaxed">{s.desc}</div>
-              </GlowCard>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Not Just Build Your Own */}
-      <section className="py-12 border-t border-zinc-800/50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <ScrollReveal variant="fade-up">
-          <div className="text-center mb-10">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">REAL TALK</div>
-            <h2 className="font-display text-2xl font-bold text-white uppercase">Why not just vibe-code your own?</h2>
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">WHY THIS MATTERS TO YOU</div>
+            <h2 className="font-display text-2xl font-bold text-white uppercase">What you actually get</h2>
           </div>
           </ScrollReveal>
           <div className="grid sm:grid-cols-2 gap-3 max-w-3xl mx-auto">
             {[
-              "You'll spend 6 months building what we deployed last week",
-              "Your Notion + Airtable + Zapier stack will collapse at 20 hires",
-              "AI agents need prompt engineering, cost tracking, and failover — not just a ChatGPT wrapper",
-              "Compliance, consent tracking, and audit trails aren't optional anymore",
-              "Your engineers should be building your product, not your ATS",
-              "We've already made every mistake so you don't have to",
+              "You're not a beta user. This system runs on active client work, today.",
+              "Every agent, workflow, and integration was built for a real recruiting problem, not a demo.",
+              "You don't pay for the platform separately. It's part of how I work.",
+              "The infrastructure your engagement runs on took years and every mistake I made to build.",
+              "No vendor dependency. No platform lock-in. No 'we're deprecating this feature.'",
+              "When the engagement ends, you know exactly what was done and how. It's documented.",
             ].map((item) => (
               <div key={item} className="flex items-start gap-3 border border-zinc-800/50 bg-zinc-900/20 px-4 py-3">
-                <span className="text-rebel-red font-mono font-bold text-xs mt-0.5 shrink-0">X</span>
+                <span className="text-rebel-red font-mono font-bold text-xs mt-0.5 shrink-0">&gt;</span>
                 <span className="text-zinc-400 text-sm">{item}</span>
               </div>
             ))}
@@ -242,22 +237,16 @@ export default function Platform() {
         <ScrollReveal variant="scale">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <img src="/logo.png" alt="Rebel Talent" className="w-16 h-16 mx-auto mb-6" />
-          <h2 className="font-display text-2xl font-bold text-white uppercase mb-3">Ready to ditch the agency model?</h2>
+          <h2 className="font-display text-2xl font-bold text-white uppercase mb-3">Work with me. Use the system.</h2>
           <p className="text-zinc-400 text-sm mb-8 max-w-lg mx-auto">
-            Book a strategy call. We'll show you the platform live and map it to your hiring needs.
+            The platform isn't something you buy. It's what you get when you bring me in.
+            Book a call and let's talk about what your hiring actually needs.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="w-full sm:w-auto font-display tracking-wider uppercase text-sm px-8">
-                Book Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </a>
-            <a href="https://rebelapply.com/spotlight" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto font-display tracking-wider uppercase text-sm px-8 border-zinc-700 text-zinc-300">
-                Browse Spotlight Talent
-              </Button>
-            </a>
-          </div>
+          <a href="/strategy-call" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="font-display tracking-wider uppercase text-sm px-8">
+              Book a Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </a>
         </div>
         </ScrollReveal>
       </section>

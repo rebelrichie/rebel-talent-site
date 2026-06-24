@@ -20,15 +20,16 @@ const ROUTES = [
   "/testimonials",
   "/case-studies",
   "/podcast",
-  "/platform",
   "/command",
   "/free-tools",
   "/blog",
   "/certification",
   "/fractional-head-of-talent",
   "/fractional-recruiting-services",
-  "/rachael",
+  "/strategy-call",
+  "/hiring-readiness",
   "/privacy-policy",
+  "/jobs",
 ];
 
 // Simple static file server for the built dist
@@ -75,8 +76,29 @@ function startServer() {
   });
 }
 
+// Safe addition — fetch all open job IDs so we can pre-render /jobs/:id for each one.
+// Each detail page bakes JobPosting JSON-LD into the HTML for Google Jobs indexing.
+async function fetchJobRoutes() {
+  try {
+    const res = await fetch("https://rebelapply.com/api/public/jobs");
+    if (!res.ok) {
+      console.warn(`[prerender] jobs fetch failed (${res.status}) — skipping detail pages`);
+      return [];
+    }
+    const data = await res.json();
+    const ids = (data.jobs || []).map((j) => j.id).filter(Boolean);
+    console.log(`[prerender] Fetched ${ids.length} open role IDs for detail pre-render`);
+    return ids.map((id) => `/jobs/${id}`);
+  } catch (err) {
+    console.warn(`[prerender] jobs fetch errored — skipping detail pages: ${err.message}`);
+    return [];
+  }
+}
+
 async function prerender() {
-  console.log(`[prerender] Starting pre-render of ${ROUTES.length} routes...`);
+  const jobRoutes = await fetchJobRoutes();
+  const allRoutes = [...ROUTES, ...jobRoutes];
+  console.log(`[prerender] Starting pre-render of ${allRoutes.length} routes (${ROUTES.length} static + ${jobRoutes.length} role detail)...`);
 
   const server = await startServer();
   const browser = await launch({ headless: true, args: ["--no-sandbox"] });
@@ -84,7 +106,7 @@ async function prerender() {
   let success = 0;
   let failed = 0;
 
-  for (const route of ROUTES) {
+  for (const route of allRoutes) {
     try {
       const page = await browser.newPage();
       await page.goto(`http://localhost:${PORT}${route}`, {

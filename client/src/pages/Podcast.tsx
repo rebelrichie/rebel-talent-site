@@ -7,9 +7,28 @@ import GlowCard from "@/components/GlowCard";
 
 const podcasts = [
   {
+    show: "The Friday Live with Lauren Show",
+    network: "Hosted by Lauren Surman",
+    episode: "Networking and job seeking, with Richie Lampani",
+    desc: "Live conversation with Lauren Surman on how networking actually drives job outcomes, what job seekers get wrong, and how recruiters cut through the noise. \"If I can't, my network can.\"",
+    links: [
+      { label: "LinkedIn", url: "https://www.linkedin.com/events/thefridaylivewithlaurenshow-sea7447423436546568192/theater/" },
+      { label: "YouTube", url: "https://www.youtube.com/watch?v=HDU7gcgP1AU" },
+    ],
+  },
+  {
+    show: "GovCon Unscripted",
+    network: "Hosted by Chelsea Roberts",
+    episode: "The Resume Is Dead. So Are Job Boards. Here's What Federal Hiring Looks Like Now.",
+    desc: "Conversation with Chelsea Roberts on why traditional applications and job boards don't move the needle in cleared and federal hiring, what hiring managers actually filter on now, and what GovCon candidates have to do differently to get seen.",
+    links: [
+      { label: "YouTube", url: "https://youtu.be/sit2_XuX4v4" },
+    ],
+  },
+  {
     show: "Guidance Counselor 2.0",
     network: "",
-    episode: "Episode 508 — Finding Your Next Job w/ Recruiter Richie Lampani",
+    episode: "Episode 508: Finding Your Next Job w/ Recruiter Richie Lampani",
     desc: "Best practices for finding a job in this market. What recruiters actually look for, how to stand out, and what most candidates get wrong.",
     links: [
       { label: "Spotify", url: "https://open.spotify.com/episode/1dhrouxEGZjljlQUzXwgLx" },
@@ -107,24 +126,25 @@ export default function Podcast() {
           { name: "Podcast", item: "https://rebeltalentsystems.com/podcast" },
         ]}
       />
-      <section className="space-hero py-20 sm:py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <ScrollReveal variant="fade-up" immediate>
-          <div className="mb-16">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-              MEDIA
-            </div>
-            <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-4" data-testid="heading-podcast">
-              Fractional Recruiting Podcast Appearances | Richie Lampani
-            </h1>
-            <p className="text-rebel-red font-display text-lg uppercase tracking-wider mb-4">
-              Straight talk on recruiting, AI, talent systems, and why most hiring is broken.
-            </p>
-            <p className="text-zinc-400 text-sm leading-relaxed max-w-2xl">
-              I've been featured on recruiting, cybersecurity, and startup podcasts to discuss fractional recruiting, startup recruiting strategy, talent infrastructure, AI in hiring, cleared hiring for defense contractors, and why most companies fail at building effective talent systems. No corporate scripts. No fluff. Just real answers.
-            </p>
-          </div>
-          </ScrollReveal>
+      {/* HERO, Hunt Club / Riviera register */}
+      <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%)" }} />
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
+          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-500 mb-6 sm:mb-10">
+            Media &amp; Press
+          </p>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-5xl" data-testid="heading-podcast">
+            Straight talk on recruiting,<br />
+            <span className="text-rebel-red">AI, and broken hiring.</span>
+          </h1>
+          <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
+            Featured on recruiting, cybersecurity, and startup podcasts on fractional recruiting, talent infrastructure, AI in hiring, and cleared hiring for defense. No corporate scripts. No fluff. Just real answers.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-rebel-space pt-4 pb-16 sm:pb-24 border-t border-zinc-900">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
 
           <div className="space-y-4 mb-16">
             {podcasts.map((pod, i) => (

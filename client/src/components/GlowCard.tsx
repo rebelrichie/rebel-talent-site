@@ -1,4 +1,4 @@
-// Safe addition — Card with glowing border effect on hover
+// Safe addition, Card with glowing border effect on hover
 import { ReactNode, useRef, useState, MouseEvent } from "react";
 
 interface GlowCardProps {

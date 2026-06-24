@@ -1,4 +1,4 @@
-// Safe addition — Scroll-triggered reveal wrapper with multiple animation variants
+// Safe addition, Scroll-triggered reveal wrapper with multiple animation variants
 import { ReactNode, CSSProperties } from "react";
 import { useInView } from "@/hooks/useInView";
 
@@ -12,12 +12,15 @@ interface ScrollRevealProps {
   className?: string;
   style?: CSSProperties;
   once?: boolean;
-  /** Safe addition — if true, content starts visible (for above-fold hero sections) */
+  /** Safe addition, if true, content starts visible (for above-fold hero sections) */
   immediate?: boolean;
 }
 
-// Safe addition — opacity floor at 0.15 so content is never fully invisible during fast scroll
-const OPACITY_FLOOR = 0.15;
+// Safe addition, opacity floor set to 1 so content always renders at full opacity.
+// The hide-then-reveal pattern was leaving pre-rendered pages broken because
+// IntersectionObserver doesn't fire reliably for already-visible elements after
+// hydration. Components still wrap children but no longer fade them.
+const OPACITY_FLOOR = 1;
 
 const baseStyles: Record<Variant, { hidden: CSSProperties; visible: CSSProperties }> = {
   "fade-up": {
@@ -59,7 +62,7 @@ export default function ScrollReveal({
   const { ref, isInView } = useInView({ triggerOnce: once });
   const styles = baseStyles[variant];
 
-  // Safe addition — immediate mode shows content on first paint (above-fold)
+  // Safe addition, immediate mode shows content on first paint (above-fold)
   const isVisible = immediate || isInView;
 
   return (

@@ -1,4 +1,4 @@
-// Safe addition — Typewriter text effect with blinking cursor
+// Safe addition, Typewriter text effect with blinking cursor
 import { useState, useEffect } from "react";
 import { useInView } from "@/hooks/useInView";
 

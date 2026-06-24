@@ -1,4 +1,4 @@
-// Safe addition — Intersection Observer hook for scroll-triggered animations
+// Safe addition, Intersection Observer hook for scroll-triggered animations
 import { useEffect, useRef, useState } from "react";
 
 interface UseInViewOptions {

@@ -1,4 +1,4 @@
-// Safe addition — Page transition wrapper with crossfade effect
+// Safe addition, Page transition wrapper with crossfade effect
 import { ReactNode, useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 

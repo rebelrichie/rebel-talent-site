@@ -300,11 +300,278 @@
   80%       { opacity: 1.0;  transform: scale(1.2); }
 }
 
+/* Safe addition — disabled the hidden state. Scroll-reveal was leaving entire
+   pages at 15% opacity because IntersectionObserver fires unreliably after
+   hydration of pre-rendered HTML. Content now renders at full opacity always;
+   the in-view class is still added for compatibility but does nothing. */
 .reveal-ready {
-  opacity: 0.15;
-  transform: translateY(20px);
-  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 1;
+  transform: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   PREMIUM POLISH LAYER — depth, glow, hover bloom
+   Applies across pages without touching component code. Targets the
+   existing dark-card pattern (.bg-zinc-950 + .border-zinc-800) and the
+   primary CTA pattern (.bg-rebel-red).
+   ───────────────────────────────────────────────────────────────────── */
+
+/* ── Body ambient: subtle radial glow + grain ── */
+body {
+  background-color: #05050a;
+  background-image:
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(220, 38, 38, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 30% at 100% 30%, rgba(234, 88, 12, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 0% 70%, rgba(91, 33, 182, 0.04) 0%, transparent 60%);
+  /* Removed background-attachment:fixed — causes scroll jank/jiggle on iOS Safari */
+}
+
+/* ── Dark-card depth (matches the .bg-zinc-950.border-zinc-800 pattern) ── */
+.bg-zinc-950.border.border-zinc-800,
+.space-card {
+  background:
+    linear-gradient(135deg, rgba(10, 10, 14, 0.95) 0%, rgba(8, 8, 12, 0.92) 50%, rgba(12, 8, 16, 0.95) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.05),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.4),
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 8px 24px -8px rgba(0, 0, 0, 0.6);
+  transition: transform 0.25s cubic-bezier(0.34, 1.4, 0.64, 1),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+  position: relative;
+}
+
+/* Hover bloom — subtle red glow. Scoped to devices with hover capability
+   so it doesn't trigger as touch users scroll past cards on mobile. */
+@media (hover: hover) and (pointer: fine) {
+  .bg-zinc-950.border.border-zinc-800:hover,
+  .space-card:hover {
+    border-color: rgba(220, 38, 38, 0.4) !important;
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+      inset 0 -1px 0 0 rgba(0, 0, 0, 0.4),
+      0 1px 2px rgba(0, 0, 0, 0.5),
+      0 12px 32px -10px rgba(0, 0, 0, 0.7),
+      0 0 32px -4px rgba(220, 38, 38, 0.18) !important;
+    transform: translateY(-2px);
+  }
+}
+
+/* Subtle red top-edge accent on hover */
+.bg-zinc-950.border.border-zinc-800::before,
+.space-card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0), transparent);
+  transition: background 0.3s ease;
+  pointer-events: none;
+}
+.bg-zinc-950.border.border-zinc-800:hover::before,
+.space-card:hover::before {
+  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.55), transparent);
+}
+
+/* ── Primary CTA upgrade — gradient with ember glow ── */
+.bg-rebel-red {
+  background: linear-gradient(145deg, #FF4500 0%, #DC2626 100%) !important;
+  border: 1px solid rgba(220, 38, 38, 0.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 2px 6px rgba(220, 38, 38, 0.25),
+    0 0 20px -4px rgba(255, 69, 0, 0.35);
+  transition: all 0.25s cubic-bezier(0.34, 1.4, 0.64, 1) !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .bg-rebel-red:hover,
+  .hover\:bg-red-700:hover {
+    background: linear-gradient(145deg, #FF5722 0%, #E62E2E 100%) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.24),
+      0 4px 12px rgba(220, 38, 38, 0.35),
+      0 0 32px -2px rgba(255, 69, 0, 0.5) !important;
+    transform: translateY(-1px);
+  }
+}
+
+.bg-rebel-red:active {
+  transform: translateY(0);
+  transition-duration: 0.1s !important;
+}
+
+/* Section dividers removed — were creating absolutely-positioned pseudo-elements
+   that could trigger repaints during scroll. */
+
+/* ── Display headings: subtle red text-shadow for depth ── */
+h1.font-display,
+h2.font-display,
+.font-display {
+  text-shadow:
+    0 0 1px rgba(255, 255, 255, 0.04),
+    0 2px 24px rgba(220, 38, 38, 0.08);
+}
+
+/* ── Red emphasis spans (the "ISN'T TALENT" / "OWN YOUR HIRING" pattern) ── */
+.text-rebel-red {
+  text-shadow: 0 0 24px rgba(220, 38, 38, 0.25);
+}
+
+/* ── Eyebrow labels: gentle text-shadow so they glow softly ── */
+.text-xs.text-rebel-red,
+.text-\[10px\].text-rebel-red {
+  text-shadow: 0 0 12px rgba(220, 38, 38, 0.4);
+}
+
+/* ── Smooth interactive transitions globally on links/buttons ── */
+a,
+button {
+  transition-property: color, background-color, border-color, transform, box-shadow, opacity;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   AGENCY-GRADE LAYER — Hunt Club / Riviera Partners register
+   Bold heavy sans-serif on dark, generous whitespace, restrained color,
+   one accent phrase per headline, sentence case throughout.
+   ───────────────────────────────────────────────────────────────────── */
+
+/* Better text rendering across the site */
+body {
+  font-feature-settings: "kern" 1, "ss01" 1, "cv11" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.005em;
+  color: #E4E4E7;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* Heading tightness — Hunt Club style */
+h1, h2, h3, h4 {
+  letter-spacing: -0.025em;
+}
+
+/* Generous body line-height */
+p {
+  line-height: 1.6;
+}
+
+/* Bold red accent only — keep the loud red for headline emphasis,
+   not warmed/softened. Hunt Club uses full-saturation green; Riviera
+   uses full-saturation orange-red. */
+.text-rebel-red {
+  color: #DC2626;
+}
+
+/* Body bg — pure dark with very subtle ambient glow only at the top.
+   No background-attachment:fixed (caused scroll jiggle on iOS Safari). */
+body {
+  background-color: #07060B;
+  background-image:
+    radial-gradient(ellipse 90% 50% at 20% 0%, rgba(220, 38, 38, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 40% at 100% 100%, rgba(234, 88, 12, 0.03) 0%, transparent 55%);
+}
+
+/* Cards — restrained, no gradient drama */
+.bg-zinc-950.border.border-zinc-800 {
+  background: #0E0D14 !important;
+  border-color: rgba(255, 255, 255, 0.07) !important;
+}
+.bg-zinc-950.border.border-zinc-800:hover {
+  border-color: rgba(220, 38, 38, 0.4) !important;
+  background: #11101A !important;
+}
+
+/* Buttons — match Hunt Club's simple pill style */
+button,
+.btn,
+[role="button"] {
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+/* Generous container max-widths */
+.max-w-5xl { max-width: 64rem; }
+.max-w-4xl { max-width: 56rem; }
+.max-w-7xl { max-width: 80rem; }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   MOBILE TUNING — small phones (< 480px)
+   Hero headlines need to scale down hard on small screens. The bold
+   extrabold text-4xl baseline doesn't fit "Your talent problem" or
+   "Two engagements." on a 375px wide screen.
+   ───────────────────────────────────────────────────────────────────── */
+@media (max-width: 479px) {
+  [data-testid="section-hero"] h1,
+  [data-testid="section-hero"] h2 {
+    font-size: 2rem !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.025em !important;
+  }
+  [data-testid="section-hero"] h1.font-extrabold,
+  [data-testid="section-hero"] h2.font-extrabold {
+    font-size: 2.125rem !important;
+  }
+  /* CTAs full-width on tiny phones */
+  [data-testid="section-hero"] a[class*="rounded-full"] {
+    justify-content: center;
+  }
+  /* Eyebrows quieter */
+  [data-testid="section-hero"] > div > p:first-child {
+    letter-spacing: 0.18em !important;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 639px) {
+  /* Slightly larger headlines on bigger phones */
+  [data-testid="section-hero"] h1.font-extrabold,
+  [data-testid="section-hero"] h2.font-extrabold {
+    font-size: 2.5rem !important;
+    line-height: 1.04 !important;
+  }
+}
+
+/* Pricing stat grid — keep 3 cols but allow smaller text on mobile */
+@media (max-width: 479px) {
+  .grid-cols-3 [class*="text-3xl"],
+  .grid-cols-3 [class*="text-4xl"],
+  .grid-cols-3 [class*="text-5xl"] {
+    font-size: 1.5rem !important;
+    line-height: 1 !important;
+  }
+}
+
+/* About / FHoT hero with headshot — stack vertically on mobile */
+@media (max-width: 767px) {
+  [data-testid="section-hero"] .grid.md\\:grid-cols-\\[1fr_auto\\] {
+    grid-template-columns: 1fr !important;
+  }
+  [data-testid="section-hero"] .grid.md\\:grid-cols-\\[1fr_auto\\] > div:last-child {
+    margin-top: 1rem;
+  }
+}
+
+/* Honor reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .bg-zinc-950.border.border-zinc-800,
+  .space-card,
+  .bg-rebel-red,
+  a,
+  button {
+    transition: none !important;
+  }
+  .bg-zinc-950.border.border-zinc-800:hover,
+  .space-card:hover,
+  .bg-rebel-red:hover {
+    transform: none !important;
+  }
 }
 
 .reveal-ready.in-view {

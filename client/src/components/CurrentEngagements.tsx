@@ -1,13 +1,14 @@
-// Safe addition — single source of truth for current client engagements
+// Safe addition, single source of truth for current client engagements
 // Update this list when engagements start/end and it changes everywhere on the site
-import { Briefcase, Clock } from "lucide-react";
+import { Briefcase } from "lucide-react";
 
 interface Engagement {
   client: string;
   logo: string;
   role: string;
   focus: string;
-  hours: string;
+  url: string;
+  logoBg: string; // tailwind bg class, match to logo's background needs
 }
 
 const ENGAGEMENTS: Engagement[] = [
@@ -16,14 +17,24 @@ const ENGAGEMENTS: Engagement[] = [
     logo: "/logo-earthdaily.png",
     role: "Fractional Head of Talent",
     focus: "AI/ML, GTM & Executive Roles",
-    hours: "20 hrs/week",
+    url: "https://earthdailyfederal.com",
+    logoBg: "bg-zinc-800",
+  },
+  {
+    client: "Waveguide",
+    logo: "/logo-waveguide.png",
+    role: "Fractional Head of Talent",
+    focus: "TS/SCI FSP Technical & Engineering Recruiting",
+    url: "https://waveguideincorporated.com",
+    logoBg: "bg-white",
   },
   {
     client: "Kalibri Labs",
     logo: "/logo-kalibri.png",
     role: "Internal Recruiting Support",
-    focus: "ML Engineer Search",
-    hours: "5 hrs/week",
+    focus: "Pause between searches to onboard",
+    url: "https://kalibrilabs.com",
+    logoBg: "bg-white",
   },
 ];
 
@@ -38,15 +49,18 @@ export default function CurrentEngagements({ className = "" }: { className?: str
       </div>
       <div className="grid gap-3">
         {ENGAGEMENTS.map((e) => (
-          <div
+          <a
             key={e.client}
-            className="flex items-center gap-4 px-5 py-3.5 border border-zinc-800/80 rounded-xl bg-zinc-900/40"
+            href={e.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 px-5 py-3.5 border border-zinc-800/80 rounded-xl bg-zinc-900/40 hover:border-zinc-600/80 hover:bg-zinc-900/60 transition-colors no-underline"
           >
-            <div className="shrink-0 w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center overflow-hidden">
+            <div className={`shrink-0 w-16 h-12 rounded-lg flex items-center justify-center overflow-hidden px-2 ${e.logoBg}`}>
               <img
                 src={e.logo}
                 alt={`${e.client} logo`}
-                className="w-8 h-8 object-contain"
+                className="w-full h-full object-contain"
               />
             </div>
             <div className="min-w-0 flex-1">
@@ -54,14 +68,10 @@ export default function CurrentEngagements({ className = "" }: { className?: str
                 {e.client}
               </div>
               <div className="text-zinc-400 text-xs mt-0.5">
-                {e.role} — {e.focus}
+                {e.role}, {e.focus}
               </div>
             </div>
-            <div className="shrink-0 flex items-center gap-1.5 text-zinc-500 text-xs font-mono">
-              <Clock className="w-3 h-3" />
-              {e.hours}
-            </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>

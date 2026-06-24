@@ -12,7 +12,6 @@ import Testimonials from "@/pages/Testimonials";
 import CaseStudies from "@/pages/CaseStudies";
 import Podcast from "@/pages/Podcast";
 import FreeTools from "@/pages/FreeTools";
-import Platform from "@/pages/Platform";
 import CommandDemo from "@/pages/CommandDemo";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import Blog from "@/pages/Blog";
@@ -20,8 +19,13 @@ import BlogPost from "@/pages/BlogPost";
 import Certification from "@/pages/Certification";
 import FractionalHeadOfTalent from "@/pages/FractionalHeadOfTalent";
 import Pricing from "@/pages/Pricing";
-import RachaelProtocol from "@/pages/RachaelProtocol";
 import Advisory from "@/pages/Advisory";
+import StrategyCall from "@/pages/StrategyCall";
+import HiringReadiness from "@/pages/HiringReadiness";
+import Jobs from "@/pages/Jobs";
+import JobDetail from "@/pages/JobDetail";
+import JobApply from "@/pages/JobApply";
+import GeneralApply from "@/pages/GeneralApply";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -35,7 +39,8 @@ function Router() {
       <Route path="/case-studies" component={CaseStudies} />
       <Route path="/results" component={CaseStudies} />
       <Route path="/podcast" component={Podcast} />
-      <Route path="/platform" component={Platform} />
+      {/* /platform retired, Rebel Apply scuttled. Redirect to /services. */}
+      <Route path="/platform">{() => { window.location.href = "/services"; return null; }}</Route>
       <Route path="/command" component={CommandDemo} />
       <Route path="/free-tools" component={FreeTools} />
       <Route path="/blog" component={Blog} />
@@ -44,10 +49,18 @@ function Router() {
       <Route path="/fractional-head-of-talent" component={FractionalHeadOfTalent} />
       <Route path="/fractional-recruiting-services" component={FractionalHeadOfTalent} />
       <Route path="/pricing" component={Pricing} />
-      <Route path="/rachael" component={RachaelProtocol} />
+      {/* /rachael retired. 301 to home. */}
+      <Route path="/rachael">{() => { window.location.href = "/"; return null; }}</Route>
       <Route path="/advisory" component={Advisory} />
+      <Route path="/strategy-call" component={StrategyCall} />
+      <Route path="/hiring-readiness" component={HiringReadiness} />
+      <Route path="/jobs" component={Jobs} />
+      {/* Safe addition (2026-06-05): general application for future-role consideration. */}
+      <Route path="/jobs/general" component={GeneralApply} />
+      <Route path="/jobs/:id/apply" component={JobApply} />
+      <Route path="/jobs/:id" component={JobDetail} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
-      {/* Safe addition — redirect /shop to external store */}
+      {/* Safe addition, redirect /shop to external store */}
       <Route path="/shop">{() => { window.location.href = "https://rebel-talent-shop.fourthwall.com/"; return null; }}</Route>
       <Route path="/abcr-certification">{() => { window.location.href = "/certification"; return null; }}</Route>
       <Route component={NotFound} />

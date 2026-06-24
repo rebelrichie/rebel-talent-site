@@ -1,4 +1,4 @@
-// Safe addition — Scroll progress bar that sits at top of page
+// Safe addition, Scroll progress bar that sits at top of page
 import { useState, useEffect } from "react";
 
 export default function ScrollProgress() {

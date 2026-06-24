@@ -1,4 +1,5 @@
-import { ArrowRight, FileText, Linkedin, Video } from "lucide-react";
+import { ArrowRight, FileText, Linkedin, Video, BarChart3 } from "lucide-react";
+import { Link } from "wouter";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
@@ -12,7 +13,7 @@ export default function FreeTools() {
     <PageLayout>
       <PageSEO
         title="Free Recruiting Tools & Resources | Rebel Talent"
-        description="Free hiring tools and recruiting resources for startup founders and operators — from Rebel Talent's fractional recruiting team."
+        description="Free hiring tools and recruiting resources for startup founders and operators, from Rebel Talent's fractional recruiting team."
         path="/free-tools"
         ogTitle="Free Recruiting Tools & Resources | Rebel Talent"
         ogDescription="Tools, templates, and resources to help startups hire better, cut agency dependency, and build recruiting infrastructure that lasts."
@@ -21,21 +22,57 @@ export default function FreeTools() {
           { name: "Free Tools", item: "https://rebeltalentsystems.com/free-tools" },
         ]}
       />
-      <section className="space-hero py-20 sm:py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <ScrollReveal variant="fade-up" immediate>
-          <div className="text-center mb-16">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-              RESOURCES
-            </div>
-            <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-4" data-testid="heading-free-tools">
-              Free Tools
-            </h1>
-            <p className="text-zinc-400 text-base max-w-xl mx-auto">
-              Built by someone who actually understands recruiting. Optimize your resume and LinkedIn to land more interviews.
-            </p>
+      {/* HERO, Hunt Club / Riviera register */}
+      <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%)" }} />
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
+          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-500 mb-6 sm:mb-10">
+            Resources
+          </p>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-4xl" data-testid="heading-free-tools">
+            Tools that<br />
+            <span className="text-rebel-red">actually work.</span>
+          </h1>
+          <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
+            Built by someone who actually does the work. Diagnostic tools for hiring teams. Frameworks for jobseekers. All free, none gated by a marketing sequence.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-rebel-space pt-4 pb-16 sm:pb-24 border-t border-zinc-900">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
+
+          {/* Safe addition, buyer-side tool surfaced FIRST since clients are the paying customer */}
+          <div className="mb-16">
+            <ScrollReveal variant="fade-up">
+            <h2 className="font-display text-xl font-bold text-white uppercase tracking-tight text-center mb-8" data-testid="heading-hiring-teams">
+              For Hiring Teams
+            </h2>
+            </ScrollReveal>
+            <ScrollReveal variant="fade-up" delay={0}>
+              <GlowCard className="border border-zinc-800 bg-zinc-900/30 p-6 sm:p-8">
+                <div data-testid="card-hiring-readiness" className="flex flex-col sm:flex-row gap-6 items-start">
+                  <div className="shrink-0 w-14 h-14 border border-rebel-red/30 bg-rebel-red/10 flex items-center justify-center text-rebel-red">
+                    <BarChart3 className="w-6 h-6" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">FREE DIAGNOSTIC</div>
+                    <h3 className="font-display text-xl sm:text-2xl font-bold text-white uppercase mb-3 leading-tight">
+                      Hiring Readiness Scorecard
+                    </h3>
+                    <p className="text-zinc-400 text-sm leading-relaxed mb-5">
+                      Ten yes/no questions across the same dimensions I assess on every engagement. Get a score out of 100, your weakest categories, and a specific fix for every gap. ~5 minutes, no sales follow-up.
+                    </p>
+                    <Link href="/hiring-readiness">
+                      <Button className="font-display tracking-wider uppercase text-sm">
+                        Take the Scorecard <ArrowRight className="ml-2 w-4 h-4" />
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </GlowCard>
+            </ScrollReveal>
           </div>
-          </ScrollReveal>
 
           <div className="mb-16">
             <ScrollReveal variant="fade-up">
@@ -161,7 +198,7 @@ export default function FreeTools() {
                   </li>
                 ))}
               </ul>
-              <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer">
+              <a href="/strategy-call" target="_blank" rel="noopener noreferrer">
                 <Button className="font-display tracking-wider uppercase text-sm px-8">
                   Book Your Session <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>

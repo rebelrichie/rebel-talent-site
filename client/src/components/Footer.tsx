@@ -13,7 +13,7 @@ export default function Footer() {
           <p className="text-zinc-400 text-sm">
             Ready to build your team the right way?
           </p>
-          <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer"
+          <a href="/strategy-call" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm font-semibold text-rebel-red hover:text-white transition-colors no-underline"
           >
             Book a Strategy Call <ArrowRight className="w-4 h-4" />
@@ -46,7 +46,6 @@ export default function Footer() {
               <Link href="/testimonials" data-testid="link-footer-testimonials" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Testimonials</Link>
               <Link href="/case-studies" data-testid="link-footer-case-studies" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Case Studies</Link>
               <Link href="/about" data-testid="link-footer-about" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">About</Link>
-              <Link href="/platform" data-testid="link-footer-platform" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Platform</Link>
               <Link href="/command" data-testid="link-footer-command" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Command Demo</Link>
             </div>
           </div>
@@ -62,7 +61,7 @@ export default function Footer() {
               <Link href="/certification" data-testid="link-footer-certification" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">ABCR Certification</Link>
               <a href="https://rebel-talent-shop.fourthwall.com/" target="_blank" rel="noopener noreferrer" data-testid="link-footer-shop" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Shop</a>
               <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824" target="_blank" rel="noopener noreferrer" data-testid="link-footer-newsletter" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Rebel Built Newsletter</a>
-              <a href="https://rebelapply.com" target="_blank" rel="noopener noreferrer" data-testid="link-footer-apply" className="text-rebel-red text-sm no-underline hover:text-white transition-colors font-semibold">Apply to Open Jobs</a>
+              <Link href="/jobs" data-testid="link-footer-apply" className="text-rebel-red text-sm no-underline hover:text-white transition-colors font-semibold">Apply to Open Jobs</Link>
             </div>
           </div>
 
@@ -97,6 +96,11 @@ export default function Footer() {
               BUILD RIGHT. HIRE RIGHT. REBEL FOREVER.
             </p>
           </div>
+        </div>
+        <div className="border-t border-zinc-800/40 mt-4 pt-4 flex flex-wrap gap-x-6 gap-y-1">
+          <span className="text-zinc-700 text-[11px] font-mono tracking-wider">SAM.gov Registered</span>
+          <span className="text-zinc-700 text-[11px] font-mono tracking-wider">CAGE: 202V6</span>
+          <span className="text-zinc-700 text-[11px] font-mono tracking-wider">UEI: JQ4MZ69FNAK4</span>
         </div>
       </div>
     </footer>

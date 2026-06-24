@@ -8,19 +8,19 @@ const servicesLinks = [
   { href: "/services", label: "All Services", external: false },
   { href: "/how-it-works", label: "How It Works", external: false },
   { href: "/pricing", label: "Pricing", external: false },
-  { href: "/platform", label: "Platform", external: false },
+  { href: "/hiring-readiness", label: "Hiring Readiness Scorecard", external: false },
 ];
 
 const proofLinks = [
   { href: "/testimonials", label: "Testimonials", external: false },
   { href: "/case-studies", label: "Case Studies", external: false },
-  { href: "/rachael", label: "The Rachael Protocol", external: false },
 ];
 
 const resourceLinks = [
   { href: "/blog", label: "Blog", external: false },
   { href: "/podcast", label: "Podcast", external: false },
   { href: "/free-tools", label: "Free Tools", external: false },
+  { href: "/hiring-readiness", label: "Hiring Readiness Scorecard", external: false },
   { href: "/certification", label: "ABCR Certification", external: false },
   { href: "https://rebel-talent-shop.fourthwall.com/", label: "Shop", external: true },
 ];
@@ -110,7 +110,7 @@ export default function Navbar() {
                 aria-haspopup="true"
                 onClick={() => { setServicesOpen(!servicesOpen); setProofOpen(false); setResourcesOpen(false); }}
                 className={`flex items-center gap-1 px-2.5 py-2 text-[11px] font-semibold tracking-widest transition-colors duration-200 whitespace-nowrap ${
-                  ["/fractional-head-of-talent", "/services", "/how-it-works", "/platform"].includes(location) ? "text-rebel-red" : "text-zinc-400 hover:text-white"
+                  ["/fractional-head-of-talent", "/services", "/how-it-works", "/pricing"].includes(location) ? "text-rebel-red" : "text-zinc-400 hover:text-white"
                 }`}
               >
                 SERVICES
@@ -128,6 +128,17 @@ export default function Navbar() {
               }`}
             >
               ABOUT
+            </Link>
+
+            {/* Safe addition, Jobs (replaces APPLY as the candidate front door) */}
+            <Link
+              href="/jobs"
+              data-testid="link-nav-jobs"
+              className={`px-2.5 py-2 text-[11px] font-semibold tracking-widest transition-colors duration-200 no-underline whitespace-nowrap ${
+                location === "/jobs" ? "text-rebel-red" : "text-zinc-400 hover:text-white"
+              }`}
+            >
+              JOBS
             </Link>
 
             {/* Proof dropdown (Testimonials + Case Studies) */}
@@ -162,15 +173,13 @@ export default function Navbar() {
               {renderDropdown(resourceLinks, resourcesOpen)}
             </div>
 
-            <a
-              href="https://rebelapply.com"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/jobs"
               data-testid="link-nav-apply"
               className="ml-1.5 px-3.5 py-2 text-[11px] font-semibold tracking-widest border border-rebel-red text-rebel-red hover:bg-rebel-red hover:text-white transition-colors no-underline whitespace-nowrap rounded-md"
             >
               APPLY
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -211,6 +220,18 @@ export default function Navbar() {
             onClick={() => setIsOpen(false)}
           >
             ABOUT
+          </Link>
+
+          {/* Safe addition, Jobs */}
+          <Link
+            href="/jobs"
+            data-testid="link-mobile-jobs"
+            className={`block px-6 py-3 text-xs font-semibold tracking-widest border-b border-zinc-900 no-underline ${
+              location === "/jobs" ? "text-rebel-red" : "text-zinc-400"
+            }`}
+            onClick={() => setIsOpen(false)}
+          >
+            JOBS
           </Link>
 
           {/* Mobile: Results */}
@@ -275,16 +296,14 @@ export default function Navbar() {
             )
           )}
 
-          <a
-            href="https://rebelapply.com"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/jobs"
             data-testid="link-mobile-apply"
             className="block px-6 py-3 text-xs font-semibold tracking-widest border-b border-zinc-900 no-underline text-white bg-rebel-red/10"
             onClick={() => setIsOpen(false)}
           >
-            APPLY / START JOB PROFILE
-          </a>
+            APPLY / SEE OPEN ROLES
+          </Link>
         </div>
       )}
     </nav>

@@ -43,7 +43,7 @@ export default function Blog() {
   return (
     <PageLayout>
       <PageSEO
-        title="Rebel Built — Insights on Talent, Tech & Defense | Rebel Talent Systems"
+        title="Rebel Built: Insights on Talent, Tech & Defense | Rebel Talent Systems"
         description="Insights on recruiting, talent strategy, defense tech, and AI-powered operations from Richie Lampani."
         path="/blog"
         ogTitle="Rebel Built Blog"
@@ -61,7 +61,7 @@ export default function Blog() {
             Rebel Built
           </h1>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto leading-relaxed">
-            Insights on full-time, fractional, and contract recruiting — plus defense tech, engineering, and building teams that win.
+            Insights on full-time, fractional, and contract recruiting, plus defense tech, engineering, and building teams that win.
           </p>
         </div>
       </section>
@@ -84,7 +84,7 @@ export default function Blog() {
 
           {!loading && !error && posts.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-zinc-500 text-lg">No posts yet — check back soon.</p>
+              <p className="text-zinc-500 text-lg">No posts yet. Check back soon.</p>
             </div>
           )}
 
@@ -150,9 +150,9 @@ export default function Blog() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="font-display text-3xl font-bold text-white uppercase mb-3">Need Recruiting Help?</h2>
           <p className="text-zinc-400 text-base mb-8 max-w-lg mx-auto leading-relaxed">
-            We place senior operators, build recruiting engines, and run talent strategy — so you can focus on growth.
+            We place senior operators, build recruiting engines, and run talent strategy, so you can focus on growth.
           </p>
-          <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer"
+          <a href="/strategy-call" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-3 bg-rebel-red text-white font-display text-sm font-semibold uppercase tracking-wider rounded-md hover:bg-red-600 transition-colors no-underline"
           >
             Book a Call <ArrowRight className="w-4 h-4" />
