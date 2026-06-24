@@ -590,7 +590,7 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
             {[
               { icon: <Users className="w-5 h-5 text-rebel-red" />, title: "Embedded execution", desc: "In your Slack, your ATS, your hiring manager 1:1s, your candidate calls. Not consulting from the sidelines. You get me on every call." },
-              { icon: <TrendingUp className="w-5 h-5 text-rebel-red" />, title: "~$5K–$8K cost per hire", desc: "Hourly or fixed-fee billing, logged in your dashboard. No success fees. No invoice surprises when the hire closes." },
+              { icon: <TrendingUp className="w-5 h-5 text-rebel-red" />, title: "~$5K-$8K cost per hire", desc: "Hourly or fixed-fee billing, logged in your dashboard. No success fees. No invoice surprises when the hire closes." },
               { icon: <Clock className="w-5 h-5 text-rebel-red" />, title: "~30 days median time to hire", desc: "Across embedded engagements. Under 30 on EDF's 9 placements. 34 days on Kalibri against a 360-application flooded funnel." },
               { icon: <Shield className="w-5 h-5 text-rebel-red" />, title: "You own everything we build", desc: "ATS, candidate pipeline, interview scorecards, sourcing playbooks, hiring manager training. Exportable, transferable, yours forever." },
               { icon: <Target className="w-5 h-5 text-rebel-red" />, title: "Proof-first vetting", desc: "Every candidate ships with portfolio evidence, structured technical screens, and AI-scored match signals. Resume polish isn't a pipeline." },
@@ -832,7 +832,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Safe addition – Toolkit section (reframed from Platform) */}
+      {/* Safe addition - Toolkit section (reframed from Platform) */}
       <section data-testid="section-platform" className="py-12 border-b border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8">
@@ -978,9 +978,9 @@ export default function Home() {
                 {/* Three engagement teasers */}
                 <div className="grid sm:grid-cols-3 gap-[1px] bg-[#1A1A1A]/10 mb-8">
                   {[
-                    { tag: "Start Here", title: "The Audit", sub: "2–4 wk roadmap" },
+                    { tag: "Start Here", title: "The Audit", sub: "2-4 wk roadmap" },
                     { tag: "Embedded", title: "The Build", sub: "Monthly retainer" },
-                    { tag: "Ride-Along", title: "The Lab", sub: "6–8 wks on live reqs" },
+                    { tag: "Ride-Along", title: "The Lab", sub: "6-8 wks on live reqs" },
                   ].map((e) => (
                     <div key={e.title} className="bg-[#F5F0E8] px-4 py-4">
                       <div className="font-mono text-[#C41E3A] text-[11px] tracking-[0.15em] uppercase mb-1">{e.tag}</div>

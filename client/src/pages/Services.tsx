@@ -67,7 +67,7 @@ export default function Services() {
               <GlowCard className="border border-rebel-red/50 bg-rebel-red/5 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full" data-testid="card-service-fractional">
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">EMBEDDED</div>
                 <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Fractional Head of Talent</h3>
-                <p className="text-rebel-red font-mono text-sm mb-1">$12K – $30K / month · 3-month minimum</p>
+                <p className="text-rebel-red font-mono text-sm mb-1">$12K - $30K / month · 3-month minimum</p>
                 <p className="text-zinc-500 font-mono text-xs mb-4">50%+ less than contingent agency fees</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
                   I run your entire recruiting function as an embedded executive. Strategy, execution, systems, and hiring manager coaching, scoped to your stage.

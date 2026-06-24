@@ -103,7 +103,7 @@ function parseSalary(comp: string | null): Record<string, unknown> | null {
     const value = parseFloat(hourly[1].replace(/,/g, ""));
     return { "@type": "MonetaryAmount", currency: "USD", value: { "@type": "QuantitativeValue", value, unitText: "HOUR" } };
   }
-  const range = comp.match(/\$\s*([\d,.]+)\s*k?\s*[-–to]+\s*\$?\s*([\d,.]+)\s*k?/i);
+  const range = comp.match(/\$\s*([\d,.]+)\s*k?\s*[--to]+\s*\$?\s*([\d,.]+)\s*k?/i);
   if (range) {
     let mn = parseFloat(range[1].replace(/,/g, ""));
     let mx = parseFloat(range[2].replace(/,/g, ""));

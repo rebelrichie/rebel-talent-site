@@ -67,7 +67,7 @@ export default function Pricing() {
     <PageLayout>
       <PageSEO
         title="Transparent Pricing & Engagement Models | Rebel Talent Systems"
-        description="No contingency. No success fees. Two engagement shapes: Fractional Head of Talent ($12K–$30K/mo) or Critical Hire Execution ($8K–$25K+ per search). Scale either with a vetted recruiter team from $90/hr."
+        description="No contingency. No success fees. Two engagement shapes: Fractional Head of Talent ($12K-$30K/mo) or Critical Hire Execution ($8K-$25K+ per search). Scale either with a vetted recruiter team from $90/hr."
         path="/pricing"
         ogTitle="Transparent Pricing | Rebel Talent Systems"
         ogDescription="No contingency fees. Two engagements plus team capacity when you need more horsepower. See exact pricing."
@@ -153,8 +153,8 @@ export default function Pricing() {
               <GlowCard className="border border-rebel-red/50 bg-rebel-red/5 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full">
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">EMBEDDED</div>
                 <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Fractional Head of Talent</h3>
-                <p className="text-rebel-red font-mono text-sm mb-1">$12K – $30K / month · 3-month minimum</p>
-                <p className="text-zinc-500 font-mono text-xs mb-4">10–40 hours/month depending on scope</p>
+                <p className="text-rebel-red font-mono text-sm mb-1">$12K - $30K / month · 3-month minimum</p>
+                <p className="text-zinc-500 font-mono text-xs mb-4">10-40 hours/month depending on scope</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
                   I embed into your company as your Head of Talent. I'm in your Slack, your ATS, your hiring manager 1:1s, your candidate calls. Not consulting from the sidelines.
                 </p>
@@ -176,7 +176,7 @@ export default function Pricing() {
                   ))}
                 </ul>
                 <p className="text-zinc-600 text-xs leading-relaxed">
-                  Best for: Series A–C startups scaling 5–20+ hires, defense contractors building cleared talent pipelines, companies replacing agency dependency.
+                  Best for: Series A-C startups scaling 5-20+ hires, defense contractors building cleared talent pipelines, companies replacing agency dependency.
                 </p>
               </GlowCard>
             </ScrollReveal>
@@ -186,7 +186,7 @@ export default function Pricing() {
               <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full">
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">PROJECT</div>
                 <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Critical Hire Execution</h3>
-                <p className="text-rebel-red font-mono text-sm mb-1">$8K – $25K+ per search · fixed fee</p>
+                <p className="text-rebel-red font-mono text-sm mb-1">$8K - $25K+ per search · fixed fee</p>
                 <p className="text-zinc-500 font-mono text-xs mb-4">Scoped project with defined milestones</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
                   Surgical execution for must-fill roles. I scope the search, define milestones, execute, and hand off a documented process when it's done. You know the cost before we start.
@@ -226,7 +226,7 @@ export default function Pricing() {
                   <h3 className="font-display text-lg font-bold text-white uppercase tracking-tight leading-tight">
                     Need more horsepower?
                   </h3>
-                  <p className="text-rebel-red font-mono text-sm mt-2">$90 – $300+ / hour</p>
+                  <p className="text-rebel-red font-mono text-sm mt-2">$90 - $300+ / hour</p>
                   <p className="text-zinc-500 font-mono text-xs">monthly or hourly · no long-term lock-in</p>
                 </div>
                 <div className="flex-1">
@@ -279,7 +279,7 @@ export default function Pricing() {
               {[
                 { label: "Pricing Model", value: "Hourly or project. Every dollar in your dashboard." },
                 { label: "What You Pay For", value: "Time, systems, infrastructure & outcomes, not just a placement." },
-                { label: "Cost per Hire", value: "~$5K–$8K on average across embedded engagements." },
+                { label: "Cost per Hire", value: "~$5K-$8K on average across embedded engagements." },
                 { label: "Incentive Alignment", value: "Paid to build infrastructure that lasts, not to fill seats fast." },
                 { label: "Time to Fill", value: "~30 days median across embedded engagements." },
                 { label: "Process Ownership", value: "Yours. Everything we build, you keep." },
