@@ -2,6 +2,10 @@ import { ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
+import ScrollReveal from "@/components/ScrollReveal";
+import AnimatedCounter from "@/components/AnimatedCounter";
+import GlowCard from "@/components/GlowCard";
+import CapacityBadge from "@/components/CapacityBadge";
 
 import headAndHeartCover from "@assets/Head_And_Heart_1773068092478.PNG";
 import unfinishedRoomsCover from "@assets/UR-BookCover_1773068071585.png";
@@ -56,11 +60,13 @@ export default function About() {
         path="/about"
         ogTitle="Richie Lampani | Fractional Head of Talent | Rebel Talent"
         ogDescription="Operator. Builder. Anti-Agency force. Richie Lampani founded Rebel Talent Systems to deliver embedded recruiting leadership and systems that clients own forever."
+        ogImage="og-about.png"
         schemas={[personSchema]}
         breadcrumbs={BREADCRUMBS}
       />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+          <ScrollReveal variant="fade-up" immediate>
           <div className="grid md:grid-cols-[280px_1fr] gap-12 items-start mb-16">
             <div className="text-center md:text-left">
               <div className="w-48 h-48 mx-auto md:mx-0 mb-4 overflow-hidden border-2 border-rebel-red/30">
@@ -90,9 +96,13 @@ export default function About() {
               <h2 className="font-display text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-2">
                 Fractional Head of Talent | Startup Recruiting & Defense Hiring Specialist
               </h2>
-              <p className="text-rebel-red font-display text-lg uppercase tracking-wider mb-6" data-testid="text-tagline">
+              <p className="text-rebel-red font-display text-lg uppercase tracking-wider mb-4" data-testid="text-tagline">
                 Operator. Builder. Anti-Agency Force.
               </p>
+              {/* Safe addition — Availability signal */}
+              <div className="mb-6">
+                <CapacityBadge />
+              </div>
               <p className="text-zinc-400 text-sm leading-relaxed mb-4" data-testid="text-intro">
                 Richie Lampani built his career in the trenches of high-stakes hiring, leading talent functions for defense contractors and growth-stage tech firms. With 14 years of experience, he's closed hundreds of roles (from cleared TS/SCI positions to executive searches) while navigating compliance, scaling bottlenecks, and agency pitfalls.
               </p>
@@ -101,21 +111,30 @@ export default function About() {
               </p>
             </div>
           </div>
+          </ScrollReveal>
 
-          <div className="grid sm:grid-cols-4 gap-4 mb-16">
+          <ScrollReveal variant="fade-up" delay={200}>
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mb-16">
             {[
-              { value: "14+", label: "Years Experience" },
-              { value: "PMP", label: "Certified" },
-              { value: "TS/SCI", label: "Cleared Hiring" },
-              { value: "50K+", label: "LinkedIn Network" },
+              { value: "14+", label: "Years Experience", numeric: true },
+              { value: "PMP", label: "Certified", numeric: false },
+              { value: "53K+", label: "LinkedIn Followers", numeric: true },
+              { value: "8K", label: "Newsletter Subs", numeric: true },
+              { value: "TS/SCI", label: "Cleared Hiring", numeric: false },
             ].map((stat) => (
               <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-5 text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
-                <div className="font-display text-2xl font-bold text-rebel-red mb-1">{stat.value}</div>
+                {stat.numeric ? (
+                  <AnimatedCounter value={stat.value} className="font-display text-2xl font-bold text-rebel-red mb-1" />
+                ) : (
+                  <div className="font-display text-2xl font-bold text-rebel-red mb-1">{stat.value}</div>
+                )}
                 <div className="text-zinc-500 text-xs tracking-widest uppercase">{stat.label}</div>
               </div>
             ))}
           </div>
+          </ScrollReveal>
 
+          <ScrollReveal variant="fade-up">
           <div className="mb-16">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-6 pb-3 border-b border-rebel-red/30" data-testid="heading-specializations">
               Specializations
@@ -139,37 +158,51 @@ export default function About() {
               ))}
             </div>
           </div>
+          </ScrollReveal>
 
+          <ScrollReveal variant="fade-up">
           <div className="mb-16">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-6 pb-3 border-b border-rebel-red/30" data-testid="heading-books">
               Published Work
             </h2>
             <div className="grid sm:grid-cols-2 gap-6">
+              <GlowCard>
               <div className="border border-zinc-800 bg-zinc-900/30 p-6 flex flex-col sm:flex-row gap-5 items-start">
-                <img src={headAndHeartCover} alt="Head and Heart book cover" className="w-28 shrink-0 border border-zinc-700" />
+                <img src={headAndHeartCover} alt="Head and Heart book cover" className="w-28 shrink-0 border border-zinc-700" loading="lazy" />
                 <div>
                   <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">BOOK</div>
                   <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Head and Heart</h3>
                   <p className="text-zinc-500 text-sm mb-2">Winning the AI Recruiting War</p>
-                  <p className="text-zinc-400 text-sm leading-relaxed">
+                  <p className="text-zinc-400 text-sm leading-relaxed mb-3">
                     My framework for combining strategic thinking with authentic human connection in recruiting. In an industry increasingly automated and transactional, you need both the head and the heart to win.
                   </p>
+                  <a href="https://a.co/d/0hQXqHMm" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-rebel-red text-sm font-semibold no-underline hover:text-white transition-colors">
+                    Buy on Amazon <span className="text-xs">&#8594;</span>
+                  </a>
                 </div>
               </div>
+              </GlowCard>
+              <GlowCard>
               <div className="border border-zinc-800 bg-zinc-900/30 p-6 flex flex-col sm:flex-row gap-5 items-start">
-                <img src={unfinishedRoomsCover} alt="Unfinished Rooms book cover" className="w-28 shrink-0 border border-zinc-700" />
+                <img src={unfinishedRoomsCover} alt="Unfinished Rooms book cover" className="w-28 shrink-0 border border-zinc-700" loading="lazy" />
                 <div>
                   <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">BOOK</div>
                   <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Unfinished Rooms</h3>
                   <p className="text-zinc-500 text-sm mb-2">Why Great Employees Keep One Foot Out the Door</p>
-                  <p className="text-zinc-400 text-sm leading-relaxed">
+                  <p className="text-zinc-400 text-sm leading-relaxed mb-3">
                     A psychological framework for understanding employee turnover and disengagement. Unresolved interactions, unclear expectations, and abandoned projects create "unfinished rooms" in employees' minds.
                   </p>
+                  <a href="https://a.co/d/00XELail" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-rebel-red text-sm font-semibold no-underline hover:text-white transition-colors">
+                    Buy on Amazon <span className="text-xs">&#8594;</span>
+                  </a>
                 </div>
               </div>
+              </GlowCard>
             </div>
           </div>
+          </ScrollReveal>
 
+          <ScrollReveal variant="fade-up">
           <div className="mb-16">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-6 pb-3 border-b border-rebel-red/30">
               Engagement Models
@@ -187,7 +220,24 @@ export default function About() {
               </div>
             </div>
           </div>
+          </ScrollReveal>
 
+          {/* Safe addition — Client testimonial */}
+          <ScrollReveal variant="fade-up">
+          <div className="mb-16 max-w-3xl mx-auto text-center">
+            <blockquote className="relative">
+              <span className="absolute -top-4 -left-2 text-rebel-red/20 text-6xl font-serif leading-none select-none">&ldquo;</span>
+              <p className="text-zinc-200 text-lg leading-relaxed italic mb-4">
+                In a review, I was told I had an amazing team, cohesive and indistinguishable from full time employees.
+              </p>
+              <footer className="text-zinc-500 text-sm">
+                <span className="text-zinc-300 font-semibold">Arin, VP of Operations</span> — EarthDaily Federal
+              </footer>
+            </blockquote>
+          </div>
+          </ScrollReveal>
+
+          <ScrollReveal variant="scale">
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-4">
               Connect Now
@@ -201,6 +251,7 @@ export default function About() {
               </Button>
             </a>
           </div>
+          </ScrollReveal>
         </div>
       </section>
     </PageLayout>

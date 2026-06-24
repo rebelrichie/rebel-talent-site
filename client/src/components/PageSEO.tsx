@@ -14,6 +14,8 @@ interface PageSEOProps {
   path: string;
   ogTitle?: string;
   ogDescription?: string;
+  /** Safe addition — per-page OG image override (filename in /public, e.g. "og-services.png") */
+  ogImage?: string;
   schemas?: object[];
   breadcrumbs?: BreadcrumbItem[];
 }
@@ -37,12 +39,15 @@ export default function PageSEO({
   path,
   ogTitle,
   ogDescription,
+  ogImage,
   schemas = [],
   breadcrumbs,
 }: PageSEOProps) {
   const canonical = `${BASE_URL}${path}`;
   const resolvedOgTitle = ogTitle || title;
   const resolvedOgDesc = ogDescription || description;
+  // Safe addition — use per-page OG image if provided, otherwise fall back to default
+  const resolvedOgImage = ogImage ? `${BASE_URL}/${ogImage}` : OG_IMAGE;
 
   const allSchemas = [
     ...schemas,
@@ -60,14 +65,14 @@ export default function PageSEO({
       <meta property="og:site_name" content="Rebel Talent Systems" />
       <meta property="og:title" content={resolvedOgTitle} />
       <meta property="og:description" content={resolvedOgDesc} />
-      <meta property="og:image" content={OG_IMAGE} />
+      <meta property="og:image" content={resolvedOgImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={resolvedOgTitle} />
       <meta name="twitter:description" content={resolvedOgDesc} />
-      <meta name="twitter:image" content={OG_IMAGE} />
+      <meta name="twitter:image" content={resolvedOgImage} />
 
       {allSchemas.map((s, i) => (
         <script key={i} type="application/ld+json">

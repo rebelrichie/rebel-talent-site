@@ -3,16 +3,21 @@ import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+import ScrollReveal from "@/components/ScrollReveal";
+import GlowCard from "@/components/GlowCard";
+import CapacityBadge from "@/components/CapacityBadge";
+import TypedText from "@/components/TypedText";
 
 export default function Services() {
   return (
     <PageLayout>
       <PageSEO
         title="Fractional Recruiting Services | Rebel Talent Systems"
-        description="Two engagement shapes for startups and defense firms: Fractional Head of Talent (embedded) or Critical Hire Execution (scoped per search). Scale either with a vetted recruiter team."
+        description="Explore Rebel Talent's fractional recruiting services: Fractional Head of Talent, Critical Hire Execution, and Contract Recruiters for startups and defense firms."
         path="/services"
         ogTitle="Fractional Recruiting Services | Rebel Talent Systems"
-        ogDescription="Fractional Head of Talent from $12K/mo or Critical Hire Execution scoped per search - with vetted recruiter team capacity when you need more horsepower."
+        ogDescription="Fractional Head of Talent from $12K/mo, Critical Hire Execution, and vetted contract recruiters — embedded into your workflow, owned by you."
+        ogImage="og-services.png"
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
           { name: "Services", item: "https://rebeltalentsystems.com/services" },
@@ -20,17 +25,23 @@ export default function Services() {
       />
       <section className="space-hero py-20 sm:py-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+          <ScrollReveal variant="fade-up" immediate>
           <div className="text-center mb-16">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-              TALENT INFRASTRUCTURE
+              CHOOSE YOUR PATH
             </div>
             <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-4" data-testid="heading-services">
-              Two Engagements. One Operator.
+              How We Work Together
             </h1>
-            <p className="text-zinc-400 text-base max-w-2xl mx-auto leading-relaxed">
-              No SaaS tiers. Two engagement shapes built around how you actually buy - embed me as your Head of Talent, or scope a specific search. Either one can scale with a vetted recruiter team when the pipeline calls for it.
+            <p className="text-zinc-400 text-base max-w-2xl mx-auto leading-relaxed mb-6">
+              Build the hiring machine that agencies can't. Choose embedded leadership, surgical execution, or on-demand recruiting muscle. Every path leaves you with systems you own forever.
             </p>
+            {/* Safe addition — Availability signal */}
+            <div className="flex justify-center">
+              <CapacityBadge />
+            </div>
           </div>
+          </ScrollReveal>
 
           <div className="mb-16">
             <div className="text-center mb-8">
@@ -38,17 +49,18 @@ export default function Services() {
                 The Anti-Agency Standard
               </h2>
               <p className="text-zinc-500 text-sm mt-2 max-w-lg mx-auto">
-                I don't profit from repeat failures. Every engagement delivers infrastructure and results, not just recruiter hours. Systems you keep. Agencies you ditch.
+                <TypedText text="We don't profit from repeat failures. Every path delivers infrastructure and results, not just recruiter hours. Systems you keep. Agencies you ditch." speed={20} />
               </p>
             </div>
 
-            <div className="flex md:grid md:grid-cols-2 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
-              <div className="border border-rebel-red/50 bg-rebel-red/5 p-8 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-service-fractional">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">EMBEDDED</div>
+            <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
+              <ScrollReveal variant="fade-up" delay={0}>
+              <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full" data-testid="card-service-fractional">
+                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">CORE SERVICE</div>
                 <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Fractional Head of Talent</h3>
-                <p className="text-rebel-red font-mono text-sm mb-4">$12K - $30K / month · 3-month minimum</p>
+                <p className="text-rebel-red font-mono text-sm mb-4">$12K - $30K/month</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                  I run your entire recruiting function as an embedded executive. Strategy, execution, systems, and hiring manager coaching - scoped to your stage.
+                  Embedded leadership that owns your entire recruiting function. Strategy, execution, and systems -- all in one.
                 </p>
                 <ul className="space-y-2 mb-6">
                   {["Strategic hiring roadmap & prioritization", "End-to-end recruiting execution", "ATS setup, optimization & migration", "Interview process design & training", "Hiring manager coaching"].map((item) => (
@@ -62,14 +74,16 @@ export default function Services() {
                     Book Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </a>
-              </div>
+              </GlowCard>
+              </ScrollReveal>
 
-              <div className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-service-critical">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">PROJECT</div>
+              <ScrollReveal variant="fade-up" delay={150}>
+              <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full" data-testid="card-service-critical">
+                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">PROJECT-BASED</div>
                 <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Critical Hire Execution</h3>
-                <p className="text-rebel-red font-mono text-sm mb-4">Scoped per search · fixed fee</p>
+                <p className="text-rebel-red font-mono text-sm mb-4">Project-Based Pricing</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                  Surgical execution for must-fill roles. Executive, cleared, or specialized technical talent - closed in weeks, with the process documented and left with you.
+                  Surgical execution for must-fill roles. I close hard-to-find talent in weeks, not months.
                 </p>
                 <ul className="space-y-2 mb-6">
                   {["Executive & leadership searches", "Cleared roles (Secret, TS, TS/SCI)", "Specialized technical talent", "Embedded into your workflows", "Documented repeatable process left with you"].map((item) => (
@@ -83,28 +97,36 @@ export default function Services() {
                     Book Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </a>
-              </div>
-            </div>
+              </GlowCard>
+              </ScrollReveal>
 
-            {/* Team capacity band - applies to either engagement */}
-            <div className="mt-6 border border-zinc-800/70 bg-zinc-900/30 p-6 sm:p-8" data-testid="band-team-capacity">
-              <div className="flex flex-col md:flex-row md:items-start md:gap-8">
-                <div className="md:shrink-0 mb-4 md:mb-0 md:w-56">
-                  <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">
-                    + TEAM CAPACITY
-                  </div>
-                  <h3 className="font-display text-lg font-bold text-white uppercase tracking-tight leading-tight">
-                    Need more horsepower?
-                  </h3>
-                </div>
-                <p className="text-zinc-300 text-sm leading-relaxed">
-                  Either engagement can scale with a vetted recruiter team deployed under my direction - same standards, same playbooks, monthly or hourly as the pipeline demands. You still get me on every call. The team extends my reach; it doesn't replace me.
+              <ScrollReveal variant="fade-up" delay={300}>
+              <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full" data-testid="card-service-contract">
+                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">ON-DEMAND</div>
+                <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Rebel Contract Recruiters</h3>
+                <p className="text-rebel-red font-mono text-sm mb-4">Hourly Engagement</p>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+                  Vetted contract recruiters who execute under the Rebel Talent flag. Our standards, our playbooks, deployed directly into your workflow on demand.
                 </p>
-              </div>
+                <ul className="space-y-2 mb-6">
+                  {["Sourced and vetted by Rebel Talent", "Execute to our documented standards", "Scale up or down as hiring demands shift", "Fully briefed on your roles and culture", "No long-term commitment required"].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
+                      <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />{item}
+                    </li>
+                  ))}
+                </ul>
+                <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer">
+                  <Button className="w-full font-display tracking-wider uppercase text-sm">
+                    Book Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </a>
+              </GlowCard>
+              </ScrollReveal>
             </div>
           </div>
 
           <div className="mb-16">
+            <ScrollReveal variant="fade-up">
             <div className="text-center mb-8">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">ROLE SPECIALIZATIONS</div>
               <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight" data-testid="heading-roles">
@@ -114,6 +136,7 @@ export default function Services() {
                 Every hire is hard. These are the ones most recruiters get wrong. We don't.
               </p>
             </div>
+            </ScrollReveal>
             <div className="grid sm:grid-cols-3 gap-6">
               {[
                 {
@@ -134,8 +157,9 @@ export default function Services() {
                   desc: "Full GTM buildouts for technical companies. We understand the nuance between a great SE and a great AE, and build pipelines accordingly.",
                   roles: ["Account Executives", "Solutions Engineers", "Sales Engineers", "Customer Success Managers", "RevOps"],
                 },
-              ].map((group) => (
-                <div key={group.title} className="border border-zinc-800 bg-zinc-900/30 p-6" data-testid={`card-roles-${group.category.toLowerCase()}`}>
+              ].map((group, i) => (
+                <ScrollReveal key={group.title} variant="fade-up" delay={i * 120}>
+                <div className="border border-zinc-800 bg-zinc-900/30 p-6" data-testid={`card-roles-${group.category.toLowerCase()}`}>
                   <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">{group.category}</div>
                   <h3 className="font-display text-base font-bold text-white uppercase mb-3">{group.title}</h3>
                   <p className="text-zinc-500 text-xs leading-relaxed mb-4">{group.desc}</p>
@@ -147,11 +171,13 @@ export default function Services() {
                     ))}
                   </ul>
                 </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
 
           <div className="mb-16">
+            <ScrollReveal variant="fade-up">
             <div className="text-center mb-8">
               <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight" data-testid="heading-training">
                 Training & Workshops
@@ -160,6 +186,7 @@ export default function Services() {
                 Corporate training and education programs built on real recruiting experience.
               </p>
             </div>
+            </ScrollReveal>
 
             <Accordion type="multiple" className="border border-zinc-800 divide-y divide-zinc-800">
               {[
@@ -209,6 +236,23 @@ export default function Services() {
             </Accordion>
           </div>
 
+          {/* Safe addition — Client testimonial */}
+          <ScrollReveal variant="fade-up">
+          <div className="mb-16 max-w-3xl mx-auto text-center">
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-6">WHAT CLIENTS SAY</div>
+            <blockquote className="relative mb-8">
+              <span className="absolute -top-4 -left-2 text-rebel-red/20 text-6xl font-serif leading-none select-none">&ldquo;</span>
+              <p className="text-zinc-200 text-lg leading-relaxed italic mb-4">
+                In a review, I was told I had an amazing team, cohesive and indistinguishable from full time employees.
+              </p>
+              <footer className="text-zinc-500 text-sm">
+                <span className="text-zinc-300 font-semibold">Arin, VP of Operations</span> — EarthDaily Federal
+              </footer>
+            </blockquote>
+          </div>
+          </ScrollReveal>
+
+          <ScrollReveal variant="scale">
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 text-center">
             <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight mb-4">
               Build the Machine Agencies Can't
@@ -222,6 +266,7 @@ export default function Services() {
               </Button>
             </a>
           </div>
+          </ScrollReveal>
         </div>
       </section>
     </PageLayout>
