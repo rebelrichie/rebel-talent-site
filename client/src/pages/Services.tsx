@@ -9,10 +9,10 @@ export default function Services() {
     <PageLayout>
       <PageSEO
         title="Fractional Recruiting Services | Rebel Talent Systems"
-        description="Explore Rebel Talent's fractional recruiting services: Fractional Head of Talent, Critical Hire Execution, and Contract Recruiters for startups and defense firms."
+        description="Two engagement shapes for startups and defense firms: Fractional Head of Talent (embedded) or Critical Hire Execution (scoped per search). Scale either with a vetted recruiter team."
         path="/services"
         ogTitle="Fractional Recruiting Services | Rebel Talent Systems"
-        ogDescription="Fractional Head of Talent from $12K/mo, Critical Hire Execution, and vetted contract recruiters — embedded into your workflow, owned by you."
+        ogDescription="Fractional Head of Talent from $12K/mo or Critical Hire Execution scoped per search - with vetted recruiter team capacity when you need more horsepower."
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
           { name: "Services", item: "https://rebeltalentsystems.com/services" },
@@ -25,10 +25,10 @@ export default function Services() {
               TALENT INFRASTRUCTURE
             </div>
             <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-4" data-testid="heading-services">
-              Three Paths to Infrastructure
+              Two Engagements. One Operator.
             </h1>
             <p className="text-zinc-400 text-base max-w-2xl mx-auto leading-relaxed">
-              Build the hiring machine that agencies can't. Choose embedded leadership, surgical execution, or on-demand recruiting muscle. Every path leaves you with systems you own forever.
+              No SaaS tiers. Two engagement shapes built around how you actually buy - embed me as your Head of Talent, or scope a specific search. Either one can scale with a vetted recruiter team when the pipeline calls for it.
             </p>
           </div>
 
@@ -38,17 +38,17 @@ export default function Services() {
                 The Anti-Agency Standard
               </h2>
               <p className="text-zinc-500 text-sm mt-2 max-w-lg mx-auto">
-                We don't profit from repeat failures. Every path delivers infrastructure and results, not just recruiter hours. Systems you keep. Agencies you ditch.
+                I don't profit from repeat failures. Every engagement delivers infrastructure and results, not just recruiter hours. Systems you keep. Agencies you ditch.
               </p>
             </div>
 
-            <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
-              <div className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-service-fractional">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">CORE SERVICE</div>
+            <div className="flex md:grid md:grid-cols-2 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
+              <div className="border border-rebel-red/50 bg-rebel-red/5 p-8 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-service-fractional">
+                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">EMBEDDED</div>
                 <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Fractional Head of Talent</h3>
-                <p className="text-rebel-red font-mono text-sm mb-4">$12K - $30K/month</p>
+                <p className="text-rebel-red font-mono text-sm mb-4">$12K - $30K / month · 3-month minimum</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                  Embedded leadership that owns your entire recruiting function. Strategy, execution, and systems -- all in one.
+                  I run your entire recruiting function as an embedded executive. Strategy, execution, systems, and hiring manager coaching - scoped to your stage.
                 </p>
                 <ul className="space-y-2 mb-6">
                   {["Strategic hiring roadmap & prioritization", "End-to-end recruiting execution", "ATS setup, optimization & migration", "Interview process design & training", "Hiring manager coaching"].map((item) => (
@@ -65,11 +65,11 @@ export default function Services() {
               </div>
 
               <div className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-service-critical">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">PROJECT-BASED</div>
+                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">PROJECT</div>
                 <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Critical Hire Execution</h3>
-                <p className="text-rebel-red font-mono text-sm mb-4">Project-Based Pricing</p>
+                <p className="text-rebel-red font-mono text-sm mb-4">Scoped per search · fixed fee</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                  Surgical execution for must-fill roles. I close hard-to-find talent in weeks, not months.
+                  Surgical execution for must-fill roles. Executive, cleared, or specialized technical talent - closed in weeks, with the process documented and left with you.
                 </p>
                 <ul className="space-y-2 mb-6">
                   {["Executive & leadership searches", "Cleared roles (Secret, TS, TS/SCI)", "Specialized technical talent", "Embedded into your workflows", "Documented repeatable process left with you"].map((item) => (
@@ -84,26 +84,22 @@ export default function Services() {
                   </Button>
                 </a>
               </div>
+            </div>
 
-              <div className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-service-contract">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">ON-DEMAND</div>
-                <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Rebel Contract Recruiters</h3>
-                <p className="text-rebel-red font-mono text-sm mb-4">Hourly Engagement</p>
-                <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                  Vetted contract recruiters who execute under the Rebel Talent flag. Our standards, our playbooks, deployed directly into your workflow on demand.
+            {/* Team capacity band - applies to either engagement */}
+            <div className="mt-6 border border-zinc-800/70 bg-zinc-900/30 p-6 sm:p-8" data-testid="band-team-capacity">
+              <div className="flex flex-col md:flex-row md:items-start md:gap-8">
+                <div className="md:shrink-0 mb-4 md:mb-0 md:w-56">
+                  <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">
+                    + TEAM CAPACITY
+                  </div>
+                  <h3 className="font-display text-lg font-bold text-white uppercase tracking-tight leading-tight">
+                    Need more horsepower?
+                  </h3>
+                </div>
+                <p className="text-zinc-300 text-sm leading-relaxed">
+                  Either engagement can scale with a vetted recruiter team deployed under my direction - same standards, same playbooks, monthly or hourly as the pipeline demands. You still get me on every call. The team extends my reach; it doesn't replace me.
                 </p>
-                <ul className="space-y-2 mb-6">
-                  {["Sourced and vetted by Rebel Talent", "Execute to our documented standards", "Scale up or down as hiring demands shift", "Fully briefed on your roles and culture", "No long-term commitment required"].map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
-                      <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />{item}
-                    </li>
-                  ))}
-                </ul>
-                <a href="https://calendly.com/richielam" target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full font-display tracking-wider uppercase text-sm">
-                    Book Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </a>
               </div>
             </div>
           </div>
