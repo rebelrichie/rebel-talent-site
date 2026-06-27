@@ -59,6 +59,8 @@ function Router() {
       <Route path="/jobs/general" component={GeneralApply} />
       <Route path="/jobs/:id/apply" component={JobApply} />
       <Route path="/jobs/:id" component={JobDetail} />
+      {/* Hidden page "/greener-planet" is served as a standalone static file
+          (client/public/greener-planet/index.html), not a React route. */}
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       {/* Safe addition, redirect /shop to external store */}
       <Route path="/shop">{() => { window.location.href = "https://rebel-talent-shop.fourthwall.com/"; return null; }}</Route>

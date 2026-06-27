@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { ArrowRight, Shield, Target, Zap, Users, Clock, TrendingUp } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
@@ -92,43 +92,8 @@ const homepageSchema = {
   }
 };
 
-interface Sparkle {
-  x: number; y: number;
-  vx: number; vy: number;
-  life: number; maxLife: number;
-  size: number; color: string;
-  rot: number; rotV: number;
-  shape: "star4" | "dot";
-}
-
-interface MeteorState {
-  x: number; y: number;
-  dx: number; dy: number;
-  active: boolean;
-  done: boolean;
-}
-
-const SPARKLE_COLORS = ["#FFE87C","#FFD700","#FFFBE8","#FFB347","#FFFFFF","#FFF4C2","#FFE4A0"];
-
-function draw4Star(ctx: CanvasRenderingContext2D, cx: number, cy: number, r: number, rot: number) {
-  ctx.beginPath();
-  for (let i = 0; i < 8; i++) {
-    const a = (i * Math.PI) / 4 + rot;
-    const len = i % 2 === 0 ? r : r * 0.38;
-    i === 0 ? ctx.moveTo(cx + Math.cos(a) * len, cy + Math.sin(a) * len)
-             : ctx.lineTo(cx + Math.cos(a) * len, cy + Math.sin(a) * len);
-  }
-  ctx.closePath();
-  ctx.fill();
-}
-
-const METEORS_CFG = [
-  { delay: 300,  angle: -28, sy: 0.30, speed: 900  },
-  { delay: 1400, angle: -20, sy: 0.52, speed: 800  },
-  { delay: 2700, angle: -34, sy: 0.22, speed: 1000 },
-];
-
-function ShootingStars() {
+// ── Starfield: canvas-based, twinkling subset, throttled to ~24fps ──
+function StarfieldCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -138,224 +103,54 @@ function ShootingStars() {
     if (!ctx) return;
 
     const resize = () => {
-      canvas.width  = canvas.offsetWidth;
+      canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
     };
     resize();
     window.addEventListener("resize", resize);
 
-    const sparkles: Sparkle[] = [];
-    const meteors: MeteorState[] = METEORS_CFG.map(() => ({
-      x: 0, y: 0, dx: 0, dy: 0, active: false, done: false,
+    // Deterministic-looking star positions via sine-based pseudo-random
+    const rng = (seed: number) => { const x = Math.sin(seed + 1) * 73856; return x - Math.floor(x); };
+    const stars = Array.from({ length: 170 }, (_, i) => ({
+      x: rng(i * 7 + 1),
+      y: rng(i * 7 + 2),
+      r: rng(i * 7 + 3) * 1.3 + 0.2,          // 0.2 – 1.5px radius
+      baseOpacity: rng(i * 7 + 4) * 0.52 + 0.08, // 0.08 – 0.6
+      twinkle: rng(i * 7 + 5) > 0.65,           // ~35% twinkle
+      phase: rng(i * 7 + 6) * Math.PI * 2,
+      speed: rng(i * 7 + 7) * 0.009 + 0.003,
     }));
 
-    const spawn = (x: number, y: number, speed: number) => {
-      const count = Math.floor(Math.random() * 4) + 3;
-      for (let i = 0; i < count; i++) {
-        const spd = Math.random() * 1.8 + 0.4;
-        const a   = Math.random() * Math.PI * 2;
-        sparkles.push({
-          x, y,
-          vx: Math.cos(a) * spd * 0.6,
-          vy: Math.sin(a) * spd - 0.5,
-          life: 0, maxLife: Math.random() * 55 + 35,
-          size: Math.random() * 4.5 + 1.5,
-          color: SPARKLE_COLORS[Math.floor(Math.random() * SPARKLE_COLORS.length)],
-          rot: Math.random() * Math.PI * 2,
-          rotV: (Math.random() - 0.5) * 0.18,
-          shape: Math.random() > 0.35 ? "star4" : "dot",
-        });
-      }
-    };
-
-    const drawStar = (m: MeteorState, trailLen: number) => {
-      const tx = m.x - m.dx * trailLen;
-      const ty = m.y - m.dy * trailLen;
-      const grad = ctx.createLinearGradient(tx, ty, m.x, m.y);
-      grad.addColorStop(0, "rgba(255,235,100,0)");
-      grad.addColorStop(0.6, "rgba(255,245,180,0.5)");
-      grad.addColorStop(1, "rgba(255,255,255,0.95)");
-      ctx.beginPath();
-      ctx.moveTo(tx, ty);
-      ctx.lineTo(m.x, m.y);
-      ctx.strokeStyle = grad;
-      ctx.lineWidth = 2.5;
-      ctx.shadowColor = "#FFD700";
-      ctx.shadowBlur = 12;
-      ctx.stroke();
-      ctx.shadowBlur = 0;
-
-      const gr = ctx.createRadialGradient(m.x, m.y, 0, m.x, m.y, 14);
-      gr.addColorStop(0, "rgba(255,255,255,1)");
-      gr.addColorStop(0.35, "rgba(255,245,160,0.9)");
-      gr.addColorStop(1, "rgba(255,200,80,0)");
-      ctx.fillStyle = gr;
-      ctx.beginPath();
-      ctx.arc(m.x, m.y, 14, 0, Math.PI * 2);
-      ctx.fill();
-
-      ctx.fillStyle = "#FFFFFF";
-      ctx.shadowColor = "#FFE87C";
-      ctx.shadowBlur = 20;
-      draw4Star(ctx, m.x, m.y, 7, performance.now() * 0.003);
-      ctx.shadowBlur = 0;
-    };
-
-    const timers = METEORS_CFG.map((cfg, i) =>
-      setTimeout(() => {
-        const w = canvas.width, h = canvas.height;
-        const rad = (cfg.angle * Math.PI) / 180;
-        const spd = cfg.speed / 60;
-        meteors[i].x  = w * -0.05;
-        meteors[i].y  = h * cfg.sy;
-        meteors[i].dx = Math.cos(rad) * spd;
-        meteors[i].dy = Math.sin(rad) * spd;
-        meteors[i].active = true;
-      }, cfg.delay)
-    );
-
+    let tick = 0;
     let raf: number;
-    const loop = () => {
+    let last = 0;
+
+    const draw = (ts: number) => {
+      raf = requestAnimationFrame(draw);
+      if (ts - last < 42) return; // ~24 fps
+      last = ts;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      meteors.forEach((m, i) => {
-        if (!m.active || m.done) return;
-        m.x += m.dx;
-        m.y += m.dy;
-        const trailLen = Math.sqrt(m.dx ** 2 + m.dy ** 2) * 28;
-        drawStar(m, trailLen);
-        if (Math.random() > 0.25) spawn(
-          m.x + (Math.random() - 0.5) * 6,
-          m.y + (Math.random() - 0.5) * 6,
-          METEORS_CFG[i].speed,
-        );
-        if (m.x > canvas.width * 1.1 || m.y > canvas.height * 1.2) m.done = true;
-      });
-
-      for (let i = sparkles.length - 1; i >= 0; i--) {
-        const s = sparkles[i];
-        s.x  += s.vx;
-        s.y  += s.vy;
-        s.vy += 0.055;
-        s.vx *= 0.97;
-        s.rot += s.rotV;
-        s.life++;
-        if (s.life >= s.maxLife) { sparkles.splice(i, 1); continue; }
-        const alpha = 1 - s.life / s.maxLife;
-        ctx.globalAlpha = alpha;
-        ctx.fillStyle = s.color;
-        ctx.shadowColor = s.color;
-        ctx.shadowBlur = s.size * 3;
-        if (s.shape === "star4") {
-          draw4Star(ctx, s.x, s.y, s.size, s.rot);
-        } else {
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.size * 0.6, 0, Math.PI * 2);
-          ctx.fill();
-        }
-        ctx.shadowBlur = 0;
-        ctx.globalAlpha = 1;
+      for (const s of stars) {
+        const alpha = s.twinkle
+          ? s.baseOpacity * (0.45 + 0.55 * Math.sin(tick * s.speed + s.phase))
+          : s.baseOpacity;
+        ctx.beginPath();
+        ctx.arc(s.x * canvas.width, s.y * canvas.height, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${alpha.toFixed(3)})`;
+        ctx.fill();
       }
-
-      raf = requestAnimationFrame(loop);
+      tick++;
     };
-    raf = requestAnimationFrame(loop);
-
-    return () => {
-      cancelAnimationFrame(raf);
-      timers.forEach(clearTimeout);
-      window.removeEventListener("resize", resize);
-    };
+    raf = requestAnimationFrame(draw);
+    return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", resize); };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ zIndex: 5 }}
+      style={{ zIndex: 1 }}
     />
-  );
-}
-
-function GraffitiHero() {
-  const [phase, setPhase] = useState(0);
-
-  useEffect(() => {
-    const t1 = setTimeout(() => setPhase(1), 200);
-    const t2 = setTimeout(() => setPhase(2), 850);
-    const t3 = setTimeout(() => setPhase(3), 1600);
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
-  }, []);
-
-  const particles = useMemo(() =>
-    Array.from({ length: 32 }, (_, i) => ({
-      id: i,
-      x: (Math.random() - 0.5) * 420,
-      y: (Math.random() - 0.5) * 110,
-      size: Math.random() * 6 + 2,
-      delay: Math.floor(Math.random() * 350),
-      dur: Math.floor(Math.random() * 350 + 450),
-    })), []
-  );
-
-  return (
-    <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white uppercase leading-none mb-6">
-      <span
-        className="block"
-        style={{
-          opacity: 0,
-          animation: phase >= 1 ? "heroLineIn 0.55s ease-out 0s forwards" : "none",
-        }}
-      >
-        BUILD RIGHT.
-      </span>
-      <span
-        className="block"
-        style={{
-          opacity: 0,
-          animation: phase >= 2 ? "heroLineIn 0.55s ease-out 0s forwards" : "none",
-        }}
-      >
-        HIRE RIGHT.
-      </span>
-      <span className="block relative" style={{ minHeight: "1.2em" }}>
-        {phase >= 3 && (
-          <>
-            {particles.map((p) => (
-              <span
-                key={p.id}
-                className="absolute rounded-full pointer-events-none"
-                style={{
-                  left: `calc(50% + ${p.x}px)`,
-                  top: `calc(50% + ${p.y}px)`,
-                  width: p.size,
-                  height: p.size,
-                  background: Math.random() > 0.3 ? "#DC2626" : "#b91c1c",
-                  opacity: 0,
-                  animation: `sprayDot ${p.dur}ms ${p.delay}ms ease-out forwards`,
-                }}
-              />
-            ))}
-            <span
-              style={{
-                display: "inline-block",
-                fontFamily: '"Permanent Marker", cursive',
-                color: "#DC2626",
-                fontSize: "0.9em",
-                lineHeight: "inherit",
-                textTransform: "uppercase",
-                opacity: 0,
-                animation: "sprayReveal 0.75s ease-out 0s forwards",
-                textShadow: "0 0 30px rgba(220,38,38,0.5), 2px 2px 0px rgba(0,0,0,0.8)",
-                whiteSpace: "nowrap",
-              }}
-            >
-              REBEL FOREVER.
-            </span>
-          </>
-        )}
-      </span>
-    </h1>
   );
 }
 
@@ -384,33 +179,115 @@ export default function Home() {
         className="relative overflow-hidden bg-rebel-space"
         style={{ minHeight: "82vh" }}
       >
-        {/* Subtle ambient glow, restrained, not starfield */}
+        {/* Subtle ambient glow — left red, right orange */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.10) 0%, transparent 55%), radial-gradient(ellipse 60% 40% at 100% 100%, rgba(234,88,12,0.06) 0%, transparent 55%)",
+              "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(247,26,41,0.10) 0%, transparent 55%), radial-gradient(ellipse 60% 40% at 100% 100%, rgba(245,132,30,0.06) 0%, transparent 55%)",
           }}
         />
 
+        {/* ── Starfield canvas — full hero, z:1 ── */}
+        <StarfieldCanvas />
+
+        {/* ── Satellite — drifts slowly across upper-right, z:2 ── */}
+        <div
+          className="absolute pointer-events-none hidden lg:block"
+          style={{
+            zIndex: 2,
+            top: "14%",
+            right: "9%",
+            opacity: 0.42,
+            animation: "satelliteDrift 84s ease-in-out infinite",
+          }}
+        >
+          <svg width="176" height="78" viewBox="0 0 176 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Left solar panel array */}
+            <rect x="4" y="23" width="54" height="32" rx="1.5" stroke="rgba(190,215,255,0.85)" strokeWidth="0.85"/>
+            <line x1="4"   y1="39" x2="58"  y2="39" stroke="rgba(190,215,255,0.5)" strokeWidth="0.6"/>
+            <line x1="22"  y1="23" x2="22"  y2="55" stroke="rgba(190,215,255,0.5)" strokeWidth="0.6"/>
+            <line x1="40"  y1="23" x2="40"  y2="55" stroke="rgba(190,215,255,0.5)" strokeWidth="0.6"/>
+            {/* Left strut */}
+            <line x1="58"  y1="39" x2="74"  y2="39" stroke="rgba(255,255,255,0.65)" strokeWidth="0.9"/>
+            {/* Satellite body */}
+            <rect x="74" y="21" width="28" height="36" rx="2.5" stroke="rgba(255,255,255,0.92)" strokeWidth="1.1"/>
+            <line x1="74"  y1="33" x2="102" y2="33" stroke="rgba(255,255,255,0.22)" strokeWidth="0.5"/>
+            <line x1="74"  y1="45" x2="102" y2="45" stroke="rgba(255,255,255,0.22)" strokeWidth="0.5"/>
+            {/* Right strut */}
+            <line x1="102" y1="39" x2="118" y2="39" stroke="rgba(255,255,255,0.65)" strokeWidth="0.9"/>
+            {/* Right solar panel array */}
+            <rect x="118" y="23" width="54" height="32" rx="1.5" stroke="rgba(190,215,255,0.85)" strokeWidth="0.85"/>
+            <line x1="118" y1="39" x2="172" y2="39" stroke="rgba(190,215,255,0.5)" strokeWidth="0.6"/>
+            <line x1="136" y1="23" x2="136" y2="55" stroke="rgba(190,215,255,0.5)" strokeWidth="0.6"/>
+            <line x1="154" y1="23" x2="154" y2="55" stroke="rgba(190,215,255,0.5)" strokeWidth="0.6"/>
+            {/* Dish antenna (top) */}
+            <line x1="88"  y1="21" x2="88"  y2="9"  stroke="rgba(255,255,255,0.62)" strokeWidth="0.8"/>
+            <path d="M 82 9 Q 88 4.5 94 9"    stroke="rgba(255,255,255,0.62)" strokeWidth="0.8" fill="none"/>
+            {/* Secondary downward antenna */}
+            <line x1="88"  y1="57" x2="88"  y2="69" stroke="rgba(255,255,255,0.42)" strokeWidth="0.7"/>
+            <line x1="84"  y1="67" x2="92"  y2="74" stroke="rgba(255,255,255,0.32)" strokeWidth="0.6"/>
+          </svg>
+        </div>
+
         <h1 className="sr-only">Fractional Head of Talent for Startups &amp; Defense Contractors, Richie Lampani</h1>
 
-        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 pt-14 sm:pt-24 lg:pt-36 pb-12 sm:pb-20 z-10">
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 pt-6 sm:pt-24 lg:pt-36 pb-12 sm:pb-20 z-10">
           {/* Eyebrow */}
-          <p className="text-[10px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-500 mb-8 sm:mb-12">
+          <p className="font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase text-zinc-500 mb-8 sm:mb-12">
             Fractional Head of Talent · Startups &amp; Defense
           </p>
 
-          {/* MASSIVE bold headline, left-aligned, mixed-case */}
-          <h2 className="text-[2.25rem] xs:text-4xl sm:text-6xl lg:text-7xl xl:text-[7.5rem] font-extrabold tracking-[-0.035em] text-white leading-[1.02] sm:leading-[0.98] max-w-5xl">
-            <span className="block">Your talent problem</span>
-            <span className="block text-rebel-red">isn&rsquo;t talent.</span>
-            <span className="block">It&rsquo;s infrastructure.</span>
+          {/* Hero headline — Archivo Expanded (wdth=125) is ~25% wider; 6vw keeps
+              all three lines on one line each at 1204px+ viewports */}
+          <h2
+            className="font-display font-black text-white leading-[1.05] sm:leading-[0.97]"
+            style={{ fontSize: "clamp(2rem, 6vw, 5rem)", letterSpacing: "-0.01em" }}
+          >
+            <span className="block" style={{ animation: "heroLineIn 0.5s ease-out 0.1s both" }}>
+              The talent you need
+            </span>
+            <span
+              className="block"
+              style={{
+                background: "linear-gradient(95deg, #F71A29 0%, #F5841E 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                animation: "heroLineIn 0.5s ease-out 0.35s both",
+              }}
+            >
+              won&rsquo;t find you.
+            </span>
+            <span className="block" style={{ animation: "heroLineIn 0.5s ease-out 0.6s both" }}>
+              I will.
+            </span>
           </h2>
 
-          {/* Subhead, restrained, max 2 lines */}
-          <p className="mt-7 sm:mt-10 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            I embed with your team, build the recruiting system from scratch, close your critical hires, and hand it all back when I leave. Not a coordinator. Not a pitch deck.
+          {/* BREAK ORBIT. — display-size brand moment */}
+          <div className="mt-5 sm:mt-7" style={{ animation: "heroLineIn 0.6s ease-out 1.0s both" }}>
+            <span
+              className="font-display font-black uppercase"
+              style={{
+                fontSize: "clamp(1.25rem, 2.8vw, 2.25rem)",
+                letterSpacing: "0.09em",
+                fontVariationSettings: "'wdth' 125",
+                fontStretch: "expanded",
+                background: "linear-gradient(95deg, #F71A29 0%, #F5841E 50%, #FDBD41 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                display: "inline-block",
+                lineHeight: 1.1,
+              }}
+            >
+              BREAK ORBIT.
+            </span>
+          </div>
+
+          {/* Subhead */}
+          <p className="mt-7 sm:mt-10 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]" style={{ animation: "heroLineIn 0.5s ease-out 1.2s both" }}>
+            Fractional Head of Talent for startups and defense contractors. I embed into your team, own the function, and close the hires that matter.
           </p>
 
           {/* Single primary CTA + understated secondary link */}
@@ -438,12 +315,12 @@ export default function Home() {
         {/* Trust strip, bottom of hero, restrained */}
         <div className="relative z-10 border-t border-zinc-900 bg-black/30">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 py-7">
-            <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
+            <div className="flex items-center gap-x-6 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
               <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-zinc-600 shrink-0">
                 Trusted by teams at
               </p>
               {["EarthDaily Federal", "Waveguide", "Kalibri Labs", "Wells Fargo", "Tiffany & Co", "Travelers", "WK Kellogg Foundation", "Roadrunner", "Enveil"].map((name) => (
-                <span key={name} className="text-zinc-400 text-sm tracking-wide font-medium">{name}</span>
+                <span key={name} className="text-zinc-400 text-sm tracking-wide font-medium whitespace-nowrap">{name}</span>
               ))}
             </div>
           </div>
@@ -453,10 +330,10 @@ export default function Home() {
       {/* ========== HI-I'M-RICHIE INTRO ==========
           Placeholder for a future video intro. To swap: replace the <img> with a
           <video src="/richie-intro.mp4" /> (or embedded player). Keep the rest. */}
-      <section data-testid="section-richie-intro" className="border-b border-zinc-900 bg-rebel-space">
+      <section data-testid="section-richie-intro" className="border-b border-zinc-900" style={{ background: "#0E0D11" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-14 sm:py-20">
           <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center">
-            <Link href="/about" className="inline-block group shrink-0 relative">
+            <Link href="/about" className="block w-fit mx-auto md:mx-0 group shrink-0 relative">
               <img
                 src="/richie-portrait.jpg"
                 alt="Richie Lampani, Fractional Head of Talent"
@@ -505,53 +382,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="section-stats" className="py-10 border-y border-zinc-800/50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              { value: "53K+", label: "LinkedIn Followers" },
-              { value: "8K", label: "Newsletter Subs" },
-              { value: "14+", label: "Years Experience" },
-              { value: "<30", label: "Days to Hire" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
-                <AnimatedCounter value={stat.value} className="font-display text-3xl sm:text-4xl font-bold text-rebel-red mb-1" />
-                <div className="text-zinc-500 text-xs tracking-widest uppercase font-semibold">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Safe addition, Testimonials above the fold */}
-      <section className="py-8 border-b border-zinc-800/50">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <blockquote className="relative mb-6">
-            <span className="absolute -top-4 -left-2 text-rebel-red/20 text-6xl font-serif leading-none select-none">&ldquo;</span>
-            <p className="text-zinc-200 text-lg sm:text-xl leading-relaxed italic mb-4">
-              In a review, I was told I had an amazing team, cohesive and indistinguishable from full time employees.
-            </p>
-            <footer className="text-zinc-500 text-sm">
-              <span className="text-zinc-300 font-semibold">Arin, VP of Operations</span>, EarthDaily Federal
-            </footer>
-          </blockquote>
-          {/* Safe addition, Colleen Garrett short testimonial */}
-          <blockquote className="relative">
-            <span className="absolute -top-4 -left-2 text-rebel-red/20 text-6xl font-serif leading-none select-none">&ldquo;</span>
-            <p className="text-zinc-300 text-base leading-relaxed italic mb-4">
-              My company is exceptionally picky at a maddening level. Richie kept giving us amazing candidates, reflecting on our feedback and adjusting on the go. I plan to work with him wherever I go.
-            </p>
-            <footer className="text-zinc-500 text-sm">
-              <span className="text-zinc-300 font-semibold">Colleen Garrett</span>, Fractional HR Leader
-            </footer>
-          </blockquote>
-        </div>
-      </section>
-
       {/* Safe addition, Pain points moved up to hook visitors */}
-      <section data-testid="section-pain" className="py-10 border-b border-zinc-800/50">
+      <section data-testid="section-pain" className="py-10 border-b border-zinc-800/50" style={{ background: "#0E0D11" }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-6">
@@ -577,8 +409,96 @@ export default function Home() {
         </div>
       </section>
 
+      <section data-testid="section-who" className="py-12 border-t border-zinc-800/50" style={{ background: "#0E0D11" }}>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <ScrollReveal variant="fade-up">
+          <div className="text-center mb-8">
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
+              IDEAL CLIENTS
+            </div>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight">
+              Who This Is For
+            </h2>
+          </div>
+          </ScrollReveal>
+
+          <ParallaxSection speed={0.08}>
+          <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible" style={{ scrollbarWidth: "none" }}>
+            {[
+              {
+                icon: <Zap className="w-5 h-5" />,
+                title: "Series A-C Startups",
+                intro: "Every week without the right hire is a week your roadmap slips.",
+                items: [
+                  "Scaling fast but can't hire fast enough",
+                  "No internal recruiting function yet",
+                  "Bleeding money on agency fees",
+                ],
+              },
+              {
+                icon: <Shield className="w-5 h-5" />,
+                title: "Defense Contractors",
+                intro: "Most recruiters have never seen a DD-254.",
+                items: [
+                  "Need cleared talent (Secret, TS, TS/SCI)",
+                  "CMMC compliance requirements",
+                  "Pipeline built on community knowledge, not guesswork",
+                ],
+              },
+              {
+                icon: <TrendingUp className="w-5 h-5" />,
+                title: "Growth Companies",
+                intro: "You don't get an agency. You get me, every engagement, every call, every hire.",
+                items: [
+                  "Hiring has become a bottleneck",
+                  "Tired of agency fees and bad fits",
+                  "Need ownership and accountability",
+                ],
+              },
+            ].map((cat, i) => (
+              <ScrollReveal key={cat.title} variant="fade-up" delay={i * 150}>
+              <div className="border border-zinc-800 bg-zinc-900/30 p-6 snap-start shrink-0 w-[82vw] md:w-auto" data-testid={`card-who-${cat.title.toLowerCase().replace(/\s+/g, "-")}`}>
+                <div className="w-10 h-10 border border-rebel-red/30 bg-rebel-red/10 flex items-center justify-center text-rebel-red mb-4">
+                  {cat.icon}
+                </div>
+                <h3 className="font-display text-lg font-bold text-white uppercase mb-2">
+                  {cat.title}
+                </h3>
+                <p className="text-zinc-400 text-sm italic mb-4 leading-snug">{cat.intro}</p>
+                <ul className="space-y-2">
+                  {cat.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-zinc-400">
+                      <span className="text-rebel-red font-mono text-xs mt-0.5">&gt;</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              </ScrollReveal>
+            ))}
+          </div>
+          </ParallaxSection>
+
+          {/* Mobile swipe hint — hidden on md+ */}
+          <div className="flex md:hidden items-center justify-center gap-2 mt-3 text-zinc-600">
+            <ArrowRight className="w-3 h-3 rotate-180 opacity-60" />
+            <span className="text-[10px] font-mono tracking-[0.25em] uppercase">swipe to explore</span>
+            <ArrowRight className="w-3 h-3 opacity-60" />
+          </div>
+
+          <div className="text-center mt-10">
+            <p className="text-zinc-500 text-sm mb-4">Scale without the bleed. Build the machine agencies can't.</p>
+            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-3" className="block sm:inline-block">
+              <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
+                Start a Confidential Conversation <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Safe addition, differentiators (replaces vs-agency table per Richie's no-comparison framing) */}
-      <section data-testid="section-difference" className="py-12 border-b border-zinc-800/50">
+      <section data-testid="section-difference" className="py-12 border-b border-zinc-800/50" style={{ background: "#0E0D11" }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-8">
@@ -612,7 +532,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="section-services" className="py-12">
+      <section data-testid="section-services" className="py-12" style={{ background: "#0E0D11" }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-8">
@@ -629,7 +549,7 @@ export default function Home() {
           </ScrollReveal>
 
           <div className="flex md:grid md:grid-cols-2 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
-            <GlowCard className="border border-rebel-red/50 bg-rebel-red/5 p-8 group transition-colors hover:border-rebel-red snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-fractional">
+            <GlowCard className="border border-rebel-red/50 bg-rebel-red/5 p-5 sm:p-8 group transition-colors hover:border-rebel-red snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-fractional">
               <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
                 EMBEDDED
               </div>
@@ -657,7 +577,7 @@ export default function Home() {
               </ul>
             </GlowCard>
 
-            <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-critical-hire">
+            <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-5 sm:p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-critical-hire">
               <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
                 PROJECT
               </div>
@@ -686,6 +606,13 @@ export default function Home() {
             </GlowCard>
           </div>
 
+          {/* Mobile swipe hint — hidden on md+ */}
+          <div className="flex md:hidden items-center justify-center gap-2 mt-3 text-zinc-600">
+            <ArrowRight className="w-3 h-3 rotate-180 opacity-60" />
+            <span className="text-[10px] font-mono tracking-[0.25em] uppercase">swipe to explore</span>
+            <ArrowRight className="w-3 h-3 opacity-60" />
+          </div>
+
           {/* Team capacity band, applies to either engagement */}
           <ScrollReveal variant="fade-up" delay={150}>
           <div className="mt-6 border border-zinc-800/70 bg-zinc-900/30 p-6 sm:p-8" data-testid="band-team-capacity">
@@ -707,8 +634,8 @@ export default function Home() {
 
           <div className="text-center mt-10">
             <p className="text-zinc-500 text-sm mb-4">You don't get an agency. You get me, every engagement, every call, every hire. Not sure which fits? Most engagements start with a scoping conversation, not a quote.</p>
-            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-2">
-              <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm">
+            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-2" className="block sm:inline-block">
+              <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>
@@ -717,7 +644,7 @@ export default function Home() {
       </section>
 
       {/* Safe addition, Proof/Case Study moved after pricing */}
-      <section data-testid="section-proof" className="py-10 border-b border-zinc-800/50">
+      <section data-testid="section-proof" className="py-10 border-b border-zinc-800/50" style={{ background: "#0E0D11" }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 space-y-5">
           {/* EARTHDAILY FEDERAL */}
           <ScrollReveal variant="fade-left">
@@ -728,7 +655,7 @@ export default function Home() {
               <p className="text-zinc-400 text-sm leading-relaxed mb-3">
                 Defense-sector geospatial intelligence firm. 5 FTE + 3 contractors placed over 8 months: VP of Growth, Backend Engineer, AI Engineer, Controller, IT Manager, and 3 contractors. 5 more in active pipeline. 20 hrs/week at $120/hr.
               </p>
-              <div className="grid grid-cols-3 gap-4 mb-5">
+              <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-5">
                 {[
                   { value: "$294K+", label: "Agency Fees Avoided" },
                   { value: "470%+", label: "Projected ROI" },
@@ -764,7 +691,7 @@ export default function Home() {
               <p className="text-zinc-400 text-sm leading-relaxed mb-3">
                 ML Engineer search run as an embedded 50/50 retained project, half down, half on placement, operating inside their email, Slack, and ATS. Signed offer in 34 days against a flooded inbound funnel of 360+ AI-polished applications. Saved ~$20K against the agency quote.
               </p>
-              <div className="grid grid-cols-3 gap-4 mb-5">
+              <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-5">
                 {[
                   { value: "34 days", label: "To Signed Offer" },
                   { value: "$20K", label: "Saved vs. Agency" },
@@ -805,8 +732,10 @@ export default function Home() {
       </section>
 
       {/* Safe addition, Client testimonial */}
-      <section data-testid="section-testimonial" className="py-12 border-b border-zinc-800/50">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <section data-testid="section-testimonial" className="relative py-20 border-b border-zinc-800/50 overflow-hidden" style={{ background: "#0E0D11" }}>
+        {/* Giant decorative quote — atmospheric background element */}
+        <div className="absolute -top-8 right-0 select-none pointer-events-none font-serif leading-none text-rebel-red/[0.04]" style={{ fontSize: "clamp(18rem, 30vw, 28rem)" }} aria-hidden="true">&ldquo;</div>
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center" style={{ zIndex: 1 }}>
           <ScrollReveal variant="fade-up">
           <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-6">WHAT CLIENTS SAY</div>
           <blockquote className="relative mb-10">
@@ -832,171 +761,70 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Safe addition – Toolkit section (reframed from Platform) */}
-      <section data-testid="section-platform" className="py-12 border-b border-zinc-800/50">
+      <section data-testid="section-stats" className="py-10 border-y border-zinc-800/50" style={{ background: "#0E0D11" }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-8">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">WHAT YOU GET</div>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase leading-tight max-w-3xl mx-auto">
-              The Toolkit That Comes With Every Engagement
-            </h2>
-            <p className="text-zinc-500 text-sm mt-3 max-w-2xl mx-auto">Built from scratch by Richie, not licensed from a vendor. A proprietary ATS, CRM, and talent portal that you get access to as part of every engagement.</p>
-          </div>
-          <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { icon: <Zap className="w-5 h-5 text-rebel-red" />, title: "Ship in days, not quarters", desc: "Full recruiting infrastructure deployed and running before your next board meeting. No six-month implementation cycles." },
-              { icon: <Target className="w-5 h-5 text-rebel-red" />, title: "Proof-first signals", desc: "Every candidate surfaces with portfolio evidence, video intros, and AI-scored match signals, not just a resume and a prayer." },
-              { icon: <Shield className="w-5 h-5 text-rebel-red" />, title: "Ownable infrastructure", desc: "Your ATS, your pipeline, your data. Not locked into some vendor's ecosystem that disappears when you cancel." },
-              { icon: <TrendingUp className="w-5 h-5 text-rebel-red" />, title: "AI that works for you", desc: "23 specialized agents handle sourcing, briefs, interview prep, and follow-ups, while you focus on closing." },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm p-5 flex gap-4 items-start hover:border-zinc-700 transition-colors"
-              >
-                <div className="shrink-0 mt-0.5">{item.icon}</div>
-                <div>
-                  <div className="font-display text-sm font-bold text-white uppercase mb-1">{item.title}</div>
-                  <div className="text-zinc-400 text-sm leading-relaxed">{item.desc}</div>
+              { value: "53K+", label: "LinkedIn Followers" },
+              { value: "8K", label: "Newsletter Subs" },
+              { value: "14+", label: "Years Experience" },
+              { value: "<30", label: "Days to Hire" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
+                <AnimatedCounter value={stat.value} className="font-display text-3xl sm:text-4xl font-bold text-rebel-red mb-1" />
+                <div className="text-zinc-500 text-xs tracking-widest uppercase font-semibold">
+                  {stat.label}
                 </div>
               </div>
             ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link href="/jobs">
-              <Button variant="outline" size="sm" className="font-display tracking-wider uppercase text-xs border-zinc-700 text-zinc-300">
-                Browse Open Roles <ArrowRight className="ml-2 w-3 h-3" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section data-testid="section-who" className="py-12 border-t border-zinc-800/50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <ScrollReveal variant="fade-up">
-          <div className="text-center mb-8">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-              IDEAL CLIENTS
-            </div>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight">
-              Who This Is For
-            </h2>
-          </div>
-          </ScrollReveal>
-
-          <ParallaxSection speed={0.08}>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: <Zap className="w-5 h-5" />,
-                title: "Series A-C Startups",
-                intro: "Every week without the right hire is a week your roadmap slips.",
-                items: [
-                  "Scaling fast but can't hire fast enough",
-                  "No internal recruiting function yet",
-                  "Bleeding money on agency fees",
-                ],
-              },
-              {
-                icon: <Shield className="w-5 h-5" />,
-                title: "Defense Contractors",
-                intro: "Most recruiters have never seen a DD-254.",
-                items: [
-                  "Need cleared talent (Secret, TS, TS/SCI)",
-                  "CMMC compliance requirements",
-                  "Pipeline built on community knowledge, not guesswork",
-                ],
-              },
-              {
-                icon: <TrendingUp className="w-5 h-5" />,
-                title: "Growth Companies",
-                intro: "You don't get an agency. You get me, every engagement, every call, every hire.",
-                items: [
-                  "Hiring has become a bottleneck",
-                  "Tired of agency fees and bad fits",
-                  "Need ownership and accountability",
-                ],
-              },
-            ].map((cat, i) => (
-              <ScrollReveal key={cat.title} variant="fade-up" delay={i * 150}>
-              <div className="border border-zinc-800 bg-zinc-900/30 p-6" data-testid={`card-who-${cat.title.toLowerCase().replace(/\s+/g, "-")}`}>
-                <div className="w-10 h-10 border border-rebel-red/30 bg-rebel-red/10 flex items-center justify-center text-rebel-red mb-4">
-                  {cat.icon}
-                </div>
-                <h3 className="font-display text-lg font-bold text-white uppercase mb-2">
-                  {cat.title}
-                </h3>
-                <p className="text-zinc-400 text-sm italic mb-4 leading-snug">{cat.intro}</p>
-                <ul className="space-y-2">
-                  {cat.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-zinc-400">
-                      <span className="text-rebel-red font-mono text-xs mt-0.5">&gt;</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              </ScrollReveal>
-            ))}
-          </div>
-          </ParallaxSection>
-
-          <div className="text-center mt-10">
-            <p className="text-zinc-500 text-sm mb-4">Scale without the bleed. Build the machine agencies can't.</p>
-            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-3">
-              <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm">
-                Start a Confidential Conversation <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </a>
           </div>
         </div>
       </section>
 
       {/* ── AI FOR RECRUITING TEAMS ── */}
-      <section data-testid="section-advisory" className="py-0 border-t border-zinc-800/50">
-        <div className="bg-[#F5F0E8]">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16">
+      <section data-testid="section-advisory" className="py-0 border-t border-zinc-800/50" style={{ background: "#07080F" }}>
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
             <div className="grid md:grid-cols-[1fr_280px] gap-12 md:gap-16 items-start">
               <div>
-                <div className="font-mono text-[#C41E3A] text-[11px] tracking-[0.18em] uppercase mb-5 flex items-center gap-2">
-                  <span className="block w-5 h-[2px] bg-[#C41E3A] flex-shrink-0" />
+                <div className="font-mono text-rebel-red text-[11px] tracking-[0.18em] uppercase mb-5 flex items-center gap-2">
+                  <span className="block w-5 h-[2px] bg-rebel-red flex-shrink-0" />
                   AI for Recruiting Teams
                 </div>
-                <h2 className="font-display text-[#1A1A1A] text-2xl sm:text-3xl font-bold tracking-tight leading-snug mb-6">
+                <h2 className="font-display text-white text-2xl sm:text-3xl font-bold tracking-tight leading-snug mb-6">
                   The tools exist.<br />
-                  <span className="text-[#C41E3A]">The strategy doesn't.</span>
+                  <span className="text-rebel-red">The strategy doesn't.</span>
                 </h2>
                 <div className="space-y-4 mb-8">
-                  <p className="text-[#3a3a3a] text-[15px] leading-relaxed">
+                  <p className="text-zinc-400 text-[15px] leading-relaxed">
                     The people pitching AI to your team don't run searches. I do. Twenty-seven autonomous agents handling sourcing, screening, communication, and pipeline management, on my own client work, every week, with real candidates and real consequences when something breaks.
                   </p>
-                  <p className="text-[#3a3a3a] text-[15px] leading-relaxed">
+                  <p className="text-zinc-400 text-[15px] leading-relaxed">
                     Three ways to put that to work for your team. Pick the one that matches where you are.
                   </p>
                 </div>
 
                 {/* Three engagement teasers */}
-                <div className="grid sm:grid-cols-3 gap-[1px] bg-[#1A1A1A]/10 mb-8">
+                <div className="grid sm:grid-cols-3 gap-[1px] bg-zinc-800/60 mb-8">
                   {[
                     { tag: "Start Here", title: "The Audit", sub: "2–4 wk roadmap" },
                     { tag: "Embedded", title: "The Build", sub: "Monthly retainer" },
                     { tag: "Ride-Along", title: "The Lab", sub: "6–8 wks on live reqs" },
                   ].map((e) => (
-                    <div key={e.title} className="bg-[#F5F0E8] px-4 py-4">
-                      <div className="font-mono text-[#C41E3A] text-[11px] tracking-[0.15em] uppercase mb-1">{e.tag}</div>
-                      <div className="font-display text-[#1A1A1A] text-[15px] font-bold leading-tight">{e.title}</div>
-                      <div className="text-[#888] text-[12px] mt-0.5">{e.sub}</div>
+                    <div key={e.title} className="bg-zinc-900/80 px-4 py-4">
+                      <div className="font-mono text-rebel-red text-[11px] tracking-[0.15em] uppercase mb-1">{e.tag}</div>
+                      <div className="font-display text-white text-[15px] font-bold leading-tight">{e.title}</div>
+                      <div className="text-zinc-500 text-[12px] mt-0.5">{e.sub}</div>
                     </div>
                   ))}
                 </div>
 
-                <div className="flex items-center gap-3 py-4 border-t border-b border-[#1A1A1A]/10 mb-8">
-                  <span className="w-2 h-2 rounded-full bg-[#C41E3A] flex-shrink-0" />
-                  <span className="text-[#1A1A1A] text-[13px] font-medium">All three are private. One team, one operation, one stack. Cleared / FOCI engagements supported.</span>
+                <div className="flex items-center gap-3 py-4 border-t border-b border-zinc-800/60 mb-8">
+                  <span className="w-2 h-2 rounded-full bg-rebel-red flex-shrink-0" />
+                  <span className="text-zinc-300 text-[13px] font-medium">All three are private. One team, one operation, one stack. Cleared / FOCI engagements supported.</span>
                 </div>
                 <Link href="/advisory" className="no-underline">
                   <button
-                    className="inline-flex items-center gap-3 bg-[#C41E3A] text-[#F5F0E8] font-bold text-[16px] tracking-wider uppercase px-10 py-5 transition-colors hover:bg-[#a01830]"
+                    className="inline-flex items-center gap-3 bg-rebel-red text-white font-bold text-[16px] tracking-wider uppercase px-10 py-5 transition-colors hover:bg-red-700"
                     onClick={hapticTap}
                   >
                     See the Three Engagements
@@ -1004,21 +832,20 @@ export default function Home() {
                   </button>
                 </Link>
               </div>
-              <div className="hidden md:grid grid-cols-1 gap-[1px] bg-[#1A1A1A]/10">
+              <div className="hidden md:grid grid-cols-1 gap-[1px] bg-zinc-800/60">
                 {[
                   { value: "27", label: "AI Agents in Production" },
                   { value: "14+", label: "Years Recruiting" },
                   { value: "Live", label: "Real Client Work Daily" },
                 ].map((s) => (
-                  <div key={s.label} className="bg-[#F5F0E8] px-6 py-5">
-                    <div className="font-display text-2xl font-bold text-[#C41E3A] mb-1">{s.value}</div>
-                    <div className="text-[#888] text-[11px] font-medium tracking-widest uppercase">{s.label}</div>
+                  <div key={s.label} className="bg-zinc-900/80 px-6 py-5">
+                    <div className="font-display text-2xl font-bold text-rebel-red mb-1">{s.value}</div>
+                    <div className="text-zinc-500 text-[11px] font-medium tracking-widest uppercase">{s.label}</div>
                   </div>
                 ))}
               </div>
             </div>
           </div>
-        </div>
       </section>
 
       {/* ── COMMAND DEMO PREVIEW ── */}
@@ -1033,7 +860,7 @@ export default function Home() {
           </div>
 
           {/* Browser chrome mockup */}
-          <div className="border border-zinc-700 overflow-hidden rounded-sm">
+          <div className="border border-zinc-700 rounded-sm" style={{ overflow: "clip" }}>
             {/* Browser bar */}
             <div className="bg-zinc-800 px-4 py-3 flex items-center gap-3 border-b border-zinc-700">
               <div className="flex items-center gap-1.5">
@@ -1050,9 +877,9 @@ export default function Home() {
             {/* Dashboard preview */}
             <div className="bg-[#0a0a0a] p-0">
               {/* Tab bar */}
-              <div className="flex gap-0 border-b border-zinc-800 bg-zinc-900/50">
+              <div className="flex gap-0 border-b border-zinc-800 bg-zinc-900/50 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
                 {["Dashboard", "Pipeline", "Outreach", "Agents"].map((tab, i) => (
-                  <div key={tab} className={`px-5 py-3 text-[12px] font-mono tracking-wider ${i === 1 ? "text-[#C41E3A] border-b-2 border-[#C41E3A] bg-zinc-900" : "text-zinc-500 hover:text-zinc-300"}`}>
+                  <div key={tab} className={`px-3 sm:px-5 py-3 text-[11px] sm:text-[12px] font-mono tracking-normal sm:tracking-wider whitespace-nowrap ${i === 1 ? "text-[#C41E3A] border-b-2 border-[#C41E3A] bg-zinc-900" : "text-zinc-500 hover:text-zinc-300"}`}>
                     {tab.toUpperCase()}
                   </div>
                 ))}
@@ -1108,16 +935,14 @@ export default function Home() {
               </div>
 
               {/* Agent activity bar */}
-              <div className="border-t border-zinc-800 px-4 py-3 flex items-center gap-4 bg-zinc-900/30">
+              <div className="border-t border-zinc-800 px-4 py-2.5 flex flex-wrap items-center gap-x-3 gap-y-1 bg-zinc-900/30">
                 <div className="flex items-center gap-1.5">
                   <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                   <span className="text-[11px] font-mono text-green-400">27 AGENTS ACTIVE</span>
                 </div>
-                <div className="text-zinc-700 text-[11px] font-mono">|</div>
                 <span className="text-[11px] font-mono text-zinc-500">Sourcing agent ran 14 min ago</span>
-                <div className="text-zinc-700 text-[11px] font-mono">|</div>
-                <span className="text-[11px] font-mono text-zinc-500">3 outreach sequences active</span>
-                <div className="ml-auto text-[11px] font-mono text-zinc-600">AI Daily Brief: ready</div>
+                <span className="hidden sm:inline text-[11px] font-mono text-zinc-500">3 outreach sequences active</span>
+                <div className="ml-auto text-[11px] font-mono text-zinc-600 hidden sm:block">AI Daily Brief: ready</div>
               </div>
             </div>
           </div>
@@ -1136,10 +961,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="section-newsletter-shop" className="py-10 border-t border-zinc-800/50">
+      <section data-testid="section-newsletter-shop" className="py-10 border-t border-zinc-800/50" style={{ background: "#0E0D11" }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
-          <div className="border border-zinc-800 bg-zinc-900/30 p-8 text-center max-w-2xl mx-auto" data-testid="newsletter-capture">
+          <div className="border border-zinc-800 bg-zinc-900/30 p-6 sm:p-8 text-center max-w-2xl mx-auto" data-testid="newsletter-capture">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">NEWSLETTER</div>
             <h3 className="font-display text-xl font-bold text-white uppercase tracking-tight mb-3">
               Rebel Built
@@ -1165,9 +990,24 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="section-cta" className="py-12 border-t border-zinc-800/50 bg-gradient-to-b from-rebel-red/5 to-transparent">
+      <section data-testid="section-cta" className="relative py-12 border-t border-zinc-800/50 bg-gradient-to-b from-rebel-red/5 to-transparent overflow-hidden">
+        {/* Orbit ring decoration — centered on the logo mark */}
+        <div className="absolute pointer-events-none" style={{ zIndex: 0, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+          {/* Soft glow */}
+          <div style={{ width: "320px", height: "320px", borderRadius: "50%", background: "radial-gradient(circle, rgba(247,26,41,0.14) 0%, transparent 65%)", transform: "translate(-50%, -50%)", position: "absolute", top: "50%", left: "50%" }} />
+          {/* Outer static ring */}
+          <div style={{ width: "420px", height: "420px", borderRadius: "50%", border: "1px solid rgba(247,26,41,0.20)", transform: "translate(-50%, -50%)", position: "absolute", top: "50%", left: "50%" }} />
+          {/* Mid ring — slow spin */}
+          <div style={{ width: "300px", height: "300px", borderRadius: "50%", border: "1px solid rgba(245,132,30,0.28)", transform: "translate(-50%, -50%)", position: "absolute", top: "50%", left: "50%", animation: "orbitSpin 50s linear infinite" }}>
+            <div style={{ position: "absolute", width: "9px", height: "9px", top: "-4.5px", left: "calc(50% - 4.5px)", borderRadius: "50%", background: "#F71A29", boxShadow: "0 0 8px #F71A29, 0 0 20px rgba(247,26,41,0.5)" }} />
+          </div>
+          {/* Inner ring — reverse spin */}
+          <div style={{ width: "185px", height: "185px", borderRadius: "50%", border: "1px solid rgba(247,26,41,0.38)", transform: "translate(-50%, -50%)", position: "absolute", top: "50%", left: "50%", animation: "orbitSpinReverse 22s linear infinite" }}>
+            <div style={{ position: "absolute", width: "7px", height: "7px", top: "-3.5px", left: "calc(50% - 3.5px)", borderRadius: "50%", background: "#F5841E", boxShadow: "0 0 7px #F5841E, 0 0 14px rgba(245,132,30,0.4)" }} />
+          </div>
+        </div>
         <ScrollReveal variant="scale">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center" style={{ zIndex: 10 }}>
           <img src="/logo.png" alt="Rebel Talent" className="w-16 h-16 mx-auto mb-6" />
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight mb-4">
             Start a Confidential Conversation.
@@ -1175,8 +1015,8 @@ export default function Home() {
           <p className="text-zinc-400 text-base mb-8 max-w-xl mx-auto">
             30 minutes. Walk me through one of your hardest open reqs and I'll tell you straight whether I can help, and if not, I'll point you somewhere better.
           </p>
-          <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-4">
-            <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-10">
+          <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-4" className="block sm:inline-block">
+            <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-10 w-full sm:w-auto">
               Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </a>

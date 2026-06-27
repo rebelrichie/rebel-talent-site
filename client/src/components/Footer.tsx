@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer data-testid="footer" className="relative overflow-hidden" style={{ background: "linear-gradient(180deg, #07060f 0%, #05050a 100%)" }}>
+    <footer data-testid="footer" className="relative overflow-hidden" style={{ background: "linear-gradient(180deg, #0E0D11 0%, #08070A 100%)" }}>
       {/* Red top accent line */}
       <div className="h-px bg-gradient-to-r from-transparent via-rebel-red/60 to-transparent" />
 
@@ -79,8 +79,8 @@ export default function Footer() {
               <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-footer-linkedin" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">
                 LinkedIn
               </a>
-              <span className="text-zinc-600 text-xs font-mono leading-snug">
-                3105 Canyon Point Cir<br />Roswell, GA 30076
+              <span className="sr-only">
+                3105 Canyon Point Cir, Roswell, GA 30076
               </span>
             </div>
           </div>
@@ -92,9 +92,17 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-4">
             <Link href="/privacy-policy" data-testid="link-footer-privacy" className="text-zinc-600 text-xs hover:text-zinc-400 no-underline transition-colors">Privacy Policy</Link>
-            <p className="text-zinc-700 text-xs tracking-wider uppercase font-mono">
-              BUILD RIGHT. HIRE RIGHT. REBEL FOREVER.
-            </p>
+            <span
+              className="text-xs font-mono tracking-[0.22em] uppercase font-bold"
+              style={{
+                background: "linear-gradient(95deg, #F71A29 0%, #F5841E 50%, #FDBD41 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              BREAK ORBIT.
+            </span>
           </div>
         </div>
         <div className="border-t border-zinc-800/40 mt-4 pt-4 flex flex-wrap gap-x-6 gap-y-1">

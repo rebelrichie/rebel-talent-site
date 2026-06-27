@@ -82,7 +82,7 @@ export default function HowItWorks() {
       <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%)" }} />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
-          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-500 mb-6 sm:mb-10">
+          <p className="font-mono text-[11px] sm:text-xs tracking-[0.3em] uppercase text-zinc-500 mb-6 sm:mb-10">
             How We Build
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-4xl" data-testid="heading-how">
@@ -283,8 +283,8 @@ export default function HowItWorks() {
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
               Precision over volume. Embedded ownership beats outsourced noise. Let's fix the machine.
             </p>
-            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-hiw-cta">
-              <Button className="font-display tracking-wider uppercase text-sm">
+            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-hiw-cta" className="block sm:inline-block">
+              <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>

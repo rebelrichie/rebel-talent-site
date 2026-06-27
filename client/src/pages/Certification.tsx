@@ -43,8 +43,8 @@ export default function Certification() {
             The American Board of Certified Recruiters is establishing the first exam-based professional credential for the recruiting profession. The CR designation signals verified competency, ethical conduct, and commitment to excellence.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3">
-            <a href="https://certifiedrecruiters.org/" target="_blank" rel="noopener noreferrer">
-              <Button className="font-display tracking-wider uppercase text-sm px-8 py-3 bg-amber-500 hover:bg-amber-600 text-black">
+            <a href="https://certifiedrecruiters.org/" target="_blank" rel="noopener noreferrer" className="block sm:inline-block">
+              <Button className="font-display tracking-wider uppercase text-sm px-8 py-3 bg-amber-500 hover:bg-amber-600 text-black w-full sm:w-auto">
                 Join the Founding Class <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>
@@ -183,8 +183,8 @@ export default function Certification() {
           <p className="text-zinc-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed mb-8">
             The Founding Class represents the inaugural cohort of credentialed recruiting professionals. Register your interest to receive updates on exam dates, eligibility requirements, and application details.
           </p>
-          <a href="https://certifiedrecruiters.org/" target="_blank" rel="noopener noreferrer">
-            <Button className="font-display tracking-wider uppercase text-sm px-10 py-3 bg-amber-500 hover:bg-amber-600 text-black">
+          <a href="https://certifiedrecruiters.org/" target="_blank" rel="noopener noreferrer" className="block sm:inline-block">
+            <Button className="font-display tracking-wider uppercase text-sm px-10 py-3 bg-amber-500 hover:bg-amber-600 text-black w-full sm:w-auto">
               Join the Founding Class <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </a>

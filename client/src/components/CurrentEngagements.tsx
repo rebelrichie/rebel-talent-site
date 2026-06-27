@@ -1,6 +1,5 @@
 // Safe addition, single source of truth for current client engagements
 // Update this list when engagements start/end and it changes everywhere on the site
-import { Briefcase } from "lucide-react";
 
 interface Engagement {
   client: string;
@@ -28,25 +27,11 @@ const ENGAGEMENTS: Engagement[] = [
     url: "https://waveguideincorporated.com",
     logoBg: "bg-white",
   },
-  {
-    client: "Kalibri Labs",
-    logo: "/logo-kalibri.png",
-    role: "Internal Recruiting Support",
-    focus: "Pause between searches to onboard",
-    url: "https://kalibrilabs.com",
-    logoBg: "bg-white",
-  },
 ];
 
 export default function CurrentEngagements({ className = "" }: { className?: string }) {
   return (
     <div className={`w-full max-w-2xl ${className}`}>
-      <div className="flex items-center gap-2 mb-4">
-        <Briefcase className="w-4 h-4 text-zinc-500" />
-        <span className="text-zinc-500 text-xs font-mono tracking-[0.2em] uppercase">
-          Current Engagements
-        </span>
-      </div>
       <div className="grid gap-3">
         {ENGAGEMENTS.map((e) => (
           <a

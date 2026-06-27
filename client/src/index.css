@@ -143,8 +143,17 @@
     @apply border-border;
   }
 
+  /* Prevent horizontal scroll and iOS rubber-band side-bounce.
+     overscroll-behavior-x: none kills only the horizontal elastic effect;
+     vertical pull-to-refresh / natural scroll feel is preserved. */
+  html {
+    overflow-x: hidden;
+  }
+
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
   }
 }
 
@@ -224,8 +233,8 @@
 .space-hero {
   position: relative;
   background-image:
-    linear-gradient(to bottom, rgba(5,5,10,0.38) 0%, rgba(5,5,10,0.55) 65%, #05050a 100%),
-    linear-gradient(to right, rgba(5,5,10,0.22) 0%, transparent 40%, transparent 60%, rgba(5,5,10,0.22) 100%),
+    linear-gradient(to bottom, rgba(8,7,10,0.38) 0%, rgba(8,7,10,0.55) 65%, #08070A 100%),
+    linear-gradient(to right, rgba(8,7,10,0.22) 0%, transparent 40%, transparent 60%, rgba(8,7,10,0.22) 100%),
     url('/hero-banner.png');
   background-size: cover;
   background-position: center top;
@@ -279,12 +288,12 @@
 }
 
 .space-card:hover {
-  border-color: rgba(220, 38, 38, 0.35);
-  box-shadow: 0 0 24px rgba(220, 38, 38, 0.08);
+  border-color: rgba(247, 26, 41, 0.35);
+  box-shadow: 0 0 24px rgba(247, 26, 41, 0.08);
 }
 
 .orbit-glow {
-  box-shadow: 0 0 20px rgba(234, 88, 12, 0.15), inset 0 0 20px rgba(91, 33, 182, 0.05);
+  box-shadow: 0 0 20px rgba(245, 132, 30, 0.15), inset 0 0 20px rgba(91, 33, 182, 0.05);
 }
 
 @keyframes starTwinkle {
@@ -318,10 +327,10 @@
 
 /* ── Body ambient: subtle radial glow + grain ── */
 body {
-  background-color: #05050a;
+  background-color: #08070A;
   background-image:
-    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(220, 38, 38, 0.06) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 30% at 100% 30%, rgba(234, 88, 12, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(247, 26, 41, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 30% at 100% 30%, rgba(245, 132, 30, 0.04) 0%, transparent 60%),
     radial-gradient(ellipse 40% 30% at 0% 70%, rgba(91, 33, 182, 0.04) 0%, transparent 60%);
   /* Removed background-attachment:fixed — causes scroll jank/jiggle on iOS Safari */
 }
@@ -348,13 +357,13 @@ body {
 @media (hover: hover) and (pointer: fine) {
   .bg-zinc-950.border.border-zinc-800:hover,
   .space-card:hover {
-    border-color: rgba(220, 38, 38, 0.4) !important;
+    border-color: rgba(247, 26, 41, 0.4) !important;
     box-shadow:
       inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
       inset 0 -1px 0 0 rgba(0, 0, 0, 0.4),
       0 1px 2px rgba(0, 0, 0, 0.5),
       0 12px 32px -10px rgba(0, 0, 0, 0.7),
-      0 0 32px -4px rgba(220, 38, 38, 0.18) !important;
+      0 0 32px -4px rgba(247, 26, 41, 0.18) !important;
     transform: translateY(-2px);
   }
 }
@@ -368,34 +377,34 @@ body {
   left: 10%;
   right: 10%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0), transparent);
+  background: linear-gradient(90deg, transparent, rgba(247, 26, 41, 0), transparent);
   transition: background 0.3s ease;
   pointer-events: none;
 }
 .bg-zinc-950.border.border-zinc-800:hover::before,
 .space-card:hover::before {
-  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.55), transparent);
+  background: linear-gradient(90deg, transparent, rgba(247, 26, 41, 0.55), transparent);
 }
 
-/* ── Primary CTA upgrade — gradient with ember glow ── */
+/* ── Primary CTA — Signal Gradient with ember glow ── */
 .bg-rebel-red {
-  background: linear-gradient(145deg, #FF4500 0%, #DC2626 100%) !important;
-  border: 1px solid rgba(220, 38, 38, 0.6);
+  background: linear-gradient(95deg, #F71A29 0%, #F5841E 100%) !important;
+  border: 1px solid rgba(247, 26, 41, 0.5);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    0 2px 6px rgba(220, 38, 38, 0.25),
-    0 0 20px -4px rgba(255, 69, 0, 0.35);
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 2px 8px rgba(247, 26, 41, 0.3),
+    0 0 24px -4px rgba(245, 132, 30, 0.4);
   transition: all 0.25s cubic-bezier(0.34, 1.4, 0.64, 1) !important;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .bg-rebel-red:hover,
   .hover\:bg-red-700:hover {
-    background: linear-gradient(145deg, #FF5722 0%, #E62E2E 100%) !important;
+    background: linear-gradient(95deg, #F5841E 0%, #FDBD41 100%) !important;
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.24),
-      0 4px 12px rgba(220, 38, 38, 0.35),
-      0 0 32px -2px rgba(255, 69, 0, 0.5) !important;
+      inset 0 1px 0 rgba(255, 255, 255, 0.22),
+      0 4px 14px rgba(247, 26, 41, 0.35),
+      0 0 36px -2px rgba(245, 132, 30, 0.55) !important;
     transform: translateY(-1px);
   }
 }
@@ -414,18 +423,18 @@ h2.font-display,
 .font-display {
   text-shadow:
     0 0 1px rgba(255, 255, 255, 0.04),
-    0 2px 24px rgba(220, 38, 38, 0.08);
+    0 2px 24px rgba(247, 26, 41, 0.08);
 }
 
 /* ── Red emphasis spans (the "ISN'T TALENT" / "OWN YOUR HIRING" pattern) ── */
 .text-rebel-red {
-  text-shadow: 0 0 24px rgba(220, 38, 38, 0.25);
+  text-shadow: 0 0 24px rgba(247, 26, 41, 0.25);
 }
 
 /* ── Eyebrow labels: gentle text-shadow so they glow softly ── */
 .text-xs.text-rebel-red,
 .text-\[10px\].text-rebel-red {
-  text-shadow: 0 0 12px rgba(220, 38, 38, 0.4);
+  text-shadow: 0 0 12px rgba(247, 26, 41, 0.4);
 }
 
 /* ── Smooth interactive transitions globally on links/buttons ── */
@@ -450,7 +459,7 @@ body {
   text-rendering: optimizeLegibility;
   letter-spacing: -0.005em;
   color: #E4E4E7;
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: "Archivo", system-ui, sans-serif;
 }
 
 /* Heading tightness — Hunt Club style */
@@ -467,26 +476,26 @@ p {
    not warmed/softened. Hunt Club uses full-saturation green; Riviera
    uses full-saturation orange-red. */
 .text-rebel-red {
-  color: #DC2626;
+  color: #F71A29;
 }
 
 /* Body bg — pure dark with very subtle ambient glow only at the top.
    No background-attachment:fixed (caused scroll jiggle on iOS Safari). */
 body {
-  background-color: #07060B;
+  background-color: #08070A;
   background-image:
-    radial-gradient(ellipse 90% 50% at 20% 0%, rgba(220, 38, 38, 0.06) 0%, transparent 55%),
-    radial-gradient(ellipse 70% 40% at 100% 100%, rgba(234, 88, 12, 0.03) 0%, transparent 55%);
+    radial-gradient(ellipse 90% 50% at 20% 0%, rgba(247, 26, 41, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 40% at 100% 100%, rgba(245, 132, 30, 0.03) 0%, transparent 55%);
 }
 
-/* Cards — restrained, no gradient drama */
+/* Cards — Carbon surface */
 .bg-zinc-950.border.border-zinc-800 {
-  background: #0E0D14 !important;
+  background: #0E0D11 !important;
   border-color: rgba(255, 255, 255, 0.07) !important;
 }
 .bg-zinc-950.border.border-zinc-800:hover {
-  border-color: rgba(220, 38, 38, 0.4) !important;
-  background: #11101A !important;
+  border-color: rgba(247, 26, 41, 0.4) !important;
+  background: #131219 !important;
 }
 
 /* Buttons — match Hunt Club's simple pill style */
@@ -633,6 +642,24 @@ button,
   }
 }
 
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes orbitSpinReverse {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+
+@keyframes satelliteDrift {
+  0%   { transform: translate(0px, 0px)    rotate(-14deg); }
+  25%  { transform: translate(18px, -10px) rotate(-13deg); }
+  55%  { transform: translate(34px, 2px)   rotate(-15deg); }
+  80%  { transform: translate(14px, 12px)  rotate(-14deg); }
+  100% { transform: translate(0px, 0px)    rotate(-14deg); }
+}
+
 @keyframes sprayReveal {
   0% {
     opacity: 0;
@@ -673,3 +700,95 @@ button,
     transform: scale(1.4);
   }
 }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   REBEL BRAND SYSTEM v1.0 — Fire on Void
+   Colors: Void Black #08070A · Signal Red #F71A29 · Ember Orange #F5841E
+           Solar Gold #FDBD41 · Carbon #0E0D11 · Fog #C9C5D0 · Smoke #8E8A95
+   Fonts:  Display — Archivo Expanded wdth=125, wght 800/900, tracked uppercase
+           Body    — Archivo, Regular/Semibold
+           Accent  — Space Mono, labels/kickers/metadata
+   ───────────────────────────────────────────────────────────────────── */
+
+/* ── Archivo Expanded for all display headings ── */
+.font-display,
+h1.font-display,
+h2.font-display,
+h3.font-display,
+h4.font-display {
+  font-variation-settings: 'wdth' 125;
+  font-stretch: expanded;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+/* Heavier weight for main display H1s */
+h1.font-display {
+  font-weight: 900;
+}
+
+/* ── Signal Gradient — use as hero accent, never as full background ── */
+.signal-gradient {
+  background: linear-gradient(95deg, #F71A29 0%, #F5841E 50%, #FDBD41 100%);
+}
+
+/* Gradient text treatment */
+.text-signal-gradient {
+  background: linear-gradient(95deg, #F71A29 0%, #F5841E 50%, #FDBD41 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Orbit Ring motif — decorative, concentric arcs ── */
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid;
+  pointer-events: none;
+}
+.orbit-ring-red {
+  border-color: rgba(247, 26, 41, 0.18);
+}
+.orbit-ring-orange {
+  border-color: rgba(245, 132, 30, 0.14);
+}
+.orbit-ring-gold {
+  border-color: rgba(253, 189, 65, 0.10);
+}
+
+/* ── Gradient Arc — red-to-void radial (use on section backgrounds) ── */
+.gradient-arc {
+  background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(247, 26, 41, 0.12) 0%, transparent 65%);
+}
+.gradient-arc-left {
+  background: radial-gradient(ellipse 60% 80% at 0% 50%, rgba(247, 26, 41, 0.10) 0%, transparent 60%);
+}
+
+/* ── Carbon surface card (brand kit: #0E0D11) ── */
+.carbon-card {
+  background: #0E0D11;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+.carbon-card:hover {
+  border-color: rgba(247, 26, 41, 0.35);
+}
+
+/* ── Signal Red text glow (updated) ── */
+.text-rebel-red {
+  color: #F71A29;
+  text-shadow: 0 0 24px rgba(247, 26, 41, 0.28);
+}
+
+/* ── Eyebrow kicker labels — Space Mono accent ── */
+.eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #F71A29;
+}
+
+/* ── Body text color tokens ── */
+.text-fog { color: #C9C5D0; }
+.text-smoke { color: #8E8A95; }

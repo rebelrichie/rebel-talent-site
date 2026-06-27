@@ -79,9 +79,11 @@ export default function Navbar() {
   return (
     <nav
       data-testid="navbar"
-      className="fixed top-0 left-0 w-full z-50 border-b-2 border-rebel-red"
-      style={{ background: "linear-gradient(135deg, #05050a 0%, #08080f 60%, #0a050d 100%)" }}
+      className="fixed top-0 left-0 w-full z-50"
+      style={{ background: "linear-gradient(135deg, #08070A 0%, #0E0D11 60%, #0A0812 100%)" }}
     >
+      {/* Signal gradient accent line — decorative only, no layout impact */}
+      <div className="absolute bottom-0 left-0 right-0 h-px pointer-events-none" style={{ background: "linear-gradient(90deg, transparent 0%, #F71A29 30%, #F5841E 60%, transparent 100%)", zIndex: 1 }} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           <Link href="/" data-testid="link-home" className="flex items-center gap-2.5 no-underline shrink-0">

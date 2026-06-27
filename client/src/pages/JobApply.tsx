@@ -6,7 +6,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { useRoute, Link } from "wouter";
-import { ArrowLeft, ArrowRight, FileText, CheckCircle2, AlertCircle, Upload } from "lucide-react";
+import { ArrowLeft, ArrowRight, FileText, CheckCircle2, AlertCircle, Upload, CalendarCheck } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 
@@ -46,8 +46,51 @@ interface AssessmentTemplate {
 type SubmitState =
   | { kind: "idle" }
   | { kind: "submitting" }
-  | { kind: "success"; message: string; duplicate?: boolean }
+  | { kind: "success"; message: string; duplicate?: boolean; bookingUrl?: string }
+  | { kind: "not_matched" }
+  | { kind: "submitting_general" }
+  | { kind: "general_saved" }
   | { kind: "error"; message: string };
+
+// Calendly popup widget. We load the external script/CSS on demand and open the
+// booking as an overlay (not a new tab) so it pops up in place. Falls back to a
+// new tab if the script is blocked or slow.
+const CALENDLY_CSS = "https://assets.calendly.com/assets/external/widget.css";
+const CALENDLY_JS = "https://assets.calendly.com/assets/external/widget.js";
+type CalendlyGlobal = { initPopupWidget: (opts: { url: string }) => void };
+function getCalendly(): CalendlyGlobal | undefined {
+  return (window as unknown as { Calendly?: CalendlyGlobal }).Calendly;
+}
+function openCalendly(url: string) {
+  const existing = getCalendly();
+  if (existing) {
+    existing.initPopupWidget({ url });
+    return;
+  }
+  if (!document.querySelector("link[data-calendly]")) {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = CALENDLY_CSS;
+    link.setAttribute("data-calendly", "1");
+    document.head.appendChild(link);
+  }
+  let script = document.querySelector("script[data-calendly]") as HTMLScriptElement | null;
+  const onReady = () => {
+    const c = getCalendly();
+    if (c) c.initPopupWidget({ url });
+    else window.open(url, "_blank", "noopener,noreferrer");
+  };
+  if (script) {
+    script.addEventListener("load", onReady, { once: true });
+  } else {
+    script = document.createElement("script");
+    script.src = CALENDLY_JS;
+    script.async = true;
+    script.setAttribute("data-calendly", "1");
+    script.addEventListener("load", onReady, { once: true });
+    document.body.appendChild(script);
+  }
+}
 
 export default function JobApply() {
   const [, params] = useRoute<{ id: string }>("/jobs/:id/apply");
@@ -59,6 +102,7 @@ export default function JobApply() {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [whyThisRole, setWhyThisRole] = useState("");
+  const [linkedinUrl, setLinkedinUrl] = useState("");
   const [file, setFile] = useState<File | null>(null);
   // Knock-out screening answers
   const [workAuth, setWorkAuth] = useState<string>("");
@@ -91,6 +135,14 @@ export default function JobApply() {
     return () => { cancelled = true; };
   }, [id]);
 
+  // When a passing application returns a booking link, pop the Calendly overlay
+  // automatically so the candidate can't miss it.
+  useEffect(() => {
+    if (submit.kind === "success" && submit.bookingUrl) {
+      openCalendly(submit.bookingUrl);
+    }
+  }, [submit]);
+
   // Safe addition (2026-06-03): assessment required questions must all be answered
   const assessmentComplete =
     !assessment ||
@@ -114,39 +166,71 @@ export default function JobApply() {
     assessmentComplete &&
     submit.kind !== "submitting";
 
+  // Builds the apply payload and POSTs it. Shared by the initial submit and the
+  // general-pool opt-in re-submit (same FormData, plus generalPoolOptIn flag).
+  async function postApplication(generalPoolOptIn: boolean) {
+    const fd = new FormData();
+    fd.append("roleId", id!);
+    fd.append("firstName", firstName.trim());
+    fd.append("lastName", lastName.trim());
+    fd.append("email", email.trim().toLowerCase());
+    fd.append("whyThisRole", whyThisRole.trim());
+    fd.append("linkedinUrl", linkedinUrl.trim());
+    fd.append("workAuth", workAuth);
+    fd.append("clearance", clearance);
+    fd.append("targetComp", targetComp.trim());
+    fd.append("availability", availability);
+    fd.append("file", file!);
+    // Safe addition (2026-06-03): inline screener responses
+    if (assessment) {
+      fd.append("assessmentResponses", JSON.stringify(assessmentResponses));
+    }
+    if (generalPoolOptIn) fd.append("generalPoolOptIn", "true");
+
+    const res = await fetch(APPLY_API, { method: "POST", body: fd });
+    const data = await res.json().catch(() => ({}));
+    return { res, data };
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!canSubmit || !id || !file) return;
     setSubmit({ kind: "submitting" });
     try {
-      const fd = new FormData();
-      fd.append("roleId", id);
-      fd.append("firstName", firstName.trim());
-      fd.append("lastName", lastName.trim());
-      fd.append("email", email.trim().toLowerCase());
-      fd.append("whyThisRole", whyThisRole.trim());
-      fd.append("workAuth", workAuth);
-      fd.append("clearance", clearance);
-      fd.append("targetComp", targetComp.trim());
-      fd.append("availability", availability);
-      fd.append("file", file);
-      // Safe addition (2026-06-03): inline screener responses
-      if (assessment) {
-        fd.append("assessmentResponses", JSON.stringify(assessmentResponses));
-      }
-
-      const res = await fetch(APPLY_API, { method: "POST", body: fd });
-      const data = await res.json().catch(() => ({}));
+      const { res, data } = await postApplication(false);
 
       if (!res.ok) {
         setSubmit({ kind: "error", message: data?.error || "Submission failed. Please try again." });
+        return;
+      }
+      // Failed the role screen. Don't tell them why, offer the general pool.
+      if (data?.screen === "not_matched") {
+        setSubmit({ kind: "not_matched" });
         return;
       }
       setSubmit({
         kind: "success",
         message: data?.message || "Application received. We'll be in touch within 48 hours.",
         duplicate: !!data?.duplicate,
+        bookingUrl: typeof data?.booking?.url === "string" ? data.booking.url : undefined,
       });
+    } catch {
+      setSubmit({ kind: "error", message: "Network error. Please check your connection and try again." });
+    }
+  }
+
+  // Candidate didn't match this role but asked to stay on file. Re-POST the same
+  // application with the opt-in flag so the server saves them to the general pool.
+  async function handleGeneralPoolOptIn() {
+    if (!id || !file) return;
+    setSubmit({ kind: "submitting_general" });
+    try {
+      const { res, data } = await postApplication(true);
+      if (!res.ok) {
+        setSubmit({ kind: "error", message: data?.error || "Something went wrong. Please try again." });
+        return;
+      }
+      setSubmit({ kind: "general_saved" });
     } catch {
       setSubmit({ kind: "error", message: "Network error. Please check your connection and try again." });
     }
@@ -202,7 +286,97 @@ export default function JobApply() {
                 <p className="text-sm text-zinc-300 leading-relaxed">{submit.message}</p>
               </div>
             </div>
+            {submit.bookingUrl ? (
+              <div className="rounded-md border border-emerald-700/60 bg-emerald-900/30 p-4 mt-4">
+                <p className="text-sm text-white font-medium mb-1">You passed screening.</p>
+                <p className="text-sm text-zinc-300 leading-relaxed mb-4">
+                  Skip the wait and book your screen right now.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => submit.bookingUrl && openCalendly(submit.bookingUrl)}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold rounded-md transition-colors"
+                >
+                  <CalendarCheck className="h-4 w-4" /> Book your screen now
+                </button>
+              </div>
+            ) : null}
             <div className="flex flex-wrap gap-3 mt-6">
+              <Link
+                href="/jobs"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-sm font-medium rounded-md transition-colors no-underline border border-zinc-700"
+              >
+                <ArrowLeft className="h-3.5 w-3.5" /> Browse more roles
+              </Link>
+            </div>
+          </div>
+        ) : submit.kind === "not_matched" || submit.kind === "submitting_general" ? (
+          <div
+            data-testid="apply-not-matched"
+            className="rounded-lg border border-zinc-800 bg-zinc-950/40 p-6"
+          >
+            <h2 className="text-lg font-semibold text-white mb-2">
+              This role isn't the right fit right now
+            </h2>
+            <p className="text-sm text-zinc-300 leading-relaxed mb-5">
+              We've reviewed your application, and this particular role isn't a match at the
+              moment. Roles and requirements shift constantly, though, so this isn't the end
+              of the road.
+            </p>
+            <div className="rounded-md border border-zinc-800 bg-black/30 p-4">
+              <p className="text-sm text-white font-medium mb-1">Want us to keep you on file?</p>
+              <p className="text-sm text-zinc-400 leading-relaxed mb-4">
+                If something opens up that fits your background, we'll reach out. No spam,
+                just a heads-up when there's a real match.
+              </p>
+              <button
+                type="button"
+                onClick={handleGeneralPoolOptIn}
+                disabled={submit.kind === "submitting_general"}
+                data-testid="button-keep-on-file"
+                className={`inline-flex items-center gap-2 px-4 py-2 text-white text-sm font-semibold rounded-md transition-colors ${
+                  submit.kind === "submitting_general"
+                    ? "bg-zinc-800 text-zinc-500 cursor-not-allowed"
+                    : "bg-rebel-red hover:bg-red-700"
+                }`}
+              >
+                {submit.kind === "submitting_general" ? (
+                  <>
+                    <span className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    Saving…
+                  </>
+                ) : (
+                  <>
+                    <CheckCircle2 className="h-4 w-4" /> Keep me on file
+                  </>
+                )}
+              </button>
+            </div>
+            <div className="flex flex-wrap gap-3 mt-6">
+              <Link
+                href="/jobs"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-sm font-medium rounded-md transition-colors no-underline border border-zinc-700"
+              >
+                <ArrowLeft className="h-3.5 w-3.5" /> Browse more roles
+              </Link>
+            </div>
+          </div>
+        ) : submit.kind === "general_saved" ? (
+          <div
+            data-testid="apply-general-saved"
+            className="rounded-lg border border-emerald-800/60 bg-emerald-950/30 p-6"
+          >
+            <div className="flex items-start gap-3 mb-4">
+              <CheckCircle2 className="h-6 w-6 text-emerald-400 shrink-0 mt-0.5" />
+              <div>
+                <h2 className="text-lg font-semibold text-white mb-2">You're on our radar</h2>
+                <p className="text-sm text-zinc-300 leading-relaxed">
+                  We've saved your application. If a role opens up that fits your background,
+                  we'll be in touch. Nothing further you need to do.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-3 mt-2">
               <Link
                 href="/jobs"
                 className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-sm font-medium rounded-md transition-colors no-underline border border-zinc-700"
@@ -408,6 +582,20 @@ export default function JobApply() {
                   </label>
                 ))}
               </div>
+            </div>
+
+            <div>
+              <label htmlFor="linkedinUrl" className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
+                LinkedIn URL <span className="font-normal normal-case tracking-normal text-zinc-600">- unlocks instant screen booking</span>
+              </label>
+              <input
+                id="linkedinUrl"
+                type="url"
+                value={linkedinUrl}
+                onChange={(e) => setLinkedinUrl(e.target.value.slice(0, 300))}
+                placeholder="https://www.linkedin.com/in/your-profile"
+                className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-md text-white placeholder:text-zinc-600 focus:outline-none focus:border-rebel-red transition-colors"
+              />
             </div>
 
             <div>

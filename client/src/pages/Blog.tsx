@@ -77,8 +77,33 @@ export default function Blog() {
           )}
 
           {error && (
-            <div className="text-center py-20">
-              <p className="text-zinc-500 text-lg">Unable to load blog posts right now. Check back soon.</p>
+            <div className="py-10 space-y-8">
+              <div className="border border-zinc-800 bg-zinc-900/40 p-6 sm:p-8 text-center max-w-xl mx-auto">
+                <p className="text-zinc-300 font-semibold mb-1">Posts are temporarily unavailable.</p>
+                <p className="text-zinc-500 text-sm mb-5">The blog API is down. Subscribe on LinkedIn to get every post the moment it drops.</p>
+                <a
+                  href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-semibold text-sm px-6 py-3 rounded-full transition-colors no-underline"
+                >
+                  Subscribe on LinkedIn <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                {[
+                  { category: "Hiring Strategy", title: "Why agencies fail growth-stage startups — and what to do instead" },
+                  { category: "Cleared Hiring", title: "The clearance pipeline problem: building TS/SCI bench before you need it" },
+                  { category: "AI & Recruiting", title: "27 agents, one operator: how I automated sourcing without losing signal" },
+                  { category: "Fractional Model", title: "What a fractional Head of Talent actually does in week one" },
+                ].map((post) => (
+                  <div key={post.title} className="border border-zinc-800/60 bg-zinc-900/20 p-5">
+                    <p className="text-rebel-red text-[10px] font-mono uppercase tracking-widest mb-2">{post.category}</p>
+                    <p className="text-zinc-300 text-sm font-semibold leading-snug">{post.title}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-center text-zinc-600 text-xs font-mono tracking-wider">RECENT TOPICS · FULL ARCHIVE ON LINKEDIN</p>
             </div>
           )}
 

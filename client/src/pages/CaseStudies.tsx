@@ -115,8 +115,8 @@ export default function CaseStudies() {
                 { value: "~335%", label: "ROI", sub: "~$88K invested to date" },
                 { value: "8", label: "ROLES PLACED", sub: "5 more in pipeline" },
               ].map((stat) => (
-                <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-5 text-center">
-                  <AnimatedCounter value={stat.value} className="font-display text-2xl sm:text-3xl font-bold text-rebel-red mb-1" />
+                <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-2 sm:p-5 text-center">
+                  <AnimatedCounter value={stat.value} className="font-display text-lg sm:text-2xl md:text-3xl font-bold text-rebel-red mb-1" />
                   <div className="text-zinc-500 text-xs tracking-widest uppercase">{stat.label}</div>
                   <div className="text-zinc-600 text-xs mt-1">{stat.sub}</div>
                 </div>
@@ -288,8 +288,8 @@ export default function CaseStudies() {
                 { value: "~50%", label: "Cost vs. Agency", sub: "Saved on this search" },
                 { value: "<30", label: "Days Start to Finals", sub: "Zero ramp time" },
               ].map((stat) => (
-                <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-5 text-center">
-                  <AnimatedCounter value={stat.value} className="font-display text-2xl sm:text-3xl font-bold text-rebel-red mb-1" />
+                <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-2 sm:p-5 text-center">
+                  <AnimatedCounter value={stat.value} className="font-display text-lg sm:text-2xl md:text-3xl font-bold text-rebel-red mb-1" />
                   <div className="text-zinc-500 text-xs tracking-widest uppercase">{stat.label}</div>
                   <div className="text-zinc-600 text-xs mt-1">{stat.sub}</div>
                 </div>
@@ -464,8 +464,8 @@ export default function CaseStudies() {
                 { value: "90%", label: "Retention Rate" },
                 { value: "100%", label: "Automated Pipeline" },
               ].map((stat) => (
-                <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-5 text-center">
-                  <AnimatedCounter value={stat.value} className="font-display text-2xl sm:text-3xl font-bold text-rebel-red mb-1" />
+                <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-2 sm:p-5 text-center">
+                  <AnimatedCounter value={stat.value} className="font-display text-lg sm:text-2xl md:text-3xl font-bold text-rebel-red mb-1" />
                   <div className="text-zinc-500 text-xs tracking-widest uppercase">{stat.label}</div>
                 </div>
               ))}
@@ -523,8 +523,8 @@ export default function CaseStudies() {
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
               ROI that agencies envy. Same approach, custom execution. Let's talk about what your recruiting function needs.
             </p>
-            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-casestudies-cta">
-              <Button className="font-display tracking-wider uppercase text-sm">
+            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-casestudies-cta" className="block sm:inline-block">
+              <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>

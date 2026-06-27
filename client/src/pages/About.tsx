@@ -94,7 +94,7 @@ export default function About() {
           }}
         />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-16 sm:pb-20 z-10">
-          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-500 mb-6 sm:mb-10">
+          <p className="font-mono text-[11px] sm:text-xs tracking-[0.3em] uppercase text-zinc-500 mb-6 sm:mb-10">
             About
           </p>
           <div className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-end">
@@ -599,8 +599,8 @@ export default function About() {
             <p className="text-zinc-400 text-sm sm:text-base mb-6 max-w-lg mx-auto">
               30 minutes of straight answers for operators ready to stop the bleed and build something that lasts. You get me on the call. Not a coordinator, not a junior, not a discovery deck.
             </p>
-            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-about-cta">
-              <Button className="font-display tracking-wider uppercase text-sm">
+            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-about-cta" className="block sm:inline-block">
+              <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>

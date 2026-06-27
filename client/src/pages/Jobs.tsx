@@ -345,9 +345,35 @@ export default function Jobs() {
           )}
 
           {error && !loading && (
-            <div className="text-center py-16 text-zinc-400">
-              <p className="mb-2">Couldn&apos;t load roles right now.</p>
-              <p className="text-sm text-zinc-500">Try refreshing the page in a moment.</p>
+            <div className="py-10 space-y-8">
+              <div className="border border-zinc-800 bg-zinc-900/40 p-6 sm:p-8 text-center max-w-xl mx-auto">
+                <p className="text-zinc-300 font-semibold mb-1">Live board is temporarily unavailable.</p>
+                <p className="text-zinc-500 text-sm mb-5">The job API is down. Here's what we typically have open — email me directly and I'll send you the full list.</p>
+                <a
+                  href="mailto:richie@rebeltalentsystems.com?subject=Open%20Roles%20Inquiry"
+                  className="inline-flex items-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-semibold text-sm px-6 py-3 rounded-full transition-colors no-underline"
+                >
+                  Email Richie Directly <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                {[
+                  { title: "Forward Deployed Engineer", tags: ["Defense", "Cleared", "Embedded"] },
+                  { title: "AI / ML Engineer", tags: ["Series A-C", "Remote-Friendly"] },
+                  { title: "VP / Head of Growth (GTM)", tags: ["Defense Tech", "Executive"] },
+                  { title: "TS/SCI Software Engineer", tags: ["Cleared", "FSP", "Chantilly / McLean"] },
+                ].map((role) => (
+                  <div key={role.title} className="border border-zinc-800/60 bg-zinc-900/20 p-4">
+                    <p className="text-zinc-200 text-sm font-semibold mb-2">{role.title}</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {role.tags.map((t) => (
+                        <span key={t} className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 border border-zinc-800 px-2 py-0.5">{t}</span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-center text-zinc-600 text-xs font-mono tracking-wider">SAMPLE ROLES · FULL LIST SENT ON REQUEST</p>
             </div>
           )}
 

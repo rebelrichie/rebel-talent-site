@@ -81,23 +81,26 @@ export default {
           offline: "rgb(156 163 175)",
         },
         rebel: {
-          red: "#DC2626",
-          "red-dark": "#991B1B",
-          "red-light": "#EF4444",
-          black: "#0A0A0A",
-          space: "#05050a",
-          charcoal: "#111111",
-          steel: "#1a1a1a",
-          gunmetal: "#2a2a2a",
-          orbit: "#EA580C",
+          red: "#F71A29",          // Signal Red — primary accent
+          "red-dark": "#C4101D",
+          "red-light": "#FF3344",
+          black: "#08070A",        // Void Black — primary bg
+          space: "#08070A",        // Void Black — primary bg
+          carbon: "#0E0D11",       // Carbon — surface / card bg
+          charcoal: "#1A1920",
+          steel: "#2A2830",
+          gunmetal: "#3A3845",
+          orbit: "#F5841E",        // Ember Orange — accent
+          gold: "#FDBD41",         // Solar Gold — accent
+          fog: "#C9C5D0",          // Fog — body text
+          smoke: "#8E8A95",        // Smoke — muted text
         },
       },
       fontFamily: {
-        sans: ["'Inter'", "system-ui", "sans-serif"],
-        serif: ["'Fraunces'", "Georgia", "serif"],
-        mono: ["'JetBrains Mono'", "'Fira Code'", "monospace"],
-        display: ["'Oswald'", "sans-serif"],
-        editorial: ["'Fraunces'", "Georgia", "serif"],
+        sans: ["'Archivo'", "system-ui", "sans-serif"],
+        serif: ["Georgia", "serif"],
+        mono: ["'Space Mono'", "monospace"],
+        display: ["'Archivo'", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {

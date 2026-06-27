@@ -56,7 +56,7 @@ export default function FractionalHeadOfTalent() {
           }}
         />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
-          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-500 mb-6 sm:mb-10">
+          <p className="font-mono text-[11px] sm:text-xs tracking-[0.3em] uppercase text-zinc-500 mb-6 sm:mb-10">
             Fractional Head of Talent
           </p>
           <div className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-end">
@@ -276,8 +276,8 @@ export default function FractionalHeadOfTalent() {
           <div className="mb-6">
             <CapacityBadge />
           </div>
-          <a href="/strategy-call" target="_blank" rel="noopener noreferrer">
-            <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-10">
+          <a href="/strategy-call" target="_blank" rel="noopener noreferrer" className="block sm:inline-block">
+            <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-10 w-full sm:w-auto">
               Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </a>

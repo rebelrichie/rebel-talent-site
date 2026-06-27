@@ -441,8 +441,8 @@ export default function Pricing() {
             <p className="text-zinc-400 text-base mb-8 max-w-xl mx-auto">
               30 minutes. I'll diagnose your hiring systems, tell you what's broken, and give you a straight answer on what it would cost to fix it. If we're not a fit, I'll tell you that too.
             </p>
-            <a href="/strategy-call" target="_blank" rel="noopener noreferrer">
-              <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-10">
+            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" className="block sm:inline-block">
+              <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-10 w-full sm:w-auto">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>

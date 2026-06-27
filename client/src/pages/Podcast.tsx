@@ -207,8 +207,8 @@ export default function Podcast() {
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
               I talk about recruiting infrastructure, AI in hiring, fractional leadership, cleared hiring, and why most talent acquisition is fundamentally broken. No scripts. No fluff.
             </p>
-            <a href="mailto:richie@rebeltalentsystems.com" data-testid="button-podcast-cta">
-              <Button className="font-display tracking-wider uppercase text-sm">
+            <a href="mailto:richie@rebeltalentsystems.com" data-testid="button-podcast-cta" className="block sm:inline-block">
+              <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
                 Book Me for Your Show <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>
