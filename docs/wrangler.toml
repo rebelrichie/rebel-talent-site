@@ -1,0 +1,12 @@
+name = "sprig-api"
+main = "sprig-api-worker.js"
+compatibility_date = "2026-06-01"
+
+routes = [
+  { pattern = "rebeltalentsystems.com/api/sprig*", zone_name = "rebeltalentsystems.com" }
+]
+
+# Rate limiter (soft, per-IP). KV id filled in after `wrangler kv namespace create RATE`.
+[[kv_namespaces]]
+binding = "RATE"
+id = "8e0908e5427c4e789a585aabbb6e8647"

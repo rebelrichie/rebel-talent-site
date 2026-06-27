@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Hidden page: keep it out of search indexes. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Sprig, by Rebel Talent | A greener use of AI</title>
+  <meta name="description" content="Rebel Talent recruits with AI. Sprig is how we point that same technology back at the planet, turning everyday questions into small, greener choices." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:        #F4F5EE;
+      --bg-card:   #FFFFFF;
+      --ink:       #23241E;
+      --ink-soft:  #5C5F54;
+      --ink-faint: #8A8D80;
+      --green:     #2C6E45;
+      --green-hover:#235838;
+      --green-deep:#16301E;
+      --green-deep-2:#102014;
+      --sage:      #93B58C;
+      --clay:      #BC6A45;
+      --line:      rgba(20, 24, 16, 0.10);
+      --line-soft: rgba(20, 24, 16, 0.06);
+      --stripe-bg: #E6EDDD;
+      --stripe-fg: #D3E0C6;
+      --shadow-sm: 0 1px 2px rgba(20,40,25,0.05);
+      --shadow-md: 0 1px 2px rgba(20,40,25,0.05), 0 10px 30px rgba(20,45,28,0.06);
+      --shadow-lg: 0 2px 4px rgba(20,40,25,0.05), 0 24px 60px rgba(20,45,28,0.10);
+      --radius:    16px;
+      --radius-sm: 10px;
+      --maxw:      1120px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      /* Lusher feel: soft layered green light, same palette, no new hues. */
+      background:
+        radial-gradient(1100px 620px at 84% -8%, rgba(147,181,140,0.22), transparent 62%),
+        radial-gradient(820px 520px at -8% 12%, rgba(198,222,180,0.22), transparent 58%),
+        radial-gradient(1000px 760px at 50% 106%, rgba(147,181,140,0.16), transparent 60%),
+        var(--bg);
+    }
+
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+
+    .kicker {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .kicker--clay { color: var(--clay); }
+    .kicker--sage { color: var(--sage); }
+
+    .serif {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 1.08;
+      color: var(--ink);
+    }
+    .serif em { font-style: italic; font-weight: 400; color: var(--green); }
+
+    a { color: inherit; }
+
+    /* ── Botanical divider (lush accent, existing greens) ── */
+    .leaf-divider {
+      display: flex; align-items: center; justify-content: center; gap: 18px;
+      margin: 4px 0;
+    }
+    .leaf-divider .rule { height: 1px; width: min(140px, 24vw); }
+    .leaf-divider .rule.l { background: linear-gradient(90deg, transparent, rgba(147,181,140,0.6)); }
+    .leaf-divider .rule.r { background: linear-gradient(90deg, rgba(147,181,140,0.6), transparent); }
+    .leaf-divider svg { color: var(--sage); flex-shrink: 0; }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 12px 22px;
+      transition: background-color .18s ease, transform .18s ease, box-shadow .18s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn--primary { background: var(--green); color: #F4F5EE; }
+    .btn--primary:hover { background: var(--green-hover); }
+    .btn--deep { background: var(--green-deep); color: #F4F5EE; border-radius: 12px; }
+    .btn--deep:hover { background: var(--green-deep-2); }
+    .btn:active { transform: translateY(1px); }
+
+    .textlink {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 2px solid var(--clay);
+      padding-bottom: 3px;
+    }
+    .textlink:hover { color: var(--clay); }
+
+    /* ── Logo ── */
+    .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo__mark {
+      width: 30px; height: 30px; border-radius: 9px;
+      background: var(--green);
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo__text { display: flex; flex-direction: column; line-height: 1; }
+    .logo__name {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 19px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .logo__by {
+      font-family: 'Space Mono', monospace;
+      font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-faint); margin-top: 3px;
+    }
+
+    /* ── Header ── */
+    header { border-bottom: 1px solid var(--line-soft); position: relative; z-index: 2; }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .nav__links { display: flex; align-items: center; gap: 30px; }
+    .nav__links a {
+      font-size: 14px; font-weight: 500; color: var(--ink-soft); text-decoration: none;
+      transition: color .15s ease;
+    }
+    .nav__links a:hover { color: var(--ink); }
+    .nav__cta { display: flex; align-items: center; gap: 22px; }
+
+    /* ── Hero ── */
+    .hero { padding: 84px 0 80px; }
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero h1 { font-size: clamp(52px, 6.4vw, 84px); margin: 26px 0 0; }
+    .hero__sub {
+      font-size: 18px; color: var(--ink-soft); max-width: 38ch;
+      margin: 28px 0 36px;
+    }
+    .hero__cta { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+
+    /* hero image card */
+    .hero__media {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius);
+      /* striped fill shows only as a fallback while the photo loads */
+      background:
+        repeating-linear-gradient(135deg, var(--stripe-fg) 0 14px, transparent 14px 28px),
+        var(--stripe-bg);
+      box-shadow: var(--shadow-md);
+      overflow: visible;
+    }
+    .hero__media-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius);
+      border: 1px solid var(--line-soft);
+      display: block;
+    }
+    .bubble {
+      position: absolute; top: 26px; left: -26px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 16px;
+      max-width: 220px;
+      box-shadow: var(--shadow-md);
+    }
+    .bubble__tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--clay); margin-bottom: 6px;
+    }
+    .bubble__text { font-size: 14px; color: var(--ink); line-height: 1.45; }
+
+    /* ── Mission ── */
+    .mission { padding: 24px 0 8px; }
+    .mission__inner { max-width: 760px; }
+    .mission__title { font-size: clamp(28px, 3.6vw, 42px); margin-top: 16px; }
+    .mission__body { margin-top: 26px; display: flex; flex-direction: column; gap: 18px; }
+    .mission__body p { font-size: 17px; line-height: 1.75; color: var(--ink-soft); }
+    .mission__body p.lead { color: var(--ink); font-size: 18px; }
+    .mission__pull {
+      margin-top: 28px; padding: 18px 22px;
+      border-left: 3px solid var(--green);
+      background: rgba(147,181,140,0.12);
+      border-radius: 0 10px 10px 0;
+    }
+    .mission__pull p {
+      font-family: 'Fraunces', serif; font-weight: 500; font-style: italic;
+      font-size: 19px; line-height: 1.5; color: var(--green-deep);
+    }
+    .mission-divider { padding: 48px 0 8px; }
+
+    /* ── Section heads ── */
+    .section__head { max-width: 640px; }
+    .section__head h2 { font-size: clamp(30px, 3.6vw, 42px); margin-top: 16px; }
+
+    /* ── Superpowers grid ── */
+    .superpowers { padding: 40px 0 40px; }
+    .cards {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+      margin-top: 44px;
+    }
+    .card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius-sm);
+      padding: 22px 22px 24px;
+      box-shadow: var(--shadow-sm);
+      transition: transform .18s ease, box-shadow .18s ease;
+      overflow: hidden;
+    }
+    /* faint leaf watermark, lush but quiet */
+    .card::after {
+      content: "";
+      position: absolute; right: -14px; bottom: -14px;
+      width: 74px; height: 74px;
+      background: radial-gradient(circle at 30% 30%, rgba(147,181,140,0.16), transparent 70%);
+      pointer-events: none;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .card__num {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px; font-weight: 700; color: var(--clay);
+      letter-spacing: 0.08em; margin-bottom: 14px;
+    }
+    .card__title { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+    .card__body { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; }
+
+    /* ── Ask panel ── */
+    .askwrap { padding: 56px 0; }
+    .ask {
+      background: var(--bg-card);
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    .ask__head {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      padding: 36px 40px 24px; border-bottom: 1px solid var(--line-soft);
+      gap: 24px;
+    }
+    .ask__head h2 { font-size: clamp(26px, 3vw, 34px); margin-top: 12px; }
+    .live { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ink-soft); white-space: nowrap; }
+    .live__dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--ink-faint);
+      transition: background .2s ease;
+    }
+    .live--on .live__dot {
+      background: var(--green);
+      box-shadow: 0 0 0 0 rgba(44,110,69,0.5);
+      animation: pulse 2.2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(44,110,69,0.45); }
+      70% { box-shadow: 0 0 0 7px rgba(44,110,69,0); }
+      100% { box-shadow: 0 0 0 0 rgba(44,110,69,0); }
+    }
+    .ask__body { padding: 26px 40px 34px; }
+    .ask__hint { font-size: 14px; color: var(--ink-soft); margin-bottom: 16px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; }
+    .chip {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; color: var(--ink);
+      background: #F4F5EE;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 15px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .chip:hover { background: #ECEFE2; border-color: rgba(44,110,69,0.35); }
+    .ask__form { display: flex; gap: 12px; }
+    .ask__input {
+      flex: 1; font-family: 'Inter', sans-serif; font-size: 15px;
+      padding: 14px 18px; border: 1px solid var(--line);
+      border-radius: 12px; background: #FCFCF9; color: var(--ink);
+      outline: none; transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    .ask__input::placeholder { color: var(--ink-faint); }
+    .ask__input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(44,110,69,0.12); }
+    .ask__note { font-size: 11.5px; color: var(--ink-faint); margin-top: 14px; }
+
+    /* chat transcript */
+    .ask__transcript {
+      display: flex; flex-direction: column; gap: 14px;
+      max-height: 420px; overflow-y: auto; margin-bottom: 18px;
+    }
+    .ask__empty .ask__hint { margin-bottom: 16px; }
+    @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    .msg {
+      max-width: 84%; padding: 12px 15px; border-radius: 14px;
+      font-size: 15px; line-height: 1.55; white-space: pre-wrap; animation: rise .3s ease;
+    }
+    .msg--user { align-self: flex-end; background: var(--green); color: #F4F5EE; border-bottom-right-radius: 4px; }
+    .msg--bot { align-self: flex-start; background: #F4F5EE; color: var(--ink); border: 1px solid var(--line-soft); border-bottom-left-radius: 4px; }
+    .msg__tag {
+      display: block; font-family: 'Space Mono', monospace; font-size: 9px;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: 5px;
+    }
+    .typing { display: inline-flex; gap: 5px; align-items: center; padding: 3px 0; }
+    .typing span { width: 7px; height: 7px; border-radius: 50%; background: var(--sage); animation: blink 1.2s infinite; }
+    .typing span:nth-child(2) { animation-delay: .2s; }
+    .typing span:nth-child(3) { animation-delay: .4s; }
+    @keyframes blink { 0%, 60%, 100% { opacity: .25; } 30% { opacity: 1; } }
+    textarea.ask__input { resize: none; min-height: 50px; max-height: 140px; line-height: 1.5; }
+    .ask__form { align-items: flex-end; }
+    .ask__send { height: 50px; }
+
+    /* ── Why (dark) ── */
+    .why { position: relative; background: var(--green-deep); color: #F4F5EE; margin-top: 40px; overflow: hidden; }
+    .why__leaf { position: absolute; color: #A8C99A; opacity: 0.07; pointer-events: none; }
+    .why__leaf.tl { top: -30px; left: -20px; transform: rotate(18deg); }
+    .why__leaf.br { bottom: -40px; right: -10px; transform: rotate(-160deg); }
+    .why__inner { position: relative; z-index: 1; padding: 96px 0; text-align: center; }
+    .why h2 {
+      font-family: 'Fraunces', serif; font-weight: 500;
+      font-size: clamp(30px, 4vw, 46px); line-height: 1.18;
+      color: #F4F5EE; max-width: 16ch; margin: 22px auto 0; letter-spacing: -0.01em;
+    }
+    .why h2 em { font-style: italic; color: var(--sage); }
+    .why__body {
+      max-width: 58ch; margin: 30px auto 0; font-size: 16px;
+      color: rgba(244,245,238,0.72); line-height: 1.7;
+    }
+
+    /* ── Signup ── */
+    .signup { padding: 96px 0; }
+    .signup__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .signup h2 { font-size: clamp(32px, 4vw, 46px); margin-top: 16px; }
+    .signup__body { font-size: 16px; color: var(--ink-soft); margin-top: 24px; max-width: 40ch; }
+    .form-card {
+      background: var(--bg-card); border: 1px solid var(--line-soft);
+      border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow-md);
+    }
+    .field { margin-bottom: 18px; }
+    .field label { display: block; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 7px; }
+    .field input, .field select {
+      width: 100%; font-family: 'Inter', sans-serif; font-size: 15px;
+      padding: 13px 15px; border: 1px solid var(--line); border-radius: 10px;
+      background: #FCFCF9; color: var(--ink); outline: none;
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    .field input::placeholder { color: var(--ink-faint); }
+    .field input:focus, .field select:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(44,110,69,0.12); }
+    .form-card .btn--deep { width: 100%; justify-content: center; padding: 14px; margin-top: 6px; }
+    .form-success {
+      display: none; text-align: center; padding: 18px 8px;
+    }
+    .form-success.show { display: block; }
+    .form-success .check {
+      width: 44px; height: 44px; border-radius: 50%; background: rgba(44,110,69,0.12);
+      color: var(--green); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 12px;
+    }
+    .form-success h3 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 20px; margin-bottom: 6px; }
+    .form-success p { font-size: 13.5px; color: var(--ink-soft); }
+
+    /* ── Footer ── */
+    footer { border-top: 1px solid var(--line-soft); }
+    .foot { display: flex; align-items: center; justify-content: space-between; padding: 28px 0; gap: 24px; }
+    .foot__tag { font-size: 13.5px; color: var(--ink-soft); text-align: right; max-width: 52ch; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .hero__grid { grid-template-columns: 1fr; gap: 48px; }
+      .hero__media { aspect-ratio: 1 / 1; max-width: 460px; }
+      .bubble { left: auto; right: 16px; }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .signup__grid { grid-template-columns: 1fr; gap: 40px; }
+      .nav__links { display: none; }
+    }
+    @media (max-width: 560px) {
+      .wrap { padding: 0 20px; }
+      .hero { padding: 52px 0 56px; }
+      .cards { grid-template-columns: 1fr; }
+      .ask__head, .ask__body { padding-left: 24px; padding-right: 24px; }
+      .ask__form { flex-direction: column; }
+      .ask__form .btn { justify-content: center; }
+      .foot { flex-direction: column; align-items: flex-start; }
+      .foot__tag { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════ HEADER ════ -->
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#top">
+        <span class="logo__mark">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#F4F5EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/>
+            <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/>
+            <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/>
+          </svg>
+        </span>
+        <span class="logo__text">
+          <span class="logo__name">Sprig</span>
+          <span class="logo__by">by Rebel Talent</span>
+        </span>
+      </a>
+      <nav class="nav__cta">
+        <div class="nav__links">
+          <a href="#mission">Mission</a>
+          <a href="#what">What it does</a>
+          <a href="#ask">Ask Sprig</a>
+          <a href="#join">Join</a>
+        </div>
+        <a href="#ask" class="btn btn--primary">Ask Sprig</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ════ HERO ════ -->
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <span class="kicker kicker--clay">A Rebel Talent initiative</span>
+          <h1 class="serif">AI for a <em>greener</em> planet.</h1>
+          <p class="hero__sub">We recruit with AI every day. Sprig is how Rebel Talent gives some of that back, turning everyday questions into small, greener choices that add up.</p>
+          <div class="hero__cta">
+            <a href="#ask" class="btn btn--primary">Ask Sprig anything</a>
+            <a href="#mission" class="textlink">Read the mission</a>
+          </div>
+        </div>
+        <div class="hero__media">
+          <!-- Hero photo: Pexels (free license, no attribution required); https://www.pexels.com/photo/4207909/ -->
+          <img class="hero__media-img" src="hero-hands-garden.jpg" width="1200" height="1500"
+               alt="A pair of weathered hands planting a young green seedling into garden soil." />
+          <div class="bubble">
+            <div class="bubble__tag">Sprig says</div>
+            <div class="bubble__text">Those wilting carrots? Roast them with the herbs you've got. Zero waste.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ MISSION ════ -->
+    <section class="mission wrap" id="mission">
+      <div class="mission__inner">
+        <span class="kicker kicker--clay">Our mission</span>
+        <h2 class="serif mission__title">We recruit with AI. <em>This is how we give some back.</em></h2>
+        <div class="mission__body">
+          <p class="lead">Rebel Talent runs an AI-heavy recruiting operation. Every search, every agent, every model call runs in a datacenter somewhere, and that compute draws real power and water. We are not going to pretend it doesn't.</p>
+          <p>Sprig is our answer. We point the same technology at greener everyday choices, composting, food waste, energy, getting outside, and we give it away for free. It will not cancel out a datacenter, and we won't claim it does.</p>
+          <p>It is a standard we are holding ourselves to. If our work spends energy, our work should also help people spend less.</p>
+        </div>
+        <div class="mission__pull">
+          <p>Recruiting runs on AI. Sprig is a small, honest way we point some of that same power at greener everyday choices.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- botanical divider -->
+    <div class="wrap mission-divider">
+      <div class="leaf-divider" aria-hidden="true">
+        <span class="rule l"></span>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/>
+          <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/>
+          <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/>
+        </svg>
+        <span class="rule r"></span>
+      </div>
+    </div>
+
+    <!-- ════ SUPERPOWERS ════ -->
+    <section class="superpowers wrap" id="what">
+      <div class="section__head">
+        <span class="kicker">What Sprig helps you do</span>
+        <h2 class="serif">Eight small superpowers for living lighter on the planet.</h2>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card__num">01</div>
+          <h3 class="card__title">Monitor &amp; Protect Nature</h3>
+          <p class="card__body">Track deforestation, wildlife, and biodiversity using satellite and camera data.</p>
+        </article>
+        <article class="card">
+          <div class="card__num">02</div>
+          <h3 class="card__title">Reduce Waste</h3>
+          <p class="card__body">Spot waste hotspots, optimize collection routes, and make recycling actually make sense.</p>
+        </article>
+        <article class="card">
+          <div class="card__num">03</div>
+          <h3 class="card__title">Smart Energy</h3>
+          <p class="card__body">Cut energy use, predict demand, and lean harder into renewables.</p>
+        </article>
+        <article class="card">
+          <div class="card__num">04</div>
+          <h3 class="card__title">Compost Made Easy</h3>
+          <p class="card__body">Know what to compost, how to do it, and when it's ready to use.</p>
+        </article>
+        <article class="card">
+          <div class="card__num">05</div>
+          <h3 class="card__title">Natural Solutions</h3>
+          <p class="card__body">Discover herbal remedies, natural fixes, and lower-impact ways to live.</p>
+        </article>
+        <article class="card">
+          <div class="card__num">06</div>
+          <h3 class="card__title">Move Better, Live Better</h3>
+          <p class="card__body">Build exercise plans around your goals, your body, and what you've got on hand.</p>
+        </article>
+        <article class="card">
+          <div class="card__num">07</div>
+          <h3 class="card__title">Raise Awareness</h3>
+          <p class="card__body">Turn data into stories that inform people and inspire real action.</p>
+        </article>
+        <article class="card">
+          <div class="card__num">08</div>
+          <h3 class="card__title">Cut Food Waste</h3>
+          <p class="card__body">Get recipes for what's about to go bad and use what's already in your fridge.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ════ ASK SPRIG ════ -->
+    <section class="askwrap wrap" id="ask">
+      <div class="ask">
+        <div class="ask__head">
+          <div>
+            <span class="kicker">Try it now&nbsp;·&nbsp;Real answers</span>
+            <h2 class="serif">Ask Sprig a green question.</h2>
+          </div>
+          <span class="live" id="livePill"><span class="live__dot"></span><span id="liveText">Preview</span></span>
+        </div>
+        <div class="ask__body">
+          <div class="ask__transcript" id="askTranscript">
+            <div class="ask__empty" id="askEmpty">
+              <p class="ask__hint">Composting, recycling rules, using up the fridge, a workout with no equipment. Try one:</p>
+              <div class="chips" id="chips">
+                <button class="chip">What can I actually compost at home?</button>
+                <button class="chip">Recipe ideas for wilting vegetables?</button>
+                <button class="chip">Is greasy pizza box recyclable?</button>
+                <button class="chip">A 15-min workout with no equipment?</button>
+              </div>
+            </div>
+          </div>
+          <form class="ask__form" id="askForm">
+            <textarea class="ask__input" id="askInput" rows="1" placeholder="Ask about composting, recycling, food waste, energy…" autocomplete="off"></textarea>
+            <button type="submit" class="btn btn--primary ask__send" id="askSend">Send</button>
+          </form>
+          <p class="ask__note" id="askNote">Sprig answers with one concrete next step. Sample answers shown until the live model is connected.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ WHY ════ -->
+    <section class="why">
+      <svg class="why__leaf tl" width="240" height="240" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/>
+        <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/>
+        <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/>
+      </svg>
+      <svg class="why__leaf br" width="300" height="300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/>
+        <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/>
+        <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/>
+      </svg>
+      <div class="wrap why__inner">
+        <span class="kicker kicker--sage">Why Rebel built this</span>
+        <h2 class="serif">Sometimes the best use of AI isn't helping us work more. <em>Sometimes it's helping us live better.</em></h2>
+        <p class="why__body">As AI keeps growing, and the datacenters behind it keep growing, we hope we all spend as much time asking how it can improve our communities, our health, and our environment as we do asking how it can lift productivity by 12%.</p>
+      </div>
+    </section>
+
+    <!-- ════ SIGNUP ════ -->
+    <section class="signup wrap" id="join">
+      <div class="signup__grid">
+        <div>
+          <span class="kicker">Join the mission</span>
+          <h2 class="serif">Help us build greener habits.</h2>
+          <p class="signup__body">Sprig is just getting started. Leave your email and we'll share new tools, local ways to pitch in, and the occasional good idea. No spam, ever.</p>
+        </div>
+        <div class="form-card">
+          <!-- TODO: point JS at a real signup endpoint (CRM / mailing list) before the form goes live. -->
+          <form id="joinForm">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Jane Rivera" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@email.com" required />
+            </div>
+            <div class="field">
+              <label for="intent">I want to…</label>
+              <select id="intent" name="intent">
+                <option>Get updates as Sprig grows</option>
+                <option>Join a local cleanup</option>
+                <option>Help test Sprig</option>
+                <option>Partner with Rebel Talent</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn--deep">Count me in</button>
+          </form>
+          <div class="form-success" id="joinSuccess">
+            <div class="check">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <h3 id="joinSuccessName">Thanks for the interest.</h3>
+            <p>Sprig is in early preview, so this form isn't collecting signups yet. It goes live with the initiative.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════ FOOTER ════ -->
+  <footer>
+    <div class="wrap foot">
+      <a class="logo" href="#top">
+        <span class="logo__mark">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#F4F5EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/>
+            <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/>
+            <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/>
+          </svg>
+        </span>
+        <span class="logo__text">
+          <span class="logo__name">Sprig</span>
+          <span class="logo__by">by Rebel Talent</span>
+        </span>
+      </a>
+      <p class="foot__tag">A Rebel Talent initiative. AI won't save the planet, but it can help us make better choices, every day.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // When the /api/sprig backend is live, answers come from Claude.
+      // Until then, the chat falls back to these sample answers so the page
+      // still works and never shows a broken request to a visitor.
+      var API_URL = "/api/sprig";
+      var ANSWERS = {
+        "what can i actually compost at home?": "Fruit and veg scraps, coffee grounds, eggshells, and plain paper all go in. Keep meat, dairy, and oily food out, since they smell and draw pests.",
+        "recipe ideas for wilting vegetables?": "Roast them. Toss soft carrots, celery, and onion with oil and whatever herbs you've got at 220C for 25 minutes, then blend into a quick soup. Zero waste.",
+        "is greasy pizza box recyclable?": "The clean lid, yes. Tear off any grease-soaked or cheesy sections, since grease ruins paper recycling. Those bits go in compost or trash.",
+        "a 15-min workout with no equipment?": "Three rounds: 40s squats, 30s push-ups, 40s reverse lunges, 30s plank, 20s rest. All bodyweight, living-room sized."
+      };
+      var FALLBACK = "Good question. Once the live model is connected, Sprig answers this with one practical, lower-impact step you can take today.";
+
+      var transcript = document.getElementById('askTranscript');
+      var empty = document.getElementById('askEmpty');
+      var input = document.getElementById('askInput');
+      var form = document.getElementById('askForm');
+      var sendBtn = document.getElementById('askSend');
+      var note = document.getElementById('askNote');
+      var livePill = document.getElementById('livePill');
+      var liveText = document.getElementById('liveText');
+      var history = [];   // real conversation turns sent to the API
+      var isLive = null;  // null unknown, true live, false preview
+
+      function autosize() {
+        input.style.height = 'auto';
+        input.style.height = Math.min(input.scrollHeight, 140) + 'px';
+      }
+
+      function addMessage(role, text) {
+        var el = document.createElement('div');
+        el.className = 'msg ' + (role === 'user' ? 'msg--user' : 'msg--bot');
+        if (role !== 'user') {
+          var tag = document.createElement('span');
+          tag.className = 'msg__tag';
+          tag.textContent = 'Sprig says';
+          el.appendChild(tag);
+        }
+        el.appendChild(document.createTextNode(text));
+        transcript.appendChild(el);
+        transcript.scrollTop = transcript.scrollHeight;
+        return el;
+      }
+
+      function showTyping() {
+        var el = document.createElement('div');
+        el.className = 'msg msg--bot';
+        el.innerHTML = '<span class="typing"><span></span><span></span><span></span></span>';
+        transcript.appendChild(el);
+        transcript.scrollTop = transcript.scrollHeight;
+        return el;
+      }
+
+      function setLive(live) {
+        if (live === isLive) return;
+        isLive = live;
+        if (live) {
+          livePill.classList.add('live--on');
+          liveText.textContent = 'Live AI';
+          note.textContent = 'Sprig is live. Answers come from Claude, scoped to one practical step.';
+        } else {
+          livePill.classList.remove('live--on');
+          liveText.textContent = 'Preview';
+          note.textContent = 'Preview. Sample answers shown until the live model is connected.';
+        }
+      }
+
+      async function ask(text) {
+        if (empty) { empty.remove(); empty = null; }
+        addMessage('user', text);
+        history.push({ role: 'user', content: text });
+        input.value = ''; autosize();
+        sendBtn.disabled = true; input.disabled = true;
+        var typing = showTyping();
+        try {
+          var res = await fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ messages: history })
+          });
+          if (!res.ok) throw new Error('bad status');
+          var data = await res.json();
+          if (!data || typeof data.text !== 'string' || !data.text.trim()) throw new Error('no text');
+          typing.remove();
+          addMessage('bot', data.text.trim());
+          history.push({ role: 'assistant', content: data.text.trim() });
+          setLive(true);
+        } catch (err) {
+          typing.remove();
+          addMessage('bot', ANSWERS[text.toLowerCase()] || FALLBACK);
+          // drop the unanswered turn so the API history stays clean if it connects later
+          history.pop();
+          if (isLive !== true) setLive(false);
+        } finally {
+          sendBtn.disabled = false; input.disabled = false; input.focus();
+        }
+      }
+
+      document.getElementById('chips').addEventListener('click', function (e) {
+        if (!e.target.classList.contains('chip')) return;
+        ask(e.target.textContent.trim());
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var q = input.value.trim();
+        if (q) ask(q);
+      });
+
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          var q = input.value.trim();
+          if (q) ask(q);
+        }
+      });
+
+      input.addEventListener('input', autosize);
+
+      var joinForm = document.getElementById('joinForm');
+      var joinSuccess = document.getElementById('joinSuccess');
+      var joinSuccessName = document.getElementById('joinSuccessName');
+      joinForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = document.getElementById('name').value.trim();
+        joinSuccessName.textContent = name ? ("Thanks for the interest, " + name.split(' ')[0] + ".") : "Thanks for the interest.";
+        joinForm.style.display = 'none';
+        joinSuccess.classList.add('show');
+      });
+    })();
+  </script>
+
+</body>
+</html>
