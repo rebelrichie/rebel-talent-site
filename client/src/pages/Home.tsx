@@ -1202,10 +1202,10 @@ export default function Home() {
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center" style={{ zIndex: 10 }}>
           <img src="/logo.png" alt="Rebel Talent" className="w-16 h-16 mx-auto mb-6" />
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight mb-4">
-            Bring Me Your Hardest Req.
+            Bring Us Your Hardest Req.
           </h2>
           <p className="text-zinc-400 text-base mb-8 max-w-xl mx-auto">
-            30 minutes. Walk me through the role nobody else can fill. I'll tell you straight whether I can, and if I can't, I'll point you to who can.
+            30 minutes. Walk us through the role nobody else can fill. Richie is on every engagement, so you get a straight answer either way, and if it isn't ours to fill, we'll point you to who can.
           </p>
           <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-4" className="block sm:inline-block">
             <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-10 w-full sm:w-auto">
