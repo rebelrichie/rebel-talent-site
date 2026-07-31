@@ -43,8 +43,8 @@ const caseStudySchema = {
       "position": 3,
       "item": {
         "@type": "Article",
-        "headline": "Legal Managed Services: 18 Hires in 14 Months with 90% Retention",
-        "description": "Built complete GTM talent infrastructure from zero, delivering 18 hires over 14 months with 90% retention rate. Fully automated pipeline continues generating qualified candidates.",
+        "headline": "Legal Managed Services: 20 Hires in 24 Months with 90% Retention",
+        "description": "Built complete GTM talent infrastructure from zero, delivering 20 hires over 24 months with 90% retention rate. Evergreen role with constant interviewing; sourcing is automated where it can be, with humans handling screening, submissions, and interviews.",
         "url": "https://rebeltalentsystems.com/case-studies",
         "author": { "@type": "Person", "name": "Richie Lampani" },
         "publisher": { "@type": "Organization", "name": "Rebel Talent" }
@@ -58,10 +58,10 @@ export default function CaseStudies() {
     <PageLayout>
       <PageSEO
         title="Startup & Defense Recruiting Case Studies | Rebel Talent"
-        description="Real results from real engagements. EarthDaily Federal: $294K+ saved, ~335% ROI delivered (470%+ projected). Kalibri Labs: 34 days to signed offer against 360+ AI-polished apps. Legal: 18 hires, 90% retention."
+        description="Real results from real engagements. EarthDaily: $294K+ saved, ~335% ROI delivered. Kalibri Labs: 34 days to signed offer. Legal: 20 hires, 90% retention."
         path="/case-studies"
         ogTitle="Startup & Defense Recruiting Case Studies | Rebel Talent"
-        ogDescription="Proof over promises. EarthDaily: $294K+ saved across 9 placements. Kalibri Labs: 34 days to signed offer, zero applicants from 360+ inbound made finals. Legal: 18 hires, 90% retention."
+        ogDescription="Proof over promises. EarthDaily: $294K+ saved across 9 placements. Kalibri Labs: 34 days to signed offer, zero applicants from 360+ inbound made finals. Legal: 20 hires, 90% retention."
         ogImage="og-case-studies.png"
         schemas={[caseStudySchema]}
         breadcrumbs={[
@@ -79,7 +79,7 @@ export default function CaseStudies() {
           }}
         />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
-          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-500 mb-6 sm:mb-10">
+          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-400 mb-6 sm:mb-10">
             Proof in the metrics
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-4xl" data-testid="heading-case-studies">
@@ -105,20 +105,20 @@ export default function CaseStudies() {
             <p className="text-zinc-400 text-base mb-2">
               Geospatial intelligence company operating in the federal/defense space. Zero recruiting infrastructure. No ATS. No documented process. Every hire was founder-led or agency-dependent.
             </p>
-            <p className="text-zinc-500 text-sm mb-8">
+            <p className="text-zinc-400 text-sm mb-8">
               What a monthly retainer engagement actually produces.
             </p>
 
-            <div className="grid grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-8">
               {[
                 { value: "$294K+", label: "FEES AVOIDED", sub: "9 placements, no agency" },
                 { value: "~335%", label: "ROI", sub: "~$88K invested to date" },
-                { value: "8", label: "ROLES PLACED", sub: "5 more in pipeline" },
+                { value: "9", label: "ROLES PLACED", sub: "4 more in pipeline" },
               ].map((stat) => (
                 <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-2 sm:p-5 text-center">
-                  <AnimatedCounter value={stat.value} className="font-display text-lg sm:text-2xl md:text-3xl font-bold text-rebel-red mb-1" />
-                  <div className="text-zinc-500 text-xs tracking-widest uppercase">{stat.label}</div>
-                  <div className="text-zinc-600 text-xs mt-1">{stat.sub}</div>
+                  <AnimatedCounter value={stat.value} className="font-display text-base sm:text-2xl md:text-3xl font-bold text-rebel-red mb-1" />
+                  <div className="text-zinc-400 text-xs tracking-widest uppercase">{stat.label}</div>
+                  <div className="text-zinc-400 text-xs mt-1">{stat.sub}</div>
                 </div>
               ))}
             </div>
@@ -170,9 +170,9 @@ export default function CaseStudies() {
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-zinc-700">
-                      <th className="text-left text-zinc-500 font-mono text-xs tracking-wider uppercase py-2 pr-4">Role</th>
-                      <th className="text-left text-zinc-500 font-mono text-xs tracking-wider uppercase py-2 pr-4">Type</th>
-                      <th className="text-right text-zinc-500 font-mono text-xs tracking-wider uppercase py-2">Agency Fee Avoided</th>
+                      <th className="text-left text-zinc-400 font-mono text-xs tracking-wider uppercase py-2 pr-4">Role</th>
+                      <th className="text-left text-zinc-400 font-mono text-xs tracking-wider uppercase py-2 pr-4">Type</th>
+                      <th className="text-right text-zinc-400 font-mono text-xs tracking-wider uppercase py-2">Agency Fee Avoided</th>
                     </tr>
                   </thead>
                   <tbody className="text-zinc-400">
@@ -190,7 +190,7 @@ export default function CaseStudies() {
                       <tr key={r.role} className="border-b border-zinc-800/50">
                         <td className="py-2 pr-4 text-zinc-300">{r.role}</td>
                         <td className="py-2 pr-4">
-                          <span className="font-mono text-xs tracking-wider text-zinc-500">{r.type}</span>
+                          <span className="font-mono text-xs tracking-wider text-zinc-400">{r.type}</span>
                         </td>
                         <td className="py-2 text-right font-mono text-rebel-red">{r.fee}</td>
                       </tr>
@@ -233,24 +233,24 @@ export default function CaseStudies() {
               {/* Confirmed vs Projected table */}
               <div className="grid grid-cols-2 gap-px bg-zinc-700/40 mb-5">
                 <div className="bg-[#0d0d14] px-4 py-3">
-                  <div className="text-zinc-500 text-[10px] font-mono tracking-widest uppercase mb-2">Confirmed Fees Avoided</div>
+                  <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Confirmed Fees Avoided</div>
                   <div className="text-white font-display text-xl font-bold mb-0.5">$294K+</div>
-                  <div className="text-zinc-500 text-xs">9 placements closed, no agency</div>
+                  <div className="text-zinc-400 text-xs">9 placements closed, no agency</div>
                 </div>
                 <div className="bg-[#0d0d14] px-4 py-3">
-                  <div className="text-zinc-500 text-[10px] font-mono tracking-widest uppercase mb-2">Projected at Full Pipeline Close</div>
+                  <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Projected at Full Pipeline Close</div>
                   <div className="text-rebel-red font-display text-xl font-bold mb-0.5">$415K+</div>
-                  <div className="text-zinc-500 text-xs">5 additional roles at standard agency rates</div>
+                  <div className="text-zinc-400 text-xs">5 additional roles at standard agency rates</div>
                 </div>
                 <div className="bg-[#0d0d14] px-4 py-3">
-                  <div className="text-zinc-500 text-[10px] font-mono tracking-widest uppercase mb-2">Current ROI</div>
+                  <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Current ROI</div>
                   <div className="text-white font-display text-xl font-bold mb-0.5">~335%</div>
-                  <div className="text-zinc-500 text-xs">~$88K invested over 8 months</div>
+                  <div className="text-zinc-400 text-xs">~$88K invested over 8 months</div>
                 </div>
                 <div className="bg-[#0d0d14] px-4 py-3">
-                  <div className="text-zinc-500 text-[10px] font-mono tracking-widest uppercase mb-2">Projected ROI</div>
+                  <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Projected ROI</div>
                   <div className="text-rebel-red font-display text-xl font-bold mb-0.5">470%+</div>
-                  <div className="text-zinc-500 text-xs">Before infrastructure value is counted</div>
+                  <div className="text-zinc-400 text-xs">Before infrastructure value is counted</div>
                 </div>
               </div>
 
@@ -276,7 +276,7 @@ export default function CaseStudies() {
             <p className="text-zinc-400 text-base mb-2">
               360 applications in 24 hours. Every company thinks that's good news. It isn't. It means your job post attracted a flood of AI-optimized applications, polished, technically fluent, confident on paper. It means your hiring team just got a second job. And it means the person you actually need probably isn't in that pile.
             </p>
-            <p className="text-zinc-500 text-sm mb-8">
+            <p className="text-zinc-400 text-sm mb-8">
               Retained search, 50% down / 50% on placement. What this engagement proved about why posting and waiting doesn't work anymore.
             </p>
             </ScrollReveal>
@@ -286,12 +286,12 @@ export default function CaseStudies() {
                 { value: "360+", label: "Applications", sub: "First 24 hours" },
                 { value: "0", label: "Applicants in Finals", sub: "Zero made the cut" },
                 { value: "~50%", label: "Cost vs. Agency", sub: "Saved on this search" },
-                { value: "<30", label: "Days Start to Finals", sub: "Zero ramp time" },
+                { value: "34", label: "Days to Signed Offer", sub: "Headhunted candidate" },
               ].map((stat) => (
                 <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-2 sm:p-5 text-center">
-                  <AnimatedCounter value={stat.value} className="font-display text-lg sm:text-2xl md:text-3xl font-bold text-rebel-red mb-1" />
-                  <div className="text-zinc-500 text-xs tracking-widest uppercase">{stat.label}</div>
-                  <div className="text-zinc-600 text-xs mt-1">{stat.sub}</div>
+                  <AnimatedCounter value={stat.value} className="font-display text-base sm:text-2xl md:text-3xl font-bold text-rebel-red mb-1" />
+                  <div className="text-zinc-400 text-xs tracking-widest uppercase">{stat.label}</div>
+                  <div className="text-zinc-400 text-xs mt-1">{stat.sub}</div>
                 </div>
               ))}
             </div>
@@ -341,7 +341,7 @@ export default function CaseStudies() {
               <h3 className="font-display text-base font-bold text-rebel-red uppercase mb-5">How the Pipeline Actually Broke Down</h3>
               <div className="grid md:grid-cols-3 gap-6">
                 <div>
-                  <div className="text-zinc-500 text-[10px] font-mono tracking-widest uppercase mb-3">Inbound (360 Applications)</div>
+                  <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-3">Inbound (360 Applications)</div>
                   <div className="space-y-2 text-sm">
                     {[
                       { label: "Reviewed", value: "360", note: "Every single one" },
@@ -353,7 +353,7 @@ export default function CaseStudies() {
                       <div key={row.label} className="flex items-center justify-between gap-4 py-1.5 border-b border-zinc-800/50">
                         <span className="text-zinc-400">{row.label}</span>
                         <div className="flex items-center gap-2">
-                          {row.note && <span className="text-zinc-600 text-xs">{row.note}</span>}
+                          {row.note && <span className="text-zinc-400 text-xs">{row.note}</span>}
                           <span className="font-mono text-rebel-red font-bold text-sm w-6 text-right">{row.value}</span>
                         </div>
                       </div>
@@ -361,19 +361,19 @@ export default function CaseStudies() {
                   </div>
                 </div>
                 <div>
-                  <div className="text-zinc-500 text-[10px] font-mono tracking-widest uppercase mb-3">Headhunted (25 Candidates)</div>
+                  <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-3">Headhunted (25 Candidates)</div>
                   <div className="space-y-2 text-sm">
                     {[
                       { label: "Sourced & contacted", value: "25", note: "" },
                       { label: "Moved to consideration", value: "4", note: "16% rate" },
                       { label: "Made 1st round", value: "2", note: "" },
                       { label: "Made panel", value: "1", note: "" },
-                      { label: "Still in process", value: "1", note: "Decision pending" },
+                      { label: "Selected", value: "1", note: "Offer signed" },
                     ].map((row) => (
                       <div key={row.label} className="flex items-center justify-between gap-4 py-1.5 border-b border-zinc-800/50">
                         <span className="text-zinc-400">{row.label}</span>
                         <div className="flex items-center gap-2">
-                          {row.note && <span className="text-zinc-600 text-xs">{row.note}</span>}
+                          {row.note && <span className="text-zinc-400 text-xs">{row.note}</span>}
                           <span className="font-mono text-rebel-red font-bold text-sm w-6 text-right">{row.value}</span>
                         </div>
                       </div>
@@ -381,19 +381,19 @@ export default function CaseStudies() {
                   </div>
                 </div>
                 <div>
-                  <div className="text-zinc-500 text-[10px] font-mono tracking-widest uppercase mb-3">Referrals (2 Candidates)</div>
+                  <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-3">Referrals (2 Candidates)</div>
                   <div className="space-y-2 text-sm">
                     {[
                       { label: "Internal referrals", value: "2", note: "100% rate" },
                       { label: "Moved to consideration", value: "2", note: "" },
                       { label: "Made 1st round", value: "2", note: "" },
                       { label: "Made panel", value: "1", note: "" },
-                      { label: "Still in process", value: "1", note: "Decision pending" },
+                      { label: "Runner-up", value: "1", note: "Not selected" },
                     ].map((row) => (
                       <div key={row.label} className="flex items-center justify-between gap-4 py-1.5 border-b border-zinc-800/50">
                         <span className="text-zinc-400">{row.label}</span>
                         <div className="flex items-center gap-2">
-                          {row.note && <span className="text-zinc-600 text-xs">{row.note}</span>}
+                          {row.note && <span className="text-zinc-400 text-xs">{row.note}</span>}
                           <span className="font-mono text-rebel-red font-bold text-sm w-6 text-right">{row.value}</span>
                         </div>
                       </div>
@@ -411,7 +411,7 @@ export default function CaseStudies() {
                 Sixty percent of the applicants we screened showed signs of misrepresentation. Near-perfect resumes. Matching LinkedIn profiles. Skills listed with complete confidence. When asked a technical question about something they claimed to know, they couldn't answer it. Not one made the first round.
               </p>
               <p className="text-zinc-300 text-sm leading-relaxed mb-4">
-                The two people in finals weren't in the original 360. They came from me picking up the phone and going to find them, and from inside the organization itself. Both crushed every round. The decision is genuinely close. That doesn't happen if you're waiting on inbound.
+                The two people in finals weren't in the original 360. They came from me picking up the phone and going to find them, and from inside the organization itself. Both crushed every round, and the headhunted candidate got the offer. That doesn't happen if you're waiting on inbound.
               </p>
               <p className="text-zinc-300 text-sm leading-relaxed mb-4">
                 This isn't a data point. This is the market. AI didn't just change how people write resumes, it changed what "qualified" looks like on paper. And now you need someone who knows the difference between a real signal and a very good imitation of one.
@@ -437,7 +437,7 @@ export default function CaseStudies() {
                 ].map((s) => (
                   <div key={s.label} className="bg-zinc-900 border border-zinc-800 p-4 text-center">
                     <div className="font-display text-xl font-bold text-rebel-red mb-1">{s.value}</div>
-                    <div className="text-zinc-500 text-xs uppercase tracking-wider">{s.label}</div>
+                    <div className="text-zinc-400 text-xs uppercase tracking-wider">{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -454,19 +454,19 @@ export default function CaseStudies() {
               Legal Managed Services: Building a Sales Hiring Machine
             </h2>
             <p className="text-zinc-400 text-base mb-8">
-              Built a complete GTM talent infrastructure from zero, delivering 18 hires over 14 months with 90% retention.
+              Built a complete GTM talent infrastructure from zero, delivering 20 hires over 24 months with 90% retention.
             </p>
             </ScrollReveal>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
               {[
-                { value: "18", label: "Hires in 14 Months" },
+                { value: "20", label: "Hires in 24 Months" },
                 { value: "90%", label: "Retention Rate" },
-                { value: "100%", label: "Automated Pipeline" },
+                { value: "100%", label: "Automated Sourcing" },
               ].map((stat) => (
                 <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-2 sm:p-5 text-center">
-                  <AnimatedCounter value={stat.value} className="font-display text-lg sm:text-2xl md:text-3xl font-bold text-rebel-red mb-1" />
-                  <div className="text-zinc-500 text-xs tracking-widest uppercase">{stat.label}</div>
+                  <AnimatedCounter value={stat.value} className="font-display text-base sm:text-2xl md:text-3xl font-bold text-rebel-red mb-1" />
+                  <div className="text-zinc-400 text-xs tracking-widest uppercase">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -510,7 +510,7 @@ export default function CaseStudies() {
             <div className="border border-rebel-red/20 bg-rebel-red/5 p-6">
               <h4 className="font-display text-base font-bold text-rebel-red uppercase mb-3">The Impact</h4>
               <p className="text-zinc-300 text-sm leading-relaxed">
-                18 successful hires over 14 months with a 90% retention rate. The fully automated pipeline continued generating qualified candidates after the engagement ended. Internal team was trained and equipped to maintain the system independently.
+                20 successful hires over 24 months with a 90% retention rate. This is an evergreen role: with the system in place we are constantly interviewing. The pipeline is automated where it can be, and humans still do the screening, submissions, and interviews.
               </p>
             </div>
           </div>
@@ -524,8 +524,8 @@ export default function CaseStudies() {
               ROI that agencies envy. Same approach, custom execution. Let's talk about what your recruiting function needs.
             </p>
             <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-casestudies-cta" className="block sm:inline-block">
-              <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
-                Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
+              <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto whitespace-normal text-center leading-tight h-auto min-h-9 py-2">
+                Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
               </Button>
             </a>
           </div>

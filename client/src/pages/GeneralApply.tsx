@@ -8,7 +8,7 @@ import { ArrowLeft, ArrowRight, FileText, CheckCircle2, AlertCircle, Upload, X }
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 
-const API = "https://rebelapply.com/api/public/general-apply";
+const API = "https://rebelcommand.dev/api/public/general-apply";
 
 type SubmitState =
   | { kind: "idle" }
@@ -137,7 +137,7 @@ export default function GeneralApply() {
       <section className="px-4 sm:px-6 lg:px-8 pt-8 pb-16 max-w-2xl mx-auto">
         <Link
           href="/jobs"
-          className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-zinc-500 hover:text-rebel-red transition-colors no-underline mb-8"
+          className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-zinc-400 hover:text-rebel-red transition-colors no-underline mb-8"
         >
           <ArrowLeft className="h-3.5 w-3.5" /> Back to Open Roles
         </Link>
@@ -339,7 +339,7 @@ export default function GeneralApply() {
                   <button
                     type="button"
                     onClick={() => { setFile(null); if (fileInputRef.current) fileInputRef.current.value = ""; }}
-                    className="text-zinc-500 hover:text-red-400"
+                    className="text-zinc-400 hover:text-red-400"
                   >
                     <X className="h-3.5 w-3.5" />
                   </button>
@@ -364,7 +364,7 @@ export default function GeneralApply() {
                 placeholder="Tell us about the kind of work you'd want to be doing."
                 className="w-full bg-black/40 border border-zinc-800 rounded-md px-3 py-2.5 text-sm text-white placeholder-zinc-600 focus:border-rebel-red/50 focus:outline-none resize-y"
               />
-              <p className="text-xs text-zinc-600 mt-1 text-right">{note.length}/1500</p>
+              <p className="text-xs text-zinc-400 mt-1 text-right">{note.length}/1500</p>
             </Field>
 
             {submit.kind === "error" && (
@@ -380,7 +380,7 @@ export default function GeneralApply() {
               className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 font-semibold rounded-md transition-colors ${
                 canSubmit
                   ? "bg-rebel-red hover:bg-red-700 text-white"
-                  : "bg-zinc-900 text-zinc-600 cursor-not-allowed border border-zinc-800"
+                  : "bg-zinc-900 text-zinc-400 cursor-not-allowed border border-zinc-800"
               }`}
             >
               {submit.kind === "submitting" ? (
@@ -408,7 +408,7 @@ function Field({
     <div>
       <label className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
         {label}{required && <span className="text-rebel-red ml-1">*</span>}
-        {hint && <span className="text-zinc-600 normal-case font-normal tracking-normal ml-2">— {hint}</span>}
+        {hint && <span className="text-zinc-400 normal-case font-normal tracking-normal ml-2">— {hint}</span>}
       </label>
       {children}
     </div>

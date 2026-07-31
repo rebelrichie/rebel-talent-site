@@ -14,7 +14,7 @@ const ENGAGEMENTS: Engagement[] = [
   {
     client: "EarthDaily Federal",
     logo: "/logo-earthdaily.png",
-    role: "Fractional Head of Talent",
+    role: "Fractional Head of Talent/Lead Talent Consultant",
     focus: "AI/ML, GTM & Executive Roles",
     url: "https://earthdailyfederal.com",
     logoBg: "bg-zinc-800",
@@ -22,7 +22,7 @@ const ENGAGEMENTS: Engagement[] = [
   {
     client: "Waveguide",
     logo: "/logo-waveguide.png",
-    role: "Fractional Head of Talent",
+    role: "Fractional Head of Talent/Lead Talent Consultant",
     focus: "TS/SCI FSP Technical & Engineering Recruiting",
     url: "https://waveguideincorporated.com",
     logoBg: "bg-white",

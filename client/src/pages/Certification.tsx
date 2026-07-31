@@ -48,8 +48,8 @@ export default function Certification() {
                 Join the Founding Class <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>
-            <a href="https://certifiedrecruiters.org/#certification" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="font-display tracking-wider uppercase text-sm px-8 py-3 border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500">
+            <a href="https://certifiedrecruiters.org/#certification" target="_blank" rel="noopener noreferrer" className="block sm:inline-block">
+              <Button variant="outline" className="font-display tracking-wider uppercase text-sm px-8 py-3 border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500 w-full sm:w-auto">
                 Learn About Certification
               </Button>
             </a>
@@ -70,7 +70,7 @@ export default function Certification() {
             ].map((stat) => (
               <div key={stat.label} className="text-center border border-zinc-800 bg-zinc-900/30 rounded-lg p-4">
                 <div className="font-display text-xl sm:text-2xl font-bold text-amber-400 mb-1">{stat.value}</div>
-                <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-zinc-500">{stat.label}</div>
+                <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-zinc-400">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -129,12 +129,12 @@ export default function Certification() {
             <div className="border border-amber-500/30 bg-amber-500/5 p-6 rounded-lg text-center">
               <div className="font-display text-3xl font-bold text-amber-400 mb-1">CR</div>
               <div className="font-mono text-xs text-zinc-400 tracking-widest uppercase mb-2">Certified Recruiter</div>
-              <p className="text-zinc-500 text-sm">Advanced designation for experienced professionals</p>
+              <p className="text-zinc-400 text-sm">Advanced designation for experienced professionals</p>
             </div>
             <div className="border border-zinc-700 bg-zinc-900/30 p-6 rounded-lg text-center">
               <div className="font-display text-3xl font-bold text-zinc-300 mb-1">CRA</div>
               <div className="font-mono text-xs text-zinc-400 tracking-widest uppercase mb-2">Certified Recruiter Associate</div>
-              <p className="text-zinc-500 text-sm">Entry-level pathway for emerging recruiters</p>
+              <p className="text-zinc-400 text-sm">Entry-level pathway for emerging recruiters</p>
             </div>
           </div>
 
@@ -165,7 +165,7 @@ export default function Certification() {
                 <domain.icon className="w-5 h-5 text-amber-500 mt-0.5 shrink-0" />
                 <div>
                   <h3 className="text-white text-sm font-semibold mb-1">{domain.title}</h3>
-                  <p className="text-zinc-500 text-xs leading-relaxed">{domain.desc}</p>
+                  <p className="text-zinc-400 text-xs leading-relaxed">{domain.desc}</p>
                 </div>
               </div>
             ))}

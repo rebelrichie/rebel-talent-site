@@ -56,7 +56,7 @@ function renderBody(body: string): string {
   const codeBlocks: string[] = [];
   const withPlaceholders = body.replace(/```(\w*)\n([\s\S]*?)```/g, (_match, lang, code) => {
     const idx = codeBlocks.length;
-    const langLabel = lang ? `<div class="text-xs text-zinc-500 mb-2 font-mono uppercase">${escapeHtml(lang)}</div>` : "";
+    const langLabel = lang ? `<div class="text-xs text-zinc-400 mb-2 font-mono uppercase">${escapeHtml(lang)}</div>` : "";
     codeBlocks.push(
       `<div class="my-6 rounded border border-zinc-800 bg-zinc-900/80 p-4 overflow-x-auto">${langLabel}<pre class="text-sm text-zinc-300 font-mono whitespace-pre-wrap"><code>${escapeHtml(code.trimEnd())}</code></pre></div>`
     );
@@ -217,7 +217,7 @@ export default function BlogPost() {
       <PageLayout>
         <div className="text-center py-32">
           <div className="w-8 h-8 border-2 border-rebel-red border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-zinc-500">Loading...</p>
+          <p className="text-zinc-400">Loading...</p>
         </div>
       </PageLayout>
     );
@@ -252,7 +252,7 @@ export default function BlogPost() {
       <article className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
         {/* Breadcrumb */}
         <nav className="mb-8">
-          <Link href="/blog" className="text-sm text-zinc-500 hover:text-white no-underline flex items-center gap-2 transition-colors">
+          <Link href="/blog" className="text-sm text-zinc-400 hover:text-white no-underline flex items-center gap-2 transition-colors">
             <ArrowLeft className="w-4 h-4" /> Back to Rebel Built
           </Link>
         </nav>
@@ -265,7 +265,7 @@ export default function BlogPost() {
           <h1 className="text-3xl sm:text-4xl font-bold text-white mb-5 leading-tight tracking-tight">
             {post.title}
           </h1>
-          <div className="flex items-center gap-3 text-base text-zinc-500">
+          <div className="flex items-center gap-3 text-base text-zinc-400">
             <span className="font-medium">{post.author || "Richie Lampani"}</span>
             <span>·</span>
             <time>{formatDate(post.publishedAt)}</time>
@@ -317,7 +317,7 @@ export default function BlogPost() {
                     <h3 className="font-bold text-white text-base mb-2 leading-snug group-hover:text-rebel-red transition-colors">
                       {r.title}
                     </h3>
-                    <time className="text-xs text-zinc-600">{formatDate(r.publishedAt)}</time>
+                    <time className="text-xs text-zinc-400">{formatDate(r.publishedAt)}</time>
                   </article>
                 </Link>
               ))}

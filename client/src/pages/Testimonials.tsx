@@ -17,19 +17,19 @@ const testimonials = [
     initials: "KA",
     name: "Keisha Ah Loo-Yates",
     title: "Strategic IT Leader | Support Engineering Manager | U.S. Army (Airborne) Combat Veteran",
-    text: "I've had the pleasure of working with Richie Lampani and let me tell you, he's not your average talent finder. Richie consistently delivers high-caliber candidates who aren't just a fit on paper, but a true match for the team and the culture. One standout IT candidate he brought to us has already proven to be a rockstar -- within just over 13 months, they've grown into a more valuable role within the organization and are thriving. That's the kind of long-term impact Richie brings to the table. What sets Richie apart is his attention to detail and the extra layer of diligence he puts into screening candidates. I'm used to recruiters sending half-vetted resumes that I still need to comb through. With Richie? Not the case. He does the heavy lifting, and the quality speaks for itself.",
+    text: "I've had the pleasure of working with Richie Lampani and let me tell you, he's not your average talent finder. Richie consistently delivers high-caliber candidates who aren't just a fit on paper, but a true match for the team and the culture. One standout IT candidate he brought to us has already proven to be a rockstar. Within just over 13 months, they've grown into a more valuable role within the organization and are thriving. That's the kind of long-term impact Richie brings to the table. What sets Richie apart is his attention to detail and the extra layer of diligence he puts into screening candidates. I'm used to recruiters sending half-vetted resumes that I still need to comb through. With Richie? Not the case. He does the heavy lifting, and the quality speaks for itself.",
   },
   {
     initials: "CG",
     name: "Colleen Garrett",
     title: "Fractional HR Leader, Leadership Coach, MBA",
-    text: "I have worked with Richie since he started Underground Admins. He successfully performed searches for my company's open roles in Sales, Sales Enablement, and technical roles. Richie is the most collaborative and positive person I get the privilege to work with and I deeply trust his judgment. He has an impressive expertise in finding the right candidates for jobs and for understanding and resonating with a company's culture. My company isn't easy to please and it is exceptionally picky at a maddening level. Richie kept giving us amazing candidates and moving forward, reflecting on our feedback and adjusting on the go. I plan to work with Underground Admins wherever I go with whatever vacancy I need to fill -- he guarantees my success in hiring. Highly recommend!",
+    text: "I have worked with Richie since he started Underground Admins. He successfully performed searches for my company's open roles in Sales, Sales Enablement, and technical roles. Richie is the most collaborative and positive person I get the privilege to work with and I deeply trust his judgment. He has an impressive expertise in finding the right candidates for jobs and for understanding and resonating with a company's culture. My company isn't easy to please and it is exceptionally picky at a maddening level. Richie kept giving us amazing candidates and moving forward, reflecting on our feedback and adjusting on the go. I plan to work with Underground Admins wherever I go with whatever vacancy I need to fill. He guarantees my success in hiring. Highly recommend!",
   },
   {
     initials: "NP",
     name: "Natalie Pochomis",
     title: "Data-Driven Solutions",
-    text: "Richie is amazing. I've been creeping on his LinkedIn for ages -- partly for the insights, partly for the entertainment -- even though the roles he posts have nothing to do with the ones I'm pursuing. So when he offered resume reviews, I signed up immediately like a total fangirl. My existing resume was solid -- actually, it was pretty great -- but it was built for a career I'm no longer pursuing. I reached out to Richie to help me make the leap from corporate nerd to laboratory nerd. When I first opened my shiny new resume, I was totally baffled. It was unexpected. Short. And not typical chronological style. I was a little skeptical. Fast-forward two weeks and about 10 applications later: I heard back from a technical staffing agency -- for multiple roles I applied to. I had a phone screen for a direct-hire position. I even got a cold outreach from a recruiter. All of this for jobs that represent a complete career pivot. I'm a believer.",
+    text: "Richie is amazing. I've been creeping on his LinkedIn for ages, partly for the insights, partly for the entertainment, even though the roles he posts have nothing to do with the ones I'm pursuing. So when he offered resume reviews, I signed up immediately like a total fangirl. My existing resume was solid. Actually, it was pretty great. But it was built for a career I'm no longer pursuing. I reached out to Richie to help me make the leap from corporate nerd to laboratory nerd. When I first opened my shiny new resume, I was totally baffled. It was unexpected. Short. And not typical chronological style. I was a little skeptical. Fast-forward two weeks and about 10 applications later: I heard back from a technical staffing agency, for multiple roles I applied to. I had a phone screen for a direct-hire position. I even got a cold outreach from a recruiter. All of this for jobs that represent a complete career pivot. I'm a believer.",
   },
   {
     initials: "MH",
@@ -58,7 +58,7 @@ export default function Testimonials() {
       <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%)" }} />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
-          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-500 mb-6 sm:mb-10">
+          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-400 mb-6 sm:mb-10">
             Proof
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-4xl" data-testid="heading-testimonials">
@@ -79,7 +79,7 @@ export default function Testimonials() {
 
           <ScrollReveal variant="fade-up">
             <div className="text-center mb-6">
-              <div className="font-mono text-zinc-600 text-xs tracking-[0.3em] uppercase">ALL TESTIMONIALS</div>
+              <div className="font-mono text-zinc-400 text-xs tracking-[0.3em] uppercase">ALL TESTIMONIALS</div>
             </div>
           </ScrollReveal>
 
@@ -93,7 +93,7 @@ export default function Testimonials() {
                     </div>
                     <div>
                       <h3 className="font-display text-sm font-bold text-white uppercase">{t.name}</h3>
-                      <p className="text-zinc-600 text-[11px]">{t.title}</p>
+                      <p className="text-zinc-400 text-[11px]">{t.title}</p>
                     </div>
                   </div>
                   <p className="text-zinc-400 text-xs leading-relaxed line-clamp-4">

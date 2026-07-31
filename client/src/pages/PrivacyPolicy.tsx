@@ -1,8 +1,18 @@
 import PageLayout from "@/components/PageLayout";
+import PageSEO from "@/components/PageSEO";
 
 export default function PrivacyPolicy() {
   return (
     <PageLayout>
+      <PageSEO
+        title="Privacy Policy | Rebel Talent Systems"
+        description="How Rebel Talent Systems collects, uses, and protects the information you share when you contact us, book a strategy call, or apply to a role."
+        path="/privacy-policy"
+        breadcrumbs={[
+          { name: "Home", item: "https://rebeltalentsystems.com/" },
+          { name: "Privacy Policy", item: "https://rebeltalentsystems.com/privacy-policy" },
+        ]}
+      />
       <section className="py-20 sm:py-28">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <div className="mb-12">
@@ -10,7 +20,7 @@ export default function PrivacyPolicy() {
             <h1 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight mb-4" data-testid="heading-privacy">
               Privacy Policy
             </h1>
-            <p className="text-zinc-500 text-sm">Last updated: April 2026</p>
+            <p className="text-zinc-400 text-sm">Last updated: April 2026</p>
           </div>
 
           <div className="space-y-8 text-zinc-400 text-sm leading-relaxed">

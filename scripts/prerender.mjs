@@ -30,7 +30,36 @@ const ROUTES = [
   "/hiring-readiness",
   "/privacy-policy",
   "/jobs",
+  "/advisory",
 ];
+
+// Sitemap entries for the curated static routes. Kept here (not read from the
+// hand-maintained XML) so the sitemap regenerates from a single source of truth
+// on every build. /fractional-recruiting-services is intentionally EXCLUDED
+// because it canonicalizes to /fractional-head-of-talent, and /greener-planet is
+// excluded because it is noindex.
+const SITEMAP_STATIC = [
+  { path: "/", changefreq: "weekly", priority: "1.0" },
+  { path: "/about", changefreq: "monthly", priority: "0.9" },
+  { path: "/services", changefreq: "monthly", priority: "0.9" },
+  { path: "/how-it-works", changefreq: "monthly", priority: "0.8" },
+  { path: "/case-studies", changefreq: "monthly", priority: "0.9" },
+  { path: "/testimonials", changefreq: "monthly", priority: "0.8" },
+  { path: "/blog", changefreq: "weekly", priority: "0.8" },
+  { path: "/podcast", changefreq: "weekly", priority: "0.7" },
+  { path: "/free-tools", changefreq: "monthly", priority: "0.7" },
+  { path: "/command", changefreq: "monthly", priority: "0.7" },
+  { path: "/certification", changefreq: "monthly", priority: "0.7" },
+  { path: "/fractional-head-of-talent", changefreq: "monthly", priority: "0.9" },
+  { path: "/advisory", changefreq: "monthly", priority: "0.8" },
+  { path: "/pricing", changefreq: "monthly", priority: "0.9" },
+  { path: "/jobs", changefreq: "daily", priority: "0.95" },
+  { path: "/strategy-call", changefreq: "monthly", priority: "0.85" },
+  { path: "/hiring-readiness", changefreq: "monthly", priority: "0.85" },
+  { path: "/privacy-policy", changefreq: "yearly", priority: "0.3" },
+];
+
+const SITE_URL = "https://rebeltalentsystems.com";
 
 // Simple static file server for the built dist
 function startServer() {
@@ -80,7 +109,7 @@ function startServer() {
 // Each detail page bakes JobPosting JSON-LD into the HTML for Google Jobs indexing.
 async function fetchJobRoutes() {
   try {
-    const res = await fetch("https://rebelapply.com/api/public/jobs");
+    const res = await fetch("https://rebelcommand.dev/api/public/jobs");
     if (!res.ok) {
       console.warn(`[prerender] jobs fetch failed (${res.status}) — skipping detail pages`);
       return [];
@@ -95,10 +124,63 @@ async function fetchJobRoutes() {
   }
 }
 
+// Safe addition — fetch all blog posts so we can pre-render /blog/:slug for each.
+// BlogPost.tsx already sets its own PageSEO (title/description/canonical/breadcrumbs),
+// so pre-rendering bakes real per-post meta into static HTML for crawlers.
+// Returns { routes, posts } where posts carry slug + publishedAt for the sitemap.
+async function fetchBlogRoutes() {
+  try {
+    const res = await fetch("https://rebelcommand.dev/api/blog");
+    if (!res.ok) {
+      console.warn(`[prerender] blog fetch failed (${res.status}) — skipping blog posts`);
+      return { routes: [], posts: [] };
+    }
+    const data = await res.json();
+    const posts = (data.posts || [])
+      .filter((p) => p && p.slug)
+      .map((p) => ({ slug: p.slug, publishedAt: p.publishedAt || null }));
+    console.log(`[prerender] Fetched ${posts.length} blog post slugs for pre-render`);
+    return { routes: posts.map((p) => `/blog/${p.slug}`), posts };
+  } catch (err) {
+    console.warn(`[prerender] blog fetch errored — skipping blog posts: ${err.message}`);
+    return { routes: [], posts: [] };
+  }
+}
+
+// Generate sitemap.xml from the curated static routes plus live job + blog routes.
+// Written after pre-render so it is the single source of truth each build.
+function generateSitemap(jobRoutes, blogPosts) {
+  const today = new Date().toISOString().slice(0, 10);
+  const entries = [];
+
+  for (const s of SITEMAP_STATIC) {
+    entries.push({ loc: `${SITE_URL}${s.path}`, lastmod: today, changefreq: s.changefreq, priority: s.priority });
+  }
+  for (const route of jobRoutes) {
+    entries.push({ loc: `${SITE_URL}${route}`, lastmod: today, changefreq: "weekly", priority: "0.8" });
+  }
+  for (const p of blogPosts) {
+    const lastmod = p.publishedAt ? new Date(p.publishedAt).toISOString().slice(0, 10) : today;
+    entries.push({ loc: `${SITE_URL}/blog/${p.slug}`, lastmod, changefreq: "monthly", priority: "0.7" });
+  }
+
+  const body = entries
+    .map(
+      (e) =>
+        `  <url>\n    <loc>${e.loc}</loc>\n    <lastmod>${e.lastmod}</lastmod>\n    <changefreq>${e.changefreq}</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`,
+    )
+    .join("\n");
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
+
+  writeFileSync(join(DIST_DIR, "sitemap.xml"), xml, "utf-8");
+  console.log(`[prerender] Wrote sitemap.xml (${entries.length} URLs: ${SITEMAP_STATIC.length} static + ${jobRoutes.length} jobs + ${blogPosts.length} blog)`);
+}
+
 async function prerender() {
   const jobRoutes = await fetchJobRoutes();
-  const allRoutes = [...ROUTES, ...jobRoutes];
-  console.log(`[prerender] Starting pre-render of ${allRoutes.length} routes (${ROUTES.length} static + ${jobRoutes.length} role detail)...`);
+  const { routes: blogRoutes, posts: blogPosts } = await fetchBlogRoutes();
+  const allRoutes = [...ROUTES, ...jobRoutes, ...blogRoutes];
+  console.log(`[prerender] Starting pre-render of ${allRoutes.length} routes (${ROUTES.length} static + ${jobRoutes.length} role detail + ${blogRoutes.length} blog)...`);
 
   const server = await startServer();
   const browser = await launch({ headless: true, args: ["--no-sandbox"] });
@@ -138,6 +220,13 @@ async function prerender() {
 
   await browser.close();
   server.close();
+
+  // Regenerate sitemap.xml from the routes we just rendered.
+  try {
+    generateSitemap(jobRoutes, blogPosts);
+  } catch (err) {
+    console.warn(`[prerender] sitemap generation failed: ${err.message}`);
+  }
 
   console.log(`\n[prerender] Done: ${success} rendered, ${failed} failed`);
   process.exit(failed > 0 ? 1 : 0);

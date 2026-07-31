@@ -4,7 +4,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 
 // Safe addition, consolidated nav: Services dropdown replaces 4 individual links
 const servicesLinks = [
-  { href: "/fractional-head-of-talent", label: "Fractional Head of Talent", external: false },
+  { href: "/fractional-head-of-talent", label: "Fractional Head of Talent/Lead Talent Consultant", external: false },
   { href: "/services", label: "All Services", external: false },
   { href: "/how-it-works", label: "How It Works", external: false },
   { href: "/pricing", label: "Pricing", external: false },
@@ -57,7 +57,7 @@ export default function Navbar() {
   // Reusable dropdown renderer
   const renderDropdown = (links: typeof proofLinks, isOpen: boolean) =>
     isOpen ? (
-      <div className="absolute top-full right-0 mt-1 min-w-44 w-max border border-zinc-800 bg-zinc-950 shadow-2xl rounded-md overflow-hidden" style={{ zIndex: 100 }}>
+      <div className="absolute top-full right-0 mt-1 min-w-44 w-max border border-zinc-800 bg-[#09090b] shadow-2xl rounded-md overflow-hidden" style={{ zIndex: 100 }}>
         {links.map((r) =>
           r.external ? (
             <a key={r.href} href={r.href} target="_blank" rel="noopener noreferrer"
@@ -82,8 +82,8 @@ export default function Navbar() {
       className="fixed top-0 left-0 w-full z-50"
       style={{ background: "linear-gradient(135deg, #08070A 0%, #0E0D11 60%, #0A0812 100%)" }}
     >
-      {/* Signal gradient accent line — decorative only, no layout impact */}
-      <div className="absolute bottom-0 left-0 right-0 h-px pointer-events-none" style={{ background: "linear-gradient(90deg, transparent 0%, #F71A29 30%, #F5841E 60%, transparent 100%)", zIndex: 1 }} />
+      {/* Signal gradient accent line — decorative only, no layout impact. z:0 keeps it beneath open dropdowns. */}
+      <div className="absolute bottom-0 left-0 right-0 h-px pointer-events-none" style={{ background: "linear-gradient(90deg, transparent 0%, #F71A29 30%, #F5841E 60%, transparent 100%)", zIndex: 0 }} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           <Link href="/" data-testid="link-home" className="flex items-center gap-2.5 no-underline shrink-0">
@@ -105,7 +105,7 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center gap-0.5">
             {/* Safe addition, Services dropdown */}
-            <div ref={servicesRef} className="relative">
+            <div ref={servicesRef} className="relative z-[70]">
               <button
                 data-testid="button-services-dropdown"
                 aria-expanded={servicesOpen}
@@ -144,7 +144,7 @@ export default function Navbar() {
             </Link>
 
             {/* Proof dropdown (Testimonials + Case Studies) */}
-            <div ref={proofRef} className="relative">
+            <div ref={proofRef} className="relative z-[70]">
               <button
                 data-testid="button-proof-dropdown"
                 aria-expanded={proofOpen}
@@ -161,7 +161,7 @@ export default function Navbar() {
             </div>
 
             {/* Resources dropdown */}
-            <div ref={dropdownRef} className="relative">
+            <div ref={dropdownRef} className="relative z-[70]">
               <button
                 data-testid="button-resources-dropdown"
                 aria-expanded={resourcesOpen}
@@ -204,7 +204,7 @@ export default function Navbar() {
               href={r.href}
               data-testid={`link-mobile-${r.label.toLowerCase().replace(/\s+/g, "-")}`}
               className={`block pl-10 pr-6 py-2.5 text-xs font-semibold tracking-widest border-b border-zinc-900/60 no-underline ${
-                location === r.href ? "text-rebel-red" : "text-zinc-500"
+                location === r.href ? "text-rebel-red" : "text-zinc-400"
               }`}
               onClick={() => setIsOpen(false)}
             >
@@ -252,7 +252,7 @@ export default function Navbar() {
               href={r.href}
               data-testid={`link-mobile-${r.label.toLowerCase().replace(/\s+/g, "-")}`}
               className={`block pl-10 pr-6 py-2.5 text-xs font-semibold tracking-widest border-b border-zinc-900/60 no-underline ${
-                location === r.href ? "text-rebel-red" : "text-zinc-500"
+                location === r.href ? "text-rebel-red" : "text-zinc-400"
               }`}
               onClick={() => setIsOpen(false)}
             >
@@ -278,7 +278,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid={`link-mobile-${r.label.toLowerCase().replace(/\s+/g, "-")}`}
-                className="block pl-10 pr-6 py-2.5 text-xs font-semibold tracking-widest border-b border-zinc-900/60 no-underline text-zinc-500 hover:text-white"
+                className="block pl-10 pr-6 py-2.5 text-xs font-semibold tracking-widest border-b border-zinc-900/60 no-underline text-zinc-400 hover:text-white"
                 onClick={() => setIsOpen(false)}
               >
                 {r.label}
@@ -289,7 +289,7 @@ export default function Navbar() {
                 href={r.href}
                 data-testid={`link-mobile-${r.label.toLowerCase().replace(/\s+/g, "-")}`}
                 className={`block pl-10 pr-6 py-2.5 text-xs font-semibold tracking-widest border-b border-zinc-900/60 no-underline ${
-                  location === r.href ? "text-rebel-red" : "text-zinc-500"
+                  location === r.href ? "text-rebel-red" : "text-zinc-400"
                 }`}
                 onClick={() => setIsOpen(false)}
               >

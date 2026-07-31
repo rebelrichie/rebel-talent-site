@@ -10,8 +10,8 @@ import { ArrowLeft, ArrowRight, FileText, CheckCircle2, AlertCircle, Upload, Cal
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 
-const JOB_API = "https://rebelapply.com/api/public/jobs";
-const APPLY_API = "https://rebelapply.com/api/public/apply";
+const JOB_API = "https://rebelcommand.dev/api/public/jobs";
+const APPLY_API = "https://rebelcommand.dev/api/public/apply";
 
 interface Job {
   id: string;
@@ -252,7 +252,7 @@ export default function JobApply() {
         <Link
           href={id ? `/jobs/${id}` : "/jobs"}
           data-testid="link-back-to-role"
-          className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-zinc-500 hover:text-rebel-red transition-colors no-underline mb-8"
+          className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-zinc-400 hover:text-rebel-red transition-colors no-underline mb-8"
         >
           <ArrowLeft className="h-3.5 w-3.5" /> Back to Role
         </Link>
@@ -336,7 +336,7 @@ export default function JobApply() {
                 data-testid="button-keep-on-file"
                 className={`inline-flex items-center gap-2 px-4 py-2 text-white text-sm font-semibold rounded-md transition-colors ${
                   submit.kind === "submitting_general"
-                    ? "bg-zinc-800 text-zinc-500 cursor-not-allowed"
+                    ? "bg-zinc-800 text-zinc-400 cursor-not-allowed"
                     : "bg-rebel-red hover:bg-red-700"
                 }`}
               >
@@ -398,7 +398,7 @@ export default function JobApply() {
                   required
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
-                  className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-md text-white placeholder:text-zinc-600 focus:outline-none focus:border-rebel-red transition-colors"
+                  className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-md text-white placeholder:text-zinc-400 focus:outline-none focus:border-rebel-red transition-colors"
                   autoComplete="given-name"
                 />
               </div>
@@ -412,7 +412,7 @@ export default function JobApply() {
                   required
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
-                  className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-md text-white placeholder:text-zinc-600 focus:outline-none focus:border-rebel-red transition-colors"
+                  className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-md text-white placeholder:text-zinc-400 focus:outline-none focus:border-rebel-red transition-colors"
                   autoComplete="family-name"
                 />
               </div>
@@ -429,7 +429,7 @@ export default function JobApply() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
-                className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-md text-white placeholder:text-zinc-600 focus:outline-none focus:border-rebel-red transition-colors"
+                className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-md text-white placeholder:text-zinc-400 focus:outline-none focus:border-rebel-red transition-colors"
                 autoComplete="email"
               />
             </div>
@@ -468,7 +468,7 @@ export default function JobApply() {
                   ) : (
                     <>
                       <div className="font-medium">Upload resume</div>
-                      <div className="text-xs text-zinc-500">PDF, DOCX, DOC, or TXT · max 10MB</div>
+                      <div className="text-xs text-zinc-400">PDF, DOCX, DOC, or TXT · max 10MB</div>
                     </>
                   )}
                 </div>
@@ -480,7 +480,7 @@ export default function JobApply() {
               <p className="text-[10px] text-rebel-red font-semibold tracking-[0.2em] uppercase pt-5">
                 Quick Screening
               </p>
-              <p className="text-xs text-zinc-500 mt-1 mb-4">
+              <p className="text-xs text-zinc-400 mt-1 mb-4">
                 Helps us match you to roles that actually fit. ~15 seconds.
               </p>
             </div>
@@ -519,7 +519,7 @@ export default function JobApply() {
 
             <div>
               <label htmlFor="clearance" className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
-                Active security clearance <span className="font-normal normal-case tracking-normal text-zinc-600">- optional, only if you have one</span>
+                Active security clearance <span className="font-normal normal-case tracking-normal text-zinc-400">- optional, only if you have one</span>
               </label>
               <select
                 id="clearance"
@@ -539,7 +539,7 @@ export default function JobApply() {
 
             <div>
               <label htmlFor="targetComp" className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
-                Target total comp <span className="font-normal normal-case tracking-normal text-zinc-600">- optional</span>
+                Target total comp <span className="font-normal normal-case tracking-normal text-zinc-400">- optional</span>
               </label>
               <input
                 id="targetComp"
@@ -547,7 +547,7 @@ export default function JobApply() {
                 value={targetComp}
                 onChange={(e) => setTargetComp(e.target.value.slice(0, 200))}
                 placeholder="e.g. $180-220k base, or $250k OTE, or $400k total comp"
-                className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-md text-white placeholder:text-zinc-600 focus:outline-none focus:border-rebel-red transition-colors"
+                className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-md text-white placeholder:text-zinc-400 focus:outline-none focus:border-rebel-red transition-colors"
               />
             </div>
 
@@ -586,7 +586,7 @@ export default function JobApply() {
 
             <div>
               <label htmlFor="linkedinUrl" className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
-                LinkedIn URL <span className="font-normal normal-case tracking-normal text-zinc-600">- unlocks instant screen booking</span>
+                LinkedIn URL <span className="font-normal normal-case tracking-normal text-zinc-400">- unlocks instant screen booking</span>
               </label>
               <input
                 id="linkedinUrl"
@@ -594,13 +594,13 @@ export default function JobApply() {
                 value={linkedinUrl}
                 onChange={(e) => setLinkedinUrl(e.target.value.slice(0, 300))}
                 placeholder="https://www.linkedin.com/in/your-profile"
-                className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-md text-white placeholder:text-zinc-600 focus:outline-none focus:border-rebel-red transition-colors"
+                className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-md text-white placeholder:text-zinc-400 focus:outline-none focus:border-rebel-red transition-colors"
               />
             </div>
 
             <div>
               <label htmlFor="whyThisRole" className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
-                Why this role? <span className="font-normal normal-case tracking-normal text-zinc-600">- optional</span>
+                Why this role? <span className="font-normal normal-case tracking-normal text-zinc-400">- optional</span>
               </label>
               <textarea
                 id="whyThisRole"
@@ -608,9 +608,9 @@ export default function JobApply() {
                 onChange={(e) => setWhyThisRole(e.target.value.slice(0, 1000))}
                 rows={3}
                 placeholder="One paragraph: why are you a fit, what's the most interesting thing about the role to you, etc. Skippable."
-                className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-md text-white placeholder:text-zinc-600 focus:outline-none focus:border-rebel-red transition-colors resize-none"
+                className="w-full px-3 py-2.5 bg-zinc-950 border border-zinc-800 rounded-md text-white placeholder:text-zinc-400 focus:outline-none focus:border-rebel-red transition-colors resize-none"
               />
-              <p className="text-[10px] text-zinc-600 mt-1">
+              <p className="text-[10px] text-zinc-400 mt-1">
                 {whyThisRole.length}/1000
               </p>
             </div>
@@ -626,7 +626,7 @@ export default function JobApply() {
                   <p className="text-sm text-zinc-300 leading-relaxed">
                     {assessment.intro}
                   </p>
-                  <p className="text-xs text-zinc-500 mt-2">
+                  <p className="text-xs text-zinc-400 mt-2">
                     About {assessment.estimatedMinutes} minutes.
                   </p>
                 </div>
@@ -643,7 +643,7 @@ export default function JobApply() {
                           {q.required && <span className="text-rebel-red ml-1">*</span>}
                         </div>
                         {q.helpText && (
-                          <div className="text-xs text-zinc-500 mt-1">{q.helpText}</div>
+                          <div className="text-xs text-zinc-400 mt-1">{q.helpText}</div>
                         )}
                       </div>
                     </div>
@@ -751,7 +751,7 @@ export default function JobApply() {
               className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 font-semibold rounded-md transition-colors ${
                 canSubmit
                   ? "bg-rebel-red hover:bg-red-700 text-white"
-                  : "bg-zinc-900 text-zinc-600 cursor-not-allowed border border-zinc-800"
+                  : "bg-zinc-900 text-zinc-400 cursor-not-allowed border border-zinc-800"
               }`}
             >
               {submit.kind === "submitting" ? (
@@ -766,7 +766,7 @@ export default function JobApply() {
               )}
             </button>
 
-            <p className="text-[11px] text-zinc-500 leading-relaxed pt-2">
+            <p className="text-[11px] text-zinc-400 leading-relaxed pt-2">
               Submitting takes a few seconds while we parse your resume.
               We'll review and reach out within 48 hours. By submitting,
               you agree to be contacted about this and similar roles.

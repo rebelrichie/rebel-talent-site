@@ -13,10 +13,10 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is a Fractional Head of Talent?",
+      "name": "What is a Fractional Head of Talent/Lead Talent Consultant?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A Fractional Head of Talent is an embedded recruiting leader who owns your entire talent acquisition function part-time, without the full-time executive cost. You get strategy, execution, ATS setup, process design, and hiring manager coaching, all in one."
+        "text": "A Fractional Head of Talent/Lead Talent Consultant is an embedded recruiting leader who owns your entire talent acquisition function part-time, without the full-time executive cost. You get strategy, execution, ATS setup, process design, and hiring manager coaching, all in one."
       }
     },
     {
@@ -82,7 +82,7 @@ export default function HowItWorks() {
       <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%)" }} />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
-          <p className="font-mono text-[11px] sm:text-xs tracking-[0.3em] uppercase text-zinc-500 mb-6 sm:mb-10">
+          <p className="font-mono text-[11px] sm:text-xs tracking-[0.3em] uppercase text-zinc-400 mb-6 sm:mb-10">
             How We Build
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-4xl" data-testid="heading-how">
@@ -177,7 +177,7 @@ export default function HowItWorks() {
                     <span className="font-mono text-white text-xs font-bold tracking-widest">{step.phase}</span>
                   </div>
                   <h3 className="font-display text-lg font-bold text-white uppercase mb-2">{step.title}</h3>
-                  <p className="text-zinc-500 text-sm italic mb-4">{step.intro}</p>
+                  <p className="text-zinc-400 text-sm italic mb-4">{step.intro}</p>
                   <ul className="space-y-2">
                     {step.items.map((item) => (
                       <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
@@ -196,7 +196,7 @@ export default function HowItWorks() {
             <ScrollReveal variant="fade-up">
             <div className="inline-block w-16 h-0.5 bg-rebel-red mb-6" />
             <h2 className="font-display text-2xl font-bold text-rebel-red uppercase mb-2">What You Get When I Leave</h2>
-            <p className="text-zinc-500 text-sm italic mb-8">Everything. No vendor lock-in. You own it all.</p>
+            <p className="text-zinc-400 text-sm italic mb-8">Everything. No vendor lock-in. You own it all.</p>
             </ScrollReveal>
 
             <ParallaxSection speed={0.12}>
@@ -225,18 +225,18 @@ export default function HowItWorks() {
             <h2 className="font-display text-2xl font-bold text-rebel-red uppercase text-center mb-2">
               FAQ
             </h2>
-            <p className="text-zinc-500 text-sm text-center mb-10">No fluff. Real answers.</p>
+            <p className="text-zinc-400 text-sm text-center mb-10">No fluff. Real answers.</p>
             </ScrollReveal>
 
             <Accordion type="multiple" className="border border-zinc-800 divide-y divide-zinc-800">
               {[
                 {
-                  q: '"Fractional Head of Talent" = ?',
+                  q: '"Fractional Head of Talent/Lead Talent Consultant" = ?',
                   a: "Strategic leadership without the full-time salary. I embed into your company, own the recruiting function, build infrastructure, and execute hires.",
                 },
                 {
                   q: "Agency vs. You?",
-                  a: "Agency is transactional -- paid per hire, gone after placement. I'm embedded, focused on infrastructure + execution, measured by retention and pipeline velocity.",
+                  a: "An agency is transactional, paid per hire and gone after placement. I'm embedded, focused on infrastructure and execution, measured by retention and pipeline velocity.",
                 },
                 {
                   q: "Contingency?",

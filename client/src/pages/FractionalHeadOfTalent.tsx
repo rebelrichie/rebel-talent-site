@@ -17,11 +17,11 @@ function hapticTap() {
 const fractionalSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Fractional Head of Talent",
+  "name": "Fractional Head of Talent/Lead Talent Consultant",
   "provider": {
     "@type": "Person",
     "name": "Richie Lampani",
-    "jobTitle": "Fractional Head of Talent",
+    "jobTitle": "Fractional Head of Talent/Lead Talent Consultant",
     "url": "https://rebeltalentsystems.com/about",
     "worksFor": {
       "@type": "Organization",
@@ -29,7 +29,7 @@ const fractionalSchema = {
       "url": "https://rebeltalentsystems.com"
     }
   },
-  "description": "Fractional Head of Talent services for startups and defense contractors. Embedded recruiting leadership that owns your entire talent function, strategy, execution, ATS, and systems that survive after the engagement ends.",
+  "description": "Fractional Head of Talent/Lead Talent Consultant services for startups and defense contractors. Embedded recruiting leadership that owns your entire talent function, strategy, execution, ATS, and systems that survive after the engagement ends.",
   "url": "https://rebeltalentsystems.com/fractional-head-of-talent",
   "areaServed": ["United States", "Remote"],
   "serviceType": "Fractional Recruiting Leadership"
@@ -39,8 +39,8 @@ export default function FractionalHeadOfTalent() {
   return (
     <PageLayout>
       <PageSEO
-        title="Fractional Head of Talent, Embedded Recruiting Leadership | Richie Lampani"
-        description="Hire a Fractional Head of Talent who embeds into your company, owns the recruiting function, and builds infrastructure that survives after I leave. 14+ years experience. Startups & defense contractors."
+        title="Fractional Head of Talent/Lead Talent Consultant | Richie Lampani"
+        description="A Fractional Head of Talent/Lead Talent Consultant who embeds, owns your recruiting function, and builds infrastructure that outlasts the engagement. 14+ yrs."
         path="/fractional-head-of-talent"
         ogImage="og-fractional.png"
         schemas={[fractionalSchema]}
@@ -56,19 +56,19 @@ export default function FractionalHeadOfTalent() {
           }}
         />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
-          <p className="font-mono text-[11px] sm:text-xs tracking-[0.3em] uppercase text-zinc-500 mb-6 sm:mb-10">
-            Fractional Head of Talent
+          <p className="font-mono text-[11px] sm:text-xs tracking-[0.3em] uppercase text-zinc-400 mb-6 sm:mb-10">
+            Fractional Head of Talent/Lead Talent Consultant
           </p>
           <div className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-end">
             <div>
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] mb-4 sm:mb-6">
-                Stop paying agencies.<br />
+                Stop renting placements.<br />
                 <span className="text-rebel-red">Own your hiring.</span>
               </h1>
               <p className="text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55] mb-3">
-                53K LinkedIn followers. 8K newsletter subscribers. My own ATS/CRM built from scratch. I embed into your company as your Fractional Head of Talent, strategy, execution, process design, hiring manager coaching.
+                53K LinkedIn followers. 8K newsletter subscribers. My own ATS/CRM built from scratch. I embed into your company as your Fractional Head of Talent/Lead Talent Consultant, strategy, execution, process design, hiring manager coaching.
               </p>
-              <p className="text-base sm:text-lg text-zinc-500 max-w-2xl leading-[1.55] mb-6">
+              <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-[1.55] mb-6">
                 A full recruiting function at a fraction of the cost of an agency or a full-time VP.
               </p>
               <div className="flex flex-wrap items-center gap-x-6 gap-y-4 mb-6">
@@ -89,11 +89,11 @@ export default function FractionalHeadOfTalent() {
               <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="inline-block group">
                 <img
                   src="/richie-operator.jpg"
-                  alt="Richie Lampani, Fractional Head of Talent"
+                  alt="Richie Lampani, Fractional Head of Talent/Lead Talent Consultant"
                   className="w-40 h-40 sm:w-52 sm:h-52 lg:w-64 lg:h-64 rounded-2xl object-cover border border-zinc-800 group-hover:border-rebel-red/60 transition-colors"
                 />
               </a>
-              <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="block mt-3 text-zinc-500 text-xs tracking-wider hover:text-white transition-colors no-underline text-center">
+              <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="block mt-3 text-zinc-400 text-xs tracking-wider hover:text-white transition-colors no-underline text-center">
                 LinkedIn Profile ↗
               </a>
             </div>
@@ -107,10 +107,10 @@ export default function FractionalHeadOfTalent() {
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-8">
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-4">
-              What Is a Fractional Head of Talent?
+              What Is a Fractional Head of Talent/Lead Talent Consultant?
             </h2>
             <p className="text-zinc-400 text-base leading-relaxed max-w-3xl mx-auto">
-              A Fractional Head of Talent is a senior recruiting leader who embeds into your company part-time or full-time on a retainer basis. Unlike agencies that throw resumes over the wall, a fractional leader owns the entire talent function, from strategy and process design to hands-on execution and hiring manager coaching.
+              A Fractional Head of Talent/Lead Talent Consultant is a senior recruiting leader who embeds into your company part-time or full-time on a retainer basis. Instead of handing you a stack of resumes and moving on, a fractional leader owns the entire talent function, from strategy and process design to hands-on execution and hiring manager coaching.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
@@ -187,8 +187,8 @@ export default function FractionalHeadOfTalent() {
               { value: "<30", label: "Days to Hire" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <AnimatedCounter value={stat.value} className="font-display text-3xl sm:text-4xl font-bold text-rebel-red mb-1" />
-                <div className="text-zinc-500 text-xs tracking-widest uppercase font-semibold">{stat.label}</div>
+                <AnimatedCounter value={stat.value} className="font-display text-2xl sm:text-4xl font-bold text-rebel-red mb-1" />
+                <div className="text-zinc-400 text-xs tracking-widest uppercase font-semibold">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -218,7 +218,7 @@ export default function FractionalHeadOfTalent() {
             <p className="text-zinc-200 text-lg sm:text-xl leading-relaxed italic mb-6">
               In a review, I was told I had an amazing team, cohesive and indistinguishable from full time employees.
             </p>
-            <footer className="text-zinc-500 text-sm">
+            <footer className="text-zinc-400 text-sm">
               <span className="text-zinc-300 font-semibold">Arin, VP of Operations</span>, EarthDaily Federal
             </footer>
           </blockquote>
@@ -227,7 +227,7 @@ export default function FractionalHeadOfTalent() {
             <p className="text-zinc-200 text-2xl sm:text-3xl leading-relaxed italic mb-6 font-display">
               You Da Bomb.
             </p>
-            <footer className="text-zinc-500 text-sm">
+            <footer className="text-zinc-400 text-sm">
               <span className="text-zinc-300 font-semibold">Arin, VP of Operations</span>, EarthDaily Federal
             </footer>
           </blockquote>

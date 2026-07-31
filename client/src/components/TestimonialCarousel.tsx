@@ -56,14 +56,14 @@ export default function TestimonialCarousel({
         {/* Navigation arrows */}
         <button
           onClick={prev}
-          className="absolute -left-3 sm:-left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center text-zinc-600 hover:text-rebel-red transition-colors"
+          className="absolute -left-3 sm:-left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center text-zinc-400 hover:text-rebel-red transition-colors"
           aria-label="Previous testimonial"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
         <button
           onClick={next}
-          className="absolute -right-3 sm:-right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center text-zinc-600 hover:text-rebel-red transition-colors"
+          className="absolute -right-3 sm:-right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center text-zinc-400 hover:text-rebel-red transition-colors"
           aria-label="Next testimonial"
         >
           <ChevronRight className="w-6 h-6" />
@@ -95,7 +95,7 @@ export default function TestimonialCarousel({
                 <h3 className="font-display text-base font-bold text-white uppercase">
                   {t.name}
                 </h3>
-                <p className="text-zinc-500 text-xs mt-0.5">{t.title}</p>
+                <p className="text-zinc-400 text-xs mt-0.5">{t.title}</p>
               </div>
             </div>
           </GlowCard>

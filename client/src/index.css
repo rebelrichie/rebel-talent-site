@@ -431,9 +431,15 @@ h2.font-display,
   text-shadow: 0 0 24px rgba(247, 26, 41, 0.25);
 }
 
-/* ── Eyebrow labels: gentle text-shadow so they glow softly ── */
+/* ── Eyebrow labels: gentle text-shadow so they glow softly ──
+   Small red kickers (text-xs / 10px) sit on lighter card backgrounds where
+   full-saturation #F71A29 dips below the WCAG AA 4.5:1 ratio. Nudge them to a
+   slightly brighter red that clears AA on cards; the large headline
+   .text-rebel-red spans keep the loud #F71A29 (they pass on the void-black bg). */
 .text-xs.text-rebel-red,
-.text-\[10px\].text-rebel-red {
+.text-\[10px\].text-rebel-red,
+.text-\[11px\].text-rebel-red {
+  color: #FF5A47;
   text-shadow: 0 0 12px rgba(247, 26, 41, 0.4);
 }
 
@@ -547,13 +553,17 @@ button,
   }
 }
 
-/* Pricing stat grid — keep 3 cols but allow smaller text on mobile */
+/* 3-col stat grids (Pricing and Case Studies): keep 3 columns but scale the
+   numbers fluidly so the widest token ("$294K+") never bleeds past its box on
+   small phones. A fixed 1.5rem overflowed the narrow case-study cards below
+   ~400px wide (the substring selector also catches "md:text-3xl", so the
+   counters were locked at 24px regardless of the Tailwind size utility). */
 @media (max-width: 479px) {
   .grid-cols-3 [class*="text-3xl"],
   .grid-cols-3 [class*="text-4xl"],
   .grid-cols-3 [class*="text-5xl"] {
-    font-size: 1.5rem !important;
-    line-height: 1 !important;
+    font-size: clamp(0.78rem, 4.1vw, 1.3rem) !important;
+    line-height: 1.05 !important;
   }
 }
 
@@ -638,6 +648,19 @@ button,
   }
   to {
     opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Transform-only reveal for the hero H2 (the LCP element). Keeping opacity
+   at 1 means the largest text paints on the first frame, so LCP registers
+   immediately even while the main thread is busy hydrating — instead of the
+   text staying invisible (opacity:0) until hydration frees the main thread. */
+@keyframes heroRise {
+  from {
+    transform: translateY(12px);
+  }
+  to {
     transform: translateY(0);
   }
 }

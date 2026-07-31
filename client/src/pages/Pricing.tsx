@@ -67,7 +67,7 @@ export default function Pricing() {
     <PageLayout>
       <PageSEO
         title="Transparent Pricing & Engagement Models | Rebel Talent Systems"
-        description="No contingency. No success fees. Two engagement shapes: Fractional Head of Talent ($12K–$30K/mo) or Critical Hire Execution ($8K–$25K+ per search). Scale either with a vetted recruiter team from $90/hr."
+        description="No contingency. No success fees. Fractional Head of Talent/Lead Talent Consultant ($12K–$30K/mo) or Critical Hire Execution ($8K–$25K+ per search)."
         path="/pricing"
         ogTitle="Transparent Pricing | Rebel Talent Systems"
         ogDescription="No contingency fees. Two engagements plus team capacity when you need more horsepower. See exact pricing."
@@ -89,7 +89,7 @@ export default function Pricing() {
           }}
         />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
-          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-500 mb-6 sm:mb-10">
+          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-400 mb-6 sm:mb-10">
             Pricing &amp; Engagement Models
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-4xl">
@@ -100,7 +100,7 @@ export default function Pricing() {
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
             You pay for the actual time, expertise, and infrastructure I deliver. Every hour is logged. Every deliverable is documented. Every dollar is accounted for in your dashboard, in real time.
           </p>
-          <p className="mt-4 text-sm sm:text-base text-zinc-500 max-w-2xl leading-[1.6]">
+          <p className="mt-4 text-sm sm:text-base text-zinc-400 max-w-2xl leading-[1.6]">
             Contingency recruiting is broken by design, when a recruiter only gets paid on placement, their incentive is to fill the seat fast, not build the systems that make your next 50 hires easier.
           </p>
           <div className="mt-8 sm:mt-10">
@@ -119,11 +119,11 @@ export default function Pricing() {
               ].map((s) => (
                 <div key={s.label}>
                   <AnimatedCounter value={s.value} className="block text-3xl sm:text-5xl font-extrabold text-rebel-red tracking-[-0.03em]" />
-                  <div className="text-zinc-500 text-[10px] sm:text-xs uppercase tracking-[0.18em] mt-2 font-medium">{s.label}</div>
+                  <div className="text-zinc-400 text-[10px] sm:text-xs uppercase tracking-[0.18em] mt-2 font-medium">{s.label}</div>
                 </div>
               ))}
             </div>
-            <p className="text-zinc-600 text-[11px] font-medium tracking-wider uppercase mt-5">
+            <p className="text-zinc-400 text-[11px] font-medium tracking-wider uppercase mt-5">
               EarthDaily Federal, 6 FTE + 3 contractors across 9 placements
             </p>
           </div>
@@ -141,8 +141,8 @@ export default function Pricing() {
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
                 Two Ways to Work Together
               </h2>
-              <p className="text-zinc-500 text-sm mt-3 max-w-xl mx-auto">
-                No SaaS tiers. Two engagement shapes built around how you actually buy, embed me as your Head of Talent, or scope a specific search. Either one scales with a vetted recruiter team when the pipeline demands it.
+              <p className="text-zinc-400 text-sm mt-3 max-w-xl mx-auto">
+                No SaaS tiers. Two engagement shapes built around how you actually buy, embed me as your Head of Talent/Lead Talent Consultant, or scope a specific search. Either one scales with a vetted recruiter team when the pipeline demands it.
               </p>
             </div>
           </ScrollReveal>
@@ -152,22 +152,22 @@ export default function Pricing() {
             <ScrollReveal variant="fade-up" delay={0}>
               <GlowCard className="border border-rebel-red/50 bg-rebel-red/5 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full">
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">EMBEDDED</div>
-                <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Fractional Head of Talent</h3>
+                <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Fractional Head of Talent/Lead Talent Consultant</h3>
                 <p className="text-rebel-red font-mono text-sm mb-1">$12K – $30K / month · 3-month minimum</p>
-                <p className="text-zinc-500 font-mono text-xs mb-4">10–40 hours/month depending on scope</p>
+                <p className="text-zinc-400 font-mono text-xs mb-4">10–40 hours/month depending on scope</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                  I embed into your company as your Head of Talent. I'm in your Slack, your ATS, your hiring manager 1:1s, your candidate calls. Not consulting from the sidelines.
+                  I embed into your company as your Head of Talent/Lead Talent Consultant. I'm in your Slack, your ATS, your hiring manager 1:1s, your candidate calls. Not consulting from the sidelines.
                 </p>
                 <ul className="space-y-2 mb-6">
                   {[
                     "Strategic hiring roadmap & prioritization",
                     "End-to-end recruiting execution",
-                    "ATS setup, optimization & migration",
+                    "ATS audit, rebuild & job-post overhaul",
                     "Interview process design & training",
                     "Hiring manager coaching",
                     "Full access to Rebel Command platform",
                     "Weekly reports with hours, pipeline & ROI",
-                    "Documented playbooks you own forever",
+                    "You keep the database, systems & playbooks",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
                       <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />
@@ -175,7 +175,7 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
-                <p className="text-zinc-600 text-xs leading-relaxed">
+                <p className="text-zinc-400 text-xs leading-relaxed">
                   Best for: Series A–C startups scaling 5–20+ hires, defense contractors building cleared talent pipelines, companies replacing agency dependency.
                 </p>
               </GlowCard>
@@ -187,17 +187,17 @@ export default function Pricing() {
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">PROJECT</div>
                 <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Critical Hire Execution</h3>
                 <p className="text-rebel-red font-mono text-sm mb-1">$8K – $25K+ per search · fixed fee</p>
-                <p className="text-zinc-500 font-mono text-xs mb-4">Scoped project with defined milestones</p>
+                <p className="text-zinc-400 font-mono text-xs mb-4">Scoped project with defined milestones</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                  Surgical execution for must-fill roles. I scope the search, define milestones, execute, and hand off a documented process when it's done. You know the cost before we start.
+                  For defense and cleared teams that need infrastructure and hires at the same time. I stand up CMMC-compliant hiring infrastructure while my team and I fill your critical roles under my direction. You know the cost before we start.
                 </p>
                 <ul className="space-y-2 mb-6">
                   {[
-                    "Defined scope, timeline & milestones upfront",
-                    "Full sourcing, screening & presentation",
-                    "Interview coordination & offer support",
-                    "Documented process handoff",
-                    "Pipeline visibility via Rebel Command",
+                    "CMMC-compliant hiring infrastructure",
+                    "Cleared roles (Secret, TS, TS/SCI)",
+                    "Executive & specialized technical searches",
+                    "My vetted team, filling under my direction",
+                    "Documented, repeatable process left with you",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
                       <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />
@@ -205,10 +205,10 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
-                <p className="text-zinc-600 text-xs leading-relaxed">
+                <p className="text-zinc-400 text-xs leading-relaxed">
                   Best for: Executive searches, cleared roles (Secret, TS, TS/SCI), specialized technical talent, Forward Deployed Engineers, AI/ML.
                 </p>
-                <p className="text-zinc-600 text-xs mt-2 leading-relaxed">
+                <p className="text-zinc-400 text-xs mt-2 leading-relaxed">
                   Pricing factors: Role complexity, clearance requirements, seniority level, timeline urgency.
                 </p>
               </GlowCard>
@@ -227,7 +227,7 @@ export default function Pricing() {
                     Need more horsepower?
                   </h3>
                   <p className="text-rebel-red font-mono text-sm mt-2">$90 – $300+ / hour</p>
-                  <p className="text-zinc-500 font-mono text-xs">monthly or hourly · no long-term lock-in</p>
+                  <p className="text-zinc-400 font-mono text-xs">monthly or hourly · no long-term lock-in</p>
                 </div>
                 <div className="flex-1">
                   <p className="text-zinc-300 text-sm leading-relaxed mb-4">
@@ -247,10 +247,10 @@ export default function Pricing() {
                       </li>
                     ))}
                   </ul>
-                  <p className="text-zinc-600 text-xs leading-relaxed">
+                  <p className="text-zinc-400 text-xs leading-relaxed">
                     Best for: Surge hiring, backfilling while you hire full-time, any engagement that needs execution capacity beyond what I alone can deliver.
                   </p>
-                  <p className="text-zinc-600 text-xs mt-2 leading-relaxed">
+                  <p className="text-zinc-400 text-xs mt-2 leading-relaxed">
                     Rate factors: Recruiter seniority, clearance level, technical complexity, weekly commitment.
                   </p>
                 </div>
@@ -269,7 +269,7 @@ export default function Pricing() {
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
                 The Rebel Talent Standard
               </h2>
-              <p className="text-zinc-500 text-sm mt-3 max-w-2xl mx-auto">
+              <p className="text-zinc-400 text-sm mt-3 max-w-2xl mx-auto">
                 Nine commitments built into every engagement. Concrete, measurable, and visible in your dashboard from day one.
               </p>
             </div>
@@ -309,7 +309,7 @@ export default function Pricing() {
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-3">
                 Rebel Command: Your Recruiting War Room
               </h2>
-              <p className="text-zinc-500 text-sm max-w-2xl mx-auto">
+              <p className="text-zinc-400 text-sm max-w-2xl mx-auto">
                 Every engagement comes with access to the proprietary platform I built from scratch. This isn't a vendor dashboard, it's full visibility into every dollar and every action.
               </p>
             </div>
@@ -320,7 +320,7 @@ export default function Pricing() {
               { icon: <Eye className="w-5 h-5 text-rebel-red" />, title: "Pipeline Kanban", desc: "Every candidate, every stage, every status change. Nothing hidden." },
               { icon: <FileText className="w-5 h-5 text-rebel-red" />, title: "Activity Audit Trail", desc: "Who was contacted, when, what happened, what's next." },
               { icon: <Shield className="w-5 h-5 text-rebel-red" />, title: "Revenue & ROI Dashboard", desc: "Agency fees avoided, cost-per-hire, time-to-fill, pipeline velocity." },
-              { icon: <Bot className="w-5 h-5 text-rebel-red" />, title: "23 AI Agents", desc: "Automated sourcing, candidate briefs, interview prep, submission packages." },
+              { icon: <Bot className="w-5 h-5 text-rebel-red" />, title: "27 AI Agents", desc: "Automated sourcing, candidate briefs, interview prep, submission packages." },
               { icon: <Database className="w-5 h-5 text-rebel-red" />, title: "Full Data Ownership", desc: "When the engagement ends, your data stays yours. Export everything. No lock-in." },
             ].map((item) => (
               <ScrollReveal key={item.title} variant="fade-up" delay={100}>
@@ -346,7 +346,7 @@ export default function Pricing() {
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
                 How I make it safe to start
               </h2>
-              <p className="text-zinc-500 text-sm mt-3 max-w-2xl mx-auto">
+              <p className="text-zinc-400 text-sm mt-3 max-w-2xl mx-auto">
                 A 3-month minimum is a real commitment. Here's what I commit to in return, specific, measurable, written into the SOW.
               </p>
             </div>
@@ -435,7 +435,7 @@ export default function Pricing() {
         <ScrollReveal variant="scale">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
             <img src="/logo.png" alt="Rebel Talent" className="w-16 h-16 mx-auto mb-6" />
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight mb-4">
+            <h2 className="font-display text-2xl sm:text-4xl font-bold text-white uppercase tracking-tight mb-4">
               Ready for a Transparent Conversation?
             </h2>
             <p className="text-zinc-400 text-base mb-8 max-w-xl mx-auto">

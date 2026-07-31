@@ -14,14 +14,14 @@ const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Richie Lampani",
-  "jobTitle": "Fractional Head of Talent",
+  "jobTitle": "Fractional Head of Talent/Lead Talent Consultant",
   "url": "https://rebeltalentsystems.com/about",
   "worksFor": {
     "@type": "Organization",
     "name": "Rebel Talent",
     "url": "https://rebeltalentsystems.com"
   },
-  "description": "Founder of Rebel Talent Systems. 14+ years in recruiting. From booking bands at music venues in Grand Rapids to fractional Head of Talent for defense contractors and AI startups. Author of Head and Heart and Unfinished Rooms.",
+  "description": "Founder of Rebel Talent Systems. 14+ years in recruiting. From booking bands at music venues in Grand Rapids to fractional Head of Talent/Lead Talent Consultant for defense contractors and AI startups. Author of Head and Heart and Unfinished Rooms.",
   "knowsAbout": [
     "Fractional Recruiting",
     "Embedded Recruiting",
@@ -57,7 +57,7 @@ const personSchema = {
   ],
   "hasOccupation": {
     "@type": "Occupation",
-    "name": "Fractional Head of Talent",
+    "name": "Fractional Head of Talent/Lead Talent Consultant",
     "occupationLocation": {
       "@type": "Country",
       "name": "United States"
@@ -75,10 +75,10 @@ export default function About() {
     <PageLayout>
       <PageSEO
         title="Richie Lampani | Founder, Rebel Talent Systems"
-        description="Richie Lampani: 14 years in recruiting. From booking bands in Grand Rapids to building cleared/AI hiring funnels for defense contractors and startups. Author of two books. Founder of Rebel Talent Systems."
+        description="Richie Lampani: 14 years in recruiting, from booking bands in Grand Rapids to building cleared/AI hiring funnels for defense and startups. Founder, Rebel Talent."
         path="/about"
         ogTitle="Richie Lampani | Founder, Rebel Talent Systems"
-        ogDescription="Operator. Builder. Anti-Agency force. Five cities. Two books. One thesis: hire the operators, ditch the agency."
+        ogDescription="Operator. Builder. Embedded Head of Talent/Lead Talent Consultant. Five cities. Two books. One thesis: build the machine and leave the client owning it."
         ogImage="og-about.png"
         schemas={[personSchema]}
         breadcrumbs={BREADCRUMBS}
@@ -94,7 +94,7 @@ export default function About() {
           }}
         />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-16 sm:pb-20 z-10">
-          <p className="font-mono text-[11px] sm:text-xs tracking-[0.3em] uppercase text-zinc-500 mb-6 sm:mb-10">
+          <p className="font-mono text-[11px] sm:text-xs tracking-[0.3em] uppercase text-zinc-400 mb-6 sm:mb-10">
             About
           </p>
           <div className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-end">
@@ -104,10 +104,10 @@ export default function About() {
                 <span className="text-rebel-red">Five cities. One thesis.</span>
               </h1>
               <p className="text-base sm:text-xl text-zinc-300 max-w-2xl leading-[1.55] mb-4" data-testid="text-intro">
-                I started in music venues in Grand Rapids, reading rooms and booking bands. I spent more than a decade in the staffing trenches at firms like Robert Half and Addison Group, watching the agency model up close and learning exactly what was broken about it.
+                I started in music venues in Grand Rapids, reading rooms and booking bands nobody had heard of yet. Then more than a decade in the staffing trenches at Robert Half, Addison Group, and a dozen names in between, watching the old model up close and clocking exactly what was broken about it. I didn&rsquo;t leave to start another agency. I left to build the thing that replaces it.
               </p>
               <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-[1.55] mb-6">
-                In 2023 I got laid off and co-founded <span className="text-zinc-200 font-semibold">Underground Admins</span> the same week with my partner Amy. I&rsquo;m still a minority owner there, but it&rsquo;s a separate company. Then I built <span className="text-zinc-200 font-semibold">Rebel Talent Systems</span>: the firm I wished existed when I was on the other side of the desk. I don&rsquo;t run an agency. I become your head of talent for a quarter, two, a year. I leave you with the system. I don&rsquo;t take a placement fee.
+                In 2023 I got laid off and co-founded <span className="text-zinc-200 font-semibold">Underground Admins</span> the same week with my partner Amy. I&rsquo;m still a minority owner there, but it&rsquo;s a separate company. Then I built <span className="text-zinc-200 font-semibold">Rebel Talent Systems</span>: the firm I wished existed when I was on the other side of the desk. I don&rsquo;t run an agency. I become your Head of Talent/Lead Talent Consultant for a quarter, two, a year. I leave you with the system. I don&rsquo;t take a placement fee.
               </p>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-6">
                 <CapacityBadge />
@@ -143,13 +143,13 @@ export default function About() {
               { value: "7K+", label: "Newsletter Subs", numeric: true },
               { value: "TS/SCI", label: "Cleared Hiring", numeric: false },
             ].map((stat) => (
-              <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-5 text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
+              <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-4 sm:p-5 text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
                 {stat.numeric ? (
-                  <AnimatedCounter value={stat.value} className="font-display text-2xl font-bold text-rebel-red mb-1" />
+                  <AnimatedCounter value={stat.value} className="font-display text-xl sm:text-2xl font-bold text-rebel-red mb-1" />
                 ) : (
-                  <div className="font-display text-2xl font-bold text-rebel-red mb-1">{stat.value}</div>
+                  <div className="font-display text-xl sm:text-2xl font-bold text-rebel-red mb-1">{stat.value}</div>
                 )}
-                <div className="text-zinc-500 text-xs tracking-widest uppercase">{stat.label}</div>
+                <div className="text-zinc-400 text-xs tracking-widest uppercase">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -164,7 +164,7 @@ export default function About() {
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-2 pb-3 border-b border-rebel-red/30">
               How I got here
             </h2>
-            <p className="text-zinc-500 text-sm mb-8 italic">
+            <p className="text-zinc-400 text-sm mb-8 italic">
               Hudsonville &rarr; Grand Rapids &rarr; New York &rarr; Chicago &rarr; Atlanta.
             </p>
           </ScrollReveal>
@@ -182,7 +182,7 @@ export default function About() {
                     loading="lazy"
                     className="w-full aspect-[4/3] object-cover border border-zinc-800"
                   />
-                  <figcaption className="text-zinc-500 text-xs italic mt-2 leading-snug">
+                  <figcaption className="text-zinc-400 text-xs italic mt-2 leading-snug">
                     Hudsonville, 1990. Find me in the lineup.
                   </figcaption>
                 </figure>
@@ -193,7 +193,7 @@ export default function About() {
                     loading="lazy"
                     className="w-full aspect-[4/3] object-cover border border-zinc-800"
                   />
-                  <figcaption className="text-zinc-500 text-xs italic mt-2 leading-snug">
+                  <figcaption className="text-zinc-400 text-xs italic mt-2 leading-snug">
                     Behind the bar. Years of it.
                   </figcaption>
                 </figure>
@@ -204,7 +204,7 @@ export default function About() {
                     loading="lazy"
                     className="w-full aspect-[4/3] object-cover object-top border border-zinc-800"
                   />
-                  <figcaption className="text-zinc-500 text-xs italic mt-2 leading-snug">
+                  <figcaption className="text-zinc-400 text-xs italic mt-2 leading-snug">
                     Atlanta now. Golden hour, longboard, headphones.
                   </figcaption>
                 </figure>
@@ -228,7 +228,7 @@ export default function About() {
                       loading="lazy"
                       className="w-full border border-zinc-800"
                     />
-                    <figcaption className="text-zinc-500 text-xs italic mt-2 leading-snug">
+                    <figcaption className="text-zinc-400 text-xs italic mt-2 leading-snug">
                       Me and a bunch of the local artists I worked with directly. That&rsquo;s me in the middle.
                     </figcaption>
                   </figure>
@@ -245,7 +245,7 @@ export default function About() {
                       loading="lazy"
                       className="w-20 h-20 rounded-full border border-zinc-800"
                     />
-                    <figcaption className="text-zinc-500 text-xs italic leading-snug">
+                    <figcaption className="text-zinc-400 text-xs italic leading-snug">
                       Rocket Entertainment Group.<br />Co-founded, late 2000s.
                     </figcaption>
                   </figure>
@@ -267,7 +267,7 @@ export default function About() {
                       loading="lazy"
                       className="w-full border border-zinc-800"
                     />
-                    <figcaption className="text-zinc-500 text-xs italic mt-2 leading-snug">
+                    <figcaption className="text-zinc-400 text-xs italic mt-2 leading-snug">
                       Agency era. Sales rankings and quarterly contests.
                     </figcaption>
                   </figure>
@@ -275,7 +275,7 @@ export default function About() {
                     Robert Half. Addison Group. Tech Mobi. Jonathan Edwards Group. A handful of startups in between. Eleven years in the staffing trenches. Sales rankings, quarterly contests, resumes by the hundred. I learned how to read a JD between the lines, how to pull a cleared candidate out of nowhere on a Friday afternoon, and how to talk to engineers who hate being talked to by recruiters.
                   </p>
                   <p className="text-zinc-400">
-                    I also learned why operators hate agencies: the incentives are broken. A contingency recruiter gets paid $30K to $90K only when someone signs an offer. So they push fast. Oversell fits. Move on. Quality of hire, retention, fit, your CFO&rsquo;s blood pressure. None of that pays them.
+                    I also learned where the old model breaks: the incentives. A contingency recruiter gets paid $30K to $90K only when someone signs an offer. So the pressure is to push fast, oversell fits, and move on. Quality of hire, retention, fit, your CFO&rsquo;s blood pressure. None of that pays them. I wanted to build the opposite.
                   </p>
                 </div>
               </div>
@@ -315,12 +315,12 @@ export default function About() {
                       loading="lazy"
                       className="w-full border border-zinc-800"
                     />
-                    <figcaption className="text-zinc-500 text-xs italic mt-2 leading-snug">
+                    <figcaption className="text-zinc-400 text-xs italic mt-2 leading-snug">
                       Now. Same hustle, better tools.
                     </figcaption>
                   </figure>
                   <p className="mb-3">
-                    Rebel Talent is all me. I embed as your head of talent for a quarter, six months, a year. I build the funnel, write the JDs, source candidates myself, run interview loops, close hires. No junior layer, no handoff, no agency. One operator, your seat.
+                    Rebel Talent is all me. I embed as your Head of Talent/Lead Talent Consultant for a quarter, six months, a year. I build the funnel, write the JDs, source candidates myself, run interview loops, close hires. No junior layer, no handoff, no agency. One operator, your seat.
                   </p>
                   <p className="text-zinc-400">
                     Wrote the first book by month 3 (Head and Heart, December 2025). Second one by month 6 (Unfinished Rooms, March 2026). Built the operator stack I run my business on from scratch: 27 AI agents, a custom ATS/CRM, embedded sourcing pipelines. My clients run inside it.
@@ -357,7 +357,7 @@ export default function About() {
               Contingency breaks incentives. I&rsquo;ve watched too many founders pay $30K, $50K, $90K per hire to someone who never met their team, never read the roadmap, and won&rsquo;t be around in six months when the hire flames out. The whole model is built on repeated failure. Agencies only get paid the day someone signs, so they push fast, oversell fits, and move on.
             </p>
             <p>
-              I run the opposite play. You pay me a flat monthly fee. I become your head of talent. I build the funnel, write the JDs, source candidates myself, screen them properly, run the interview loop, run the close. When the engagement ends you keep everything: the ATS, the playbook, the candidate pipeline, the message templates, the search strings I burned weekends building. The system lives at your company. I don&rsquo;t.
+              I run the opposite play. You pay me a flat monthly fee. I become your Head of Talent/Lead Talent Consultant. I build the funnel, write the JDs, source candidates myself, screen them properly, run the interview loop, run the close. When the engagement ends you keep everything: the ATS, the playbook, the candidate pipeline, the message templates, the search strings I burned weekends building. The system lives at your company. I don&rsquo;t.
             </p>
             <p className="text-zinc-400">
               If you want someone who&rsquo;ll tell you what you want to hear, this isn&rsquo;t the right call. If you want someone who&rsquo;ll tell you what&rsquo;s actually broken about your hiring, and then fix it, let&rsquo;s talk.
@@ -374,7 +374,7 @@ export default function About() {
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-3 pb-3 border-b border-rebel-red/30">
               What 14 years actually built
             </h2>
-            <p className="text-zinc-500 text-sm mb-10 italic max-w-2xl">
+            <p className="text-zinc-400 text-sm mb-10 italic max-w-2xl">
               Real engagements. Real numbers. Pulled straight from the case studies. Go read them if you want the full receipts.
             </p>
           </ScrollReveal>
@@ -416,12 +416,11 @@ export default function About() {
             <GlowCard>
               <div className="border border-zinc-800 bg-zinc-900/40 p-6 h-full">
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">Legal Managed Services</div>
-                <div className="font-display text-3xl font-bold text-white mb-1">18 hires</div>
-                <div className="text-zinc-400 text-sm mb-4">14 months &middot; 90% retention</div>
+                <div className="font-display text-3xl font-bold text-white mb-1">20 hires</div>
+                <div className="text-zinc-400 text-sm mb-4">24 months &middot; 90% retention</div>
                 <ul className="text-zinc-300 text-sm space-y-1.5 leading-relaxed">
                   <li>&bull; ~$5K&ndash;$8K cost per hire</li>
                   <li>&bull; vs. industry norm $30K+ on contingency</li>
-                  <li>&bull; 16 of 18 still in seat at 14-month mark</li>
                   <li>&bull; Embedded, no contingency, no surprises</li>
                 </ul>
               </div>
@@ -435,10 +434,10 @@ export default function About() {
       <section className="bg-rebel-space py-16 sm:py-20 border-t border-zinc-900">
         <div className="max-w-5xl mx-auto px-6 lg:px-12">
           <ScrollReveal variant="fade-up">
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-3 pb-3 border-b border-rebel-red/30" data-testid="heading-specializations">
+            <h2 className="font-display text-xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-3 pb-3 border-b border-rebel-red/30" data-testid="heading-specializations">
               Specializations
             </h2>
-            <p className="text-zinc-500 text-sm mb-8 italic max-w-2xl">
+            <p className="text-zinc-400 text-sm mb-8 italic max-w-2xl">
               The seats I&rsquo;ve actually filled, not the keywords on my LinkedIn.
             </p>
           </ScrollReveal>
@@ -456,7 +455,7 @@ export default function About() {
             ].map((item) => (
               <div key={item.area} className="border-l border-zinc-800 pl-4 py-1">
                 <div className="text-zinc-200 text-sm font-semibold leading-snug">{item.area}</div>
-                <div className="text-zinc-500 text-xs mt-1 leading-relaxed">{item.note}</div>
+                <div className="text-zinc-400 text-xs mt-1 leading-relaxed">{item.note}</div>
               </div>
             ))}
           </div>
@@ -471,7 +470,7 @@ export default function About() {
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-3 pb-3 border-b border-rebel-red/30" data-testid="heading-books">
               Built by me
             </h2>
-            <p className="text-zinc-500 text-sm mb-10 italic max-w-2xl">
+            <p className="text-zinc-400 text-sm mb-10 italic max-w-2xl">
               The books, the newsletter, and the operator stack I run my business on.
             </p>
           </ScrollReveal>
@@ -556,7 +555,7 @@ export default function About() {
             <p className="text-zinc-200 text-lg sm:text-xl leading-relaxed italic mb-4 pl-4">
               In a review, I was told I had an amazing team, cohesive and indistinguishable from full time employees.
             </p>
-            <footer className="text-zinc-500 text-sm pl-4">
+            <footer className="text-zinc-400 text-sm pl-4">
               <span className="text-zinc-300 font-semibold">Arin</span>, VP of Operations &middot; EarthDaily Federal
             </footer>
           </blockquote>
@@ -568,7 +567,7 @@ export default function About() {
             <p className="text-zinc-200 text-lg leading-relaxed italic mb-4 pl-4">
               I&rsquo;m used to recruiters sending half-vetted resumes that I still need to comb through. With Richie? Not the case. He does the heavy lifting, and the quality speaks for itself. One standout IT candidate has already proven to be a rockstar. Within just over 13 months, they&rsquo;ve grown into a more valuable role and are thriving.
             </p>
-            <footer className="text-zinc-500 text-sm pl-4">
+            <footer className="text-zinc-400 text-sm pl-4">
               <span className="text-zinc-300 font-semibold">Keisha Ah Loo-Yates</span>, Strategic IT Leader &middot; U.S. Army (Airborne) Combat Veteran
             </footer>
           </blockquote>
@@ -580,7 +579,7 @@ export default function About() {
             <p className="text-zinc-200 text-lg leading-relaxed italic mb-4 pl-4">
               I just want to thank you for all your assistance moving this pipeline to completion. It means a lot to me, and the tech org.
             </p>
-            <footer className="text-zinc-500 text-sm pl-4">
+            <footer className="text-zinc-400 text-sm pl-4">
               <span className="text-zinc-300 font-semibold">Michael Tracey</span>, Director of Engineering &middot; Kalibri Labs
             </footer>
           </blockquote>

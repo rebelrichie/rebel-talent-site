@@ -13,8 +13,8 @@ export default function Advisory() {
   return (
     <PageLayout>
       <PageSEO
-        title="AI for Recruiting Teams | Advisory, Build & Training | Rebel Talent"
-        description="Three ways to put AI to work in a recruiting operation: an audit and roadmap, an embedded build engagement, or a live ride-along where your team learns by working active reqs alongside me. Built on a 27-agent production system."
+        title="AI for Recruiting Teams | Advisory & Build | Rebel Talent"
+        description="Three ways to put AI to work in recruiting: an audit and roadmap, an embedded build, or a live ride-along on active reqs. Built on a 27-agent production system."
         path="/advisory"
         ogTitle="AI for Recruiting Teams | Rebel Talent"
         ogDescription="The tools exist. The strategy doesn't. I run a 27-agent recruiting system in production today, and I work with your team to figure out which parts of that you actually need."

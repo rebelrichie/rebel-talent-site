@@ -26,7 +26,7 @@ export default function FreeTools() {
       <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%)" }} />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
-          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-500 mb-6 sm:mb-10">
+          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-400 mb-6 sm:mb-10">
             Resources
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-4xl" data-testid="heading-free-tools">
@@ -140,7 +140,7 @@ export default function FreeTools() {
                 <img src={headAndHeartCover} alt="Head and Heart book cover" className="w-36 mx-auto mb-4 border border-zinc-700" loading="lazy" />
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">BOOK</div>
                 <h3 className="font-display text-lg font-bold text-white uppercase mb-1">Head and Heart</h3>
-                <p className="text-zinc-500 text-sm mb-3">Winning the AI Recruiting War</p>
+                <p className="text-zinc-400 text-sm mb-3">Winning the AI Recruiting War</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-4">
                   My framework for combining strategic thinking with authentic human connection in recruiting. Available on Amazon.
                 </p>
@@ -159,7 +159,7 @@ export default function FreeTools() {
                 <img src={unfinishedRoomsCover} alt="Unfinished Rooms book cover" className="w-36 mx-auto mb-4 border border-zinc-700" loading="lazy" />
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">BOOK</div>
                 <h3 className="font-display text-lg font-bold text-white uppercase mb-1">Unfinished Rooms</h3>
-                <p className="text-zinc-500 text-sm mb-3">Why Great Employees Keep One Foot Out the Door</p>
+                <p className="text-zinc-400 text-sm mb-3">Why Great Employees Keep One Foot Out the Door</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-4">
                   A psychological framework for understanding employee turnover and disengagement. Available now on Amazon.
                 </p>

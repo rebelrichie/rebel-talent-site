@@ -1,5 +1,5 @@
 // Safe addition, public job board on rebeltalentsystems.com.
-// Fetches from rebelapply.com/api/public/jobs and renders with multi-filter UI
+// Fetches from rebelcommand.dev/api/public/jobs and renders with multi-filter UI
 // (clearance, function, remote, company), sort, and a "what to expect" footer
 // so the candidate experience signals the recruiter brand.
 // Pre-rendered at build time via scripts/prerender.mjs so Googlebot sees HTML.
@@ -23,7 +23,7 @@ import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
 
-const JOBS_API = "https://rebelapply.com/api/public/jobs";
+const JOBS_API = "https://rebelcommand.dev/api/public/jobs";
 
 interface Job {
   id: string;
@@ -225,8 +225,8 @@ export default function Jobs() {
   return (
     <PageLayout>
       <PageSEO
-        title="Open Roles | Rebel Talent"
-        description="Browse open full-time, fractional, and contract roles placed by Rebel Talent. Forward Deployed Engineers, AI/ML, GTM, cleared (TS/SCI) and executive search. Hand-vetted, no spam, response within 48 hours."
+        title="Open Roles: Cleared, AI/ML & GTM Hiring | Rebel Talent"
+        description="Open full-time, fractional, and contract roles: Forward Deployed Engineers, AI/ML, GTM, and cleared (TS/SCI) search. Hand-vetted, response within 48 hours."
         path="/jobs"
         schemas={schemas}
         breadcrumbs={[
@@ -256,13 +256,13 @@ export default function Jobs() {
       <section className="px-4 sm:px-6 lg:px-8 pb-6">
         <div className="max-w-5xl mx-auto">
           <div className="relative mb-5">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-500" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-400" />
             <input
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search by role, company, location..."
-              className="w-full pl-11 pr-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white placeholder:text-zinc-500 focus:outline-none focus:border-rebel-red transition-colors"
+              className="w-full pl-11 pr-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white placeholder:text-zinc-400 focus:outline-none focus:border-rebel-red transition-colors"
               data-testid="input-job-search"
             />
           </div>
@@ -309,7 +309,7 @@ export default function Jobs() {
                 </button>
 
                 <div className="ml-auto flex items-center gap-2">
-                  <label className="text-xs text-zinc-500 uppercase tracking-wider">Sort</label>
+                  <label className="text-xs text-zinc-400 uppercase tracking-wider">Sort</label>
                   <select
                     value={sort}
                     onChange={(e) => setSort(e.target.value as SortKey)}
@@ -339,7 +339,7 @@ export default function Jobs() {
       <section className="px-4 sm:px-6 lg:px-8 pb-16">
         <div className="max-w-5xl mx-auto">
           {loading && (
-            <div className="text-center py-16 text-zinc-500">
+            <div className="text-center py-16 text-zinc-400">
               Loading open roles…
             </div>
           )}
@@ -348,7 +348,7 @@ export default function Jobs() {
             <div className="py-10 space-y-8">
               <div className="border border-zinc-800 bg-zinc-900/40 p-6 sm:p-8 text-center max-w-xl mx-auto">
                 <p className="text-zinc-300 font-semibold mb-1">Live board is temporarily unavailable.</p>
-                <p className="text-zinc-500 text-sm mb-5">The job API is down. Here's what we typically have open — email me directly and I'll send you the full list.</p>
+                <p className="text-zinc-400 text-sm mb-5">The job API is down. Here's what we typically have open. Email me directly and I'll send you the full list.</p>
                 <a
                   href="mailto:richie@rebeltalentsystems.com?subject=Open%20Roles%20Inquiry"
                   className="inline-flex items-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-semibold text-sm px-6 py-3 rounded-full transition-colors no-underline"
@@ -367,13 +367,13 @@ export default function Jobs() {
                     <p className="text-zinc-200 text-sm font-semibold mb-2">{role.title}</p>
                     <div className="flex flex-wrap gap-1.5">
                       {role.tags.map((t) => (
-                        <span key={t} className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 border border-zinc-800 px-2 py-0.5">{t}</span>
+                        <span key={t} className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 border border-zinc-800 px-2 py-0.5">{t}</span>
                       ))}
                     </div>
                   </div>
                 ))}
               </div>
-              <p className="text-center text-zinc-600 text-xs font-mono tracking-wider">SAMPLE ROLES · FULL LIST SENT ON REQUEST</p>
+              <p className="text-center text-zinc-400 text-xs font-mono tracking-wider">SAMPLE ROLES · FULL LIST SENT ON REQUEST</p>
             </div>
           )}
 
@@ -394,7 +394,7 @@ export default function Jobs() {
                 )
                 : <p>No open roles right now, but new ones drop weekly.</p>}
               {/* Safe addition (2026-06-05): general application CTA */}
-              <p className="text-sm text-zinc-500 pt-4">
+              <p className="text-sm text-zinc-400 pt-4">
                 Don&rsquo;t see what you&rsquo;re looking for? Submit a {" "}
                 <Link href="/jobs/general" className="text-rebel-red hover:underline">general application</Link>
                 {" "}for future openings.
@@ -404,7 +404,7 @@ export default function Jobs() {
 
           {!loading && !error && filtered.length > 0 && (
             <>
-              <p className="text-xs text-zinc-500 uppercase tracking-wider mb-4">
+              <p className="text-xs text-zinc-400 uppercase tracking-wider mb-4">
                 {filtered.length} of {jobs.length} {jobs.length === 1 ? "role" : "roles"}
               </p>
               <div className="space-y-3" data-testid="job-list">
@@ -432,9 +432,9 @@ export default function Jobs() {
                           </div>
                           <p className="text-sm text-zinc-400">{j.companyName}</p>
                         </div>
-                        <ArrowRight className="h-5 w-5 text-zinc-600 group-hover:text-rebel-red group-hover:translate-x-1 transition-all shrink-0 mt-1" />
+                        <ArrowRight className="h-5 w-5 text-zinc-400 group-hover:text-rebel-red group-hover:translate-x-1 transition-all shrink-0 mt-1" />
                       </div>
-                      <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-zinc-500">
+                      <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-zinc-400">
                         <span className="inline-flex items-center gap-1.5">
                           <MapPin className="h-3.5 w-3.5" />
                           {locationLabel(j)}
@@ -445,7 +445,7 @@ export default function Jobs() {
                             {j._function}
                           </span>
                         )}
-                        <span className={`inline-flex items-center gap-1.5 ${j.compensationRange ? "text-emerald-400/90" : "text-zinc-600"}`}>
+                        <span className={`inline-flex items-center gap-1.5 ${j.compensationRange ? "text-emerald-400/90" : "text-zinc-400"}`}>
                           <DollarSign className="h-3.5 w-3.5" />
                           {j.compensationRange || "Comp DOE, discussed on intro call"}
                         </span>
@@ -465,7 +465,7 @@ export default function Jobs() {
                   <span className="text-rebel-red font-semibold">general application</span>
                   {" "}for future openings.
                 </p>
-                <p className="text-xs text-zinc-500 mt-1.5">
+                <p className="text-xs text-zinc-400 mt-1.5">
                   Cleared, technical, sales, and exec searches open every week.
                 </p>
               </Link>
@@ -542,7 +542,7 @@ function FilterRow({
 }) {
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <span className="text-zinc-500 text-[10px] uppercase tracking-[0.18em] font-mono pr-1 inline-flex items-center gap-1.5">
+      <span className="text-zinc-400 text-[10px] uppercase tracking-[0.18em] font-mono pr-1 inline-flex items-center gap-1.5">
         <FilterIcon className="h-3 w-3" /> {label}
       </span>
       {options.map((opt) => {

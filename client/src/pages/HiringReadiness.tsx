@@ -139,6 +139,10 @@ export default function HiringReadiness() {
         ogTitle="Hiring Readiness Scorecard | Rebel Talent"
         ogDescription="Score your recruiting operation in 5 minutes. 10 questions, real diagnosis, no upsell."
         ogImage="og-home.png"
+        breadcrumbs={[
+          { name: "Home", item: "https://rebeltalentsystems.com/" },
+          { name: "Hiring Readiness Scorecard", item: "https://rebeltalentsystems.com/hiring-readiness" },
+        ]}
       />
 
       <section className="relative overflow-hidden bg-rebel-space min-h-[calc(100vh-80px)]">
@@ -220,7 +224,7 @@ function IntroPanel({ onStart }: { onStart: () => void }) {
         ].map((s) => (
           <div key={s.label} className="border border-zinc-800 bg-zinc-900/30 p-4">
             <div className="font-display text-2xl font-bold text-white">{s.value}</div>
-            <div className="text-zinc-500 text-xs uppercase tracking-wider">{s.label}</div>
+            <div className="text-zinc-400 text-xs uppercase tracking-wider">{s.label}</div>
           </div>
         ))}
       </div>
@@ -258,7 +262,7 @@ function QuestionsPanel({
       <button
         type="button"
         onClick={onBack}
-        className="inline-flex items-center gap-1.5 text-zinc-500 hover:text-zinc-200 text-xs uppercase tracking-wider mb-6"
+        className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-zinc-200 text-xs uppercase tracking-wider mb-6"
       >
         <ArrowLeft className="w-3.5 h-3.5" /> Back
       </button>
@@ -272,7 +276,7 @@ function QuestionsPanel({
             Be honest.
           </h2>
         </div>
-        <div className="text-zinc-500 font-mono text-xs">
+        <div className="text-zinc-400 font-mono text-xs">
           {answeredCount} / {total}
         </div>
       </div>
@@ -297,7 +301,7 @@ function QuestionsPanel({
                   {String(idx + 1).padStart(2, "0")}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-zinc-500 text-[10px] uppercase tracking-[0.18em] font-mono mb-1.5">
+                  <div className="text-zinc-400 text-[10px] uppercase tracking-[0.18em] font-mono mb-1.5">
                     {q.category}
                   </div>
                   <p className="text-zinc-100 text-base leading-snug mb-4">{q.prompt}</p>
@@ -381,7 +385,7 @@ function ContactPanel({
       <button
         type="button"
         onClick={onBack}
-        className="inline-flex items-center gap-1.5 text-zinc-500 hover:text-zinc-200 text-xs uppercase tracking-wider mb-6"
+        className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-zinc-200 text-xs uppercase tracking-wider mb-6"
       >
         <ArrowLeft className="w-3.5 h-3.5" /> Back to questions
       </button>
@@ -444,7 +448,7 @@ function ContactPanel({
           {submitting ? "Calculating..." : (<>See My Score <ArrowRight className="w-4 h-4" /></>)}
         </button>
 
-        <p className="text-zinc-600 text-xs text-center pt-2">
+        <p className="text-zinc-400 text-xs text-center pt-2">
           One-time use. No follow-up sequence. Reply to my email if you want to talk.
         </p>
       </form>
@@ -462,7 +466,7 @@ function ResultPanel({ result }: { result: ResultPayload }) {
         </div>
         <div className="inline-flex items-end justify-center gap-2 mb-3">
           <span className="font-display text-7xl sm:text-8xl font-bold text-rebel-red leading-none">{score}</span>
-          <span className="text-zinc-500 text-2xl font-mono pb-2">/100</span>
+          <span className="text-zinc-400 text-2xl font-mono pb-2">/100</span>
         </div>
         <div className="font-display text-xl sm:text-2xl font-bold text-white uppercase tracking-wider mb-4">{band}</div>
         <p className="text-zinc-300 text-base leading-relaxed max-w-2xl mx-auto">{verdict}</p>
@@ -489,7 +493,7 @@ function ResultPanel({ result }: { result: ResultPayload }) {
       )}
 
       <div className="mb-10">
-        <div className="font-mono text-zinc-500 text-xs tracking-[0.3em] uppercase mb-4">
+        <div className="font-mono text-zinc-400 text-xs tracking-[0.3em] uppercase mb-4">
           FULL BREAKDOWN
         </div>
         <ol className="space-y-2">
@@ -507,7 +511,7 @@ function ResultPanel({ result }: { result: ResultPayload }) {
                   )}
                 </div>
                 <div className="flex-1">
-                  <div className="text-zinc-500 text-[10px] uppercase tracking-[0.18em] font-mono mb-1">
+                  <div className="text-zinc-400 text-[10px] uppercase tracking-[0.18em] font-mono mb-1">
                     Q{String(idx + 1).padStart(2, "0")} · {b.category}
                   </div>
                   <p className={`text-sm leading-relaxed ${b.answered ? "text-zinc-400" : "text-zinc-200"}`}>{b.prompt}</p>
@@ -553,7 +557,7 @@ function Field({ label, required, hint, children }: { label: string; required?: 
         {label}{required && <span className="text-rebel-red ml-1">*</span>}
       </label>
       {children}
-      {hint && <p className="text-zinc-600 text-xs mt-1.5">{hint}</p>}
+      {hint && <p className="text-zinc-400 text-xs mt-1.5">{hint}</p>}
     </div>
   );
 }

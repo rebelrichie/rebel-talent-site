@@ -72,7 +72,7 @@ export default function Blog() {
           {loading && (
             <div className="text-center py-20">
               <div className="w-8 h-8 border-2 border-rebel-red border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-              <p className="text-zinc-500">Loading posts...</p>
+              <p className="text-zinc-400">Loading posts...</p>
             </div>
           )}
 
@@ -80,7 +80,7 @@ export default function Blog() {
             <div className="py-10 space-y-8">
               <div className="border border-zinc-800 bg-zinc-900/40 p-6 sm:p-8 text-center max-w-xl mx-auto">
                 <p className="text-zinc-300 font-semibold mb-1">Posts are temporarily unavailable.</p>
-                <p className="text-zinc-500 text-sm mb-5">The blog API is down. Subscribe on LinkedIn to get every post the moment it drops.</p>
+                <p className="text-zinc-400 text-sm mb-5">The blog API is down. Subscribe on LinkedIn to get every post the moment it drops.</p>
                 <a
                   href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824"
                   target="_blank"
@@ -92,10 +92,10 @@ export default function Blog() {
               </div>
               <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
                 {[
-                  { category: "Hiring Strategy", title: "Why agencies fail growth-stage startups — and what to do instead" },
+                  { category: "Hiring Strategy", title: "Why agencies fail growth-stage startups, and what to do instead" },
                   { category: "Cleared Hiring", title: "The clearance pipeline problem: building TS/SCI bench before you need it" },
                   { category: "AI & Recruiting", title: "27 agents, one operator: how I automated sourcing without losing signal" },
-                  { category: "Fractional Model", title: "What a fractional Head of Talent actually does in week one" },
+                  { category: "Fractional Model", title: "What a fractional Head of Talent/Lead Talent Consultant actually does in week one" },
                 ].map((post) => (
                   <div key={post.title} className="border border-zinc-800/60 bg-zinc-900/20 p-5">
                     <p className="text-rebel-red text-[10px] font-mono uppercase tracking-widest mb-2">{post.category}</p>
@@ -103,13 +103,13 @@ export default function Blog() {
                   </div>
                 ))}
               </div>
-              <p className="text-center text-zinc-600 text-xs font-mono tracking-wider">RECENT TOPICS · FULL ARCHIVE ON LINKEDIN</p>
+              <p className="text-center text-zinc-400 text-xs font-mono tracking-wider">RECENT TOPICS · FULL ARCHIVE ON LINKEDIN</p>
             </div>
           )}
 
           {!loading && !error && posts.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-zinc-500 text-lg">No posts yet. Check back soon.</p>
+              <p className="text-zinc-400 text-lg">No posts yet. Check back soon.</p>
             </div>
           )}
 
@@ -129,7 +129,7 @@ export default function Blog() {
                 <p className="text-zinc-400 text-base leading-relaxed mb-4 max-w-3xl">
                   {featured.excerpt || featured.metaDescription}
                 </p>
-                <div className="flex items-center gap-3 text-sm text-zinc-500">
+                <div className="flex items-center gap-3 text-sm text-zinc-400">
                   <span className="font-medium">{featured.author || "Richie Lampani"}</span>
                   <span>·</span>
                   <time>{formatDate(featured.publishedAt)}</time>
@@ -150,10 +150,10 @@ export default function Blog() {
                     <h2 className="text-lg font-bold text-white mb-2 leading-snug group-hover:text-rebel-red transition-colors">
                       {post.title}
                     </h2>
-                    <p className="text-sm text-zinc-500 leading-relaxed mb-3 line-clamp-2">
+                    <p className="text-sm text-zinc-400 leading-relaxed mb-3 line-clamp-2">
                       {post.excerpt || post.metaDescription}
                     </p>
-                    <div className="flex items-center gap-2 text-xs text-zinc-600">
+                    <div className="flex items-center gap-2 text-xs text-zinc-400">
                       <time>{formatDate(post.publishedAt)}</time>
                       {post.tags && post.tags.length > 0 && (
                         <>

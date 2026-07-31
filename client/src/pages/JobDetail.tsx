@@ -9,7 +9,7 @@ import { ArrowLeft, ArrowRight, MapPin, DollarSign, Briefcase, ShieldCheck } fro
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 
-const API_BASE = "https://rebelapply.com/api/public/jobs";
+const API_BASE = "https://rebelcommand.dev/api/public/jobs";
 
 interface Job {
   id: string;
@@ -227,13 +227,13 @@ export default function JobDetail() {
         <Link
           href="/jobs"
           data-testid="link-back-to-jobs"
-          className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-zinc-500 hover:text-rebel-red transition-colors no-underline mb-8"
+          className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-zinc-400 hover:text-rebel-red transition-colors no-underline mb-8"
         >
           <ArrowLeft className="h-3.5 w-3.5" /> All Open Roles
         </Link>
 
         {loading && (
-          <div className="py-16 text-center text-zinc-500">Loading role…</div>
+          <div className="py-16 text-center text-zinc-400">Loading role…</div>
         )}
 
         {error && !loading && (
@@ -290,7 +290,7 @@ export default function JobDetail() {
                 Apply for This Role
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <span className="text-xs text-zinc-500">
+              <span className="text-xs text-zinc-400">
                 Quick application. Free for candidates. We reply within 48h.
               </span>
             </div>
@@ -334,12 +334,9 @@ export default function JobDetail() {
 
             {/* Footer CTA */}
             <div className="mt-12 pt-10 border-t border-zinc-800 text-center">
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">
                 Ready to apply?
               </h3>
-              <p className="text-sm text-zinc-400 mb-6 max-w-md mx-auto">
-                Build a profile once, get matched to roles like this, and others, before they go public.
-              </p>
               <Link
                 href={`/jobs/${job.id}/apply`}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-rebel-red hover:bg-red-700 text-white font-semibold rounded-md transition-colors no-underline group"

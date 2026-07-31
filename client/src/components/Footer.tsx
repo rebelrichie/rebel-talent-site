@@ -30,53 +30,53 @@ export default function Footer() {
                 REBEL TALENT
               </span>
             </div>
-            <p className="text-zinc-500 text-sm leading-relaxed">
+            <p className="text-zinc-400 text-sm leading-relaxed">
               Fractional recruiting leadership for companies that refuse to settle.
             </p>
           </div>
 
           <div>
-            <h4 className="font-display text-sm font-bold tracking-widest text-rebel-red uppercase mb-4">
+            <h2 className="font-display text-sm font-bold tracking-widest text-rebel-red uppercase mb-4">
               NAVIGATE
-            </h4>
+            </h2>
             <div className="flex flex-col gap-2.5">
-              <Link href="/fractional-head-of-talent" data-testid="link-footer-fractional" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Fractional Head of Talent</Link>
-              <Link href="/services" data-testid="link-footer-services" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Services</Link>
-              <Link href="/how-it-works" data-testid="link-footer-how-it-works" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">How It Works</Link>
-              <Link href="/testimonials" data-testid="link-footer-testimonials" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Testimonials</Link>
-              <Link href="/case-studies" data-testid="link-footer-case-studies" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Case Studies</Link>
-              <Link href="/about" data-testid="link-footer-about" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">About</Link>
-              <Link href="/command" data-testid="link-footer-command" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Command Demo</Link>
+              <Link href="/fractional-head-of-talent" data-testid="link-footer-fractional" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Fractional Head of Talent/Lead Talent Consultant</Link>
+              <Link href="/services" data-testid="link-footer-services" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Services</Link>
+              <Link href="/how-it-works" data-testid="link-footer-how-it-works" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">How It Works</Link>
+              <Link href="/testimonials" data-testid="link-footer-testimonials" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Testimonials</Link>
+              <Link href="/case-studies" data-testid="link-footer-case-studies" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Case Studies</Link>
+              <Link href="/about" data-testid="link-footer-about" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">About</Link>
+              <Link href="/command" data-testid="link-footer-command" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Command Demo</Link>
             </div>
           </div>
 
           <div>
-            <h4 className="font-display text-sm font-bold tracking-widest text-rebel-red uppercase mb-4">
+            <h2 className="font-display text-sm font-bold tracking-widest text-rebel-red uppercase mb-4">
               RESOURCES
-            </h4>
+            </h2>
             <div className="flex flex-col gap-2.5">
-              <Link href="/blog" data-testid="link-footer-blog" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Blog</Link>
-              <Link href="/podcast" data-testid="link-footer-podcast" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Podcast</Link>
-              <Link href="/free-tools" data-testid="link-footer-free-tools" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Free Tools</Link>
-              <Link href="/certification" data-testid="link-footer-certification" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">ABCR Certification</Link>
-              <a href="https://rebel-talent-shop.fourthwall.com/" target="_blank" rel="noopener noreferrer" data-testid="link-footer-shop" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Shop</a>
-              <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824" target="_blank" rel="noopener noreferrer" data-testid="link-footer-newsletter" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">Rebel Built Newsletter</a>
+              <Link href="/blog" data-testid="link-footer-blog" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Blog</Link>
+              <Link href="/podcast" data-testid="link-footer-podcast" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Podcast</Link>
+              <Link href="/free-tools" data-testid="link-footer-free-tools" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Free Tools</Link>
+              <Link href="/certification" data-testid="link-footer-certification" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">ABCR Certification</Link>
+              <a href="https://rebel-talent-shop.fourthwall.com/" target="_blank" rel="noopener noreferrer" data-testid="link-footer-shop" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Shop</a>
+              <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824" target="_blank" rel="noopener noreferrer" data-testid="link-footer-newsletter" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Rebel Built Newsletter</a>
               <Link href="/jobs" data-testid="link-footer-apply" className="text-rebel-red text-sm no-underline hover:text-white transition-colors font-semibold">Apply to Open Jobs</Link>
             </div>
           </div>
 
           <div>
-            <h4 className="font-display text-sm font-bold tracking-widest text-rebel-red uppercase mb-4">
+            <h2 className="font-display text-sm font-bold tracking-widest text-rebel-red uppercase mb-4">
               CONTACT
-            </h4>
+            </h2>
             <div className="flex flex-col gap-2.5">
-              <a href="mailto:richie@rebeltalentsystems.com" data-testid="link-footer-email" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">
+              <a href="mailto:richie@rebeltalentsystems.com" data-testid="link-footer-email" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">
                 richie@rebeltalentsystems.com
               </a>
-              <a href="tel:+17702337548" data-testid="link-footer-phone" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">
+              <a href="tel:+17702337548" data-testid="link-footer-phone" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">
                 (770) 233-7548
               </a>
-              <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-footer-linkedin" className="text-zinc-500 text-sm no-underline hover:text-white transition-colors">
+              <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-footer-linkedin" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">
                 LinkedIn
               </a>
               <span className="sr-only">
@@ -87,11 +87,11 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-zinc-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-zinc-600 text-xs tracking-wider uppercase">
+          <p className="text-zinc-400 text-xs tracking-wider uppercase">
             &copy; {new Date().getFullYear()} Rebel Talent Systems. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <Link href="/privacy-policy" data-testid="link-footer-privacy" className="text-zinc-600 text-xs hover:text-zinc-400 no-underline transition-colors">Privacy Policy</Link>
+            <Link href="/privacy-policy" data-testid="link-footer-privacy" className="text-zinc-400 text-xs hover:text-zinc-400 no-underline transition-colors">Privacy Policy</Link>
             <span
               className="text-xs font-mono tracking-[0.22em] uppercase font-bold"
               style={{

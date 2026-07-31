@@ -144,7 +144,7 @@ function KanbanDemo() {
           <div className="flex items-center gap-2 px-3 py-3 mb-2 rounded-t-md" style={{ borderTop: `3px solid ${STAGE_COLORS[stage]}` }}>
             <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: STAGE_COLORS[stage] }} />
             <span className="text-sm font-semibold text-zinc-300 uppercase tracking-wider">{stage}</span>
-            <span className="text-sm text-zinc-600 ml-auto bg-zinc-800/50 px-2 py-0.5 rounded">{cards.length}</span>
+            <span className="text-sm text-zinc-400 ml-auto bg-zinc-800/50 px-2 py-0.5 rounded">{cards.length}</span>
           </div>
           <div className="space-y-2.5 flex-1">
             {cards.map((card) => (
@@ -155,10 +155,10 @@ function KanbanDemo() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="text-base font-medium text-white truncate">{card.name}</div>
-                    <div className="text-sm text-zinc-500 truncate">{card.title}</div>
+                    <div className="text-sm text-zinc-400 truncate">{card.title}</div>
                     <div className="flex items-center gap-2 mt-2">
                       <span className="text-xs bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded">{card.company}</span>
-                      <span className="text-xs text-zinc-600">{card.time}</span>
+                      <span className="text-xs text-zinc-400">{card.time}</span>
                     </div>
                   </div>
                   <ScoreRing score={card.score} size={36} />
@@ -197,10 +197,10 @@ function DashboardSection() {
           { label: "AGENT SUCCESS", value: 99, suffix: "%", accent: false },
         ].map((kpi) => (
           <div key={kpi.label} className={`rounded-xl px-5 py-4 ${kpi.accent ? "border border-purple-500/30 bg-purple-500/5" : "border border-zinc-800 bg-zinc-900/60"}`}>
-            <div className="text-xs uppercase tracking-[0.12em] text-zinc-500 font-medium">{kpi.label}</div>
+            <div className="text-xs uppercase tracking-[0.12em] text-zinc-400 font-medium">{kpi.label}</div>
             <div className="text-3xl font-bold text-white mt-1.5" style={{ fontVariantNumeric: "tabular-nums" }}>
               <AnimCounter target={kpi.value} prefix={kpi.prefix || ""} suffix={kpi.suffix ? "" : ""} />
-              {kpi.suffix && <span className="text-sm text-zinc-500 font-normal ml-1.5">{kpi.suffix}</span>}
+              {kpi.suffix && <span className="text-sm text-zinc-400 font-normal ml-1.5">{kpi.suffix}</span>}
             </div>
           </div>
         ))}
@@ -212,7 +212,7 @@ function DashboardSection() {
           <div className="flex items-center gap-2.5">
             <Brain className="w-5 h-5 text-rebel-red" />
             <span className="text-base font-semibold text-white">AI Daily Brief</span>
-            <span className="text-xs text-zinc-600">Powered by Claude</span>
+            <span className="text-xs text-zinc-400">Powered by Claude</span>
           </div>
           {!briefVisible && (
             <button
@@ -230,7 +230,7 @@ function DashboardSection() {
         </div>
         <div className="p-5" style={{ minHeight: briefVisible ? "auto" : "60px" }}>
           {!briefVisible ? (
-            <p className="text-base text-zinc-600 italic">Click "Generate Brief" to see the AI in action...</p>
+            <p className="text-base text-zinc-400 italic">Click "Generate Brief" to see the AI in action...</p>
           ) : (
             <pre className="text-base text-zinc-300 whitespace-pre-wrap leading-relaxed font-sans">
               {displayed}
@@ -260,7 +260,7 @@ function PipelineSection() {
           <span className="text-sm bg-zinc-800 text-zinc-400 px-3 py-1 rounded-lg">47 candidates</span>
         </div>
         <div className="flex items-center gap-2">
-          <button className="text-sm text-zinc-500 border border-zinc-800 px-4 py-2 rounded-lg hover:text-zinc-300 transition-colors">Edit Stages</button>
+          <button className="text-sm text-zinc-400 border border-zinc-800 px-4 py-2 rounded-lg hover:text-zinc-300 transition-colors">Edit Stages</button>
         </div>
       </div>
       <KanbanDemo />
@@ -308,10 +308,10 @@ function EmailSection() {
         </div>
         <div className="p-5">
           {!sending ? (
-            <p className="text-base text-zinc-600 italic">AI drafts a personalized scheduling email in seconds...</p>
+            <p className="text-base text-zinc-400 italic">AI drafts a personalized scheduling email in seconds...</p>
           ) : (
             <div className="text-base text-zinc-300 whitespace-pre-wrap leading-relaxed">
-              <div className="text-sm text-zinc-600 mb-3">To: daria.okonkwo@gmail.com · Subject: Next Steps, Head of Growth at Notion</div>
+              <div className="text-sm text-zinc-400 mb-3">To: daria.okonkwo@gmail.com · Subject: Next Steps, Head of Growth at Notion</div>
               {displayed}
               {!done && <span className="inline-block w-2 h-4 bg-blue-400 ml-0.5 animate-pulse" />}
             </div>
@@ -336,7 +336,7 @@ function AgentSection() {
           { label: "Total Cost", value: "$0.18", color: "text-white" },
         ].map((s) => (
           <div key={s.label} className="border border-zinc-800 bg-zinc-900/60 rounded-xl px-5 py-4">
-            <div className="text-xs uppercase tracking-wider text-zinc-500">{s.label}</div>
+            <div className="text-xs uppercase tracking-wider text-zinc-400">{s.label}</div>
             <div className={`text-2xl font-bold mt-1.5 ${s.color}`}>{s.value}</div>
           </div>
         ))}
@@ -348,12 +348,12 @@ function AgentSection() {
         <table className="w-full">
           <thead>
             <tr className="border-b border-zinc-800/30">
-              <th className="text-left text-xs text-zinc-600 uppercase tracking-wider px-5 py-3">Status</th>
-              <th className="text-left text-xs text-zinc-600 uppercase tracking-wider px-5 py-3">Agent</th>
-              <th className="text-right text-xs text-zinc-600 uppercase tracking-wider px-5 py-3">Tokens</th>
-              <th className="text-right text-xs text-zinc-600 uppercase tracking-wider px-5 py-3">Cost</th>
-              <th className="text-right text-xs text-zinc-600 uppercase tracking-wider px-5 py-3">Duration</th>
-              <th className="text-right text-xs text-zinc-600 uppercase tracking-wider px-5 py-3">Time</th>
+              <th className="text-left text-xs text-zinc-400 uppercase tracking-wider px-5 py-3">Status</th>
+              <th className="text-left text-xs text-zinc-400 uppercase tracking-wider px-5 py-3">Agent</th>
+              <th className="text-right text-xs text-zinc-400 uppercase tracking-wider px-5 py-3">Tokens</th>
+              <th className="text-right text-xs text-zinc-400 uppercase tracking-wider px-5 py-3">Cost</th>
+              <th className="text-right text-xs text-zinc-400 uppercase tracking-wider px-5 py-3">Duration</th>
+              <th className="text-right text-xs text-zinc-400 uppercase tracking-wider px-5 py-3">Time</th>
             </tr>
           </thead>
           <tbody>
@@ -366,10 +366,10 @@ function AgentSection() {
                   }`} />
                 </td>
                 <td className="px-5 py-3.5 text-base text-zinc-300">{agent.name}</td>
-                <td className="px-5 py-3.5 text-sm text-zinc-500 text-right font-mono">{agent.tokens}</td>
-                <td className="px-5 py-3.5 text-sm text-zinc-500 text-right font-mono">{agent.cost}</td>
-                <td className="px-5 py-3.5 text-sm text-zinc-500 text-right font-mono">{agent.duration}</td>
-                <td className="px-5 py-3.5 text-sm text-zinc-500 text-right">{agent.time}</td>
+                <td className="px-5 py-3.5 text-sm text-zinc-400 text-right font-mono">{agent.tokens}</td>
+                <td className="px-5 py-3.5 text-sm text-zinc-400 text-right font-mono">{agent.cost}</td>
+                <td className="px-5 py-3.5 text-sm text-zinc-400 text-right font-mono">{agent.duration}</td>
+                <td className="px-5 py-3.5 text-sm text-zinc-400 text-right">{agent.time}</td>
               </tr>
             ))}
           </tbody>
@@ -402,7 +402,7 @@ export default function CommandDemo() {
     <PageLayout>
       <PageSEO
         title="Rebel Command: Live Product Demo | Rebel Talent Systems"
-        description="See inside Rebel Command: AI-powered recruiting command center with real-time pipeline, 23 agents, and full audit trails."
+        description="See inside Rebel Command: AI-powered recruiting command center with real-time pipeline, 27 agents, and full audit trails."
         path="/command"
         ogTitle="Rebel Command: Live Product Demo"
         ogDescription="The operator war room. See it in action."
@@ -420,7 +420,7 @@ export default function CommandDemo() {
               <img src="/icon-command.png?v=6" alt="Rebel Command" style={{ width: "52px", height: "52px", borderRadius: "14px", boxShadow: "0 0 20px 4px rgba(255,69,0,0.25)" }} />
               <div>
                 <h1 className="font-display text-2xl font-bold text-white uppercase tracking-tight">Rebel Command</h1>
-                <p className="text-zinc-500 text-sm">Interactive product demo · All data is fictional</p>
+                <p className="text-zinc-400 text-sm">Interactive product demo · All data is fictional</p>
               </div>
             </div>
             <a href="/strategy-call" target="_blank" rel="noopener noreferrer">
@@ -444,7 +444,7 @@ export default function CommandDemo() {
                 className={`px-6 py-4 text-base font-semibold uppercase tracking-wider border-b-2 transition-colors ${
                   activeView === tab
                     ? "border-[#FF4500] text-white"
-                    : "border-transparent text-zinc-500 hover:text-zinc-300"
+                    : "border-transparent text-zinc-400 hover:text-zinc-300"
                 }`}
               >
                 {tab}

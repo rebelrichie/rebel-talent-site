@@ -26,7 +26,7 @@ const TIMELINES = [
 const ENGAGEMENT_TYPES = [
   { value: "project", label: "Project / critical-hire search" },
   { value: "advisory", label: "Advisory / consulting" },
-  { value: "fractional", label: "Fractional Head of Talent (waitlist)" },
+  { value: "fractional", label: "Fractional Head of Talent/Lead Talent Consultant (1 seat open)" },
   { value: "unsure", label: "Not sure yet" },
 ];
 
@@ -102,6 +102,10 @@ export default function StrategyCall() {
         ogTitle="Book a Strategy Call | Rebel Talent"
         ogDescription="30 minutes. Tell me what you're hiring for, and I'll come prepared with a real diagnosis."
         ogImage="og-home.png"
+        breadcrumbs={[
+          { name: "Home", item: "https://rebeltalentsystems.com/" },
+          { name: "Book a Strategy Call", item: "https://rebeltalentsystems.com/strategy-call" },
+        ]}
       />
 
       <section className="relative overflow-hidden bg-rebel-space min-h-[calc(100vh-80px)]">
@@ -256,7 +260,7 @@ export default function StrategyCall() {
                   )}
                 </button>
 
-                <p className="text-zinc-600 text-xs text-center pt-2">
+                <p className="text-zinc-400 text-xs text-center pt-2">
                   Your info goes straight to me, no marketing automation, no list-building.
                   All inquiries handled with discretion. FOCI-sensitive engagements supported.
                 </p>
@@ -289,7 +293,7 @@ function Field({
         {label}{required && <span className="text-rebel-red ml-1">*</span>}
       </label>
       {children}
-      {hint && <p className="text-zinc-600 text-xs mt-1.5">{hint}</p>}
+      {hint && <p className="text-zinc-400 text-xs mt-1.5">{hint}</p>}
     </div>
   );
 }
@@ -339,7 +343,7 @@ function SuccessPanel({ calendlyUrl, message }: { calendlyUrl: string; message: 
         Got it.
       </h1>
       <p className="text-zinc-300 text-base leading-relaxed mb-2">{message}</p>
-      <p className="text-zinc-500 text-sm leading-relaxed mb-10 max-w-md mx-auto">
+      <p className="text-zinc-400 text-sm leading-relaxed mb-10 max-w-md mx-auto">
         I'll have your context loaded before we talk. If we're not a fit, I'll tell you on the call and point you somewhere better.
       </p>
       <a
@@ -350,7 +354,7 @@ function SuccessPanel({ calendlyUrl, message }: { calendlyUrl: string; message: 
       >
         <Calendar className="w-4 h-4" /> Open the Calendar <ArrowRight className="w-4 h-4" />
       </a>
-      <p className="text-zinc-600 text-xs mt-6">
+      <p className="text-zinc-400 text-xs mt-6">
         Confirmation will arrive in your inbox after you pick a time.
       </p>
     </div>

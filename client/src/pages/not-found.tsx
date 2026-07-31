@@ -74,8 +74,8 @@ function ScanLog() {
     >
       {lines.map((line, idx) => (
         <div key={idx} className="flex items-center gap-2 mb-1">
-          <span className="text-zinc-600">{`${String(idx + 1).padStart(2, "0")}>`}</span>
-          <span className={idx === lines.length - 1 ? "text-rebel-red" : "text-zinc-500"}>
+          <span className="text-zinc-400">{`${String(idx + 1).padStart(2, "0")}>`}</span>
+          <span className={idx === lines.length - 1 ? "text-rebel-red" : "text-zinc-400"}>
             {line}
             {idx === lines.length - 1 && <span className="animate-pulse ml-0.5">█</span>}
           </span>
@@ -169,7 +169,7 @@ export default function NotFound() {
             <Crosshair className="w-4 h-4 text-rebel-red/60" />
           </div>
 
-          <p className="text-zinc-500 text-sm font-mono tracking-wider mb-6">
+          <p className="text-zinc-400 text-sm font-mono tracking-wider mb-6">
             The page you're looking for has gone dark.
           </p>
 
@@ -181,7 +181,7 @@ export default function NotFound() {
             className="transition-all duration-700"
             style={{ opacity: showLinks ? 1 : 0, transform: showLinks ? "translateY(0)" : "translateY(10px)" }}
           >
-            <div className="font-mono text-zinc-600 text-[11px] tracking-[0.3em] uppercase mb-4">
+            <div className="font-mono text-zinc-400 text-[11px] tracking-[0.3em] uppercase mb-4">
               AVAILABLE TARGETS
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-8">

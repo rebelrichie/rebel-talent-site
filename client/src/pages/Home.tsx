@@ -35,7 +35,7 @@ const homepageSchema = {
   "founder": {
     "@type": "Person",
     "name": "Richie Lampani",
-    "jobTitle": "Fractional Head of Talent",
+    "jobTitle": "Fractional Head of Talent/Lead Talent Consultant",
     "url": "https://rebeltalentsystems.com/about",
     "sameAs": ["https://linkedin.com/in/richielampani"]
   },
@@ -46,7 +46,7 @@ const homepageSchema = {
   "areaServed": ["United States", "Remote"],
   "serviceType": [
     "Fractional Recruiting",
-    "Fractional Head of Talent",
+    "Fractional Head of Talent/Lead Talent Consultant",
     "Embedded Recruiting",
     "Startup Recruiting",
     "Defense Recruiting",
@@ -65,7 +65,7 @@ const homepageSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Fractional Head of Talent",
+          "name": "Fractional Head of Talent/Lead Talent Consultant",
           "description": "Embedded fractional recruiting leadership that owns your entire talent function. Strategy, execution, ATS, process design, and hiring manager coaching.",
           "url": "https://rebeltalentsystems.com/services"
         }
@@ -84,7 +84,7 @@ const homepageSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Team Capacity Extension",
-          "description": "Vetted recruiter teams deployed under Richie's direction to extend either the Fractional Head of Talent or Critical Hire Execution engagements. Same standards, same playbooks, monthly or hourly as pipeline demands shift.",
+          "description": "Vetted recruiter teams deployed under Richie's direction to extend either the Fractional Head of Talent/Lead Talent Consultant or Critical Hire Execution engagements. Same standards, same playbooks, monthly or hourly as pipeline demands shift.",
           "url": "https://rebeltalentsystems.com/services"
         }
       }
@@ -122,8 +122,10 @@ function StarfieldCanvas() {
     }));
 
     let tick = 0;
-    let raf: number;
+    let raf = 0;
     let last = 0;
+    let running = false;
+    let onScreen = true;
 
     const draw = (ts: number) => {
       raf = requestAnimationFrame(draw);
@@ -141,8 +143,30 @@ function StarfieldCanvas() {
       }
       tick++;
     };
-    raf = requestAnimationFrame(draw);
-    return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", resize); };
+
+    const start = () => { if (!running && onScreen && !document.hidden) { running = true; raf = requestAnimationFrame(draw); } };
+    const stop = () => { running = false; cancelAnimationFrame(raf); };
+
+    // Pause the loop while the hero is scrolled out of view — saves main-thread work.
+    const io = new IntersectionObserver(([e]) => { onScreen = e.isIntersecting; if (onScreen) start(); else stop(); }, { threshold: 0 });
+    io.observe(canvas);
+
+    // Pause when the tab is backgrounded.
+    const onVis = () => { if (document.hidden) stop(); else start(); };
+    document.addEventListener("visibilitychange", onVis);
+
+    // Defer the first frame until the browser is idle so it doesn't compete
+    // with initial hydration during the critical load window.
+    const ric = window.requestIdleCallback || ((cb: () => void) => window.setTimeout(cb, 200));
+    const idleId = ric(() => start());
+
+    return () => {
+      stop();
+      io.disconnect();
+      document.removeEventListener("visibilitychange", onVis);
+      if (window.cancelIdleCallback) window.cancelIdleCallback(idleId as number);
+      window.removeEventListener("resize", resize);
+    };
   }, []);
 
   return (
@@ -157,18 +181,14 @@ function StarfieldCanvas() {
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
 
-  // Parallax scroll handler removed, the hero no longer has a background
-  // image to shift, and the per-scroll style mutation was causing repaint
-  // jiggle on iOS Safari.
-
   return (
     <PageLayout>
       <PageSEO
         title="Fractional Recruiting for Startups & Defense | Rebel Talent"
-        description="Rebel Talent provides fractional recruiting and embedded talent leadership for Series A-C startups and defense contractors. ~335% ROI delivered on flagship engagement. 14+ years experience."
+        description="Fractional recruiting and embedded talent leadership for Series A-C startups and defense contractors. ~335% ROI delivered, 470%+ projected. 14+ years experience."
         path="/"
         ogTitle="Fractional Recruiting for Startups & Defense | Rebel Talent"
-        ogDescription="Agencies profit from your chaos. Rebel Talent embeds fractional recruiting leadership to build the hiring infrastructure startups and defense firms need, without the agency fees, bad fits, or delays."
+        ogDescription="An agency sends you paper you still have to bring to life. An AI vendor sells you software. Rebel Talent is the only operator who embeds as your Head of Talent/Lead Talent Consultant, runs 27 production AI agents on your reqs where it makes sense, keeps the human where it counts, and leaves you owning the machine. Startups and defense contractors."
         ogImage="og-home.png"
         schemas={[homepageSchema]}
       />
@@ -230,12 +250,12 @@ export default function Home() {
           </svg>
         </div>
 
-        <h1 className="sr-only">Fractional Head of Talent for Startups &amp; Defense Contractors, Richie Lampani</h1>
+        <h1 className="sr-only">Fractional Head of Talent/Lead Talent Consultant for Startups &amp; Defense Contractors, Richie Lampani</h1>
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 pt-6 sm:pt-24 lg:pt-36 pb-12 sm:pb-20 z-10">
           {/* Eyebrow */}
-          <p className="font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase text-zinc-500 mb-8 sm:mb-12">
-            Fractional Head of Talent · Startups &amp; Defense
+          <p className="font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase text-zinc-400 mb-8 sm:mb-12">
+            Fractional Head of Talent/Lead Talent Consultant · Startups &amp; Defense
           </p>
 
           {/* Hero headline — Archivo Expanded (wdth=125) is ~25% wider; 6vw keeps
@@ -244,7 +264,7 @@ export default function Home() {
             className="font-display font-black text-white leading-[1.05] sm:leading-[0.97]"
             style={{ fontSize: "clamp(2rem, 6vw, 5rem)", letterSpacing: "-0.01em" }}
           >
-            <span className="block" style={{ animation: "heroLineIn 0.5s ease-out 0.1s both" }}>
+            <span className="block" style={{ animation: "heroRise 0.5s ease-out 0.1s both" }}>
               The talent you need
             </span>
             <span
@@ -254,13 +274,13 @@ export default function Home() {
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
-                animation: "heroLineIn 0.5s ease-out 0.35s both",
+                animation: "heroRise 0.5s ease-out 0.35s both",
               }}
             >
               won&rsquo;t find you.
             </span>
-            <span className="block" style={{ animation: "heroLineIn 0.5s ease-out 0.6s both" }}>
-              I will.
+            <span className="block" style={{ animation: "heroRise 0.5s ease-out 0.6s both" }}>
+              So I hunt for you.
             </span>
           </h2>
 
@@ -287,7 +307,7 @@ export default function Home() {
 
           {/* Subhead */}
           <p className="mt-7 sm:mt-10 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]" style={{ animation: "heroLineIn 0.5s ease-out 1.2s both" }}>
-            Fractional Head of Talent for startups and defense contractors. I embed into your team, own the function, and close the hires that matter.
+            The agency sends you paper you still have to bring to life. The AI vendor sells you software. I&rsquo;m the only one who does both, embedded as your Head of Talent/Lead Talent Consultant, running AI on your reqs where it makes sense, keeping the human where it counts, and leaving you owning the machine.
           </p>
 
           {/* Single primary CTA + understated secondary link */}
@@ -314,12 +334,20 @@ export default function Home() {
 
         {/* Trust strip, bottom of hero, restrained */}
         <div className="relative z-10 border-t border-zinc-900 bg-black/30">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 py-7">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 py-7 space-y-4">
             <div className="flex items-center gap-x-6 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
-              <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-zinc-600 shrink-0">
+              <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-zinc-400 shrink-0">
                 Trusted by teams at
               </p>
-              {["EarthDaily Federal", "Waveguide", "Kalibri Labs", "Wells Fargo", "Tiffany & Co", "Travelers", "WK Kellogg Foundation", "Roadrunner", "Enveil"].map((name) => (
+              {["EarthDaily Federal", "Waveguide", "Kalibri Labs", "Platinum Filings", "CSE", "Simformation", "DW1", "Roadrunner", "Enveil"].map((name) => (
+                <span key={name} className="text-zinc-400 text-sm tracking-wide font-medium whitespace-nowrap">{name}</span>
+              ))}
+            </div>
+            <div className="flex items-center gap-x-6 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
+              <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-zinc-400 shrink-0">
+                Placed talent at
+              </p>
+              {["Wells Fargo", "Tiffany & Co", "Travelers", "WK Kellogg Foundation", "Ball Aerospace", "TRANSCOM & SATCOM (multiple AFBs)", "Walgreens", "CompuCom", "Jackson County, MI", "Byron Center School District", "Muskegon ISD"].map((name) => (
                 <span key={name} className="text-zinc-400 text-sm tracking-wide font-medium whitespace-nowrap">{name}</span>
               ))}
             </div>
@@ -336,7 +364,7 @@ export default function Home() {
             <Link href="/about" className="block w-fit mx-auto md:mx-0 group shrink-0 relative">
               <img
                 src="/richie-portrait.jpg"
-                alt="Richie Lampani, Fractional Head of Talent"
+                alt="Richie Lampani, Fractional Head of Talent/Lead Talent Consultant"
                 className="w-40 h-40 sm:w-52 sm:h-52 rounded-2xl object-cover border border-zinc-800 group-hover:border-rebel-red/60 transition-colors"
               />
               {/* Soft play-button hint, will become a real video control later */}
@@ -355,7 +383,7 @@ export default function Home() {
                 <span className="text-rebel-red">You hire me.</span>
               </h3>
               <p className="text-zinc-400 text-base sm:text-lg max-w-2xl leading-[1.55] mb-5">
-                Fractional Head of Talent. 14 years closing critical hires across defense, AI/ML, and growth-stage tech. Embedded into your team, not a recruiter farm.
+                Fractional Head of Talent/Lead Talent Consultant. 14 years closing the hires everyone else called impossible. The agency sends you paper you still have to vet, close, and bring to life, then disappears. The software vendor sells you a login and disappears. Nobody else embeds as your Head of Talent/Lead Talent Consultant, runs 27 AI agents on your reqs where it makes sense, keeps the human where it counts, and hands you the machine when it&rsquo;s built. I&rsquo;m not only the best option in this space, I&rsquo;m the only one doing it how I do it.
               </p>
               <Link
                 href="/about"
@@ -369,16 +397,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== CURRENT ENGAGEMENTS BAND ========== */}
-      <section data-testid="section-engagements-band" className="border-b border-zinc-900 bg-rebel-space">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 sm:py-20">
-          <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-rebel-red mb-3">
-            Current engagements
-          </p>
-          <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-8 max-w-2xl">
-            Real teams, currently hiring.
-          </h3>
-          <CurrentEngagements />
+      {/* ── HIRING READINESS SCORECARD HOOK (slim lead-capture, links to full tool) ── */}
+      {/* Safe addition, one-line hook under the intro, routes to /hiring-readiness */}
+      <section
+        data-testid="section-scorecard-hook"
+        className="border-b border-zinc-800/50"
+        style={{ background: "#0E0D11" }}
+      >
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+          <Link href="/hiring-readiness" className="no-underline group block">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 border border-zinc-800 bg-zinc-900/30 px-5 sm:px-7 py-5 transition-colors group-hover:border-rebel-red/40">
+              <div className="flex-1">
+                <div className="font-mono text-rebel-red text-[11px] tracking-[0.22em] uppercase mb-1.5">
+                  Free · 2 minutes · No pitch
+                </div>
+                <div className="font-display text-lg sm:text-xl font-bold text-white tracking-tight">
+                  Not sure where your hiring stands?
+                </div>
+                <p className="text-zinc-400 text-sm mt-1">
+                  Score your recruiting operation across 10 questions and get a fix for every gap.
+                </p>
+              </div>
+              <span
+                onClick={hapticTap}
+                className="inline-flex items-center justify-center gap-2 shrink-0 bg-rebel-red group-hover:bg-red-600 text-white font-display text-xs font-semibold uppercase tracking-wider px-6 py-3 rounded-md transition-colors"
+              >
+                Score My Hiring <ArrowRight className="w-4 h-4" />
+              </span>
+            </div>
+          </Link>
         </div>
       </section>
 
@@ -387,8 +434,8 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-6">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">SOUND FAMILIAR?</div>
-            <h2 className="font-display text-2xl font-bold text-white uppercase">If Any of These Hit, We Need to Talk</h2>
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">STOP ME IF THIS IS YOU</div>
+            <h2 className="font-display text-2xl font-bold text-white uppercase">If These Hit, You&rsquo;re Already Bleeding</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-3 max-w-3xl mx-auto">
             {[
@@ -480,31 +527,142 @@ export default function Home() {
           </ParallaxSection>
 
           {/* Mobile swipe hint — hidden on md+ */}
-          <div className="flex md:hidden items-center justify-center gap-2 mt-3 text-zinc-600">
+          <div className="flex md:hidden items-center justify-center gap-2 mt-3 text-zinc-400">
             <ArrowRight className="w-3 h-3 rotate-180 opacity-60" />
             <span className="text-[10px] font-mono tracking-[0.25em] uppercase">swipe to explore</span>
             <ArrowRight className="w-3 h-3 opacity-60" />
           </div>
 
           <div className="text-center mt-10">
-            <p className="text-zinc-500 text-sm mb-4">Scale without the bleed. Build the machine agencies can't.</p>
+            <p className="text-zinc-400 text-sm mb-4">Scale without the bleed. Build the machine you own.</p>
             <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-3" className="block sm:inline-block">
-              <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
-                Start a Confidential Conversation <ArrowRight className="ml-2 w-4 h-4" />
+              <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm w-full sm:w-auto whitespace-normal leading-tight py-3 sm:py-2">
+                Start a Confidential Conversation <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
               </Button>
             </a>
           </div>
         </div>
       </section>
 
-      {/* Safe addition, differentiators (replaces vs-agency table per Richie's no-comparison framing) */}
+      <section data-testid="section-services" className="py-12" style={{ background: "#0E0D11" }}>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <ScrollReveal variant="fade-up">
+          <div className="text-center mb-8">
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
+              TWO ENGAGEMENTS. ONE OPERATOR.
+            </div>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight">
+              Pick your fight.
+            </h2>
+            <p className="text-zinc-400 text-sm mt-3 max-w-xl mx-auto">
+              No tiers. No packages. One path builds your recruiting machine and leaves you owning it. The other stands up compliant infrastructure while my team and I fill your hardest roles under my direction. Either way, you get me on every call, and nobody else runs this play.
+            </p>
+          </div>
+          </ScrollReveal>
+
+          <div className="flex md:grid md:grid-cols-2 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
+            <GlowCard className="border border-rebel-red/50 bg-rebel-red/5 p-5 sm:p-8 group transition-colors hover:border-rebel-red snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-fractional">
+              <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
+                EMBEDDED
+              </div>
+              <h3 className="font-display text-xl font-bold text-white uppercase mb-2">
+                Fractional Head of Talent/Lead Talent Consultant
+              </h3>
+              <p className="text-rebel-red font-mono text-sm mb-1">Monthly Retainer · 3-month minimum</p>
+              <p className="text-zinc-400 font-mono text-xs mb-4">50%+ less than contingent agency fees</p>
+              <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+                I run your recruiting function as an embedded executive, then hand it back better than I found it. I build the process, audit and rebuild your ATS and job posts, and leave you owning a clean candidate database and the playbooks to run it.
+              </p>
+              <ul className="space-y-2 mb-6">
+                {[
+                  "Strategic hiring roadmap & prioritization",
+                  "ATS audit, rebuild & job-post overhaul",
+                  "End-to-end recruiting execution",
+                  "Interview process design & training",
+                  "You keep the database, systems & playbooks",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
+                    <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </GlowCard>
+
+            <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-5 sm:p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-critical-hire">
+              <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
+                PROJECT
+              </div>
+              <h3 className="font-display text-xl font-bold text-white uppercase mb-2">
+                Critical Hire Execution
+              </h3>
+              <p className="text-rebel-red font-mono text-sm mb-1">Scoped per search · fixed fee</p>
+              <p className="text-zinc-400 font-mono text-xs mb-4">50%+ less than contingent search fees</p>
+              <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+                For defense and cleared teams that need infrastructure and hires at the same time. I stand up CMMC-compliant hiring infrastructure while my team and I fill your critical roles under my direction.
+              </p>
+              <ul className="space-y-2 mb-6">
+                {[
+                  "CMMC-compliant hiring infrastructure",
+                  "Cleared roles (Secret, TS, TS/SCI)",
+                  "Executive & specialized technical searches",
+                  "My vetted team, filling under my direction",
+                  "Documented, repeatable process left with you",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
+                    <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </GlowCard>
+          </div>
+
+          {/* Mobile swipe hint — hidden on md+ */}
+          <div className="flex md:hidden items-center justify-center gap-2 mt-3 text-zinc-400">
+            <ArrowRight className="w-3 h-3 rotate-180 opacity-60" />
+            <span className="text-[10px] font-mono tracking-[0.25em] uppercase">swipe to explore</span>
+            <ArrowRight className="w-3 h-3 opacity-60" />
+          </div>
+
+          {/* Team capacity band, applies to either engagement */}
+          <ScrollReveal variant="fade-up" delay={150}>
+          <div className="mt-6 border border-zinc-800/70 bg-zinc-900/30 p-6 sm:p-8" data-testid="band-team-capacity">
+            <div className="flex flex-col md:flex-row md:items-start md:gap-8">
+              <div className="md:shrink-0 mb-4 md:mb-0 md:w-56">
+                <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">
+                  + TEAM CAPACITY
+                </div>
+                <h3 className="font-display text-lg font-bold text-white uppercase tracking-tight leading-tight">
+                  Need more horsepower?
+                </h3>
+              </div>
+              <p className="text-zinc-300 text-sm leading-relaxed">
+                Either engagement can scale with a vetted recruiter team deployed under my direction, same standards, same playbooks, monthly or hourly as the pipeline demands. You still get me on every call. The team extends my reach; it doesn't replace me.
+              </p>
+            </div>
+          </div>
+          </ScrollReveal>
+
+          <div className="text-center mt-10">
+            <p className="text-zinc-400 text-sm mb-4">You don't get an agency. You get me, every engagement, every call, every hire. Not sure which fits? Most engagements start with a scoping conversation, not a quote.</p>
+            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-2" className="block sm:inline-block">
+              <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
+                Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Safe addition, differentiators folded under the two engagement cards */}
       <section data-testid="section-difference" className="py-12 border-b border-zinc-800/50" style={{ background: "#0E0D11" }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-8">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">THE DIFFERENCE</div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
-              What every engagement delivers
+              Nobody else ships all of this.
             </h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
@@ -532,117 +690,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="section-services" className="py-12" style={{ background: "#0E0D11" }}>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <ScrollReveal variant="fade-up">
-          <div className="text-center mb-8">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-              TWO ENGAGEMENTS. ONE OPERATOR.
-            </div>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight">
-              Two Ways to Engage
-            </h2>
-            <p className="text-zinc-500 text-sm mt-3 max-w-xl mx-auto">
-              No tiers. No packages. Two engagement shapes built around how you actually buy, embed me as your Head of Talent, or scope a specific search. Either way, you get me on every call.
-            </p>
-          </div>
-          </ScrollReveal>
-
-          <div className="flex md:grid md:grid-cols-2 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
-            <GlowCard className="border border-rebel-red/50 bg-rebel-red/5 p-5 sm:p-8 group transition-colors hover:border-rebel-red snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-fractional">
-              <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
-                EMBEDDED
-              </div>
-              <h3 className="font-display text-xl font-bold text-white uppercase mb-2">
-                Fractional Head of Talent
-              </h3>
-              <p className="text-rebel-red font-mono text-sm mb-1">Monthly Retainer · 3-month minimum</p>
-              <p className="text-zinc-500 font-mono text-xs mb-4">50%+ less than contingent agency fees</p>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                I run your entire recruiting function as an embedded executive. Strategy, execution, systems, and hiring manager coaching, scoped to your stage.
-              </p>
-              <ul className="space-y-2 mb-6">
-                {[
-                  "Strategic hiring roadmap & prioritization",
-                  "End-to-end recruiting execution",
-                  "ATS setup, optimization & migration",
-                  "Interview process design & training",
-                  "Hiring manager coaching",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
-                    <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </GlowCard>
-
-            <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-5 sm:p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-critical-hire">
-              <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
-                PROJECT
-              </div>
-              <h3 className="font-display text-xl font-bold text-white uppercase mb-2">
-                Critical Hire Execution
-              </h3>
-              <p className="text-rebel-red font-mono text-sm mb-1">Scoped per search · fixed fee</p>
-              <p className="text-zinc-500 font-mono text-xs mb-4">50%+ less than contingent search fees</p>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                Surgical execution for must-fill roles. Executive, cleared, or specialized technical talent, closed in weeks, with the process documented and left with you.
-              </p>
-              <ul className="space-y-2 mb-6">
-                {[
-                  "Executive & leadership searches",
-                  "Cleared roles (Secret, TS, TS/SCI)",
-                  "Specialized technical talent",
-                  "Embedded into your workflows",
-                  "Documented repeatable process left with you",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
-                    <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </GlowCard>
-          </div>
-
-          {/* Mobile swipe hint — hidden on md+ */}
-          <div className="flex md:hidden items-center justify-center gap-2 mt-3 text-zinc-600">
-            <ArrowRight className="w-3 h-3 rotate-180 opacity-60" />
-            <span className="text-[10px] font-mono tracking-[0.25em] uppercase">swipe to explore</span>
-            <ArrowRight className="w-3 h-3 opacity-60" />
-          </div>
-
-          {/* Team capacity band, applies to either engagement */}
-          <ScrollReveal variant="fade-up" delay={150}>
-          <div className="mt-6 border border-zinc-800/70 bg-zinc-900/30 p-6 sm:p-8" data-testid="band-team-capacity">
-            <div className="flex flex-col md:flex-row md:items-start md:gap-8">
-              <div className="md:shrink-0 mb-4 md:mb-0 md:w-56">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">
-                  + TEAM CAPACITY
-                </div>
-                <h3 className="font-display text-lg font-bold text-white uppercase tracking-tight leading-tight">
-                  Need more horsepower?
-                </h3>
-              </div>
-              <p className="text-zinc-300 text-sm leading-relaxed">
-                Either engagement can scale with a vetted recruiter team deployed under my direction, same standards, same playbooks, monthly or hourly as the pipeline demands. You still get me on every call. The team extends my reach; it doesn't replace me.
-              </p>
-            </div>
-          </div>
-          </ScrollReveal>
-
-          <div className="text-center mt-10">
-            <p className="text-zinc-500 text-sm mb-4">You don't get an agency. You get me, every engagement, every call, every hire. Not sure which fits? Most engagements start with a scoping conversation, not a quote.</p>
-            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-2" className="block sm:inline-block">
-              <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
-                Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* Safe addition, Proof/Case Study moved after pricing */}
       <section data-testid="section-proof" className="py-10 border-b border-zinc-800/50" style={{ background: "#0E0D11" }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 space-y-5">
@@ -653,7 +700,7 @@ export default function Home() {
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">CASE STUDY 01 · FRACTIONAL</div>
               <h2 className="font-display text-xl font-bold text-white uppercase mb-2">EarthDaily Federal</h2>
               <p className="text-zinc-400 text-sm leading-relaxed mb-3">
-                Defense-sector geospatial intelligence firm. 5 FTE + 3 contractors placed over 8 months: VP of Growth, Backend Engineer, AI Engineer, Controller, IT Manager, and 3 contractors. 5 more in active pipeline. 20 hrs/week at $120/hr.
+                Defense-sector geospatial intelligence firm. 6 FTE + 3 contractors placed over 8 months: VP of Growth, Director of Strategic Partnerships, Backend Engineer, AI Engineer, Controller, IT Manager, and 3 contractors. 4 more in active pipeline. 20 hrs/week at $120/hr.
               </p>
               <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-5">
                 {[
@@ -662,8 +709,8 @@ export default function Home() {
                   { value: "<30 days", label: "Avg. Time to Hire" },
                 ].map((s) => (
                   <div key={s.label}>
-                    <AnimatedCounter value={s.value} className="font-display text-xl sm:text-2xl font-bold text-rebel-red" />
-                    <div className="text-zinc-500 text-xs uppercase tracking-wide leading-tight mt-0.5">{s.label}</div>
+                    <AnimatedCounter value={s.value} className="font-display text-[clamp(0.78rem,4.1vw,1.3rem)] sm:text-2xl font-bold text-rebel-red" />
+                    <div className="text-zinc-400 text-xs uppercase tracking-wide leading-tight mt-0.5">{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -674,9 +721,9 @@ export default function Home() {
               </Link>
             </div>
             <div className="hidden sm:flex flex-col justify-center items-center border-l border-zinc-800 pl-8 shrink-0">
-              <div className="font-mono text-zinc-600 text-xs tracking-widest uppercase mb-1">Sector</div>
+              <div className="font-mono text-zinc-400 text-xs tracking-widest uppercase mb-1">Sector</div>
               <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">Defense / Geo-Intel</div>
-              <div className="font-mono text-zinc-600 text-xs tracking-widest uppercase mt-4 mb-1">Clearances</div>
+              <div className="font-mono text-zinc-400 text-xs tracking-widest uppercase mt-4 mb-1">Clearances</div>
               <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">TS / TS-SCI</div>
             </div>
           </div>
@@ -698,8 +745,8 @@ export default function Home() {
                   { value: "1 hire", label: "ML Engineer Placed" },
                 ].map((s) => (
                   <div key={s.label}>
-                    <AnimatedCounter value={s.value} className="font-display text-xl sm:text-2xl font-bold text-rebel-red" />
-                    <div className="text-zinc-500 text-xs uppercase tracking-wide leading-tight mt-0.5">{s.label}</div>
+                    <AnimatedCounter value={s.value} className="font-display text-[clamp(0.78rem,4.1vw,1.3rem)] sm:text-2xl font-bold text-rebel-red" />
+                    <div className="text-zinc-400 text-xs uppercase tracking-wide leading-tight mt-0.5">{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -709,7 +756,7 @@ export default function Home() {
                 <p className="text-zinc-200 text-sm leading-relaxed italic mb-2">
                   &ldquo;I just want to thank you for all your assistance moving this pipeline to completion. It means a lot to me, and the tech org.&rdquo;
                 </p>
-                <footer className="text-zinc-500 text-xs">
+                <footer className="text-zinc-400 text-xs">
                   <span className="text-zinc-300 font-semibold">Michael Tracey</span>, Director of Engineering, Kalibri Labs
                 </footer>
               </blockquote>
@@ -721,9 +768,9 @@ export default function Home() {
               </Link>
             </div>
             <div className="hidden sm:flex flex-col justify-center items-center border-l border-zinc-800 pl-8 shrink-0">
-              <div className="font-mono text-zinc-600 text-xs tracking-widest uppercase mb-1">Sector</div>
+              <div className="font-mono text-zinc-400 text-xs tracking-widest uppercase mb-1">Sector</div>
               <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">Hospitality / AI</div>
-              <div className="font-mono text-zinc-600 text-xs tracking-widest uppercase mt-4 mb-1">Engagement</div>
+              <div className="font-mono text-zinc-400 text-xs tracking-widest uppercase mt-4 mb-1">Engagement</div>
               <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">50 / 50 Retained</div>
             </div>
           </div>
@@ -743,7 +790,7 @@ export default function Home() {
             <p className="text-zinc-200 text-lg sm:text-xl leading-relaxed italic mb-6">
               In a review, I was told I had an amazing team, cohesive and indistinguishable from full time employees.
             </p>
-            <footer className="text-zinc-500 text-sm">
+            <footer className="text-zinc-400 text-sm">
               <span className="text-zinc-300 font-semibold">Arin, VP of Operations</span>, EarthDaily Federal
             </footer>
           </blockquote>
@@ -753,7 +800,7 @@ export default function Home() {
             <p className="text-zinc-200 text-base sm:text-lg leading-relaxed italic mb-6">
               My company isn't easy to please and it is exceptionally picky at a maddening level. Richie kept giving us amazing candidates and moving forward, reflecting on our feedback and adjusting on the go. I plan to work with him wherever I go with whatever vacancy I need to fill, he guarantees my success in hiring.
             </p>
-            <footer className="text-zinc-500 text-sm">
+            <footer className="text-zinc-400 text-sm">
               <span className="text-zinc-300 font-semibold">Colleen Garrett</span>, Fractional HR Leader, Leadership Coach, MBA
             </footer>
           </blockquote>
@@ -763,6 +810,12 @@ export default function Home() {
 
       <section data-testid="section-stats" className="py-10 border-y border-zinc-800/50" style={{ background: "#0E0D11" }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8">
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">THE FOOTPRINT</div>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
+              Reach nobody in this space has.
+            </h2>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { value: "53K+", label: "LinkedIn Followers" },
@@ -772,11 +825,109 @@ export default function Home() {
             ].map((stat) => (
               <div key={stat.label} className="text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
                 <AnimatedCounter value={stat.value} className="font-display text-3xl sm:text-4xl font-bold text-rebel-red mb-1" />
-                <div className="text-zinc-500 text-xs tracking-widest uppercase font-semibold">
+                <div className="text-zinc-400 text-xs tracking-widest uppercase font-semibold">
                   {stat.label}
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========== CINEMATIC COMMAND-CENTER BAND ========== */}
+      <section
+        data-testid="section-cinematic"
+        className="relative overflow-hidden border-b border-zinc-900"
+      >
+        {/* Command-center plate */}
+        <div
+          className="absolute inset-0 bg-cover"
+          style={{
+            backgroundImage: "url('/hero-command.jpg')",
+            backgroundPosition: "center top",
+          }}
+          aria-hidden="true"
+        />
+        {/* Legibility scrims */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(5,7,14,0.94) 0%, rgba(5,7,14,0.78) 42%, rgba(5,7,14,0.34) 100%)",
+          }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(0deg, rgba(5,7,14,0.9) 0%, rgba(5,7,14,0.2) 45%, rgba(5,7,14,0.55) 100%)",
+          }}
+          aria-hidden="true"
+        />
+        {/* Brand glows */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(60% 55% at 18% 88%, rgba(247,26,41,0.22) 0%, transparent 60%), radial-gradient(50% 45% at 55% 8%, rgba(34,211,238,0.14) 0%, transparent 60%)",
+          }}
+          aria-hidden="true"
+        />
+
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-20 sm:py-28">
+          <div className="max-w-2xl">
+            <p className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.22em] uppercase text-rebel-red mb-5">
+              <Shield className="w-4 h-4" />
+              Cleared Defense &middot; Startups &middot; Veteran-Supported
+            </p>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.05] mb-6">
+              For the ones who{" "}
+              <span className="bg-gradient-to-r from-rebel-red via-[#F5841E] to-[#FDBD41] bg-clip-text text-transparent">
+                stood up
+              </span>{" "}
+              when it mattered.
+            </h2>
+            <p className="text-zinc-300 text-lg sm:text-xl leading-[1.55] max-w-xl mb-8">
+              Intelligence community members, people active in politics, and current and former service members trust me to build their teams. I speak their language. And I back transitioning veterans with free resume and LinkedIn reviews. No corporate fluff, just real talent leadership for cleared defense and startups.
+            </p>
+
+            <div className="border-l-2 border-rebel-red pl-4 mb-9">
+              <p className="text-white font-semibold text-lg">Ask me for my references.</p>
+              <p className="text-zinc-400 text-sm mt-1">
+                Intelligence community. People active in politics. Current and former servicemembers. Shared privately, on request.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <Link
+                href="/strategy-call"
+                data-testid="button-book-call-cleared"
+                className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-rebel-red/90 text-white font-semibold px-7 py-3.5 rounded-lg transition-colors no-underline"
+              >
+                Book a strategy call <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/services"
+                data-testid="link-view-services-cleared"
+                className="inline-flex items-center justify-center gap-2 border border-zinc-700 hover:border-rebel-red/60 text-white font-semibold px-7 py-3.5 rounded-lg transition-colors no-underline"
+              >
+                See how I work <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="mt-6">
+              <a
+                href="https://calendly.com/richielam/vets?back=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="button-vet-review"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-white border border-zinc-700 hover:border-rebel-red/60 px-5 py-2.5 rounded-lg transition-colors no-underline"
+              >
+                Free veteran resume &amp; LinkedIn review <ArrowRight className="w-4 h-4" />
+              </a>
+              <p className="text-zinc-400 text-xs mt-2">Transitioning out? No strings.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -813,7 +964,7 @@ export default function Home() {
                     <div key={e.title} className="bg-zinc-900/80 px-4 py-4">
                       <div className="font-mono text-rebel-red text-[11px] tracking-[0.15em] uppercase mb-1">{e.tag}</div>
                       <div className="font-display text-white text-[15px] font-bold leading-tight">{e.title}</div>
-                      <div className="text-zinc-500 text-[12px] mt-0.5">{e.sub}</div>
+                      <div className="text-zinc-400 text-[12px] mt-0.5">{e.sub}</div>
                     </div>
                   ))}
                 </div>
@@ -827,7 +978,7 @@ export default function Home() {
                     className="inline-flex items-center gap-3 bg-rebel-red text-white font-bold text-[16px] tracking-wider uppercase px-10 py-5 transition-colors hover:bg-red-700"
                     onClick={hapticTap}
                   >
-                    See the Three Engagements
+                    See the AI Advisory Engagements
                     <ArrowRight className="w-5 h-5" />
                   </button>
                 </Link>
@@ -840,7 +991,7 @@ export default function Home() {
                 ].map((s) => (
                   <div key={s.label} className="bg-zinc-900/80 px-6 py-5">
                     <div className="font-display text-2xl font-bold text-rebel-red mb-1">{s.value}</div>
-                    <div className="text-zinc-500 text-[11px] font-medium tracking-widest uppercase">{s.label}</div>
+                    <div className="text-zinc-400 text-[11px] font-medium tracking-widest uppercase">{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -852,11 +1003,11 @@ export default function Home() {
       <section className="py-0 border-t border-zinc-800/50 bg-[#0E0E0E]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-14">
           <div className="text-center mb-10">
-            <div className="font-mono text-[#C41E3A] text-[11px] tracking-[0.18em] uppercase mb-3">The System, Live</div>
+            <div className="font-mono text-[#FF5A47] text-[11px] tracking-[0.18em] uppercase mb-3">The System, Live</div>
             <h2 className="font-display text-white text-2xl sm:text-3xl font-bold tracking-tight mb-3">
               This is what 27 agents look like in production.
             </h2>
-            <p className="text-zinc-500 text-sm">Interactive demo. All candidate data is fictional.</p>
+            <p className="text-zinc-400 text-sm">Interactive demo. All candidate data is fictional.</p>
           </div>
 
           {/* Browser chrome mockup */}
@@ -868,10 +1019,10 @@ export default function Home() {
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                 <div className="w-3 h-3 rounded-full bg-green-500/80" />
               </div>
-              <div className="flex-1 bg-zinc-700/60 rounded px-3 py-1 text-zinc-400 text-[11px] font-mono">
+              <div className="flex-1 min-w-0 truncate bg-zinc-700/60 rounded px-3 py-1 text-zinc-400 text-[11px] font-mono">
                 rebeltalentsystems.com/command
               </div>
-              <div className="text-zinc-600 text-[11px] font-mono">LIVE</div>
+              <div className="text-zinc-400 text-[11px] font-mono">LIVE</div>
             </div>
 
             {/* Dashboard preview */}
@@ -879,7 +1030,7 @@ export default function Home() {
               {/* Tab bar */}
               <div className="flex gap-0 border-b border-zinc-800 bg-zinc-900/50 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
                 {["Dashboard", "Pipeline", "Outreach", "Agents"].map((tab, i) => (
-                  <div key={tab} className={`px-3 sm:px-5 py-3 text-[11px] sm:text-[12px] font-mono tracking-normal sm:tracking-wider whitespace-nowrap ${i === 1 ? "text-[#C41E3A] border-b-2 border-[#C41E3A] bg-zinc-900" : "text-zinc-500 hover:text-zinc-300"}`}>
+                  <div key={tab} className={`px-3 sm:px-5 py-3 text-[11px] sm:text-[12px] font-mono tracking-normal sm:tracking-wider whitespace-nowrap ${i === 1 ? "text-[#FF5A47] border-b-2 border-[#FF5A47] bg-zinc-900" : "text-zinc-400 hover:text-zinc-300"}`}>
                     {tab.toUpperCase()}
                   </div>
                 ))}
@@ -889,7 +1040,7 @@ export default function Home() {
               <div className="p-4 overflow-x-auto">
                 <div className="flex gap-3 min-w-[700px]">
                   {[
-                    { stage: "Identified", color: "#6b7280", candidates: [
+                    { stage: "Identified", color: "#9ca3af", candidates: [
                       { name: "Jordan Rivera", title: "Sr. Platform Engineer", co: "Palantir", score: 87 },
                       { name: "Priya Sharma", title: "ML Infrastructure Lead", co: "Scale AI", score: 92 },
                     ]},
@@ -900,7 +1051,7 @@ export default function Home() {
                     { stage: "Submitted", color: "#eab308", candidates: [
                       { name: "Sarah Kim", title: "Staff Backend Engineer", co: "Stripe", score: 91 },
                     ]},
-                    { stage: "Interviewing", color: "#8b5cf6", candidates: [
+                    { stage: "Interviewing", color: "#a78bfa", candidates: [
                       { name: "Daria Okonkwo", title: "Head of Growth", co: "Notion", score: 96 },
                       { name: "James Park", title: "Forward Deployed Eng", co: "Palantir", score: 89 },
                     ]},
@@ -912,7 +1063,7 @@ export default function Home() {
                       <div className="flex items-center gap-2 mb-2 px-1">
                         <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: color }} />
                         <span className="text-[11px] font-mono tracking-wider text-zinc-400 uppercase">{stage}</span>
-                        <span className="ml-auto text-[11px] text-zinc-600">{candidates.length}</span>
+                        <span className="ml-auto text-[11px] text-zinc-400">{candidates.length}</span>
                       </div>
                       <div className="space-y-2">
                         {candidates.map((c) => (
@@ -924,8 +1075,8 @@ export default function Home() {
                               <div className="text-[11px] font-mono font-bold" style={{ color }}>{c.score}</div>
                             </div>
                             <div className="text-[11px] font-semibold text-white leading-tight">{c.name}</div>
-                            <div className="text-[11px] text-zinc-500 leading-tight">{c.title}</div>
-                            <div className="text-[11px] text-zinc-600 mt-1">{c.co}</div>
+                            <div className="text-[11px] text-zinc-400 leading-tight">{c.title}</div>
+                            <div className="text-[11px] text-zinc-400 mt-1">{c.co}</div>
                           </div>
                         ))}
                       </div>
@@ -940,9 +1091,9 @@ export default function Home() {
                   <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                   <span className="text-[11px] font-mono text-green-400">27 AGENTS ACTIVE</span>
                 </div>
-                <span className="text-[11px] font-mono text-zinc-500">Sourcing agent ran 14 min ago</span>
-                <span className="hidden sm:inline text-[11px] font-mono text-zinc-500">3 outreach sequences active</span>
-                <div className="ml-auto text-[11px] font-mono text-zinc-600 hidden sm:block">AI Daily Brief: ready</div>
+                <span className="text-[11px] font-mono text-zinc-400">Sourcing agent ran 14 min ago</span>
+                <span className="hidden sm:inline text-[11px] font-mono text-zinc-400">3 outreach sequences active</span>
+                <div className="ml-auto text-[11px] font-mono text-zinc-400 hidden sm:block">AI Daily Brief: ready</div>
               </div>
             </div>
           </div>
@@ -961,6 +1112,19 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ========== CURRENT ENGAGEMENTS BAND ========== */}
+      <section data-testid="section-engagements-band" className="border-b border-zinc-900 bg-rebel-space">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 sm:py-20">
+          <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-rebel-red mb-3">
+            Current engagements
+          </p>
+          <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-8 max-w-2xl">
+            Real teams, currently hiring.
+          </h3>
+          <CurrentEngagements />
+        </div>
+      </section>
+
       <section data-testid="section-newsletter-shop" className="py-10 border-t border-zinc-800/50" style={{ background: "#0E0D11" }}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
@@ -974,13 +1138,13 @@ export default function Home() {
             </p>
             {/* Safe addition, owned email capture */}
             <EmailCapture source="homepage_newsletter" placeholder="your@email.com" buttonText="Get It" />
-            <p className="text-zinc-600 text-xs mt-4">
+            <p className="text-zinc-400 text-xs mt-4">
               Or subscribe on{" "}
               <a
                 href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-500 hover:text-white underline transition-colors"
+                className="text-zinc-400 hover:text-white underline transition-colors"
               >
                 LinkedIn
               </a>
@@ -1010,17 +1174,17 @@ export default function Home() {
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center" style={{ zIndex: 10 }}>
           <img src="/logo.png" alt="Rebel Talent" className="w-16 h-16 mx-auto mb-6" />
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight mb-4">
-            Start a Confidential Conversation.
+            Bring Me Your Hardest Req.
           </h2>
           <p className="text-zinc-400 text-base mb-8 max-w-xl mx-auto">
-            30 minutes. Walk me through one of your hardest open reqs and I'll tell you straight whether I can help, and if not, I'll point you somewhere better.
+            30 minutes. Walk me through the role nobody else can fill. I'll tell you straight whether I can, and if I can't, I'll point you to who can.
           </p>
           <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-4" className="block sm:inline-block">
             <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-10 w-full sm:w-auto">
               Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </a>
-          <p className="text-zinc-600 text-xs mt-5 tracking-wide">
+          <p className="text-zinc-400 text-xs mt-5 tracking-wide">
             All inquiries handled with discretion. FOCI-sensitive engagements supported.
           </p>
         </div>

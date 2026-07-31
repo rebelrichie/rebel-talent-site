@@ -56,7 +56,7 @@ export default function EmailCapture({
         onChange={(e) => setEmail(e.target.value)}
         placeholder={placeholder}
         required
-        className="flex-1 bg-zinc-900/50 border border-zinc-800 px-4 py-2.5 text-sm text-white placeholder:text-zinc-600 focus:outline-none focus:border-rebel-red/50 transition-colors"
+        className="flex-1 min-w-0 bg-zinc-900/50 border border-zinc-800 px-4 py-2.5 text-sm text-white placeholder:text-zinc-400 focus:outline-none focus:border-rebel-red/50 transition-colors"
       />
       <button
         type="submit"

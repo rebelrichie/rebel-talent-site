@@ -69,7 +69,7 @@ export default function Platform() {
                 />
                 <div className="text-center">
                   <div className="font-display text-sm font-bold text-white uppercase tracking-wide group-hover:text-rebel-red transition-colors">{app.name}</div>
-                  <div className="text-zinc-500 text-xs mt-0.5">{app.desc}</div>
+                  <div className="text-zinc-400 text-xs mt-0.5">{app.desc}</div>
                 </div>
               </a>
             ))}
