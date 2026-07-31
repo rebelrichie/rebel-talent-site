@@ -12,11 +12,11 @@ export default function Services() {
   return (
     <PageLayout>
       <PageSEO
-        title="Fractional Recruiting Services | Rebel Talent Systems"
-        description="Two engagement shapes for startups and defense: Fractional Head of Talent/Lead Talent Consultant (embedded) or Critical Hire Execution (scoped per search)."
+        title="Recruiting Services | Rebel Talent Systems"
+        description="Three offerings under Richie's direction: Embedded/Fractional, Retained Search, and Contingent. Coverage across tech, business process, and GTM/sales, cleared and noncleared, entry level through executive, Series A through C and defense teams."
         path="/services"
-        ogTitle="Fractional Recruiting Services | Rebel Talent Systems"
-        ogDescription="Fractional Head of Talent/Lead Talent Consultant from $12K/mo or Critical Hire Execution scoped per search, with vetted recruiter team capacity when you need more horsepower."
+        ogTitle="Recruiting Services | Rebel Talent Systems"
+        ogDescription="Three ways to work with Rebel Talent Systems: Embedded/Fractional, Retained Search, and Contingent. Tech, business process, and GTM/sales, cleared and noncleared, entry level through executive, with Richie on every engagement."
         ogImage="og-services.png"
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
@@ -37,11 +37,11 @@ export default function Services() {
             Services
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-4xl" data-testid="heading-services">
-            Two engagements.<br />
-            <span className="text-rebel-red">One operator.</span>
+            You don't have a recruiting problem.<br />
+            <span className="text-rebel-red">You have a hiring infrastructure problem.</span>
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            No SaaS tiers. Two engagement shapes built around how you actually buy, embed me as your Head of Talent/Lead Talent Consultant, or scope a specific search. Either one scales with a vetted recruiter team when the pipeline calls for it.
+            No SaaS tiers. Three offerings built around how you actually buy, run your recruiting function embedded, retain us for a defined role with a deadline, or engage us contingent. Every offering runs under Richie's direction, and Richie is on every engagement and every hire.
           </p>
           <div className="mt-8 sm:mt-10">
             <CapacityBadge />
@@ -58,19 +58,19 @@ export default function Services() {
                 The Rebel Standard
               </h2>
               <p className="text-zinc-400 text-sm mt-2 max-w-lg mx-auto">
-                <TypedText text="Every engagement delivers infrastructure and results, not just recruiter hours. I build the machine, fill the roles, and leave you owning it. The systems compound long after I'm gone." speed={20} />
+                <TypedText text="Three offerings, one standard. We build the machine, fill the roles, and leave you owning it. The systems compound long after we're gone, and Richie is on every engagement and every hire." speed={20} />
               </p>
             </div>
 
-            <div className="flex md:grid md:grid-cols-2 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
+            <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
               <ScrollReveal variant="fade-up" delay={0}>
               <GlowCard className="border border-rebel-red/50 bg-rebel-red/5 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full" data-testid="card-service-fractional">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">EMBEDDED</div>
-                <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Fractional Head of Talent/Lead Talent Consultant</h3>
-                <p className="text-rebel-red font-mono text-sm mb-1">$12K – $30K / month · 3-month minimum</p>
-                <p className="text-zinc-400 font-mono text-xs mb-4">50%+ less than contingent agency fees</p>
+                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">EMBEDDED / FRACTIONAL</div>
+                <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Embedded / Fractional</h3>
+                <p className="text-rebel-red font-mono text-sm mb-1">Monthly retainer · 3-month minimum</p>
+                <p className="text-zinc-400 font-mono text-xs mb-4">Our flagship engagement</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                  I run your entire recruiting function as an embedded executive, then hand it back better than I found it. I audit and rebuild your ATS and job posts, and leave you owning a clean candidate database and the playbooks to run it.
+                  We run your recruiting function and hand it back better than we found it. We audit and rebuild your ATS and job posts, and leave you owning a clean candidate database and the playbooks to run it, all under Richie's direction.
                 </p>
                 <ul className="space-y-2 mb-6">
                   {["Strategic hiring roadmap & prioritization", "End-to-end recruiting execution", "ATS audit, rebuild & job-post overhaul", "Interview process design & training", "You keep the database, systems & playbooks"].map((item) => (
@@ -89,15 +89,40 @@ export default function Services() {
 
               <ScrollReveal variant="fade-up" delay={150}>
               <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full" data-testid="card-service-critical">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">PROJECT</div>
-                <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Critical Hire Execution</h3>
-                <p className="text-rebel-red font-mono text-sm mb-1">Scoped per search · fixed fee</p>
-                <p className="text-zinc-400 font-mono text-xs mb-4">50%+ less than contingent search fees</p>
+                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">RETAINED SEARCH</div>
+                <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Retained Search</h3>
+                <p className="text-rebel-red font-mono text-sm mb-1">Half down, half on placement</p>
+                <p className="text-zinc-400 font-mono text-xs mb-4">A defined role with a deadline</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                  For defense and cleared teams that need infrastructure and hires at the same time. I stand up CMMC-compliant hiring infrastructure while my team and I fill your critical roles under my direction.
+                  A defined role with a deadline. We commit our full team to the search from day one, executive and specialized technical roles included, cleared and noncleared, under Richie's direction.
                 </p>
                 <ul className="space-y-2 mb-6">
-                  {["CMMC-compliant hiring infrastructure", "Cleared roles (Secret, TS, TS/SCI)", "Executive & specialized technical searches", "My vetted team, filling under my direction", "Documented, repeatable process left with you"].map((item) => (
+                  {["Defined role with a committed timeline", "Cleared and noncleared roles (Secret, TS, TS/SCI)", "Executive & specialized technical searches", "Our vetted team, filling under Richie's direction", "Documented, repeatable process left with you"].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
+                      <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />{item}
+                    </li>
+                  ))}
+                </ul>
+                <a href="/strategy-call" target="_blank" rel="noopener noreferrer">
+                  <Button className="w-full font-display tracking-wider uppercase text-sm">
+                    Book Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </a>
+              </GlowCard>
+              </ScrollReveal>
+
+              {/* Safe addition, Contingent offering, third of three */}
+              <ScrollReveal variant="fade-up" delay={300}>
+              <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full" data-testid="card-service-contingent">
+                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">CONTINGENT</div>
+                <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Contingent</h3>
+                <p className="text-rebel-red font-mono text-sm mb-1">Deposit up front, balance on placement</p>
+                <p className="text-zinc-400 font-mono text-xs mb-4">One of three legitimate offerings</p>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+                  We are happy to go on the journey with you and your team, just not for free. A deposit up front gets our team working your roles, with the balance due on placement, all under Richie's direction.
+                </p>
+                <ul className="space-y-2 mb-6">
+                  {["Deposit up front, balance on placement", "Cleared and noncleared roles", "Entry level through executive", "Our vetted team, filling under Richie's direction", "Richie on every engagement and every hire"].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
                       <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />{item}
                     </li>
@@ -112,8 +137,8 @@ export default function Services() {
               </ScrollReveal>
             </div>
 
-            {/* Team capacity band, applies to either engagement */}
-            <ScrollReveal variant="fade-up" delay={300}>
+            {/* Team capacity band, applies to any offering */}
+            <ScrollReveal variant="fade-up" delay={450}>
             <div className="mt-6 border border-zinc-800/70 bg-zinc-900/30 p-6 sm:p-8" data-testid="band-team-capacity">
               <div className="flex flex-col md:flex-row md:items-start md:gap-8">
                 <div className="md:shrink-0 mb-4 md:mb-0 md:w-56">
@@ -125,7 +150,26 @@ export default function Services() {
                   </h3>
                 </div>
                 <p className="text-zinc-300 text-sm leading-relaxed">
-                  Either engagement can scale with a vetted recruiter team deployed under my direction, same standards, same playbooks, monthly or hourly as the pipeline demands. You still get me on every call. The team extends my reach; it doesn't replace me.
+                  Any offering can scale with a vetted recruiter team deployed under Richie's direction, same standards, same playbooks, monthly or hourly as the pipeline demands. Richie is on every call and every hire. The team extends our reach, it doesn't replace Richie.
+                </p>
+              </div>
+            </div>
+            </ScrollReveal>
+
+            {/* Safe addition, coverage breadth band */}
+            <ScrollReveal variant="fade-up" delay={550}>
+            <div className="mt-6 border border-zinc-800/70 bg-zinc-900/30 p-6 sm:p-8" data-testid="band-coverage">
+              <div className="flex flex-col md:flex-row md:items-start md:gap-8">
+                <div className="md:shrink-0 mb-4 md:mb-0 md:w-56">
+                  <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">
+                    COVERAGE
+                  </div>
+                  <h3 className="font-display text-lg font-bold text-white uppercase tracking-tight leading-tight">
+                    Who we recruit
+                  </h3>
+                </div>
+                <p className="text-zinc-300 text-sm leading-relaxed">
+                  Our recruiters specialize in tech, business process, and GTM/sales. Cleared and noncleared. Entry level through executive. We work with Series A through C companies and defense teams, and Richie is on every engagement and every hire.
                 </p>
               </div>
             </div>

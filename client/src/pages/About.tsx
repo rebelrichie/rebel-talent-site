@@ -320,7 +320,7 @@ export default function About() {
                     </figcaption>
                   </figure>
                   <p className="mb-3">
-                    Rebel Talent is all me. I embed as your Head of Talent/Lead Talent Consultant for a quarter, six months, a year. I build the funnel, write the JDs, source candidates myself, run interview loops, close hires. No junior layer, no handoff, no agency. One operator, your seat.
+                    Rebel Talent is scaling. I embed as your Head of Talent/Lead Talent Consultant for a quarter, six months, a year. I build the funnel, write the JDs, run interview loops, close hires. Behind me now is a vetted team of specialist recruiters working under my direction across tech, business process, and GTM/sales, cleared and noncleared, entry level through executive. No handoff to a coordinator, no agency churn. A vetted team under Richie&rsquo;s direction, and Richie is on every engagement.
                   </p>
                   <p className="text-zinc-400">
                     Wrote the first book by month 3 (Head and Heart, December 2025). Second one by month 6 (Unfinished Rooms, March 2026). Built the operator stack I run my business on from scratch: 27 AI agents, a custom ATS/CRM, embedded sourcing pipelines. My clients run inside it.
@@ -420,8 +420,8 @@ export default function About() {
                 <div className="text-zinc-400 text-sm mb-4">24 months &middot; 90% retention</div>
                 <ul className="text-zinc-300 text-sm space-y-1.5 leading-relaxed">
                   <li>&bull; ~$5K&ndash;$8K cost per hire</li>
-                  <li>&bull; vs. industry norm $30K+ on contingency</li>
-                  <li>&bull; Embedded, no contingency, no surprises</li>
+                  <li>&bull; vs. industry norm $30K+ per hire</li>
+                  <li>&bull; Embedded retainer, predictable cost, no surprises</li>
                 </ul>
               </div>
             </GlowCard>
@@ -596,7 +596,7 @@ export default function About() {
               Talk to me directly
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base mb-6 max-w-lg mx-auto">
-              30 minutes of straight answers for operators ready to stop the bleed and build something that lasts. You get me on the call. Not a coordinator, not a junior, not a discovery deck.
+              30 minutes of straight answers for operators ready to stop the bleed and build something that lasts. You get Richie on the call, backed by a vetted team under his direction. Not a coordinator, not a discovery deck.
             </p>
             <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-about-cta" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">

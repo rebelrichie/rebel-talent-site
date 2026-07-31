@@ -145,7 +145,7 @@ export default function FractionalHeadOfTalent() {
           </div>
           <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
             {[
-              { icon: <Users className="w-5 h-5 text-rebel-red" />, title: "Embedded execution", desc: "In your Slack, ATS, hiring-manager 1:1s, candidate calls. You get me on every call, not a coordinator, not a recruiter farm." },
+              { icon: <Users className="w-5 h-5 text-rebel-red" />, title: "Embedded execution", desc: "In your Slack, ATS, hiring-manager 1:1s, candidate calls. A vetted team of specialist recruiters under my direction, tech, business process, and GTM/sales, cleared and noncleared, entry level through executive. I am on every hire, not a coordinator." },
               { icon: <TrendingUp className="w-5 h-5 text-rebel-red" />, title: "~$5K–$8K cost per hire", desc: "Hourly or fixed-fee billing. No success fees. Every hour logged in your dashboard with task descriptions." },
               { icon: <Clock className="w-5 h-5 text-rebel-red" />, title: "~30 days median time to hire", desc: "Across embedded engagements. Under 30 on EDF's 9 placements. 34 days on Kalibri against a 360-application funnel." },
               { icon: <Shield className="w-5 h-5 text-rebel-red" />, title: "You own the infrastructure", desc: "ATS, candidate pipeline, interview scorecards, sourcing playbooks, trained hiring managers. Exportable, transferable, yours forever." },

@@ -239,8 +239,8 @@ export default function HowItWorks() {
                   a: "An agency is transactional, paid per hire and gone after placement. I'm embedded, focused on infrastructure and execution, measured by retention and pipeline velocity.",
                 },
                 {
-                  q: "Contingency?",
-                  a: "No. I build systems. Contingency is for order-takers.",
+                  q: "How do we engage?",
+                  a: "Three ways. Embedded/Fractional on a monthly retainer. Retained Search with half down and half on placement. Contingent with a deposit up front and the balance on placement. Contingent is a legitimate option, we are happy to go on the journey with you and your team, just not for free. Richie is on every engagement and every hire.",
                 },
                 {
                   q: "How long does an engagement last?",
@@ -248,11 +248,11 @@ export default function HowItWorks() {
                 },
                 {
                   q: "What company size?",
-                  a: "Series A-C startups, defense contractors. 20-200 people scaling fast but not ready for full-time TA leadership.",
+                  a: "Series A-C startups and defense teams. Roughly 15-400 people scaling fast, cleared and noncleared, entry level through executive.",
                 },
                 {
                   q: "What roles do you fill?",
-                  a: "Technical, GTM, ops, leadership. Cleared/DoD specialist. No high-volume hourly.",
+                  a: "Our recruiters specialize across tech, business process, and GTM/sales, plus govtech and leadership. Cleared and noncleared, entry level through executive.",
                 },
                 {
                   q: "Already have a recruiter?",

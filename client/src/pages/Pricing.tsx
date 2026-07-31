@@ -45,10 +45,10 @@ const pricingFaqSchema = {
     },
     {
       "@type": "Question",
-      "name": "Why no contingency?",
+      "name": "How does Contingent pricing work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Because contingency breaks incentives. A contingency recruiter gets paid $30K+ only when someone gets hired, so they're incentivized to push candidates through fast, oversell fits, and move on. I'm incentivized to build systems that make your hiring permanently better. The math works out in your favor: $294K+ in agency fees avoided for one client across 9 placements."
+        "text": "Contingent is one of our three offerings. A deposit up front gets our team working your roles, with the balance due on placement. We are happy to go on the journey with you and your team, just not for free. Every offering runs under Richie's direction, and Richie is on every engagement and every hire."
       }
     },
     {
@@ -66,11 +66,11 @@ export default function Pricing() {
   return (
     <PageLayout>
       <PageSEO
-        title="Transparent Pricing & Engagement Models | Rebel Talent Systems"
-        description="No contingency. No success fees. Fractional Head of Talent/Lead Talent Consultant ($12K–$30K/mo) or Critical Hire Execution ($8K–$25K+ per search)."
+        title="Pricing & Engagement Models | Rebel Talent Systems"
+        description="Three offerings under Richie's direction: Embedded/Fractional (monthly retainer), Retained Search (half down, half on placement), and Contingent (deposit up front, balance on placement)."
         path="/pricing"
-        ogTitle="Transparent Pricing | Rebel Talent Systems"
-        ogDescription="No contingency fees. Two engagements plus team capacity when you need more horsepower. See exact pricing."
+        ogTitle="Pricing | Rebel Talent Systems"
+        ogDescription="Three ways to work with Rebel Talent Systems: Embedded/Fractional, Retained Search, and Contingent, plus team capacity when you need more horsepower. See exact pricing."
         ogImage="og-services.png"
         schemas={[pricingFaqSchema]}
         breadcrumbs={[
@@ -93,15 +93,14 @@ export default function Pricing() {
             Pricing &amp; Engagement Models
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-4xl">
-            No contingency.<br />
-            <span className="text-rebel-red">No success fees.</span><br />
-            No games.
+            You don't have a recruiting problem.<br />
+            <span className="text-rebel-red">You have a hiring infrastructure problem.</span>
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            You pay for the actual time, expertise, and infrastructure I deliver. Every hour is logged. Every deliverable is documented. Every dollar is accounted for in your dashboard, in real time.
+            You pay for the actual time, expertise, and infrastructure we deliver. Every hour is logged. Every deliverable is documented. Every dollar is accounted for in your dashboard, in real time.
           </p>
           <p className="mt-4 text-sm sm:text-base text-zinc-400 max-w-2xl leading-[1.6]">
-            Contingency recruiting is broken by design, when a recruiter only gets paid on placement, their incentive is to fill the seat fast, not build the systems that make your next 50 hires easier.
+            Three offerings, one standard. Embedded/Fractional on a monthly retainer, Retained Search with half down and half on placement, and Contingent with a deposit up front and the balance on placement. Every offering runs under Richie's direction, and Richie is on every engagement and every hire.
           </p>
           <div className="mt-8 sm:mt-10">
             <CapacityBadge />
@@ -130,33 +129,33 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Two engagement models + team capacity */}
+      {/* Three offerings + team capacity */}
       <section className="py-16 border-t border-zinc-800/50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
             <div className="text-center mb-10">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-                TWO ENGAGEMENTS. ONE OPERATOR.
+                THREE OFFERINGS. ONE STANDARD.
               </div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
-                Two Ways to Work Together
+                Three Ways to Work Together
               </h2>
               <p className="text-zinc-400 text-sm mt-3 max-w-xl mx-auto">
-                No SaaS tiers. Two engagement shapes built around how you actually buy, embed me as your Head of Talent/Lead Talent Consultant, or scope a specific search. Either one scales with a vetted recruiter team when the pipeline demands it.
+                No SaaS tiers. Three offerings built around how you actually buy, run your recruiting function embedded, retain us for a defined role with a deadline, or engage us contingent. Every offering runs under Richie's direction, and Richie is on every engagement and every hire.
               </p>
             </div>
           </ScrollReveal>
 
-          <div className="flex md:grid md:grid-cols-2 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
+          <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
             {/* Embedded */}
             <ScrollReveal variant="fade-up" delay={0}>
               <GlowCard className="border border-rebel-red/50 bg-rebel-red/5 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">EMBEDDED</div>
-                <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Fractional Head of Talent/Lead Talent Consultant</h3>
-                <p className="text-rebel-red font-mono text-sm mb-1">$12K – $30K / month · 3-month minimum</p>
-                <p className="text-zinc-400 font-mono text-xs mb-4">10–40 hours/month depending on scope</p>
+                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">EMBEDDED / FRACTIONAL</div>
+                <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Embedded / Fractional</h3>
+                <p className="text-rebel-red font-mono text-sm mb-1">Monthly retainer · 3-month minimum</p>
+                <p className="text-zinc-400 font-mono text-xs mb-4">Our flagship engagement</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                  I embed into your company as your Head of Talent/Lead Talent Consultant. I'm in your Slack, your ATS, your hiring manager 1:1s, your candidate calls. Not consulting from the sidelines.
+                  We run your recruiting function and hand it back. We're in your Slack, your ATS, your hiring manager 1:1s, your candidate calls, all under Richie's direction. Not consulting from the sidelines.
                 </p>
                 <ul className="space-y-2 mb-6">
                   {[
@@ -181,22 +180,22 @@ export default function Pricing() {
               </GlowCard>
             </ScrollReveal>
 
-            {/* Project */}
+            {/* Retained Search */}
             <ScrollReveal variant="fade-up" delay={150}>
               <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">PROJECT</div>
-                <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Critical Hire Execution</h3>
-                <p className="text-rebel-red font-mono text-sm mb-1">$8K – $25K+ per search · fixed fee</p>
-                <p className="text-zinc-400 font-mono text-xs mb-4">Scoped project with defined milestones</p>
+                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">RETAINED SEARCH</div>
+                <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Retained Search</h3>
+                <p className="text-rebel-red font-mono text-sm mb-1">Half down, half on placement</p>
+                <p className="text-zinc-400 font-mono text-xs mb-4">A defined role with a deadline</p>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                  For defense and cleared teams that need infrastructure and hires at the same time. I stand up CMMC-compliant hiring infrastructure while my team and I fill your critical roles under my direction. You know the cost before we start.
+                  A defined role with a deadline. Half down commits our full team to the search from day one, with the balance due on placement. Executive and specialized technical roles, cleared and noncleared, all under Richie's direction.
                 </p>
                 <ul className="space-y-2 mb-6">
                   {[
-                    "CMMC-compliant hiring infrastructure",
-                    "Cleared roles (Secret, TS, TS/SCI)",
+                    "Half down, half on placement",
+                    "Cleared and noncleared roles (Secret, TS, TS/SCI)",
                     "Executive & specialized technical searches",
-                    "My vetted team, filling under my direction",
+                    "Our vetted team, filling under Richie's direction",
                     "Documented, repeatable process left with you",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
@@ -213,9 +212,42 @@ export default function Pricing() {
                 </p>
               </GlowCard>
             </ScrollReveal>
+
+            {/* Safe addition, Contingent offering, third of three */}
+            <ScrollReveal variant="fade-up" delay={300}>
+              <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full">
+                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">CONTINGENT</div>
+                <h3 className="font-display text-xl font-bold text-white uppercase mb-2">Contingent</h3>
+                <p className="text-rebel-red font-mono text-sm mb-1">Deposit up front, balance on placement</p>
+                <p className="text-zinc-400 font-mono text-xs mb-4">One of three legitimate offerings</p>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+                  We are happy to go on the journey with you and your team, just not for free. A deposit up front gets our team working your roles, with the balance due on placement, all under Richie's direction.
+                </p>
+                <ul className="space-y-2 mb-6">
+                  {[
+                    "Deposit up front, balance on placement",
+                    "Cleared and noncleared roles",
+                    "Entry level through executive",
+                    "Our vetted team, filling under Richie's direction",
+                    "Richie on every engagement and every hire",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
+                      <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-zinc-400 text-xs leading-relaxed">
+                  Best for: Teams that want to start with a single role, tech, business process, and GTM/sales hires, entry level through executive.
+                </p>
+                <p className="text-zinc-400 text-xs mt-2 leading-relaxed">
+                  Pricing factors: Role complexity, clearance requirements, seniority level, timeline urgency.
+                </p>
+              </GlowCard>
+            </ScrollReveal>
           </div>
 
-          {/* Team Capacity Extension, applies to either engagement */}
+          {/* Team Capacity Extension, applies to any offering */}
           <ScrollReveal variant="fade-up" delay={300}>
             <GlowCard className="mt-6 border border-zinc-800/70 bg-zinc-900/30 p-6 sm:p-8" data-testid="band-team-capacity">
               <div className="flex flex-col md:flex-row md:items-start md:gap-8 mb-6">
@@ -231,7 +263,7 @@ export default function Pricing() {
                 </div>
                 <div className="flex-1">
                   <p className="text-zinc-300 text-sm leading-relaxed mb-4">
-                    Either engagement above scales with a vetted recruiter team deployed under my direction. Same standards, same playbooks. You still get me on every call, the team extends my reach; it doesn't replace me.
+                    Any offering above scales with a vetted recruiter team deployed under Richie's direction. Same standards, same playbooks. Richie is on every call and every hire, the team extends our reach, it doesn't replace Richie.
                   </p>
                   <ul className="space-y-2 mb-3">
                     {[
@@ -280,7 +312,7 @@ export default function Pricing() {
                 { label: "Pricing Model", value: "Hourly or project. Every dollar in your dashboard." },
                 { label: "What You Pay For", value: "Time, systems, infrastructure & outcomes, not just a placement." },
                 { label: "Cost per Hire", value: "~$5K–$8K on average across embedded engagements." },
-                { label: "Incentive Alignment", value: "Paid to build infrastructure that lasts, not to fill seats fast." },
+                { label: "Incentive Alignment", value: "Paid to build infrastructure that lasts, and to place the right people." },
                 { label: "Time to Fill", value: "~30 days median across embedded engagements." },
                 { label: "Process Ownership", value: "Yours. Everything we build, you keep." },
                 { label: "Infrastructure You Keep", value: "ATS, playbooks, pipeline, trained hiring managers." },
@@ -409,12 +441,12 @@ export default function Pricing() {
                   Yes, a straightforward SOW with scope, deliverables, timeline, and rates. No 12-month lock-ins. Fractional engagements are typically month-to-month after an initial 90-day commitment. Project engagements have defined milestones. Contract recruiters can scale up or down with 2 weeks notice.
                 </AccordionContent>
               </AccordionItem>
-              <AccordionItem value="why-no-contingency" className="border border-zinc-800 bg-zinc-900/30 px-6">
+              <AccordionItem value="how-contingent-works" className="border border-zinc-800 bg-zinc-900/30 px-6">
                 <AccordionTrigger className="font-display text-sm font-bold text-white uppercase tracking-wide py-5">
-                  Why no contingency?
+                  How does Contingent pricing work?
                 </AccordionTrigger>
                 <AccordionContent className="text-zinc-400 text-sm leading-relaxed pb-5">
-                  Because contingency breaks incentives. A contingency recruiter gets paid $30K+ only when someone gets hired. That means they're incentivized to push candidates through fast, oversell fits, and move on to the next fee. I'm incentivized to build systems that make your hiring permanently better, because that's what you're paying me to do. The math works out in your favor: $294K+ in agency fees avoided for one client across 9 placements.
+                  Contingent is one of our three offerings. A deposit up front gets our team working your roles, with the balance due on placement. We are happy to go on the journey with you and your team, just not for free. Every offering runs under Richie's direction, and Richie is on every engagement and every hire.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="what-if-not-working" className="border border-zinc-800 bg-zinc-900/30 px-6">

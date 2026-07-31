@@ -31,7 +31,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-zinc-400 text-sm leading-relaxed">
-              Fractional recruiting leadership for companies that refuse to settle.
+              We install the hiring infrastructure your team runs on, across cleared and noncleared, entry to executive.
             </p>
           </div>
 

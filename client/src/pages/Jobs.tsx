@@ -485,7 +485,7 @@ export default function Jobs() {
               What to expect from us
             </h2>
             <p className="text-zinc-400 text-base max-w-2xl mx-auto leading-relaxed">
-              Every application is reviewed by me, not a coordinator and not a black hole.
+              Every application is reviewed by a vetted team under Richie&rsquo;s direction, and Richie is on every hire. A real senior person reads you, not a coordinator and not a black hole.
               Here's the deal on the other side of the apply button.
             </p>
           </div>
@@ -495,7 +495,7 @@ export default function Jobs() {
               {
                 icon: <Eye className="w-5 h-5 text-rebel-red" />,
                 title: "Every resume read",
-                body: "Not auto-filtered to oblivion. I read every application personally, even the 360+ that came in for the last ML search.",
+                body: "Not auto-filtered to oblivion. A vetted team under Richie's direction reads every application, and Richie is on every hire, even the 360+ that came in for the last ML search.",
               },
               {
                 icon: <CheckCircle2 className="w-5 h-5 text-rebel-red" />,
