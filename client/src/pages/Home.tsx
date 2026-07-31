@@ -587,7 +587,7 @@ export default function Home() {
               <p className="text-rebel-red font-mono text-sm mb-1">Deposit up front · balance on placement</p>
               <p className="text-zinc-400 font-mono text-xs mb-4">For straightforward, well-defined roles</p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                Placement work for clear, fillable roles. A deposit gets the search moving, the balance is due when the seat is filled. We do not work for free and we do not compete on volume.
+                Placement work for clear, fillable roles. A deposit gets the search moving, the balance is due when the seat is filled. We are happy to go on the journey with you and your team, just not for free.
               </p>
               <ul className="space-y-2 mb-6">
                 {[
