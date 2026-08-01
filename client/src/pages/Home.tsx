@@ -381,14 +381,14 @@ export default function Home() {
                 <Link
                   href="/jobs/eda03068-8c4b-4c58-9aa9-b48d50e02f1c"
                   data-testid="button-role-full-desk-recruiter"
-                  className="inline-flex items-center justify-center gap-2 border border-zinc-700 hover:border-rebel-red text-white font-display text-xs font-semibold uppercase tracking-wider px-5 py-3 rounded-md transition-colors no-underline"
+                  className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-display text-xs font-semibold uppercase tracking-wider px-5 py-3 rounded-md transition-colors no-underline"
                 >
                   Full Desk Recruiter <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/jobs/b77d9f32-f6cf-4c21-9696-c1b2c59e1f7c"
                   data-testid="button-role-business-development-lead"
-                  className="inline-flex items-center justify-center gap-2 border border-zinc-700 hover:border-rebel-red text-white font-display text-xs font-semibold uppercase tracking-wider px-5 py-3 rounded-md transition-colors no-underline"
+                  className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-display text-xs font-semibold uppercase tracking-wider px-5 py-3 rounded-md transition-colors no-underline"
                 >
                   Business Development Lead <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -427,33 +427,6 @@ export default function Home() {
               </span>
             </div>
           </Link>
-        </div>
-      </section>
-
-      {/* Safe addition, Pain points moved up to hook visitors */}
-      <section data-testid="section-pain" className="py-10 border-b border-zinc-800/50" style={{ background: "#0E0D11" }}>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <ScrollReveal variant="fade-up">
-          <div className="text-center mb-6">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">STOP ME IF THIS IS YOU</div>
-            <h2 className="font-display text-2xl font-bold text-white uppercase">If These Hit, You&rsquo;re Already Bleeding</h2>
-          </div>
-          <div className="grid sm:grid-cols-2 gap-3 max-w-3xl mx-auto">
-            {[
-              "Agencies charge 25% and disappear after the hire. You get a placement, not a system.",
-              "Your ATS is a graveyard of unreviewed resumes",
-              "Hiring managers winging interviews with zero structure",
-              "A full-time VP of TA costs $175K+ before you fill a single role.",
-              "Your 'recruiting process' is LinkedIn InMails and prayers",
-              "Cleared hiring takes time nobody warned you about. What you can control is the pipeline, if you've built one.",
-            ].map((item) => (
-              <div key={item} className="flex items-start gap-3 border border-zinc-800/50 bg-zinc-900/20 px-4 py-3" data-testid={`item-pain-${item.slice(0, 20).toLowerCase().replace(/\s+/g, "-")}`}>
-                <span className="text-rebel-red font-mono font-bold text-xs mt-0.5 shrink-0">X</span>
-                <span className="text-zinc-400 text-sm">{item}</span>
-              </div>
-            ))}
-          </div>
-          </ScrollReveal>
         </div>
       </section>
 
