@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "wouter";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
@@ -111,6 +112,10 @@ export default function About() {
               </p>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-6">
                 <CapacityBadge />
+                {/* Safe addition — link to the Vision manifesto */}
+                <Link href="/about/vision" data-testid="link-about-vision" className="text-rebel-red hover:text-white text-sm font-semibold transition-colors no-underline">
+                  Read the vision &rarr;
+                </Link>
                 <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-linkedin" className="text-zinc-400 hover:text-white text-sm transition-colors no-underline">
                   LinkedIn ↗
                 </a>

@@ -13,19 +13,17 @@ import Home from "@/pages/Home";
 // prerender waits for networkidle0, so each lazy chunk resolves before the
 // static HTML snapshot is captured (SEO-safe).
 const About = lazy(() => import("@/pages/About"));
+// Safe addition — Vision manifesto page under /about
+const Vision = lazy(() => import("@/pages/Vision"));
 const Services = lazy(() => import("@/pages/Services"));
-const HowItWorks = lazy(() => import("@/pages/HowItWorks"));
 const Testimonials = lazy(() => import("@/pages/Testimonials"));
 const CaseStudies = lazy(() => import("@/pages/CaseStudies"));
 const Podcast = lazy(() => import("@/pages/Podcast"));
 const FreeTools = lazy(() => import("@/pages/FreeTools"));
-const CommandDemo = lazy(() => import("@/pages/CommandDemo"));
 const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
 const Blog = lazy(() => import("@/pages/Blog"));
 const BlogPost = lazy(() => import("@/pages/BlogPost"));
 const Certification = lazy(() => import("@/pages/Certification"));
-const FractionalHeadOfTalent = lazy(() => import("@/pages/FractionalHeadOfTalent"));
-const Pricing = lazy(() => import("@/pages/Pricing"));
 const Advisory = lazy(() => import("@/pages/Advisory"));
 const StrategyCall = lazy(() => import("@/pages/StrategyCall"));
 const HiringReadiness = lazy(() => import("@/pages/HiringReadiness"));
@@ -40,23 +38,28 @@ function Router() {
     <Suspense fallback={<div className="min-h-screen bg-rebel-space" />}>
     <Switch>
       <Route path="/" component={Home} />
+      {/* Safe addition — Vision must precede /about so wouter matches it first */}
+      <Route path="/about/vision" component={Vision} />
       <Route path="/about" component={About} />
       <Route path="/services" component={Services} />
-      <Route path="/how-it-works" component={HowItWorks} />
+      {/* /how-it-works merged into /services. 301 to the consolidated page. */}
+      <Route path="/how-it-works">{() => { window.location.href = "/services"; return null; }}</Route>
       <Route path="/testimonials" component={Testimonials} />
       <Route path="/case-studies" component={CaseStudies} />
       <Route path="/results" component={CaseStudies} />
       <Route path="/podcast" component={Podcast} />
       {/* /platform retired, Rebel Apply scuttled. Redirect to /services. */}
       <Route path="/platform">{() => { window.location.href = "/services"; return null; }}</Route>
-      <Route path="/command" component={CommandDemo} />
+      {/* /command demo retired. 301 to home. */}
+      <Route path="/command">{() => { window.location.href = "/"; return null; }}</Route>
       <Route path="/free-tools" component={FreeTools} />
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/certification" component={Certification} />
-      <Route path="/fractional-head-of-talent" component={FractionalHeadOfTalent} />
-      <Route path="/fractional-recruiting-services" component={FractionalHeadOfTalent} />
-      <Route path="/pricing" component={Pricing} />
+      {/* /fractional-head-of-talent, /fractional-recruiting-services, /pricing merged into /services. 301 to the consolidated page. */}
+      <Route path="/fractional-head-of-talent">{() => { window.location.href = "/services"; return null; }}</Route>
+      <Route path="/fractional-recruiting-services">{() => { window.location.href = "/services"; return null; }}</Route>
+      <Route path="/pricing">{() => { window.location.href = "/services"; return null; }}</Route>
       {/* /rachael retired. 301 to home. */}
       <Route path="/rachael">{() => { window.location.href = "/"; return null; }}</Route>
       <Route path="/advisory" component={Advisory} />

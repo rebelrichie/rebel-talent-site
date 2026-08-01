@@ -2,18 +2,16 @@ import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown } from "lucide-react";
 
-// Safe addition, consolidated nav: Services dropdown replaces 4 individual links
-const servicesLinks = [
-  { href: "/fractional-head-of-talent", label: "Fractional Head of Talent/Lead Talent Consultant", external: false },
-  { href: "/services", label: "All Services", external: false },
-  { href: "/how-it-works", label: "How It Works", external: false },
-  { href: "/pricing", label: "Pricing", external: false },
-  { href: "/hiring-readiness", label: "Hiring Readiness Scorecard", external: false },
-];
-
+// Safe addition, Services consolidated into one page; the dropdown is now a single link
 const proofLinks = [
   { href: "/testimonials", label: "Testimonials", external: false },
   { href: "/case-studies", label: "Case Studies", external: false },
+];
+
+// Safe addition — About becomes a dropdown so the Vision manifesto is reachable
+const aboutLinks = [
+  { href: "/about", label: "About", external: false },
+  { href: "/about/vision", label: "Vision", external: false },
 ];
 
 const resourceLinks = [
@@ -30,12 +28,14 @@ export default function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [proofOpen, setProofOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false); // Safe addition
   const [mobileProofOpen, setMobileProofOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false); // Safe addition
   const [location] = useLocation();
   const servicesRef = useRef<HTMLDivElement>(null);
   const proofRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null); // Safe addition
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -45,6 +45,9 @@ export default function Navbar() {
       }
       if (proofRef.current && !proofRef.current.contains(e.target as Node)) {
         setProofOpen(false);
+      }
+      if (aboutRef.current && !aboutRef.current.contains(e.target as Node)) {
+        setAboutOpen(false);
       }
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setResourcesOpen(false);
@@ -63,13 +66,13 @@ export default function Navbar() {
             <a key={r.href} href={r.href} target="_blank" rel="noopener noreferrer"
               data-testid={`link-nav-${r.label.toLowerCase().replace(/\s+/g, "-")}`}
               className="block px-4 py-2.5 text-xs text-zinc-400 hover:text-white hover:bg-zinc-900 no-underline transition-colors"
-              onClick={() => { setServicesOpen(false); setProofOpen(false); setResourcesOpen(false); }}
+              onClick={() => { setServicesOpen(false); setProofOpen(false); setResourcesOpen(false); setAboutOpen(false); }}
             >{r.label}</a>
           ) : (
             <Link key={r.href} href={r.href}
               data-testid={`link-nav-${r.label.toLowerCase().replace(/\s+/g, "-")}`}
               className={`block px-4 py-2.5 text-xs no-underline transition-colors hover:bg-zinc-900 ${location === r.href ? "text-rebel-red" : "text-zinc-400 hover:text-white"}`}
-              onClick={() => { setServicesOpen(false); setProofOpen(false); setResourcesOpen(false); }}
+              onClick={() => { setServicesOpen(false); setProofOpen(false); setResourcesOpen(false); setAboutOpen(false); }}
             >{r.label}</Link>
           )
         )}
@@ -104,33 +107,33 @@ export default function Navbar() {
           </button>
 
           <div className="hidden md:flex items-center gap-0.5">
-            {/* Safe addition, Services dropdown */}
-            <div ref={servicesRef} className="relative z-[70]">
-              <button
-                data-testid="button-services-dropdown"
-                aria-expanded={servicesOpen}
-                aria-haspopup="true"
-                onClick={() => { setServicesOpen(!servicesOpen); setProofOpen(false); setResourcesOpen(false); }}
-                className={`flex items-center gap-1 px-2.5 py-2 text-[11px] font-semibold tracking-widest transition-colors duration-200 whitespace-nowrap ${
-                  ["/fractional-head-of-talent", "/services", "/how-it-works", "/pricing"].includes(location) ? "text-rebel-red" : "text-zinc-400 hover:text-white"
-                }`}
-              >
-                SERVICES
-                <ChevronDown size={11} className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} />
-              </button>
-              {renderDropdown(servicesLinks, servicesOpen)}
-            </div>
-
-            {/* About, standalone link */}
+            {/* Safe addition, Services is now a single consolidated page */}
             <Link
-              href="/about"
-              data-testid="link-nav-about"
+              href="/services"
+              data-testid="link-nav-services"
               className={`px-2.5 py-2 text-[11px] font-semibold tracking-widest transition-colors duration-200 no-underline whitespace-nowrap ${
-                location === "/about" ? "text-rebel-red" : "text-zinc-400 hover:text-white"
+                location === "/services" ? "text-rebel-red" : "text-zinc-400 hover:text-white"
               }`}
             >
-              ABOUT
+              SERVICES
             </Link>
+
+            {/* Safe addition — About dropdown (About + Vision) */}
+            <div ref={aboutRef} className="relative z-[70]">
+              <button
+                data-testid="button-about-dropdown"
+                aria-expanded={aboutOpen}
+                aria-haspopup="true"
+                onClick={() => { setAboutOpen(!aboutOpen); setServicesOpen(false); setProofOpen(false); setResourcesOpen(false); }}
+                className={`flex items-center gap-1 px-2.5 py-2 text-[11px] font-semibold tracking-widest transition-colors duration-200 whitespace-nowrap ${
+                  ["/about", "/about/vision"].includes(location) ? "text-rebel-red" : "text-zinc-400 hover:text-white"
+                }`}
+              >
+                ABOUT
+                <ChevronDown size={11} className={`transition-transform duration-200 ${aboutOpen ? "rotate-180" : ""}`} />
+              </button>
+              {renderDropdown(aboutLinks, aboutOpen)}
+            </div>
 
             {/* Safe addition, Jobs (replaces APPLY as the candidate front door) */}
             <Link
@@ -188,17 +191,29 @@ export default function Navbar() {
 
       {isOpen && (
         <div className="md:hidden border-t border-zinc-800" style={{ background: "#050505" }}>
-          {/* Safe addition, Mobile: Services dropdown */}
-          <button
-            data-testid="button-mobile-services"
-            aria-expanded={mobileServicesOpen}
-            className="w-full text-left flex items-center justify-between px-6 py-3 text-xs font-semibold tracking-widest border-b border-zinc-900 text-zinc-400"
-            onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+          {/* Safe addition, Mobile: Services single link */}
+          <Link
+            href="/services"
+            data-testid="link-mobile-services"
+            className={`block px-6 py-3 text-xs font-semibold tracking-widest border-b border-zinc-900 no-underline ${
+              location === "/services" ? "text-rebel-red" : "text-zinc-400"
+            }`}
+            onClick={() => setIsOpen(false)}
           >
             SERVICES
-            <ChevronDown size={12} className={`transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`} />
+          </Link>
+
+          {/* Safe addition — Mobile: About dropdown (About + Vision) */}
+          <button
+            data-testid="button-mobile-about"
+            aria-expanded={mobileAboutOpen}
+            className="w-full text-left flex items-center justify-between px-6 py-3 text-xs font-semibold tracking-widest border-b border-zinc-900 text-zinc-400"
+            onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+          >
+            ABOUT
+            <ChevronDown size={12} className={`transition-transform duration-200 ${mobileAboutOpen ? "rotate-180" : ""}`} />
           </button>
-          {mobileServicesOpen && servicesLinks.map((r) => (
+          {mobileAboutOpen && aboutLinks.map((r) => (
             <Link
               key={r.href}
               href={r.href}
@@ -211,18 +226,6 @@ export default function Navbar() {
               {r.label}
             </Link>
           ))}
-
-          {/* About, standalone */}
-          <Link
-            href="/about"
-            data-testid="link-mobile-about"
-            className={`block px-6 py-3 text-xs font-semibold tracking-widest border-b border-zinc-900 no-underline ${
-              location === "/about" ? "text-rebel-red" : "text-zinc-400"
-            }`}
-            onClick={() => setIsOpen(false)}
-          >
-            ABOUT
-          </Link>
 
           {/* Safe addition, Jobs */}
           <Link

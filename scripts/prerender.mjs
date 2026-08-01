@@ -14,18 +14,14 @@ const PORT = 4173;
 const ROUTES = [
   "/",
   "/about",
+  "/about/vision",
   "/services",
-  "/pricing",
-  "/how-it-works",
   "/testimonials",
   "/case-studies",
   "/podcast",
-  "/command",
   "/free-tools",
   "/blog",
   "/certification",
-  "/fractional-head-of-talent",
-  "/fractional-recruiting-services",
   "/strategy-call",
   "/hiring-readiness",
   "/privacy-policy",
@@ -35,24 +31,22 @@ const ROUTES = [
 
 // Sitemap entries for the curated static routes. Kept here (not read from the
 // hand-maintained XML) so the sitemap regenerates from a single source of truth
-// on every build. /fractional-recruiting-services is intentionally EXCLUDED
-// because it canonicalizes to /fractional-head-of-talent, and /greener-planet is
-// excluded because it is noindex.
+// on every build. /how-it-works, /pricing, /fractional-head-of-talent and
+// /fractional-recruiting-services are intentionally EXCLUDED because they now 301
+// to the consolidated /services page, and /greener-planet is excluded because it
+// is noindex.
 const SITEMAP_STATIC = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
   { path: "/about", changefreq: "monthly", priority: "0.9" },
+  { path: "/about/vision", changefreq: "monthly", priority: "0.8" },
   { path: "/services", changefreq: "monthly", priority: "0.9" },
-  { path: "/how-it-works", changefreq: "monthly", priority: "0.8" },
   { path: "/case-studies", changefreq: "monthly", priority: "0.9" },
   { path: "/testimonials", changefreq: "monthly", priority: "0.8" },
   { path: "/blog", changefreq: "weekly", priority: "0.8" },
   { path: "/podcast", changefreq: "weekly", priority: "0.7" },
   { path: "/free-tools", changefreq: "monthly", priority: "0.7" },
-  { path: "/command", changefreq: "monthly", priority: "0.7" },
   { path: "/certification", changefreq: "monthly", priority: "0.7" },
-  { path: "/fractional-head-of-talent", changefreq: "monthly", priority: "0.9" },
   { path: "/advisory", changefreq: "monthly", priority: "0.8" },
-  { path: "/pricing", changefreq: "monthly", priority: "0.9" },
   { path: "/jobs", changefreq: "daily", priority: "0.95" },
   { path: "/strategy-call", changefreq: "monthly", priority: "0.85" },
   { path: "/hiring-readiness", changefreq: "monthly", priority: "0.85" },

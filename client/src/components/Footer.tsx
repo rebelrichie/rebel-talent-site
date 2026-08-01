@@ -40,13 +40,11 @@ export default function Footer() {
               NAVIGATE
             </h2>
             <div className="flex flex-col gap-2.5">
-              <Link href="/fractional-head-of-talent" data-testid="link-footer-fractional" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Fractional Head of Talent/Lead Talent Consultant</Link>
-              <Link href="/services" data-testid="link-footer-services" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Services</Link>
-              <Link href="/how-it-works" data-testid="link-footer-how-it-works" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">How It Works</Link>
+              <Link href="/services" data-testid="link-footer-services" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Services &amp; Pricing</Link>
               <Link href="/testimonials" data-testid="link-footer-testimonials" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Testimonials</Link>
               <Link href="/case-studies" data-testid="link-footer-case-studies" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Case Studies</Link>
               <Link href="/about" data-testid="link-footer-about" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">About</Link>
-              <Link href="/command" data-testid="link-footer-command" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Command Demo</Link>
+              <Link href="/about/vision" data-testid="link-footer-vision" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Vision</Link>
             </div>
           </div>
 
