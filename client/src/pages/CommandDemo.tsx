@@ -402,7 +402,7 @@ export default function CommandDemo() {
     <PageLayout>
       <PageSEO
         title="Rebel Command: Live Product Demo | Rebel Talent Systems"
-        description="See inside Rebel Command: AI-powered recruiting command center with real-time pipeline, 27 agents, and full audit trails."
+        description="See inside Rebel Command: AI-powered recruiting command center with real-time pipeline, a full agent stack, and full audit trails."
         path="/command"
         ogTitle="Rebel Command: Live Product Demo"
         ogDescription="The operator war room. See it in action."

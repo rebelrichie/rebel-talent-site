@@ -1,10 +1,10 @@
 {
   "name": "Rebel Talent Systems",
   "short_name": "Rebel Talent",
-  "description": "Fractional recruiting leadership for companies that refuse to settle.",
+  "description": "We install the hiring infrastructure your team runs on, across cleared and noncleared, entry to executive.",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#FF4500",
+  "theme_color": "#08070A",
   "background_color": "#05050a",
   "icons": [
     {

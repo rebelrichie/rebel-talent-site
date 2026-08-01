@@ -8,6 +8,46 @@ import GlowCard from "@/components/GlowCard";
 import CapacityBadge from "@/components/CapacityBadge";
 import TypedText from "@/components/TypedText";
 
+// Safe addition, Service JSON-LD for the three offerings
+const serviceProvider = {
+  "@type": "Organization",
+  "name": "Rebel Talent Systems",
+  "url": "https://rebeltalentsystems.com",
+};
+
+const serviceSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Embedded / Fractional Recruiting",
+    "serviceType": "Embedded / Fractional recruiting on a monthly retainer",
+    "description": "We run your recruiting function on a monthly retainer and hand it back better than we found it, all under Richie's direction. Coverage across tech, business process, and GTM/sales, cleared and noncleared, entry level through executive, Series A through C and defense teams.",
+    "provider": serviceProvider,
+    "areaServed": "US",
+    "url": "https://rebeltalentsystems.com/services",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Retained Search",
+    "serviceType": "Retained search, half down and half on placement",
+    "description": "A defined role with a deadline, billed half down and half on placement. Our vetted team commits from day one under Richie's direction, covering executive and specialized technical searches, cleared and noncleared, entry level through executive.",
+    "provider": serviceProvider,
+    "areaServed": "US",
+    "url": "https://rebeltalentsystems.com/services",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Contingent Recruiting",
+    "serviceType": "Contingent recruiting with a deposit up front",
+    "description": "A deposit up front gets our team working your roles, with the balance due on placement, all under Richie's direction. Cleared and noncleared, entry level through executive, across tech, business process, and GTM/sales for Series A through C and defense teams.",
+    "provider": serviceProvider,
+    "areaServed": "US",
+    "url": "https://rebeltalentsystems.com/services",
+  },
+];
+
 export default function Services() {
   return (
     <PageLayout>
@@ -18,6 +58,7 @@ export default function Services() {
         ogTitle="Recruiting Services | Rebel Talent Systems"
         ogDescription="Three ways to work with Rebel Talent Systems: Embedded/Fractional, Retained Search, and Contingent. Tech, business process, and GTM/sales, cleared and noncleared, entry level through executive, with Richie on every engagement."
         ogImage="og-services.png"
+        schemas={serviceSchemas}
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
           { name: "Services", item: "https://rebeltalentsystems.com/services" },

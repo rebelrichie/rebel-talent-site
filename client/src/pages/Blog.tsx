@@ -43,7 +43,7 @@ export default function Blog() {
   return (
     <PageLayout>
       <PageSEO
-        title="Rebel Built: Insights on Talent, Tech & Defense | Rebel Talent Systems"
+        title="Rebel Built: Talent, Tech & Defense | Rebel Talent Systems"
         description="Insights on recruiting, talent strategy, defense tech, and AI-powered operations from Richie Lampani."
         path="/blog"
         ogTitle="Rebel Built Blog"
@@ -94,7 +94,7 @@ export default function Blog() {
                 {[
                   { category: "Hiring Strategy", title: "Why agencies fail growth-stage startups, and what to do instead" },
                   { category: "Cleared Hiring", title: "The clearance pipeline problem: building TS/SCI bench before you need it" },
-                  { category: "AI & Recruiting", title: "27 agents, one operator: how I automated sourcing without losing signal" },
+                  { category: "AI & Recruiting", title: "A full agent stack, one operator: how I automated sourcing without losing signal" },
                   { category: "Fractional Model", title: "What a fractional Head of Talent/Lead Talent Consultant actually does in week one" },
                 ].map((post) => (
                   <div key={post.title} className="border border-zinc-800/60 bg-zinc-900/20 p-5">

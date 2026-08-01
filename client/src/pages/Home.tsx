@@ -357,6 +357,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Safe addition — Internal team hiring band, two priority roles, right after hero */}
+      <section
+        data-testid="section-internal-hiring"
+        className="border-b border-zinc-800/50"
+        style={{ background: "#0E0D11" }}
+      >
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+          <div className="border border-zinc-800 bg-zinc-900/30 px-5 sm:px-7 py-6">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+              <div className="flex-1">
+                <div className="font-mono text-rebel-red text-[11px] tracking-[0.22em] uppercase mb-1.5">
+                  We are hiring · Internal team
+                </div>
+                <div className="font-display text-lg sm:text-xl font-bold text-white tracking-tight">
+                  Two priority roles on our own desk
+                </div>
+                <p className="text-zinc-400 text-sm mt-1">
+                  We are always looking for exceptional recruiters and closers to join the internal team. 1099, remote, commission with a draw.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                <Link
+                  href="/jobs/eda03068-8c4b-4c58-9aa9-b48d50e02f1c"
+                  data-testid="button-role-full-desk-recruiter"
+                  className="inline-flex items-center justify-center gap-2 border border-zinc-700 hover:border-rebel-red text-white font-display text-xs font-semibold uppercase tracking-wider px-5 py-3 rounded-md transition-colors no-underline"
+                >
+                  Full Desk Recruiter <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/jobs/b77d9f32-f6cf-4c21-9696-c1b2c59e1f7c"
+                  data-testid="button-role-business-development-lead"
+                  className="inline-flex items-center justify-center gap-2 border border-zinc-700 hover:border-rebel-red text-white font-display text-xs font-semibold uppercase tracking-wider px-5 py-3 rounded-md transition-colors no-underline"
+                >
+                  Business Development Lead <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── HIRING READINESS SCORECARD HOOK (slim lead-capture, links to full tool) ── */}
       {/* Safe addition, one-line hook under the intro, routes to /hiring-readiness */}
       <section
@@ -973,7 +1014,7 @@ export default function Home() {
               </div>
               <div className="hidden md:grid grid-cols-1 gap-[1px] bg-zinc-800/60">
                 {[
-                  { value: "27", label: "AI Agents in Production" },
+                  { value: "Full", label: "Agent Stack in Production" },
                   { value: "14+", label: "Years Recruiting" },
                   { value: "Live", label: "Real Client Work Daily" },
                 ].map((s) => (
@@ -993,7 +1034,7 @@ export default function Home() {
           <div className="text-center mb-10">
             <div className="font-mono text-[#FF5A47] text-[11px] tracking-[0.18em] uppercase mb-3">The System, Live</div>
             <h2 className="font-display text-white text-2xl sm:text-3xl font-bold tracking-tight mb-3">
-              This is what 27 agents look like in production.
+              This is what our agent stack looks like in production.
             </h2>
             <p className="text-zinc-400 text-sm">Interactive demo. All candidate data is fictional.</p>
           </div>
@@ -1077,7 +1118,7 @@ export default function Home() {
               <div className="border-t border-zinc-800 px-4 py-2.5 flex flex-wrap items-center gap-x-3 gap-y-1 bg-zinc-900/30">
                 <div className="flex items-center gap-1.5">
                   <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                  <span className="text-[11px] font-mono text-green-400">27 AGENTS ACTIVE</span>
+                  <span className="text-[11px] font-mono text-green-400">AGENT STACK ACTIVE</span>
                 </div>
                 <span className="text-[11px] font-mono text-zinc-400">Sourcing agent ran 14 min ago</span>
                 <span className="hidden sm:inline text-[11px] font-mono text-zinc-400">3 outreach sequences active</span>
@@ -1150,6 +1191,7 @@ export default function Home() {
               <img
                 src="/richie-portrait.jpg"
                 alt="Richie Lampani, founder of Rebel Talent Systems"
+                loading="lazy"
                 className="w-40 h-40 sm:w-52 sm:h-52 rounded-2xl object-cover border border-zinc-800 group-hover:border-rebel-red/60 transition-colors"
               />
               {/* Soft play-button hint, will become a real video control later */}
@@ -1200,7 +1242,7 @@ export default function Home() {
         </div>
         <ScrollReveal variant="scale">
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center" style={{ zIndex: 10 }}>
-          <img src="/logo.png" alt="Rebel Talent" className="w-16 h-16 mx-auto mb-6" />
+          <img src="/logo.png" alt="Rebel Talent Systems logo" loading="lazy" className="w-16 h-16 mx-auto mb-6" />
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight mb-4">
             Bring Us Your Hardest Req.
           </h2>

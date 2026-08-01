@@ -116,7 +116,7 @@ export default function Podcast() {
   return (
     <PageLayout>
       <PageSEO
-        title="Podcast Appearances | Fractional Recruiting with Richie Lampani"
+        title="Podcast Appearances | Richie Lampani"
         description="Richie Lampani featured on recruiting, cybersecurity, and startup podcasts discussing fractional leadership, AI in hiring, talent infrastructure, and cleared hiring."
         path="/podcast"
         ogTitle="Podcast Appearances | Richie Lampani on Fractional Recruiting"

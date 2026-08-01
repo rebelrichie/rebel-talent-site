@@ -32,7 +32,7 @@ const pricingFaqSchema = {
       "name": "How do you track hours?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Every hour is logged in Rebel Command with a description of what was done. No rounding up, no admin time padding. If I work 22.5 hours, you see 22.5 hours. Weekly reports break it down by activity category."
+        "text": "Every hour is logged in Rebel Command with a description of what was done. No rounding up, no admin time padding. If we work 22.5 hours, you see 22.5 hours. Weekly reports break it down by activity category."
       }
     },
     {
@@ -62,6 +62,72 @@ const pricingFaqSchema = {
   ]
 };
 
+// Safe addition, Service/Offer structured data for the three pricing models
+const pricingServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Recruiting & Hiring Infrastructure",
+  "serviceType": "Recruiting and talent acquisition",
+  "url": "https://rebeltalentsystems.com/pricing",
+  "areaServed": {
+    "@type": "Country",
+    "name": "US",
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Rebel Talent Systems",
+    "url": "https://rebeltalentsystems.com",
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Engagement Models",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Embedded / Fractional",
+        "description": "Monthly retainer with a 3-month minimum. We run your recruiting function end to end, embedded in your team under Richie's direction.",
+        "category": "Monthly retainer",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "USD",
+        },
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Embedded / Fractional Recruiting",
+        },
+      },
+      {
+        "@type": "Offer",
+        "name": "Retained Search",
+        "description": "A defined role with a deadline. Half down commits our team from day one, with the balance due on placement. Cleared and noncleared, entry level through executive, under Richie's direction.",
+        "category": "Half down, half on placement",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "USD",
+        },
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Retained Search",
+        },
+      },
+      {
+        "@type": "Offer",
+        "name": "Contingent",
+        "description": "A deposit up front gets our team working your roles, with the balance due on placement. We are happy to go on the journey with you and your team, just not for free. Under Richie's direction, and Richie is on every engagement and every hire.",
+        "category": "Deposit up front, balance on placement",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "USD",
+        },
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Contingent Search",
+        },
+      },
+    ],
+  },
+};
+
 export default function Pricing() {
   return (
     <PageLayout>
@@ -72,7 +138,7 @@ export default function Pricing() {
         ogTitle="Pricing | Rebel Talent Systems"
         ogDescription="Three ways to work with Rebel Talent Systems: Embedded/Fractional, Retained Search, and Contingent, plus team capacity when you need more horsepower. See exact pricing."
         ogImage="og-services.png"
-        schemas={[pricingFaqSchema]}
+        schemas={[pricingFaqSchema, pricingServiceSchema]}
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
           { name: "Pricing", item: "https://rebeltalentsystems.com/pricing" },
@@ -267,7 +333,7 @@ export default function Pricing() {
                   </p>
                   <ul className="space-y-2 mb-3">
                     {[
-                      "Recruiters sourced & vetted by me personally",
+                      "Recruiters sourced & vetted under Richie's direction",
                       "Execute to documented Rebel playbooks",
                       "Fully briefed on your roles & culture",
                       "Time logs visible in Rebel Command",
@@ -280,7 +346,7 @@ export default function Pricing() {
                     ))}
                   </ul>
                   <p className="text-zinc-400 text-xs leading-relaxed">
-                    Best for: Surge hiring, backfilling while you hire full-time, any engagement that needs execution capacity beyond what I alone can deliver.
+                    Best for: Surge hiring, backfilling while you hire full-time, any engagement that needs execution capacity beyond what the core team alone can deliver. A vetted team under Richie's direction, and Richie is on every hire.
                   </p>
                   <p className="text-zinc-400 text-xs mt-2 leading-relaxed">
                     Rate factors: Recruiter seniority, clearance level, technical complexity, weekly commitment.
@@ -342,7 +408,7 @@ export default function Pricing() {
                 Rebel Command: Your Recruiting War Room
               </h2>
               <p className="text-zinc-400 text-sm max-w-2xl mx-auto">
-                Every engagement comes with access to the proprietary platform I built from scratch. This isn't a vendor dashboard, it's full visibility into every dollar and every action.
+                Every engagement comes with access to the proprietary platform we built from scratch. This isn't a vendor dashboard, it's full visibility into every dollar and every action.
               </p>
             </div>
           </ScrollReveal>
@@ -374,12 +440,12 @@ export default function Pricing() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
             <div className="text-center mb-8">
-              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">MY COMMITMENT</div>
+              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">OUR COMMITMENT</div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
-                How I make it safe to start
+                How we make it safe to start
               </h2>
               <p className="text-zinc-400 text-sm mt-3 max-w-2xl mx-auto">
-                A 3-month minimum is a real commitment. Here's what I commit to in return, specific, measurable, written into the SOW.
+                A 3-month minimum is a real commitment. Here's what we commit to in return, specific, measurable, written into the SOW. A vetted team under Richie's direction, and Richie is on every engagement and every hire.
               </p>
             </div>
           </ScrollReveal>
@@ -388,7 +454,7 @@ export default function Pricing() {
               {[
                 {
                   headline: "Qualified pipeline by day 30",
-                  body: "If you don't have a working pipeline 30 days after kickoff, I restructure the engagement at no additional charge, adjusted scope, adjusted approach, or an honest call that we're not the right fit. You don't burn a quarter to find out something isn't working.",
+                  body: "If you don't have a working pipeline 30 days after kickoff, we restructure the engagement at no additional charge, adjusted scope, adjusted approach, or an honest call that we're not the right fit. You don't burn a quarter to find out something isn't working.",
                 },
                 {
                   headline: "Month-to-month after 90 days",
@@ -422,7 +488,7 @@ export default function Pricing() {
                   What does the first 30 days look like?
                 </AccordionTrigger>
                 <AccordionContent className="text-zinc-400 text-sm leading-relaxed pb-5">
-                  I'm sourcing candidates within 24 hours of kickoff. Not after a "discovery phase." Not after a deck. Day one I meet the team, get the roles, and start recruiting that same week. The infrastructure, ATS, interview plans, scorecards, process docs, gets built in parallel while candidates are already flowing. By day 30, you have a full pipeline, interviews happening, and a recruiting machine that didn't exist a month ago.
+                  We're sourcing candidates within 24 hours of kickoff. Not after a "discovery phase." Not after a deck. Day one we meet the team, get the roles, and start recruiting that same week. The infrastructure, ATS, interview plans, scorecards, process docs, gets built in parallel while candidates are already flowing. By day 30, you have a full pipeline, interviews happening, and a recruiting machine that didn't exist a month ago.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="hours" className="border border-zinc-800 bg-zinc-900/30 px-6">
@@ -430,7 +496,7 @@ export default function Pricing() {
                   How do you track hours?
                 </AccordionTrigger>
                 <AccordionContent className="text-zinc-400 text-sm leading-relaxed pb-5">
-                  Every hour is logged in Rebel Command with a description of what was done. You can see it anytime. No rounding up, no "admin time" padding. If I work 22.5 hours, you see 22.5 hours. Weekly reports break it down by activity category.
+                  Every hour is logged in Rebel Command with a description of what was done. You can see it anytime. No rounding up, no "admin time" padding. If we work 22.5 hours, you see 22.5 hours. Weekly reports break it down by activity category.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="contract" className="border border-zinc-800 bg-zinc-900/30 px-6">
@@ -471,7 +537,7 @@ export default function Pricing() {
               Ready for a Transparent Conversation?
             </h2>
             <p className="text-zinc-400 text-base mb-8 max-w-xl mx-auto">
-              30 minutes. I'll diagnose your hiring systems, tell you what's broken, and give you a straight answer on what it would cost to fix it. If we're not a fit, I'll tell you that too.
+              30 minutes. We'll diagnose your hiring systems, tell you what's broken, and give you a straight answer on what it would cost to fix it. If we're not a fit, we'll tell you that too. A vetted team under Richie's direction, and Richie is on every engagement and every hire.
             </p>
             <a href="/strategy-call" target="_blank" rel="noopener noreferrer" className="block sm:inline-block">
               <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-10 w-full sm:w-auto">

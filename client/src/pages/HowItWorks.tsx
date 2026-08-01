@@ -16,39 +16,39 @@ const faqSchema = {
       "name": "What is a Fractional Head of Talent/Lead Talent Consultant?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A Fractional Head of Talent/Lead Talent Consultant is an embedded recruiting leader who owns your entire talent acquisition function part-time, without the full-time executive cost. You get strategy, execution, ATS setup, process design, and hiring manager coaching, all in one."
+        "text": "A Fractional Head of Talent/Lead Talent Consultant is an embedded recruiting leader who owns your entire talent acquisition function part-time, without the full-time executive cost. Rebel Talent Systems is a vetted team working under Richie's direction, and Richie is on every engagement and every hire. You get strategy, execution, ATS setup, process design, and hiring manager coaching, all in one."
       }
     },
     {
       "@type": "Question",
-      "name": "How is fractional recruiting different from using an agency?",
+      "name": "How is embedded recruiting different from using an agency?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Agencies charge 20-25% per hire and leave nothing behind. A fractional recruiter embeds into your company, builds systems you own, and transfers all knowledge, ATS, SOPs, sourcing playbooks, when the engagement ends. You own the recruiting function, not just a hire."
+        "text": "Agencies charge per hire and leave nothing behind. We embed into your company, build systems you own, and transfer all knowledge, ATS, SOPs, sourcing playbooks, when the engagement ends. You own the recruiting function, not just a hire."
       }
     },
     {
       "@type": "Question",
-      "name": "How long does a fractional recruiting engagement last?",
+      "name": "How can we engage Rebel Talent Systems?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most engagements run 3-6 months. The goal is to build a recruiting infrastructure your team can own and operate independently. Month 1 is infrastructure build, Months 2-3 are execution and refinement, Month 4+ transitions ownership to your internal team."
+        "text": "Three ways. Embedded/Fractional runs on a monthly retainer where we run your recruiting function and hand it back. Retained Search is a defined role with a deadline, half down and half on placement. Contingent takes a deposit up front with the balance on placement. Contingent is a legitimate option, we are happy to go on the journey with you and your team, just not for free. Richie is on every engagement and every hire."
       }
     },
     {
       "@type": "Question",
-      "name": "What size companies does Rebel Talent work with?",
+      "name": "What size companies does Rebel Talent Systems work with?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Series A-C startups without an internal recruiting function, defense contractors needing cleared talent (Secret, TS, TS/SCI), and growth companies where hiring has become a bottleneck."
+        "text": "Series A through C startups and defense teams, roughly 15-400 people scaling fast. Cleared and noncleared, entry level through executive, wherever hiring has become a bottleneck."
       }
     },
     {
       "@type": "Question",
-      "name": "What roles does Rebel Talent fill?",
+      "name": "What roles does Rebel Talent Systems fill?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Forward Deployed Engineers (FDEs), AI/ML Engineers, GTM roles (AEs, SEs, RevOps, CSMs), cleared positions (Secret, TS, TS/SCI), backend engineers, geospatial scientists, executive and leadership searches."
+        "text": "Our recruiters specialize across tech, business process, and GTM/sales, plus govtech and leadership. Cleared and noncleared, entry level through executive, from Forward Deployed Engineers and AI/ML to GTM roles, operations, backend, and executive searches."
       }
     },
     {
@@ -56,7 +56,7 @@ const faqSchema = {
       "name": "What happens after the engagement ends?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You own everything, full ATS configuration, sourcing playbooks, SOPs, interview scorecards, active pipelines, and documented workflows. There is no vendor lock-in. Rebel Talent also helps you hire your internal TA person before exiting."
+        "text": "You own everything, full ATS configuration, sourcing playbooks, SOPs, interview scorecards, active pipelines, and documented workflows. There is no vendor lock-in. We also help you hire your internal TA person before exiting."
       }
     }
   ]
@@ -132,7 +132,7 @@ export default function HowItWorks() {
                 {
                   phase: "WEEK 1",
                   title: "See What You're Actually Up Against",
-                  intro: "I audit everything. Then I tell you the truth.",
+                  intro: "We audit everything. Then we tell you the truth.",
                   items: [
                     "Fix your ATS (or set one up that doesn't suck)",
                     "Rewire your sourcing strategy",
@@ -163,7 +163,7 @@ export default function HowItWorks() {
                 {
                   phase: "MONTH 4+",
                   title: "You Own It",
-                  intro: "I'm building myself out of a job. That's the point.",
+                  intro: "We build ourselves out of a job. That's the point.",
                   items: [
                     "Reduced scope as your team takes over",
                     "Help you find your internal TA person",
@@ -192,10 +192,43 @@ export default function HowItWorks() {
             </div>
           </div>
 
+          {/* Safe addition */}
+          <div className="mb-16" data-testid="section-offerings">
+            <ScrollReveal variant="fade-up">
+            <h2 className="font-display text-2xl font-bold text-white uppercase tracking-tight text-center mb-2" data-testid="heading-offerings">
+              Three Ways To Engage
+            </h2>
+            <p className="text-zinc-400 text-sm text-center mb-10">Richie is on every engagement and every hire.</p>
+            </ScrollReveal>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {[
+                {
+                  name: "Embedded / Fractional",
+                  line: "Monthly retainer. We run your recruiting function and hand it back.",
+                },
+                {
+                  name: "Retained Search",
+                  line: "A defined role with a deadline. Half down, half on placement.",
+                },
+                {
+                  name: "Contingent",
+                  line: "Deposit up front, balance on placement. We go on the journey with you, just not for free.",
+                },
+              ].map((offer, i) => (
+                <ScrollReveal key={offer.name} variant="fade-up" delay={i * 150}>
+                <GlowCard className="border border-zinc-800 bg-zinc-900/30 p-6 relative border-l-2 border-l-rebel-red h-full" data-testid={`card-offering-${offer.name.toLowerCase().replace(/[^a-z]+/g, "-").replace(/^-|-$/g, "")}`}>
+                  <h3 className="font-display text-lg font-bold text-white uppercase mb-2">{offer.name}</h3>
+                  <p className="text-zinc-400 text-sm leading-relaxed">{offer.line}</p>
+                </GlowCard>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+
           <div className="text-center mb-16" data-testid="section-handoff">
             <ScrollReveal variant="fade-up">
             <div className="inline-block w-16 h-0.5 bg-rebel-red mb-6" />
-            <h2 className="font-display text-2xl font-bold text-rebel-red uppercase mb-2">What You Get When I Leave</h2>
+            <h2 className="font-display text-2xl font-bold text-rebel-red uppercase mb-2">What You Get When We Leave</h2>
             <p className="text-zinc-400 text-sm italic mb-8">Everything. No vendor lock-in. You own it all.</p>
             </ScrollReveal>
 
@@ -232,11 +265,11 @@ export default function HowItWorks() {
               {[
                 {
                   q: '"Fractional Head of Talent/Lead Talent Consultant" = ?',
-                  a: "Strategic leadership without the full-time salary. I embed into your company, own the recruiting function, build infrastructure, and execute hires.",
+                  a: "Strategic leadership without the full-time salary. We embed into your company, own the recruiting function, build infrastructure, and execute hires. Rebel Talent Systems is a vetted team under Richie's direction, and Richie is on every engagement and every hire.",
                 },
                 {
                   q: "Agency vs. You?",
-                  a: "An agency is transactional, paid per hire and gone after placement. I'm embedded, focused on infrastructure and execution, measured by retention and pipeline velocity.",
+                  a: "An agency is transactional, paid per hire and gone after placement. We're embedded, focused on infrastructure and execution, measured by retention and pipeline velocity.",
                 },
                 {
                   q: "How do we engage?",
@@ -244,7 +277,7 @@ export default function HowItWorks() {
                 },
                 {
                   q: "How long does an engagement last?",
-                  a: "3-6 months to build + fill. Month-to-month after that. Walk anytime.",
+                  a: "It depends how you engage. Embedded/Fractional runs month-to-month on a retainer, walk anytime. Retained Search runs to a defined role and deadline. Contingent runs until the placement lands.",
                 },
                 {
                   q: "What company size?",
@@ -256,7 +289,7 @@ export default function HowItWorks() {
                 },
                 {
                   q: "Already have a recruiter?",
-                  a: "Perfect. I build systems for them to execute within, or handle the overflow.",
+                  a: "Perfect. We build systems for them to execute within, or handle the overflow.",
                 },
                 {
                   q: "What happens after you leave?",

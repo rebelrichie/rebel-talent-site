@@ -57,6 +57,45 @@
         });
       })();
     </script>
+    <!-- Safe addition — site-wide Organization + WebSite JSON-LD. Appears on every
+         prerendered page for a consistent knowledge-graph signal. Per-page Service /
+         FAQ / JobPosting schemas are still injected separately via react-helmet-async. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://rebeltalentsystems.com/#organization",
+          "name": "Rebel Talent Systems",
+          "url": "https://rebeltalentsystems.com",
+          "logo": "https://rebeltalentsystems.com/logo.png",
+          "description": "Rebel Talent Systems installs and runs your hiring infrastructure. Embedded, retained, and contingent recruiting across tech, business process, and go-to-market, cleared and noncleared, entry level through executive.",
+          "founder": { "@type": "Person", "name": "Richie Lampani" },
+          "telephone": "+1-770-233-7548",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3105 Canyon Point Cir",
+            "addressLocality": "Roswell",
+            "addressRegion": "GA",
+            "postalCode": "30076",
+            "addressCountry": "US"
+          },
+          "sameAs": [
+            "https://linkedin.com/in/richielampani",
+            "https://twitter.com/rebeltalent"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://rebeltalentsystems.com/#website",
+          "url": "https://rebeltalentsystems.com",
+          "name": "Rebel Talent Systems",
+          "publisher": { "@id": "https://rebeltalentsystems.com/#organization" }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

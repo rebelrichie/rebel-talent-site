@@ -14,10 +14,10 @@ export default function Advisory() {
     <PageLayout>
       <PageSEO
         title="AI for Recruiting Teams | Advisory & Build | Rebel Talent"
-        description="Three ways to put AI to work in recruiting: an audit and roadmap, an embedded build, or a live ride-along on active reqs. Built on a 27-agent production system."
+        description="Three ways to put AI to work in recruiting: an audit and roadmap, an embedded build, or a live ride-along on active reqs. Built on a full agent stack running in production."
         path="/advisory"
         ogTitle="AI for Recruiting Teams | Rebel Talent"
-        ogDescription="The tools exist. The strategy doesn't. I run a 27-agent recruiting system in production today, and I work with your team to figure out which parts of that you actually need."
+        ogDescription="The tools exist. The strategy doesn't. I run a full agent stack in production today, and I work with your team to figure out which parts of that you actually need."
         ogImage="og-services.png"
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
@@ -68,7 +68,7 @@ export default function Advisory() {
             </h2>
             <div className="space-y-5">
               <p className="text-[#3a3a3a] text-[17px] leading-[1.75]">
-                Over the last two years I built a custom 27-agent stack from scratch, sourcing, candidate communication, pipeline management, interview prep, follow-up. It runs on my own client engagements every week. Real candidates. Real placements. Real consequences when something breaks.
+                Over the last two years I built a custom agent stack from scratch, sourcing, candidate communication, pipeline management, interview prep, follow-up. It runs on my own client engagements every week. Real candidates. Real placements. Real consequences when something breaks.
               </p>
               <p className="text-[#3a3a3a] text-[17px] leading-[1.75]">
                 I've broken the system in ways most people haven't thought of yet. I've fixed it. That's the only thing that makes any of this worth your team's time. Not theory, scar tissue. And in cleared environments where most public AI tools can't legally run, I've built workflows that hold up to that scrutiny.
@@ -80,7 +80,7 @@ export default function Advisory() {
           <ScrollReveal variant="fade-up">
             <div className="mt-10 grid grid-cols-3 gap-[1px] bg-[#1A1A1A]">
               {[
-                { value: "27", label: "Autonomous agents in production" },
+                { value: "Full", label: "Autonomous agent stack in production" },
                 { value: "14+", label: "Years in high-stakes recruiting" },
                 { value: "Live", label: "Real client work running daily" },
               ].map((s) => (

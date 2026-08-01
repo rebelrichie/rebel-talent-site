@@ -1,35 +1,43 @@
 import { Switch, Route } from "wouter";
+import { lazy, Suspense } from "react";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { HelmetProvider } from "react-helmet-async";
 import Home from "@/pages/Home";
-import About from "@/pages/About";
-import Services from "@/pages/Services";
-import HowItWorks from "@/pages/HowItWorks";
-import Testimonials from "@/pages/Testimonials";
-import CaseStudies from "@/pages/CaseStudies";
-import Podcast from "@/pages/Podcast";
-import FreeTools from "@/pages/FreeTools";
-import CommandDemo from "@/pages/CommandDemo";
-import PrivacyPolicy from "@/pages/PrivacyPolicy";
-import Blog from "@/pages/Blog";
-import BlogPost from "@/pages/BlogPost";
-import Certification from "@/pages/Certification";
-import FractionalHeadOfTalent from "@/pages/FractionalHeadOfTalent";
-import Pricing from "@/pages/Pricing";
-import Advisory from "@/pages/Advisory";
-import StrategyCall from "@/pages/StrategyCall";
-import HiringReadiness from "@/pages/HiringReadiness";
-import Jobs from "@/pages/Jobs";
-import JobDetail from "@/pages/JobDetail";
-import JobApply from "@/pages/JobApply";
-import GeneralApply from "@/pages/GeneralApply";
-import NotFound from "@/pages/not-found";
+
+// Safe addition — route-level code splitting. Home stays eager (primary LCP
+// entry, no Suspense flash on the top landing page); every other route is
+// lazy-loaded so it no longer weighs down the initial JS bundle. The Puppeteer
+// prerender waits for networkidle0, so each lazy chunk resolves before the
+// static HTML snapshot is captured (SEO-safe).
+const About = lazy(() => import("@/pages/About"));
+const Services = lazy(() => import("@/pages/Services"));
+const HowItWorks = lazy(() => import("@/pages/HowItWorks"));
+const Testimonials = lazy(() => import("@/pages/Testimonials"));
+const CaseStudies = lazy(() => import("@/pages/CaseStudies"));
+const Podcast = lazy(() => import("@/pages/Podcast"));
+const FreeTools = lazy(() => import("@/pages/FreeTools"));
+const CommandDemo = lazy(() => import("@/pages/CommandDemo"));
+const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
+const Blog = lazy(() => import("@/pages/Blog"));
+const BlogPost = lazy(() => import("@/pages/BlogPost"));
+const Certification = lazy(() => import("@/pages/Certification"));
+const FractionalHeadOfTalent = lazy(() => import("@/pages/FractionalHeadOfTalent"));
+const Pricing = lazy(() => import("@/pages/Pricing"));
+const Advisory = lazy(() => import("@/pages/Advisory"));
+const StrategyCall = lazy(() => import("@/pages/StrategyCall"));
+const HiringReadiness = lazy(() => import("@/pages/HiringReadiness"));
+const Jobs = lazy(() => import("@/pages/Jobs"));
+const JobDetail = lazy(() => import("@/pages/JobDetail"));
+const JobApply = lazy(() => import("@/pages/JobApply"));
+const GeneralApply = lazy(() => import("@/pages/GeneralApply"));
+const NotFound = lazy(() => import("@/pages/not-found"));
 
 function Router() {
   return (
+    <Suspense fallback={<div className="min-h-screen bg-rebel-space" />}>
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
@@ -67,6 +75,7 @@ function Router() {
       <Route path="/abcr-certification">{() => { window.location.href = "/certification"; return null; }}</Route>
       <Route component={NotFound} />
     </Switch>
+    </Suspense>
   );
 }
 

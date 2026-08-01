@@ -39,11 +39,15 @@ export default function FractionalHeadOfTalent() {
   return (
     <PageLayout>
       <PageSEO
-        title="Fractional Head of Talent/Lead Talent Consultant | Richie Lampani"
+        title="Fractional Head of Talent | Rebel Talent Systems"
         description="A Fractional Head of Talent/Lead Talent Consultant who embeds, owns your recruiting function, and builds infrastructure that outlasts the engagement. 14+ yrs."
         path="/fractional-head-of-talent"
         ogImage="og-fractional.png"
         schemas={[fractionalSchema]}
+        breadcrumbs={[
+          { name: "Home", item: "https://rebeltalentsystems.com/" },
+          { name: "Fractional Head of Talent", item: "https://rebeltalentsystems.com/fractional-head-of-talent" },
+        ]}
       />
 
       {/* HERO, Hunt Club / Riviera register */}
