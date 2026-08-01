@@ -124,7 +124,7 @@ const faqSchema = {
 
 const OFFERINGS = [
   {
-    tag: "EMBEDDED / FRACTIONAL",
+    tag: "FLAGSHIP",
     title: "Embedded / Fractional",
     terms: "Monthly retainer · 3-month minimum",
     sub: "Our flagship engagement",
@@ -140,7 +140,7 @@ const OFFERINGS = [
     featured: true,
   },
   {
-    tag: "RETAINED SEARCH",
+    tag: "DEFINED ROLE",
     title: "Retained Search",
     terms: "Half down, half on placement",
     sub: "A defined role with a deadline",
@@ -155,7 +155,7 @@ const OFFERINGS = [
     featured: false,
   },
   {
-    tag: "CONTINGENT",
+    tag: "SINGLE ROLE",
     title: "Contingent",
     terms: "Deposit up front, balance on placement",
     sub: "One of three legitimate offerings",
