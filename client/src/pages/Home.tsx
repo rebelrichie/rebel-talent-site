@@ -959,9 +959,9 @@ export default function Home() {
                 {/* Three engagement teasers */}
                 <div className="grid sm:grid-cols-3 gap-[1px] bg-zinc-800/60 mb-8">
                   {[
-                    { tag: "Start Here", title: "The Audit", sub: "2–4 wk roadmap" },
+                    { tag: "Start Here", title: "The Audit", sub: "2-4 wk roadmap" },
                     { tag: "Embedded", title: "The Build", sub: "Monthly retainer" },
-                    { tag: "Ride-Along", title: "The Lab", sub: "6–8 wks on live reqs" },
+                    { tag: "Ride-Along", title: "The Lab", sub: "6-8 wks on live reqs" },
                   ].map((e) => (
                     <div key={e.title} className="bg-zinc-900/80 px-4 py-4">
                       <div className="font-mono text-rebel-red text-[11px] tracking-[0.15em] uppercase mb-1">{e.tag}</div>

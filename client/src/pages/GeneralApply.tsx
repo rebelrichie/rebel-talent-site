@@ -408,7 +408,7 @@ function Field({
     <div>
       <label className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
         {label}{required && <span className="text-rebel-red ml-1">*</span>}
-        {hint && <span className="text-zinc-400 normal-case font-normal tracking-normal ml-2">— {hint}</span>}
+        {hint && <span className="text-zinc-600 normal-case font-normal tracking-normal ml-2">- {hint}</span>}
       </label>
       {children}
     </div>

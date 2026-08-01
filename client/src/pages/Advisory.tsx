@@ -126,7 +126,7 @@ export default function Advisory() {
           <div className="flex flex-col gap-[2px]">
             {[
               {
-                tag: "Start Here · 2–4 weeks",
+                tag: "Start Here · 2-4 weeks",
                 title: "The Audit",
                 body: "An assessment of how your recruiting team works today. I sit in on pipeline reviews, walk your ATS, watch a sourcing pass, and shadow at least one interview cycle. You get back a written read-out of where AI saves real hours, where it would create new problems, and a prioritized roadmap your team can act on. No vendor shortlist. No platform pitch.",
                 outcome: "Outcome: a written roadmap your team can act on with or without me.",
@@ -140,11 +140,11 @@ export default function Advisory() {
                 fit: "Fit: organizations ready to ship and willing to do the work.",
               },
               {
-                tag: "Live Ride-Along · 6–8 weeks",
+                tag: "Live Ride-Along · 6-8 weeks",
                 title: "The Lab",
-                body: "Not a workshop. Not a cohort. A six-to-eight-week ride-along where your team learns by working real searches with me. Weeks 1–2: I run two or three of your active reqs alongside the team using my agents, they watch the agents move outreach, screening, and prep. Weeks 3–5: each recruiter takes one of those agents and adapts it to a req they own, deployed in your actual ATS. Weeks 6–8: I step back. Your team runs their reqs with the agents they built, and I'm there for issue triage when something breaks. We close with a written handoff packet, what's running, what to keep, what to kill, and what comes next.",
+                body: "Not a workshop. Not a cohort. A six-to-eight-week ride-along where your team learns by working real searches with me. Weeks 1-2: I run two or three of your active reqs alongside the team using my agents, they watch the agents move outreach, screening, and prep. Weeks 3-5: each recruiter takes one of those agents and adapts it to a req they own, deployed in your actual ATS. Weeks 6-8: I step back. Your team runs their reqs with the agents they built, and I'm there for issue triage when something breaks. We close with a written handoff packet, what's running, what to keep, what to kill, and what comes next.",
                 outcome: "Outcome: your team owns and runs working agents on real reqs, independently, in your stack.",
-                fit: "Fit: recruiting and talent teams of 5–30 who need to move from \"we should be using AI\" to \"three of our recruiters are using it on this week's pipeline.\"",
+                fit: "Fit: recruiting and talent teams of 5-30 who need to move from \"we should be using AI\" to \"three of our recruiters are using it on this week's pipeline.\"",
               },
             ].map((tier, i) => (
               <ScrollReveal key={tier.title} variant="fade-up" delay={i * 100}>

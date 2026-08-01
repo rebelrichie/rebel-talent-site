@@ -1,4 +1,4 @@
-// Safe addition – Blog index page fetching from public API
+// Safe addition - Blog index page fetching from public API
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { ArrowRight, Clock, Tag } from "lucide-react";
