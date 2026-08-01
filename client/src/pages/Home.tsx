@@ -255,19 +255,29 @@ export default function Home() {
         <h1 className="sr-only">Rebel Talent Systems, hiring infrastructure for venture-backed and defense teams. Cleared and noncleared roles, entry level through executive.</h1>
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 pt-6 sm:pt-24 lg:pt-36 pb-12 sm:pb-20 z-10">
-          {/* Eyebrow */}
-          <p className="font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase text-zinc-400 mb-8 sm:mb-12">
-            Hiring Infrastructure · Venture-Backed &amp; Defense
-          </p>
+          {/* Safe addition — eyebrow with live "accepting engagements" status dot */}
+          <div className="flex items-center gap-2.5 mb-8 sm:mb-12" style={{ animation: "heroLineIn 0.5s ease-out 0.05s both" }}>
+            <span className="relative flex h-2 w-2 shrink-0" aria-hidden="true">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-70" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+            </span>
+            <p className="font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase text-zinc-400">
+              Hiring &amp; Talent Infrastructure · Venture-Backed &amp; Defense
+            </p>
+          </div>
 
           {/* Hero headline — Archivo Expanded (wdth=125) is ~25% wider; 6vw keeps
-              all three lines on one line each at 1204px+ viewports */}
+              each line on its own line at 1204px+ viewports.
+              Safe addition: repositioned copy, aspirational last line in brand gradient */}
           <h2
             className="font-display font-black text-white leading-[1.05] sm:leading-[0.97]"
             style={{ fontSize: "clamp(2rem, 6vw, 5rem)", letterSpacing: "-0.01em" }}
           >
             <span className="block" style={{ animation: "heroRise 0.5s ease-out 0.1s both" }}>
-              You don&rsquo;t have a
+              Recruiting that scales
+            </span>
+            <span className="block" style={{ animation: "heroRise 0.5s ease-out 0.3s both" }}>
+              with the company
             </span>
             <span
               className="block"
@@ -276,13 +286,10 @@ export default function Home() {
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
-                animation: "heroRise 0.5s ease-out 0.35s both",
+                animation: "heroRise 0.5s ease-out 0.5s both",
               }}
             >
-              recruiting problem.
-            </span>
-            <span className="block" style={{ animation: "heroRise 0.5s ease-out 0.6s both" }}>
-              You have an infrastructure gap.
+              you&rsquo;re becoming.
             </span>
           </h2>
 
@@ -307,10 +314,24 @@ export default function Home() {
             </span>
           </div>
 
-          {/* Subhead */}
+          {/* Subhead — Safe addition: three-offering, full-coverage positioning; key phrase brightened for scannability */}
           <p className="mt-7 sm:mt-10 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]" style={{ animation: "heroLineIn 0.5s ease-out 1.2s both" }}>
-            Rebel Talent Systems installs your hiring infrastructure and runs it, then hands it back. Embedded, retained, or contingent with a deposit. Our recruiters cover tech, business process, and GTM and sales, cleared and noncleared, entry level through executive, for Series A through C and defense teams.
+            Rebel Talent Systems fills your open roles and builds the system underneath them.{" "}
+            <span className="text-zinc-200 font-medium">Embedded, retained, or contingent with a deposit.</span>{" "}
+            Technical, business process, GTM and sales. Cleared and noncleared, entry level through executive, for Series A through C companies and defense teams.
           </p>
+
+          {/* Safe addition — three-offering chip row, reinforces the engagement models at a glance */}
+          <div className="mt-6 flex flex-wrap gap-2" style={{ animation: "heroLineIn 0.5s ease-out 1.35s both" }}>
+            {["Embedded", "Retained", "Contingent"].map((label) => (
+              <span
+                key={label}
+                className="font-mono text-[10px] sm:text-xs tracking-[0.18em] uppercase text-zinc-300 border border-zinc-700/80 bg-zinc-900/40 rounded-full px-3.5 py-1.5"
+              >
+                {label}
+              </span>
+            ))}
+          </div>
 
           {/* Single primary CTA + understated secondary link */}
           <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-y-3 sm:gap-y-4 gap-x-8">
