@@ -50,6 +50,34 @@ const STATS = [
   { value: "90%+", label: "Offer acceptance rate" },
 ];
 
+// Safe addition, JD teardown annotations for the sample section
+const ANNOTATIONS = [
+  {
+    lead: "No salary posted.",
+    body: "There are only a few thousand people in the country with an active full scope polygraph and this skill set. Every one of them has options. None of them will spend twenty minutes applying to find out what it pays. Posting the band is the single largest response-rate lever in cleared hiring and it costs nothing.",
+  },
+  {
+    lead: "Degree required.",
+    body: "A large share of the cleared population came up through the military and contractor pipelines and never finished a degree. The clearance took five years and a polygraph to earn. The degree filters out qualified people and adds nothing that the clearance and the work history do not already prove.",
+  },
+  {
+    lead: "Ten years and a required certification.",
+    body: "Both numbers are arbitrary and both shrink a pool that is already tiny. Someone with six years running the same stack in the same environment can do this job. Someone who has run BGP in production for a decade and never sat the CCNP exam can do this job. Move certifications to preferred.",
+  },
+  {
+    lead: "Cisco, Juniper, F5, and Linux, all required.",
+    body: "Almost nobody is deep in all four. Listing them together tells a strong candidate they are underqualified when they are not, and it tells a weak one to apply anyway because nobody could match it. Name the stack the job is actually about and move the rest to preferred.",
+  },
+  {
+    lead: "“Must be able to obtain and maintain required clearances.”",
+    body: "The posting already requires an active TS/SCI with full scope polygraph. This line contradicts it and it means the template was copied without being read. A cleared candidate reads that as a company that does not understand its own requirement, and it is the fastest way to lose someone who has thirty other options.",
+  },
+  {
+    lead: "The first hundred words say nothing.",
+    body: "Dynamic team. Critical customer mission. Self-starter. Fast-paced environment. In a market where the candidate is choosing between offers, the opening paragraph is the only real estate that matters, and this one spends it on words that describe every job ever posted. Tell them what they will own and why it matters.",
+  },
+];
+
 const PRICING = [
   {
     title: "Hiring Audit",
@@ -249,32 +277,126 @@ export default function Advisory() {
 
       {/* SHOW THE WORK */}
       <section className="bg-rebel-space py-16 sm:py-24 border-t border-zinc-900">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
+        <div className="max-w-6xl mx-auto px-6 lg:px-12">
           <ScrollReveal variant="fade-up">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 max-w-2xl mx-auto">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">A SAMPLE</div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight" data-testid="heading-sample">
               What the audit actually finds
             </h2>
+            <p className="text-zinc-400 text-sm mt-3 leading-relaxed">
+              This is a composite of cleared postings I read every week. Nothing here is unusual. Every one of these is costing somebody a hire right now.
+            </p>
           </div>
           </ScrollReveal>
 
-          {/* CONTENT SLOT, Richie to supply the real artifact.
-              Either (a) a comp band with range and reasoning, or
-              (b) a job description teardown, before and after, with 2-3 annotations. */}
+          {/* Before / after JD teardown */}
           <ScrollReveal variant="fade-up">
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="border border-dashed border-zinc-700 bg-zinc-900/30 p-8 min-h-[16rem] flex flex-col">
-              <div className="font-mono text-zinc-500 text-xs tracking-[0.2em] uppercase mb-4">BEFORE</div>
-              <p className="text-zinc-600 text-sm italic">
-                [ Sample slot. Drop the original job description or the comp number as budgeted. ]
-              </p>
+          <div className="grid md:grid-cols-2 gap-4 items-start">
+            {/* BEFORE, deliberately dead */}
+            <div className="border border-zinc-800 bg-zinc-900/20 p-6 sm:p-8">
+              <div className="font-mono text-zinc-600 text-xs tracking-[0.25em] uppercase mb-6">BEFORE</div>
+              <div className="font-mono text-sm leading-relaxed text-zinc-500 space-y-4">
+                <p className="text-zinc-400 font-semibold">Senior Network Engineer</p>
+                <p>
+                  Company X is seeking a highly motivated Senior Network Engineer to join our dynamic team supporting a critical customer mission. The ideal candidate will be a self-starter with excellent communication skills who thrives in a fast-paced environment.
+                </p>
+                <div>
+                  <p className="text-zinc-400 uppercase text-xs tracking-wider mb-2">Responsibilities</p>
+                  <ul className="space-y-1 list-disc pl-5">
+                    <li>Design, implement, and maintain complex network infrastructure</li>
+                    <li>Troubleshoot network issues and provide Tier 3 support</li>
+                    <li>Collaborate with cross-functional teams</li>
+                    <li>Other duties as assigned</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-zinc-400 uppercase text-xs tracking-wider mb-2">Required Qualifications</p>
+                  <ul className="space-y-1 list-disc pl-5">
+                    <li>Bachelor's degree in Computer Science or related field</li>
+                    <li>10+ years of network engineering experience</li>
+                    <li>Active TS/SCI with full scope polygraph</li>
+                    <li>CCNP or equivalent certification required</li>
+                    <li>Experience with Cisco, Juniper, F5, and Linux</li>
+                    <li>Must be able to obtain and maintain required clearances</li>
+                    <li>Excellent written and verbal communication skills</li>
+                  </ul>
+                </div>
+                <p>Salary: Commensurate with experience</p>
+              </div>
             </div>
-            <div className="border border-dashed border-rebel-red/40 bg-rebel-red/5 p-8 min-h-[16rem] flex flex-col">
-              <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-4">AFTER</div>
-              <p className="text-zinc-500 text-sm italic">
-                [ Sample slot. The rewrite or the real market band, with two or three annotations on what changed and why it matters. ]
-              </p>
+
+            {/* AFTER, alive */}
+            <div className="border border-rebel-red/40 bg-zinc-900/50 p-6 sm:p-8">
+              <div className="font-mono text-rebel-red text-xs tracking-[0.25em] uppercase mb-6">AFTER</div>
+              <div className="font-mono text-sm leading-relaxed text-zinc-300 space-y-4">
+                <p className="text-white font-semibold">Network Engineer, SME</p>
+                <p className="text-zinc-400">
+                  Chantilly, VA. Onsite five days. Active TS/SCI with full scope polygraph required on day one.
+                </p>
+                <p className="text-rebel-red font-semibold text-base">$245,000 to $285,000</p>
+                <p>
+                  You will own the network for a program that cannot go down. Routing and switching across a Cisco enterprise stack, inside the SCIF, with the latitude to fix what is broken rather than file a ticket about it.
+                </p>
+                <div>
+                  <p className="text-white uppercase text-xs tracking-wider mb-2">What you will do</p>
+                  <ul className="space-y-1 list-disc pl-5">
+                    <li>Own routing and switching design across Nexus, Catalyst, and ASR</li>
+                    <li>Run BGP and EIGRP in an environment where a bad change is a mission impact</li>
+                    <li>Take the escalations nobody else can close</li>
+                    <li>Set the standard the junior engineers learn from</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-white uppercase text-xs tracking-wider mb-2">What you need</p>
+                  <ul className="space-y-1 list-disc pl-5">
+                    <li>Active TS/SCI with full scope polygraph</li>
+                    <li>Deep hands-on routing and switching in a production enterprise environment</li>
+                    <li>Judgment under pressure and the willingness to say a change is a bad idea</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-white uppercase text-xs tracking-wider mb-2">Preferred</p>
+                  <ul className="space-y-1 list-disc pl-5">
+                    <li>Cisco stack depth: Nexus, Catalyst, ASR, NGFW</li>
+                    <li>CCNP or CCIE</li>
+                    <li>Prior work inside a SCIF</li>
+                  </ul>
+                </div>
+                <p className="text-zinc-400">
+                  We do not require a degree. We do not care how many years it took you to get good.
+                </p>
+              </div>
+            </div>
+          </div>
+          </ScrollReveal>
+
+          {/* Annotation list */}
+          <ScrollReveal variant="fade-up">
+          <ol className="mt-12 space-y-6 max-w-3xl">
+            {ANNOTATIONS.map((a, i) => (
+              <li key={i} className="flex gap-4">
+                <span className="font-display text-rebel-red text-lg font-bold shrink-0 w-6 text-right">{i + 1}</span>
+                <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+                  <span className="text-white font-semibold">{a.lead}</span> {a.body}
+                </p>
+              </li>
+            ))}
+          </ol>
+          </ScrollReveal>
+
+          {/* Closing line + CTA */}
+          <ScrollReveal variant="fade-up" delay={120}>
+          <div className="mt-14 border-t border-zinc-800 pt-10">
+            <p className="font-display text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug max-w-3xl">
+              Six changes. No new budget, no new headcount, no new recruiter. That is what the audit is.
+            </p>
+            <div className="mt-8">
+              <a href="/strategy-call" target="_blank" rel="noopener noreferrer" onClick={hapticTap} data-testid="button-advisory-sample-cta" className="block sm:inline-block">
+                <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
+                  Book a call <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </a>
             </div>
           </div>
           </ScrollReveal>
