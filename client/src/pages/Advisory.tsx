@@ -18,8 +18,8 @@ const advisorySchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Talent Advisory",
-  "serviceType": "Talent and hiring advisory: hiring plans, comp bands, interview design, offer strategy",
-  "description": "Advisory for founders and heads of talent who need judgment rather than delivery. Comp benchmarking, job description rewrites, interview design, and offer strategy from an operator who fills these roles every week. Available as a one-time audit, a monthly retainer, or an advisory seat.",
+  "serviceType": "Talent and hiring advisory: feasibility, AI strategy, recruiting infrastructure, retained advisory",
+  "description": "Advisory for founders and heads of talent who need judgment rather than delivery. Talent feasibility and hiring plans, AI strategy and implementation, recruiting infrastructure builds, and a monthly advisory retainer, from an operator who fills these roles every week.",
   "provider": {
     "@type": "Organization",
     "name": "Rebel Talent Systems",
@@ -32,13 +32,16 @@ const advisorySchema = {
 // Safe addition, symptom list, each renders as its own block
 const SYMPTOMS = [
   "Your req has been open 90 days and you have seen four candidates.",
-  "Every finalist takes the counteroffer and stays.",
-  "Your comp band was set eighteen months ago against a market that moved.",
-  "You are running seven interview rounds for a role that needs three.",
-  "Your first sales hire failed and nobody can tell you whether it was the person or the role.",
   "You budgeted for a cleared engineer at a number that does not exist.",
   "Your timeline assumed a clearance transfer that is not going to happen.",
   "You have three open roles and no idea which one to fill first.",
+  "You are hiring against a headcount plan nobody pressure tested.",
+  "Your ATS is a spreadsheet and your pipeline lives in someone's inbox.",
+  "Your first recruiter starts in three weeks and there is nothing for them to run.",
+  "You won the contract and now you have ninety days to staff it.",
+  "You are paying for four AI recruiting tools and cannot say what any of them changed.",
+  "A vendor told you their model finds candidates nobody else can and you have no way to check.",
+  "Somebody put a cleared candidate's resume into a public chatbot and nobody noticed.",
 ];
 
 // Safe addition, proof band stats
@@ -50,72 +53,82 @@ const STATS = [
   { value: "90%+", label: "Offer acceptance rate" },
 ];
 
-// Safe addition, JD teardown annotations for the sample section
-const ANNOTATIONS = [
-  {
-    lead: "No salary posted.",
-    body: "There are only a few thousand people in the country with an active full scope polygraph and this skill set. Every one of them has options. None of them will spend twenty minutes applying to find out what it pays. Posting the band is the single largest response-rate lever in cleared hiring and it costs nothing.",
-  },
-  {
-    lead: "Degree required.",
-    body: "A large share of the cleared population came up through the military and contractor pipelines and never finished a degree. The clearance took five years and a polygraph to earn. The degree filters out qualified people and adds nothing that the clearance and the work history do not already prove.",
-  },
-  {
-    lead: "Ten years and a required certification.",
-    body: "Both numbers are arbitrary and both shrink a pool that is already tiny. Someone with six years running the same stack in the same environment can do this job. Someone who has run BGP in production for a decade and never sat the CCNP exam can do this job. Move certifications to preferred.",
-  },
-  {
-    lead: "Cisco, Juniper, F5, and Linux, all required.",
-    body: "Almost nobody is deep in all four. Listing them together tells a strong candidate they are underqualified when they are not, and it tells a weak one to apply anyway because nobody could match it. Name the stack the job is actually about and move the rest to preferred.",
-  },
-  {
-    lead: "“Must be able to obtain and maintain required clearances.”",
-    body: "The posting already requires an active TS/SCI with full scope polygraph. This line contradicts it and it means the template was copied without being read. A cleared candidate reads that as a company that does not understand its own requirement, and it is the fastest way to lose someone who has thirty other options.",
-  },
-  {
-    lead: "The first hundred words say nothing.",
-    body: "Dynamic team. Critical customer mission. Self-starter. Fast-paced environment. In a market where the candidate is choosing between offers, the opening paragraph is the only real estate that matters, and this one spends it on words that describe every job ever posted. Tell them what they will own and why it matters.",
-  },
-];
-
 const PRICING = [
   {
-    title: "Hiring Audit",
-    price: "$5,000",
+    title: "Talent Feasibility & Hiring Plan",
+    price: "$7,500",
     cadence: "one-time",
     featured: false,
     bullets: [
-      "Comp benchmarking on your open roles against real market data",
-      "Job description teardown and rewrite, up to five roles",
-      "Interview process review and where you are losing candidates",
+      "Market sizing on your open roles. How many people actually exist, where they are, and who employs them now",
+      "Real compensation to win them, not the number you wish worked",
+      "Honest timeline per role, including clearance and relocation reality",
+      "Role sequencing. Which one you fill first and why the order matters",
+      "What breaks the plan, before it breaks",
       "Written findings and a 90 minute readout",
     ],
-    note: "Credited toward your first month if you move to a retainer within 30 days.",
+    note: "Credited toward the first month if you move to a retainer within 30 days.",
+  },
+  {
+    title: "AI Strategy & Implementation",
+    price: "$10,000",
+    cadence: "one-time",
+    featured: false,
+    bullets: [
+      "Audit of every AI tool you are paying for, what it actually does, and what overlaps with something you already own",
+      "What AI is genuinely good at in hiring, and what the vendor demo was hiding",
+      "Where it belongs in your workflow and where a human has to stay",
+      "Data handling. What can go into a model, what cannot, and what that means when the candidate holds a clearance",
+      "Compliance exposure. Bias audit and candidate notice obligations depend on where the candidate lives, and the rules are moving",
+      "A build versus buy call on each piece, with what it costs either way",
+      "Implementation plan your team can execute, not a slide deck",
+    ],
+    note: "Most clients cut spend in the first month.",
+  },
+  {
+    title: "Recruiting Infrastructure Build",
+    pricePrefix: "Starts at",
+    price: "$25,000",
+    featured: true,
+    bullets: [
+      "ATS selection and configuration, or a rebuild of the one you have",
+      "Workflows, stages, and pipeline reporting your leadership will read",
+      "Sourcing frameworks and trackers your team can run without me",
+      "Intake templates, interview guides, and scorecards",
+      "A runbook your first recruiter can follow on day one",
+      "You own all of it. Nothing here is rented and nothing depends on me",
+    ],
+    note: "Typically six to ten weeks. Scoped after a short call.",
   },
   {
     title: "Advisory Retainer",
     price: "$5,000",
     cadence: "per month, three month minimum",
     priceSub: "$7,500 per month for defense and cleared hiring",
-    featured: true,
+    featured: false,
     bullets: [
-      "Roughly six hours a month",
-      "Hiring plan and role sequencing",
-      "Comp bands and offer strategy",
-      "Interview design and scorecards",
+      "Market reads on new roles before you post them",
+      "Compensation checks against live search data",
+      "Plan adjustments as headcount and funding move",
+      "Process fixes when a search stalls",
       "Direct access between calls",
     ],
   },
+];
+
+// Safe addition, AI stance statements
+const AI_POINTS = [
   {
-    title: "Advisory or Board Seat",
-    price: "Equity",
-    cadence: "or cash plus equity",
-    featured: false,
-    bullets: [
-      "Ongoing counsel on talent strategy",
-      "Standard advisor terms, two year vest",
-      "By conversation",
-    ],
+    lead: "What works:",
+    body: "drafting and research, synthesizing screen notes, interview briefs, pipeline reporting, everything that shortens the time between a decision and the work.",
+  },
+  {
+    lead: "What does not:",
+    body: "ranking humans, scoring interviews, and any tool that promises to tell you who to hire. Those create legal exposure and they are not good at it.",
+  },
+  {
+    lead: "What nobody tells you:",
+    body: "if your candidates hold clearances, most of what the market is selling you is not safe to use on them.",
   },
 ];
 
@@ -123,11 +136,11 @@ export default function Advisory() {
   return (
     <PageLayout>
       <PageSEO
-        title="Talent Advisory | Comp, Process & Offer Strategy | Rebel Talent Systems"
-        description="Advisory for founders and heads of talent who need judgment, not delivery. Comp benchmarking, interview design, and offer strategy from an operator who fills these roles every week. One-time audit, monthly retainer, or advisory seat."
+        title="Talent Advisory | Feasibility, AI Strategy & Recruiting Infrastructure | Rebel Talent Systems"
+        description="Advisory for founders and heads of talent who need judgment, not delivery. Talent feasibility and hiring plans, AI strategy, recruiting infrastructure builds, and a monthly retainer, from an operator who fills these roles every week."
         path="/advisory"
         ogTitle="Talent Advisory | Rebel Talent Systems"
-        ogDescription="Most hiring problems are not search problems. They are comp problems, process problems, and scope problems. I fix those."
+        ogDescription="Before you spend six months failing to hire someone, find out whether they exist, what they cost, and how long it actually takes."
         ogImage="og-services.png"
         schemas={[advisorySchema]}
         breadcrumbs={[
@@ -150,7 +163,7 @@ export default function Advisory() {
             Advisory
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            Most hiring problems are not search problems. They are comp problems, process problems, and scope problems. I fix those.
+            Before you spend six months failing to hire someone, find out whether they exist, what they cost, and how long it actually takes.
           </p>
           <div className="mt-8 sm:mt-10">
             <a href="/strategy-call" target="_blank" rel="noopener noreferrer" onClick={hapticTap} data-testid="button-advisory-hero-cta" className="block sm:inline-block">
@@ -175,7 +188,7 @@ export default function Advisory() {
           </ScrollReveal>
           <div className="space-y-7 sm:space-y-9">
             {SYMPTOMS.map((s, i) => (
-              <ScrollReveal key={i} variant="fade-up" delay={i * 60}>
+              <ScrollReveal key={i} variant="fade-up" delay={i * 40}>
                 <p className="text-zinc-200 text-lg sm:text-2xl leading-snug border-l-2 border-rebel-red/40 pl-5">
                   {s}
                 </p>
@@ -211,26 +224,26 @@ export default function Advisory() {
         </div>
       </section>
 
-      {/* THREE WAYS IN, PRICING */}
+      {/* FOUR WAYS IN, PRICING */}
       <section className="bg-zinc-950 py-16 sm:py-24 border-t border-zinc-900">
-        <div className="max-w-6xl mx-auto px-6 lg:px-12">
+        <div className="max-w-5xl mx-auto px-6 lg:px-12">
           <ScrollReveal variant="fade-up">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 max-w-2xl mx-auto">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">HOW TO ENGAGE</div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight" data-testid="heading-pricing">
-              Three Ways In
+              Four Ways In
             </h2>
-            <p className="text-zinc-400 text-sm mt-3 max-w-lg mx-auto">
-              Start with an audit, run a retainer, or bring me on as an advisor. Every one is priced up front.
+            <p className="text-zinc-400 text-sm mt-3">
+              Find out if the plan is real, sort out your AI stack, build the system that runs it, or keep me on call. Every one is priced up front.
             </p>
           </div>
           </ScrollReveal>
 
-          <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0 md:overflow-x-visible items-stretch">
+          <div className="grid sm:grid-cols-2 gap-4 items-stretch">
             {PRICING.map((p, i) => (
-              <ScrollReveal key={p.title} variant="fade-up" delay={i * 120}>
+              <ScrollReveal key={p.title} variant="fade-up" delay={i * 100}>
               <GlowCard
-                className={`relative p-8 snap-start shrink-0 w-[82vw] md:w-auto h-full flex flex-col ${p.featured ? "border border-rebel-red/50 bg-rebel-red/5" : "border border-zinc-800 bg-zinc-900/50"}`}
+                className={`relative p-8 h-full flex flex-col ${p.featured ? "border border-rebel-red/50 bg-rebel-red/5" : "border border-zinc-800 bg-zinc-900/50"}`}
                 data-testid={`card-pricing-${p.title.toLowerCase().split(" ")[0]}`}
               >
                 {p.featured && (
@@ -240,8 +253,13 @@ export default function Advisory() {
                 )}
                 <h3 className={`font-display text-xl font-bold text-white uppercase mb-4 ${p.featured ? "mt-3" : ""}`}>{p.title}</h3>
                 <div className="mb-1">
+                  {p.pricePrefix && (
+                    <span className="text-zinc-400 font-mono text-sm mr-2">{p.pricePrefix}</span>
+                  )}
                   <span className="font-display text-3xl font-extrabold text-white tracking-tight">{p.price}</span>
-                  <span className="text-zinc-400 font-mono text-sm ml-2">{p.cadence}</span>
+                  {p.cadence && (
+                    <span className="text-zinc-400 font-mono text-sm ml-2">{p.cadence}</span>
+                  )}
                 </div>
                 {p.priceSub && (
                   <p className="text-rebel-red font-mono text-xs mb-5">{p.priceSub}</p>
@@ -264,7 +282,10 @@ export default function Advisory() {
           </div>
 
           <ScrollReveal variant="fade-up" delay={200}>
-          <div className="text-center mt-10">
+          <p className="text-zinc-400 text-sm text-center mt-8 max-w-2xl mx-auto">
+            Board and advisory seats are available on standard terms, cash or equity. Ask on the call.
+          </p>
+          <div className="text-center mt-8">
             <a href="/strategy-call" target="_blank" rel="noopener noreferrer" onClick={hapticTap} data-testid="button-advisory-pricing-cta" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
                 Book a call <ArrowRight className="ml-2 w-4 h-4" />
@@ -275,131 +296,33 @@ export default function Advisory() {
         </div>
       </section>
 
-      {/* SHOW THE WORK */}
+      {/* WHY ME ON AI */}
       <section className="bg-rebel-space py-16 sm:py-24 border-t border-zinc-900">
-        <div className="max-w-6xl mx-auto px-6 lg:px-12">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <ScrollReveal variant="fade-up">
-          <div className="text-center mb-12 max-w-2xl mx-auto">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">A SAMPLE</div>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight" data-testid="heading-sample">
-              What the audit actually finds
-            </h2>
-            <p className="text-zinc-400 text-sm mt-3 leading-relaxed">
-              This is a composite of cleared postings I read every week. Nothing here is unusual. Every one of these is costing somebody a hire right now.
-            </p>
-          </div>
+          <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">ON AI SPECIFICALLY</div>
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight max-w-3xl">
+            I built the thing, so I know what it can and cannot do
+          </h2>
+          <p className="mt-6 text-zinc-300 text-base sm:text-lg leading-relaxed max-w-3xl">
+            I wrote Head and Heart: Winning the AI Recruiting War. I built my own applicant tracking system, CRM, and candidate portal from scratch rather than licensing someone else's. And I run AI inside live cleared searches every week, which means the advice comes from what works on Monday, not from a vendor roadmap.
+          </p>
+          <p className="mt-4 text-zinc-300 text-base sm:text-lg leading-relaxed max-w-3xl">
+            Most AI in recruiting is a wrapper on a boolean search with a subscription attached. Some of it is genuinely useful. The difference is worth more than the tools cost.
+          </p>
           </ScrollReveal>
-
-          {/* Before / after JD teardown */}
-          <ScrollReveal variant="fade-up">
-          <div className="grid md:grid-cols-2 gap-4 items-start">
-            {/* BEFORE, deliberately dead */}
-            <div className="border border-zinc-800 bg-zinc-900/20 p-6 sm:p-8">
-              <div className="font-mono text-zinc-600 text-xs tracking-[0.25em] uppercase mb-6">BEFORE</div>
-              <div className="font-mono text-sm leading-relaxed text-zinc-500 space-y-4">
-                <p className="text-zinc-400 font-semibold">Senior Network Engineer</p>
-                <p>
-                  Company X is seeking a highly motivated Senior Network Engineer to join our dynamic team supporting a critical customer mission. The ideal candidate will be a self-starter with excellent communication skills who thrives in a fast-paced environment.
-                </p>
-                <div>
-                  <p className="text-zinc-400 uppercase text-xs tracking-wider mb-2">Responsibilities</p>
-                  <ul className="space-y-1 list-disc pl-5">
-                    <li>Design, implement, and maintain complex network infrastructure</li>
-                    <li>Troubleshoot network issues and provide Tier 3 support</li>
-                    <li>Collaborate with cross-functional teams</li>
-                    <li>Other duties as assigned</li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="text-zinc-400 uppercase text-xs tracking-wider mb-2">Required Qualifications</p>
-                  <ul className="space-y-1 list-disc pl-5">
-                    <li>Bachelor's degree in Computer Science or related field</li>
-                    <li>10+ years of network engineering experience</li>
-                    <li>Active TS/SCI with full scope polygraph</li>
-                    <li>CCNP or equivalent certification required</li>
-                    <li>Experience with Cisco, Juniper, F5, and Linux</li>
-                    <li>Must be able to obtain and maintain required clearances</li>
-                    <li>Excellent written and verbal communication skills</li>
-                  </ul>
-                </div>
-                <p>Salary: Commensurate with experience</p>
-              </div>
-            </div>
-
-            {/* AFTER, alive */}
-            <div className="border border-rebel-red/40 bg-zinc-900/50 p-6 sm:p-8">
-              <div className="font-mono text-rebel-red text-xs tracking-[0.25em] uppercase mb-6">AFTER</div>
-              <div className="font-mono text-sm leading-relaxed text-zinc-300 space-y-4">
-                <p className="text-white font-semibold">Network Engineer, SME</p>
-                <p className="text-zinc-400">
-                  Chantilly, VA. Onsite five days. Active TS/SCI with full scope polygraph required on day one.
-                </p>
-                <p className="text-rebel-red font-semibold text-base">$245,000 to $285,000</p>
-                <p>
-                  You will own the network for a program that cannot go down. Routing and switching across a Cisco enterprise stack, inside the SCIF, with the latitude to fix what is broken rather than file a ticket about it.
-                </p>
-                <div>
-                  <p className="text-white uppercase text-xs tracking-wider mb-2">What you will do</p>
-                  <ul className="space-y-1 list-disc pl-5">
-                    <li>Own routing and switching design across Nexus, Catalyst, and ASR</li>
-                    <li>Run BGP and EIGRP in an environment where a bad change is a mission impact</li>
-                    <li>Take the escalations nobody else can close</li>
-                    <li>Set the standard the junior engineers learn from</li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="text-white uppercase text-xs tracking-wider mb-2">What you need</p>
-                  <ul className="space-y-1 list-disc pl-5">
-                    <li>Active TS/SCI with full scope polygraph</li>
-                    <li>Deep hands-on routing and switching in a production enterprise environment</li>
-                    <li>Judgment under pressure and the willingness to say a change is a bad idea</li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="text-white uppercase text-xs tracking-wider mb-2">Preferred</p>
-                  <ul className="space-y-1 list-disc pl-5">
-                    <li>Cisco stack depth: Nexus, Catalyst, ASR, NGFW</li>
-                    <li>CCNP or CCIE</li>
-                    <li>Prior work inside a SCIF</li>
-                  </ul>
-                </div>
-                <p className="text-zinc-400">
-                  We do not require a degree. We do not care how many years it took you to get good.
+          <div className="grid md:grid-cols-3 gap-4 mt-10">
+            {AI_POINTS.map((pt, i) => (
+              <ScrollReveal key={pt.lead} variant="fade-up" delay={i * 100}>
+              <div className="border border-zinc-800 bg-zinc-900/40 p-6 h-full border-l-2 border-l-rebel-red">
+                <p className="text-zinc-300 text-sm leading-relaxed">
+                  <span className="text-white font-display uppercase text-xs tracking-wider block mb-2">{pt.lead}</span>
+                  {pt.body}
                 </p>
               </div>
-            </div>
-          </div>
-          </ScrollReveal>
-
-          {/* Annotation list */}
-          <ScrollReveal variant="fade-up">
-          <ol className="mt-12 space-y-6 max-w-3xl">
-            {ANNOTATIONS.map((a, i) => (
-              <li key={i} className="flex gap-4">
-                <span className="font-display text-rebel-red text-lg font-bold shrink-0 w-6 text-right">{i + 1}</span>
-                <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-                  <span className="text-white font-semibold">{a.lead}</span> {a.body}
-                </p>
-              </li>
+              </ScrollReveal>
             ))}
-          </ol>
-          </ScrollReveal>
-
-          {/* Closing line + CTA */}
-          <ScrollReveal variant="fade-up" delay={120}>
-          <div className="mt-14 border-t border-zinc-800 pt-10">
-            <p className="font-display text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug max-w-3xl">
-              Six changes. No new budget, no new headcount, no new recruiter. That is what the audit is.
-            </p>
-            <div className="mt-8">
-              <a href="/strategy-call" target="_blank" rel="noopener noreferrer" onClick={hapticTap} data-testid="button-advisory-sample-cta" className="block sm:inline-block">
-                <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
-                  Book a call <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </a>
-            </div>
           </div>
-          </ScrollReveal>
         </div>
       </section>
 
@@ -434,7 +357,7 @@ export default function Advisory() {
             <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-8 h-full">
               <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">VENTURE-BACKED</div>
               <p className="text-zinc-300 text-base leading-relaxed">
-                Venture-backed, Series A through C. First ten hires, first sales team, first VP.
+                Series A through C. First ten hires, first sales team, first recruiter. You are about to build a hiring function and only get one shot at doing it in the right order.
               </p>
             </GlowCard>
             </ScrollReveal>
@@ -442,7 +365,7 @@ export default function Advisory() {
             <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-8 h-full">
               <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">DEFENSE & GOVTECH</div>
               <p className="text-zinc-300 text-base leading-relaxed">
-                Defense, government, and govtech. Cleared hiring, comp bands nobody publishes, clearance timelines that break plans.
+                You won the work and now you have to staff it. Cleared timelines, comp bands nobody publishes, and a talent pool small enough to count.
               </p>
             </GlowCard>
             </ScrollReveal>
@@ -456,10 +379,10 @@ export default function Advisory() {
           <ScrollReveal variant="fade-up">
           <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-4">WHO YOU ARE WORKING WITH</div>
           <p className="text-white font-display text-2xl sm:text-4xl font-bold tracking-tight leading-tight">
-            I am not a consultant who read about this. I fill these roles every week, so the comp data, the timelines, and the process advice come from live searches rather than a framework.
+            I am not a consultant who read about this. I fill these roles every week, so the market sizing, the comp, and the timelines come from live searches rather than a framework.
           </p>
           <p className="mt-6 text-zinc-400 text-base leading-relaxed max-w-2xl">
-            Fourteen years recruiting. PMP. Cleared and commercial. Author of Head and Heart and Unfinished Rooms. Rebel Built newsletter, 53,000 followers on LinkedIn.
+            Fourteen years recruiting. PMP. Cleared and commercial. Built my own ATS, CRM, and candidate portal from scratch. Author of Head and Heart and Unfinished Rooms. Rebel Built newsletter, 53,000 followers on LinkedIn.
           </p>
           </ScrollReveal>
           <ScrollReveal variant="fade-up" delay={120}>
@@ -470,8 +393,28 @@ export default function Advisory() {
         </div>
       </section>
 
-      {/* CLOSER */}
+      {/* NOT READY TO TALK, email capture */}
       <section className="bg-rebel-space py-16 sm:py-24 border-t border-zinc-900">
+        <div className="max-w-2xl mx-auto px-6 lg:px-12 text-center">
+          <ScrollReveal variant="fade-up">
+          <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">NOT READY TO TALK</div>
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-4">
+            Cleared Talent Market Report
+          </h2>
+          <p className="text-zinc-400 text-sm mb-8 max-w-lg mx-auto leading-relaxed">
+            Real comp bands, time to fill on full scope poly, and clearance transfer rates. Sent when it publishes.
+          </p>
+          <EmailCapture
+            source="advisory-cleared-report"
+            placeholder="Enter your email"
+            buttonText="Send it to me"
+          />
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* CLOSER */}
+      <section className="bg-zinc-950 py-16 sm:py-24 border-t border-zinc-900">
         <div className="max-w-3xl mx-auto px-6 lg:px-12">
           <ScrollReveal variant="scale">
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 sm:p-10 text-center">
@@ -487,26 +430,6 @@ export default function Advisory() {
               </Button>
             </a>
           </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* NOT READY TO TALK, email capture */}
-      <section className="bg-zinc-950 py-16 sm:py-24 border-t border-zinc-900">
-        <div className="max-w-2xl mx-auto px-6 lg:px-12 text-center">
-          <ScrollReveal variant="fade-up">
-          <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">NOT READY TO TALK</div>
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-4">
-            Cleared Talent Market Report
-          </h2>
-          <p className="text-zinc-400 text-sm mb-8 max-w-lg mx-auto leading-relaxed">
-            Real comp bands, time to fill on full scope poly, and clearance transfer rates. Sent when it publishes.
-          </p>
-          <EmailCapture
-            source="advisory-cleared-report"
-            placeholder="Enter your email"
-            buttonText="Send it to me"
-          />
           </ScrollReveal>
         </div>
       </section>
