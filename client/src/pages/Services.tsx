@@ -88,6 +88,16 @@ const serviceSchemas = [
     "areaServed": "US",
     "url": "https://rebeltalentsystems.com/services",
   },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Talent Advisory",
+    "serviceType": "Talent and hiring advisory: hiring plans, comp bands, interview design, offer strategy",
+    "description": "Advisory for founders and heads of talent who need judgment rather than delivery. Hiring plans, comp benchmarking, interview design, and offer strategy from an operator who fills these roles every week. Available as a one-time audit, a monthly retainer, or an advisory seat.",
+    "provider": serviceProvider,
+    "areaServed": "US",
+    "url": "https://rebeltalentsystems.com/advisory",
+  },
 ];
 
 // Safe addition, Fractional Head of Talent schema preserved from the merged landing page for SEO continuity
@@ -158,7 +168,7 @@ const OFFERINGS = [
     tag: "SINGLE ROLE",
     title: "Contingent",
     terms: "Deposit up front, balance on placement",
-    sub: "One of three legitimate offerings",
+    sub: "Paid up front, no spec work",
     desc: "We're happy to work your roles alongside your team, just not for free. A deposit up front gets our team working your roles, with the balance due on placement, all under Richie's direction.",
     bullets: [
       "Cleared and noncleared roles",
@@ -168,6 +178,25 @@ const OFFERINGS = [
     ],
     best: "Teams that want to start with one role across tech, business process, and GTM/sales.",
     featured: false,
+  },
+  // Safe addition, Advisory offering, routes to its own /advisory page
+  {
+    tag: "ADVISORY",
+    title: "Advisory",
+    terms: "Audit, retainer, or seat",
+    sub: "For teams that need the thinking, not the search",
+    desc: "Hiring plans, comp bands, interview design, and offer strategy from someone who fills these roles every week. Available as a one-time audit, a monthly retainer, or an advisory seat.",
+    bullets: [
+      "Comp benchmarking on your open roles",
+      "Job description teardown and rewrite",
+      "Interview design and offer strategy",
+      "One-time audit, retainer, or advisory seat",
+    ],
+    best: "Founders and heads of talent who need judgment, not delivery.",
+    featured: false,
+    internal: true,
+    ctaLabel: "View advisory offerings",
+    ctaHref: "/advisory",
   },
 ];
 
@@ -233,10 +262,10 @@ export default function Services() {
     <PageLayout>
       <PageSEO
         title="Recruiting Services & Engagement Models | Rebel Talent Systems"
-        description="One recruiting partner, three offerings: Embedded/Fractional, Retained Search, and Contingent. Fractional Head of Talent leadership, tech, business process, and GTM/sales, cleared and noncleared, entry level through executive, all under Richie's direction."
+        description="One recruiting partner, four offerings: Embedded/Fractional, Retained Search, Contingent, and Advisory. Fractional Head of Talent leadership, tech, business process, and GTM/sales, cleared and noncleared, entry level through executive, all under Richie's direction."
         path="/services"
         ogTitle="Recruiting Services & Engagement Models | Rebel Talent Systems"
-        ogDescription="Three ways to work with Rebel Talent Systems: Embedded/Fractional, Retained Search, and Contingent. You own the infrastructure when we're done."
+        ogDescription="Four ways to work with Rebel Talent Systems: Embedded/Fractional, Retained Search, Contingent, and Advisory. You own the infrastructure when we're done."
         ogImage="og-services.png"
         schemas={[...serviceSchemas, fractionalSchema, faqSchema]}
         breadcrumbs={[
@@ -260,7 +289,7 @@ export default function Services() {
             <span className="text-rebel-red">You have a hiring infrastructure problem.</span>
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            No SaaS tiers. Three offerings built around how you actually buy: run your recruiting function embedded, retain us for a defined role, or engage us contingent. Richie is on every engagement and every hire, and you own the infrastructure when we're done.
+            No SaaS tiers. Four offerings built around how you actually buy: run your recruiting function embedded, retain us for a defined role, engage us contingent, or bring us in for advisory when you need the thinking, not the search. Richie is on every engagement and every hire, and you own the infrastructure when we're done.
           </p>
           <div className="mt-8 sm:mt-10">
             <CapacityBadge />
@@ -289,22 +318,22 @@ export default function Services() {
         </div>
       </section>
 
-      {/* THREE OFFERINGS */}
+      {/* OFFERINGS */}
       <section className="bg-zinc-950 py-16 sm:py-24 border-t border-zinc-900">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-12">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">THREE OFFERINGS. ONE STANDARD.</div>
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">FOUR WAYS IN. ONE STANDARD.</div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight" data-testid="heading-offerings">
-              Three Ways To Work Together
+              Four Ways To Work Together
             </h2>
             <p className="text-zinc-400 text-sm mt-3 max-w-lg mx-auto">
-              We build the machine, fill the roles, and leave you owning it. The systems compound long after we're gone.
+              Advisory when you need the thinking. Delivery when you need the hire. You own what we build either way.
             </p>
           </div>
           </ScrollReveal>
 
-          <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0 md:overflow-x-visible">
+          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0 md:overflow-x-visible">
             {OFFERINGS.map((o, i) => (
               <ScrollReveal key={o.title} variant="fade-up" delay={i * 120}>
               <GlowCard
@@ -326,11 +355,19 @@ export default function Services() {
                 <p className="text-zinc-500 text-xs leading-relaxed mb-6 mt-auto">
                   <span className="text-zinc-400 font-semibold">Best for:</span> {o.best}
                 </p>
-                <a href="/strategy-call" target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full font-display tracking-wider uppercase text-sm">
-                    Book Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </a>
+                {o.internal ? (
+                  <Link href={o.ctaHref}>
+                    <Button className="w-full font-display tracking-wider uppercase text-sm">
+                      {o.ctaLabel} <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </Link>
+                ) : (
+                  <a href="/strategy-call" target="_blank" rel="noopener noreferrer">
+                    <Button className="w-full font-display tracking-wider uppercase text-sm">
+                      Book Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </a>
+                )}
               </GlowCard>
               </ScrollReveal>
             ))}
@@ -338,7 +375,7 @@ export default function Services() {
 
           {/* Team capacity + coverage, condensed to one row */}
           <ScrollReveal variant="fade-up" delay={200}>
-          <div className="grid md:grid-cols-2 gap-4 mt-8">
+          <div className="grid md:grid-cols-2 gap-4 mt-8 max-w-5xl mx-auto">
             <div className="border border-zinc-800/70 bg-zinc-900/30 p-6">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">+ TEAM CAPACITY</div>
               <p className="text-zinc-300 text-sm leading-relaxed">
