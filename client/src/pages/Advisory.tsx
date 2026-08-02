@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
 import GlowCard from "@/components/GlowCard";
 import CurrentEngagements from "@/components/CurrentEngagements";
+import EmailCapture from "@/components/EmailCapture";
 
 // Safe addition, haptic feedback for PWA CTA taps
 function hapticTap() {
@@ -27,6 +28,27 @@ const advisorySchema = {
   "areaServed": "US",
   "url": "https://rebeltalentsystems.com/advisory",
 };
+
+// Safe addition, symptom list, each renders as its own block
+const SYMPTOMS = [
+  "Your req has been open 90 days and you have seen four candidates.",
+  "Every finalist takes the counteroffer and stays.",
+  "Your comp band was set eighteen months ago against a market that moved.",
+  "You are running seven interview rounds for a role that needs three.",
+  "Your first sales hire failed and nobody can tell you whether it was the person or the role.",
+  "You budgeted for a cleared engineer at a number that does not exist.",
+  "Your timeline assumed a clearance transfer that is not going to happen.",
+  "You have three open roles and no idea which one to fill first.",
+];
+
+// Safe addition, proof band stats
+const STATS = [
+  { value: "30 days", label: "Average fill time in a cleared environment" },
+  { value: "15", label: "TS/SCI full scope roles running concurrently" },
+  { value: "#1", label: "Nationally in submission-to-start against 20+ agencies" },
+  { value: "40%", label: "Reduction in time to fill" },
+  { value: "90%+", label: "Offer acceptance rate" },
+];
 
 const PRICING = [
   {
@@ -112,7 +134,56 @@ export default function Advisory() {
         </div>
       </section>
 
-      {/* PRICING */}
+      {/* SYMPTOMS */}
+      <section className="bg-zinc-950 py-16 sm:py-24 border-t border-zinc-900">
+        <div className="max-w-3xl mx-auto px-6 lg:px-12">
+          <ScrollReveal variant="fade-up">
+          <div className="mb-12">
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">SOUND FAMILIAR</div>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight" data-testid="heading-symptoms">
+              You probably have one of these
+            </h2>
+          </div>
+          </ScrollReveal>
+          <div className="space-y-7 sm:space-y-9">
+            {SYMPTOMS.map((s, i) => (
+              <ScrollReveal key={i} variant="fade-up" delay={i * 60}>
+                <p className="text-zinc-200 text-lg sm:text-2xl leading-snug border-l-2 border-rebel-red/40 pl-5">
+                  {s}
+                </p>
+              </ScrollReveal>
+            ))}
+          </div>
+          <ScrollReveal variant="fade-up" delay={120}>
+            <p className="mt-14 font-display text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
+              None of those get fixed by looking at more resumes.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* PROOF BAND */}
+      <section className="bg-rebel-space py-14 sm:py-20 border-t border-zinc-900">
+        <div className="max-w-6xl mx-auto px-6 lg:px-12">
+          <ScrollReveal variant="fade-up">
+          <div className="text-center mb-10">
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase">THE TRACK RECORD</div>
+          </div>
+          </ScrollReveal>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-10 gap-x-6">
+            {STATS.map((s, i) => (
+              <ScrollReveal key={s.label} variant="fade-up" delay={i * 80}>
+              <div className="text-center">
+                <div className="font-display text-3xl sm:text-4xl font-extrabold text-rebel-red tracking-[-0.03em]">{s.value}</div>
+                <div className="text-zinc-400 text-[11px] sm:text-xs uppercase tracking-[0.14em] mt-2 leading-snug max-w-[14rem] mx-auto">{s.label}</div>
+              </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* THREE WAYS IN, PRICING */}
       <section className="bg-zinc-950 py-16 sm:py-24 border-t border-zinc-900">
         <div className="max-w-6xl mx-auto px-6 lg:px-12">
           <ScrollReveal variant="fade-up">
@@ -139,7 +210,7 @@ export default function Advisory() {
                     Most Popular
                   </div>
                 )}
-                <h3 className="font-display text-xl font-bold text-white uppercase mb-4">{p.title}</h3>
+                <h3 className={`font-display text-xl font-bold text-white uppercase mb-4 ${p.featured ? "mt-3" : ""}`}>{p.title}</h3>
                 <div className="mb-1">
                   <span className="font-display text-3xl font-extrabold text-white tracking-tight">{p.price}</span>
                   <span className="text-zinc-400 font-mono text-sm ml-2">{p.cadence}</span>
@@ -176,8 +247,42 @@ export default function Advisory() {
         </div>
       </section>
 
-      {/* WHAT THIS IS NOT */}
+      {/* SHOW THE WORK */}
       <section className="bg-rebel-space py-16 sm:py-24 border-t border-zinc-900">
+        <div className="max-w-5xl mx-auto px-6 lg:px-12">
+          <ScrollReveal variant="fade-up">
+          <div className="text-center mb-12">
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">A SAMPLE</div>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight" data-testid="heading-sample">
+              What the audit actually finds
+            </h2>
+          </div>
+          </ScrollReveal>
+
+          {/* CONTENT SLOT, Richie to supply the real artifact.
+              Either (a) a comp band with range and reasoning, or
+              (b) a job description teardown, before and after, with 2-3 annotations. */}
+          <ScrollReveal variant="fade-up">
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="border border-dashed border-zinc-700 bg-zinc-900/30 p-8 min-h-[16rem] flex flex-col">
+              <div className="font-mono text-zinc-500 text-xs tracking-[0.2em] uppercase mb-4">BEFORE</div>
+              <p className="text-zinc-600 text-sm italic">
+                [ Sample slot. Drop the original job description or the comp number as budgeted. ]
+              </p>
+            </div>
+            <div className="border border-dashed border-rebel-red/40 bg-rebel-red/5 p-8 min-h-[16rem] flex flex-col">
+              <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-4">AFTER</div>
+              <p className="text-zinc-500 text-sm italic">
+                [ Sample slot. The rewrite or the real market band, with two or three annotations on what changed and why it matters. ]
+              </p>
+            </div>
+          </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* WHAT THIS IS NOT */}
+      <section className="bg-zinc-950 py-16 sm:py-24 border-t border-zinc-900">
         <div className="max-w-3xl mx-auto px-6 lg:px-12">
           <ScrollReveal variant="fade-up">
           <div className="border border-zinc-800 bg-zinc-900/30 p-8 sm:p-10">
@@ -192,7 +297,7 @@ export default function Advisory() {
       </section>
 
       {/* WHO THIS IS FOR */}
-      <section className="bg-zinc-950 py-16 sm:py-24 border-t border-zinc-900">
+      <section className="bg-rebel-space py-16 sm:py-24 border-t border-zinc-900">
         <div className="max-w-5xl mx-auto px-6 lg:px-12">
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-12">
@@ -223,33 +328,36 @@ export default function Advisory() {
         </div>
       </section>
 
-      {/* CREDIBILITY */}
-      <section className="bg-rebel-space py-16 sm:py-24 border-t border-zinc-900">
-        <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center">
+      {/* WHO YOU ARE WORKING WITH */}
+      <section className="bg-zinc-950 py-16 sm:py-24 border-t border-zinc-900">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <ScrollReveal variant="fade-up">
-          <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">WHO YOU ARE WORKING WITH</div>
-          <p className="text-zinc-200 text-lg sm:text-xl leading-relaxed">
-            Fourteen years recruiting. PMP. Cleared and commercial. Author of Head and Heart and Unfinished Rooms. Rebel Built newsletter, 53,000 followers.
+          <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-4">WHO YOU ARE WORKING WITH</div>
+          <p className="text-white font-display text-2xl sm:text-4xl font-bold tracking-tight leading-tight">
+            I am not a consultant who read about this. I fill these roles every week, so the comp data, the timelines, and the process advice come from live searches rather than a framework.
+          </p>
+          <p className="mt-6 text-zinc-400 text-base leading-relaxed max-w-2xl">
+            Fourteen years recruiting. PMP. Cleared and commercial. Author of Head and Heart and Unfinished Rooms. Rebel Built newsletter, 53,000 followers on LinkedIn.
           </p>
           </ScrollReveal>
           <ScrollReveal variant="fade-up" delay={120}>
-          <div className="mt-10 flex justify-center">
+          <div className="mt-12">
             <CurrentEngagements />
           </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* CLOSING CTA */}
-      <section className="bg-zinc-950 py-16 sm:py-24 border-t border-zinc-900">
+      {/* CLOSER */}
+      <section className="bg-rebel-space py-16 sm:py-24 border-t border-zinc-900">
         <div className="max-w-3xl mx-auto px-6 lg:px-12">
           <ScrollReveal variant="scale">
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 sm:p-10 text-center">
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-4">
-              Fix The Problem Before It Costs A Hire
+              Tell me the role you cannot close
             </h2>
-            <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
-              Bring me the role you cannot close or the plan you cannot staff. We map the fix on the call.
+            <p className="text-zinc-400 text-base mb-6 max-w-lg mx-auto">
+              I will tell you why on the call.
             </p>
             <a href="/strategy-call" target="_blank" rel="noopener noreferrer" onClick={hapticTap} data-testid="button-advisory-closing-cta" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
@@ -257,6 +365,26 @@ export default function Advisory() {
               </Button>
             </a>
           </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* NOT READY TO TALK, email capture */}
+      <section className="bg-zinc-950 py-16 sm:py-24 border-t border-zinc-900">
+        <div className="max-w-2xl mx-auto px-6 lg:px-12 text-center">
+          <ScrollReveal variant="fade-up">
+          <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">NOT READY TO TALK</div>
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-4">
+            Cleared Talent Market Report
+          </h2>
+          <p className="text-zinc-400 text-sm mb-8 max-w-lg mx-auto leading-relaxed">
+            Real comp bands, time to fill on full scope poly, and clearance transfer rates. Sent when it publishes.
+          </p>
+          <EmailCapture
+            source="advisory-cleared-report"
+            placeholder="Enter your email"
+            buttonText="Send it to me"
+          />
           </ScrollReveal>
         </div>
       </section>
