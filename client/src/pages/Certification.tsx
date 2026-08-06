@@ -94,7 +94,7 @@ export default function Certification() {
             {[
               { title: "FOR RECRUITERS", items: ["Distinguish yourself with an objective, exam-based credential", "Demonstrate mastery across all critical recruiting domains", "Advance your career with recognized professional standing"] },
               { title: "FOR EMPLOYERS", items: ["Identify recruiters with verified competency", "Set a clear professional standard for your TA team", "Reduce risk through ethical, compliance-aware practices"] },
-              { title: "FOR THE PROFESSION", items: ["Elevate recruiting to a recognized, credentialed profession", "Establish shared standards for knowledge and ethical conduct", "Build public trust in the recruiting profession"] },
+              { title: "FOR THE PROFESSION", items: ["Make recruiting a recognized, credentialed profession", "Establish shared standards for knowledge and ethical conduct", "Build public trust in the recruiting profession"] },
             ].map((card) => (
               <div key={card.title} className="border border-zinc-800 bg-zinc-900/30 p-6 rounded-lg">
                 <h3 className="font-display text-sm font-bold text-amber-400 uppercase tracking-widest mb-4">{card.title}</h3>

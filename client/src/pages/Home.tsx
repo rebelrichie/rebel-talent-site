@@ -323,7 +323,7 @@ export default function Home() {
 
           {/* Safe addition — three-offering chip row, reinforces the engagement models at a glance */}
           <div className="mt-6 flex flex-wrap gap-2" style={{ animation: "heroLineIn 0.5s ease-out 1.35s both" }}>
-            {["Embedded", "Retained", "Contingent"].map((label) => (
+            {["Embedded", "Retained", "Contingent", "Advisory"].map((label) => (
               <span
                 key={label}
                 className="font-mono text-[10px] sm:text-xs tracking-[0.18em] uppercase text-zinc-300 border border-zinc-700/80 bg-zinc-900/40 rounded-full px-3.5 py-1.5"
@@ -544,18 +544,18 @@ export default function Home() {
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-8">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-              THREE WAYS TO ENGAGE.
+              FOUR WAYS TO ENGAGE.
             </div>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight">
               Pick your fight.
             </h2>
             <p className="text-zinc-400 text-sm mt-3 max-w-xl mx-auto">
-              No tiers, no packages. Embedded builds the machine and leaves you owning it. Retained runs a defined search against a deadline. Contingent fills straightforward roles once a deposit is in. Recruiters who specialize in your function, cleared or not.
+              No tiers, no packages. Embedded builds the machine and leaves you owning it. Retained runs a defined search against a deadline. Contingent fills straightforward roles once a deposit is in. Advisory puts my read on your hiring, AI, and infrastructure on the table before you spend.
             </p>
           </div>
           </ScrollReveal>
 
-          <div className="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
+          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
             <GlowCard className="border border-rebel-red/50 bg-rebel-red/5 p-5 sm:p-8 group transition-colors hover:border-rebel-red snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-fractional">
               <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
                 EMBEDDED
@@ -638,6 +638,39 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
+            </GlowCard>
+
+            <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-5 sm:p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto flex flex-col" data-testid="card-advisory">
+              <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
+                ADVISORY
+              </div>
+              <h3 className="font-display text-xl font-bold text-white uppercase mb-2">
+                Advisory
+              </h3>
+              <p className="text-rebel-red font-mono text-sm mb-1">Fixed-scope engagements · retainer optional</p>
+              <p className="text-zinc-400 font-mono text-xs mb-4">Before you hire, build, or buy AI</p>
+              <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+                My read on your hiring, AI, and recruiting infrastructure before you spend. Feasibility and hiring plans, AI strategy and implementation, full infrastructure builds, or an ongoing seat when you want a standing sounding board.
+              </p>
+              <ul className="space-y-2 mb-6">
+                {[
+                  "Talent feasibility & hiring plan",
+                  "AI strategy & implementation",
+                  "Recruiting infrastructure build",
+                  "Advisory retainer, board and advisory seats",
+                  "Cleared and defense hiring covered",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
+                    <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Link href="/advisory" data-testid="link-advisory" className="mt-auto block">
+                <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm w-full">
+                  View advisory offerings <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
             </GlowCard>
           </div>
 
@@ -842,7 +875,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { value: "53K+", label: "LinkedIn Followers" },
-              { value: "8K", label: "Newsletter Subs" },
+              { value: "8K+", label: "Newsletter Subs" },
               { value: "14+", label: "Years Experience" },
               { value: "<30", label: "Days to Hire" },
             ].map((stat) => (

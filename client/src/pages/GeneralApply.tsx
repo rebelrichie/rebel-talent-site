@@ -2,13 +2,14 @@
 // consideration. POSTs to /api/public/general-apply which creates a
 // candidate (no submission) tagged source=general_apply.
 
-import { useState, useRef } from "react";
+import { useState, useRef, cloneElement, isValidElement } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, ArrowRight, FileText, CheckCircle2, AlertCircle, Upload, X } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 
 const API = "https://rebelcommand.dev/api/public/general-apply";
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB, matches server limit
 
 type SubmitState =
   | { kind: "idle" }
@@ -75,12 +76,25 @@ export default function GeneralApply() {
   const [interests, setInterests] = useState<string[]>([]);
   const [note, setNote] = useState("");
   const [file, setFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState("");
   const [submit, setSubmit] = useState<SubmitState>({ kind: "idle" });
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const toggleInterest = (v: string) => {
     setInterests((prev) => (prev.includes(v) ? prev.filter((x) => x !== v) : [...prev, v]));
   };
+
+  function handleFile(f: File | null) {
+    if (!f) { setFile(null); setFileError(""); return; }
+    if (f.size > MAX_FILE_SIZE) {
+      setFile(null);
+      setFileError("That file is over 10MB. Please upload a smaller resume.");
+      if (fileInputRef.current) fileInputRef.current.value = "";
+      return;
+    }
+    setFileError("");
+    setFile(f);
+  }
 
   const canSubmit =
     firstName.trim().length >= 1 &&
@@ -329,7 +343,7 @@ export default function GeneralApply() {
                 ref={fileInputRef}
                 type="file"
                 accept=".pdf,.docx,.doc,.txt"
-                onChange={(e) => setFile(e.target.files?.[0] || null)}
+                onChange={(e) => handleFile(e.target.files?.[0] || null)}
                 className="hidden"
               />
               {file ? (
@@ -338,7 +352,7 @@ export default function GeneralApply() {
                   <span className="text-sm text-zinc-200 flex-1 truncate">{file.name}</span>
                   <button
                     type="button"
-                    onClick={() => { setFile(null); if (fileInputRef.current) fileInputRef.current.value = ""; }}
+                    onClick={() => handleFile(null)}
                     className="text-zinc-400 hover:text-red-400"
                   >
                     <X className="h-3.5 w-3.5" />
@@ -353,6 +367,7 @@ export default function GeneralApply() {
                   <Upload className="h-4 w-4" /> Upload resume
                 </button>
               )}
+              {fileError && <p className="text-xs text-red-400 mt-2">{fileError}</p>}
             </Field>
 
             {/* Note */}
@@ -404,13 +419,21 @@ export default function GeneralApply() {
 function Field({
   label, required, hint, children,
 }: { label: string; required?: boolean; hint?: string; children: React.ReactNode }) {
+  const id = "f-" + label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+  // Associate the label with a single control for screen readers. Group fields
+  // (multiple children) keep the visual label and rely on per-option labels.
+  const child = isValidElement(children)
+    ? cloneElement(children as React.ReactElement<{ id?: string }>, {
+        id: (children as React.ReactElement<{ id?: string }>).props.id ?? id,
+      })
+    : children;
   return (
     <div>
-      <label className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
+      <label htmlFor={id} className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
         {label}{required && <span className="text-rebel-red ml-1">*</span>}
         {hint && <span className="text-zinc-600 normal-case font-normal tracking-normal ml-2">- {hint}</span>}
       </label>
-      {children}
+      {child}
     </div>
   );
 }

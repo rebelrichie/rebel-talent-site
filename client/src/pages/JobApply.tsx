@@ -12,6 +12,7 @@ import PageSEO from "@/components/PageSEO";
 
 const JOB_API = "https://rebelcommand.dev/api/public/jobs";
 const APPLY_API = "https://rebelcommand.dev/api/public/apply";
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB, matches server limit
 
 interface Job {
   id: string;
@@ -104,6 +105,7 @@ export default function JobApply() {
   const [whyThisRole, setWhyThisRole] = useState("");
   const [linkedinUrl, setLinkedinUrl] = useState("");
   const [file, setFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState("");
   // Knock-out screening answers
   const [workAuth, setWorkAuth] = useState<string>("");
   const [clearance, setClearance] = useState<string>("");
@@ -111,6 +113,18 @@ export default function JobApply() {
   const [availability, setAvailability] = useState<string>("");
   const [submit, setSubmit] = useState<SubmitState>({ kind: "idle" });
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  function handleFile(f: File | null) {
+    if (!f) { setFile(null); setFileError(""); return; }
+    if (f.size > MAX_FILE_SIZE) {
+      setFile(null);
+      setFileError("That file is over 10MB. Please upload a smaller resume.");
+      if (fileInputRef.current) fileInputRef.current.value = "";
+      return;
+    }
+    setFileError("");
+    setFile(f);
+  }
   // Safe addition (2026-06-03): inline screener for sales/high-volume roles
   const [assessment, setAssessment] = useState<AssessmentTemplate | null>(null);
   const [assessmentResponses, setAssessmentResponses] = useState<Record<string, unknown>>({});
@@ -435,15 +449,16 @@ export default function JobApply() {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
+              <label htmlFor="resume" className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
                 Resume
               </label>
               <input
+                id="resume"
                 ref={fileInputRef}
                 type="file"
                 required
                 accept=".pdf,.docx,.doc,.txt,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword,text/plain"
-                onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+                onChange={(e) => handleFile(e.target.files?.[0] ?? null)}
                 className="sr-only"
                 data-testid="input-resume"
               />
@@ -473,6 +488,7 @@ export default function JobApply() {
                   )}
                 </div>
               </button>
+              {fileError && <p className="text-xs text-red-400 mt-2">{fileError}</p>}
             </div>
 
             {/* ── Knock-out questions ─────────────────────── */}
@@ -485,10 +501,10 @@ export default function JobApply() {
               </p>
             </div>
 
-            <div>
-              <label className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
+            <div role="group" aria-labelledby="workAuth-label">
+              <p id="workAuth-label" className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
                 Work authorization <span className="text-rebel-red">*</span>
-              </label>
+              </p>
               <div className="space-y-2">
                 {[
                   { value: "citizen", label: "US citizen or permanent resident" },
@@ -551,10 +567,10 @@ export default function JobApply() {
               />
             </div>
 
-            <div>
-              <label className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
+            <div role="group" aria-labelledby="availability-label">
+              <p id="availability-label" className="block text-xs font-semibold tracking-wider uppercase text-zinc-400 mb-2">
                 When could you start? <span className="text-rebel-red">*</span>
-              </label>
+              </p>
               <div className="grid grid-cols-2 gap-2">
                 {[
                   { value: "immediate", label: "Immediately" },

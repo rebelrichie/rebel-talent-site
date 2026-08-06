@@ -2,7 +2,12 @@ import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown } from "lucide-react";
 
-// Safe addition, Services consolidated into one page; the dropdown is now a single link
+// Safe addition — Services is a dropdown so Advisory is reachable from top nav
+const servicesLinks = [
+  { href: "/services", label: "All Services", external: false },
+  { href: "/advisory", label: "Advisory", external: false },
+];
+
 const proofLinks = [
   { href: "/testimonials", label: "Testimonials", external: false },
   { href: "/case-studies", label: "Case Studies", external: false },
@@ -29,6 +34,7 @@ export default function Navbar() {
   const [proofOpen, setProofOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false); // Safe addition
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false); // Safe addition
   const [mobileProofOpen, setMobileProofOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false); // Safe addition
@@ -107,16 +113,22 @@ export default function Navbar() {
           </button>
 
           <div className="hidden md:flex items-center gap-0.5">
-            {/* Safe addition, Services is now a single consolidated page */}
-            <Link
-              href="/services"
-              data-testid="link-nav-services"
-              className={`px-2.5 py-2 text-[11px] font-semibold tracking-widest transition-colors duration-200 no-underline whitespace-nowrap ${
-                location === "/services" ? "text-rebel-red" : "text-zinc-400 hover:text-white"
-              }`}
-            >
-              SERVICES
-            </Link>
+            {/* Safe addition — Services dropdown (All Services + Advisory) */}
+            <div ref={servicesRef} className="relative z-[70]">
+              <button
+                data-testid="button-services-dropdown"
+                aria-expanded={servicesOpen}
+                aria-haspopup="true"
+                onClick={() => { setServicesOpen(!servicesOpen); setAboutOpen(false); setProofOpen(false); setResourcesOpen(false); }}
+                className={`flex items-center gap-1 px-2.5 py-2 text-[11px] font-semibold tracking-widest transition-colors duration-200 whitespace-nowrap ${
+                  ["/services", "/advisory"].includes(location) ? "text-rebel-red" : "text-zinc-400 hover:text-white"
+                }`}
+              >
+                SERVICES
+                <ChevronDown size={11} className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} />
+              </button>
+              {renderDropdown(servicesLinks, servicesOpen)}
+            </div>
 
             {/* Safe addition — About dropdown (About + Vision) */}
             <div ref={aboutRef} className="relative z-[70]">
@@ -191,17 +203,29 @@ export default function Navbar() {
 
       {isOpen && (
         <div className="md:hidden border-t border-zinc-800" style={{ background: "#050505" }}>
-          {/* Safe addition, Mobile: Services single link */}
-          <Link
-            href="/services"
-            data-testid="link-mobile-services"
-            className={`block px-6 py-3 text-xs font-semibold tracking-widest border-b border-zinc-900 no-underline ${
-              location === "/services" ? "text-rebel-red" : "text-zinc-400"
-            }`}
-            onClick={() => setIsOpen(false)}
+          {/* Safe addition — Mobile: Services dropdown (All Services + Advisory) */}
+          <button
+            data-testid="button-mobile-services"
+            aria-expanded={mobileServicesOpen}
+            className="w-full text-left flex items-center justify-between px-6 py-3 text-xs font-semibold tracking-widest border-b border-zinc-900 text-zinc-400"
+            onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
           >
             SERVICES
-          </Link>
+            <ChevronDown size={12} className={`transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`} />
+          </button>
+          {mobileServicesOpen && servicesLinks.map((r) => (
+            <Link
+              key={r.href}
+              href={r.href}
+              data-testid={`link-mobile-${r.label.toLowerCase().replace(/\s+/g, "-")}`}
+              className={`block pl-10 pr-6 py-2.5 text-xs font-semibold tracking-widest border-b border-zinc-900/60 no-underline ${
+                location === r.href ? "text-rebel-red" : "text-zinc-400"
+              }`}
+              onClick={() => setIsOpen(false)}
+            >
+              {r.label}
+            </Link>
+          ))}
 
           {/* Safe addition — Mobile: About dropdown (About + Vision) */}
           <button

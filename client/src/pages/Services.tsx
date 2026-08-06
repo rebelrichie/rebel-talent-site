@@ -22,7 +22,7 @@ const FAQS = [
   },
   {
     q: "How can we engage?",
-    a: "Three ways. Embedded/Fractional runs on a monthly retainer where we run your recruiting function and hand it back. Retained Search is a defined role with a deadline, half down and half on placement. Contingent takes a deposit up front with the balance on placement. Every offering runs under Richie's direction.",
+    a: "Four ways. Embedded/Fractional runs on a monthly retainer where we run your recruiting function and hand it back. Retained Search is a defined role with a deadline, half down and half on placement. Contingent takes a deposit up front with the balance on placement. Advisory is fixed-scope work on your hiring plan, AI, and recruiting infrastructure before you spend. Every offering runs under Richie's direction.",
   },
   {
     q: "What does the first 30 days look like?",
@@ -302,7 +302,7 @@ export default function Services() {
             <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl">
               {[
                 { value: "$294K+", label: "Agency Fees Avoided" },
-                { value: "335%", label: "ROI Delivered" },
+                { value: "~335%", label: "ROI Delivered" },
                 { value: "~30", label: "Days Median Time to Hire" },
               ].map((s) => (
                 <div key={s.label}>

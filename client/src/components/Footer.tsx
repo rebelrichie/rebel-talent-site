@@ -41,6 +41,7 @@ export default function Footer() {
             </h2>
             <div className="flex flex-col gap-2.5">
               <Link href="/services" data-testid="link-footer-services" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Services &amp; Pricing</Link>
+              <Link href="/advisory" data-testid="link-footer-advisory" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Advisory</Link>
               <Link href="/testimonials" data-testid="link-footer-testimonials" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Testimonials</Link>
               <Link href="/case-studies" data-testid="link-footer-case-studies" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Case Studies</Link>
               <Link href="/about" data-testid="link-footer-about" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">About</Link>
@@ -89,7 +90,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Rebel Talent Systems. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <Link href="/privacy-policy" data-testid="link-footer-privacy" className="text-zinc-400 text-xs hover:text-zinc-400 no-underline transition-colors">Privacy Policy</Link>
+            <Link href="/privacy-policy" data-testid="link-footer-privacy" className="text-zinc-400 text-xs hover:text-white no-underline transition-colors">Privacy Policy</Link>
             <span
               className="text-xs font-mono tracking-[0.22em] uppercase font-bold"
               style={{

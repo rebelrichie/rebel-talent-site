@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import PageLayout from "@/components/PageLayout";
+import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Crosshair, Radar, ShieldAlert } from "lucide-react";
 
@@ -124,6 +125,12 @@ export default function NotFound() {
 
   return (
     <PageLayout>
+      <PageSEO
+        title="Page Not Found | Rebel Talent Systems"
+        description="This page does not exist. Head back to the main site or reach out and we will point you the right way."
+        path="/404"
+        noindex
+      />
       <style>{`
         @keyframes scanline {
           0% { transform: translateY(-100%); }

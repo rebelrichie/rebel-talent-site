@@ -521,7 +521,7 @@ export default function CaseStudies() {
               See If We Fit
             </h2>
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
-              ROI that agencies envy. Same approach, custom execution. Let's talk about what your recruiting function needs.
+              The same approach, run against your roles. Tell me what your recruiting function needs and I will tell you if we fit.
             </p>
             <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-casestudies-cta" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto whitespace-normal text-center leading-tight h-auto min-h-9 py-2">

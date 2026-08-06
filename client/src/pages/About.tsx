@@ -145,7 +145,7 @@ export default function About() {
               { value: "14+", label: "Years In Recruiting", numeric: true },
               { value: "PMP", label: "Certified 2024", numeric: false },
               { value: "53K+", label: "LinkedIn Followers", numeric: true },
-              { value: "7K+", label: "Newsletter Subs", numeric: true },
+              { value: "8K+", label: "Newsletter Subs", numeric: true },
               { value: "TS/SCI", label: "Cleared Hiring", numeric: false },
             ].map((stat) => (
               <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-4 sm:p-5 text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
@@ -527,7 +527,7 @@ export default function About() {
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">Newsletter</div>
                 <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Rebel Built</h3>
                 <p className="text-zinc-300 text-sm leading-relaxed mb-4">
-                  Weekly playbook for operators, founders, and recruiters who want the inside game. 7,000+ subs. No fluff, no sponsored takes, no &ldquo;5 hacks to&rdquo; bait.
+                  Weekly playbook for operators, founders, and recruiters who want the inside game. 8,000+ subs. No fluff, no sponsored takes, no &ldquo;5 hacks to&rdquo; bait.
                 </p>
                 <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-rebel-red text-sm font-semibold no-underline hover:text-white transition-colors">
                   Subscribe <span className="text-xs">&#8594;</span>

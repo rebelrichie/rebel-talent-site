@@ -18,6 +18,8 @@ interface PageSEOProps {
   ogImage?: string;
   schemas?: object[];
   breadcrumbs?: BreadcrumbItem[];
+  /** Safe addition, set true to keep a page (e.g. 404) out of the index */
+  noindex?: boolean;
 }
 
 function buildBreadcrumbSchema(crumbs: BreadcrumbItem[]) {
@@ -42,6 +44,7 @@ export default function PageSEO({
   ogImage,
   schemas = [],
   breadcrumbs,
+  noindex = false,
 }: PageSEOProps) {
   const canonical = `${BASE_URL}${path}`;
   const resolvedOgTitle = ogTitle || title;
@@ -59,6 +62,7 @@ export default function PageSEO({
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={canonical} />
+      {noindex && <meta name="robots" content="noindex, follow" />}
 
       <meta property="og:type" content="website" />
       <meta property="og:url" content={canonical} />

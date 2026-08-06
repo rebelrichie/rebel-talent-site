@@ -24,9 +24,10 @@ const TIMELINES = [
 ];
 
 const ENGAGEMENT_TYPES = [
-  { value: "project", label: "Project / critical-hire search" },
+  { value: "fractional", label: "Embedded / Fractional Head of Talent (1 seat open)" },
+  { value: "retained", label: "Retained search" },
+  { value: "contingent", label: "Contingent" },
   { value: "advisory", label: "Advisory / consulting" },
-  { value: "fractional", label: "Fractional Head of Talent/Lead Talent Consultant (1 seat open)" },
   { value: "unsure", label: "Not sure yet" },
 ];
 

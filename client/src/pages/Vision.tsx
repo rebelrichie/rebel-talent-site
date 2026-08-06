@@ -198,8 +198,29 @@ export default function Vision() {
         </div>
       </section>
 
-      {/* ───────────── CLOSING ACTION (two quiet links, no form) ───────────── */}
+      {/* ───────────── SECTION 6 — THE INVITATION ───────────── */}
       <section className="bg-zinc-950 py-16 sm:py-20 border-t border-zinc-900">
+        <div className="max-w-3xl mx-auto px-6 lg:px-12">
+          <ScrollReveal variant="fade-up">
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-8">
+              If this is you
+            </div>
+          </ScrollReveal>
+          <ScrollReveal variant="fade-up">
+            <div className="border-l-2 border-rebel-red/60 pl-6 sm:pl-8">
+              <p className="text-white text-xl sm:text-3xl font-semibold leading-[1.4] tracking-tight mb-6">
+                If you know this is you. If it resonates. If it is something you want to help build and you already live in this world. Reach out.
+              </p>
+              <p className="text-zinc-300 text-base sm:text-lg leading-[1.7]">
+                I want to work with people who think the way I do. We will talk, and we will decide together what happens next, instead of letting everyone else decide it for us.
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ───────────── CLOSING ACTION (two quiet links, no form) ───────────── */}
+      <section className="bg-rebel-space py-16 sm:py-20 border-t border-zinc-900">
         <div className="max-w-3xl mx-auto px-6 lg:px-12">
           <div className="grid sm:grid-cols-2 gap-4">
             <a
