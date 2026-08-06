@@ -26,6 +26,7 @@ const ROUTES = [
   "/hiring-readiness",
   "/privacy-policy",
   "/jobs",
+  "/jobs/general",
   "/advisory",
 ];
 
@@ -48,6 +49,7 @@ const SITEMAP_STATIC = [
   { path: "/certification", changefreq: "monthly", priority: "0.7" },
   { path: "/advisory", changefreq: "monthly", priority: "0.8" },
   { path: "/jobs", changefreq: "daily", priority: "0.95" },
+  { path: "/jobs/general", changefreq: "monthly", priority: "0.7" },
   { path: "/strategy-call", changefreq: "monthly", priority: "0.85" },
   { path: "/hiring-readiness", changefreq: "monthly", priority: "0.85" },
   { path: "/privacy-policy", changefreq: "yearly", priority: "0.3" },

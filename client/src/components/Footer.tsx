@@ -13,7 +13,7 @@ export default function Footer() {
           <p className="text-zinc-400 text-sm">
             Ready to build your team the right way?
           </p>
-          <a href="/strategy-call" target="_blank" rel="noopener noreferrer"
+          <a href="/strategy-call"
             className="inline-flex items-center gap-2 text-sm font-semibold text-rebel-red hover:text-white transition-colors no-underline"
           >
             Book a Strategy Call <ArrowRight className="w-4 h-4" />

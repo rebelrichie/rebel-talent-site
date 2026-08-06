@@ -198,7 +198,7 @@ export default function FreeTools() {
                   </li>
                 ))}
               </ul>
-              <a href="/strategy-call" target="_blank" rel="noopener noreferrer" className="block sm:inline-block">
+              <a href="/strategy-call" className="block sm:inline-block">
                 <Button className="font-display tracking-wider uppercase text-sm px-8 w-full sm:w-auto">
                   Book Your Session <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>

@@ -108,7 +108,7 @@ export default function About() {
                 I started in music venues in Grand Rapids, reading rooms and booking bands nobody had heard of yet. Then more than a decade in the staffing trenches at Robert Half, Addison Group, and a dozen names in between, watching the old model up close and clocking exactly what was broken about it. I didn&rsquo;t leave to start another agency. I left to build the thing that replaces it.
               </p>
               <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-[1.55] mb-6">
-                In 2023 I got laid off and co-founded <span className="text-zinc-200 font-semibold">Underground Admins</span> the same week with my partner Amy. I&rsquo;m still a minority owner there, but it&rsquo;s a separate company. Then I built <span className="text-zinc-200 font-semibold">Rebel Talent Systems</span>: the firm I wished existed when I was on the other side of the desk. I don&rsquo;t run an agency. I become your Head of Talent/Lead Talent Consultant for a quarter, two, a year. I leave you with the system. I don&rsquo;t take a placement fee.
+                In 2023 I got laid off and co-founded <span className="text-zinc-200 font-semibold">Underground Admins</span> the same week with my partner Amy. I&rsquo;m still a minority owner there, but it&rsquo;s a separate company. Then I built <span className="text-zinc-200 font-semibold">Rebel Talent Systems</span>: the firm I wished existed when I was on the other side of the desk. I don&rsquo;t run an agency. I become your Head of Talent/Lead Talent Consultant for a quarter, two, a year. I leave you with the system. Embedded work runs on a flat retainer with no placement fee. Search work is priced up front, so you know the number before we start.
               </p>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-6">
                 <CapacityBadge />
@@ -603,7 +603,7 @@ export default function About() {
             <p className="text-zinc-400 text-sm sm:text-base mb-6 max-w-lg mx-auto">
               30 minutes of straight answers for operators ready to stop the bleed and build something that lasts. You get Richie on the call, backed by a vetted team under his direction. Not a coordinator, not a discovery deck.
             </p>
-            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-about-cta" className="block sm:inline-block">
+            <a href="/strategy-call" data-testid="button-about-cta" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>

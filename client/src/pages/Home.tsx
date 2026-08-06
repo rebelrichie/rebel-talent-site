@@ -337,8 +337,6 @@ export default function Home() {
           <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-y-3 sm:gap-y-4 gap-x-8">
             <a
               href="/strategy-call"
-              target="_blank"
-              rel="noopener noreferrer"
               data-testid="button-book-call"
               onClick={hapticTap}
               className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-semibold text-base px-7 py-3.5 rounded-full transition-colors no-underline w-full sm:w-auto"
@@ -400,14 +398,14 @@ export default function Home() {
               </div>
               <div className="flex flex-col sm:flex-row gap-3 shrink-0">
                 <Link
-                  href="/jobs/eda03068-8c4b-4c58-9aa9-b48d50e02f1c"
+                  href="/jobs"
                   data-testid="button-role-full-desk-recruiter"
                   className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-display text-xs font-semibold uppercase tracking-wider px-5 py-3 rounded-md transition-colors no-underline"
                 >
                   Full Desk Recruiter <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
-                  href="/jobs/b77d9f32-f6cf-4c21-9696-c1b2c59e1f7c"
+                  href="/jobs"
                   data-testid="button-role-business-development-lead"
                   className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-display text-xs font-semibold uppercase tracking-wider px-5 py-3 rounded-md transition-colors no-underline"
                 >
@@ -431,7 +429,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 border border-zinc-800 bg-zinc-900/30 px-5 sm:px-7 py-5 transition-colors group-hover:border-rebel-red/40">
               <div className="flex-1">
                 <div className="font-mono text-rebel-red text-[11px] tracking-[0.22em] uppercase mb-1.5">
-                  Free · 2 minutes · No pitch
+                  Free · 5 minutes · No pitch
                 </div>
                 <div className="font-display text-lg sm:text-xl font-bold text-white tracking-tight">
                   Not sure where your hiring stands?
@@ -530,7 +528,7 @@ export default function Home() {
 
           <div className="text-center mt-10">
             <p className="text-zinc-400 text-sm mb-4">Scale without the bleed. Build the machine you own.</p>
-            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-3" className="block sm:inline-block">
+            <a href="/strategy-call" data-testid="button-book-call-3" className="block sm:inline-block">
               <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm w-full sm:w-auto whitespace-normal leading-tight py-3 sm:py-2">
                 Start a Confidential Conversation <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
               </Button>
@@ -702,7 +700,7 @@ export default function Home() {
 
           <div className="text-center mt-10">
             <p className="text-zinc-400 text-sm mb-4">Not sure which fits? Most engagements start with a scoping conversation, not a quote.</p>
-            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-2" className="block sm:inline-block">
+            <a href="/strategy-call" data-testid="button-book-call-2" className="block sm:inline-block">
               <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -724,7 +722,7 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
             {[
               { icon: <Users className="w-5 h-5 text-rebel-red" />, title: "Embedded execution", desc: "In your Slack, your ATS, your hiring manager 1:1s, your candidate calls. Not consulting from the sidelines. You get me on every call." },
-              { icon: <TrendingUp className="w-5 h-5 text-rebel-red" />, title: "~$5K–$8K cost per hire", desc: "Hourly or fixed-fee billing, logged in your dashboard. No success fees. No invoice surprises when the hire closes." },
+              { icon: <TrendingUp className="w-5 h-5 text-rebel-red" />, title: "~$5K–$8K cost per hire", desc: "Hourly or fixed-fee billing on embedded work, logged in your dashboard. No success fees on the retainer. No invoice surprises when the hire closes." },
               { icon: <Clock className="w-5 h-5 text-rebel-red" />, title: "~30 days median time to hire", desc: "Across embedded engagements. Under 30 on EDF's 9 placements. 34 days on Kalibri against a 360-application flooded funnel." },
               { icon: <Shield className="w-5 h-5 text-rebel-red" />, title: "You own everything we build", desc: "ATS, candidate pipeline, interview scorecards, sourcing playbooks, hiring manager training. Exportable, transferable, yours forever." },
               { icon: <Target className="w-5 h-5 text-rebel-red" />, title: "Proof-first vetting", desc: "Every candidate ships with portfolio evidence, structured technical screens, and AI-scored match signals. Resume polish isn't a pipeline." },
@@ -1006,16 +1004,19 @@ export default function Home() {
                     The people pitching AI to your team don't run searches. I do. Twenty-seven autonomous agents handling sourcing, screening, communication, and pipeline management, on my own client work, every week, with real candidates and real consequences when something breaks.
                   </p>
                   <p className="text-zinc-400 text-[15px] leading-relaxed">
-                    Three ways to put that to work for your team. Pick the one that matches where you are.
+                    Four ways to put that to work for your team. Pick the one that matches where you are.
                   </p>
                 </div>
 
-                {/* Three engagement teasers */}
-                <div className="grid sm:grid-cols-3 gap-[1px] bg-zinc-800/60 mb-8">
+                {/* Engagement teasers — names and prices mirror the PRICING
+                    array on the Advisory page. If a package changes there,
+                    change it here too. */}
+                <div className="grid grid-cols-2 gap-[1px] bg-zinc-800/60 mb-8">
                   {[
-                    { tag: "Start Here", title: "The Audit", sub: "2-4 wk roadmap" },
-                    { tag: "Embedded", title: "The Build", sub: "Monthly retainer" },
-                    { tag: "Ride-Along", title: "The Lab", sub: "6-8 wks on live reqs" },
+                    { tag: "Start Here", title: "Talent Feasibility & Hiring Plan", sub: "One-time engagement" },
+                    { tag: "AI", title: "AI Strategy & Implementation", sub: "One-time engagement" },
+                    { tag: "Build", title: "Recruiting Infrastructure Build", sub: "Six to ten weeks" },
+                    { tag: "Ongoing", title: "Advisory Retainer", sub: "Monthly" },
                   ].map((e) => (
                     <div key={e.title} className="bg-zinc-900/80 px-4 py-4">
                       <div className="font-mono text-rebel-red text-[11px] tracking-[0.15em] uppercase mb-1">{e.tag}</div>
@@ -1027,7 +1028,7 @@ export default function Home() {
 
                 <div className="flex items-center gap-3 py-4 border-t border-b border-zinc-800/60 mb-8">
                   <span className="w-2 h-2 rounded-full bg-rebel-red flex-shrink-0" />
-                  <span className="text-zinc-300 text-[13px] font-medium">All three are private. One team, one operation, one stack. Cleared / FOCI engagements supported.</span>
+                  <span className="text-zinc-300 text-[13px] font-medium">All four are private. One team, one operation, one stack. Cleared / FOCI engagements supported.</span>
                 </div>
                 <Link href="/advisory" className="no-underline">
                   <button
@@ -1163,7 +1164,7 @@ export default function Home() {
           <p className="text-zinc-400 text-base mb-8 max-w-xl mx-auto">
             30 minutes. Walk us through the role nobody else can fill. Richie is on every engagement, so you get a straight answer either way, and if it isn't ours to fill, we'll point you to who can.
           </p>
-          <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-book-call-4" className="block sm:inline-block">
+          <a href="/strategy-call" data-testid="button-book-call-4" className="block sm:inline-block">
             <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-10 w-full sm:w-auto">
               Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
             </Button>

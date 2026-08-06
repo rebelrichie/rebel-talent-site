@@ -166,7 +166,7 @@ export default function Advisory() {
             Before you spend six months failing to hire someone, find out whether they exist, what they cost, and how long it actually takes.
           </p>
           <div className="mt-8 sm:mt-10">
-            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" onClick={hapticTap} data-testid="button-advisory-hero-cta" className="block sm:inline-block">
+            <a href="/strategy-call" onClick={hapticTap} data-testid="button-advisory-hero-cta" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
                 Book a call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -286,7 +286,7 @@ export default function Advisory() {
             Board and advisory seats are available on standard terms, cash or equity. Ask on the call.
           </p>
           <div className="text-center mt-8">
-            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" onClick={hapticTap} data-testid="button-advisory-pricing-cta" className="block sm:inline-block">
+            <a href="/strategy-call" onClick={hapticTap} data-testid="button-advisory-pricing-cta" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
                 Book a call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -424,7 +424,7 @@ export default function Advisory() {
             <p className="text-zinc-400 text-base mb-6 max-w-lg mx-auto">
               I will tell you why on the call.
             </p>
-            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" onClick={hapticTap} data-testid="button-advisory-closing-cta" className="block sm:inline-block">
+            <a href="/strategy-call" onClick={hapticTap} data-testid="button-advisory-closing-cta" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
                 Book a call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>

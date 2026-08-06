@@ -118,7 +118,7 @@ export default function Testimonials() {
                     View LinkedIn Profile
                   </Button>
                 </a>
-                <a href="/strategy-call" target="_blank" rel="noopener noreferrer" data-testid="button-testimonials-cta" className="block sm:inline-block">
+                <a href="/strategy-call" data-testid="button-testimonials-cta" className="block sm:inline-block">
                   <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
                     Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>

@@ -362,7 +362,7 @@ export default function Services() {
                     </Button>
                   </Link>
                 ) : (
-                  <a href="/strategy-call" target="_blank" rel="noopener noreferrer">
+                  <a href="/strategy-call">
                     <Button className="w-full font-display tracking-wider uppercase text-sm">
                       Book Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
@@ -565,7 +565,7 @@ export default function Services() {
             <div className="mb-6">
               <CapacityBadge />
             </div>
-            <a href="/strategy-call" target="_blank" rel="noopener noreferrer" onClick={hapticTap} data-testid="button-services-cta" className="block sm:inline-block">
+            <a href="/strategy-call" onClick={hapticTap} data-testid="button-services-cta" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
                 Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
