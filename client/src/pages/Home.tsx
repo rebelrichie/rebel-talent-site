@@ -562,7 +562,7 @@ export default function Home() {
                 Fractional Head of Talent/Lead Talent Consultant
               </h3>
               <p className="text-rebel-red font-mono text-sm mb-1">Monthly Retainer · 3-month minimum</p>
-              <p className="text-zinc-400 font-mono text-xs mb-4">50%+ less than contingent agency fees</p>
+              <p className="text-zinc-400 font-mono text-xs mb-4">Flat retainer · no placement fees</p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-6">
                 We run your recruiting function from inside the company, then hand it back better than we found it. We build the process, rebuild your ATS and job posts, and leave you owning a clean candidate database and the playbooks to run it.
               </p>
@@ -590,7 +590,7 @@ export default function Home() {
                 Retained Search
               </h3>
               <p className="text-rebel-red font-mono text-sm mb-1">Half down · half on placement</p>
-              <p className="text-zinc-400 font-mono text-xs mb-4">50%+ less than contingent agency fees</p>
+              <p className="text-zinc-400 font-mono text-xs mb-4">Priced up front · no surprise fees</p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-6">
                 A defined role with a deadline behind it. We run the full search from inside your stack, cleared or noncleared, entry level through executive, and close it against the clock.
               </p>
