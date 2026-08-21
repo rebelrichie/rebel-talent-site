@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { ArrowRight, Shield, Target, Zap, Users, Clock, TrendingUp } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
@@ -183,6 +183,22 @@ function StarfieldCanvas() {
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
 
+  // Safe addition — live open-role count for the candidate door in the hero.
+  // Fails silent: if the fetch errors, the button just shows no count.
+  const [openRoleCount, setOpenRoleCount] = useState<number | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    fetch("https://rebelcommand.dev/api/public/jobs")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (cancelled || !data) return;
+        const n = Array.isArray(data.jobs) ? data.jobs.length : null;
+        if (typeof n === "number" && n > 0) setOpenRoleCount(n);
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, []);
+
   return (
     <PageLayout>
       <PageSEO
@@ -198,8 +214,7 @@ export default function Home() {
       <section
         ref={heroRef}
         data-testid="section-hero"
-        className="relative overflow-hidden bg-rebel-space"
-        style={{ minHeight: "82vh" }}
+        className="relative overflow-hidden bg-rebel-space lg:min-h-[82vh]"
       >
         {/* Subtle ambient glow — left red, right orange */}
         <div
@@ -252,11 +267,9 @@ export default function Home() {
           </svg>
         </div>
 
-        <h1 className="sr-only">Rebel Talent Systems, hiring infrastructure for venture-backed and defense teams. Cleared and noncleared roles, entry level through executive.</h1>
-
-        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 pt-6 sm:pt-24 lg:pt-36 pb-12 sm:pb-20 z-10">
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 pt-6 sm:pt-24 lg:pt-36 pb-10 sm:pb-20 z-10">
           {/* Safe addition — eyebrow with live "accepting engagements" status dot */}
-          <div className="flex items-center gap-2.5 mb-8 sm:mb-12" style={{ animation: "heroLineIn 0.5s ease-out 0.05s both" }}>
+          <div className="flex items-center gap-2.5 mb-5 sm:mb-12" style={{ animation: "heroLineIn 0.5s ease-out 0.05s both" }}>
             <span className="relative flex h-2 w-2 shrink-0" aria-hidden="true">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-70" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
@@ -268,8 +281,10 @@ export default function Home() {
 
           {/* Hero headline — Archivo Expanded (wdth=125) is ~25% wider; 6vw keeps
               each line on its own line at 1204px+ viewports.
-              Safe addition: repositioned copy, aspirational last line in brand gradient */}
-          <h2
+              Safe addition: this is the page's one real H1. The old separate
+              screen-reader-only H1 was merged into it so the page has a single
+              heading for both people and crawlers. */}
+          <h1
             className="font-display font-black text-white leading-[1.05] sm:leading-[0.97]"
             style={{ fontSize: "clamp(2rem, 6vw, 5rem)", letterSpacing: "-0.01em" }}
           >
@@ -291,7 +306,7 @@ export default function Home() {
             >
               you&rsquo;re becoming.
             </span>
-          </h2>
+          </h1>
 
           {/* BREAK ORBIT. — display-size brand moment */}
           <div className="mt-5 sm:mt-7" style={{ animation: "heroLineIn 0.6s ease-out 1.0s both" }}>
@@ -315,41 +330,59 @@ export default function Home() {
           </div>
 
           {/* Subhead — Safe addition: three-offering, full-coverage positioning; key phrase brightened for scannability */}
-          <p className="mt-7 sm:mt-10 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]" style={{ animation: "heroLineIn 0.5s ease-out 1.2s both" }}>
+          <p className="mt-5 sm:mt-10 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]" style={{ animation: "heroLineIn 0.5s ease-out 1.2s both" }}>
             Rebel Talent Systems fills your open roles and builds the system underneath them.{" "}
             <span className="text-zinc-200 font-medium">Embedded, retained, or contingent with a deposit.</span>{" "}
             Technical, business process, GTM and sales. Cleared and noncleared, entry level through executive, for Series A through C companies and defense teams.
           </p>
 
-          {/* Safe addition — three-offering chip row, reinforces the engagement models at a glance */}
-          <div className="mt-6 flex flex-wrap gap-2" style={{ animation: "heroLineIn 0.5s ease-out 1.35s both" }}>
-            {["Embedded", "Retained", "Contingent", "Advisory"].map((label) => (
-              <span
-                key={label}
-                className="font-mono text-[10px] sm:text-xs tracking-[0.18em] uppercase text-zinc-300 border border-zinc-700/80 bg-zinc-900/40 rounded-full px-3.5 py-1.5"
-              >
-                {label}
-              </span>
-            ))}
-          </div>
-
-          {/* Single primary CTA + understated secondary link */}
-          <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-y-3 sm:gap-y-4 gap-x-8">
+          {/* Safe addition — two equal front doors. Companies go left, candidates
+              go right. Both sit above the fold at 1280px and 390px, which is why
+              the chip row moved below them and the mobile margins are tight. */}
+          <div className="mt-6 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl" style={{ animation: "heroLineIn 0.5s ease-out 1.35s both" }}>
             <a
               href="/strategy-call"
-              data-testid="button-book-call"
+              data-testid="button-door-hire"
               onClick={hapticTap}
-              className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-semibold text-base px-7 py-3.5 rounded-full transition-colors no-underline w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-semibold text-base px-6 py-3.5 rounded-full transition-colors no-underline"
             >
-              Book a strategy call <ArrowRight className="w-4 h-4" />
+              I need to hire <ArrowRight className="w-4 h-4" />
             </a>
+            <Link
+              href="/jobs"
+              data-testid="button-door-role"
+              onClick={hapticTap}
+              className="inline-flex items-center justify-center gap-2 border border-zinc-600 hover:border-rebel-red/70 bg-zinc-900/40 text-white font-semibold text-base px-6 py-3.5 rounded-full transition-colors no-underline"
+            >
+              I&rsquo;m looking for a role
+              {openRoleCount !== null && (
+                <span className="font-mono text-xs text-zinc-300 border border-zinc-700 rounded-full px-2 py-0.5">
+                  {openRoleCount} open
+                </span>
+              )}
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          {/* Understated services link + engagement chips, below the doors */}
+          <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-x-6 gap-y-3" style={{ animation: "heroLineIn 0.5s ease-out 1.5s both" }}>
             <Link
               href="/services"
               data-testid="link-view-services"
-              className="text-zinc-300 hover:text-white text-base font-medium underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red transition-colors no-underline text-center sm:text-left"
+              className="text-zinc-300 hover:text-white text-sm sm:text-base font-medium underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red transition-colors no-underline"
             >
               See how we work →
             </Link>
+            <div className="hidden sm:flex flex-wrap gap-2">
+              {["Embedded", "Retained", "Contingent", "Advisory"].map((label) => (
+                <span
+                  key={label}
+                  className="font-mono text-[10px] sm:text-xs tracking-[0.18em] uppercase text-zinc-300 border border-zinc-700/80 bg-zinc-900/40 rounded-full px-3.5 py-1.5"
+                >
+                  {label}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -371,47 +404,6 @@ export default function Home() {
               {["Wells Fargo", "Tiffany & Co", "Travelers", "WK Kellogg Foundation", "Ball Aerospace", "TRANSCOM & SATCOM (multiple AFBs)", "Walgreens", "CompuCom", "Jackson County, MI", "Byron Center School District", "Muskegon ISD"].map((name) => (
                 <span key={name} className="text-zinc-400 text-sm tracking-wide font-medium whitespace-nowrap">{name}</span>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Safe addition — Internal team hiring band, two priority roles, right after hero */}
-      <section
-        data-testid="section-internal-hiring"
-        className="border-b border-zinc-800/50"
-        style={{ background: "#0E0D11" }}
-      >
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
-          <div className="border border-zinc-800 bg-zinc-900/30 px-5 sm:px-7 py-6">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
-              <div className="flex-1">
-                <div className="font-mono text-rebel-red text-[11px] tracking-[0.22em] uppercase mb-1.5">
-                  We are hiring · Internal team
-                </div>
-                <div className="font-display text-lg sm:text-xl font-bold text-white tracking-tight">
-                  Two priority roles on our own desk
-                </div>
-                <p className="text-zinc-400 text-sm mt-1">
-                  We are always looking for exceptional recruiters and closers to join the internal team. 1099, remote, commission with a draw.
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-                <Link
-                  href="/jobs"
-                  data-testid="button-role-full-desk-recruiter"
-                  className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-display text-xs font-semibold uppercase tracking-wider px-5 py-3 rounded-md transition-colors no-underline"
-                >
-                  Full Desk Recruiter <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  href="/jobs"
-                  data-testid="button-role-business-development-lead"
-                  className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-display text-xs font-semibold uppercase tracking-wider px-5 py-3 rounded-md transition-colors no-underline"
-                >
-                  Business Development Lead <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
             </div>
           </div>
         </div>
@@ -829,6 +821,49 @@ export default function Home() {
             </div>
           </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Safe addition — Internal team hiring band, two priority roles. Sits
+          below the client proof so companies see case studies before we pitch
+          our own openings. */}
+      <section
+        data-testid="section-internal-hiring"
+        className="border-b border-zinc-800/50"
+        style={{ background: "#0E0D11" }}
+      >
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+          <div className="border border-zinc-800 bg-zinc-900/30 px-5 sm:px-7 py-6">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+              <div className="flex-1">
+                <div className="font-mono text-rebel-red text-[11px] tracking-[0.22em] uppercase mb-1.5">
+                  We are hiring · Internal team
+                </div>
+                <div className="font-display text-lg sm:text-xl font-bold text-white tracking-tight">
+                  Two priority roles on our own desk
+                </div>
+                <p className="text-zinc-400 text-sm mt-1">
+                  We are always looking for exceptional recruiters and closers to join the internal team. 1099, remote, commission with a draw.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                <Link
+                  href="/jobs"
+                  data-testid="button-role-full-desk-recruiter"
+                  className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-display text-xs font-semibold uppercase tracking-wider px-5 py-3 rounded-md transition-colors no-underline"
+                >
+                  Full Desk Recruiter <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/jobs"
+                  data-testid="button-role-business-development-lead"
+                  className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-display text-xs font-semibold uppercase tracking-wider px-5 py-3 rounded-md transition-colors no-underline"
+                >
+                  Business Development Lead <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

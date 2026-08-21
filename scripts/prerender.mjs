@@ -28,6 +28,7 @@ const ROUTES = [
   "/jobs",
   "/jobs/general",
   "/advisory",
+  "/startups",
 ];
 
 // Sitemap entries for the curated static routes. Kept here (not read from the
@@ -48,6 +49,7 @@ const SITEMAP_STATIC = [
   { path: "/free-tools", changefreq: "monthly", priority: "0.7" },
   { path: "/certification", changefreq: "monthly", priority: "0.7" },
   { path: "/advisory", changefreq: "monthly", priority: "0.8" },
+  { path: "/startups", changefreq: "monthly", priority: "0.85" },
   { path: "/jobs", changefreq: "daily", priority: "0.95" },
   { path: "/jobs/general", changefreq: "monthly", priority: "0.7" },
   { path: "/strategy-call", changefreq: "monthly", priority: "0.85" },
@@ -101,22 +103,48 @@ function startServer() {
   });
 }
 
-// Safe addition — fetch all open job IDs so we can pre-render /jobs/:id for each one.
-// Each detail page bakes JobPosting JSON-LD into the HTML for Google Jobs indexing.
+// Safe addition — mirror of client/src/lib/jobSlug.ts so build-time URLs
+// match what the React pages generate. Keep the two in sync.
+function slugify(text) {
+  return String(text)
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function jobSlugPath(job) {
+  const parts = [job.title, job.companyName, job.location]
+    .filter((p) => p && String(p).trim().length > 0)
+    .map(slugify)
+    .filter((p) => p.length > 0);
+  const slug = parts.join("-");
+  return slug ? `/jobs/${slug}-${job.id}` : `/jobs/${job.id}`;
+}
+
+// Safe addition — fetch all open jobs so we can pre-render a detail page for
+// each one. Every job gets TWO routes: the new slug URL (canonical, goes in
+// the sitemap first) and the old plain-UUID URL (kept so existing links and
+// indexed pages keep resolving to real HTML). Each page bakes JobPosting
+// JSON-LD into the HTML for Google Jobs indexing.
 async function fetchJobRoutes() {
   try {
     const res = await fetch("https://rebelcommand.dev/api/public/jobs");
     if (!res.ok) {
       console.warn(`[prerender] jobs fetch failed (${res.status}) — skipping detail pages`);
-      return [];
+      return { slugRoutes: [], uuidRoutes: [] };
     }
     const data = await res.json();
-    const ids = (data.jobs || []).map((j) => j.id).filter(Boolean);
-    console.log(`[prerender] Fetched ${ids.length} open role IDs for detail pre-render`);
-    return ids.map((id) => `/jobs/${id}`);
+    const jobs = (data.jobs || []).filter((j) => j && j.id);
+    console.log(`[prerender] Fetched ${jobs.length} open roles for detail pre-render`);
+    return {
+      slugRoutes: jobs.map((j) => jobSlugPath(j)),
+      uuidRoutes: jobs.map((j) => `/jobs/${j.id}`),
+    };
   } catch (err) {
     console.warn(`[prerender] jobs fetch errored — skipping detail pages: ${err.message}`);
-    return [];
+    return { slugRoutes: [], uuidRoutes: [] };
   }
 }
 
@@ -152,6 +180,9 @@ function generateSitemap(jobRoutes, blogPosts) {
   for (const s of SITEMAP_STATIC) {
     entries.push({ loc: `${SITE_URL}${s.path}`, lastmod: today, changefreq: s.changefreq, priority: s.priority });
   }
+  // jobRoutes carries slug URLs first, then the old UUID URLs. Both are
+  // listed so every live job URL in the wild resolves and is crawlable;
+  // canonicals on the pages point Google at the slug form.
   for (const route of jobRoutes) {
     entries.push({ loc: `${SITE_URL}${route}`, lastmod: today, changefreq: "weekly", priority: "0.8" });
   }
@@ -173,10 +204,12 @@ function generateSitemap(jobRoutes, blogPosts) {
 }
 
 async function prerender() {
-  const jobRoutes = await fetchJobRoutes();
+  const { slugRoutes, uuidRoutes } = await fetchJobRoutes();
+  // Slug URLs are canonical; UUID URLs are kept alive for old links.
+  const jobRoutes = [...slugRoutes, ...uuidRoutes];
   const { routes: blogRoutes, posts: blogPosts } = await fetchBlogRoutes();
   const allRoutes = [...ROUTES, ...jobRoutes, ...blogRoutes];
-  console.log(`[prerender] Starting pre-render of ${allRoutes.length} routes (${ROUTES.length} static + ${jobRoutes.length} role detail + ${blogRoutes.length} blog)...`);
+  console.log(`[prerender] Starting pre-render of ${allRoutes.length} routes (${ROUTES.length} static + ${slugRoutes.length} slug + ${uuidRoutes.length} uuid role detail + ${blogRoutes.length} blog)...`);
 
   const server = await startServer();
   const browser = await launch({ headless: true, args: ["--no-sandbox"] });

@@ -9,6 +9,8 @@ import { useRoute, Link } from "wouter";
 import { ArrowLeft, ArrowRight, FileText, CheckCircle2, AlertCircle, Upload, CalendarCheck } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
+// Safe addition — accepts both old UUID links and new slug-uuid links
+import { extractJobId } from "@/lib/jobSlug";
 
 const JOB_API = "https://rebelcommand.dev/api/public/jobs";
 const APPLY_API = "https://rebelcommand.dev/api/public/apply";
@@ -95,7 +97,9 @@ function openCalendly(url: string) {
 
 export default function JobApply() {
   const [, params] = useRoute<{ id: string }>("/jobs/:id/apply");
-  const id = params?.id;
+  // Safe addition — the param may be "slug-uuid" or a plain UUID; the API
+  // always gets just the UUID.
+  const id = extractJobId(params?.id);
 
   const [job, setJob] = useState<Job | null>(null);
   const [jobLoading, setJobLoading] = useState(true);
@@ -169,16 +173,19 @@ export default function JobApply() {
         return true;
       });
 
-  const canSubmit =
-    !!id &&
-    firstName.trim().length >= 1 &&
-    lastName.trim().length >= 1 &&
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()) &&
-    !!file &&
-    !!workAuth &&
-    !!availability &&
-    assessmentComplete &&
-    submit.kind !== "submitting";
+  // Safe addition — track what is still missing so the disabled Submit
+  // button can say exactly what the candidate needs to finish.
+  const missingFields = [
+    firstName.trim().length < 1 && "first name",
+    lastName.trim().length < 1 && "last name",
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()) && "a valid email",
+    !file && "your resume",
+    !workAuth && "work authorization",
+    !availability && "availability",
+    !assessmentComplete && "the screening questions above",
+  ].filter((f): f is string => typeof f === "string");
+
+  const canSubmit = !!id && missingFields.length === 0 && submit.kind !== "submitting";
 
   // Builds the apply payload and POSTs it. Shared by the initial submit and the
   // general-pool opt-in re-submit (same FormData, plus generalPoolOptIn flag).
@@ -758,6 +765,14 @@ export default function JobApply() {
                 <AlertCircle className="h-4 w-4 text-red-400 shrink-0 mt-0.5" />
                 <p className="text-sm text-red-300">{submit.message}</p>
               </div>
+            )}
+
+            {/* Safe addition — spell out what is still needed instead of a
+                silently disabled button. */}
+            {!canSubmit && submit.kind !== "submitting" && missingFields.length > 0 && (
+              <p className="text-xs text-zinc-400" data-testid="text-still-needed">
+                Still needed: {missingFields.join(", ")}.
+              </p>
             )}
 
             <button

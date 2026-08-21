@@ -96,19 +96,24 @@ export default function GeneralApply() {
     setFile(f);
   }
 
-  const canSubmit =
-    firstName.trim().length >= 1 &&
-    lastName.trim().length >= 1 &&
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()) &&
-    !!file &&
-    !!workingStyle &&
-    !!clearance &&
-    !!availability &&
-    submit.kind !== "submitting";
+  // Safe addition — required fields are name, email, resume OR LinkedIn, and
+  // a short "what are you looking for" note. Clearance, working style, and
+  // availability are useful context but optional; requiring them was turning
+  // qualified candidates away at the door.
+  const hasResumeOrLinkedin = !!file || linkedin.trim().length > 0;
+  const missingFields = [
+    firstName.trim().length < 1 && "first name",
+    lastName.trim().length < 1 && "last name",
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()) && "a valid email",
+    !hasResumeOrLinkedin && "a resume or LinkedIn URL",
+    note.trim().length < 1 && "what you're looking for",
+  ].filter((f): f is string => typeof f === "string");
+
+  const canSubmit = missingFields.length === 0 && submit.kind !== "submitting";
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!canSubmit || !file) return;
+    if (!canSubmit) return;
     setSubmit({ kind: "submitting" });
     try {
       const fd = new FormData();
@@ -127,7 +132,8 @@ export default function GeneralApply() {
       fd.append("targetComp", targetComp.trim());
       fd.append("note", note.trim());
       fd.append("interests", JSON.stringify(interests));
-      fd.append("file", file);
+      // Safe addition — resume is optional when a LinkedIn URL is provided
+      if (file) fd.append("file", file);
 
       const res = await fetch(API, { method: "POST", body: fd });
       const data = await res.json().catch(() => ({}));
@@ -265,7 +271,7 @@ export default function GeneralApply() {
             </Field>
 
             {/* Working style */}
-            <Field label="Preferred Working Style" required>
+            <Field label="Preferred Working Style" hint="Optional">
               <div className="grid grid-cols-2 gap-2">
                 {WORKING_STYLES.map((o) => (
                   <RadioCard
@@ -281,7 +287,7 @@ export default function GeneralApply() {
             </Field>
 
             {/* Clearance */}
-            <Field label="Current Clearance" required>
+            <Field label="Current Clearance" hint="Optional, helps us match cleared roles faster">
               <select
                 value={clearance}
                 onChange={(e) => setClearance(e.target.value)}
@@ -324,7 +330,7 @@ export default function GeneralApply() {
                 className="w-full bg-black/40 border border-zinc-800 rounded-md px-3 py-2.5 text-sm text-white placeholder-zinc-600 focus:border-rebel-red/50 focus:outline-none"
               />
             </Field>
-            <Field label="Availability" required>
+            <Field label="Availability" hint="Optional">
               <select
                 value={availability}
                 onChange={(e) => setAvailability(e.target.value)}
@@ -338,7 +344,7 @@ export default function GeneralApply() {
             </Field>
 
             {/* Resume */}
-            <Field label="Resume" required hint="PDF, DOCX, DOC, or TXT. Up to 10MB.">
+            <Field label="Resume" hint="PDF, DOCX, DOC, or TXT. Up to 10MB. Skip it if you gave us your LinkedIn.">
               <input
                 ref={fileInputRef}
                 type="file"
@@ -371,7 +377,7 @@ export default function GeneralApply() {
             </Field>
 
             {/* Note */}
-            <Field label="Anything else?" hint="Optional. Short note about what you're looking for.">
+            <Field label="What are you looking for?" required hint="A sentence or two is plenty.">
               <textarea
                 value={note}
                 onChange={(e) => setNote(e.target.value.slice(0, 1500))}
@@ -387,6 +393,14 @@ export default function GeneralApply() {
                 <AlertCircle className="h-4 w-4 text-red-400 shrink-0 mt-0.5" />
                 <p className="text-sm text-red-300">{submit.message}</p>
               </div>
+            )}
+
+            {/* Safe addition — tell the candidate exactly what is still
+                needed instead of leaving a silently disabled button. */}
+            {!canSubmit && submit.kind !== "submitting" && missingFields.length > 0 && (
+              <p className="text-xs text-zinc-400">
+                Still needed: {missingFields.join(", ")}.
+              </p>
             )}
 
             <button

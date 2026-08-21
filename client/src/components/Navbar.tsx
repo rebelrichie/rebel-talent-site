@@ -6,6 +6,8 @@ import { Menu, X, ChevronDown } from "lucide-react";
 const servicesLinks = [
   { href: "/services", label: "All Services", external: false },
   { href: "/advisory", label: "Advisory", external: false },
+  // Safe addition — startup search landing page (search desk inbound)
+  { href: "/startups", label: "For Startups", external: false },
 ];
 
 const proofLinks = [
@@ -121,7 +123,7 @@ export default function Navbar() {
                 aria-haspopup="true"
                 onClick={() => { setServicesOpen(!servicesOpen); setAboutOpen(false); setProofOpen(false); setResourcesOpen(false); }}
                 className={`flex items-center gap-1 px-2.5 py-2 text-[11px] font-semibold tracking-widest transition-colors duration-200 whitespace-nowrap ${
-                  ["/services", "/advisory"].includes(location) ? "text-rebel-red" : "text-zinc-400 hover:text-white"
+                  ["/services", "/advisory", "/startups"].includes(location) ? "text-rebel-red" : "text-zinc-400 hover:text-white"
                 }`}
               >
                 SERVICES

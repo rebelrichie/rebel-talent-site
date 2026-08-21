@@ -325,7 +325,7 @@ export default function About() {
                     </figcaption>
                   </figure>
                   <p className="mb-3">
-                    Rebel Talent is scaling. I embed as your Head of Talent/Lead Talent Consultant for a quarter, six months, a year. I build the funnel, write the JDs, run interview loops, close hires. Behind me now is a vetted team of specialist recruiters working under my direction across tech, business process, and GTM/sales, cleared and noncleared, entry level through executive. No handoff to a coordinator, no agency churn. A vetted team under Richie&rsquo;s direction, and Richie is on every engagement.
+                    Rebel Talent is scaling. I embed as your Head of Talent/Lead Talent Consultant for a quarter, six months, a year. I build the funnel, write the JDs, run interview loops, close hires. Behind me now is a vetted team of specialist recruiters working under my direction across tech, business process, and GTM/sales, cleared and noncleared, entry level through executive, with Chris, our Head of Client Acquisition, opening and running retained and contingent accounts. No handoff to a coordinator, no agency churn. A vetted team under Richie&rsquo;s direction, and Richie is on every engagement.
                   </p>
                   <p className="text-zinc-400">
                     Wrote the first book by month 3 (Head and Heart, December 2025). Second one by month 6 (Unfinished Rooms, March 2026). Built the operator stack I run my business on from scratch: 27 AI agents, a custom ATS/CRM, embedded sourcing pipelines. My clients run inside it.
@@ -347,30 +347,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* ───────────── WHY I WON'T RUN AN AGENCY ───────────── */}
-      <section className="bg-zinc-950 py-16 sm:py-20 border-t border-zinc-900">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          <ScrollReveal variant="fade-up">
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-6 pb-3 border-b border-rebel-red/30">
-              Why I won&rsquo;t run an agency
-            </h2>
-          </ScrollReveal>
-
-          <ScrollReveal variant="fade-up">
-          <div className="text-zinc-300 text-base sm:text-lg leading-[1.7] space-y-5 max-w-3xl">
-            <p>
-              Contingency breaks incentives. I&rsquo;ve watched too many founders pay $30K, $50K, $90K per hire to someone who never met their team, never read the roadmap, and won&rsquo;t be around in six months when the hire flames out. The whole model is built on repeated failure. Agencies only get paid the day someone signs, so they push fast, oversell fits, and move on.
-            </p>
-            <p>
-              I run the opposite play. You pay me a flat monthly fee. I become your Head of Talent/Lead Talent Consultant. I build the funnel, write the JDs, source candidates myself, screen them properly, run the interview loop, run the close. When the engagement ends you keep everything: the ATS, the playbook, the candidate pipeline, the message templates, the search strings I burned weekends building. The system lives at your company. I don&rsquo;t.
-            </p>
-            <p className="text-zinc-400">
-              If you want someone who&rsquo;ll tell you what you want to hear, this isn&rsquo;t the right call. If you want someone who&rsquo;ll tell you what&rsquo;s actually broken about your hiring, and then fix it, let&rsquo;s talk.
-            </p>
-          </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      {/* Section removed 2026-08: "Why I won't run an agency" contradicted the
+          contingent and retained offerings now sold on /services and /startups. */}
 
       {/* ───────────── PROOF: WHAT 14 YEARS BUILT ───────────── */}
       <section className="bg-rebel-space py-16 sm:py-20 border-t border-zinc-900">

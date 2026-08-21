@@ -22,6 +22,8 @@ import {
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
+// Safe addition — human-readable job URLs (slug + UUID)
+import { jobPath } from "@/lib/jobSlug";
 
 const JOBS_API = "https://rebelcommand.dev/api/public/jobs";
 
@@ -61,14 +63,18 @@ function deriveClearance(j: Job): string | null {
 }
 
 // Map department text to a smaller set of buyer-side categories.
+// Safe addition — patterns are word-bounded so "Linux" no longer matches /ux/
+// and "Recruiter" no longer matches /ui/. Recruiting titles are checked before
+// product/design, and Engineering now catches admins, network, systems, and
+// scientist roles that previously had no Function chip at all.
 function deriveFunction(j: Job): string | null {
   const raw = (j.department ?? j.title ?? "").toLowerCase();
   if (!raw) return null;
-  if (/engineer|software|developer|sre|devops|infra|platform|ml|ai|data/.test(raw)) return "Engineering";
-  if (/sales|account exec|ae\b|gtm|business dev|bd\b|partnership|growth|sales engineer|solutions/.test(raw)) return "GTM";
-  if (/product|pm\b|design|ux|ui/.test(raw)) return "Product / Design";
+  if (/recruit|talent|\bhr\b|people ops|people team/.test(raw)) return "Talent / HR";
+  if (/engineer|software|developer|\bsre\b|devops|infra|platform|\bml\b|\bai\b|data|admin|network|linux|windows|system|scientist|architect|cloud|\bvdi\b|\bav\b/.test(raw)) return "Engineering";
+  if (/sales|account exec|\bae\b|gtm|business dev|\bbd\b|partnership|growth|solutions/.test(raw)) return "GTM";
+  if (/product|\bpm\b|design|\bux\b|\bui\b/.test(raw)) return "Product / Design";
   if (/financ|account|controller|treasur|fp&a/.test(raw)) return "Finance & Ops";
-  if (/recruit|talent|hr\b|people/.test(raw)) return "Talent / HR";
   if (/security|cleared|analyst|intel\b|geospatial/.test(raw)) return "Defense / Intel";
   if (/legal|compliance|paralegal/.test(raw)) return "Legal";
   return null;
@@ -109,7 +115,7 @@ function jobJsonLd(jobs: Job[]) {
   const itemList = jobs.slice(0, 50).map((j, idx) => ({
     "@type": "ListItem",
     position: idx + 1,
-    url: `https://rebeltalentsystems.com/jobs/${j.id}`,
+    url: `https://rebeltalentsystems.com${jobPath(j)}`,
     name: `${j.title} at ${j.companyName}`,
   }));
   return {
@@ -411,7 +417,7 @@ export default function Jobs() {
                 {filtered.map((j) => (
                   <ScrollReveal key={j.id} immediate>
                     <Link
-                      href={`/jobs/${j.id}`}
+                      href={jobPath(j)}
                       data-testid={`link-job-${j.id}`}
                       className="block bg-zinc-950 border border-zinc-800 rounded-lg p-5 sm:p-6 hover:border-rebel-red/60 hover:bg-zinc-900/50 transition-all group no-underline"
                     >

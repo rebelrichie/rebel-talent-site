@@ -8,6 +8,8 @@ import { useRoute, Link } from "wouter";
 import { ArrowLeft, ArrowRight, MapPin, DollarSign, Briefcase, ShieldCheck } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
+// Safe addition — human-readable job URLs (slug + UUID)
+import { extractJobId, jobPath } from "@/lib/jobSlug";
 
 const API_BASE = "https://rebelcommand.dev/api/public/jobs";
 
@@ -151,7 +153,9 @@ function buildJobJsonLd(job: Job): Record<string, unknown> {
       },
     },
     directApply: false,
-    url: `https://rebeltalentsystems.com/jobs/${job.id}`,
+    // Safe addition — canonical job URL is the slug form; old UUID URLs
+    // still resolve to the same page.
+    url: `https://rebeltalentsystems.com${jobPath(job)}`,
   };
 
   if (isRemote) {
@@ -167,14 +171,22 @@ function buildJobJsonLd(job: Job): Record<string, unknown> {
 
 export default function JobDetail() {
   const [, params] = useRoute<{ id: string }>("/jobs/:id");
-  const id = params?.id;
+  // Safe addition — the route param may be a plain UUID (old links) or
+  // slug-plus-UUID (new links). The API always gets just the UUID.
+  const id = extractJobId(params?.id);
 
   const [job, setJob] = useState<Job | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!id) return;
+    // Safe addition — a /jobs/... URL with no UUID in it is a dead link,
+    // show the not-found state instead of loading forever.
+    if (!id) {
+      setLoading(false);
+      setError("Role not found");
+      return;
+    }
     let cancelled = false;
     setLoading(true);
     setError(null);
@@ -211,17 +223,24 @@ export default function JobDetail() {
 
   return (
     <PageLayout>
-      <PageSEO
-        title={pageTitle}
-        description={pageDesc}
-        path={id ? `/jobs/${id}` : "/jobs"}
-        schemas={schemas}
-        breadcrumbs={[
-          { name: "Home", item: "https://rebeltalentsystems.com/" },
-          { name: "Open Roles", item: "https://rebeltalentsystems.com/jobs" },
-          ...(job ? [{ name: job.title, item: `https://rebeltalentsystems.com/jobs/${job.id}` }] : []),
-        ]}
-      />
+      {/* Safe addition — only swap the head once we know what this page is.
+          While loading, the pre-rendered baked-in title/meta stays put, so
+          the tab never flashes a generic "Role | Rebel Talent". Canonical
+          points at the slug URL even when someone arrives via the old
+          plain-UUID link. */}
+      {!loading && (
+        <PageSEO
+          title={pageTitle}
+          description={pageDesc}
+          path={job ? jobPath(job) : "/jobs"}
+          schemas={schemas}
+          breadcrumbs={[
+            { name: "Home", item: "https://rebeltalentsystems.com/" },
+            { name: "Open Roles", item: "https://rebeltalentsystems.com/jobs" },
+            ...(job ? [{ name: job.title, item: `https://rebeltalentsystems.com${jobPath(job)}` }] : []),
+          ]}
+        />
+      )}
 
       <section data-testid="section-hero" className="px-4 sm:px-6 lg:px-8 pt-8 pb-6 max-w-4xl mx-auto">
         <Link
@@ -329,6 +348,28 @@ export default function JobDetail() {
                   className="prose prose-invert max-w-none"
                   dangerouslySetInnerHTML={{ __html: renderRich(job.notes) }}
                 />
+              </div>
+            )}
+
+            {/* Safe addition — never show a blank page when a role has no
+                written description yet. Candidates still get context and a
+                working apply path. */}
+            {!job.requirements && !job.idealProfile && !job.notes && (
+              <div className="mb-8">
+                <h2 className="text-xs text-rebel-red font-semibold tracking-[0.2em] uppercase mb-4">
+                  About This Role
+                </h2>
+                <p className="text-zinc-300 leading-relaxed mb-3">
+                  {job.companyName} is hiring a {job.title}
+                  {job.location ? ` in ${job.location}` : ""}. The full written
+                  description is being finalized, but the role is open and we
+                  are actively speaking with candidates now.
+                </p>
+                <p className="text-zinc-300 leading-relaxed">
+                  Apply below and a recruiter will walk you through the details,
+                  the team, and what the hiring manager is looking for on a
+                  short intro call.
+                </p>
               </div>
             )}
 

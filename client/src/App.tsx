@@ -25,6 +25,8 @@ const Blog = lazy(() => import("@/pages/Blog"));
 const BlogPost = lazy(() => import("@/pages/BlogPost"));
 const Certification = lazy(() => import("@/pages/Certification"));
 const Advisory = lazy(() => import("@/pages/Advisory"));
+// Safe addition — Series A-C startup search landing page (search desk inbound)
+const Startups = lazy(() => import("@/pages/Startups"));
 const StrategyCall = lazy(() => import("@/pages/StrategyCall"));
 const HiringReadiness = lazy(() => import("@/pages/HiringReadiness"));
 const Jobs = lazy(() => import("@/pages/Jobs"));
@@ -63,6 +65,8 @@ function Router() {
       {/* /rachael retired. 301 to home. */}
       <Route path="/rachael">{() => { window.location.href = "/"; return null; }}</Route>
       <Route path="/advisory" component={Advisory} />
+      {/* Safe addition — startup search landing page */}
+      <Route path="/startups" component={Startups} />
       <Route path="/strategy-call" component={StrategyCall} />
       <Route path="/hiring-readiness" component={HiringReadiness} />
       <Route path="/jobs" component={Jobs} />

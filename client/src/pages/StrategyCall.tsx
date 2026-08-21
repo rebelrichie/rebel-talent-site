@@ -27,9 +27,27 @@ const ENGAGEMENT_TYPES = [
   { value: "fractional", label: "Embedded / Fractional Head of Talent (1 seat open)" },
   { value: "retained", label: "Retained search" },
   { value: "contingent", label: "Contingent" },
+  { value: "contract", label: "Contract / contract-to-hire" },
   { value: "advisory", label: "Advisory / consulting" },
   { value: "unsure", label: "Not sure yet" },
 ];
+
+// Safe addition, company stage for lead qualification. Optional on purpose:
+// it sharpens routing and call prep without adding a required hoop.
+const COMPANY_STAGES = [
+  { value: "pre-seed-seed", label: "Pre-seed / Seed" },
+  { value: "series-a-c", label: "Series A-C" },
+  { value: "growth-public", label: "Growth / Public" },
+  { value: "gov-defense", label: "Government / Defense" },
+];
+
+// Safe addition, lets landing pages pre-select the engagement type via
+// /strategy-call?engagement=contingent so search leads route cleanly.
+function engagementFromQuery(): string {
+  if (typeof window === "undefined") return "";
+  const value = new URLSearchParams(window.location.search).get("engagement") || "";
+  return ENGAGEMENT_TYPES.some((opt) => opt.value === value) ? value : "";
+}
 
 export default function StrategyCall() {
   const [name, setName] = useState("");
@@ -38,7 +56,8 @@ export default function StrategyCall() {
   const [companyWebsite, setCompanyWebsite] = useState("");
   const [roleToFill, setRoleToFill] = useState("");
   const [timeline, setTimeline] = useState("");
-  const [engagementType, setEngagementType] = useState("");
+  const [engagementType, setEngagementType] = useState(engagementFromQuery);
+  const [companyStage, setCompanyStage] = useState("");
   const [blocker, setBlocker] = useState("");
   // honeypot, bots fill it, humans never see it
   const [websiteUrl, setWebsiteUrl] = useState("");
@@ -48,8 +67,10 @@ export default function StrategyCall() {
     e.preventDefault();
     if (submit.kind === "submitting") return;
 
-    if (!name.trim() || !email.trim() || !company.trim() || !timeline) {
-      setSubmit({ kind: "error", message: "Name, email, company, and timeline are required." });
+    // Safe addition — only name, email, and company gate the calendar now.
+    // Everything else is optional context; timeline defaults to exploring.
+    if (!name.trim() || !email.trim() || !company.trim()) {
+      setSubmit({ kind: "error", message: "Name, email, and company are required." });
       return;
     }
 
@@ -64,8 +85,9 @@ export default function StrategyCall() {
           company: company.trim(),
           companyWebsite: companyWebsite.trim(),
           roleToFill: roleToFill.trim(),
-          timeline,
+          timeline: timeline || "exploring",
           engagementType,
+          companyStage,
           blocker: blocker.trim(),
           source: typeof document !== "undefined" ? document.referrer : "",
           website_url: websiteUrl, // honeypot
@@ -131,7 +153,15 @@ export default function StrategyCall() {
                   Tell me what you're dealing with first.
                 </h1>
                 <p className="text-zinc-400 text-base leading-relaxed">
-                  30 minutes, no pitch deck, no upsell. Five questions below so I show up with your context already loaded, and so I can tell you fast if I'm not the right fit.
+                  30 minutes, no pitch deck, no upsell. Name, email, and company get you to the calendar. Everything else is optional, but the more context you give me, the more useful the call is.
+                </p>
+                {/* Safe addition — lower-commitment path for people not ready to book */}
+                <p className="text-zinc-400 text-sm mt-3">
+                  Not ready to talk yet?{" "}
+                  <a href="/hiring-readiness" className="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red transition-colors">
+                    Score your hiring in 5 minutes instead
+                  </a>
+                  , free, no pitch.
                 </p>
               </div>
 
@@ -218,7 +248,22 @@ export default function StrategyCall() {
                   </div>
                 </Field>
 
-                <Field label="Timeline" required>
+                <Field label="Company stage" hint="Optional, helps us route you to the right person">
+                  <div className="grid sm:grid-cols-2 gap-2">
+                    {COMPANY_STAGES.map((opt) => (
+                      <RadioPill
+                        key={opt.value}
+                        name="companyStage"
+                        value={opt.value}
+                        label={opt.label}
+                        checked={companyStage === opt.value}
+                        onChange={() => setCompanyStage(opt.value)}
+                      />
+                    ))}
+                  </div>
+                </Field>
+
+                <Field label="Timeline" hint="Optional, defaults to exploring if you skip it">
                   <div className="grid sm:grid-cols-2 gap-2">
                     {TIMELINES.map((opt) => (
                       <RadioPill
