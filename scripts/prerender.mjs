@@ -148,25 +148,20 @@ async function fetchJobRoutes() {
   }
 }
 
-// Safe addition — fetch all blog posts so we can pre-render /blog/:slug for each.
-// BlogPost.tsx already sets its own PageSEO (title/description/canonical/breadcrumbs),
-// so pre-rendering bakes real per-post meta into static HTML for crawlers.
-// Returns { routes, posts } where posts carry slug + publishedAt for the sitemap.
-async function fetchBlogRoutes() {
+// Safe addition — blog posts are baked into the site as static data
+// (client/src/data/blog-posts.json, consumed by lib/blogData.ts). The old
+// rebelcommand.dev/api/blog endpoint is gone, so the sitemap reads the same
+// JSON file the pages render from. Single source of truth, no network call.
+function fetchBlogRoutes() {
   try {
-    const res = await fetch("https://rebelcommand.dev/api/blog");
-    if (!res.ok) {
-      console.warn(`[prerender] blog fetch failed (${res.status}) — skipping blog posts`);
-      return { routes: [], posts: [] };
-    }
-    const data = await res.json();
-    const posts = (data.posts || [])
+    const jsonPath = resolve(import.meta.dirname, "../client/src/data/blog-posts.json");
+    const posts = JSON.parse(readFileSync(jsonPath, "utf-8"))
       .filter((p) => p && p.slug)
       .map((p) => ({ slug: p.slug, publishedAt: p.publishedAt || null }));
-    console.log(`[prerender] Fetched ${posts.length} blog post slugs for pre-render`);
+    console.log(`[prerender] Loaded ${posts.length} blog post slugs from static data`);
     return { routes: posts.map((p) => `/blog/${p.slug}`), posts };
   } catch (err) {
-    console.warn(`[prerender] blog fetch errored — skipping blog posts: ${err.message}`);
+    console.warn(`[prerender] blog data read errored — skipping blog posts: ${err.message}`);
     return { routes: [], posts: [] };
   }
 }

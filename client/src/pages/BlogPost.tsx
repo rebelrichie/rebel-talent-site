@@ -1,34 +1,11 @@
-// Safe addition - Individual blog post page fetching from public API
-import { useState, useEffect } from "react";
+// Safe addition - Individual blog post page. Posts come from the static data
+// baked into the build (client/src/data/blog-posts.json via lib/blogData.ts),
+// so the full article is in the prerendered HTML with no runtime API call.
 import { Link, useParams } from "wouter";
-import { ArrowLeft, Clock, Tag } from "lucide-react";
+import { ArrowLeft, Clock } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
-
-const API_BASE = "https://rebelcommand.dev/api/blog";
-
-interface Post {
-  id: string;
-  title: string;
-  slug: string;
-  body: string | null;
-  excerpt: string | null;
-  metaDescription: string | null;
-  category: string | null;
-  tags: string[] | null;
-  author: string | null;
-  featured: boolean | null;
-  publishedAt: string | null;
-  ogImage: string | null;
-}
-
-interface RelatedPost {
-  title: string;
-  slug: string;
-  publishedAt: string | null;
-  category: string | null;
-  excerpt: string | null;
-}
+import { getPostBySlug, getRelatedPosts } from "@/lib/blogData";
 
 function formatDate(date: string | null) {
   if (!date) return "";
@@ -199,31 +176,10 @@ function inlineFormat(text: string): string {
 
 export default function BlogPost() {
   const params = useParams<{ slug: string }>();
-  const [post, setPost] = useState<Post | null>(null);
-  const [related, setRelated] = useState<RelatedPost[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const post = getPostBySlug(params.slug);
+  const related = getRelatedPosts(params.slug);
 
-  useEffect(() => {
-    if (!params.slug) return;
-    fetch(`${API_BASE}?slug=${params.slug}`)
-      .then((r) => { if (!r.ok) throw new Error("Not found"); return r.json(); })
-      .then((data) => { setPost(data.post); setRelated(data.related || []); setLoading(false); })
-      .catch(() => { setError(true); setLoading(false); });
-  }, [params.slug]);
-
-  if (loading) {
-    return (
-      <PageLayout>
-        <div className="text-center py-32">
-          <div className="w-8 h-8 border-2 border-rebel-red border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-zinc-400">Loading...</p>
-        </div>
-      </PageLayout>
-    );
-  }
-
-  if (error || !post) {
+  if (!post) {
     return (
       <PageLayout>
         <div className="text-center py-32">

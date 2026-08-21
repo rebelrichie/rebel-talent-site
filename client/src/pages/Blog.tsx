@@ -1,24 +1,11 @@
-// Safe addition - Blog index page fetching from public API
-import { useState, useEffect } from "react";
+// Safe addition - Blog index page. Posts are baked into the build from
+// client/src/data/blog-posts.json (see lib/blogData.ts), so this page works
+// without any runtime API and every post is in the prerendered HTML.
 import { Link } from "wouter";
-import { ArrowRight, Clock, Tag } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
-
-const API_BASE = "https://rebelcommand.dev/api/blog";
-
-interface BlogPost {
-  id: string;
-  title: string;
-  slug: string;
-  excerpt: string | null;
-  metaDescription: string | null;
-  category: string | null;
-  tags: string[] | null;
-  author: string | null;
-  featured: boolean | null;
-  publishedAt: string | null;
-}
+import { BLOG_POSTS } from "@/lib/blogData";
 
 function formatDate(date: string | null) {
   if (!date) return "";
@@ -26,16 +13,7 @@ function formatDate(date: string | null) {
 }
 
 export default function Blog() {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    fetch(API_BASE)
-      .then((r) => r.json())
-      .then((data) => { setPosts(data.posts || []); setLoading(false); })
-      .catch(() => { setError(true); setLoading(false); });
-  }, []);
+  const posts = BLOG_POSTS;
 
   const featured = posts.find((p) => p.featured);
   const rest = posts.filter((p) => p.id !== featured?.id);
@@ -69,45 +47,7 @@ export default function Blog() {
       {/* Content */}
       <section className="py-12">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          {loading && (
-            <div className="text-center py-20">
-              <div className="w-8 h-8 border-2 border-rebel-red border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-              <p className="text-zinc-400">Loading posts...</p>
-            </div>
-          )}
-
-          {error && (
-            <div className="py-10 space-y-8">
-              <div className="border border-zinc-800 bg-zinc-900/40 p-6 sm:p-8 text-center max-w-xl mx-auto">
-                <p className="text-zinc-300 font-semibold mb-1">Posts are temporarily unavailable.</p>
-                <p className="text-zinc-400 text-sm mb-5">The blog API is down. Subscribe on LinkedIn to get every post the moment it drops.</p>
-                <a
-                  href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-semibold text-sm px-6 py-3 rounded-full transition-colors no-underline"
-                >
-                  Subscribe on LinkedIn <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-              <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-                {[
-                  { category: "Hiring Strategy", title: "Why agencies fail growth-stage startups, and what to do instead" },
-                  { category: "Cleared Hiring", title: "The clearance pipeline problem: building TS/SCI bench before you need it" },
-                  { category: "AI & Recruiting", title: "A full agent stack, one operator: how I automated sourcing without losing signal" },
-                  { category: "Fractional Model", title: "What a fractional Head of Talent/Lead Talent Consultant actually does in week one" },
-                ].map((post) => (
-                  <div key={post.title} className="border border-zinc-800/60 bg-zinc-900/20 p-5">
-                    <p className="text-rebel-red text-[10px] font-mono uppercase tracking-widest mb-2">{post.category}</p>
-                    <p className="text-zinc-300 text-sm font-semibold leading-snug">{post.title}</p>
-                  </div>
-                ))}
-              </div>
-              <p className="text-center text-zinc-400 text-xs font-mono tracking-wider">RECENT TOPICS · FULL ARCHIVE ON LINKEDIN</p>
-            </div>
-          )}
-
-          {!loading && !error && posts.length === 0 && (
+          {posts.length === 0 && (
             <div className="text-center py-20">
               <p className="text-zinc-400 text-lg">No posts yet. Check back soon.</p>
             </div>
