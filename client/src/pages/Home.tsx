@@ -339,28 +339,28 @@ export default function Home() {
           {/* Safe addition — two equal front doors. Companies go left, candidates
               go right. Both sit above the fold at 1280px and 390px, which is why
               the chip row moved below them and the mobile margins are tight. */}
-          <div className="mt-6 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl" style={{ animation: "heroLineIn 0.5s ease-out 1.35s both" }}>
+          <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-3" style={{ animation: "heroLineIn 0.5s ease-out 1.35s both" }}>
             <a
               href="/strategy-call"
               data-testid="button-door-hire"
               onClick={hapticTap}
-              className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-semibold text-base px-6 py-3.5 rounded-full transition-colors no-underline"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap bg-rebel-red hover:bg-red-700 text-white font-semibold text-base px-7 py-3.5 rounded-full transition-colors no-underline"
             >
-              I need to hire <ArrowRight className="w-4 h-4" />
+              I need to hire <ArrowRight className="w-4 h-4 shrink-0" />
             </a>
             <Link
               href="/jobs"
               data-testid="button-door-role"
               onClick={hapticTap}
-              className="inline-flex items-center justify-center gap-2 border border-zinc-600 hover:border-rebel-red/70 bg-zinc-900/40 text-white font-semibold text-base px-6 py-3.5 rounded-full transition-colors no-underline"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap bg-rebel-red hover:bg-red-700 text-white font-semibold text-base px-7 py-3.5 rounded-full transition-colors no-underline"
             >
               I&rsquo;m looking for a role
               {openRoleCount !== null && (
-                <span className="font-mono text-xs text-zinc-300 border border-zinc-700 rounded-full px-2 py-0.5">
+                <span className="font-mono text-xs text-white border border-white/40 bg-black/20 rounded-full px-2 py-0.5 whitespace-nowrap">
                   {openRoleCount} open
                 </span>
               )}
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 shrink-0" />
             </Link>
           </div>
 
@@ -373,14 +373,23 @@ export default function Home() {
             >
               See how we work →
             </Link>
+            {/* Safe addition — chips are real links now: each engagement model
+                goes to the page that explains it, so clicking them isn't a dead end. */}
             <div className="hidden sm:flex flex-wrap gap-2">
-              {["Embedded", "Retained", "Contingent", "Advisory"].map((label) => (
-                <span
+              {[
+                { label: "Embedded", href: "/services" },
+                { label: "Retained", href: "/services" },
+                { label: "Contingent", href: "/services" },
+                { label: "Advisory", href: "/advisory" },
+              ].map(({ label, href }) => (
+                <Link
                   key={label}
-                  className="font-mono text-[10px] sm:text-xs tracking-[0.18em] uppercase text-zinc-300 border border-zinc-700/80 bg-zinc-900/40 rounded-full px-3.5 py-1.5"
+                  href={href}
+                  onClick={hapticTap}
+                  className="font-mono text-[10px] sm:text-xs tracking-[0.18em] uppercase text-zinc-300 hover:text-white border border-zinc-700/80 hover:border-rebel-red/70 bg-zinc-900/40 rounded-full px-3.5 py-1.5 transition-colors no-underline"
                 >
                   {label}
-                </span>
+                </Link>
               ))}
             </div>
           </div>
