@@ -314,6 +314,7 @@ export default function About() {
             {[
               {
                 name: "Chris Moscato",
+                photo: "/team-chris.jpg",
                 title: "Head of Client Acquisition",
                 blurb:
                   "Opens and runs retained and contingent accounts. If you're a startup or a scaling team, Chris is your first call, and he stays on the account after the ink dries.",
@@ -322,6 +323,7 @@ export default function About() {
               },
               {
                 name: "Hannah Kerrigan",
+                photo: "/team-hannah.jpg",
                 title: "Full Desk Recruiter",
                 blurb:
                   "Signs accounts and fills them, client side and candidate side in one seat. Specialty: sales hiring. SDRs, AEs, and the leaders who run them.",
@@ -330,17 +332,19 @@ export default function About() {
               },
               {
                 name: "Veronica S.",
-                title: "Recruiter",
+                photo: "/team-veronica.jpg",
+                title: "Recruiter / Chief of Staff",
                 blurb:
-                  "Sourcing, screening, and pipeline. Runs searches end to end and keeps candidates moving from first touch to signed offer.",
+                  "Runs searches end to end and keeps the whole operation moving. Sourcing, screening, pipeline, and everything behind the scenes that keeps engagements on track.",
                 linkedin: "https://www.linkedin.com/in/veronica-s-26750a110/",
                 email: "veronica@rebeltalentsystems.com",
               },
               {
                 name: "Mike Wrona",
+                photo: "/team-mike.jpg",
                 title: "Recruitment Consultant",
                 blurb:
-                  "Full desk: brings in the role, then goes out and fills it. Business development and delivery across tech and go-to-market.",
+                  "Full desk: brings in the role, then goes out and fills it. Works fractional and embedded federal engagements alongside Richie, plus delivery across tech and go-to-market.",
                 linkedin: "https://www.linkedin.com/in/wrona/",
                 email: "mike@rebeltalentsystems.com",
               },
@@ -348,8 +352,18 @@ export default function About() {
               <ScrollReveal key={person.name} variant="fade-up">
                 <GlowCard>
                   <div className="border border-zinc-800 bg-zinc-900/40 p-6 h-full flex flex-col" data-testid={`team-${person.name.split(" ")[0].toLowerCase()}`}>
-                    <h3 className="font-display text-lg font-bold text-white uppercase mb-1">{person.name}</h3>
-                    <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">{person.title}</div>
+                    <div className="flex items-center gap-4 mb-4">
+                      <img
+                        src={person.photo}
+                        alt={`${person.name}, ${person.title} at Rebel Talent Systems`}
+                        loading="lazy"
+                        className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border border-zinc-700 shrink-0"
+                      />
+                      <div>
+                        <h3 className="font-display text-lg font-bold text-white uppercase mb-1">{person.name}</h3>
+                        <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">{person.title}</div>
+                      </div>
+                    </div>
                     <p className="text-zinc-300 text-sm leading-relaxed mb-4">{person.blurb}</p>
                     <div className="mt-auto flex items-center gap-4 text-sm">
                       <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors no-underline">
