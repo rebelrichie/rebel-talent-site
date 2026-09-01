@@ -105,10 +105,10 @@ export default function About() {
                 <span className="text-rebel-red">Five cities. One thesis.</span>
               </h1>
               <p className="text-base sm:text-xl text-zinc-300 max-w-2xl leading-[1.55] mb-4" data-testid="text-intro">
-                I started in music venues in Grand Rapids, reading rooms and booking bands nobody had heard of yet. Then more than a decade in the staffing trenches at Robert Half, Addison Group, and a dozen names in between, watching the old model up close and clocking exactly what was broken about it. I didn&rsquo;t leave to start another agency. I left to build the thing that replaces it.
+                I started in music venues in Grand Rapids, reading rooms and booking bands nobody had heard of yet. Then more than a decade in the staffing trenches, watching the old model up close and clocking exactly what was broken about it. I didn&rsquo;t leave to start another agency. I left to build the thing that replaces it.
               </p>
               <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-[1.55] mb-6">
-                In 2023 I got laid off and co-founded <span className="text-zinc-200 font-semibold">Underground Admins</span> the same week with my partner Amy. I&rsquo;m still a minority owner there, but it&rsquo;s a separate company. Then I built <span className="text-zinc-200 font-semibold">Rebel Talent Systems</span>: the firm I wished existed when I was on the other side of the desk. I don&rsquo;t run an agency. I become your Head of Talent/Lead Talent Consultant for a quarter, two, a year. I leave you with the system. Embedded work runs on a flat retainer with no placement fee. Search work is priced up front, so you know the number before we start.
+                <span className="text-zinc-200 font-semibold">Rebel Talent Systems</span> is the firm I wished existed when I was on the other side of the desk. I become your Head of Talent/Lead Talent Consultant for a quarter, two, a year, backed by the team below, and I leave you owning the system. Embedded work runs on a flat retainer with no placement fee. Search work is priced up front, so you know the number before we start.
               </p>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-6">
                 <CapacityBadge />
@@ -225,35 +225,11 @@ export default function About() {
                   <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">2005 to 2013</div>
                   <div className="text-zinc-300 font-semibold mt-1">Music venues</div>
                 </div>
+                {/* Safe addition (2026-09 trim): era condensed to one paragraph, photos dropped */}
                 <div className="text-zinc-300 text-base leading-[1.7]">
-                  <figure className="mb-5">
-                    <img
-                      src="/richie-music-venue.jpg"
-                      alt="Richie Lampani center stage with a music venue ensemble in Grand Rapids"
-                      loading="lazy"
-                      className="w-full border border-zinc-800"
-                    />
-                    <figcaption className="text-zinc-400 text-xs italic mt-2 leading-snug">
-                      Me and a bunch of the local artists I worked with directly. That&rsquo;s me in the middle.
-                    </figcaption>
-                  </figure>
-                  <p className="mb-3">
-                    Started in 2005 booking shows at a small Grand Rapids venue and renting the big room at <span className="text-white">The Intersection</span> whenever I had a name big enough to fill it. Worked my way in. Later co-founded <span className="text-white">Rocket Entertainment Group</span> and wrote a column on music and dating for <span className="text-white">Recoil Magazine</span> on the side.
+                  <p>
+                    Started in 2005 booking shows at a small Grand Rapids venue, renting the big room at <span className="text-white">The Intersection</span> whenever I had a name big enough to fill it. Co-founded <span className="text-white">Rocket Entertainment Group</span> and wrote a column for <span className="text-white">Recoil Magazine</span> on the side. A guy named Dave taught me audiences prefer authenticity over polish. Two decades later, that&rsquo;s still the line I build on.
                   </p>
-                  <p className="text-zinc-400 mb-5">
-                    A guy named Dave taught me audiences prefer authenticity over polish. That&rsquo;s the line I&rsquo;d come back to almost two decades later when I sat down to write a book about recruiting.
-                  </p>
-                  <figure className="flex items-center gap-4">
-                    <img
-                      src="/rocket-entertainment-logo.jpg"
-                      alt="Rocket Entertainment Group logo"
-                      loading="lazy"
-                      className="w-20 h-20 rounded-full border border-zinc-800"
-                    />
-                    <figcaption className="text-zinc-400 text-xs italic leading-snug">
-                      Rocket Entertainment Group.<br />Co-founded, late 2000s.
-                    </figcaption>
-                  </figure>
                 </div>
               </div>
             </ScrollReveal>
@@ -264,23 +240,10 @@ export default function About() {
                   <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">2012 to 2023</div>
                   <div className="text-zinc-300 font-semibold mt-1">Staffing trenches</div>
                 </div>
+                {/* Safe addition (2026-09 trim): era condensed to one paragraph, photo dropped */}
                 <div className="text-zinc-300 text-base leading-[1.7]">
-                  <figure className="mb-5 max-w-md">
-                    <img
-                      src="/richie-agency-era.jpg"
-                      alt="Richie Lampani during his agency-recruiting years, black and white portrait"
-                      loading="lazy"
-                      className="w-full border border-zinc-800"
-                    />
-                    <figcaption className="text-zinc-400 text-xs italic mt-2 leading-snug">
-                      Agency era. Sales rankings and quarterly contests.
-                    </figcaption>
-                  </figure>
-                  <p className="mb-3">
-                    Robert Half. Addison Group. Tech Mobi. Jonathan Edwards Group. A handful of startups in between. Eleven years in the staffing trenches. Sales rankings, quarterly contests, resumes by the hundred. I learned how to read a JD between the lines, how to pull a cleared candidate out of nowhere on a Friday afternoon, and how to talk to engineers who hate being talked to by recruiters.
-                  </p>
-                  <p className="text-zinc-400">
-                    I also learned where the old model breaks: the incentives. A contingency recruiter gets paid $30K to $90K only when someone signs an offer. So the pressure is to push fast, oversell fits, and move on. Quality of hire, retention, fit, your CFO&rsquo;s blood pressure. None of that pays them. I wanted to build the opposite.
+                  <p>
+                    Robert Half. Addison Group. A dozen names in between. Eleven years of sales rankings, quarterly contests, and resumes by the hundred taught me how to read a JD between the lines, pull a cleared candidate out of nowhere on a Friday afternoon, and talk to engineers who hate being talked to by recruiters. It also taught me where the old model breaks: contingency pay rewards speed, not fit. Quality of hire, retention, your CFO&rsquo;s blood pressure. None of that pays the recruiter. I wanted to build the opposite.
                   </p>
                 </div>
               </div>
@@ -292,15 +255,10 @@ export default function About() {
                   <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">Feb 2023</div>
                   <div className="text-zinc-300 font-semibold mt-1">Underground Admins</div>
                 </div>
+                {/* Safe addition (2026-09 trim): era condensed to one paragraph */}
                 <div className="text-zinc-300 text-base leading-[1.7]">
-                  <p className="mb-3">
-                    My partner Amy and I got laid off from the same company in the same week. Five days later we started <span className="text-white">Underground Admins</span>, a staffing and recruiting shop built on the people we wished we&rsquo;d had at our last gig.
-                  </p>
-                  <p className="text-zinc-400 mb-3">
-                    Someone suggested we change the name. I said no, this is rad. The name stuck.
-                  </p>
-                  <p className="text-zinc-400">
-                    I&rsquo;m still a minority owner, but Underground Admins runs independently of Rebel Talent. If you need <span className="text-zinc-300">contingent or contract search</span>, that&rsquo;s its lane, not mine. Amy runs it: <a href="mailto:amy@undergroundadmins.com" className="text-rebel-red no-underline hover:text-white transition-colors">amy@undergroundadmins.com</a>.
+                  <p>
+                    My partner Amy and I got laid off from the same company in the same week. Five days later we started <span className="text-white">Underground Admins</span>. I&rsquo;m still a minority owner, but it runs independently of Rebel Talent. If you need <span className="text-zinc-300">contingent or contract search</span>, that&rsquo;s its lane. Amy runs it: <a href="mailto:amy@undergroundadmins.com" className="text-rebel-red no-underline hover:text-white transition-colors">amy@undergroundadmins.com</a>.
                   </p>
                 </div>
               </div>
@@ -312,23 +270,11 @@ export default function About() {
                   <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">Oct 2025 to now</div>
                   <div className="text-zinc-300 font-semibold mt-1">Rebel Talent Systems</div>
                 </div>
+                {/* Safe addition (2026-09 trim): era condensed, photo dropped; team details
+                    moved to the new team section below */}
                 <div className="text-zinc-300 text-base leading-[1.7]">
-                  <figure className="mb-5 max-w-sm">
-                    <img
-                      src="/richie-now-v2.jpg"
-                      alt="Richie Lampani, present day"
-                      loading="lazy"
-                      className="w-full border border-zinc-800"
-                    />
-                    <figcaption className="text-zinc-400 text-xs italic mt-2 leading-snug">
-                      Now. Same hustle, better tools.
-                    </figcaption>
-                  </figure>
-                  <p className="mb-3">
-                    Rebel Talent is scaling. I embed as your Head of Talent/Lead Talent Consultant for a quarter, six months, a year. I build the funnel, write the JDs, run interview loops, close hires. Behind me now is a vetted team of specialist recruiters working under my direction across tech, business process, and GTM/sales, cleared and noncleared, entry level through executive, with Chris, our Head of Client Acquisition, opening and running retained and contingent accounts. No handoff to a coordinator, no agency churn. A vetted team under Richie&rsquo;s direction, and Richie is on every engagement.
-                  </p>
-                  <p className="text-zinc-400">
-                    Wrote the first book by month 3 (Head and Heart, December 2025). Second one by month 6 (Unfinished Rooms, March 2026). Built the operator stack I run my business on from scratch: 27 AI agents, a custom ATS/CRM, embedded sourcing pipelines. My clients run inside it.
+                  <p>
+                    Rebel Talent is scaling. I embed as your Head of Talent/Lead Talent Consultant for a quarter, six months, a year. I build the funnel, write the JDs, run interview loops, close hires, and I&rsquo;m on every engagement, backed by the team below. Wrote two books in the first six months (Head and Heart, December 2025; Unfinished Rooms, March 2026) and built the operator stack my clients run inside: 27 AI agents and a custom ATS/CRM, from scratch.
                   </p>
                 </div>
               </div>
@@ -349,6 +295,141 @@ export default function About() {
 
       {/* Section removed 2026-08: "Why I won't run an agency" contradicted the
           contingent and retained offerings now sold on /services and /startups. */}
+
+      {/* ───────────── THE TEAM ───────────── */}
+      {/* Safe addition (2026-09): the team section. Everyone who touches an
+          engagement, what they do, first names only. */}
+      <section className="bg-rebel-space py-16 sm:py-20 border-t border-zinc-900">
+        <div className="max-w-5xl mx-auto px-6 lg:px-12">
+          <ScrollReveal variant="fade-up">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-3 pb-3 border-b border-rebel-red/30" data-testid="heading-team">
+              The team
+            </h2>
+            <p className="text-zinc-400 text-sm mb-10 italic max-w-2xl">
+              Everyone works under my direction, and I&rsquo;m on every engagement. Here&rsquo;s who does what.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {[
+              {
+                name: "Chris Moscato",
+                title: "Head of Client Acquisition",
+                blurb:
+                  "Opens and runs retained and contingent accounts. If you're a startup or a scaling team, Chris is your first call, and he stays on the account after the ink dries.",
+                linkedin: "https://www.linkedin.com/in/chrismoscato/",
+                email: "christopher@rebeltalentsystems.com",
+              },
+              {
+                name: "Hannah Kerrigan",
+                title: "Full Desk Recruiter",
+                blurb:
+                  "Signs accounts and fills them, client side and candidate side in one seat. Specialty: sales hiring. SDRs, AEs, and the leaders who run them.",
+                linkedin: "https://www.linkedin.com/in/-hannah-kerrigan/",
+                email: "hannah@rebeltalentsystems.com",
+              },
+              {
+                name: "Veronica S.",
+                title: "Recruiter",
+                blurb:
+                  "Sourcing, screening, and pipeline. Runs searches end to end and keeps candidates moving from first touch to signed offer.",
+                linkedin: "https://www.linkedin.com/in/veronica-s-26750a110/",
+                email: "veronica@rebeltalentsystems.com",
+              },
+              {
+                name: "Mike Wrona",
+                title: "Recruitment Consultant",
+                blurb:
+                  "Full desk: brings in the role, then goes out and fills it. Business development and delivery across tech and go-to-market.",
+                linkedin: "https://www.linkedin.com/in/wrona/",
+                email: "mike@rebeltalentsystems.com",
+              },
+            ].map((person) => (
+              <ScrollReveal key={person.name} variant="fade-up">
+                <GlowCard>
+                  <div className="border border-zinc-800 bg-zinc-900/40 p-6 h-full flex flex-col" data-testid={`team-${person.name.split(" ")[0].toLowerCase()}`}>
+                    <h3 className="font-display text-lg font-bold text-white uppercase mb-1">{person.name}</h3>
+                    <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">{person.title}</div>
+                    <p className="text-zinc-300 text-sm leading-relaxed mb-4">{person.blurb}</p>
+                    <div className="mt-auto flex items-center gap-4 text-sm">
+                      <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors no-underline">
+                        LinkedIn ↗
+                      </a>
+                      <a href={`mailto:${person.email}`} className="text-zinc-400 hover:text-white transition-colors no-underline">
+                        Email ↗
+                      </a>
+                    </div>
+                  </div>
+                </GlowCard>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ───────────── THE AGENTS ───────────── */}
+      {/* Safe addition (2026-09): the named AI agents inside Rebel Command.
+          Clearly labeled as AI so nobody mistakes them for people. */}
+      <section className="bg-zinc-950 py-16 sm:py-20 border-t border-zinc-900">
+        <div className="max-w-5xl mx-auto px-6 lg:px-12">
+          <ScrollReveal variant="fade-up">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-3 pb-3 border-b border-rebel-red/30" data-testid="heading-agents">
+              The agents
+            </h2>
+            <p className="text-zinc-400 text-sm mb-10 italic max-w-2xl">
+              Rebel Command runs 27 AI agents under the hood. These five do the front-line work. Every one of them works under human direction, and nothing goes out the door without a person signing off.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              {
+                name: "Architect",
+                role: "The Leader",
+                blurb:
+                  "Runs point on the whole system. Directs the other agents, scores the pipeline, and flags what needs a human.",
+              },
+              {
+                name: "Miles",
+                role: "The SDR",
+                blurb:
+                  "Outbound that never sleeps. Researches prospects, drafts outreach, and tees up conversations for the team to take.",
+              },
+              {
+                name: "Vicky",
+                role: "Admin",
+                blurb:
+                  "Schedules, screens, coordinates. Keeps every search organized so nothing slips through the cracks.",
+              },
+              {
+                name: "Rachael",
+                role: "The Cleared Sourcer",
+                blurb:
+                  "Maps cleared talent: Secret, TS, TS/SCI. Builds candidate profiles for the roles most tools can't touch.",
+              },
+              {
+                name: "Larry",
+                role: "Commercial Sourcing",
+                blurb:
+                  "Sources commercial tech and GTM talent, engineers to account executives, enriched before a recruiter ever opens a tab.",
+              },
+            ].map((agent) => (
+              <ScrollReveal key={agent.name} variant="fade-up">
+                <GlowCard>
+                  <div className="border border-zinc-800 bg-zinc-900/30 p-6 h-full" data-testid={`agent-${agent.name.toLowerCase()}`}>
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="font-display text-lg font-bold text-white uppercase">{agent.name}</h3>
+                      <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-zinc-400 border border-zinc-700 rounded-full px-2 py-0.5">AI</span>
+                    </div>
+                    <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">{agent.role}</div>
+                    <p className="text-zinc-300 text-sm leading-relaxed">{agent.blurb}</p>
+                  </div>
+                </GlowCard>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ───────────── PROOF: WHAT 14 YEARS BUILT ───────────── */}
       <section className="bg-rebel-space py-16 sm:py-20 border-t border-zinc-900">
