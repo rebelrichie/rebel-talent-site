@@ -206,7 +206,7 @@ export default function Home() {
         description="Fractional recruiting and embedded talent leadership for Series A-C startups and defense contractors. ~335% ROI delivered, 470%+ projected. 14+ years experience."
         path="/"
         ogTitle="Fractional Recruiting for Startups & Defense | Rebel Talent"
-        ogDescription="You don't have a recruiting problem, you have a hiring infrastructure problem. Rebel Talent Systems installs the system and runs it, then hands it back. Embedded, retained, or contingent with a deposit. Recruiters who specialize in tech, business process, and GTM and sales, cleared and noncleared, entry level through executive, for venture-backed and defense teams."
+        ogDescription="You don't have a recruiting problem, you have a hiring infrastructure problem. Rebel Talent Systems installs the system and runs it, then hands it back. Embedded, retained, or contingent. Recruiters who specialize in tech, business process, and GTM and sales, cleared and noncleared, entry level through executive, for venture-backed and defense teams."
         ogImage="og-home.png"
         schemas={[homepageSchema]}
       />
@@ -332,7 +332,7 @@ export default function Home() {
           {/* Subhead — Safe addition: three-offering, full-coverage positioning; key phrase brightened for scannability */}
           <p className="mt-5 sm:mt-10 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]" style={{ animation: "heroLineIn 0.5s ease-out 1.2s both" }}>
             Rebel Talent Systems fills your open roles and builds the system underneath them.{" "}
-            <span className="text-zinc-200 font-medium">Embedded, retained, or contingent with a deposit.</span>{" "}
+            <span className="text-zinc-200 font-medium">Embedded, retained, or contingent.</span>{" "}
             Technical, business process, GTM and sales. Cleared and noncleared, entry level through executive, for Series A through C companies and defense teams.
           </p>
 
@@ -549,7 +549,7 @@ export default function Home() {
               Pick your fight.
             </h2>
             <p className="text-zinc-400 text-sm mt-3 max-w-xl mx-auto">
-              No tiers, no packages. Embedded builds the machine and leaves you owning it. Retained runs a defined search against a deadline. Contingent fills straightforward roles once a deposit is in. Advisory puts my read on your hiring, AI, and infrastructure on the table before you spend.
+              No tiers, no packages. Embedded builds the machine and leaves you owning it. Retained runs a defined search against a deadline. Contingent fills straightforward roles with the fee due on placement. Advisory puts my read on your hiring, AI, and infrastructure on the table before you spend.
             </p>
           </div>
           </ScrollReveal>
@@ -613,20 +613,20 @@ export default function Home() {
 
             <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-5 sm:p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-contingent">
               <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
-                DEPOSIT
+                PAY ON PLACEMENT
               </div>
               <h3 className="font-display text-xl font-bold text-white uppercase mb-2">
                 Contingent
               </h3>
-              <p className="text-rebel-red font-mono text-sm mb-1">Deposit up front · balance on placement</p>
+              <p className="text-rebel-red font-mono text-sm mb-1">Fee due on placement</p>
               <p className="text-zinc-400 font-mono text-xs mb-4">For straightforward, well-defined roles</p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                Placement work for clear, fillable roles. A deposit gets the search moving, the balance is due when the seat is filled. We are happy to go on the journey with you and your team, just not for free.
+                Placement work for clear, fillable roles. The search starts fast, and the fee is due when the seat is filled.
               </p>
               <ul className="space-y-2 mb-6">
                 {[
-                  "Deposit secures the search",
-                  "Balance on an accepted offer",
+                  "Fee due on an accepted offer",
+                  "Fast start, no long commitment",
                   "Best for single, well-scoped roles",
                   "Same vetting standard as every desk",
                   "Cleared or noncleared, any level",

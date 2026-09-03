@@ -23,7 +23,7 @@ const testimonials = [
     initials: "CG",
     name: "Colleen Garrett",
     title: "Fractional HR Leader, Leadership Coach, MBA",
-    text: "I have worked with Richie since he started Underground Admins. He successfully performed searches for my company's open roles in Sales, Sales Enablement, and technical roles. Richie is the most collaborative and positive person I get the privilege to work with and I deeply trust his judgment. He has an impressive expertise in finding the right candidates for jobs and for understanding and resonating with a company's culture. My company isn't easy to please and it is exceptionally picky at a maddening level. Richie kept giving us amazing candidates and moving forward, reflecting on our feedback and adjusting on the go. I plan to work with Underground Admins wherever I go with whatever vacancy I need to fill. He guarantees my success in hiring. Highly recommend!",
+    text: "I have worked with Richie since he went out on his own. He successfully performed searches for my company's open roles in Sales, Sales Enablement, and technical roles. Richie is the most collaborative and positive person I get the privilege to work with and I deeply trust his judgment. He has an impressive expertise in finding the right candidates for jobs and for understanding and resonating with a company's culture. My company isn't easy to please and it is exceptionally picky at a maddening level. Richie kept giving us amazing candidates and moving forward, reflecting on our feedback and adjusting on the go. I plan to work with Richie wherever I go with whatever vacancy I need to fill. He guarantees my success in hiring. Highly recommend!",
   },
   {
     initials: "NP",

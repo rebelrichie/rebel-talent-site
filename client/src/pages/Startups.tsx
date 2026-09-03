@@ -43,11 +43,11 @@ const OFFERINGS = [
   {
     title: "Contingent",
     tag: "PAY ON PLACEMENT",
-    desc: "A deposit up front, the balance when the hire starts. Built for single roles where you want speed without a big commitment.",
+    desc: "The fee is due when the hire starts. Built for single roles where you want speed without a big commitment.",
     bullets: [
       "GTM desk: AEs, SDR leaders, sales engineers, first marketing hires",
       "Technical desk: founding engineers, AI/ML, platform, security",
-      "Deposit credited against the placement fee",
+      "Same vetting standard as our retained work",
     ],
     engagement: "contingent",
     cta: "Start a contingent search",

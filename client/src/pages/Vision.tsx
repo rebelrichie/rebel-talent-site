@@ -141,7 +141,7 @@ export default function Vision() {
                 },
                 {
                   head: "We will not work for free.",
-                  body: "Contingent search carries a deposit.",
+                  body: "Every search we run is scoped, priced, and committed to on both sides before we start.",
                 },
                 {
                   head: "We will not sell a client a search we do not believe is fillable.",

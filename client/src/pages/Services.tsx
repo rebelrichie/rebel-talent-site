@@ -22,7 +22,7 @@ const FAQS = [
   },
   {
     q: "How can we engage?",
-    a: "Four ways. Embedded/Fractional runs on a monthly retainer where we run your recruiting function and hand it back. Retained Search is a defined role with a deadline, half down and half on placement. Contingent takes a deposit up front with the balance on placement. Advisory is fixed-scope work on your hiring plan, AI, and recruiting infrastructure before you spend. Every offering runs under Richie's direction.",
+    a: "Four ways. Embedded/Fractional runs on a monthly retainer where we run your recruiting function and hand it back. Retained Search is a defined role with a deadline, half down and half on placement. Contingent is a placement fee due when the hire lands. Advisory is fixed-scope work on your hiring plan, AI, and recruiting infrastructure before you spend. Every offering runs under Richie's direction.",
   },
   {
     q: "What does the first 30 days look like?",
@@ -82,8 +82,8 @@ const serviceSchemas = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Contingent Recruiting",
-    "serviceType": "Contingent recruiting with a deposit up front",
-    "description": "A deposit up front gets our team working your roles, with the balance due on placement, all under Richie's direction. Cleared and noncleared, entry level through executive, across tech, business process, and GTM/sales for Series A through C and defense teams.",
+    "serviceType": "Contingent recruiting, fee due on placement",
+    "description": "Our team works your roles with the fee due on placement, all under Richie's direction. Cleared and noncleared, entry level through executive, across tech, business process, and GTM/sales for Series A through C and defense teams.",
     "provider": serviceProvider,
     "areaServed": "US",
     "url": "https://rebeltalentsystems.com/services",
@@ -167,9 +167,9 @@ const OFFERINGS = [
   {
     tag: "SINGLE ROLE",
     title: "Contingent",
-    terms: "Deposit up front, balance on placement",
-    sub: "Paid up front, no spec work",
-    desc: "We're happy to work your roles alongside your team, just not for free. A deposit up front gets our team working your roles, with the balance due on placement. Chris, our Head of Client Acquisition, runs your account, under Richie's direction.",
+    terms: "Fee due on placement",
+    sub: "You pay when the hire lands",
+    desc: "Our team works your roles alongside yours, and the fee is due when the placement lands. Chris, our Head of Client Acquisition, runs your account, under Richie's direction.",
     bullets: [
       "Cleared and noncleared roles",
       "Entry level through executive",
