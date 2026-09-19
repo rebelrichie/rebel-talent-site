@@ -30,8 +30,8 @@ export default function ContingentChrisSection() {
         <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-16 xl:gap-20 items-center">
           <ScrollReveal variant="fade-up">
             <div>
-              <p className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-4">
-                CONTINGENT SEARCH
+              <p className="font-mono text-rebel-red text-sm sm:text-base lg:text-lg tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-4 sm:mb-5 font-semibold">
+                NOW OFFERING - CONTINGENT SEARCH
               </p>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white uppercase tracking-tight leading-[1.08] mb-6">
                 Flat fee by band.<br />
