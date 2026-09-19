@@ -9,6 +9,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import GlowCard from "@/components/GlowCard";
 import ParallaxSection from "@/components/ParallaxSection";
 import CapacityBadge from "@/components/CapacityBadge";
+import ContingentChrisSection from "@/components/ContingentChrisSection";
 import CurrentEngagements from "@/components/CurrentEngagements";
 import EmailCapture from "@/components/EmailCapture";
 
@@ -418,11 +419,13 @@ export default function Home() {
         </div>
       </section>
 
+      <ContingentChrisSection />
+
       {/* ── HIRING READINESS SCORECARD HOOK (slim lead-capture, links to full tool) ── */}
       {/* Safe addition, one-line hook under the intro, routes to /hiring-readiness */}
       <section
         data-testid="section-scorecard-hook"
-        className="border-b border-zinc-800/50"
+        className="border-t border-zinc-900 border-b border-zinc-800/50"
         style={{ background: "#0E0D11" }}
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
