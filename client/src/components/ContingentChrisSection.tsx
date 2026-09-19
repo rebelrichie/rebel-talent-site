@@ -36,7 +36,8 @@ export default function ContingentChrisSection() {
                 CONTINGENT SEARCH
               </p>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white uppercase tracking-tight leading-[1.08] mb-6">
-                One flat fee. Zero games.
+                One flat fee.<br />
+                Zero games.
               </h2>
               <p className="text-zinc-300 text-base sm:text-lg leading-[1.7] max-w-xl">
                 Most agencies charge a percentage of salary, which means they get paid more when you pay more. We don't. Every search is one flat fee. Whether your hire lands at the bottom of the range or the top, the number doesn't move. You pay for the right person, not the expensive one.
