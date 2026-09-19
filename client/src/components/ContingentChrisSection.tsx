@@ -8,9 +8,9 @@ function hapticTap() {
 
 // TODO(calendly): Swap BOOK_CHRIS_HREF to Chris's Calendly URL when it is live.
 // Keep Email Chris as the mailto fallback. Both CTAs are mailto until then.
-const BOOK_CHRIS_HREF =
+export const BOOK_CHRIS_HREF =
   "mailto:christopher@rebeltalentsystems.com?subject=Contingent%20search";
-const EMAIL_CHRIS_HREF = "mailto:christopher@rebeltalentsystems.com";
+export const EMAIL_CHRIS_HREF = "mailto:christopher@rebeltalentsystems.com";
 
 const CHRIS_HEADSHOT = "/chris-moscato.jpg";
 
@@ -23,6 +23,7 @@ const STRIP = [
 export default function ContingentChrisSection() {
   return (
     <section
+      id="contingent-search"
       data-testid="section-contingent-search"
       className="bg-zinc-950 py-16 sm:py-24 border-t border-zinc-900"
     >

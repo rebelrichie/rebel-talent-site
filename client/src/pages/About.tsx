@@ -108,7 +108,7 @@ export default function About() {
                 I started in music venues in Grand Rapids, reading rooms and booking bands nobody had heard of yet. Then more than a decade in the staffing trenches, watching the old model up close and clocking exactly what was broken about it. I didn&rsquo;t leave to start another agency. I left to build the thing that replaces it.
               </p>
               <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-[1.55] mb-6">
-                <span className="text-zinc-200 font-semibold">Rebel Talent Systems</span> is the firm I wished existed when I was on the other side of the desk. I become your Head of Talent/Lead Talent Consultant for a quarter, two, a year, backed by the team below, and I leave you owning the system. Embedded work runs on a flat retainer with no placement fee. Search work is priced up front, so you know the number before we start.
+                <span className="text-zinc-200 font-semibold">Rebel Talent Systems</span> is the firm I wished existed when I was on the other side of the desk. New searches start with Chris. Contingent is a flat fee by salary band, due on placement. When a team needs someone inside the function, I embed as Head of Talent/Lead Talent Consultant and leave you owning the system.
               </p>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-6">
                 <CapacityBadge />

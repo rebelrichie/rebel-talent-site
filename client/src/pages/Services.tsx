@@ -8,6 +8,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import GlowCard from "@/components/GlowCard";
 import CapacityBadge from "@/components/CapacityBadge";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import { BOOK_CHRIS_HREF } from "@/components/ContingentChrisSection";
 
 // Safe addition, haptic feedback for PWA CTA taps
 function hapticTap() {
@@ -22,7 +23,7 @@ const FAQS = [
   },
   {
     q: "How can we engage?",
-    a: "Four ways. Embedded/Fractional runs on a monthly retainer where we run your recruiting function and hand it back. Retained Search is a defined role with a deadline, half down and half on placement. Contingent is a placement fee due when the hire lands. Advisory is fixed-scope work on your hiring plan, AI, and recruiting infrastructure before you spend. Every offering runs under Richie's direction.",
+    a: "Four ways. Contingent is a flat fee by salary band, due on placement. Retained Search is a defined role with a deadline, half down and half on placement. Embedded/Fractional runs on a monthly retainer where we run your recruiting function and hand it back. Advisory is fixed-scope work on your hiring plan, AI, and recruiting infrastructure before you spend. Every offering runs under Richie's direction.",
   },
   {
     q: "What does the first 30 days look like?",
@@ -61,9 +62,9 @@ const serviceSchemas = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Embedded / Fractional Recruiting",
-    "serviceType": "Embedded / Fractional recruiting on a monthly retainer",
-    "description": "We run your recruiting function on a monthly retainer and hand it back better than we found it, all under Richie's direction. Coverage across tech, business process, and GTM/sales, cleared and noncleared, entry level through executive, Series A through C and defense teams.",
+    "name": "Contingent Recruiting",
+    "serviceType": "Contingent recruiting, flat fee by salary band, due on placement",
+    "description": "Flat fee by salary band, due on placement. No percentage of salary. Chris Moscato runs new search conversations under Richie's direction. Cleared and noncleared, entry level through executive, across tech, business process, and GTM/sales for Series A through C and defense teams.",
     "provider": serviceProvider,
     "areaServed": "US",
     "url": "https://rebeltalentsystems.com/services",
@@ -81,9 +82,9 @@ const serviceSchemas = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Contingent Recruiting",
-    "serviceType": "Contingent recruiting, fee due on placement",
-    "description": "Our team works your roles with the fee due on placement, all under Richie's direction. Cleared and noncleared, entry level through executive, across tech, business process, and GTM/sales for Series A through C and defense teams.",
+    "name": "Embedded / Fractional Recruiting",
+    "serviceType": "Embedded / Fractional recruiting on a monthly retainer",
+    "description": "We run your recruiting function on a monthly retainer and hand it back better than we found it, all under Richie's direction. Coverage across tech, business process, and GTM/sales, cleared and noncleared, entry level through executive, Series A through C and defense teams.",
     "provider": serviceProvider,
     "areaServed": "US",
     "url": "https://rebeltalentsystems.com/services",
@@ -134,20 +135,22 @@ const faqSchema = {
 
 const OFFERINGS = [
   {
-    tag: "FLAGSHIP",
-    title: "Embedded / Fractional",
-    terms: "Monthly retainer · 3-month minimum",
-    sub: "Our flagship engagement",
-    desc: "We run your recruiting function and hand it back better than we found it. In your Slack, your ATS, your hiring-manager 1:1s, your candidate calls, all under Richie's direction. Not consulting from the sidelines.",
+    tag: "CONTINGENT SEARCH",
+    title: "Contingent",
+    terms: "Flat fee by salary band",
+    sub: "Fee due on placement · no % of salary",
+    desc: "Each salary range has its own flat fee. Lock the band at the start, fill the seat, and pay on placement. The fee does not move if you pay top of range. Chris, our Head of Client Acquisition, runs your account under Richie's direction.",
     bullets: [
-      "Strategic hiring roadmap & prioritization",
-      "End-to-end recruiting execution",
-      "ATS audit, rebuild & job-post overhaul",
-      "Interview process design & training",
-      "You keep the database, systems & playbooks",
+      "Flat fee set by salary band",
+      "Fee due on an accepted offer",
+      "No percentage of salary, ever",
+      "Fast start, no long commitment",
+      "Cleared or noncleared, any level",
     ],
-    best: "Series A–C startups scaling 5–20+ hires, defense contractors building cleared pipelines, companies replacing agency dependency.",
+    best: "Teams that want to start a search without a retainer or a percent-of-salary fee.",
     featured: true,
+    ctaLabel: "Talk to Chris",
+    ctaHref: BOOK_CHRIS_HREF,
   },
   {
     tag: "DEFINED ROLE",
@@ -163,21 +166,26 @@ const OFFERINGS = [
     ],
     best: "Executive searches, cleared roles, Forward Deployed Engineers, AI/ML, specialized technical talent.",
     featured: false,
+    ctaLabel: "Talk to Chris",
+    ctaHref: BOOK_CHRIS_HREF,
   },
   {
-    tag: "SINGLE ROLE",
-    title: "Contingent",
-    terms: "Fee due on placement",
-    sub: "You pay when the hire lands",
-    desc: "Our team works your roles alongside yours, and the fee is due when the placement lands. Chris, our Head of Client Acquisition, runs your account, under Richie's direction.",
+    tag: "EMBEDDED",
+    title: "Embedded / Fractional",
+    terms: "Monthly retainer · 3-month minimum",
+    sub: "Run the function, then hand it back",
+    desc: "We run your recruiting function and hand it back better than we found it. In your Slack, your ATS, your hiring-manager 1:1s, your candidate calls, all under Richie's direction. Not consulting from the sidelines.",
     bullets: [
-      "Cleared and noncleared roles",
-      "Entry level through executive",
-      "Chris, our Head of Client Acquisition, is your point of contact",
-      "Contract and contract-to-hire available through an EOR",
+      "Strategic hiring roadmap & prioritization",
+      "End-to-end recruiting execution",
+      "ATS audit, rebuild & job-post overhaul",
+      "Interview process design & training",
+      "You keep the database, systems & playbooks",
     ],
-    best: "Teams that want to start with one role across tech, business process, and GTM/sales.",
+    best: "Series A–C startups scaling 5–20+ hires, defense contractors building cleared pipelines, companies replacing agency dependency.",
     featured: false,
+    ctaLabel: "Book Strategy Call",
+    ctaHref: "/strategy-call",
   },
   // Safe addition, Advisory offering, routes to its own /advisory page
   {
@@ -262,10 +270,10 @@ export default function Services() {
     <PageLayout>
       <PageSEO
         title="Recruiting Services & Engagement Models | Rebel Talent Systems"
-        description="One recruiting partner, four offerings: Embedded/Fractional, Retained Search, Contingent, and Advisory. Fractional Head of Talent leadership, tech, business process, and GTM/sales, cleared and noncleared, entry level through executive, all under Richie's direction."
+        description="One recruiting partner, four offerings: Contingent, Retained Search, Embedded/Fractional, and Advisory. Contingent is a flat fee by salary band, due on placement. Tech, business process, and GTM/sales, cleared and noncleared, entry level through executive, all under Richie's direction."
         path="/services"
         ogTitle="Recruiting Services & Engagement Models | Rebel Talent Systems"
-        ogDescription="Four ways to work with Rebel Talent Systems: Embedded/Fractional, Retained Search, Contingent, and Advisory. You own the infrastructure when we're done."
+        ogDescription="Four ways to work with Rebel Talent Systems: Contingent, Retained Search, Embedded/Fractional, and Advisory. Contingent is a flat fee by salary band, due on placement."
         ogImage="og-services.png"
         schemas={[...serviceSchemas, fractionalSchema, faqSchema]}
         breadcrumbs={[
@@ -289,7 +297,7 @@ export default function Services() {
             <span className="text-rebel-red">You have a hiring infrastructure problem.</span>
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            No SaaS tiers. Four offerings built around how you actually buy: run your recruiting function embedded, retain us for a defined role, engage us contingent, or bring us in for advisory when you need the thinking, not the search. Richie is on every engagement and every hire, and you own the infrastructure when we're done.
+            No SaaS tiers. Four offerings built around how you actually buy: start with a contingent search, retain us for a defined role, embed us to run the function, or bring us in for advisory when you need the thinking, not the search. Richie is on every engagement and every hire, and you own the infrastructure when we're done.
           </p>
           <div className="mt-8 sm:mt-10">
             <CapacityBadge />
@@ -328,7 +336,7 @@ export default function Services() {
               Four Ways To Work Together
             </h2>
             <p className="text-zinc-400 text-sm mt-3 max-w-lg mx-auto">
-              Advisory when you need the thinking. Delivery when you need the hire. You own what we build either way.
+              Contingent first. Then retained, embedded, and advisory. You own what we build either way.
             </p>
           </div>
           </ScrollReveal>
@@ -362,9 +370,9 @@ export default function Services() {
                     </Button>
                   </Link>
                 ) : (
-                  <a href="/strategy-call">
+                  <a href={o.ctaHref} onClick={hapticTap}>
                     <Button className="w-full font-display tracking-wider uppercase text-sm">
-                      Book Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
+                      {o.ctaLabel} <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
                   </a>
                 )}

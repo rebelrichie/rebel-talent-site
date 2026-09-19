@@ -24,9 +24,9 @@ const TIMELINES = [
 ];
 
 const ENGAGEMENT_TYPES = [
-  { value: "fractional", label: "Embedded / Fractional Head of Talent (1 seat open)" },
+  { value: "contingent", label: "Contingent search" },
   { value: "retained", label: "Retained search" },
-  { value: "contingent", label: "Contingent" },
+  { value: "fractional", label: "Embedded / Fractional" },
   { value: "contract", label: "Contract / contract-to-hire" },
   { value: "advisory", label: "Advisory / consulting" },
   { value: "unsure", label: "Not sure yet" },
@@ -44,9 +44,9 @@ const COMPANY_STAGES = [
 // Safe addition, lets landing pages pre-select the engagement type via
 // /strategy-call?engagement=contingent so search leads route cleanly.
 function engagementFromQuery(): string {
-  if (typeof window === "undefined") return "";
+  if (typeof window === "undefined") return "contingent";
   const value = new URLSearchParams(window.location.search).get("engagement") || "";
-  return ENGAGEMENT_TYPES.some((opt) => opt.value === value) ? value : "";
+  return ENGAGEMENT_TYPES.some((opt) => opt.value === value) ? value : "contingent";
 }
 
 export default function StrategyCall() {
