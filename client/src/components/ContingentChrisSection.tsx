@@ -56,23 +56,21 @@ export default function ContingentChrisSection() {
           </ScrollReveal>
 
           <ScrollReveal variant="fade-up" delay={120}>
-            <div className="relative">
-              <div
-                className="absolute -inset-4 rounded-sm pointer-events-none"
-                style={{
-                  boxShadow: "0 28px 80px -24px rgba(0,0,0,0.85), 0 0 0 1px rgba(245,132,30,0.08)",
-                }}
-                aria-hidden="true"
-              />
+            <div
+              className="relative"
+              style={{
+                boxShadow: "0 32px 80px -20px rgba(0,0,0,0.9), 0 0 40px -12px rgba(245,132,30,0.12)",
+              }}
+            >
               <GlowCard
-                className="border border-zinc-800 bg-zinc-900/70 p-8 sm:p-10"
-                glowColor="rgba(245,132,30,0.12)"
+                className="border border-zinc-700/80 bg-rebel-carbon p-8 sm:p-10"
+                glowColor="rgba(245,132,30,0.14)"
               >
                 <div className="flex flex-col items-center text-center" data-testid="card-chris-moscato">
                   <img
                     src={CHRIS_HEADSHOT}
                     alt="Chris Moscato, Head of Client Acquisition at Rebel Talent Systems"
-                    className="w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover mb-6"
+                    className="w-44 h-44 sm:w-56 sm:h-56 rounded-full object-cover mb-6"
                   />
                   <h3 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
                     Chris Moscato
