@@ -12,9 +12,7 @@ const BOOK_CHRIS_HREF =
   "mailto:christopher@rebeltalentsystems.com?subject=Contingent%20search";
 const EMAIL_CHRIS_HREF = "mailto:christopher@rebeltalentsystems.com";
 
-// Existing About-page headshot. Drop a dedicated portrait at /chris-moscato.jpg
-// and point CHRIS_HEADSHOT at it when a higher-res shot lands.
-const CHRIS_HEADSHOT = "/team-chris.jpg";
+const CHRIS_HEADSHOT = "/chris-moscato.jpg";
 
 const STRIP = [
   { icon: CircleDollarSign, text: "One flat fee per search" },
