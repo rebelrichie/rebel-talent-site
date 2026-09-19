@@ -15,7 +15,7 @@ const EMAIL_CHRIS_HREF = "mailto:christopher@rebeltalentsystems.com";
 const CHRIS_HEADSHOT = "/chris-moscato.jpg";
 
 const STRIP = [
-  { icon: CircleDollarSign, text: "One flat fee per search" },
+  { icon: CircleDollarSign, text: "One flat fee per salary band" },
   { icon: Ban, text: "No percentage of salary, ever" },
   { icon: User, text: "A named human, not a form" },
 ];
@@ -34,11 +34,11 @@ export default function ContingentChrisSection() {
                 CONTINGENT SEARCH
               </p>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white uppercase tracking-tight leading-[1.08] mb-6">
-                One flat fee.<br />
+                Flat fee by band.<br />
                 Zero games.
               </h2>
               <p className="text-zinc-300 text-base sm:text-lg leading-[1.7] max-w-xl">
-                Most agencies charge a percentage of salary, which means they get paid more when you pay more. We don't. Every search is one flat fee. Whether your hire lands at the bottom of the range or the top, the number doesn't move. You pay for the right person, not the expensive one.
+                Most agencies take a cut of salary, so they earn more when your hire costs more. We don't. Each salary range has its own flat fee. You pick the band for the role, we lock that fee, and it does not move if you pay top of range.
               </p>
 
               <ul className="mt-10 sm:mt-12 grid sm:grid-cols-3 gap-5 sm:gap-6">
