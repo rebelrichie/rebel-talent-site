@@ -22,7 +22,7 @@ const homepageSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Rebel Talent",
-  "description": "Hiring infrastructure for venture-backed and defense teams. Embedded, retained, and contingent recruiting across tech, business process, and GTM and sales roles, cleared and noncleared, entry level through executive.",
+  "description": "Hiring infrastructure for venture-backed and defense teams. Contingent, retained, and embedded recruiting across tech, business process, and GTM and sales roles, cleared and noncleared, entry level through executive.",
   "url": "https://rebeltalentsystems.com",
   "logo": "https://rebeltalentsystems.com/logo.png",
   "telephone": "+1-770-233-7548",
@@ -207,7 +207,7 @@ export default function Home() {
         description="Fractional recruiting and embedded talent leadership for Series A-C startups and defense contractors. ~335% ROI delivered, 470%+ projected. 14+ years experience."
         path="/"
         ogTitle="Fractional Recruiting for Startups & Defense | Rebel Talent"
-        ogDescription="You don't have a recruiting problem, you have a hiring infrastructure problem. Rebel Talent Systems installs the system and runs it, then hands it back. Embedded, retained, or contingent. Recruiters who specialize in tech, business process, and GTM and sales, cleared and noncleared, entry level through executive, for venture-backed and defense teams."
+        ogDescription="You don't have a recruiting problem, you have a hiring infrastructure problem. Rebel Talent Systems installs the system and runs it, then hands it back. Contingent, retained, or embedded. Recruiters who specialize in tech, business process, and GTM and sales, cleared and noncleared, entry level through executive, for venture-backed and defense teams."
         ogImage="og-home.png"
         schemas={[homepageSchema]}
       />
@@ -333,7 +333,7 @@ export default function Home() {
           {/* Subhead — Safe addition: three-offering, full-coverage positioning; key phrase brightened for scannability */}
           <p className="mt-5 sm:mt-10 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]" style={{ animation: "heroLineIn 0.5s ease-out 1.2s both" }}>
             Rebel Talent Systems fills your open roles and builds the system underneath them.{" "}
-            <span className="text-zinc-200 font-medium">Embedded, retained, or contingent.</span>{" "}
+            <span className="text-zinc-200 font-medium">Contingent, retained, or embedded.</span>{" "}
             Technical, business process, GTM and sales. Cleared and noncleared, entry level through executive, for Series A through C companies and defense teams.
           </p>
 
@@ -378,9 +378,9 @@ export default function Home() {
                 goes to the page that explains it, so clicking them isn't a dead end. */}
             <div className="hidden sm:flex flex-wrap gap-2">
               {[
-                { label: "Embedded", href: "/services" },
-                { label: "Retained", href: "/services" },
                 { label: "Contingent", href: "/services" },
+                { label: "Retained", href: "/services" },
+                { label: "Embedded", href: "/services" },
                 { label: "Advisory", href: "/advisory" },
               ].map(({ label, href }) => (
                 <Link
@@ -552,31 +552,31 @@ export default function Home() {
               Pick your fight.
             </h2>
             <p className="text-zinc-400 text-sm mt-3 max-w-xl mx-auto">
-              No tiers, no packages. Embedded builds the machine and leaves you owning it. Retained runs a defined search against a deadline. Contingent fills straightforward roles with the fee due on placement. Advisory puts my read on your hiring, AI, and infrastructure on the table before you spend.
+              Contingent leads with a flat fee set by salary band. Retained runs a defined search against a deadline. Embedded builds the machine and leaves you owning it. Advisory puts my read on your hiring, AI, and infrastructure on the table before you spend.
             </p>
           </div>
           </ScrollReveal>
 
           <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 md:overflow-x-visible">
-            <GlowCard className="border border-rebel-red/50 bg-rebel-red/5 p-5 sm:p-8 group transition-colors hover:border-rebel-red snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-fractional">
+            <GlowCard className="border border-rebel-red/50 bg-rebel-red/5 p-5 sm:p-8 group transition-colors hover:border-rebel-red snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-contingent">
               <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
-                EMBEDDED
+                CONTINGENT SEARCH
               </div>
               <h3 className="font-display text-xl font-bold text-white uppercase mb-2">
-                Fractional Head of Talent/Lead Talent Consultant
+                Contingent
               </h3>
-              <p className="text-rebel-red font-mono text-sm mb-1">Monthly Retainer · 3-month minimum</p>
-              <p className="text-zinc-400 font-mono text-xs mb-4">Flat retainer · no placement fees</p>
+              <p className="text-rebel-red font-mono text-sm mb-1">Flat fee by salary band</p>
+              <p className="text-zinc-400 font-mono text-xs mb-4">Fee due on placement · no % of salary</p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                We run your recruiting function from inside the company, then hand it back better than we found it. We build the process, rebuild your ATS and job posts, and leave you owning a clean candidate database and the playbooks to run it.
+                Each salary range has its own flat fee. Lock the band at the start, fill the seat, and pay on placement. The fee does not move if you pay top of range.
               </p>
               <ul className="space-y-2 mb-6">
                 {[
-                  "Strategic hiring roadmap & prioritization",
-                  "ATS audit, rebuild & job-post overhaul",
-                  "End-to-end recruiting execution",
-                  "Interview process design & training",
-                  "You keep the database, systems & playbooks",
+                  "Flat fee set by salary band",
+                  "Fee due on an accepted offer",
+                  "No percentage of salary, ever",
+                  "Fast start, no long commitment",
+                  "Cleared or noncleared, any level",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
                     <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />
@@ -614,25 +614,25 @@ export default function Home() {
               </ul>
             </GlowCard>
 
-            <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-5 sm:p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-contingent">
+            <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-5 sm:p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-fractional">
               <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
-                PAY ON PLACEMENT
+                EMBEDDED
               </div>
               <h3 className="font-display text-xl font-bold text-white uppercase mb-2">
-                Contingent
+                Fractional Head of Talent/Lead Talent Consultant
               </h3>
-              <p className="text-rebel-red font-mono text-sm mb-1">Fee due on placement</p>
-              <p className="text-zinc-400 font-mono text-xs mb-4">For straightforward, well-defined roles</p>
+              <p className="text-rebel-red font-mono text-sm mb-1">Monthly Retainer · 3-month minimum</p>
+              <p className="text-zinc-400 font-mono text-xs mb-4">Flat retainer · no placement fees</p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                Placement work for clear, fillable roles. The search starts fast, and the fee is due when the seat is filled.
+                We run your recruiting function from inside the company, then hand it back better than we found it. We build the process, rebuild your ATS and job posts, and leave you owning a clean candidate database and the playbooks to run it.
               </p>
               <ul className="space-y-2 mb-6">
                 {[
-                  "Fee due on an accepted offer",
-                  "Fast start, no long commitment",
-                  "Best for single, well-scoped roles",
-                  "Same vetting standard as every desk",
-                  "Cleared or noncleared, any level",
+                  "Strategic hiring roadmap & prioritization",
+                  "ATS audit, rebuild & job-post overhaul",
+                  "End-to-end recruiting execution",
+                  "Interview process design & training",
+                  "You keep the database, systems & playbooks",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
                     <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />
