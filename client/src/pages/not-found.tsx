@@ -7,6 +7,7 @@ import { ArrowRight, Crosshair, Radar, ShieldAlert } from "lucide-react";
 
 const quickLinks = [
   { href: "/services", label: "Services", icon: "▸" },
+  { href: "/contingent", label: "Contingent", icon: "▸" },
   { href: "/about", label: "About Richie", icon: "▸" },
   { href: "/case-studies", label: "Case Studies", icon: "▸" },
   { href: "/blog", label: "Blog", icon: "▸" },

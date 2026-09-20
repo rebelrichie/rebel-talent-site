@@ -29,7 +29,7 @@ const homepageSchema = {
   "email": "richie@rebeltalentsystems.com",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Alpharetta",
+    "addressLocality": "Roswell",
     "addressRegion": "GA",
     "addressCountry": "US"
   },
@@ -46,18 +46,19 @@ const homepageSchema = {
   ],
   "areaServed": ["United States", "Remote"],
   "serviceType": [
+    "Contingent Recruiting",
+    "Retained Search",
+    "Embedded Recruiting",
     "Fractional Recruiting",
     "Fractional Head of Talent/Lead Talent Consultant",
-    "Embedded Recruiting",
     "Startup Recruiting",
     "Defense Recruiting",
     "Cleared Hiring (Secret, TS, TS/SCI)",
     "Forward Deployed Engineer Recruiting",
     "AI/ML Engineer Recruiting",
     "GTM Hiring",
-    "Retained Search",
-    "Contingent Recruiting",
     "Contract Recruiting",
+    "Talent Advisory",
     "ATS Implementation"
   ],
   "hasOfferCatalog": {
@@ -68,8 +69,17 @@ const homepageSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Fractional Head of Talent/Lead Talent Consultant",
-          "description": "Embedded fractional recruiting leadership that owns your entire talent function. Strategy, execution, ATS, process design, and hiring manager coaching.",
+          "name": "Contingent Recruiting",
+          "description": "Flat fee by salary band, due on placement. No percentage of salary. Chris Moscato runs new search conversations.",
+          "url": "https://rebeltalentsystems.com/contingent"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Retained Search",
+          "description": "A defined role with a deadline, billed half down and half on placement. Cleared and noncleared, entry level through executive.",
           "url": "https://rebeltalentsystems.com/services"
         }
       },
@@ -77,8 +87,8 @@ const homepageSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Critical Hire Execution",
-          "description": "Surgical execution for must-fill roles. Executive searches, cleared roles (TS/SCI), and specialized technical talent closed in weeks.",
+          "name": "Embedded / Fractional Recruiting",
+          "description": "Monthly retainer. We run your recruiting function and hand it back better than we found it, under Richie's direction.",
           "url": "https://rebeltalentsystems.com/services"
         }
       },
@@ -86,9 +96,9 @@ const homepageSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Team Capacity Extension",
-          "description": "Vetted recruiter teams deployed under Richie's direction to extend either the Fractional Head of Talent/Lead Talent Consultant or Critical Hire Execution engagements. Same standards, same playbooks, monthly or hourly as pipeline demands shift.",
-          "url": "https://rebeltalentsystems.com/services"
+          "name": "Talent Advisory",
+          "description": "Fixed-scope work on hiring plans, AI, and recruiting infrastructure before you spend.",
+          "url": "https://rebeltalentsystems.com/advisory"
         }
       }
     ]
@@ -203,11 +213,11 @@ export default function Home() {
   return (
     <PageLayout>
       <PageSEO
-        title="Fractional Recruiting for Startups & Defense | Rebel Talent"
-        description="Fractional recruiting and embedded talent leadership for Series A-C startups and defense contractors. ~335% ROI delivered, 470%+ projected. 14+ years experience."
+        title="Contingent recruiting with a flat fee by salary band | Rebel Talent"
+        description="Contingent recruiting with a flat fee by salary band, due on placement. Chris Moscato runs new search conversations. Startups and defense teams. Retained, embedded, and advisory when you need more than a single search."
         path="/"
-        ogTitle="Fractional Recruiting for Startups & Defense | Rebel Talent"
-        ogDescription="You don't have a recruiting problem, you have a hiring infrastructure problem. Rebel Talent Systems installs the system and runs it, then hands it back. Contingent, retained, or embedded. Recruiters who specialize in tech, business process, and GTM and sales, cleared and noncleared, entry level through executive, for venture-backed and defense teams."
+        ogTitle="Contingent recruiting with a flat fee by salary band | Rebel Talent"
+        ogDescription="Contingent recruiting with a flat fee by salary band. Chris Moscato owns new search conversations. Startups and defense teams. Retained, embedded, or advisory when the work is bigger than one seat."
         ogImage="og-home.png"
         schemas={[homepageSchema]}
       />
@@ -378,7 +388,7 @@ export default function Home() {
                 goes to the page that explains it, so clicking them isn't a dead end. */}
             <div className="hidden sm:flex flex-wrap gap-2">
               {[
-                { label: "Contingent", href: "/services" },
+                { label: "Contingent", href: "/contingent" },
                 { label: "Retained", href: "/services" },
                 { label: "Embedded", href: "/services" },
                 { label: "Advisory", href: "/advisory" },
@@ -552,6 +562,11 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
+              <Link href="/contingent" data-testid="link-contingent-details" className="block">
+                <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm w-full">
+                  View contingent details <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
             </GlowCard>
 
             <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-5 sm:p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-critical-hire">

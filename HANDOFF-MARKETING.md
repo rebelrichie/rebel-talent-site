@@ -39,7 +39,25 @@ Keep the existing dark theme, typography, spacing, components. No new fonts, no 
 - `PageSEO.tsx` — per-page SEO via react-helmet-async. Props: title, description, path, ogTitle, ogDescription, ogImage, schemas, breadcrumbs, noindex. The base `index.html` intentionally omits meta description / og:title / og:description so helmet can own them per page without duplicates.
 
 ## Four offerings (positioning)
-Embedded/Fractional (1 seat open), Retained Search, Contingent, Advisory (fixed-scope work on hiring plan / AI / recruiting infra before you spend). Everything runs under Richie's direction. Public agent count is 27 (site is internally consistent at 27; only internal CLAUDE.md still says 23 — don't "fix" the site to 23).
+Contingent (flat fee by salary band, due on placement; money page is `/contingent`; Chris Moscato owns new search conversations), Retained Search, Embedded/Fractional (1 seat open), Advisory (fixed-scope work on hiring plan / AI / recruiting infra before you spend). Everything runs under Richie's direction. Public agent count is 27 (site is internally consistent at 27; only internal CLAUDE.md still says 23 — don't "fix" the site to 23).
+
+## Soft-200 / missing static files
+Production is nginx on the droplet (`/opt/fcc/static/rts/`), not the Express `server/static.ts` helper. The SPA fallback (`try_files $uri $uri/ /index.html`) still returns HTTP 200 for missing files such as `/og-*.png`. That is a server config issue, not a React route.
+
+Keep client routing intact: extensionless paths must still fall through to `index.html`. Missing assets with a file extension should return a real 404.
+
+`client/public/404.html` ships as a static 404 document. `server/static.ts` already 404s extensioned misses when this repo is served via Express. On the droplet, add an asset location before the SPA fallback, for example:
+
+```
+location ~* \.(png|jpe?g|gif|webp|svg|ico|js|css|woff2?|map|xml|txt|json)$ {
+  try_files $uri =404;
+}
+location / {
+  try_files $uri $uri/ /index.html;
+}
+```
+
+Do not point the HTML fallback at `404.html` or unknown marketing routes will stop rendering.
 
 ## State as of this handoff
 Just finished a performance + consistency pass:

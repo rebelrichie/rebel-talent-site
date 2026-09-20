@@ -22,8 +22,9 @@ const personSchema = {
     "name": "Rebel Talent",
     "url": "https://rebeltalentsystems.com"
   },
-  "description": "Founder of Rebel Talent Systems. 14+ years in recruiting. From booking bands at music venues in Grand Rapids to fractional Head of Talent/Lead Talent Consultant for defense contractors and AI startups. Author of Head and Heart and Unfinished Rooms.",
+  "description": "Founder of Rebel Talent Systems. 14+ years in recruiting. Contingent, retained, and embedded hiring for defense contractors and AI startups. Author of Head and Heart and Unfinished Rooms.",
   "knowsAbout": [
+    "Contingent Recruiting",
     "Fractional Recruiting",
     "Embedded Recruiting",
     "Startup Recruiting",
@@ -79,7 +80,7 @@ export default function About() {
         description="Richie Lampani: 14 years in recruiting, from booking bands in Grand Rapids to building cleared/AI hiring funnels for defense and startups. Founder, Rebel Talent."
         path="/about"
         ogTitle="Richie Lampani | Founder, Rebel Talent Systems"
-        ogDescription="Operator. Builder. Embedded Head of Talent/Lead Talent Consultant. Five cities. Two books. One thesis: build the machine and leave the client owning it."
+        ogDescription="Founder of Rebel Talent Systems. Contingent search, retained, and embedded recruiting for startups and defense. Five cities. Two books."
         ogImage="og-about.png"
         schemas={[personSchema]}
         breadcrumbs={BREADCRUMBS}

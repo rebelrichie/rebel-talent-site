@@ -18,6 +18,18 @@ function hapticTap() {
 // Safe addition, single source of truth for FAQ, renders visible accordion + FAQPage schema
 const FAQS = [
   {
+    q: "How does the contingent salary band lock work?",
+    a: "You pick the salary range for the role at the start. That range maps to one flat fee. We lock the fee before the search starts. If you hire at the top of the range, the fee does not move.",
+  },
+  {
+    q: "When is the contingent fee due?",
+    a: "On placement. The invoice follows an accepted offer. No retainer and no percentage of salary. If we do not place, you do not pay a search fee.",
+  },
+  {
+    q: "Do you take a percentage of salary on contingent searches?",
+    a: "No. Most agencies bill a cut of first-year pay, so they earn more when the hire costs more. Contingent at Rebel is a flat fee by salary band. Chris Moscato runs every new contingent conversation.",
+  },
+  {
     q: "What is a Fractional Head of Talent/Lead Talent Consultant?",
     a: "An embedded recruiting leader who owns your entire talent function without the full-time executive cost. Rebel Talent Systems is a vetted team working under Richie's direction, and Richie is on every engagement and every hire. You get strategy, execution, ATS setup, process design, and hiring manager coaching in one.",
   },
@@ -67,7 +79,7 @@ const serviceSchemas = [
     "description": "Flat fee by salary band, due on placement. No percentage of salary. Chris Moscato runs new search conversations under Richie's direction. Cleared and noncleared, entry level through executive, across tech, business process, and GTM/sales for Series A through C and defense teams.",
     "provider": serviceProvider,
     "areaServed": "US",
-    "url": "https://rebeltalentsystems.com/services",
+    "url": "https://rebeltalentsystems.com/contingent",
   },
   {
     "@context": "https://schema.org",
@@ -151,6 +163,8 @@ const OFFERINGS = [
     featured: true,
     ctaLabel: "Talk to Chris",
     ctaHref: BOOK_CHRIS_HREF,
+    detailsHref: "/contingent",
+    detailsLabel: "View contingent details",
   },
   {
     tag: "DEFINED ROLE",
@@ -375,6 +389,15 @@ export default function Services() {
                       {o.ctaLabel} <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
                   </a>
+                )}
+                {"detailsHref" in o && o.detailsHref && (
+                  <Link
+                    href={o.detailsHref}
+                    data-testid="link-services-contingent-details"
+                    className="mt-3 block text-center text-sm text-zinc-400 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red"
+                  >
+                    {o.detailsLabel ?? "View details"}
+                  </Link>
                 )}
               </GlowCard>
               </ScrollReveal>

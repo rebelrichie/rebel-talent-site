@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { ArrowRight, Ban, CircleDollarSign, User } from "lucide-react";
 import GlowCard from "@/components/GlowCard";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -41,6 +42,22 @@ export default function ContingentChrisSection() {
               <p className="text-zinc-300 text-base sm:text-lg leading-[1.7] max-w-xl">
                 Most agencies take a cut of salary, so they earn more when your hire costs more. We don't. Each salary range has its own flat fee. You pick the band for the role, we lock that fee, and it does not move if you pay top of range.
               </p>
+              <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">
+                <Link
+                  href="/contingent"
+                  data-testid="link-view-contingent-details"
+                  className="text-zinc-200 hover:text-white text-sm font-medium underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red transition-colors no-underline"
+                >
+                  View contingent details
+                </Link>
+                <Link
+                  href="/startups"
+                  data-testid="link-contingent-startups"
+                  className="text-zinc-400 hover:text-white text-sm underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red transition-colors no-underline"
+                >
+                  Hiring for a startup
+                </Link>
+              </div>
 
               <ul className="mt-10 sm:mt-12 grid sm:grid-cols-3 gap-5 sm:gap-6">
                 {STRIP.map(({ icon: Icon, text }) => (
