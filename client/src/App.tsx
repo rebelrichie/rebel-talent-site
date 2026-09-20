@@ -16,6 +16,7 @@ const About = lazy(() => import("@/pages/About"));
 // Safe addition — Vision manifesto page under /about
 const Vision = lazy(() => import("@/pages/Vision"));
 const Services = lazy(() => import("@/pages/Services"));
+const Contingent = lazy(() => import("@/pages/Contingent"));
 const Testimonials = lazy(() => import("@/pages/Testimonials"));
 const CaseStudies = lazy(() => import("@/pages/CaseStudies"));
 const Podcast = lazy(() => import("@/pages/Podcast"));
@@ -44,6 +45,7 @@ function Router() {
       <Route path="/about/vision" component={Vision} />
       <Route path="/about" component={About} />
       <Route path="/services" component={Services} />
+      <Route path="/contingent" component={Contingent} />
       {/* /how-it-works merged into /services. 301 to the consolidated page. */}
       <Route path="/how-it-works">{() => { window.location.href = "/services"; return null; }}</Route>
       <Route path="/testimonials" component={Testimonials} />

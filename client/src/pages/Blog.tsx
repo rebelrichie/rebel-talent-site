@@ -39,7 +39,7 @@ export default function Blog() {
             Rebel Built
           </h1>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto leading-relaxed">
-            Insights on full-time, fractional, and contract recruiting, plus defense tech, engineering, and building teams that win.
+            Insights on contingent, retained, and embedded recruiting, plus defense tech, engineering, and building teams that win.
           </p>
         </div>
       </section>

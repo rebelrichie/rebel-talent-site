@@ -12,8 +12,19 @@ export function serveStatic(app: Express) {
 
   app.use(express.static(distPath));
 
-  // fall through to index.html if the file doesn't exist
-  app.use("/{*path}", (_req, res) => {
+  // Missing files with an extension (og-*.png, .js, .css) are real 404s.
+  // Extensionless paths stay on the SPA fallback so client routing still works.
+  app.use("/{*path}", (req, res) => {
+    const last = (req.path.split("/").pop() || "");
+    if (last.includes(".")) {
+      const notFound = path.resolve(distPath, "404.html");
+      if (fs.existsSync(notFound)) {
+        res.status(404).sendFile(notFound);
+        return;
+      }
+      res.status(404).type("text/plain").send("Not found");
+      return;
+    }
     res.sendFile(path.resolve(distPath, "index.html"));
   });
 }

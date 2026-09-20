@@ -3,6 +3,7 @@
 // retained, and contract-to-hire via EOR. CTAs pre-set the engagement type
 // on /strategy-call so these leads route to the right calendar.
 
+import { Link } from "wouter";
 import { ArrowRight, Check } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
@@ -197,6 +198,14 @@ export default function Startups() {
                       {o.cta} <ArrowRight className="ml-2 w-3.5 h-3.5" />
                     </Button>
                   </a>
+                  {o.engagement === "contingent" && (
+                    <Link
+                      href="/contingent"
+                      className="mt-3 block text-center text-xs text-zinc-400 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red"
+                    >
+                      How the flat fee works
+                    </Link>
+                  )}
                 </GlowCard>
               </ScrollReveal>
             ))}

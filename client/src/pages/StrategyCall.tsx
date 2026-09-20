@@ -6,6 +6,7 @@ import { useState } from "react";
 import { ArrowRight, CheckCircle2, AlertCircle, Calendar } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
+import { EMAIL_CHRIS_HREF } from "@/components/ContingentChrisSection";
 
 const DISCOVERY_API = "https://rebelapply.com/api/public/discovery";
 const FALLBACK_CALENDLY = "https://calendly.com/richielam";
@@ -62,6 +63,7 @@ export default function StrategyCall() {
   // honeypot, bots fill it, humans never see it
   const [websiteUrl, setWebsiteUrl] = useState("");
   const [submit, setSubmit] = useState<SubmitState>({ kind: "idle" });
+  const isContingent = engagementType === "contingent";
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -98,7 +100,7 @@ export default function StrategyCall() {
       if (!res.ok) {
         setSubmit({
           kind: "error",
-          message: data?.error || `Request failed (${res.status}). Try again or email richie@rebeltalentsystems.com directly.`,
+          message: data?.error || `Request failed (${res.status}). Try again or email ${isContingent ? "christopher@rebeltalentsystems.com" : "richie@rebeltalentsystems.com"} directly.`,
         });
         return;
       }
@@ -111,7 +113,7 @@ export default function StrategyCall() {
     } catch {
       setSubmit({
         kind: "error",
-        message: "Network error. Try again or email richie@rebeltalentsystems.com directly.",
+        message: `Network error. Try again or email ${isContingent ? "christopher@rebeltalentsystems.com" : "richie@rebeltalentsystems.com"} directly.`,
       });
     }
   }
@@ -119,11 +121,15 @@ export default function StrategyCall() {
   return (
     <PageLayout>
       <PageSEO
-        title="Book a Strategy Call | Rebel Talent"
-        description="30-minute strategy call with Richie Lampani. Share what you're hiring for first so the call is productive, not a sales pitch."
+        title={isContingent ? "Talk to Chris about a contingent search | Rebel Talent" : "Book a Strategy Call | Rebel Talent"}
+        description={isContingent
+          ? "Chris Moscato owns new contingent search conversations. Flat fee by salary band, due on placement. Email Chris or send the form and we will route it."
+          : "30-minute strategy call with Rebel Talent. Share what you're hiring for first so the call is productive, not a sales pitch."}
         path="/strategy-call"
-        ogTitle="Book a Strategy Call | Rebel Talent"
-        ogDescription="30 minutes. Tell me what you're hiring for, and I'll come prepared with a real diagnosis."
+        ogTitle={isContingent ? "Talk to Chris about a contingent search | Rebel Talent" : "Book a Strategy Call | Rebel Talent"}
+        ogDescription={isContingent
+          ? "Chris runs new contingent search conversations. Flat fee by salary band, due on placement."
+          : "30 minutes. Tell us what you're hiring for, and we will come prepared with a real diagnosis."}
         ogImage="og-home.png"
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
@@ -147,14 +153,31 @@ export default function StrategyCall() {
             <>
               <div className="text-center mb-10">
                 <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-                  STRATEGY CALL
+                  {isContingent ? "CONTINGENT SEARCH" : "STRATEGY CALL"}
                 </div>
                 <h1 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight leading-tight mb-4">
-                  Tell me what you're dealing with first.
+                  {isContingent
+                    ? "Start a contingent search with Chris."
+                    : "Tell me what you're dealing with first."}
                 </h1>
                 <p className="text-zinc-400 text-base leading-relaxed">
-                  30 minutes, no pitch deck, no upsell. Name, email, and company get you to the calendar. Everything else is optional, but the more context you give me, the more useful the call is.
+                  {isContingent
+                    ? "Chris Moscato owns new contingent search conversations. Flat fee by salary band, due on placement. Name, email, and company get the form through. Email him directly if you would rather skip the form."
+                    : "30 minutes, no pitch deck, no upsell. Name, email, and company get you to the calendar. Everything else is optional, but the more context you give me, the more useful the call is."}
                 </p>
+                {isContingent && (
+                  <p className="text-zinc-300 text-sm mt-4">
+                    Prefer email?{" "}
+                    <a
+                      href={EMAIL_CHRIS_HREF}
+                      data-testid="link-strategy-email-chris"
+                      className="text-white hover:text-rebel-red underline underline-offset-4 decoration-zinc-600 hover:decoration-rebel-red transition-colors"
+                    >
+                      Email Chris
+                    </a>
+                    {" "}at christopher@rebeltalentsystems.com
+                  </p>
+                )}
                 {/* Safe addition — lower-commitment path for people not ready to book */}
                 <p className="text-zinc-400 text-sm mt-3">
                   Not ready to talk yet?{" "}
@@ -307,8 +330,9 @@ export default function StrategyCall() {
                 </button>
 
                 <p className="text-zinc-400 text-xs text-center pt-2">
-                  Your info goes straight to me, no marketing automation, no list-building.
-                  All inquiries handled with discretion. FOCI-sensitive engagements supported.
+                  {isContingent
+                    ? "Contingent search notes go to Chris. No marketing automation, no list-building. Discretion on every inquiry. FOCI-sensitive engagements supported."
+                    : "Your info goes straight to me, no marketing automation, no list-building. All inquiries handled with discretion. FOCI-sensitive engagements supported."}
                 </p>
               </form>
             </>
