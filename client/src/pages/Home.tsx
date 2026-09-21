@@ -353,6 +353,8 @@ export default function Home() {
           <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-3" style={{ animation: "heroLineIn 0.5s ease-out 1.35s both" }}>
             <a
               href={BOOK_CHRIS_HREF}
+              target="_blank"
+              rel="noopener noreferrer"
               data-testid="button-door-hire"
               onClick={hapticTap}
               className="inline-flex items-center justify-center gap-2 whitespace-nowrap bg-rebel-red hover:bg-red-700 text-white font-semibold text-base px-7 py-3.5 rounded-full transition-colors no-underline"
@@ -510,7 +512,7 @@ export default function Home() {
 
           <div className="text-center mt-10">
             <p className="text-zinc-400 text-sm mb-4">Scale without the bleed. Build the machine you own.</p>
-            <a href={BOOK_CHRIS_HREF} data-testid="button-book-call-3" className="block sm:inline-block">
+            <a href={BOOK_CHRIS_HREF} target="_blank" rel="noopener noreferrer" data-testid="button-book-call-3" className="block sm:inline-block">
               <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm w-full sm:w-auto whitespace-normal leading-tight py-3 sm:py-2">
                 Start a Confidential Conversation <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
               </Button>
@@ -1009,6 +1011,8 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <a
                 href={BOOK_CHRIS_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
                 data-testid="button-book-call-cleared"
                 onClick={hapticTap}
                 className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-rebel-red/90 text-white font-semibold px-7 py-3.5 rounded-lg transition-colors no-underline"
@@ -1218,7 +1222,7 @@ export default function Home() {
           <p className="text-zinc-400 text-base mb-8 max-w-xl mx-auto">
             30 minutes. Walk us through the role nobody else can fill. Richie is on every engagement, so you get a straight answer either way, and if it isn't ours to fill, we'll point you to who can.
           </p>
-          <a href={BOOK_CHRIS_HREF} data-testid="button-book-call-4" className="block sm:inline-block">
+          <a href={BOOK_CHRIS_HREF} target="_blank" rel="noopener noreferrer" data-testid="button-book-call-4" className="block sm:inline-block">
             <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-10 w-full sm:w-auto">
               Talk to Chris <ArrowRight className="ml-2 w-4 h-4" />
             </Button>

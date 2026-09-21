@@ -137,7 +137,7 @@ export default function Contingent() {
             You pick the band. We lock the fee. You pay when the hire accepts. No percentage of salary. Chris Moscato owns every new contingent conversation.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-3">
-            <a href={BOOK_CHRIS_HREF} onClick={hapticTap} data-testid="button-talk-chris" className="block sm:inline-block">
+            <a href={BOOK_CHRIS_HREF} target="_blank" rel="noopener noreferrer" onClick={hapticTap} data-testid="button-talk-chris" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
                 Talk to Chris <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -286,7 +286,7 @@ export default function Contingent() {
                 Head of Client Acquisition. He runs every new contingent search conversation. Email him or start the thread from here.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a href={BOOK_CHRIS_HREF} onClick={hapticTap} data-testid="button-contingent-footer-chris" className="block w-full sm:w-auto">
+                <a href={BOOK_CHRIS_HREF} target="_blank" rel="noopener noreferrer" onClick={hapticTap} data-testid="button-contingent-footer-chris" className="block w-full sm:w-auto">
                   <Button className="font-display tracking-wider uppercase text-sm w-full">
                     Talk to Chris <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
