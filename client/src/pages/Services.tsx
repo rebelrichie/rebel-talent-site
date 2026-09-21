@@ -384,7 +384,12 @@ export default function Services() {
                     </Button>
                   </Link>
                 ) : (
-                  <a href={o.ctaHref} onClick={hapticTap}>
+                  <a
+                    href={o.ctaHref}
+                    onClick={hapticTap}
+                    target={o.ctaHref.startsWith("https://") ? "_blank" : undefined}
+                    rel={o.ctaHref.startsWith("https://") ? "noopener noreferrer" : undefined}
+                  >
                     <Button className="w-full font-display tracking-wider uppercase text-sm">
                       {o.ctaLabel} <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>

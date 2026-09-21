@@ -6,7 +6,7 @@ import { useState } from "react";
 import { ArrowRight, CheckCircle2, AlertCircle, Calendar } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
-import { EMAIL_CHRIS_HREF } from "@/components/ContingentChrisSection";
+import { BOOK_CHRIS_HREF, EMAIL_CHRIS_HREF } from "@/components/ContingentChrisSection";
 
 const DISCOVERY_API = "https://rebelapply.com/api/public/discovery";
 const FALLBACK_CALENDLY = "https://calendly.com/richielam";
@@ -107,7 +107,7 @@ export default function StrategyCall() {
 
       setSubmit({
         kind: "success",
-        calendlyUrl: data?.calendlyUrl || FALLBACK_CALENDLY,
+        calendlyUrl: data?.calendlyUrl || (isContingent ? BOOK_CHRIS_HREF : FALLBACK_CALENDLY),
         message: data?.message || "Got it. Use the link to book your call.",
       });
     } catch {
