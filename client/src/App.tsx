@@ -54,6 +54,13 @@ function Router() {
       <Route path="/defense">{() => { window.location.replace("/cleared"); return null; }}</Route>
       {/* /how-it-works merged into /services. 301 to the consolidated page. */}
       <Route path="/how-it-works">{() => { window.location.href = "/services"; return null; }}</Route>
+      {/* Old static HTML still indexed beside the SPA. Express 301s these;
+          this client replace covers the nginx SPA fallback until the stub is served. */}
+      <Route path="/how-it-works.html">{() => { window.location.replace("/services"); return null; }}</Route>
+      <Route path="/services.html">{() => { window.location.replace("/services"); return null; }}</Route>
+      <Route path="/about.html">{() => { window.location.replace("/about"); return null; }}</Route>
+      <Route path="/testimonials.html">{() => { window.location.replace("/testimonials"); return null; }}</Route>
+      <Route path="/case-studies.html">{() => { window.location.replace("/case-studies"); return null; }}</Route>
       <Route path="/testimonials" component={Testimonials} />
       <Route path="/case-studies" component={CaseStudies} />
       <Route path="/results" component={CaseStudies} />

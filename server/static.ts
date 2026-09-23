@@ -4,6 +4,16 @@ import path from "path";
 
 const BARE_JOB_UUID = /^\/jobs\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\/?$/i;
 
+// Old static pages still indexed next to the SPA. Keep in sync with
+// scripts/prerender.mjs and the client routes in App.tsx.
+const LEGACY_HTML_REDIRECTS: Record<string, string> = {
+  "/how-it-works.html": "/services",
+  "/services.html": "/services",
+  "/about.html": "/about",
+  "/testimonials.html": "/testimonials",
+  "/case-studies.html": "/case-studies",
+};
+
 function loadJobRedirects(distPath: string): Record<string, string> {
   try {
     const raw = fs.readFileSync(path.resolve(distPath, "job-redirects.json"), "utf-8");
@@ -35,13 +45,20 @@ export function serveStatic(app: Express) {
 
   const jobRedirects = loadJobRedirects(distPath);
 
-  // 301 UUID job twins to the slug URL, and /defense to /cleared.
+  // 301 UUID job twins to the slug URL, /defense to /cleared, and old
+  // .html pages to the routes that replaced them.
   // Slug job URLs do not match the bare-UUID pattern.
   app.use((req, res, next) => {
     const pathOnly = req.path;
+    const q = req.originalUrl.includes("?") ? req.originalUrl.slice(req.originalUrl.indexOf("?")) : "";
     if (pathOnly === "/defense" || pathOnly === "/defense/") {
-      const q = req.originalUrl.includes("?") ? req.originalUrl.slice(req.originalUrl.indexOf("?")) : "";
       res.redirect(301, `/cleared${q}`);
+      return;
+    }
+    const legacyKey = pathOnly.length > 1 && pathOnly.endsWith("/") ? pathOnly.slice(0, -1) : pathOnly;
+    const legacyTarget = LEGACY_HTML_REDIRECTS[legacyKey];
+    if (legacyTarget) {
+      res.redirect(301, `${legacyTarget}${q}`);
       return;
     }
     const match = pathOnly.match(BARE_JOB_UUID);
@@ -49,7 +66,6 @@ export function serveStatic(app: Express) {
       const uuid = match[1].toLowerCase();
       const target = jobRedirects[uuid];
       if (target && safeJobTarget(target, uuid)) {
-        const q = req.originalUrl.includes("?") ? req.originalUrl.slice(req.originalUrl.indexOf("?")) : "";
         res.redirect(301, `${target}${q}`);
         return;
       }

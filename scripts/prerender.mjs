@@ -5,7 +5,7 @@
 
 import { createServer } from "http";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
-import { resolve, join, extname } from "path";
+import { resolve, join, extname, dirname } from "path";
 import { launch } from "puppeteer";
 
 const DIST_DIR = resolve(import.meta.dirname, "../dist/public");
@@ -134,11 +134,19 @@ const BARE_JOB_UUID = /^\/jobs\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-
 // Immediate HTML redirect for hosts that cannot emit an HTTP 301 (nginx
 // try_files). Express serveStatic upgrades the same map to a real 301.
 // Slug URLs are never redirected.
+// Keep in sync with LEGACY_HTML_REDIRECTS in server/static.ts and App.tsx.
+// These old files contradict the live pages on ROI, pricing, and voice.
+const LEGACY_HTML_REDIRECTS = [
+  ["/how-it-works.html", "/services"],
+  ["/services.html", "/services"],
+  ["/about.html", "/about"],
+  ["/testimonials.html", "/testimonials"],
+  ["/case-studies.html", "/case-studies"],
+];
+
 function writeRedirect(fromPath, toPath) {
   if (!fromPath.startsWith("/") || !toPath.startsWith("/") || fromPath === toPath) return;
   if (toPath.startsWith("//") || toPath.includes("://")) return;
-  const dir = join(DIST_DIR, fromPath);
-  mkdirSync(dir, { recursive: true });
   const canonical = `${SITE_URL}${toPath}`;
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -154,6 +162,16 @@ function writeRedirect(fromPath, toPath) {
 </body>
 </html>
 `;
+  // .html paths must be files so nginx try_files $uri serves them.
+  // Extensionless paths stay as directory indexes, same as /defense.
+  if (extname(fromPath)) {
+    const filePath = join(DIST_DIR, fromPath);
+    mkdirSync(dirname(filePath), { recursive: true });
+    writeFileSync(filePath, html, "utf-8");
+    return;
+  }
+  const dir = join(DIST_DIR, fromPath);
+  mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, "index.html"), html, "utf-8");
 }
 
@@ -291,8 +309,11 @@ async function prerender() {
       map[redirect.from.replace(/^\/jobs\//, "").toLowerCase()] = redirect.to;
     }
     writeRedirect("/defense", "/cleared");
+    for (const [from, to] of LEGACY_HTML_REDIRECTS) {
+      writeRedirect(from, to);
+    }
     writeFileSync(join(DIST_DIR, "job-redirects.json"), JSON.stringify(map), "utf-8");
-    console.log(`[prerender] Wrote ${redirects.length} job UUID redirects + /defense -> /cleared`);
+    console.log(`[prerender] Wrote ${redirects.length} job UUID redirects + /defense -> /cleared + ${LEGACY_HTML_REDIRECTS.length} legacy html redirects`);
   } catch (err) {
     console.warn(`[prerender] redirect stubs failed: ${err.message}`);
   }

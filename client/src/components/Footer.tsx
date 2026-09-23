@@ -94,17 +94,6 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-4">
             <Link href="/privacy-policy" data-testid="link-footer-privacy" className="text-zinc-400 text-xs hover:text-white no-underline transition-colors">Privacy Policy</Link>
-            <span
-              className="text-xs font-mono tracking-[0.22em] uppercase font-bold"
-              style={{
-                background: "linear-gradient(95deg, #F71A29 0%, #F5841E 50%, #FDBD41 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              BREAK ORBIT.
-            </span>
           </div>
         </div>
         <div className="border-t border-zinc-800/40 mt-4 pt-4 flex flex-wrap gap-x-6 gap-y-1">
