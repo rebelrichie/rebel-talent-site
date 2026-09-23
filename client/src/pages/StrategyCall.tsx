@@ -37,17 +37,17 @@ const STRATEGY_COPY: Record<string, { eyebrow: string; title: string; descriptio
   contingent: {
     eyebrow: "CONTINGENT SEARCH",
     title: "Start a search | Rebel Talent",
-    description: "Rebel runs new contingent conversations. Flat fee by salary band, due when the hire accepts. Name, email, and company get you through.",
+    description: "Chris Moscato owns every new contingent conversation. Flat fee by salary band, due when the hire accepts. No deposit. Name, email, and company get you through.",
     headline: "Start a search.",
-    deck: "Rebel runs new contingent conversations. Flat fee by salary band, due when the hire accepts. Name, email, and company get you through. Email us if you would rather skip the form.",
+    deck: "Chris Moscato owns every new contingent conversation. Flat fee by salary band, due when the hire accepts. No deposit. Name, email, and company get you through. Email us if you would rather skip the form.",
     footer: "Contingent notes stay with the search. No list-building. FOCI-sensitive work is supported.",
   },
   retained: {
     eyebrow: "RETAINED SEARCH",
     title: "Start a retained search | Rebel Talent",
-    description: "A defined role with a deadline. Half the fee to open the search, half when the hire accepts.",
+    description: "A defined role with a deadline. $10K up front and $20K on start.",
     headline: "Start a retained search.",
-    deck: "A defined role with a deadline. Half the fee to open the search, half when the hire accepts. Name, email, and company get you through.",
+    deck: "A defined role with a deadline. $10K up front and $20K on start. Name, email, and company get you through.",
     footer: "Retained notes come to the team. No list-building. FOCI-sensitive work is supported.",
   },
   fractional: {

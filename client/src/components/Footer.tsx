@@ -82,7 +82,7 @@ export default function Footer() {
                 LinkedIn
               </a>
               <span className="sr-only">
-                3105 Canyon Point Cir, Roswell, GA 30076
+                Rebel Talent Systems, United States
               </span>
             </div>
           </div>
