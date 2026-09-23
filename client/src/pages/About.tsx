@@ -112,7 +112,7 @@ export default function About() {
                 I didn&rsquo;t leave to start another agency. I left to build the thing I wanted when I was on the other side of the desk.
               </p>
               <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-[1.55] mb-6">
-                New searches start with Chris. Contingent is a flat fee by salary band, due on placement. When a team needs someone inside the function, I embed as Head of Talent and leave them owning the system.
+                Contingent is a flat fee by salary band, due on placement. When a team needs someone inside the function, Rebel embeds as Head of Talent and leaves them owning the system.
               </p>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-6">
                 <CapacityBadge />
@@ -321,7 +321,7 @@ export default function About() {
                 photo: "/team-chris.jpg",
                 title: "Head of Client Acquisition",
                 blurb:
-                  "Opens and runs retained and contingent accounts. If you're a startup or a scaling team, Chris is your first call, and he stays on the account after the ink dries.",
+                  "The commercial lead startups actually want on the first call. Calm under pressure, direct on the phone, and still on the account after the paperwork.",
                 linkedin: "https://www.linkedin.com/in/chrismoscato/",
                 email: "christopher@rebeltalentsystems.com",
               },
@@ -330,7 +330,7 @@ export default function About() {
                 photo: "/team-hannah.jpg",
                 title: "Full Desk Recruiter",
                 blurb:
-                  "Signs accounts and fills them, client side and candidate side in one seat. Specialty: sales hiring. SDRs, AEs, and the leaders who run them.",
+                  "Hannah lives in sales talent. She knows how AEs and SDRs think, so the conversation never needs a translator.",
                 linkedin: "https://www.linkedin.com/in/-hannah-kerrigan/",
                 email: "hannah@rebeltalentsystems.com",
               },
@@ -339,7 +339,7 @@ export default function About() {
                 photo: "/team-veronica.jpg",
                 title: "Recruiter / Chief of Staff",
                 blurb:
-                  "Runs searches end to end and keeps the whole operation moving. Sourcing, screening, pipeline, and everything behind the scenes that keeps engagements on track.",
+                  "The quiet operator who keeps the house from catching fire while the searches move. Detail-obsessed, hard to rattle, usually three steps ahead of the calendar.",
                 linkedin: "https://www.linkedin.com/in/veronica-s-26750a110/",
                 email: "veronica@rebeltalentsystems.com",
               },
@@ -348,7 +348,7 @@ export default function About() {
                 photo: "/team-mike.jpg",
                 title: "Recruitment Consultant",
                 blurb:
-                  "Full desk: brings in the role, then goes out and fills it. Works fractional and embedded federal engagements alongside Richie, plus delivery across tech and go-to-market.",
+                  "Dual-use recruiter: federal one week, tech and GTM the next, without going soft on either. Built for the hard req and the long engagement.",
                 linkedin: "https://www.linkedin.com/in/wrona/",
                 email: "mike@rebeltalentsystems.com",
               },
@@ -673,10 +673,10 @@ export default function About() {
           <ScrollReveal variant="scale">
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 sm:p-10 text-center">
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-3">
-              Talk to me directly
+              Start a search
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base mb-6 max-w-lg mx-auto">
-              Thirty minutes. Bring the role that is stuck. You get me on that call, with the team behind the work.
+              Thirty minutes. Bring the role that is stuck. Rebel takes the search from that call.
             </p>
             <a href="/strategy-call" data-testid="button-about-cta" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">

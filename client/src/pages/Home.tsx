@@ -70,7 +70,7 @@ const homepageSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Contingent Recruiting",
-          "description": "Flat fee by salary band, due on placement. No percentage of salary. Chris Moscato runs new search conversations.",
+          "description": "Flat fee by salary band, due on placement. No percentage of salary. Rebel runs the search.",
           "url": "https://rebeltalentsystems.com/contingent"
         }
       },
@@ -88,7 +88,7 @@ const homepageSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Embedded / Fractional Recruiting",
-          "description": "Monthly retainer. We run your recruiting function and hand it back better than we found it, under Richie's direction.",
+          "description": "Monthly retainer. Rebel runs the recruiting function and hands it back better than it was found.",
           "url": "https://rebeltalentsystems.com/services"
         }
       },
@@ -213,11 +213,11 @@ export default function Home() {
   return (
     <PageLayout>
       <PageSEO
-        title="Fill the seat. Keep the system. | Rebel Talent"
-        description="Rebel Talent Systems runs contingent, retained, and embedded searches for technical, GTM, and operations roles. Cleared and uncleared. Series A through C, and defense teams."
+        title="Contingent recruiting with a flat fee by salary band | Rebel Talent"
+        description="Contingent recruiting with a flat fee by salary band, due on placement. Four models: contingent, retained, embedded, and advisory. Cleared and startup teams."
         path="/"
-        ogTitle="Fill the seat. Keep the system. | Rebel Talent"
-        ogDescription="Rebel Talent Systems runs contingent, retained, and embedded searches for technical, GTM, and operations roles. Cleared and uncleared. Series A through C, and defense teams."
+        ogTitle="Contingent recruiting with a flat fee by salary band | Rebel Talent"
+        ogDescription="Contingent recruiting with a flat fee by salary band, due on placement. Four models: contingent, retained, embedded, and advisory. Cleared and startup teams."
         ogImage="og-home.png"
         schemas={[homepageSchema]}
       />
@@ -286,7 +286,7 @@ export default function Home() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
             </span>
             <p className="font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase text-zinc-400">
-              Hiring for venture-backed teams and defense
+              Hiring &amp; Talent Infrastructure · Venture-Backed &amp; Defense
             </p>
           </div>
 
@@ -300,7 +300,10 @@ export default function Home() {
             style={{ fontSize: "clamp(2rem, 6vw, 5rem)", letterSpacing: "-0.01em" }}
           >
             <span className="block" style={{ animation: "heroRise 0.5s ease-out 0.1s both" }}>
-              Fill the seat.
+              Recruiting that scales
+            </span>
+            <span className="block" style={{ animation: "heroRise 0.5s ease-out 0.3s both" }}>
+              with the company
             </span>
             <span
               className="block"
@@ -309,15 +312,39 @@ export default function Home() {
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
-                animation: "heroRise 0.5s ease-out 0.3s both",
+                animation: "heroRise 0.5s ease-out 0.5s both",
               }}
             >
-              Keep the system.
+              you&rsquo;re becoming.
             </span>
           </h1>
 
-          <p className="mt-5 sm:mt-10 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]" style={{ animation: "heroLineIn 0.5s ease-out 0.5s both" }}>
-            Rebel Talent Systems runs contingent, retained, and embedded searches for technical, GTM, and operations roles. Cleared and uncleared. Individual contributor through executive. Series A through C, and defense teams that cannot wait out a 90-day req.
+          {/* BREAK ORBIT. — display-size brand moment */}
+          <div className="mt-5 sm:mt-7" style={{ animation: "heroLineIn 0.6s ease-out 1.0s both" }}>
+            <span
+              className="font-display font-black uppercase"
+              style={{
+                fontSize: "clamp(1.25rem, 2.8vw, 2.25rem)",
+                letterSpacing: "0.09em",
+                fontVariationSettings: "'wdth' 125",
+                fontStretch: "expanded",
+                background: "linear-gradient(95deg, #F71A29 0%, #F5841E 50%, #FDBD41 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                display: "inline-block",
+                lineHeight: 1.1,
+              }}
+            >
+              BREAK ORBIT.
+            </span>
+          </div>
+
+          {/* Subhead — Safe addition: three-offering, full-coverage positioning; key phrase brightened for scannability */}
+          <p className="mt-5 sm:mt-10 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]" style={{ animation: "heroLineIn 0.5s ease-out 1.2s both" }}>
+            Rebel Talent Systems fills your open roles and builds the system underneath them.{" "}
+            <span className="text-zinc-200 font-medium">Contingent, retained, or embedded.</span>{" "}
+            Technical, business process, GTM and sales. Cleared and noncleared, entry level through executive, for Series A through C companies and defense teams.
           </p>
 
           {/* Safe addition — two equal front doors. Companies go left, candidates
@@ -599,7 +626,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Hiring quiz sits after offerings so it does not cool the Chris close. */}
+      {/* Hiring quiz sits after offerings so it does not cool the close. */}
       <section
         data-testid="section-scorecard-hook"
         className="border-t border-zinc-900 border-b border-zinc-800/50"
@@ -641,7 +668,7 @@ export default function Home() {
           </div>
           <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
             {[
-              { icon: <Users className="w-5 h-5 text-rebel-red" />, title: "A person owns the account", desc: "Chris opens contingent and retained work. Richie is on every engagement. You are not dropped into a form." },
+              { icon: <Users className="w-5 h-5 text-rebel-red" />, title: "The search has an owner", desc: "Contingent and retained work starts with Rebel. You are not dropped into a form." },
               { icon: <Clock className="w-5 h-5 text-rebel-red" />, title: "About 30 days to hire", desc: "Median time to hire has been about 30 days on recent work, including nine EarthDaily Federal placements under 30 days and a Kalibri Labs ML search that signed in 34." },
               { icon: <Shield className="w-5 h-5 text-rebel-red" />, title: "You keep what we build", desc: "Pipelines, scorecards, job posts, and playbooks are yours." },
               { icon: <TrendingUp className="w-5 h-5 text-rebel-red" />, title: "EarthDaily Federal", desc: "On EarthDaily Federal, nine placements avoided roughly $294K in agency fees, at about 335% confirmed ROI on what they spent." },
@@ -896,11 +923,11 @@ export default function Home() {
               when it mattered.
             </h2>
             <p className="text-zinc-300 text-lg sm:text-xl leading-[1.55] max-w-xl mb-8">
-              Intelligence community members, people active in politics, and current and former service members trust me to build their teams. I speak their language. And I back transitioning veterans with free resume and LinkedIn reviews. No corporate fluff, just real talent leadership for cleared defense and startups.
+              Intelligence community members, people active in politics, and current and former service members trust Rebel to build their teams. The firm speaks their language. Transitioning veterans get free resume and LinkedIn reviews. No corporate fluff, just real talent leadership for cleared defense and startups.
             </p>
 
             <div className="border-l-2 border-rebel-red pl-4 mb-9">
-              <p className="text-white font-semibold text-lg">Ask me for my references.</p>
+              <p className="text-white font-semibold text-lg">Ask for references.</p>
               <p className="text-zinc-400 text-sm mt-1">
                 Intelligence community. People active in politics. Current and former servicemembers. Shared privately, on request.
               </p>
@@ -915,14 +942,14 @@ export default function Home() {
                 onClick={hapticTap}
                 className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-rebel-red/90 text-white font-semibold px-7 py-3.5 rounded-lg transition-colors no-underline"
               >
-                Talk to Chris <ArrowRight className="w-4 h-4" />
+                Start a search <ArrowRight className="w-4 h-4" />
               </a>
               <Link
                 href="/services"
                 data-testid="link-view-services-cleared"
                 className="inline-flex items-center justify-center gap-2 border border-zinc-700 hover:border-rebel-red/60 text-white font-semibold px-7 py-3.5 rounded-lg transition-colors no-underline"
               >
-                See how I work <ArrowRight className="w-4 h-4" />
+                See how Rebel works <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
             <p className="mt-4">
@@ -1090,7 +1117,7 @@ export default function Home() {
                 <span className="text-rebel-red">Built to hand off.</span>
               </h3>
               <p className="text-zinc-400 text-base sm:text-lg max-w-2xl leading-[1.55] mb-5">
-                Rebel Talent Systems was built by Richie Lampani, 14 years closing the hires everyone else called impossible. The agency sends you paper you still have to vet, close, and bring to life, then disappears. The software vendor sells you a login and disappears. Rebel embeds, runs AI on your reqs where it makes sense, keeps the human where it counts, and hands you the system when it is built.
+                Rebel Talent Systems was built over 14 years of closing the hires everyone else called impossible. The agency sends you paper you still have to vet, close, and bring to life, then disappears. The software vendor sells you a login and disappears. Rebel embeds, runs AI on your reqs where it makes sense, keeps the human where it counts, and hands you the system when it is built.
               </p>
               <Link
                 href="/about"
@@ -1131,7 +1158,7 @@ export default function Home() {
           </p>
           <a href={BOOK_CHRIS_HREF} target="_blank" rel="noopener noreferrer" data-testid="button-book-call-4" className="block sm:inline-block">
             <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-10 w-full sm:w-auto">
-              Talk to Chris <ArrowRight className="ml-2 w-4 h-4" />
+              Start a search <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </a>
           <p className="text-zinc-400 text-xs mt-5 tracking-wide">
