@@ -4,12 +4,13 @@
 // signaling "you've decided, now the formal application step."
 
 import { useEffect, useState, useMemo } from "react";
-import { useRoute, Link } from "wouter";
+import { useRoute, useLocation, Link } from "wouter";
 import { ArrowLeft, ArrowRight, MapPin, DollarSign, Briefcase, ShieldCheck } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 // Safe addition — human-readable job URLs (slug + UUID)
-import { extractJobId, jobPath } from "@/lib/jobSlug";
+import { extractJobId, isBareJobUuid, jobPath } from "@/lib/jobSlug";
+import { buildJobMetaDescription } from "@/lib/jobMeta";
 
 const API_BASE = "https://rebelcommand.dev/api/public/jobs";
 
@@ -171,6 +172,7 @@ function buildJobJsonLd(job: Job): Record<string, unknown> {
 
 export default function JobDetail() {
   const [, params] = useRoute<{ id: string }>("/jobs/:id");
+  const [, setLocation] = useLocation();
   // Safe addition — the route param may be a plain UUID (old links) or
   // slug-plus-UUID (new links). The API always gets just the UUID.
   const id = extractJobId(params?.id);
@@ -209,8 +211,18 @@ export default function JobDetail() {
   const schemas = useMemo(() => (job ? [buildJobJsonLd(job)] : []), [job]);
   const pageTitle = job ? `${job.title} at ${job.companyName} | Rebel Talent` : "Role | Rebel Talent";
   const pageDesc = job
-    ? `${job.title} at ${job.companyName}${job.location ? `, ${job.location}` : ""}${job.compensationRange ? ` · ${job.compensationRange}` : ""}. Apply through Rebel Talent.`
-    : "Apply for open roles through Rebel Talent.";
+    ? buildJobMetaDescription(job)
+    : "Open roles across cleared, startup, and commercial teams.";
+
+  // Bare /jobs/<uuid> URLs stay working, then move to the slug URL.
+  // Slug URLs already contain the UUID and are left alone.
+  useEffect(() => {
+    if (!job || !isBareJobUuid(params?.id)) return;
+    const next = jobPath(job);
+    if (next !== `/jobs/${params?.id}`) {
+      setLocation(next, { replace: true });
+    }
+  }, [job, params?.id, setLocation]);
 
   const remoteLabel = (() => {
     if (!job) return "";

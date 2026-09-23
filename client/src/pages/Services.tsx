@@ -99,7 +99,7 @@ const serviceSchemas = [
     "description": "We run your recruiting function on a monthly retainer and hand it back better than we found it, all under Richie's direction. Coverage across tech, business process, and GTM/sales, cleared and noncleared, entry level through executive, Series A through C and defense teams.",
     "provider": serviceProvider,
     "areaServed": "US",
-    "url": "https://rebeltalentsystems.com/services",
+    "url": "https://rebeltalentsystems.com/fractional",
   },
   {
     "@context": "https://schema.org",
@@ -130,7 +130,7 @@ const fractionalSchema = {
     },
   },
   "description": "Fractional Head of Talent/Lead Talent Consultant services for startups and defense contractors. Embedded recruiting leadership that owns your entire talent function, strategy, execution, ATS, and systems that survive after the engagement ends.",
-  "url": "https://rebeltalentsystems.com/services",
+  "url": "https://rebeltalentsystems.com/fractional",
   "areaServed": ["United States", "Remote"],
   "serviceType": "Fractional Recruiting Leadership",
 };
@@ -200,6 +200,8 @@ const OFFERINGS = [
     featured: false,
     ctaLabel: "Book Strategy Call",
     ctaHref: "/strategy-call",
+    detailsHref: "/fractional",
+    detailsLabel: "View fractional recruiting",
   },
   // Safe addition, Advisory offering, routes to its own /advisory page
   {
@@ -284,10 +286,10 @@ export default function Services() {
     <PageLayout>
       <PageSEO
         title="Recruiting Services & Engagement Models | Rebel Talent Systems"
-        description="One recruiting partner, four offerings: Contingent, Retained Search, Embedded/Fractional, and Advisory. Contingent is a flat fee by salary band, due on placement. Tech, business process, and GTM/sales, cleared and noncleared, entry level through executive, all under Richie's direction."
+        description="Four recruiting models: contingent flat fee by salary band, retained search, embedded fractional, and advisory. Cleared and noncleared, startups and defense."
         path="/services"
         ogTitle="Recruiting Services & Engagement Models | Rebel Talent Systems"
-        ogDescription="Four ways to work with Rebel Talent Systems: Contingent, Retained Search, Embedded/Fractional, and Advisory. Contingent is a flat fee by salary band, due on placement."
+        ogDescription="Four recruiting models: contingent flat fee by salary band, retained search, embedded fractional, and advisory. Cleared and noncleared, startups and defense."
         ogImage="og-services.png"
         schemas={[...serviceSchemas, fractionalSchema, faqSchema]}
         breadcrumbs={[
@@ -352,6 +354,13 @@ export default function Services() {
             <p className="text-zinc-400 text-sm mt-3 max-w-lg mx-auto">
               Contingent first. Then retained, embedded, and advisory. You own what we build either way.
             </p>
+            <p className="text-zinc-500 text-sm mt-4 max-w-xl mx-auto">
+              <Link href="/fractional" className="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red">Embedded fractional recruiting</Link>
+              {" "}and{" "}
+              <Link href="/cleared" className="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red">cleared recruiting for defense teams</Link>
+              {" "}each have a page. One seat stays on{" "}
+              <Link href="/contingent" className="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red">contingent flat-fee search</Link>.
+            </p>
           </div>
           </ScrollReveal>
 
@@ -398,7 +407,7 @@ export default function Services() {
                 {"detailsHref" in o && o.detailsHref && (
                   <Link
                     href={o.detailsHref}
-                    data-testid="link-services-contingent-details"
+                    data-testid={o.detailsHref === "/contingent" ? "link-services-contingent-details" : "link-services-fractional-details"}
                     className="mt-3 block text-center text-sm text-zinc-400 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red"
                   >
                     {o.detailsLabel ?? "View details"}

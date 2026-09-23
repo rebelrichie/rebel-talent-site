@@ -42,6 +42,8 @@ export default function Footer() {
             <div className="flex flex-col gap-2.5">
               <Link href="/services" data-testid="link-footer-services" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Services &amp; Pricing</Link>
               <Link href="/contingent" data-testid="link-footer-contingent" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Contingent</Link>
+              <Link href="/fractional" data-testid="link-footer-fractional" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Fractional Recruiting</Link>
+              <Link href="/cleared" data-testid="link-footer-cleared" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Cleared &amp; Defense</Link>
               <Link href="/advisory" data-testid="link-footer-advisory" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Advisory</Link>
               <Link href="/testimonials" data-testid="link-footer-testimonials" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Testimonials</Link>
               <Link href="/case-studies" data-testid="link-footer-case-studies" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Case Studies</Link>
