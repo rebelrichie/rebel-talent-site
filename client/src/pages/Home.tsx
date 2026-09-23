@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
-import { ArrowRight, Shield, Target, Zap, Users, Clock, TrendingUp } from "lucide-react";
+import { ArrowRight, Shield, Zap, Users, Clock, TrendingUp } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
@@ -22,7 +22,7 @@ const homepageSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Rebel Talent",
-  "description": "Hiring infrastructure for venture-backed and defense teams. Contingent, retained, and embedded recruiting across tech, business process, and GTM and sales roles, cleared and noncleared, entry level through executive.",
+  "description": "Rebel Talent Systems runs contingent, retained, and embedded searches for technical, GTM, and operations roles. Cleared and uncleared. Individual contributor through executive. Series A through C, and defense teams that cannot wait out a 90-day req.",
   "url": "https://rebeltalentsystems.com",
   "logo": "https://rebeltalentsystems.com/logo.png",
   "telephone": "+1-770-233-7548",
@@ -213,11 +213,11 @@ export default function Home() {
   return (
     <PageLayout>
       <PageSEO
-        title="Contingent recruiting with a flat fee by salary band | Rebel Talent"
-        description="Contingent recruiting with a flat fee by salary band, due on placement. Four models: contingent, retained, embedded, and advisory. Cleared and startup teams."
+        title="Fill the seat. Keep the system. | Rebel Talent"
+        description="Rebel Talent Systems runs contingent, retained, and embedded searches for technical, GTM, and operations roles. Cleared and uncleared. Series A through C, and defense teams."
         path="/"
-        ogTitle="Contingent recruiting with a flat fee by salary band | Rebel Talent"
-        ogDescription="Contingent recruiting with a flat fee by salary band, due on placement. Four models: contingent, retained, embedded, and advisory. Cleared and startup teams."
+        ogTitle="Fill the seat. Keep the system. | Rebel Talent"
+        ogDescription="Rebel Talent Systems runs contingent, retained, and embedded searches for technical, GTM, and operations roles. Cleared and uncleared. Series A through C, and defense teams."
         ogImage="og-home.png"
         schemas={[homepageSchema]}
       />
@@ -286,7 +286,7 @@ export default function Home() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
             </span>
             <p className="font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase text-zinc-400">
-              Hiring &amp; Talent Infrastructure · Venture-Backed &amp; Defense
+              Hiring for venture-backed teams and defense
             </p>
           </div>
 
@@ -300,10 +300,7 @@ export default function Home() {
             style={{ fontSize: "clamp(2rem, 6vw, 5rem)", letterSpacing: "-0.01em" }}
           >
             <span className="block" style={{ animation: "heroRise 0.5s ease-out 0.1s both" }}>
-              Recruiting that scales
-            </span>
-            <span className="block" style={{ animation: "heroRise 0.5s ease-out 0.3s both" }}>
-              with the company
+              Fill the seat.
             </span>
             <span
               className="block"
@@ -312,39 +309,15 @@ export default function Home() {
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
-                animation: "heroRise 0.5s ease-out 0.5s both",
+                animation: "heroRise 0.5s ease-out 0.3s both",
               }}
             >
-              you&rsquo;re becoming.
+              Keep the system.
             </span>
           </h1>
 
-          {/* BREAK ORBIT. — display-size brand moment */}
-          <div className="mt-5 sm:mt-7" style={{ animation: "heroLineIn 0.6s ease-out 1.0s both" }}>
-            <span
-              className="font-display font-black uppercase"
-              style={{
-                fontSize: "clamp(1.25rem, 2.8vw, 2.25rem)",
-                letterSpacing: "0.09em",
-                fontVariationSettings: "'wdth' 125",
-                fontStretch: "expanded",
-                background: "linear-gradient(95deg, #F71A29 0%, #F5841E 50%, #FDBD41 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                display: "inline-block",
-                lineHeight: 1.1,
-              }}
-            >
-              BREAK ORBIT.
-            </span>
-          </div>
-
-          {/* Subhead — Safe addition: three-offering, full-coverage positioning; key phrase brightened for scannability */}
-          <p className="mt-5 sm:mt-10 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]" style={{ animation: "heroLineIn 0.5s ease-out 1.2s both" }}>
-            Rebel Talent Systems fills your open roles and builds the system underneath them.{" "}
-            <span className="text-zinc-200 font-medium">Contingent, retained, or embedded.</span>{" "}
-            Technical, business process, GTM and sales. Cleared and noncleared, entry level through executive, for Series A through C companies and defense teams.
+          <p className="mt-5 sm:mt-10 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]" style={{ animation: "heroLineIn 0.5s ease-out 0.5s both" }}>
+            Rebel Talent Systems runs contingent, retained, and embedded searches for technical, GTM, and operations roles. Cleared and uncleared. Individual contributor through executive. Series A through C, and defense teams that cannot wait out a 90-day req.
           </p>
 
           {/* Safe addition — two equal front doors. Companies go left, candidates
@@ -453,33 +426,18 @@ export default function Home() {
               {
                 icon: <Zap className="w-5 h-5" />,
                 title: "Series A-C Startups",
-                intro: "Every week without the right hire is a week your roadmap slips.",
-                items: [
-                  "Scaling fast but can't hire fast enough",
-                  "No internal recruiting function yet",
-                  "Bleeding money on agency fees",
-                ],
+                body: "The roadmap is slipping because a seat has been open too long. You do not have an internal recruiter yet, and agency invoices are stacking up.",
               },
               {
                 icon: <Shield className="w-5 h-5" />,
-                title: "Defense Contractors",
-                intro: "Most recruiters have never seen a DD-254.",
-                items: [
-                  "Need cleared talent (Secret, TS, TS/SCI)",
-                  "CMMC compliance requirements",
-                  "Pipeline built on community knowledge, not guesswork",
-                ],
+                title: "Defense Contractors and Govtech",
+                body: "You need Secret, TS, or TS/SCI talent. Most recruiters have never read a DD-254. The pipeline has to come from people who already live in that community.",
                 cta: { href: "/cleared", label: "Cleared recruiting for defense teams" },
               },
               {
                 icon: <TrendingUp className="w-5 h-5" />,
                 title: "Growth Companies",
-                intro: "You don't get an agency. You get me, every engagement, every call, every hire.",
-                items: [
-                  "Hiring has become a bottleneck",
-                  "Tired of agency fees and bad fits",
-                  "Need ownership and accountability",
-                ],
+                body: "Hiring is the bottleneck. You want a named person on the account and a process you still own when the engagement ends.",
               },
             ].map((cat, i) => (
               <ScrollReveal key={cat.title} variant="fade-up" delay={i * 150}>
@@ -490,15 +448,7 @@ export default function Home() {
                 <h3 className="font-display text-lg font-bold text-white uppercase mb-2">
                   {cat.title}
                 </h3>
-                <p className="text-zinc-400 text-sm italic mb-4 leading-snug">{cat.intro}</p>
-                <ul className="space-y-2">
-                  {cat.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-zinc-400">
-                      <span className="text-rebel-red font-mono text-xs mt-0.5">&gt;</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-zinc-400 text-sm leading-relaxed">{cat.body}</p>
                 {"cta" in cat && cat.cta && (
                   <Link href={cat.cta.href} className="inline-block mt-4 text-sm text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red">
                     {cat.cta.label}
@@ -518,7 +468,6 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-10">
-            <p className="text-zinc-400 text-sm mb-4">Scale without the bleed. Build the machine you own.</p>
             <a href={BOOK_CHRIS_HREF} target="_blank" rel="noopener noreferrer" data-testid="button-book-call-3" className="block sm:inline-block">
               <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm w-full sm:w-auto whitespace-normal leading-tight py-3 sm:py-2">
                 Start a Confidential Conversation <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
@@ -533,14 +482,11 @@ export default function Home() {
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-8">
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-              FOUR WAYS TO ENGAGE.
+              ENGAGEMENTS
             </div>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight">
-              Pick your fight.
+              Four ways to work together.
             </h2>
-            <p className="text-zinc-400 text-sm mt-3 max-w-xl mx-auto">
-              Contingent leads with a flat fee set by salary band. Retained runs a defined search against a deadline. Embedded builds the machine and leaves you owning it. Advisory puts my read on your hiring, AI, and infrastructure on the table before you spend.
-            </p>
           </div>
           </ScrollReveal>
 
@@ -555,22 +501,8 @@ export default function Home() {
               <p className="text-rebel-red font-mono text-sm mb-1">Flat fee by salary band</p>
               <p className="text-zinc-400 font-mono text-xs mb-4">Fee due on placement · no % of salary</p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                Each salary range has its own flat fee. Lock the band at the start, fill the seat, and pay on placement. The fee does not move if you pay top of range.
+                One role, flat fee by salary band, paid on an accepted offer. Fast to start. No retainer.
               </p>
-              <ul className="space-y-2 mb-6">
-                {[
-                  "Flat fee set by salary band",
-                  "Fee due on an accepted offer",
-                  "No percentage of salary, ever",
-                  "Fast start, no long commitment",
-                  "Cleared or noncleared, any level",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
-                    <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
               <Link href="/contingent" data-testid="link-contingent-details" className="block">
                 <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm w-full">
                   View contingent details <ArrowRight className="ml-2 w-4 h-4" />
@@ -588,22 +520,8 @@ export default function Home() {
               <p className="text-rebel-red font-mono text-sm mb-1">Half down · half on placement</p>
               <p className="text-zinc-400 font-mono text-xs mb-4">Priced up front · no surprise fees</p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                A defined role with a deadline behind it. We run the full search from inside your stack, cleared or noncleared, entry level through executive, and close it against the clock.
+                A defined role with a deadline. Half the fee to open the search, half when the hire accepts.
               </p>
-              <ul className="space-y-2 mb-6">
-                {[
-                  "Defined role, fixed scope, hard deadline",
-                  "Cleared (Secret, TS, TS/SCI) or commercial",
-                  "Executive, technical, and GTM searches",
-                  "Specialist recruiter matched to the function",
-                  "Documented, repeatable process left with you",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
-                    <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
             </GlowCard>
 
             <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-5 sm:p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto" data-testid="card-fractional">
@@ -616,22 +534,8 @@ export default function Home() {
               <p className="text-rebel-red font-mono text-sm mb-1">Monthly Retainer · 3-month minimum</p>
               <p className="text-zinc-400 font-mono text-xs mb-4">Flat retainer · no placement fees</p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                We run your recruiting function from inside the company, then hand it back better than we found it. We build the process, rebuild your ATS and job posts, and leave you owning a clean candidate database and the playbooks to run it.
+                A monthly retainer, three months minimum. We run recruiting from inside your company, then leave you the ATS, the scorecards, and the playbooks.
               </p>
-              <ul className="space-y-2 mb-6">
-                {[
-                  "Strategic hiring roadmap & prioritization",
-                  "ATS audit, rebuild & job-post overhaul",
-                  "End-to-end recruiting execution",
-                  "Interview process design & training",
-                  "You keep the database, systems & playbooks",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
-                    <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
               <Link href="/fractional" data-testid="link-fractional-details" className="block">
                 <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm w-full">
                   View fractional recruiting <ArrowRight className="ml-2 w-4 h-4" />
@@ -649,22 +553,8 @@ export default function Home() {
               <p className="text-rebel-red font-mono text-sm mb-1">Fixed-scope engagements · retainer optional</p>
               <p className="text-zinc-400 font-mono text-xs mb-4">Before you hire, build, or buy AI</p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                My read on your hiring, AI, and recruiting infrastructure before you spend. Feasibility and hiring plans, AI strategy and implementation, full infrastructure builds, or an ongoing seat when you want a standing sounding board.
+                A fixed-scope look at feasibility, compensation, AI tools, or infrastructure before you spend on a search.
               </p>
-              <ul className="space-y-2 mb-6">
-                {[
-                  "Talent feasibility & hiring plan",
-                  "AI strategy & implementation",
-                  "Recruiting infrastructure build",
-                  "Advisory retainer, board and advisory seats",
-                  "Cleared and defense hiring covered",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-zinc-300">
-                    <ArrowRight className="w-3 h-3 text-rebel-red mt-1 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
               <Link href="/advisory" data-testid="link-advisory" className="mt-auto block">
                 <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm w-full">
                   View advisory offerings <ArrowRight className="ml-2 w-4 h-4" />
@@ -684,23 +574,22 @@ export default function Home() {
           <ScrollReveal variant="fade-up" delay={150}>
           <div className="mt-6 border border-zinc-800/70 bg-zinc-900/30 p-6 sm:p-8" data-testid="band-team-capacity">
             <div className="flex flex-col md:flex-row md:items-start md:gap-8">
-              <div className="md:shrink-0 mb-4 md:mb-0 md:w-56">
+              <div className="md:shrink-0 mb-4 md:mb-0 md:w-72">
                 <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">
                   + TEAM CAPACITY
                 </div>
                 <h3 className="font-display text-lg font-bold text-white uppercase tracking-tight leading-tight">
-                  Need more horsepower?
+                  Need more coverage than one recruiter?
                 </h3>
               </div>
               <p className="text-zinc-300 text-sm leading-relaxed">
-                Any engagement can scale with a vetted recruiter team, same standards, same playbooks, monthly or hourly as the pipeline demands. Specialists in tech, business process, and GTM and sales, matched to the roles you are filling.
+                We can add specialists on the same playbooks, billed monthly or hourly. Most work starts with a scoping call, not a quote.
               </p>
             </div>
           </div>
           </ScrollReveal>
 
           <div className="text-center mt-10">
-            <p className="text-zinc-400 text-sm mb-4">Not sure which fits? Most engagements start with a scoping conversation, not a quote.</p>
             <a href="/strategy-call" data-testid="button-book-call-2" className="block sm:inline-block">
               <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
                 Book a scoping call <ArrowRight className="ml-2 w-4 h-4" />
@@ -746,19 +635,16 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-8">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">THE DIFFERENCE</div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
-              Nobody else ships all of this.
+              Why teams stay.
             </h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
             {[
-              { icon: <Users className="w-5 h-5 text-rebel-red" />, title: "A named human on the search", desc: "Chris runs every new search conversation. You talk to the person who owns the account, not a form and a coordinator." },
-              { icon: <TrendingUp className="w-5 h-5 text-rebel-red" />, title: "Flat fee by salary band", desc: "Contingent search is priced by the role's salary band and locked at the start. No percentage of salary. The fee does not move if you pay top of range." },
-              { icon: <Clock className="w-5 h-5 text-rebel-red" />, title: "~30 days median time to hire", desc: "Under 30 on EDF's 9 placements. 34 days on Kalibri against a 360-application flooded funnel." },
-              { icon: <Shield className="w-5 h-5 text-rebel-red" />, title: "You own everything we build", desc: "ATS, candidate pipeline, interview scorecards, sourcing playbooks, hiring manager training. Exportable, transferable, yours forever." },
-              { icon: <Target className="w-5 h-5 text-rebel-red" />, title: "Proof-first vetting", desc: "Every candidate ships with portfolio evidence, structured technical screens, and AI-scored match signals. Resume polish isn't a pipeline." },
-              { icon: <Zap className="w-5 h-5 text-rebel-red" />, title: "Case study: fees avoided", desc: "EDF case study: 470%+ projected ROI and $294K+ in agency fees avoided across 9 placements. Proof from a named engagement, not a fee sheet." },
+              { icon: <Users className="w-5 h-5 text-rebel-red" />, title: "A person owns the account", desc: "Chris opens contingent and retained work. Richie is on every engagement. You are not dropped into a form." },
+              { icon: <Clock className="w-5 h-5 text-rebel-red" />, title: "About 30 days to hire", desc: "Median time to hire has been about 30 days on recent work, including nine EarthDaily Federal placements under 30 days and a Kalibri Labs ML search that signed in 34." },
+              { icon: <Shield className="w-5 h-5 text-rebel-red" />, title: "You keep what we build", desc: "Pipelines, scorecards, job posts, and playbooks are yours." },
+              { icon: <TrendingUp className="w-5 h-5 text-rebel-red" />, title: "EarthDaily Federal", desc: "On EarthDaily Federal, nine placements avoided roughly $294K in agency fees, at about 335% confirmed ROI on what they spent." },
             ].map((item) => (
               <div
                 key={item.title}
@@ -790,9 +676,9 @@ export default function Home() {
               </p>
               <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-5">
                 {[
-                  { value: "$294K+", label: "Agency Fees Avoided" },
-                  { value: "470%+", label: "Projected ROI" },
+                  { value: "9", label: "Roles Placed" },
                   { value: "<30 days", label: "Avg. Time to Hire" },
+                  { value: "8 months", label: "On the Engagement" },
                 ].map((s) => (
                   <div key={s.label}>
                     <AnimatedCounter value={s.value} className="font-display text-[clamp(0.78rem,4.1vw,1.3rem)] sm:text-2xl font-bold text-rebel-red" />
@@ -1157,7 +1043,7 @@ export default function Home() {
               Rebel Built
             </h3>
             <p className="text-zinc-400 text-sm leading-relaxed mb-5">
-              Recruiting strategies, hiring frameworks, and unfiltered takes on talent. Delivered to your inbox.
+              Notes on contingent search, retained work, and embedded hiring. Delivered to your inbox.
             </p>
             {/* Safe addition, owned email capture */}
             <EmailCapture source="homepage_newsletter" placeholder="your@email.com" buttonText="Get It" />
@@ -1204,7 +1090,7 @@ export default function Home() {
                 <span className="text-rebel-red">Built to hand off.</span>
               </h3>
               <p className="text-zinc-400 text-base sm:text-lg max-w-2xl leading-[1.55] mb-5">
-                Rebel Talent Systems was built by Richie Lampani, 14 years closing the hires everyone else called impossible. The agency sends you paper you still have to vet, close, and bring to life, then disappears. The software vendor sells you a login and disappears. Rebel embeds, runs AI on your reqs where it makes sense, keeps the human where it counts, and hands you the machine when it&rsquo;s built.
+                Rebel Talent Systems was built by Richie Lampani, 14 years closing the hires everyone else called impossible. The agency sends you paper you still have to vet, close, and bring to life, then disappears. The software vendor sells you a login and disappears. Rebel embeds, runs AI on your reqs where it makes sense, keeps the human where it counts, and hands you the system when it is built.
               </p>
               <Link
                 href="/about"
@@ -1238,10 +1124,10 @@ export default function Home() {
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center" style={{ zIndex: 10 }}>
           <img src="/logo.png" alt="Rebel Talent Systems logo" loading="lazy" className="w-16 h-16 mx-auto mb-6" />
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight mb-4">
-            Bring Us Your Hardest Req.
+            Bring the role that has been sitting open.
           </h2>
           <p className="text-zinc-400 text-base mb-8 max-w-xl mx-auto">
-            30 minutes. Walk us through the role nobody else can fill. Richie is on every engagement, so you get a straight answer either way, and if it isn't ours to fill, we'll point you to who can.
+            Thirty minutes. If it is not a fit, we will say so and point you somewhere that is.
           </p>
           <a href={BOOK_CHRIS_HREF} target="_blank" rel="noopener noreferrer" data-testid="button-book-call-4" className="block sm:inline-block">
             <Button onClick={hapticTap} size="lg" className="font-display tracking-wider uppercase text-sm px-10 w-full sm:w-auto">

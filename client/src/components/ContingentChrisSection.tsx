@@ -32,14 +32,13 @@ export default function ContingentChrisSection() {
           <ScrollReveal variant="fade-up">
             <div>
               <p className="font-mono text-rebel-red text-sm sm:text-base lg:text-lg tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-4 sm:mb-5 font-semibold">
-                NOW OFFERING - CONTINGENT SEARCH
+                CONTINGENT SEARCH
               </p>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white uppercase tracking-tight leading-[1.08] mb-6">
-                Flat fee by band.<br />
-                Zero games.
+                Contingent search, priced by salary band.
               </h2>
               <p className="text-zinc-300 text-base sm:text-lg leading-[1.7] max-w-xl">
-                Most agencies take a cut of salary, so they earn more when your hire costs more. We don't. Each salary range has its own flat fee. You pick the band for the role, we lock that fee, and it does not move if you pay top of range.
+                Most firms take a percentage of the offer, so they make more when you pay more. We do not. You pick the salary range for the role. We lock a flat fee to that band before the search starts. You pay when the candidate accepts. If you hire at the top of the range, the fee does not move.
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">
                 <Link
@@ -95,7 +94,7 @@ export default function ContingentChrisSection() {
                     Head of Client Acquisition
                   </p>
                   <p className="text-zinc-300 text-sm leading-relaxed mb-8 max-w-sm">
-                    Chris runs every new search conversation at Rebel. Talk to him first.
+                    Talk to Chris Moscato first. He runs every new contingent conversation.
                   </p>
                   <div className="flex flex-col gap-3 w-full">
                     <a

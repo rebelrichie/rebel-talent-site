@@ -15,11 +15,11 @@ if [[ ! -f dist/public/services/index.html || ! -f dist/public/sitemap.xml ]]; t
 fi
 
 # Gate 2: prove the prerender captured REAL rendered content, not a Suspense/SPA
-# shell. "Break Orbit" is footer text that only exists once React has rendered,
+# shell. The copyright line is footer text that only exists once React has rendered,
 # so its presence on both an eager route (/) and a lazy route (/services, /pricing)
 # confirms code-split routes prerendered correctly. Guards against lazy-load regressions.
 for f in dist/public/index.html dist/public/services/index.html dist/public/pricing/index.html; do
-  if ! grep -qi "break orbit" "$f"; then
+  if ! grep -qi "all rights reserved" "$f"; then
     echo "✗ $f looks like an unrendered shell (no rendered footer content). Aborting, nothing deployed." >&2
     exit 1
   fi
