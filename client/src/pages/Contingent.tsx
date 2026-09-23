@@ -15,7 +15,7 @@ function hapticTap() {
 const FAQS = [
   {
     q: "How is contingent different from an agency?",
-    a: "You still pay on placement. You do not pay a percentage of salary. The fee is locked to the band you approved. Chris stays on the account. We also leave you the process notes from the search, which most agencies do not.",
+    a: "You still pay on placement. You do not pay a percentage of salary. The fee is locked to the band you approved. Rebel stays on the search. We also leave you the process notes from the search, which most agencies do not.",
   },
   {
     q: "How does the salary band lock work?",
@@ -44,7 +44,7 @@ const serviceSchema = {
   "@type": "Service",
   "name": "Contingent Recruiting",
   "serviceType": "Contingent recruiting, flat fee by salary band, due on placement",
-  "description": "Contingent recruiting with a flat fee by salary band, due on placement. No percentage of salary. Chris Moscato runs new search conversations under Richie's direction. Startups and defense teams. Cleared and noncleared, entry level through executive.",
+  "description": "Contingent recruiting with a flat fee by salary band, due on placement. No percentage of salary. Rebel runs the search. Startups and defense teams. Cleared and noncleared, entry level through executive.",
   "provider": {
     "@type": "Organization",
     "name": "Rebel Talent Systems",
@@ -108,10 +108,10 @@ export default function Contingent() {
     <PageLayout>
       <PageSEO
         title="Contingent Recruiting | Flat Fee by Salary Band | Rebel Talent"
-        description="Contingent recruiting with a flat fee by salary band, due on placement. No percentage of salary. Chris Moscato runs new search conversations. Startups and defense teams."
+        description="Contingent recruiting with a flat fee by salary band, due on placement. No percentage of salary. Rebel runs the search. Startups and defense teams."
         path="/contingent"
         ogTitle="Contingent Recruiting | Flat Fee by Salary Band | Rebel Talent"
-        ogDescription="Flat fee by salary band. Pay on placement. Chris Moscato runs new contingent search conversations for startups and defense teams."
+        ogDescription="Flat fee by salary band. Pay on placement. Rebel runs contingent search for startups and defense teams."
         ogImage="og-services.png"
         schemas={[serviceSchema, faqSchema]}
         breadcrumbs={[
@@ -134,12 +134,12 @@ export default function Contingent() {
             Contingent search with a flat fee by salary band.
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            You set the range. We lock the fee. You pay when the hire accepts. No percentage of salary. Chris Moscato owns the first conversation.
+            You set the range. We lock the fee. You pay when the hire accepts. No percentage of salary. Rebel runs the search.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-3">
             <a href={BOOK_CHRIS_HREF} target="_blank" rel="noopener noreferrer" onClick={hapticTap} data-testid="button-talk-chris" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
-                Talk to Chris <ArrowRight className="ml-2 w-4 h-4" />
+                Start a search <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>
             <a
@@ -148,7 +148,7 @@ export default function Contingent() {
               data-testid="button-email-chris"
               className="inline-flex items-center justify-center gap-2 whitespace-nowrap border border-zinc-700 hover:border-rebel-red/60 text-zinc-200 hover:text-white font-medium text-sm px-6 py-3.5 rounded-md transition-colors no-underline"
             >
-              Email Chris
+              Email us
             </a>
           </div>
           <p className="mt-5 text-zinc-500 text-sm">
@@ -189,7 +189,7 @@ export default function Contingent() {
           </div>
           <p className="mt-8 text-zinc-500 text-sm flex items-start gap-2">
             <Ban className="w-4 h-4 text-rebel-red shrink-0 mt-0.5" aria-hidden="true" />
-            We do not publish the band sheet here. Chris will walk the numbers on the call.
+            We do not publish the band sheet here. The numbers get walked on the call.
           </p>
         </div>
       </section>
@@ -280,17 +280,17 @@ export default function Contingent() {
         <div className="max-w-3xl mx-auto px-6 lg:px-12">
           <ScrollReveal variant="scale">
             <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 sm:p-10 text-center">
-              <p className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">CHRIS MOSCATO</p>
+              <p className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">CONTINGENT SEARCH</p>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-4">
-                Talk to Chris first
+                Start a search
               </h2>
               <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
-                Head of Client Acquisition. He runs every new contingent search conversation. Email him or start the thread from here.
+                Flat fee by salary band, due when the hire accepts. Email us or book the call from here.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a href={BOOK_CHRIS_HREF} target="_blank" rel="noopener noreferrer" onClick={hapticTap} data-testid="button-contingent-footer-chris" className="block w-full sm:w-auto">
                   <Button className="font-display tracking-wider uppercase text-sm w-full">
-                    Talk to Chris <ArrowRight className="ml-2 w-4 h-4" />
+                    Start a search <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </a>
                 <a
@@ -298,7 +298,7 @@ export default function Contingent() {
                   onClick={hapticTap}
                   className="inline-flex items-center justify-center gap-2 w-full sm:w-auto border border-zinc-700 hover:border-rebel-red/60 text-zinc-200 hover:text-white font-medium text-sm px-6 py-3.5 rounded-md transition-colors no-underline"
                 >
-                  Email Chris
+                  Email us
                 </a>
               </div>
             </div>

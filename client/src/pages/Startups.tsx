@@ -1,5 +1,5 @@
 // Safe addition, landing page for Series A-C startup search work.
-// This is the inbound surface for the search desk (Chris): contingent,
+// This is the inbound surface for the search desk: contingent,
 // retained, and contract-to-hire via EOR. CTAs pre-set the engagement type
 // on /strategy-call so these leads route to the right calendar.
 
@@ -82,8 +82,8 @@ const OFFERINGS = [
 const HOW_IT_WORKS = [
   {
     step: "01",
-    title: "One call with Chris",
-    body: "One call with Chris to scope the role, compensation, and timeline. If the person you want does not exist at your number, you hear that on the first call.",
+    title: "One call on the search",
+    body: "One call to scope the role, compensation, and timeline. If the person you want does not exist at your number, you hear that on the call.",
   },
   {
     step: "02",
@@ -133,7 +133,7 @@ export default function Startups() {
           <div className="mt-8 sm:mt-10">
             <a href="/strategy-call?engagement=contingent" onClick={hapticTap} data-testid="button-startups-hero-cta" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
-                Talk to our search team <ArrowRight className="ml-2 w-4 h-4" />
+                Start a search <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>
           </div>
@@ -246,7 +246,7 @@ export default function Startups() {
               Tell us what you are hiring for
             </h2>
             <p className="text-zinc-400 text-base leading-relaxed mb-8 max-w-xl mx-auto">
-              One call with Chris. If the person you want does not exist at your number, you hear that then.
+              One call on the search. If the person you want does not exist at your number, you hear that then.
             </p>
             <a href="/strategy-call?engagement=contingent" onClick={hapticTap} data-testid="button-startups-footer-cta" className="inline-block">
               <Button className="font-display tracking-wider uppercase text-sm">

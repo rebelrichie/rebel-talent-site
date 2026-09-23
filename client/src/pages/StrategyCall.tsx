@@ -36,11 +36,11 @@ const ENGAGEMENT_TYPES = [
 const STRATEGY_COPY: Record<string, { eyebrow: string; title: string; description: string; headline: string; deck: string; footer: string }> = {
   contingent: {
     eyebrow: "CONTINGENT SEARCH",
-    title: "Start a search with Chris | Rebel Talent",
-    description: "Chris Moscato runs new contingent conversations. Flat fee by salary band, due when the hire accepts. Name, email, and company get you through.",
-    headline: "Start a search with Chris.",
-    deck: "Chris Moscato runs new contingent conversations. Flat fee by salary band, due when the hire accepts. Name, email, and company get you through. Email him if you would rather skip the form.",
-    footer: "Contingent notes go to Chris. No list-building. FOCI-sensitive work is supported.",
+    title: "Start a search | Rebel Talent",
+    description: "Rebel runs new contingent conversations. Flat fee by salary band, due when the hire accepts. Name, email, and company get you through.",
+    headline: "Start a search.",
+    deck: "Rebel runs new contingent conversations. Flat fee by salary band, due when the hire accepts. Name, email, and company get you through. Email us if you would rather skip the form.",
+    footer: "Contingent notes stay with the search. No list-building. FOCI-sensitive work is supported.",
   },
   retained: {
     eyebrow: "RETAINED SEARCH",
@@ -152,7 +152,7 @@ export default function StrategyCall() {
       if (!res.ok) {
         setSubmit({
           kind: "error",
-          message: data?.error || `Request failed (${res.status}). Try again or email ${isContingent ? "christopher@rebeltalentsystems.com" : "richie@rebeltalentsystems.com"} directly.`,
+          message: data?.error || `Request failed (${res.status}). Try again or email us directly.`,
         });
         return;
       }
@@ -165,7 +165,7 @@ export default function StrategyCall() {
     } catch {
       setSubmit({
         kind: "error",
-        message: `Network error. Try again or email ${isContingent ? "christopher@rebeltalentsystems.com" : "richie@rebeltalentsystems.com"} directly.`,
+        message: `Network error. Try again or email us directly.`,
       });
     }
   }
@@ -217,9 +217,8 @@ export default function StrategyCall() {
                       data-testid="link-strategy-email-chris"
                       className="text-white hover:text-rebel-red underline underline-offset-4 decoration-zinc-600 hover:decoration-rebel-red transition-colors"
                     >
-                      Email Chris
+                      Email us
                     </a>
-                    {" "}at christopher@rebeltalentsystems.com
                   </p>
                 )}
                 {/* Safe addition — lower-commitment path for people not ready to book */}

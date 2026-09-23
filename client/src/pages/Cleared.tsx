@@ -23,7 +23,7 @@ const FAQS = [
   },
   {
     q: "Contingent, retained, or fractional?",
-    a: "One seat with a flat fee by salary band is contingent. Chris Moscato runs that conversation. A defined role with a deadline is retained. A standing cleared pipeline is embedded fractional. All four models are on the services page.",
+    a: "One seat with a flat fee by salary band is contingent. Rebel runs that search. A defined role with a deadline is retained. A standing cleared pipeline is embedded fractional. All four models are on the services page.",
   },
   {
     q: "Why do cleared searches stall?",
@@ -31,7 +31,7 @@ const FAQS = [
   },
   {
     q: "Who do I talk to first?",
-    a: "A strategy call if you are scoping a cleared pipeline or a retained search. Chris Moscato if you already know the seat and want contingent. Candidates should use the open roles page, not this one.",
+    a: "A strategy call if you are scoping a cleared pipeline or a retained search. Start a search if the seat is already known and you want contingent. Candidates should use the open roles page, not this one.",
   },
 ];
 
@@ -132,7 +132,7 @@ export default function Cleared() {
               data-testid="button-cleared-chris"
               className="inline-flex items-center justify-center gap-2 whitespace-nowrap border border-zinc-700 hover:border-rebel-red/60 text-zinc-200 hover:text-white font-medium text-sm px-6 py-3.5 rounded-md transition-colors no-underline"
             >
-              Talk to Chris
+              Start a search
             </a>
           </div>
           <p className="mt-5 text-zinc-500 text-sm">
@@ -247,10 +247,10 @@ export default function Cleared() {
             <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 sm:p-10 text-center">
               <p className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">NEXT STEP</p>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-4">
-                Scope the search, or talk to Chris
+                Scope the search
               </h2>
               <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
-                Strategy call for a cleared pipeline or a retained role. Chris Moscato for a contingent seat with the fee locked to the band.
+                Strategy call for a cleared pipeline or a retained role. Start a search for a contingent seat with the fee locked to the band.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Link href="/strategy-call" onClick={hapticTap} data-testid="button-cleared-footer-strategy" className="block w-full sm:w-auto">
@@ -265,7 +265,7 @@ export default function Cleared() {
                   onClick={hapticTap}
                   className="inline-flex items-center justify-center gap-2 w-full sm:w-auto border border-zinc-700 hover:border-rebel-red/60 text-zinc-200 hover:text-white font-medium text-sm px-6 py-3.5 rounded-md transition-colors no-underline"
                 >
-                  Talk to Chris
+                  Start a search
                 </a>
               </div>
             </div>

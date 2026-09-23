@@ -152,7 +152,7 @@ export default function Platform() {
             <div className="sm:w-2/3 grid grid-cols-2 gap-3">
               {[
                 { icon: <Target className="w-4 h-4" />, title: "Portfolio-First Profiles", desc: "Work samples, deliverables, and proof, not buzzwords. I see what candidates have actually built." },
-                { icon: <Eye className="w-4 h-4" />, title: "60-Second Video Intros", desc: "Communication and personality before the first call. AI-transcribed, searchable, and linked to the pipeline." },
+                { icon: <Eye className="w-4 h-4" />, title: "60-Second Video Intros", desc: "Communication and personality before a live screen. AI-transcribed, searchable, and linked to the pipeline." },
                 { icon: <Zap className="w-4 h-4" />, title: "AI Resume Parsing", desc: "Resume uploads auto-populate the entire profile. No manual entry, no reformatting." },
                 { icon: <Shield className="w-4 h-4" />, title: "Evidence Boost", desc: "Optional section for key deliverables that prove impact, not just job titles and dates." },
                 { icon: <BarChart3 className="w-4 h-4" />, title: "Profile Studio", desc: "AI coaching that scores profiles and surfaces gaps before candidates hit the pipeline." },

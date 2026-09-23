@@ -19,7 +19,7 @@ function hapticTap() {
 const FAQS = [
   {
     q: "How does the contingent salary band lock work?",
-    a: "You choose the salary band for the role. Each band has one flat fee, agreed before we start. Paying at the top of the range does not raise it. We do not publish the band sheet here. Chris Moscato walks the numbers on the call. The long version is on the contingent page.",
+    a: "You choose the salary band for the role. Each band has one flat fee, agreed before we start. Paying at the top of the range does not raise it. We do not publish the band sheet here. The numbers get walked on the call. The long version is on the contingent page.",
   },
   {
     q: "When is the contingent fee due?",
@@ -76,7 +76,7 @@ const serviceSchemas = [
     "@type": "Service",
     "name": "Contingent Recruiting",
     "serviceType": "Contingent recruiting, flat fee by salary band, due on placement",
-    "description": "Flat fee by salary band, due on placement. No percentage of salary. Chris Moscato runs new search conversations under Richie's direction. Cleared and noncleared, entry level through executive, across tech, business process, and GTM/sales for Series A through C and defense teams.",
+    "description": "Flat fee by salary band, due on placement. No percentage of salary. Rebel runs the search. Cleared and noncleared, entry level through executive, across tech, business process, and GTM/sales for Series A through C and defense teams.",
     "provider": serviceProvider,
     "areaServed": "US",
     "url": "https://rebeltalentsystems.com/contingent",
@@ -151,7 +151,7 @@ const OFFERINGS = [
     title: "Contingent",
     terms: "Flat fee by salary band",
     sub: "Fee due on placement · no % of salary",
-    desc: "One role. You set the salary range, we lock a flat fee to that band, and you pay when the candidate accepts. Chris Moscato owns the first conversation. The long version is on the contingent page.",
+    desc: "One role. You set the salary range, we lock a flat fee to that band, and you pay when the candidate accepts. Rebel runs the search. The long version is on the contingent page.",
     bullets: [
       "Flat fee set by salary band",
       "Fee due on an accepted offer",
@@ -161,7 +161,7 @@ const OFFERINGS = [
     ],
     best: "Teams that want to start a search without a retainer or a percent-of-salary fee.",
     featured: true,
-    ctaLabel: "Talk to Chris",
+    ctaLabel: "Start a search",
     ctaHref: BOOK_CHRIS_HREF,
     detailsHref: "/contingent",
     detailsLabel: "View contingent details",
@@ -171,16 +171,16 @@ const OFFERINGS = [
     title: "Retained Search",
     terms: "Half down, half on placement",
     sub: "A defined role with a deadline",
-    desc: "A defined role with a deadline. Half the fee to open the search, half when the hire accepts. Executive and specialized technical roles, cleared and noncleared. Chris runs the account. Richie directs the engagement.",
+    desc: "A defined role with a deadline. Half the fee to open the search, half when the hire accepts. Executive and specialized technical roles, cleared and noncleared. Rebel runs the search.",
     bullets: [
       "Cleared and noncleared roles (Secret, TS, TS/SCI)",
       "Executive & specialized technical searches",
-      "Chris, our Head of Client Acquisition, is your point of contact",
+      "The search stays with Rebel from open to accept",
       "Documented, repeatable process left with you",
     ],
     best: "Executive searches, cleared roles, Forward Deployed Engineers, AI/ML, specialized technical talent.",
     featured: false,
-    ctaLabel: "Talk to Chris",
+    ctaLabel: "Book a strategy call",
     ctaHref: BOOK_CHRIS_HREF,
   },
   {
@@ -196,7 +196,7 @@ const OFFERINGS = [
       "Interview process design & training",
       "You keep the database, systems & playbooks",
     ],
-    best: "Series A–C startups scaling 5–20+ hires, defense contractors building cleared pipelines, companies replacing agency dependency.",
+    best: "Series A-C startups scaling 5-20+ hires, defense contractors building cleared pipelines, companies replacing agency dependency.",
     featured: false,
     ctaLabel: "Book Strategy Call",
     ctaHref: "/strategy-call",
@@ -424,7 +424,7 @@ export default function Services() {
             <div className="border border-zinc-800/70 bg-zinc-900/30 p-6">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">+ TEAM CAPACITY</div>
               <p className="text-zinc-300 text-sm leading-relaxed">
-                Any offering can add a vetted recruiter under Richie&rsquo;s direction, monthly or hourly, typically $90–$300+/hour. That extends coverage. It does not replace him.
+                Any offering can add a vetted recruiter under Richie&rsquo;s direction, monthly or hourly, typically $90-$300+/hour. That extends coverage. It does not replace him.
               </p>
             </div>
             <div className="border border-zinc-800/70 bg-zinc-900/30 p-6">

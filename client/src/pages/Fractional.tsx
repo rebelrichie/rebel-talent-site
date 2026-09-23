@@ -19,7 +19,7 @@ const FAQS = [
   },
   {
     q: "How is this different from contingent search?",
-    a: "If you only need one seat filled, that is contingent, and Chris runs it. The fee structure lives on the contingent page. Fractional is the function, not a single req.",
+    a: "If you only need one seat filled, that is contingent, and Rebel runs it. The fee structure lives on the contingent page. Fractional is the function, not a single req.",
   },
   {
     q: "How long is an embedded engagement?",
@@ -88,7 +88,7 @@ const COMPARE = [
   {
     title: "Contingent",
     tag: "ONE SEAT",
-    body: "Flat fee by salary band. Due on placement. Chris runs the conversation.",
+    body: "Flat fee by salary band. Due on placement. Rebel runs the search.",
     href: "/contingent",
   },
   {
@@ -130,7 +130,7 @@ export default function Fractional() {
             We run recruiting for a while. Then you run it.
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            A monthly retainer. We sit in your Slack and your ATS, fill the open roles, and leave you the process. Richie directs the engagement. If you only need one seat filled, that is contingent, and Chris runs it.
+            A monthly retainer. We sit in your Slack and your ATS, fill the open roles, and leave you the process. If you only need one seat filled, that is contingent, and Rebel runs it.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-3">
             <Link href="/strategy-call" onClick={hapticTap} data-testid="button-fractional-strategy" className="block sm:inline-block">
@@ -146,7 +146,7 @@ export default function Fractional() {
               data-testid="button-fractional-chris"
               className="inline-flex items-center justify-center gap-2 whitespace-nowrap border border-zinc-700 hover:border-rebel-red/60 text-zinc-200 hover:text-white font-medium text-sm px-6 py-3.5 rounded-md transition-colors no-underline"
             >
-              Talk to Chris
+              Start a search
             </a>
           </div>
           <p className="mt-5 text-zinc-500 text-sm">
@@ -300,10 +300,10 @@ export default function Fractional() {
             <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 sm:p-10 text-center">
               <p className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">SCOPE IT</p>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-4">
-                Strategy call, or Chris for one seat
+                Strategy call, or a search for one seat
               </h2>
               <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
-                A fractional engagement starts with a strategy call. A single contingent search starts with Chris Moscato.
+                A fractional engagement starts with a strategy call. A single contingent search starts with Rebel.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Link href="/strategy-call" onClick={hapticTap} data-testid="button-fractional-footer-strategy" className="block w-full sm:w-auto">
@@ -318,7 +318,7 @@ export default function Fractional() {
                   onClick={hapticTap}
                   className="inline-flex items-center justify-center gap-2 w-full sm:w-auto border border-zinc-700 hover:border-rebel-red/60 text-zinc-200 hover:text-white font-medium text-sm px-6 py-3.5 rounded-md transition-colors no-underline"
                 >
-                  Talk to Chris
+                  Start a search
                 </a>
               </div>
             </div>
