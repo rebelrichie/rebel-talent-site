@@ -38,9 +38,7 @@ export default function Vision() {
           <p className="font-mono text-[11px] sm:text-xs tracking-[0.3em] uppercase text-zinc-400 mb-6 sm:mb-8">
             About / Vision
           </p>
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-[-0.04em] text-white leading-[0.95] mb-6">
-            BREAK
-            <br />
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.04em] text-white leading-[1.05] mb-6">
             <span
               style={{
                 background: "linear-gradient(95deg, #F71A29 0%, #F5841E 100%)",
@@ -49,11 +47,11 @@ export default function Vision() {
                 backgroundClip: "text",
               }}
             >
-              ORBIT.
+              Build something that compounds.
             </span>
           </h1>
           <p className="text-lg sm:text-2xl text-zinc-300 max-w-2xl leading-[1.5]">
-            Most recruiting firms sell hours or heads, and we are building something that compounds.
+            Most recruiting firms sell hours or heads.
           </p>
         </div>
       </section>
@@ -209,10 +207,10 @@ export default function Vision() {
           <ScrollReveal variant="fade-up">
             <div className="border-l-2 border-rebel-red/60 pl-6 sm:pl-8">
               <p className="text-white text-xl sm:text-3xl font-semibold leading-[1.4] tracking-tight mb-6">
-                If you know this is you. If it resonates. If it is something you want to help build and you already live in this world. Reach out.
+                If this is how you already think about the work, write me.
               </p>
               <p className="text-zinc-300 text-base sm:text-lg leading-[1.7]">
-                I want to work with people who think the way I do. We will talk, and we will decide together what happens next, instead of letting everyone else decide it for us.
+                We will talk and decide what happens next.
               </p>
             </div>
           </ScrollReveal>

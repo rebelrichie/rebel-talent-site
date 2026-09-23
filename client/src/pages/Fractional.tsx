@@ -14,24 +14,24 @@ function hapticTap() {
 
 const FAQS = [
   {
-    q: "What is fractional recruiting here?",
-    a: "A monthly retainer. We sit inside the company and run the talent function: hiring plan, sourcing, process, ATS, and hiring-manager coaching. Richie is on the engagement. When we leave, you keep the system.",
+    q: "What is a Fractional Head of Talent here?",
+    a: "A senior recruiting lead on a monthly retainer. I work inside your team, build the process, fill the hard roles, then step down or out. You are not buying hours from a bench. You are renting leadership until you can staff it yourself.",
   },
   {
     q: "How is this different from contingent search?",
-    a: "Contingent is one seat. Flat fee by salary band, due on placement. Chris Moscato runs those conversations. Fractional is the function, not a single req. If you have one role and do not want a retainer, start on the contingent page.",
+    a: "If you only need one seat filled, that is contingent, and Chris runs it. The fee structure lives on the contingent page. Fractional is the function, not a single req.",
   },
   {
-    q: "How long does an engagement last?",
-    a: "The initial commitment is 90 days. After that it is month to month, with two weeks notice to pause or end. No 12-month lock-in.",
+    q: "How long is an embedded engagement?",
+    a: "Three months minimum. Most teams need three to six to stand the function up and fill the first wave. After that it is month to month. You can walk.",
   },
   {
     q: "Do you publish the retainer?",
-    a: "No. Scope, role volume, and whether you need execution or leadership change the number. We scope it on a strategy call. We do not put a rate card on this page.",
+    a: "No. We do not post the retainer on this page because scope changes the number. A strategy call is the right first step. Cleared and defense work is priced separately on advisory if you only need the plan, not the desk.",
   },
   {
-    q: "Do you cover cleared roles?",
-    a: "Yes. Startups and defense teams. Cleared and noncleared, entry level through executive. A cleared pipeline that has to hold is often a fractional engagement, not a one-off search. The cleared page is the defense desk.",
+    q: "What happens when you leave?",
+    a: "You keep the ATS configuration, the pipelines, the scorecards, the playbooks, and the documentation. There is no lock-in and nothing that only runs inside our tools.",
   },
 ];
 
@@ -64,17 +64,17 @@ const STEPS = [
   {
     icon: Layers,
     title: "Own the plan",
-    body: "Workforce plan, role order, and what good looks like. We write it with you, then we hire against it.",
+    body: "We write the hiring plan with you: order of roles, what good looks like, and what the budget can actually support.",
   },
   {
     icon: RefreshCw,
     title: "Run the desk",
-    body: "Sourcing, screens, interviews, and offers. In your Slack, your ATS, and your hiring-manager meetings.",
+    body: "Then we source, screen, interview, and close inside your tools. Slack, ATS, and the hiring-manager meetings.",
   },
   {
     icon: Undo2,
     title: "Hand it back",
-    body: "ATS, scorecards, playbooks, and the pipeline stay with you. The point is a function you can run.",
+    body: "When the retainer winds down, the ATS, scorecards, playbooks, and pipeline stay.",
   },
 ];
 
@@ -127,10 +127,10 @@ export default function Fractional() {
             Embedded / Fractional
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-4xl" data-testid="heading-fractional">
-            Fractional recruiting that runs the function, then hands it back.
+            We run recruiting for a while. Then you run it.
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            A monthly retainer. We sit inside the company, fill the roles, and leave the ATS, the process, and the playbooks with you. Richie is on the engagement. One seat, no retainer: that is contingent, and Chris Moscato runs it.
+            A monthly retainer. We sit in your Slack and your ATS, fill the open roles, and leave you the process. Richie directs the engagement. If you only need one seat filled, that is contingent, and Chris runs it.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-3">
             <Link href="/strategy-call" onClick={hapticTap} data-testid="button-fractional-strategy" className="block sm:inline-block">
@@ -169,10 +169,10 @@ export default function Fractional() {
             <div className="mb-12 max-w-2xl">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">HOW IT RUNS</div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
-                Inside the company. Not beside it.
+                How it runs
               </h2>
               <p className="text-zinc-400 text-sm mt-3 leading-relaxed">
-                This is not a staffing firm with a new name. We own the hiring plan and the execution, then we hand the machine back.
+                Three-month minimum. We do not post the retainer on this page because scope changes the number. A strategy call is the right first step.
               </p>
             </div>
           </ScrollReveal>
@@ -198,19 +198,19 @@ export default function Fractional() {
             <div className="mb-12">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">WHO THIS IS FOR</div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
-                Several open roles. No function yet.
+                This is for you if
               </h2>
               <p className="text-zinc-400 text-sm mt-3 max-w-2xl leading-relaxed">
-                Series A through C teams scaling past founder-led hiring, and defense teams that need a cleared pipeline instead of another agency invoice.
+                Several open reqs, and nobody who owns the process yet. Commercial, cleared, or both.
               </p>
             </div>
           </ScrollReveal>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
-              "You have more than one req and no one who owns the process.",
-              "Agency fees are stacking and the hires still slip.",
-              "You want the ATS, scorecards, and playbooks when the engagement ends.",
-              "Cleared and commercial roles are both on the plan.",
+              "You have several open reqs and nobody who owns the process.",
+              "Agency fees are stacking and the seats are still empty.",
+              "You want to keep the system when we leave.",
+              "The plan includes both commercial and cleared roles.",
             ].map((line, i) => (
               <ScrollReveal key={line} variant="fade-up" delay={i * 60}>
                 <p className="text-zinc-200 text-base leading-snug border-l-2 border-rebel-red/40 pl-5">{line}</p>

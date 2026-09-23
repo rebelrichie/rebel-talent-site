@@ -106,10 +106,13 @@ export default function About() {
                 <span className="text-rebel-red">Five cities. One thesis.</span>
               </h1>
               <p className="text-base sm:text-xl text-zinc-300 max-w-2xl leading-[1.55] mb-4" data-testid="text-intro">
-                I started in music venues in Grand Rapids, reading rooms and booking bands nobody had heard of yet. Then more than a decade in the staffing trenches, watching the old model up close and clocking exactly what was broken about it. I didn&rsquo;t leave to start another agency. I left to build the thing that replaces it.
+                I started in music venues in Grand Rapids, reading rooms and booking bands nobody had heard of yet. Then more than a decade in staffing, watching the old model up close.
+              </p>
+              <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-[1.55] mb-4">
+                I didn&rsquo;t leave to start another agency. I left to build the thing I wanted when I was on the other side of the desk.
               </p>
               <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-[1.55] mb-6">
-                <span className="text-zinc-200 font-semibold">Rebel Talent Systems</span> is the firm I wished existed when I was on the other side of the desk. New searches start with Chris. Contingent is a flat fee by salary band, due on placement. When a team needs someone inside the function, I embed as Head of Talent/Lead Talent Consultant and leave you owning the system.
+                New searches start with Chris. Contingent is a flat fee by salary band, due on placement. When a team needs someone inside the function, I embed as Head of Talent and leave them owning the system.
               </p>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-6">
                 <CapacityBadge />
@@ -145,8 +148,8 @@ export default function About() {
             {[
               { value: "14+", label: "Years In Recruiting", numeric: true },
               { value: "PMP", label: "Certified 2024", numeric: false },
-              { value: "53K+", label: "LinkedIn Followers", numeric: true },
-              { value: "8K+", label: "Newsletter Subs", numeric: true },
+              { value: "55,500+", label: "LinkedIn Followers", numeric: true },
+              { value: "9K+", label: "Rebel Built Subscribers", numeric: true },
               { value: "TS/SCI", label: "Cleared Hiring", numeric: false },
             ].map((stat) => (
               <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-4 sm:p-5 text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
@@ -307,7 +310,7 @@ export default function About() {
               The team
             </h2>
             <p className="text-zinc-400 text-sm mb-10 italic max-w-2xl">
-              Everyone works under my direction, and I&rsquo;m on every engagement. Here&rsquo;s who does what.
+              Everyone works under my direction, and I stay on the engagement. Here is who does what.
             </p>
           </ScrollReveal>
 
@@ -392,7 +395,7 @@ export default function About() {
               The agents
             </h2>
             <p className="text-zinc-400 text-sm mb-10 italic max-w-2xl">
-              Rebel Command runs 27 AI agents under the hood. These five do the front-line work. Every one of them works under human direction, and nothing goes out the door without a person signing off.
+              Rebel Command runs 27 AI agents under the hood. These five do the front-line work. Nothing goes out without a person signing off.
             </p>
           </ScrollReveal>
 
@@ -468,7 +471,7 @@ export default function About() {
                 <ul className="text-zinc-300 text-sm space-y-1.5 leading-relaxed">
                   <li>&bull; 6 FTE + 3 contractors (geospatial / cleared)</li>
                   <li>&bull; ~$294K in agency fees avoided</li>
-                  <li>&bull; ~335% confirmed ROI on the engagement</li>
+                  <li>&bull; ~335% confirmed ROI on ~$88K invested</li>
                   <li>&bull; &lt; 30 days average time-to-hire</li>
                 </ul>
               </div>
@@ -482,10 +485,9 @@ export default function About() {
                 <div className="font-display text-3xl font-bold text-white mb-1">360+ apps</div>
                 <div className="text-zinc-400 text-sm mb-4">in 24 hours from launch</div>
                 <ul className="text-zinc-300 text-sm space-y-1.5 leading-relaxed">
-                  <li>&bull; ML Engineer search, signed in 34 days</li>
-                  <li>&bull; ~$20K saved vs. an agency placement</li>
-                  <li>&bull; Both finalists came from outbound sourcing</li>
-                  <li>&bull; Zero of the 360 inbound made finals (by design)</li>
+                  <li>&bull; ML Engineer, offer in 34 days</li>
+                  <li>&bull; About $20K under the agency quote</li>
+                  <li>&bull; Zero inbound in finals</li>
                 </ul>
               </div>
             </GlowCard>
@@ -496,11 +498,10 @@ export default function About() {
               <div className="border border-zinc-800 bg-zinc-900/40 p-6 h-full">
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">Legal Managed Services</div>
                 <div className="font-display text-3xl font-bold text-white mb-1">20 hires</div>
-                <div className="text-zinc-400 text-sm mb-4">24 months &middot; 90% retention</div>
+                <div className="text-zinc-400 text-sm mb-4">GTM hires &middot; 24 months</div>
                 <ul className="text-zinc-300 text-sm space-y-1.5 leading-relaxed">
-                  <li>&bull; ~$5K&ndash;$8K cost per hire</li>
-                  <li>&bull; vs. industry norm $30K+ per hire</li>
-                  <li>&bull; Embedded retainer, predictable cost, no surprises</li>
+                  <li>&bull; 20 GTM hires</li>
+                  <li>&bull; 90% retention</li>
                 </ul>
               </div>
             </GlowCard>
@@ -564,7 +565,7 @@ export default function About() {
                   <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Head and Heart</h3>
                   <p className="text-zinc-400 text-sm mb-3 italic">Winning the AI Recruiting War</p>
                   <p className="text-zinc-300 text-sm leading-relaxed mb-4">
-                    A war manual for the recruiters, jobseekers, and leaders who refuse to play the game safe. Raw stories from the front lines. The Code, Creed, and Oath every recruiter needs to survive the AI purge. Plus a Candidate Playbook appendix for the other side of the table.
+                    Stories for the recruiters, jobseekers, and leaders who refuse to play the game safe. The Code, Creed, and Oath every recruiter needs, plus a Candidate Playbook appendix for the other side of the table.
                   </p>
                   <a href="https://a.co/d/0hQXqHMm" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-rebel-red text-sm font-semibold no-underline hover:text-white transition-colors">
                     Buy on Amazon <span className="text-xs">&#8594;</span>
@@ -601,7 +602,7 @@ export default function About() {
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">Newsletter</div>
                 <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Rebel Built</h3>
                 <p className="text-zinc-300 text-sm leading-relaxed mb-4">
-                  Weekly playbook for operators, founders, and recruiters who want the inside game. 8,000+ subs. No fluff, no sponsored takes, no &ldquo;5 hacks to&rdquo; bait.
+                  Weekly notes for operators, founders, and recruiters. 9K+ subscribers. No sponsored takes, and no &ldquo;5 hacks to&rdquo; bait.
                 </p>
                 <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-rebel-red text-sm font-semibold no-underline hover:text-white transition-colors">
                   Subscribe <span className="text-xs">&#8594;</span>
@@ -675,7 +676,7 @@ export default function About() {
               Talk to me directly
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base mb-6 max-w-lg mx-auto">
-              30 minutes of straight answers for operators ready to stop the bleed and build something that lasts. You get Richie on the call, backed by a vetted team under his direction. Not a coordinator, not a discovery deck.
+              Thirty minutes. Bring the role that is stuck. You get me on that call, with the team behind the work.
             </p>
             <a href="/strategy-call" data-testid="button-about-cta" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">

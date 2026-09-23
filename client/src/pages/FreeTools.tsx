@@ -221,7 +221,7 @@ export default function FreeTools() {
                 Rebel Built
               </h3>
               <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-                Get recruiting strategies, hiring frameworks, and unfiltered takes delivered to your LinkedIn feed.
+                Recruiting notes and hiring frameworks, delivered to your LinkedIn feed.
               </p>
               <span className="inline-flex items-center font-display text-sm tracking-wider uppercase text-rebel-red group-hover:text-white transition-colors">
                 Subscribe on LinkedIn <ArrowRight className="ml-2 w-4 h-4" />

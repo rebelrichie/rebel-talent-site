@@ -134,10 +134,10 @@ export default function HiringReadiness() {
     <PageLayout>
       <PageSEO
         title="Hiring Readiness Scorecard | Rebel Talent"
-        description="10-question assessment of your recruiting operation. Score your hiring readiness across strategy, process, metrics, sourcing, and retention. Free, no sales pitch."
+        description="Ten yes-or-no questions across strategy, process, sourcing, metrics, candidate experience, and retention. A score out of 100, the weak spots, and a specific fix for each one. Free. About five minutes. No pitch on the results screen."
         path="/hiring-readiness"
         ogTitle="Hiring Readiness Scorecard | Rebel Talent"
-        ogDescription="Score your recruiting operation in 5 minutes. 10 questions, real diagnosis, no upsell."
+        ogDescription="Where does recruiting actually stand? Ten questions, a score out of 100, and a fix for each gap. Free. About five minutes."
         ogImage="og-home.png"
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
@@ -207,13 +207,10 @@ function IntroPanel({ onStart }: { onStart: () => void }) {
         HIRING READINESS SCORECARD
       </div>
       <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight leading-tight mb-6">
-        Where does your<br className="hidden sm:block" /> recruiting actually stand?
+        Where does recruiting<br className="hidden sm:block" /> actually stand?
       </h1>
       <p className="text-zinc-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-        Ten yes/no questions across the same dimensions I assess on every engagement -
-        strategy, process, sourcing, metrics, candidate experience, retention.
-        You get a score out of 100, the weakest areas, and a specific fix for each gap.
-        No sales pitch, no follow-up sequence, no LinkedIn pop-up.
+        Ten yes-or-no questions across the same things we look at on an engagement: strategy, process, sourcing, metrics, candidate experience, retention. You get a score out of 100, the weak spots, and a specific fix for each one. Free. About five minutes. No pitch on the results screen.
       </p>
 
       <div className="grid sm:grid-cols-3 gap-3 max-w-2xl mx-auto mb-10">
@@ -273,7 +270,7 @@ function QuestionsPanel({
             SCORECARD · 10 QUESTIONS
           </div>
           <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
-            Be honest.
+            Ten questions.
           </h2>
         </div>
         <div className="text-zinc-400 font-mono text-xs">

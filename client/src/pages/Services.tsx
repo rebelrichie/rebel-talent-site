@@ -19,47 +19,47 @@ function hapticTap() {
 const FAQS = [
   {
     q: "How does the contingent salary band lock work?",
-    a: "You pick the salary range for the role at the start. That range maps to one flat fee. We lock the fee before the search starts. If you hire at the top of the range, the fee does not move.",
+    a: "You choose the salary band for the role. Each band has one flat fee, agreed before we start. Paying at the top of the range does not raise it. We do not publish the band sheet here. Chris Moscato walks the numbers on the call. The long version is on the contingent page.",
   },
   {
     q: "When is the contingent fee due?",
-    a: "On placement. The invoice follows an accepted offer. No retainer and no percentage of salary. If we do not place, you do not pay a search fee.",
+    a: "When the candidate accepts. Not when we start. Not when we submit. Not when they show up on day 30, unless we agree a guarantee in writing.",
   },
   {
     q: "Do you take a percentage of salary on contingent searches?",
-    a: "No. Most agencies bill a cut of first-year pay, so they earn more when the hire costs more. Contingent at Rebel is a flat fee by salary band. Chris Moscato runs every new contingent conversation.",
+    a: "No. Not on contingent. Not as a kicker if they negotiate up.",
   },
   {
-    q: "What is a Fractional Head of Talent/Lead Talent Consultant?",
-    a: "An embedded recruiting leader who owns your entire talent function without the full-time executive cost. Rebel Talent Systems is a vetted team working under Richie's direction, and Richie is on every engagement and every hire. You get strategy, execution, ATS setup, process design, and hiring manager coaching in one.",
+    q: "What is a Fractional Head of Talent here?",
+    a: "A senior recruiting lead on a monthly retainer. I work inside your team, build the process, fill the hard roles, then step down or out. You are not buying hours from a bench. You are renting leadership until you can staff it yourself.",
   },
   {
     q: "How can we engage?",
-    a: "Four ways. Contingent is a flat fee by salary band, due on placement. Retained Search is a defined role with a deadline, half down and half on placement. Embedded/Fractional runs on a monthly retainer where we run your recruiting function and hand it back. Advisory is fixed-scope work on your hiring plan, AI, and recruiting infrastructure before you spend. Every offering runs under Richie's direction.",
+    a: "Four ways, on the cards above. One search, a retained role, an embedded desk, or advisory before you spend on a search. Richie directs every engagement. If you need the fee structure, start on the contingent page.",
   },
   {
     q: "What does the first 30 days look like?",
-    a: "Sourcing starts within 24 hours of kickoff, not after a discovery phase. Day one we meet the team, get the roles, and start recruiting. The infrastructure, ATS, interview plans, scorecards, process docs, gets built in parallel while candidates are already flowing. By day 30 you have a full pipeline, interviews happening, and a recruiting machine that didn't exist a month ago.",
+    a: "On a contingent search, sourcing starts once the band and the req are locked. On an embedded engagement, the first week is the ATS, the open reqs, and how hiring managers actually interview. Candidates move once that path is clean.",
   },
   {
     q: "How do you track hours?",
-    a: "Every hour is logged in Rebel Command with a description of what was done. No rounding up, no admin-time padding. If we work 22.5 hours, you see 22.5 hours. Weekly reports break it down by activity category.",
+    a: "Every hour is logged in Rebel Command with a description of what was done. If we work 22.5 hours, you see 22.5 hours. Weekly reports break it down by activity.",
   },
   {
-    q: "Is there a contract, and how long does an engagement last?",
-    a: "A straightforward SOW with scope, deliverables, timeline, and rates. No 12-month lock-ins. Embedded/Fractional runs month-to-month after an initial 90-day commitment. Retained Search runs to a defined role and deadline. Contingent runs until the placement lands. Team capacity scales up or down with 2 weeks notice.",
+    q: "How long is an embedded engagement?",
+    a: "Three months minimum. Most teams need three to six to stand the function up and fill the first wave. After that it is month to month. You can walk.",
   },
   {
-    q: "What size companies and roles do you work with?",
-    a: "Series A through C startups and defense teams, roughly 15-400 people scaling fast. Our recruiters specialize across tech, business process, and GTM/sales, plus govtech and leadership. Cleared and noncleared, entry level through executive.",
+    q: "What size companies do you work with?",
+    a: "Series A through C, and defense and govtech teams with a real hiring plan. If you need one or two hires a year and no infrastructure, Underground Admins is the better fit. Amy runs that shop.",
   },
   {
-    q: "What if it's not working?",
-    a: "At day 30 you should have a working pipeline. If you don't, we restructure, adjusted scope, adjusted approach, or an honest call that we're not the right fit, at no additional charge. This is written into the SOW. After the 90-day minimum, the engagement is month-to-month with 2 weeks notice to pause or end.",
+    q: "What if it is not working?",
+    a: "We look at the data together. Comp, timeline, interview loop, or the brief itself. If the role is not fillable as written, we say that. If we are the wrong firm, we say that too.",
   },
   {
-    q: "What happens after you leave?",
-    a: "You own everything, full ATS configuration, sourcing playbooks, SOPs, interview scorecards, active pipelines, and documented workflows. No vendor lock-in. We also help you hire your internal TA person before exiting.",
+    q: "What happens when you leave?",
+    a: "You keep the ATS configuration, the pipelines, the scorecards, the playbooks, and the documentation. There is no lock-in and nothing that only runs inside our tools.",
   },
 ];
 
@@ -151,7 +151,7 @@ const OFFERINGS = [
     title: "Contingent",
     terms: "Flat fee by salary band",
     sub: "Fee due on placement · no % of salary",
-    desc: "Each salary range has its own flat fee. Lock the band at the start, fill the seat, and pay on placement. The fee does not move if you pay top of range. Chris, our Head of Client Acquisition, runs your account under Richie's direction.",
+    desc: "One role. You set the salary range, we lock a flat fee to that band, and you pay when the candidate accepts. Chris Moscato owns the first conversation. The long version is on the contingent page.",
     bullets: [
       "Flat fee set by salary band",
       "Fee due on an accepted offer",
@@ -171,7 +171,7 @@ const OFFERINGS = [
     title: "Retained Search",
     terms: "Half down, half on placement",
     sub: "A defined role with a deadline",
-    desc: "Half down commits our full team to the search from day one, with the balance due on placement. Executive and specialized technical roles, cleared and noncleared. Chris, our Head of Client Acquisition, runs your account, under Richie's direction.",
+    desc: "A defined role with a deadline. Half the fee to open the search, half when the hire accepts. Executive and specialized technical roles, cleared and noncleared. Chris runs the account. Richie directs the engagement.",
     bullets: [
       "Cleared and noncleared roles (Secret, TS, TS/SCI)",
       "Executive & specialized technical searches",
@@ -188,7 +188,7 @@ const OFFERINGS = [
     title: "Embedded / Fractional",
     terms: "Monthly retainer · 3-month minimum",
     sub: "Run the function, then hand it back",
-    desc: "We run your recruiting function and hand it back better than we found it. In your Slack, your ATS, your hiring-manager 1:1s, your candidate calls, all under Richie's direction. Not consulting from the sidelines.",
+    desc: "A monthly retainer, three months minimum. We run recruiting from inside your company, then leave you the ATS, the scorecards, and the playbooks. Richie directs the engagement.",
     bullets: [
       "Strategic hiring roadmap & prioritization",
       "End-to-end recruiting execution",
@@ -209,7 +209,7 @@ const OFFERINGS = [
     title: "Advisory",
     terms: "Audit, retainer, or seat",
     sub: "For teams that need the thinking, not the search",
-    desc: "Hiring plans, comp bands, interview design, and offer strategy from someone who fills these roles every week. Available as a one-time audit, a monthly retainer, or an advisory seat.",
+    desc: "A fixed-scope look at feasibility, compensation, AI tools, or infrastructure before you spend on a search. Priced up front. No placement fees on that work.",
     bullets: [
       "Comp benchmarking on your open roles",
       "Job description teardown and rewrite",
@@ -227,27 +227,27 @@ const OFFERINGS = [
 const TIMELINE = [
   {
     phase: "WEEK 1",
-    title: "See What You're Up Against",
-    intro: "We audit everything. Then we tell you the truth.",
-    items: ["Fix your ATS (or set one up that doesn't suck)", "Rewire your sourcing strategy", "Train hiring managers on what 'good' looks like"],
+    title: "Look at the desk",
+    intro: "We look at the ATS, the reqs, and how hiring managers actually interview. Then we tell you what is broken.",
+    items: ["ATS, reqs, and the interview loop", "What is actually blocking the hire", "What we would fix before sourcing"],
   },
   {
     phase: "MONTH 1",
-    title: "The Machine Goes Live",
-    intro: "Infrastructure first. Candidates second.",
-    items: ["Job architecture and leveling frameworks", "Sourcing playbooks for every role type", "Interview scorecards and structured processes"],
+    title: "Process first",
+    intro: "Job architecture, sourcing playbooks, scorecards. Candidates move once the path is clean.",
+    items: ["Job architecture and leveling", "Sourcing playbooks by role", "Scorecards hiring managers will actually use"],
   },
   {
     phase: "MONTHS 2-3",
-    title: "Results + Refinement",
-    intro: "This is where the hires start stacking up.",
-    items: ["2-5 roles filled per month", "Weekly pipeline reviews with leadership", "Battle-tested systems that hold under pressure"],
+    title: "Hires start landing",
+    intro: "Weekly pipeline with leadership. Two to five roles a month is a normal pace when the function is staffed this way.",
+    items: ["Two to five roles a month, when the desk is staffed", "Weekly pipeline with leadership", "The process holding up under real reqs"],
   },
   {
     phase: "MONTH 4+",
-    title: "You Own It",
-    intro: "We build ourselves out of a job. That's the point.",
-    items: ["Reduced scope as your team takes over", "Help you find your internal TA person", "Clean exit with full documentation"],
+    title: "You take the desk",
+    intro: "We shrink the retainer as your team takes the desk. We will help you hire the internal person if that is the plan. You leave with documentation, not a dependency.",
+    items: ["Retainer shrinks as your team takes over", "Help hiring the internal person, if that is the plan", "Documentation you can run without us"],
   },
 ];
 
@@ -261,7 +261,7 @@ const ROLES = [
   {
     category: "AI / ML",
     title: "AI & Machine Learning",
-    desc: "From research scientists to applied ML engineers, we source candidates who ship, not just theorize. Defense, fintech, growth-stage AI.",
+    desc: "From research scientists to applied ML engineers. People who have built production systems, not only papers. Defense, fintech, growth-stage AI.",
     roles: ["AI Engineers", "ML Engineers", "Research Scientists", "Data Scientists", "MLOps Engineers"],
   },
   {
@@ -309,11 +309,11 @@ export default function Services() {
             Services &amp; Engagement Models
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-4xl" data-testid="heading-services">
-            You don't have a recruiting problem.<br />
-            <span className="text-rebel-red">You have a hiring infrastructure problem.</span>
+            Four ways to buy recruiting.<br />
+            <span className="text-rebel-red">Same standard.</span>
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            No SaaS tiers. Four offerings built around how you actually buy: start with a contingent search, retain us for a defined role, embed us to run the function, or bring us in for advisory when you need the thinking, not the search. Richie is on every engagement and every hire, and you own the infrastructure when we're done.
+            No software tiers. Start with one search, retain us for a hard role, embed us to run the function, or bring us in for the thinking before you hire. Richie directs every engagement. You keep the infrastructure.
           </p>
           <div className="mt-8 sm:mt-10">
             <CapacityBadge />
@@ -325,9 +325,9 @@ export default function Services() {
           <div className="max-w-7xl mx-auto px-6 lg:px-12 py-8 sm:py-10">
             <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl">
               {[
-                { value: "$294K+", label: "Agency Fees Avoided" },
-                { value: "~335%", label: "ROI Delivered" },
-                { value: "~30", label: "Days Median Time to Hire" },
+                { value: "~$294K", label: "Agency Fees Avoided" },
+                { value: "~335%", label: "Confirmed ROI" },
+                { value: "<30", label: "Days Average Time to Hire" },
               ].map((s) => (
                 <div key={s.label}>
                   <AnimatedCounter value={s.value} className="block text-3xl sm:text-5xl font-extrabold text-rebel-red tracking-[-0.03em]" />
@@ -336,7 +336,7 @@ export default function Services() {
               ))}
             </div>
             <p className="text-zinc-400 text-[11px] font-medium tracking-wider uppercase mt-5">
-              EarthDaily Federal, 6 FTE + 3 contractors across 9 placements
+              EarthDaily Federal, 9 placements, about $88K invested. 470%+ is a projection if the remaining pipeline closes.
             </p>
           </div>
         </div>
@@ -347,12 +347,12 @@ export default function Services() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-12">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">FOUR WAYS IN. ONE STANDARD.</div>
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">FOUR WAYS IN</div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight" data-testid="heading-offerings">
               Four Ways To Work Together
             </h2>
             <p className="text-zinc-400 text-sm mt-3 max-w-lg mx-auto">
-              Contingent first. Then retained, embedded, and advisory. You own what we build either way.
+              Capacity is open for contingent, retained, embedded, and advisory.
             </p>
             <p className="text-zinc-500 text-sm mt-4 max-w-xl mx-auto">
               <Link href="/fractional" className="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red">Embedded fractional recruiting</Link>
@@ -424,7 +424,7 @@ export default function Services() {
             <div className="border border-zinc-800/70 bg-zinc-900/30 p-6">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">+ TEAM CAPACITY</div>
               <p className="text-zinc-300 text-sm leading-relaxed">
-                Any offering scales with a vetted recruiter team under Richie's direction, monthly or hourly, $90–$300+/hr, no long-term lock-in. The team extends our reach, it doesn't replace Richie.
+                Any offering can add a vetted recruiter under Richie&rsquo;s direction, monthly or hourly, typically $90–$300+/hour. That extends coverage. It does not replace him.
               </p>
             </div>
             <div className="border border-zinc-800/70 bg-zinc-900/30 p-6">
@@ -443,11 +443,11 @@ export default function Services() {
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <ScrollReveal variant="fade-up">
           <div className="text-center mb-12">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">HOW IT WORKS</div>
+            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">EMBEDDED</div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight" data-testid="heading-timeline">
-              Hiring As Engineering, Not Art
+              How an embedded engagement runs
             </h2>
-            <p className="text-zinc-400 text-sm mt-3">Assess, embed, execute, hand it over. You own it all.</p>
+            <p className="text-zinc-400 text-sm mt-3">Week one through the handoff. You leave with the documentation.</p>
           </div>
           </ScrollReveal>
           <div className="space-y-4">
@@ -548,7 +548,7 @@ export default function Services() {
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">CASE STUDY</div>
             <h3 className="font-display text-xl font-bold text-white uppercase mb-2">EarthDaily Federal</h3>
             <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-              Defense-sector geospatial intelligence firm. Built their entire hiring infrastructure from scratch and eliminated agency dependency in under 90 days. 9 placements, $294K+ in agency fees avoided.
+              Defense-sector geospatial intelligence firm. Nine placements, the ATS, and the playbooks, handed back when the engagement scaled down. The confirmed numbers are in the strip above.
             </p>
             <Link href="/case-studies">
               <Button variant="outline" size="sm" className="font-display tracking-wider uppercase text-xs border-zinc-700 text-zinc-300">
@@ -578,7 +578,7 @@ export default function Services() {
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
               The Questions Everyone Asks
             </h2>
-            <p className="text-zinc-400 text-sm mt-3">No fluff. Real answers.</p>
+            <p className="text-zinc-400 text-sm mt-3">Short answers. The contingent page has the fee detail.</p>
           </div>
           </ScrollReveal>
           <Accordion type="multiple" className="border border-zinc-800 divide-y divide-zinc-800">
@@ -602,10 +602,10 @@ export default function Services() {
           <ScrollReveal variant="scale">
           <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 sm:p-10 text-center">
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-4">
-              Build the Machine You Own
+              Bring the hardest open req
             </h2>
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
-              Every engagement starts with a 30-minute strategy call. Walk us through your hardest open req, we'll map out the fix together. If we're not a fit, we'll tell you that too.
+              Every engagement starts with a 30-minute call. Walk through the hardest open req. We will map a fit or tell you we are not one.
             </p>
             <div className="mb-6">
               <CapacityBadge />
