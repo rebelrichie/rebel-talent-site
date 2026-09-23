@@ -19,7 +19,7 @@ const FAQS = [
   },
   {
     q: "Is this for startups or for contractors?",
-    a: "Both. Defense tech startups that cannot hire like a prime, and contractors who need a pipeline that is not a job board. Govtech and combatant-command work sit here too.",
+    a: "Both. Defense tech startups that cannot hire like a prime, and contractors who need a pipeline that is not a job board. Sales, Capture, and BD across DoW, IC, civil, and global sit here too.",
   },
   {
     q: "Contingent, retained, or fractional?",
@@ -81,7 +81,7 @@ const PILLARS = [
 const ROLES = [
   "Forward deployed engineers",
   "Cleared software, data, and platform",
-  "BD into combatant commands",
+  "Sales, Capture, and BD across DoW, IC, civil, and global",
   "Systems, network, and mission IT",
 ];
 
