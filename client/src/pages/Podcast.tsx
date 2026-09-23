@@ -96,7 +96,7 @@ const podcasts = [
     show: "Exclusive Interview",
     network: "",
     episode: "Take Me Or Leave Me",
-    desc: "The unfiltered version. No corporate scripts, no recruiting fluff.",
+    desc: "A conversation about recruiting, without a script.",
     links: [
       { label: "Spotify", url: "https://open.spotify.com/episode/1igCYRVZqk2mpIjsfZi9FF" },
     ],
@@ -191,7 +191,7 @@ export default function Podcast() {
               Subscribe to Rebel Built
             </h3>
             <p className="text-zinc-400 text-sm leading-relaxed mb-4 max-w-lg mx-auto">
-              More of this: recruiting strategies, hiring frameworks, and unfiltered takes. Delivered to your LinkedIn feed.
+              Recruiting notes and hiring frameworks, delivered to your LinkedIn feed.
             </p>
             <span className="inline-flex items-center font-display text-sm tracking-wider uppercase text-rebel-red group-hover:text-white transition-colors">
               Subscribe on LinkedIn <ArrowRight className="ml-2 w-4 h-4" />

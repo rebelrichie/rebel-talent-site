@@ -14,28 +14,28 @@ function hapticTap() {
 
 const FAQS = [
   {
-    q: "What is contingent recruiting here?",
-    a: "A named search for a defined role. We source, screen, and present candidates. You pay a flat fee set by the salary band when the hire accepts. Chris Moscato runs every new contingent conversation. The work sits under Richie's direction.",
+    q: "How is contingent different from an agency?",
+    a: "You still pay on placement. You do not pay a percentage of salary. The fee is locked to the band you approved. Chris stays on the account. We also leave you the process notes from the search, which most agencies do not.",
   },
   {
     q: "How does the salary band lock work?",
-    a: "You pick the salary range for the role at the start. That range maps to one flat fee. We lock the fee before work begins. If you hire at the top of the range, the fee does not move.",
+    a: "You choose the salary band for the role. Each band has one flat fee, agreed before we start. Paying at the top of the range does not raise it. We do not publish the band sheet here.",
   },
   {
-    q: "When is the fee due?",
-    a: "On placement. The invoice follows an accepted offer. No retainer. No monthly minimum. If we do not place, you do not pay a search fee.",
+    q: "When is the contingent fee due?",
+    a: "When the candidate accepts. Not when we start. Not when we submit. Not when they show up on day 30, unless we agree a guarantee in writing.",
   },
   {
     q: "Do you take a percentage of salary?",
-    a: "No. Most agencies bill a cut of first-year pay, so they earn more when the hire costs more. We do not. The fee is flat for the band you locked.",
+    a: "No. Not on contingent. Not as a kicker if they negotiate up.",
   },
   {
     q: "How is this different from retained search?",
-    a: "Retained is a defined role with a deadline. You pay half down and half on placement so the desk commits from day one. Contingent starts faster and you pay only if we place. Use retained when the hire cannot slip. Use contingent when you want a search without a retainer.",
+    a: "Retained is for a date that cannot slip. Half the fee opens the search, half is due when the hire accepts. Contingent is the search without a retainer. If the date cannot slip, start on retained.",
   },
   {
     q: "How is this different from embedded or fractional recruiting?",
-    a: "Embedded or fractional is a monthly retainer. We run the recruiting function from inside your company and hand the system back. Contingent is a search for a seat, not ownership of the function. If you need process, ATS, and coaching as well as hires, start at Services and look at Embedded.",
+    a: "Embedded is when you need the whole function stood up. A monthly retainer, then you keep the system. Contingent is one role, or a few. If that is the job, this is the wrong page.",
   },
 ];
 
@@ -68,7 +68,7 @@ const BAND_STEPS = [
   {
     icon: Scale,
     title: "Pick the band",
-    body: "You set the salary range for the role. That range is the band. We do not guess it after the fact.",
+    body: "You choose the salary band for the role before we start. We do not set it after the offer.",
   },
   {
     icon: Lock,
@@ -78,7 +78,7 @@ const BAND_STEPS = [
   {
     icon: CircleDollarSign,
     title: "Pay on placement",
-    body: "The fee is due when the candidate accepts. No retainer. No percentage of salary.",
+    body: "The invoice is due when the candidate accepts the offer. There is no retainer on this model.",
   },
 ];
 
@@ -86,19 +86,19 @@ const COMPARE = [
   {
     title: "Contingent",
     tag: "THIS PAGE",
-    body: "Flat fee by salary band. Due on an accepted offer. Fast start. No long commitment.",
+    body: "One role, or a few. Flat fee by salary band, due when the hire accepts.",
     href: "/contingent",
   },
   {
     title: "Retained",
     tag: "DEFINED ROLE",
-    body: "Half down, half on placement. A deadline and a committed desk from day one.",
+    body: "The date cannot slip. Half to open the search, half when the hire accepts.",
     href: "/services",
   },
   {
     title: "Embedded",
     tag: "MONTHLY RETAINER",
-    body: "We run the function, build the system, and leave you owning it.",
+    body: "You need the whole function stood up. We run it, then you keep the system.",
     href: "/services",
   },
 ];
@@ -131,10 +131,10 @@ export default function Contingent() {
             Contingent Search
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-4xl" data-testid="heading-contingent">
-            Contingent recruiting with a flat fee by salary band.
+            Contingent search with a flat fee by salary band.
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            You pick the band. We lock the fee. You pay when the hire accepts. No percentage of salary. Chris Moscato owns every new contingent conversation.
+            You set the range. We lock the fee. You pay when the hire accepts. No percentage of salary. Chris Moscato owns the first conversation.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-3">
             <a href={BOOK_CHRIS_HREF} target="_blank" rel="noopener noreferrer" onClick={hapticTap} data-testid="button-talk-chris" className="block sm:inline-block">
@@ -167,10 +167,10 @@ export default function Contingent() {
             <div className="mb-12 max-w-2xl">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">THE FEE</div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
-                Band lock. Then stop talking about money.
+                How the fee works
               </h2>
               <p className="text-zinc-400 text-sm mt-3 leading-relaxed">
-                Most agencies take a cut of salary, so they earn more when your hire costs more. We do not. Each salary range has its own flat fee. The fee stays put if you pay top of range.
+                You choose the salary band for the role. Each band has one flat fee, agreed before we start. Paying at the top of the range does not raise it. The invoice is due when the candidate accepts the offer. There is no retainer on this model.
               </p>
             </div>
           </ScrollReveal>
@@ -189,7 +189,7 @@ export default function Contingent() {
           </div>
           <p className="mt-8 text-zinc-500 text-sm flex items-start gap-2">
             <Ban className="w-4 h-4 text-rebel-red shrink-0 mt-0.5" aria-hidden="true" />
-            We do not publish fee amounts on this site. Chris will walk the bands on the call.
+            We do not publish the band sheet here. Chris will walk the numbers on the call.
           </p>
         </div>
       </section>
@@ -200,19 +200,19 @@ export default function Contingent() {
             <div className="mb-12">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">WHO THIS IS FOR</div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
-                A search. Not a retainer.
+                This is for you if
               </h2>
               <p className="text-zinc-400 text-sm mt-3 max-w-2xl leading-relaxed">
-                Startups and defense teams that need a seat filled without buying the whole function. Cleared and noncleared. Entry level through executive. Tech, business process, and GTM.
+                One role, or a few. Cleared and noncleared. Entry level through executive.
               </p>
             </div>
           </ScrollReveal>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
-              "You have one or a few open roles and want to start this week.",
-              "You will not sign a monthly retainer for a single search.",
-              "You want the fee locked to the band, not a cut of the offer.",
-              "You want a named human, Chris, not a form that dumps into a pool.",
+              "You have one role, or a few, and you want to start this week.",
+              "You do not want a monthly retainer for a single search.",
+              "You want the cost tied to the range you already approved, not to the final offer.",
+              "You want a named person on the account.",
             ].map((line, i) => (
               <ScrollReveal key={line} variant="fade-up" delay={i * 60}>
                 <p className="text-zinc-200 text-base leading-snug border-l-2 border-rebel-red/40 pl-5">{line}</p>
@@ -226,11 +226,13 @@ export default function Contingent() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <ScrollReveal variant="fade-up">
             <div className="text-center mb-12">
-              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">NOT SURE</div>
+              <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">NOT THIS PAGE IF</div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
                 Contingent, retained, or embedded
               </h2>
-              <p className="text-zinc-400 text-sm mt-3">Short version. Pick the paper that matches the job.</p>
+              <p className="text-zinc-400 text-sm mt-3 max-w-2xl mx-auto">
+                The date cannot slip. That is retained. You need the whole function stood up. That is embedded. Hiring a founding AE or engineer for a venture-backed team? Start on the startup desk, then come back here for the fee structure.
+              </p>
             </div>
           </ScrollReveal>
           <div className="grid sm:grid-cols-3 gap-4">

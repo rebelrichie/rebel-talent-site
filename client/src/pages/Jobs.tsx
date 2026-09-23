@@ -251,9 +251,7 @@ export default function Jobs() {
             Open <span className="text-rebel-red">Roles</span>
           </h1>
           <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            Hand-vetted roles from startups, defense primes, and high-growth teams.
-            Cleared work, AI/ML, Forward Deployed, GTM, executive.
-            One profile, one apply, no spam.
+            Roles from startups, defense primes, and growth teams we are actively working. Cleared, AI/ML, forward deployed, GTM, and executive. One profile. One apply.
           </p>
         </div>
       </section>
@@ -491,8 +489,7 @@ export default function Jobs() {
               What to expect from us
             </h2>
             <p className="text-zinc-400 text-base max-w-2xl mx-auto leading-relaxed">
-              Every application is reviewed by a vetted team under Richie&rsquo;s direction, and Richie is on every hire. A real senior person reads you, not a coordinator and not a black hole.
-              Here's the deal on the other side of the apply button.
+              A person on the team reads every application. You hear yes or no within two business days.
             </p>
           </div>
 
@@ -500,23 +497,23 @@ export default function Jobs() {
             {[
               {
                 icon: <Eye className="w-5 h-5 text-rebel-red" />,
-                title: "Every resume read",
-                body: "Not auto-filtered to oblivion. A vetted team under Richie's direction reads every application, and Richie is on every hire, even the 360+ that came in for the last ML search.",
+                title: "A person reads it",
+                body: "A person on the team reads every application. You are not sorted by a blast and forgotten.",
               },
               {
                 icon: <CheckCircle2 className="w-5 h-5 text-rebel-red" />,
-                title: "Proof-first vetting",
-                body: "Resume polish isn't a pipeline. Expect structured screens, portfolio review, and AI-scored match signals, not LinkedIn drive-bys.",
+                title: "A real screen",
+                body: "Expect a structured screen and a look at real work, not a LinkedIn glance.",
               },
               {
                 icon: <MessageSquare className="w-5 h-5 text-rebel-red" />,
-                title: "Reply within 48 hours",
-                body: "Yes or no, you'll hear back. If you're a fit, we move to a 30-min intro that same week. If not, I'll tell you why.",
+                title: "Yes or no in two days",
+                body: "You hear yes or no within two business days. If there is a fit, we schedule a 30-minute intro that same week. If there is not, we will say why.",
               },
               {
                 icon: <Shield className="w-5 h-5 text-rebel-red" />,
-                title: "Cleared work supported",
-                body: "TS, TS/SCI, public trust, pipelines built on community knowledge, not guesswork. FOCI-sensitive engagements supported.",
+                title: "Cleared pipelines",
+                body: "Cleared pipelines are built from people who already hold the eligibility, not from a job-board blast.",
               },
             ].map((item) => (
               <div

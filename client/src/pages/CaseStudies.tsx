@@ -19,8 +19,8 @@ const caseStudySchema = {
       "position": 1,
       "item": {
         "@type": "Article",
-        "headline": "EarthDaily Federal: $294K+ Agency Fees Avoided, 9 Placements",
-        "description": "Defense-sector geospatial intelligence firm. Zero recruiting infrastructure. Built ATS, SOPs, sourcing playbooks, and placed 9 roles (6 FTE + 3 contracts) with ~335% ROI on a fractional recruiting retainer. 470%+ projected at full pipeline close.",
+        "headline": "EarthDaily Federal: about $294K in agency fees avoided, 9 placements",
+        "description": "Nine placements. About $294K in agency fees avoided, about $88K invested over eight months, about 335% confirmed ROI on dollars spent to date. 470%+ only as a projection if the remaining pipeline closes.",
         "url": "https://rebeltalentsystems.com/case-studies",
         "author": { "@type": "Person", "name": "Richie Lampani" },
         "publisher": { "@type": "Organization", "name": "Rebel Talent" }
@@ -43,8 +43,8 @@ const caseStudySchema = {
       "position": 3,
       "item": {
         "@type": "Article",
-        "headline": "Legal Managed Services: 20 Hires in 24 Months with 90% Retention",
-        "description": "Built complete GTM talent infrastructure from zero, delivering 20 hires over 24 months with 90% retention rate. Evergreen role with constant interviewing; sourcing is automated where it can be, with humans handling screening, submissions, and interviews.",
+        "headline": "Legal Managed Services: 20 GTM hires in 24 months, 90% retention",
+        "description": "20 GTM hires in 24 months, with 90% retention.",
         "url": "https://rebeltalentsystems.com/case-studies",
         "author": { "@type": "Person", "name": "Richie Lampani" },
         "publisher": { "@type": "Organization", "name": "Rebel Talent" }
@@ -58,10 +58,10 @@ export default function CaseStudies() {
     <PageLayout>
       <PageSEO
         title="Startup & Defense Recruiting Case Studies | Rebel Talent"
-        description="Real results from real engagements. EarthDaily: $294K+ saved, ~335% ROI delivered. Kalibri Labs: 34 days to signed offer. Legal: 20 hires, 90% retention."
+        description="Named clients and named roles. EarthDaily: about $294K in fees avoided, about 335% confirmed ROI. Kalibri Labs: offer in 34 days. Legal Managed Services: 20 GTM hires, 90% retention."
         path="/case-studies"
         ogTitle="Startup & Defense Recruiting Case Studies | Rebel Talent"
-        ogDescription="Proof over promises. EarthDaily: $294K+ saved across 9 placements. Kalibri Labs: 34 days to signed offer, zero applicants from 360+ inbound made finals. Legal: 20 hires, 90% retention."
+        ogDescription="EarthDaily: about $294K avoided, about 335% confirmed ROI, 470%+ only as a projection. Kalibri Labs: 360+ applications, offer in 34 days. Legal Managed Services: 20 GTM hires, 90% retention."
         ogImage="og-case-studies.png"
         schemas={[caseStudySchema]}
         breadcrumbs={[
@@ -83,11 +83,10 @@ export default function CaseStudies() {
             Proof in the metrics
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-4xl" data-testid="heading-case-studies">
-            Real engagements.<br />
-            <span className="text-rebel-red">Quantifiable impact.</span>
+            What the work actually produced.
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            $294K saved. 470%+ projected ROI. Zero agency fees. No vague claims, only metrics that map to dollars.
+            Named clients. Named roles. Fees avoided, time-to-hire, and what the company still owns. No composite case studies.
           </p>
         </div>
       </section>
@@ -111,8 +110,8 @@ export default function CaseStudies() {
 
             <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-8">
               {[
-                { value: "$294K+", label: "FEES AVOIDED", sub: "9 placements, no agency" },
-                { value: "~335%", label: "ROI", sub: "~$88K invested to date" },
+                { value: "~$294K", label: "FEES AVOIDED", sub: "9 placements, no agency" },
+                { value: "~335%", label: "CONFIRMED ROI", sub: "~$88K invested over 8 months" },
                 { value: "9", label: "ROLES PLACED", sub: "4 more in pipeline" },
               ].map((stat) => (
                 <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-2 sm:p-5 text-center">
@@ -197,7 +196,7 @@ export default function CaseStudies() {
                     ))}
                     <tr className="border-t border-zinc-700">
                       <td colSpan={2} className="py-2 pr-4 text-zinc-300 font-bold">TOTAL AVOIDED (9 placements)</td>
-                      <td className="py-2 text-right font-mono text-rebel-red font-bold">$294,000+</td>
+                      <td className="py-2 text-right font-mono text-rebel-red font-bold">~$294,000</td>
                     </tr>
                   </tbody>
                 </table>
@@ -234,7 +233,7 @@ export default function CaseStudies() {
               <div className="grid grid-cols-2 gap-px bg-zinc-700/40 mb-5">
                 <div className="bg-[#0d0d14] px-4 py-3">
                   <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Confirmed Fees Avoided</div>
-                  <div className="text-white font-display text-xl font-bold mb-0.5">$294K+</div>
+                  <div className="text-white font-display text-xl font-bold mb-0.5">~$294K</div>
                   <div className="text-zinc-400 text-xs">9 placements closed, no agency</div>
                 </div>
                 <div className="bg-[#0d0d14] px-4 py-3">
@@ -243,19 +242,19 @@ export default function CaseStudies() {
                   <div className="text-zinc-400 text-xs">5 additional roles at standard agency rates</div>
                 </div>
                 <div className="bg-[#0d0d14] px-4 py-3">
-                  <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Current ROI</div>
+                  <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Confirmed ROI</div>
                   <div className="text-white font-display text-xl font-bold mb-0.5">~335%</div>
                   <div className="text-zinc-400 text-xs">~$88K invested over 8 months</div>
                 </div>
                 <div className="bg-[#0d0d14] px-4 py-3">
-                  <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Projected ROI</div>
+                  <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Projected ROI only</div>
                   <div className="text-rebel-red font-display text-xl font-bold mb-0.5">470%+</div>
-                  <div className="text-zinc-400 text-xs">Before infrastructure value is counted</div>
+                  <div className="text-zinc-400 text-xs">If the remaining pipeline closes</div>
                 </div>
               </div>
 
               <p className="text-zinc-400 text-sm leading-relaxed mb-3">
-                $294K+ in fees avoided across 9 placements. A custom ATS with clearance tracking, sourcing playbooks by role type, structured interview scorecards, and a documented hiring process, all handed off and owned by EDF when the engagement scaled down.
+                About $294K in fees avoided across 9 placements, on about $88K invested over eight months. That is about 335% confirmed ROI on dollars spent to date. 470%+ is a projection if the remaining pipeline closes. The ATS, sourcing playbooks, scorecards, and documented process stayed with EDF when the engagement scaled down.
               </p>
               <p className="text-zinc-300 text-sm leading-relaxed">
                 <span className="text-rebel-red font-mono font-bold">Every future hire EDF makes runs on infrastructure I built. That compounds.</span>
@@ -406,7 +405,7 @@ export default function CaseStudies() {
 
             <ScrollReveal variant="fade-left">
             <div className="border border-rebel-red/20 bg-rebel-red/5 p-6 mb-8">
-              <h4 className="font-display text-base font-bold text-rebel-red uppercase mb-4">The Market Is Broken. Here's What That Looks Like.</h4>
+              <h4 className="font-display text-base font-bold text-rebel-red uppercase mb-4">What the inbound pile actually contained</h4>
               <p className="text-zinc-300 text-sm leading-relaxed mb-4">
                 Sixty percent of the applicants we screened showed signs of misrepresentation. Near-perfect resumes. Matching LinkedIn profiles. Skills listed with complete confidence. When asked a technical question about something they claimed to know, they couldn't answer it. Not one made the first round.
               </p>
@@ -447,72 +446,18 @@ export default function CaseStudies() {
 
           <div className="border-t border-zinc-800 pt-16 mb-16" data-testid="case-study-legal">
             <ScrollReveal variant="fade-up">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
-              CASE STUDY 03
-            </div>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-3">
-              Legal Managed Services: Building a Sales Hiring Machine
-            </h2>
-            <p className="text-zinc-400 text-base mb-8">
-              Built a complete GTM talent infrastructure from zero, delivering 20 hires over 24 months with 90% retention.
-            </p>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-              {[
-                { value: "20", label: "Hires in 24 Months" },
-                { value: "90%", label: "Retention Rate" },
-                { value: "100%", label: "Automated Sourcing" },
-              ].map((stat) => (
-                <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-2 sm:p-5 text-center">
-                  <AnimatedCounter value={stat.value} className="font-display text-base sm:text-2xl md:text-3xl font-bold text-rebel-red mb-1" />
-                  <div className="text-zinc-400 text-xs tracking-widest uppercase">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              <div className="border border-zinc-800 bg-zinc-900/30 p-6">
-                <h3 className="font-display text-base font-bold text-rebel-red uppercase mb-4">The Problem</h3>
-                <ul className="space-y-2">
-                  {[
-                    "No structured hiring process for GTM roles",
-                    "High turnover from cultural misalignment",
-                    "Inconsistent candidate evaluation across hiring managers",
-                    "Zero pipeline visibility or hiring metrics",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-zinc-400">
-                      <span className="text-rebel-red font-mono text-xs mt-0.5">&gt;</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+            <div className="max-w-xl border border-zinc-800 bg-zinc-900/30 p-6">
+              <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">
+                ALSO ON THE RECORD
               </div>
-              <div className="border border-zinc-800 bg-zinc-900/30 p-6">
-                <h3 className="font-display text-base font-bold text-rebel-red uppercase mb-4">The Solution</h3>
-                <ul className="space-y-2">
-                  {[
-                    "Built ATS infrastructure and automated workflows",
-                    "Created structured interview frameworks for sales roles",
-                    "Designed cultural-fit assessment criteria",
-                    "Implemented pipeline analytics and reporting dashboards",
-                    "Trained internal team on sustained execution",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-zinc-400">
-                      <span className="text-rebel-red font-mono text-xs mt-0.5">&gt;</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="border border-rebel-red/20 bg-rebel-red/5 p-6">
-              <h4 className="font-display text-base font-bold text-rebel-red uppercase mb-3">The Impact</h4>
-              <p className="text-zinc-300 text-sm leading-relaxed">
-                20 successful hires over 24 months with a 90% retention rate. This is an evergreen role: with the system in place we are constantly interviewing. The pipeline is automated where it can be, and humans still do the screening, submissions, and interviews.
+              <h2 className="font-display text-xl font-bold text-white uppercase tracking-tight mb-3">
+                Legal Managed Services
+              </h2>
+              <p className="text-zinc-300 text-base leading-relaxed">
+                20 GTM hires in 24 months, with 90% retention.
               </p>
             </div>
+            </ScrollReveal>
           </div>
 
           <ScrollReveal variant="scale">
@@ -521,7 +466,7 @@ export default function CaseStudies() {
               See If We Fit
             </h2>
             <p className="text-zinc-400 text-sm mb-6 max-w-lg mx-auto">
-              The same approach, run against your roles. Tell me what your recruiting function needs and I will tell you if we fit.
+              Bring the role that has been sitting open. We will say if we are a fit.
             </p>
             <a href="/strategy-call" data-testid="button-casestudies-cta" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto whitespace-normal text-center leading-tight h-auto min-h-9 py-2">

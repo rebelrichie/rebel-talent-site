@@ -33,6 +33,57 @@ const ENGAGEMENT_TYPES = [
   { value: "unsure", label: "Not sure yet" },
 ];
 
+const STRATEGY_COPY: Record<string, { eyebrow: string; title: string; description: string; headline: string; deck: string; footer: string }> = {
+  contingent: {
+    eyebrow: "CONTINGENT SEARCH",
+    title: "Start a search with Chris | Rebel Talent",
+    description: "Chris Moscato runs new contingent conversations. Flat fee by salary band, due when the hire accepts. Name, email, and company get you through.",
+    headline: "Start a search with Chris.",
+    deck: "Chris Moscato runs new contingent conversations. Flat fee by salary band, due when the hire accepts. Name, email, and company get you through. Email him if you would rather skip the form.",
+    footer: "Contingent notes go to Chris. No list-building. FOCI-sensitive work is supported.",
+  },
+  retained: {
+    eyebrow: "RETAINED SEARCH",
+    title: "Start a retained search | Rebel Talent",
+    description: "A defined role with a deadline. Half the fee to open the search, half when the hire accepts.",
+    headline: "Start a retained search.",
+    deck: "A defined role with a deadline. Half the fee to open the search, half when the hire accepts. Name, email, and company get you through.",
+    footer: "Retained notes come to the team. No list-building. FOCI-sensitive work is supported.",
+  },
+  fractional: {
+    eyebrow: "EMBEDDED / FRACTIONAL",
+    title: "Start an embedded engagement | Rebel Talent",
+    description: "A monthly retainer. We run recruiting for a while, then you run it. Scope sets the number.",
+    headline: "Start an embedded engagement.",
+    deck: "A monthly retainer. We run recruiting for a while, then you run it. Name, email, and company get you through.",
+    footer: "Embedded notes come to the team. No list-building. FOCI-sensitive work is supported.",
+  },
+  contract: {
+    eyebrow: "CONTRACT",
+    title: "Ask about contract roles | Rebel Talent",
+    description: "Contract and contract-to-hire. Name, email, and company get you through.",
+    headline: "Ask about contract roles.",
+    deck: "Contract and contract-to-hire. Name, email, and company get you through.",
+    footer: "No list-building. FOCI-sensitive work is supported.",
+  },
+  advisory: {
+    eyebrow: "ADVISORY",
+    title: "Book an advisory call | Rebel Talent",
+    description: "Feasibility, compensation, or infrastructure before you spend on a search. Priced up front.",
+    headline: "Book an advisory call.",
+    deck: "Feasibility, compensation, clearance timelines, or whether the AI stack is doing anything. Priced up front. Name, email, and company get you through.",
+    footer: "Advisory notes come to Richie. No list-building. FOCI-sensitive work is supported.",
+  },
+  unsure: {
+    eyebrow: "STRATEGY CALL",
+    title: "Book a strategy call | Rebel Talent",
+    description: "Thirty minutes. Name, email, and company get you through. We will say if we are a fit.",
+    headline: "Book a strategy call.",
+    deck: "Name, email, and company get you through. Tell us the role and what is stuck. We will say if we are a fit.",
+    footer: "No list-building. FOCI-sensitive work is supported.",
+  },
+};
+
 // Safe addition, company stage for lead qualification. Optional on purpose:
 // it sharpens routing and call prep without adding a required hoop.
 const COMPANY_STAGES = [
@@ -64,6 +115,7 @@ export default function StrategyCall() {
   const [websiteUrl, setWebsiteUrl] = useState("");
   const [submit, setSubmit] = useState<SubmitState>({ kind: "idle" });
   const isContingent = engagementType === "contingent";
+  const copy = STRATEGY_COPY[engagementType] ?? STRATEGY_COPY.contingent;
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -121,15 +173,11 @@ export default function StrategyCall() {
   return (
     <PageLayout>
       <PageSEO
-        title={isContingent ? "Talk to Chris about a contingent search | Rebel Talent" : "Book a Strategy Call | Rebel Talent"}
-        description={isContingent
-          ? "Chris Moscato owns new contingent search conversations. Flat fee by salary band, due on placement. Email Chris or send the form and we will route it."
-          : "30-minute strategy call with Rebel Talent. Share what you're hiring for first so the call is productive, not a sales pitch."}
+        title={copy.title}
+        description={copy.description}
         path="/strategy-call"
-        ogTitle={isContingent ? "Talk to Chris about a contingent search | Rebel Talent" : "Book a Strategy Call | Rebel Talent"}
-        ogDescription={isContingent
-          ? "Chris runs new contingent search conversations. Flat fee by salary band, due on placement."
-          : "30 minutes. Tell us what you're hiring for, and we will come prepared with a real diagnosis."}
+        ogTitle={copy.title}
+        ogDescription={copy.description}
         ogImage="og-home.png"
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
@@ -153,17 +201,13 @@ export default function StrategyCall() {
             <>
               <div className="text-center mb-10">
                 <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-                  {isContingent ? "CONTINGENT SEARCH" : "STRATEGY CALL"}
+                  {copy.eyebrow}
                 </div>
                 <h1 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight leading-tight mb-4">
-                  {isContingent
-                    ? "Start a contingent search with Chris."
-                    : "Tell me what you're dealing with first."}
+                  {copy.headline}
                 </h1>
                 <p className="text-zinc-400 text-base leading-relaxed">
-                  {isContingent
-                    ? "Chris Moscato owns new contingent search conversations. Flat fee by salary band, due on placement. Name, email, and company get the form through. Email him directly if you would rather skip the form."
-                    : "30 minutes, no pitch deck, no upsell. Name, email, and company get you to the calendar. Everything else is optional, but the more context you give me, the more useful the call is."}
+                  {copy.deck}
                 </p>
                 {isContingent && (
                   <p className="text-zinc-300 text-sm mt-4">
@@ -180,11 +224,11 @@ export default function StrategyCall() {
                 )}
                 {/* Safe addition — lower-commitment path for people not ready to book */}
                 <p className="text-zinc-400 text-sm mt-3">
-                  Not ready to talk yet?{" "}
+                  Not ready for a call?{" "}
                   <a href="/hiring-readiness" className="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red transition-colors">
-                    Score your hiring in 5 minutes instead
+                    Take the hiring scorecard
                   </a>
-                  , free, no pitch.
+                  . Five minutes. No follow-up sequence.
                 </p>
               </div>
 
@@ -247,7 +291,7 @@ export default function StrategyCall() {
                   </Field>
                 </div>
 
-                <Field label="Role you're hiring for" hint="Title or short description, e.g. 'Forward Deployed Engineer with TS/SCI'">
+                <Field label="Role you're hiring for" hint="Title or a short description, for example Forward Deployed Engineer with TS/SCI.">
                   <input
                     type="text"
                     value={roleToFill}
@@ -301,7 +345,7 @@ export default function StrategyCall() {
                   </div>
                 </Field>
 
-                <Field label="What's the biggest blocker right now?" hint="Be specific, broken process, wrong agency, no pipeline, can't close, etc.">
+                <Field label="What's the biggest blocker right now?" hint="What is stuck: no pipeline, the wrong agency, cannot close, something else.">
                   <textarea
                     value={blocker}
                     onChange={(e) => setBlocker(e.target.value)}
@@ -330,9 +374,7 @@ export default function StrategyCall() {
                 </button>
 
                 <p className="text-zinc-400 text-xs text-center pt-2">
-                  {isContingent
-                    ? "Contingent search notes go to Chris. No marketing automation, no list-building. Discretion on every inquiry. FOCI-sensitive engagements supported."
-                    : "Your info goes straight to me, no marketing automation, no list-building. All inquiries handled with discretion. FOCI-sensitive engagements supported."}
+                  {copy.footer}
                 </p>
               </form>
             </>
@@ -414,7 +456,7 @@ function SuccessPanel({ calendlyUrl, message }: { calendlyUrl: string; message: 
       </h1>
       <p className="text-zinc-300 text-base leading-relaxed mb-2">{message}</p>
       <p className="text-zinc-400 text-sm leading-relaxed mb-10 max-w-md mx-auto">
-        I'll have your context loaded before we talk. If we're not a fit, I'll tell you on the call and point you somewhere better.
+        We will have the context loaded before the call. If it is not a fit, we will say so and point you somewhere that is.
       </p>
       <a
         href={calendlyUrl}

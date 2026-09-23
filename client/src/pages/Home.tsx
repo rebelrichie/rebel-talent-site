@@ -825,8 +825,8 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { value: "53K+", label: "LinkedIn Followers" },
-              { value: "8K+", label: "Newsletter Subs" },
+              { value: "55,500+", label: "LinkedIn Followers" },
+              { value: "9K+", label: "Rebel Built Subscribers" },
               { value: "14+", label: "Years Experience" },
               { value: "<30", label: "Days to Hire" },
             ].map((stat) => (

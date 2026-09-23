@@ -46,11 +46,9 @@ const SYMPTOMS = [
 
 // Safe addition, proof band stats
 const STATS = [
-  { value: "30 days", label: "Average fill time in a cleared environment" },
-  { value: "15", label: "TS/SCI full scope roles running concurrently" },
-  { value: "#1", label: "Nationally in submission-to-start against 20+ agencies" },
-  { value: "40%", label: "Reduction in time to fill" },
-  { value: "90%+", label: "Offer acceptance rate" },
+  { value: "~30 days", label: "Average fill on recent cleared work" },
+  { value: "15", label: "TS/SCI full-scope roles run at once" },
+  { value: "90%+", label: "Offer acceptance on recent retained and embedded work" },
 ];
 
 const PRICING = [
@@ -119,16 +117,16 @@ const PRICING = [
 // Safe addition, AI stance statements
 const AI_POINTS = [
   {
-    lead: "What works:",
-    body: "drafting and research, synthesizing screen notes, interview briefs, pipeline reporting, everything that shortens the time between a decision and the work.",
+    lead: "Useful:",
+    body: "drafting, research, screen notes, interview briefs, pipeline reporting.",
   },
   {
-    lead: "What does not:",
-    body: "ranking humans, scoring interviews, and any tool that promises to tell you who to hire. Those create legal exposure and they are not good at it.",
+    lead: "Not useful, and often not safe:",
+    body: "tools that rank people, score interviews, or promise to tell you who to hire.",
   },
   {
-    lead: "What nobody tells you:",
-    body: "if your candidates hold clearances, most of what the market is selling you is not safe to use on them.",
+    lead: "Cleared data:",
+    body: "if the candidate holds a clearance, most of what is being sold right now should not touch their data.",
   },
 ];
 
@@ -160,10 +158,10 @@ export default function Advisory() {
             Talent Advisory
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-4xl" data-testid="heading-advisory">
-            Advisory
+            Find out if the hire exists before you spend six months looking.
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            Before you spend six months failing to hire someone, find out whether they exist, what they cost, and how long it actually takes.
+            Market size, real compensation, clearance timelines, and whether your AI stack is doing anything. Priced up front. No placement fees on this page.
           </p>
           <div className="mt-8 sm:mt-10">
             <a href="/strategy-call" onClick={hapticTap} data-testid="button-advisory-hero-cta" className="block sm:inline-block">
@@ -211,7 +209,7 @@ export default function Advisory() {
             <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase">THE TRACK RECORD</div>
           </div>
           </ScrollReveal>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-10 gap-x-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-10 gap-x-6">
             {STATS.map((s, i) => (
               <ScrollReveal key={s.label} variant="fade-up" delay={i * 80}>
               <div className="text-center">
@@ -302,13 +300,10 @@ export default function Advisory() {
           <ScrollReveal variant="fade-up">
           <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">ON AI SPECIFICALLY</div>
           <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight max-w-3xl">
-            I built the thing, so I know what it can and cannot do
+            I built our ATS, CRM, and candidate portal
           </h2>
           <p className="mt-6 text-zinc-300 text-base sm:text-lg leading-relaxed max-w-3xl">
-            I wrote Head and Heart: Winning the AI Recruiting War. I built my own applicant tracking system, CRM, and candidate portal from scratch rather than licensing someone else's. And I run AI inside live cleared searches every week, which means the advice comes from what works on Monday, not from a vendor roadmap.
-          </p>
-          <p className="mt-4 text-zinc-300 text-base sm:text-lg leading-relaxed max-w-3xl">
-            Most AI in recruiting is a wrapper on a boolean search with a subscription attached. Some of it is genuinely useful. The difference is worth more than the tools cost.
+            I built them rather than licensing someone else&rsquo;s. I wrote Head and Heart. I also run AI inside live cleared searches, which is where most vendor claims fall apart.
           </p>
           </ScrollReveal>
           <div className="grid md:grid-cols-3 gap-4 mt-10">
@@ -382,7 +377,7 @@ export default function Advisory() {
             I am not a consultant who read about this. I fill these roles every week, so the market sizing, the comp, and the timelines come from live searches rather than a framework.
           </p>
           <p className="mt-6 text-zinc-400 text-base leading-relaxed max-w-2xl">
-            Fourteen years recruiting. PMP. Cleared and commercial. Built my own ATS, CRM, and candidate portal from scratch. Author of Head and Heart and Unfinished Rooms. Rebel Built newsletter, 53,000 followers on LinkedIn.
+            Fourteen years recruiting. PMP. Cleared and commercial. Built my own ATS, CRM, and candidate portal from scratch. Author of Head and Heart and Unfinished Rooms. 55,500+ LinkedIn followers. 9K+ Rebel Built newsletter subscribers.
           </p>
           </ScrollReveal>
           <ScrollReveal variant="fade-up" delay={120}>

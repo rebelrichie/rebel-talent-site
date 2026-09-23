@@ -44,7 +44,7 @@ const OFFERINGS = [
   {
     title: "Contingent",
     tag: "PAY ON PLACEMENT",
-    desc: "The fee is due when the hire starts. Built for single roles where you want speed without a big commitment.",
+    desc: "One role. You pay when the candidate accepts. The fee is locked to the salary band before we start. The long version is on the contingent page.",
     bullets: [
       "GTM desk: AEs, SDR leaders, sales engineers, first marketing hires",
       "Technical desk: founding engineers, AI/ML, platform, security",
@@ -82,18 +82,18 @@ const OFFERINGS = [
 const HOW_IT_WORKS = [
   {
     step: "01",
-    title: "One call to scope it",
-    body: "You talk to Chris, our Head of Client Acquisition. Role, comp, timeline, and an honest read on whether the person you want exists at the number you have.",
+    title: "One call with Chris",
+    body: "One call with Chris to scope the role, compensation, and timeline. If the person you want does not exist at your number, you hear that on the first call.",
   },
   {
     step: "02",
-    title: "A dedicated desk works it",
-    body: "Sales roles go to our GTM desk, technical roles to our technical desk. Not a generalist juggling forty reqs. A recruiter who lives in your candidate pool.",
+    title: "The right desk",
+    body: "Sales roles go to the GTM desk. Technical roles go to the technical desk.",
   },
   {
     step: "03",
-    title: "You see candidates, not noise",
-    body: "Short slates of people who match the brief and want the job. Every submittal comes with a reason it is there.",
+    title: "A short slate",
+    body: "You see a short slate, each with a reason they are there.",
   },
 ];
 
@@ -128,7 +128,7 @@ export default function Startups() {
             The hires your next round depends on.
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            Sales and technical recruiting for venture-backed startups. Dedicated GTM and technical desks, three ways to engage, and an honest read before you spend a dollar.
+            Sales and technical recruiting for venture-backed teams. A GTM desk and a technical desk. Contingent, retained, or contract-to-hire. An honest read on whether the person you want exists at the number you have.
           </p>
           <div className="mt-8 sm:mt-10">
             <a href="/strategy-call?engagement=contingent" onClick={hapticTap} data-testid="button-startups-hero-cta" className="block sm:inline-block">
@@ -170,10 +170,10 @@ export default function Startups() {
             <div className="text-center mb-12 max-w-2xl mx-auto">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">THREE WAYS IN</div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight" data-testid="heading-offerings">
-                Engage the way your stage demands
+                Three ways to start
               </h2>
               <p className="text-zinc-400 text-sm mt-3">
-                Single role, leadership search, or contract help before the headcount opens. Same desks, same standard, different paper.
+                Single role, leadership search, or contract help before the headcount opens. Same desks. The fee structure for contingent lives on its own page.
               </p>
             </div>
           </ScrollReveal>
@@ -220,7 +220,7 @@ export default function Startups() {
             <div className="mb-12">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">HOW IT WORKS</div>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight" data-testid="heading-how">
-                A desk, not a database
+                How it works
               </h2>
             </div>
           </ScrollReveal>
@@ -246,7 +246,7 @@ export default function Startups() {
               Tell us what you are hiring for
             </h2>
             <p className="text-zinc-400 text-base leading-relaxed mb-8 max-w-xl mx-auto">
-              Five questions, then a call with our search team. If the person you want does not exist at your number, we will tell you on that call, not after three months of invoices.
+              One call with Chris. If the person you want does not exist at your number, you hear that then.
             </p>
             <a href="/strategy-call?engagement=contingent" onClick={hapticTap} data-testid="button-startups-footer-cta" className="inline-block">
               <Button className="font-display tracking-wider uppercase text-sm">
