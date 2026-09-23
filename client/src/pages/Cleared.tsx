@@ -116,7 +116,7 @@ export default function Cleared() {
             Cleared recruiting for defense teams.
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            Defense startups and contractors do not lose cleared seats because nobody exists. They lose them to slow loops and prime money. We hunt Secret through TS/SCI like the seat has a clock. One role is contingent with a flat fee locked to the salary band. A standing cleared pipeline is embedded fractional. Richie is on the work. Chris Moscato opens new contingent conversations.
+            Defense startups and contractors do not lose cleared seats because nobody exists. They lose them to slow loops and prime money. We hunt Secret through TS/SCI like the seat has a clock. One role is contingent with a flat fee locked to the salary band. A standing cleared pipeline is embedded fractional.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-3">
             <Link href="/strategy-call" onClick={hapticTap} data-testid="button-cleared-strategy" className="block sm:inline-block">
