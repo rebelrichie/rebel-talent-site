@@ -213,11 +213,11 @@ export default function Home() {
   return (
     <PageLayout>
       <PageSEO
-        title="Fill the seat. Keep the system. | Rebel Talent"
-        description="Rebel Talent Systems runs contingent, retained, and embedded searches for technical, GTM, and operations roles. Cleared and uncleared. Series A through C, and defense teams."
+        title="Contingent recruiting with a flat fee by salary band | Rebel Talent"
+        description="Contingent recruiting with a flat fee by salary band, due on placement. Four models: contingent, retained, embedded, and advisory. Cleared and startup teams."
         path="/"
-        ogTitle="Fill the seat. Keep the system. | Rebel Talent"
-        ogDescription="Rebel Talent Systems runs contingent, retained, and embedded searches for technical, GTM, and operations roles. Cleared and uncleared. Series A through C, and defense teams."
+        ogTitle="Contingent recruiting with a flat fee by salary band | Rebel Talent"
+        ogDescription="Contingent recruiting with a flat fee by salary band, due on placement. Four models: contingent, retained, embedded, and advisory. Cleared and startup teams."
         ogImage="og-home.png"
         schemas={[homepageSchema]}
       />
@@ -286,7 +286,7 @@ export default function Home() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
             </span>
             <p className="font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase text-zinc-400">
-              Hiring for venture-backed teams and defense
+              Hiring &amp; Talent Infrastructure · Venture-Backed &amp; Defense
             </p>
           </div>
 
@@ -300,7 +300,10 @@ export default function Home() {
             style={{ fontSize: "clamp(2rem, 6vw, 5rem)", letterSpacing: "-0.01em" }}
           >
             <span className="block" style={{ animation: "heroRise 0.5s ease-out 0.1s both" }}>
-              Fill the seat.
+              Recruiting that scales
+            </span>
+            <span className="block" style={{ animation: "heroRise 0.5s ease-out 0.3s both" }}>
+              with the company
             </span>
             <span
               className="block"
@@ -309,15 +312,39 @@ export default function Home() {
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
-                animation: "heroRise 0.5s ease-out 0.3s both",
+                animation: "heroRise 0.5s ease-out 0.5s both",
               }}
             >
-              Keep the system.
+              you&rsquo;re becoming.
             </span>
           </h1>
 
-          <p className="mt-5 sm:mt-10 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]" style={{ animation: "heroLineIn 0.5s ease-out 0.5s both" }}>
-            Rebel Talent Systems runs contingent, retained, and embedded searches for technical, GTM, and operations roles. Cleared and uncleared. Individual contributor through executive. Series A through C, and defense teams that cannot wait out a 90-day req.
+          {/* BREAK ORBIT. — display-size brand moment */}
+          <div className="mt-5 sm:mt-7" style={{ animation: "heroLineIn 0.6s ease-out 1.0s both" }}>
+            <span
+              className="font-display font-black uppercase"
+              style={{
+                fontSize: "clamp(1.25rem, 2.8vw, 2.25rem)",
+                letterSpacing: "0.09em",
+                fontVariationSettings: "'wdth' 125",
+                fontStretch: "expanded",
+                background: "linear-gradient(95deg, #F71A29 0%, #F5841E 50%, #FDBD41 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                display: "inline-block",
+                lineHeight: 1.1,
+              }}
+            >
+              BREAK ORBIT.
+            </span>
+          </div>
+
+          {/* Subhead — Safe addition: three-offering, full-coverage positioning; key phrase brightened for scannability */}
+          <p className="mt-5 sm:mt-10 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]" style={{ animation: "heroLineIn 0.5s ease-out 1.2s both" }}>
+            Rebel Talent Systems fills your open roles and builds the system underneath them.{" "}
+            <span className="text-zinc-200 font-medium">Contingent, retained, or embedded.</span>{" "}
+            Technical, business process, GTM and sales. Cleared and noncleared, entry level through executive, for Series A through C companies and defense teams.
           </p>
 
           {/* Safe addition — two equal front doors. Companies go left, candidates
