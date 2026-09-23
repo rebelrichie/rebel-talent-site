@@ -97,7 +97,7 @@ export default function Vision() {
                 A small number of exceptional recruiters, each running a full desk, doing the work of four. Not a body shop. Not a hundred people billing hours against a spreadsheet.
               </p>
               <p>
-                The leverage is internal. We built our own tooling because nothing off the shelf does what this work actually needs, and every search we run makes it sharper. Clients never touch it. They see the searches close faster than they should, and that is the point.
+                The leverage is internal. We built Rebel OS because nothing off the shelf does what this work actually needs, and every search we run makes it sharper. Clients do not run the stack. They get the outcomes and the reporting, and the searches close faster than they should.
               </p>
             </div>
           </ScrollReveal>

@@ -262,7 +262,7 @@ export default function About() {
                 {/* Safe addition (2026-09 trim): era condensed to one paragraph */}
                 <div className="text-zinc-300 text-base leading-[1.7]">
                   <p>
-                    My partner Amy and I got laid off from the same company in the same week. Five days later we started <span className="text-white">Underground Admins</span>. I&rsquo;m still a minority owner, but it runs independently of Rebel Talent. If you need <span className="text-zinc-300">contingent or contract search</span>, that&rsquo;s its lane. Amy runs it: <a href="mailto:amy@undergroundadmins.com" className="text-rebel-red no-underline hover:text-white transition-colors">amy@undergroundadmins.com</a>.
+                    My partner Amy and I got laid off from the same company in the same week. Five days later we started <span className="text-white">Underground Admins</span>. I&rsquo;m still a minority owner, but it runs independently of Rebel Talent. Contingent search is a Rebel desk. Chris Moscato owns every new contingent conversation.
                   </p>
                 </div>
               </div>
@@ -278,7 +278,7 @@ export default function About() {
                     moved to the new team section below */}
                 <div className="text-zinc-300 text-base leading-[1.7]">
                   <p>
-                    Rebel Talent is scaling. I embed as your Head of Talent/Lead Talent Consultant for a quarter, six months, a year. I build the funnel, write the JDs, run interview loops, close hires, and I&rsquo;m on every engagement, backed by the team below. Wrote two books in the first six months (Head and Heart, December 2025; Unfinished Rooms, March 2026) and built the operator stack my clients run inside: 27 AI agents and a custom ATS/CRM, from scratch.
+                    Rebel Talent is scaling. I embed as your Head of Talent/Lead Talent Consultant for a quarter, six months, a year. I build the funnel, write the JDs, run interview loops, close hires, and I&rsquo;m on every engagement, backed by the team below. Wrote two books in the first six months (Head and Heart, December 2025; Unfinished Rooms, March 2026) and built Rebel OS, the operator stack I run the work on: 27 AI agents and a custom ATS/CRM, from scratch. Clients get the outcomes and the reporting. They do not run the stack.
                   </p>
                 </div>
               </div>
@@ -405,13 +405,13 @@ export default function About() {
                 name: "Architect",
                 role: "The Leader",
                 blurb:
-                  "Runs point on the whole system. Directs the other agents, scores the pipeline, and flags what needs a human.",
+                  "Runs point on the whole system. Directs the other agents, watches the pipeline, and flags what needs a human.",
               },
               {
                 name: "Miles",
                 role: "The SDR",
                 blurb:
-                  "Outbound that never sleeps. Researches prospects, drafts outreach, and tees up conversations for the team to take.",
+                  "Drafts outbound. Researches prospects, writes the note, and a person signs off before anything goes out.",
               },
               {
                 name: "Vicky",
@@ -471,7 +471,7 @@ export default function About() {
                 <ul className="text-zinc-300 text-sm space-y-1.5 leading-relaxed">
                   <li>&bull; 6 FTE + 3 contractors (geospatial / cleared)</li>
                   <li>&bull; ~$294K in agency fees avoided</li>
-                  <li>&bull; ~335% confirmed ROI on ~$88K invested</li>
+                  <li>&bull; 3.3x return on ~$88K invested</li>
                   <li>&bull; &lt; 30 days average time-to-hire</li>
                 </ul>
               </div>
@@ -617,7 +617,7 @@ export default function About() {
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">Operator Stack</div>
                 <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Rebel Command</h3>
                 <p className="text-zinc-300 text-sm leading-relaxed">
-                  The system I run my business on, built from scratch. Custom ATS/CRM, 27 AI agents for sourcing &middot; outreach &middot; contract intelligence &middot; pipeline scoring, embedded into how I work, not bolted on top. My clients run inside it.
+                  The system I run my business on, built from scratch. Custom ATS/CRM and 27 AI agents for sourcing, outreach, and contract intelligence, embedded into how I work, not bolted on top. Clients get the outcomes and the reporting. They do not run Rebel OS.
                 </p>
               </div>
             </GlowCard>

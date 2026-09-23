@@ -23,7 +23,7 @@ const FAQS = [
   },
   {
     q: "Contingent, retained, or fractional?",
-    a: "One seat with a flat fee by salary band is contingent. Rebel runs that search. A defined role with a deadline is retained. A standing cleared pipeline is embedded fractional. All four models are on the services page.",
+    a: "One seat with a flat fee by salary band is contingent, and Chris Moscato owns that conversation. A defined role with a deadline is retained, at $10K up front and $20K on start. A standing cleared pipeline is embedded fractional, on a flat monthly retainer. All four models are on the services page.",
   },
   {
     q: "Why do cleared searches stall?",
@@ -31,7 +31,7 @@ const FAQS = [
   },
   {
     q: "Who do I talk to first?",
-    a: "A strategy call if you are scoping a cleared pipeline or a retained search. Start a search if the seat is already known and you want contingent. Candidates should use the open roles page, not this one.",
+    a: "Book a strategy call if you are scoping a cleared pipeline or a retained search. Talk to Chris Moscato if the seat is already known and you want contingent. Candidates should use the open roles page, not this one.",
   },
 ];
 

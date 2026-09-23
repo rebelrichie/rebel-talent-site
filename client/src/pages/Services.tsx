@@ -23,7 +23,7 @@ const FAQS = [
   },
   {
     q: "When is the contingent fee due?",
-    a: "When the candidate accepts. Not when we start. Not when we submit. Not when they show up on day 30, unless we agree a guarantee in writing.",
+    a: "When the candidate accepts. Not when we start, not when we submit, and not on day 30. There is no deposit. A replacement guarantee applies only if we agree to one in writing.",
   },
   {
     q: "Do you take a percentage of salary on contingent searches?",
@@ -42,8 +42,8 @@ const FAQS = [
     a: "On a contingent search, sourcing starts once the band and the req are locked. On an embedded engagement, the first week is the ATS, the open reqs, and how hiring managers actually interview. Candidates move once that path is clean.",
   },
   {
-    q: "How do you track hours?",
-    a: "Every hour is logged in Rebel Command with a description of what was done. If we work 22.5 hours, you see 22.5 hours. Weekly reports break it down by activity.",
+    q: "Do you bill fractional by the hour?",
+    a: "No. Fractional is a flat monthly retainer. We do not post the number because scope changes it. You get a report of what moved. You are not buying hours.",
   },
   {
     q: "How long is an embedded engagement?",
@@ -51,7 +51,7 @@ const FAQS = [
   },
   {
     q: "What size companies do you work with?",
-    a: "Series A through C, and defense and govtech teams with a real hiring plan. If you need one or two hires a year and no infrastructure, Underground Admins is the better fit. Amy runs that shop.",
+    a: "Series A through C, and defense and govtech teams with a real hiring plan. If you need one or two hires and no standing function, that is contingent. Chris Moscato owns that conversation.",
   },
   {
     q: "What if it is not working?",
@@ -59,7 +59,7 @@ const FAQS = [
   },
   {
     q: "What happens when you leave?",
-    a: "You keep the ATS configuration, the pipelines, the scorecards, the playbooks, and the documentation. There is no lock-in and nothing that only runs inside our tools.",
+    a: "You keep the ATS configuration, the pipelines, the scorecards, the playbooks, and the documentation. Rebel OS stays with us. You get the outcomes and the reporting. You do not run the agent stack.",
   },
 ];
 
@@ -76,7 +76,7 @@ const serviceSchemas = [
     "@type": "Service",
     "name": "Contingent Recruiting",
     "serviceType": "Contingent recruiting, flat fee by salary band, due on placement",
-    "description": "Flat fee by salary band, due on placement. No percentage of salary. Rebel runs the search. Cleared and noncleared, entry level through executive, across tech, business process, and GTM/sales for Series A through C and defense teams.",
+    "description": "Flat fee by salary band, due on placement. No percentage of salary. No deposit. Cleared and noncleared, entry level through executive, across tech, business process, and GTM/sales for Series A through C and defense teams.",
     "provider": serviceProvider,
     "areaServed": "US",
     "url": "https://rebeltalentsystems.com/contingent",
@@ -85,8 +85,8 @@ const serviceSchemas = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Retained Search",
-    "serviceType": "Retained search, half down and half on placement",
-    "description": "A defined role with a deadline, billed half down and half on placement. Our vetted team commits from day one under Richie's direction, covering executive and specialized technical searches, cleared and noncleared, entry level through executive.",
+    "serviceType": "Retained search, $10K up front and $20K on start",
+    "description": "A defined role with a deadline. $10K up front and $20K on start. Our vetted team commits from day one under Richie's direction, covering executive and specialized technical searches, cleared and noncleared, entry level through executive.",
     "provider": serviceProvider,
     "areaServed": "US",
     "url": "https://rebeltalentsystems.com/services",
@@ -151,7 +151,7 @@ const OFFERINGS = [
     title: "Contingent",
     terms: "Flat fee by salary band",
     sub: "Fee due on placement · no % of salary",
-    desc: "One role. You set the salary range, we lock a flat fee to that band, and you pay when the candidate accepts. Rebel runs the search. The long version is on the contingent page.",
+    desc: "One role. You set the salary range, we lock a flat fee to that band, and you pay when the candidate accepts. There is no deposit. The long version is on the contingent page.",
     bullets: [
       "Flat fee set by salary band",
       "Fee due on an accepted offer",
@@ -169,9 +169,9 @@ const OFFERINGS = [
   {
     tag: "DEFINED ROLE",
     title: "Retained Search",
-    terms: "Half down, half on placement",
+    terms: "$10K up front, $20K on start",
     sub: "A defined role with a deadline",
-    desc: "A defined role with a deadline. Half the fee to open the search, half when the hire accepts. Executive and specialized technical roles, cleared and noncleared. Rebel runs the search.",
+    desc: "A defined role with a deadline. $10K up front and $20K on start. Executive and specialized technical roles, cleared and noncleared. Retained placements include a guarantee.",
     bullets: [
       "Cleared and noncleared roles (Secret, TS, TS/SCI)",
       "Executive & specialized technical searches",
@@ -326,7 +326,7 @@ export default function Services() {
             <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl">
               {[
                 { value: "~$294K", label: "Agency Fees Avoided" },
-                { value: "~335%", label: "Confirmed ROI" },
+                { value: "3.3x", label: "Return" },
                 { value: "<30", label: "Days Average Time to Hire" },
               ].map((s) => (
                 <div key={s.label}>
@@ -336,7 +336,7 @@ export default function Services() {
               ))}
             </div>
             <p className="text-zinc-400 text-[11px] font-medium tracking-wider uppercase mt-5">
-              EarthDaily Federal, 9 placements, about $88K invested. 470%+ is a projection if the remaining pipeline closes.
+              EarthDaily Federal: 9 placements, about $294K avoided on about $88K. About 4.7x is the projection if the remaining pipeline closes.
             </p>
           </div>
         </div>
@@ -358,8 +358,8 @@ export default function Services() {
               <Link href="/fractional" className="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red">Embedded fractional recruiting</Link>
               {" "}and{" "}
               <Link href="/cleared" className="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red">cleared recruiting for defense teams</Link>
-              {" "}each have a page. One seat stays on{" "}
-              <Link href="/contingent" className="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red">contingent flat-fee search</Link>.
+              {" "}each have a page. A single seat is{" "}
+              <Link href="/contingent" className="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red">contingent search</Link>.
             </p>
           </div>
           </ScrollReveal>
@@ -424,7 +424,7 @@ export default function Services() {
             <div className="border border-zinc-800/70 bg-zinc-900/30 p-6">
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">+ TEAM CAPACITY</div>
               <p className="text-zinc-300 text-sm leading-relaxed">
-                Any offering can add a vetted recruiter under Richie&rsquo;s direction, monthly or hourly, typically $90-$300+/hour. That extends coverage. It does not replace him.
+                Any offering can add a vetted recruiter under Richie&rsquo;s direction, on the same engagement. That extends coverage. It does not replace him. Fractional is a flat monthly retainer. We do not bill it by the hour.
               </p>
             </div>
             <div className="border border-zinc-800/70 bg-zinc-900/30 p-6">

@@ -23,7 +23,7 @@ const FAQS = [
   },
   {
     q: "When is the contingent fee due?",
-    a: "When the candidate accepts. Not when we start. Not when we submit. Not when they show up on day 30, unless we agree a guarantee in writing.",
+    a: "When the candidate accepts. Not when we start, not when we submit, and not on day 30. There is no deposit. A replacement guarantee applies only if we agree to one in writing.",
   },
   {
     q: "Do you take a percentage of salary?",
@@ -31,7 +31,7 @@ const FAQS = [
   },
   {
     q: "How is this different from retained search?",
-    a: "Retained is for a date that cannot slip. Half the fee opens the search, half is due when the hire accepts. Contingent is the search without a retainer. If the date cannot slip, start on retained.",
+    a: "Retained is for a date that cannot slip. $10K up front and $20K on start, and retained placements include a guarantee. Contingent is the search without a retainer and without a deposit. A contingent guarantee applies only if we agree to one in writing. If the date cannot slip, start on retained.",
   },
   {
     q: "How is this different from embedded or fractional recruiting?",
@@ -44,7 +44,7 @@ const serviceSchema = {
   "@type": "Service",
   "name": "Contingent Recruiting",
   "serviceType": "Contingent recruiting, flat fee by salary band, due on placement",
-  "description": "Contingent recruiting with a flat fee by salary band, due on placement. No percentage of salary. Rebel runs the search. Startups and defense teams. Cleared and noncleared, entry level through executive.",
+  "description": "Contingent recruiting with a flat fee by salary band, due on placement. No percentage of salary. No deposit. Startups and defense teams. Cleared and noncleared, entry level through executive.",
   "provider": {
     "@type": "Organization",
     "name": "Rebel Talent Systems",
@@ -78,7 +78,7 @@ const BAND_STEPS = [
   {
     icon: CircleDollarSign,
     title: "Pay on placement",
-    body: "The invoice is due when the candidate accepts the offer. There is no retainer on this model.",
+    body: "The invoice is due when the candidate accepts the offer. There is no retainer and no deposit on this model.",
   },
 ];
 
@@ -92,7 +92,7 @@ const COMPARE = [
   {
     title: "Retained",
     tag: "DEFINED ROLE",
-    body: "The date cannot slip. Half to open the search, half when the hire accepts.",
+    body: "The date cannot slip. $10K up front and $20K on start.",
     href: "/services",
   },
   {
@@ -108,10 +108,10 @@ export default function Contingent() {
     <PageLayout>
       <PageSEO
         title="Contingent Recruiting | Flat Fee by Salary Band | Rebel Talent"
-        description="Contingent recruiting with a flat fee by salary band, due on placement. No percentage of salary. Rebel runs the search. Startups and defense teams."
+        description="Contingent recruiting with a flat fee by salary band, due on placement. No percentage of salary. No deposit. Startups and defense teams."
         path="/contingent"
         ogTitle="Contingent Recruiting | Flat Fee by Salary Band | Rebel Talent"
-        ogDescription="Flat fee by salary band. Pay on placement. Rebel runs contingent search for startups and defense teams."
+        ogDescription="Flat fee by salary band. Pay on placement. No deposit. Contingent search for startups and defense teams."
         ogImage="og-services.png"
         schemas={[serviceSchema, faqSchema]}
         breadcrumbs={[
@@ -134,7 +134,7 @@ export default function Contingent() {
             Contingent search with a flat fee by salary band.
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            You set the range. We lock the fee. You pay when the hire accepts. No percentage of salary. Rebel runs the search.
+            You set the range. We lock the fee. You pay when the hire accepts. No percentage of salary. No deposit.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-3">
             <a href={BOOK_CHRIS_HREF} target="_blank" rel="noopener noreferrer" onClick={hapticTap} data-testid="button-talk-chris" className="block sm:inline-block">
@@ -170,7 +170,7 @@ export default function Contingent() {
                 How the fee works
               </h2>
               <p className="text-zinc-400 text-sm mt-3 leading-relaxed">
-                You choose the salary band for the role. Each band has one flat fee, agreed before we start. Paying at the top of the range does not raise it. The invoice is due when the candidate accepts the offer. There is no retainer on this model.
+                You choose the salary band for the role. Each band has one flat fee, agreed before we start. Paying at the top of the range does not raise it. The invoice is due when the candidate accepts the offer. There is no retainer and no deposit on this model.
               </p>
             </div>
           </ScrollReveal>

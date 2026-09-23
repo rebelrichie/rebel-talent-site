@@ -70,7 +70,7 @@ const homepageSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Contingent Recruiting",
-          "description": "Flat fee by salary band, due on placement. No percentage of salary. Rebel runs the search.",
+          "description": "Flat fee by salary band, due on placement. No percentage of salary. No deposit.",
           "url": "https://rebeltalentsystems.com/contingent"
         }
       },
@@ -79,7 +79,7 @@ const homepageSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Retained Search",
-          "description": "A defined role with a deadline, billed half down and half on placement. Cleared and noncleared, entry level through executive.",
+          "description": "A defined role with a deadline. $10K up front and $20K on start. Cleared and noncleared, entry level through executive.",
           "url": "https://rebeltalentsystems.com/services"
         }
       },
@@ -544,10 +544,10 @@ export default function Home() {
               <h3 className="font-display text-xl font-bold text-white uppercase mb-2">
                 Retained Search
               </h3>
-              <p className="text-rebel-red font-mono text-sm mb-1">Half down · half on placement</p>
+              <p className="text-rebel-red font-mono text-sm mb-1">$10K up front · $20K on start</p>
               <p className="text-zinc-400 font-mono text-xs mb-4">Priced up front · no surprise fees</p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                A defined role with a deadline. Half the fee to open the search, half when the hire accepts.
+                A defined role with a deadline. $10K up front and $20K on start.
               </p>
             </GlowCard>
 
@@ -610,7 +610,7 @@ export default function Home() {
                 </h3>
               </div>
               <p className="text-zinc-300 text-sm leading-relaxed">
-                We can add specialists on the same playbooks, billed monthly or hourly. Most work starts with a scoping call, not a quote.
+                We can add specialists on the same playbooks. Most work starts with a scoping call, not a quote. We do not bill that coverage by the hour.
               </p>
             </div>
           </div>
@@ -668,10 +668,10 @@ export default function Home() {
           </div>
           <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
             {[
-              { icon: <Users className="w-5 h-5 text-rebel-red" />, title: "The search has an owner", desc: "Contingent and retained work starts with Rebel. You are not dropped into a form." },
+              { icon: <Users className="w-5 h-5 text-rebel-red" />, title: "The search has an owner", desc: "Every new contingent conversation starts with Chris Moscato. You are not dropped into a form." },
               { icon: <Clock className="w-5 h-5 text-rebel-red" />, title: "About 30 days to hire", desc: "Median time to hire has been about 30 days on recent work, including nine EarthDaily Federal placements under 30 days and a Kalibri Labs ML search that signed in 34." },
               { icon: <Shield className="w-5 h-5 text-rebel-red" />, title: "You keep what we build", desc: "Pipelines, scorecards, job posts, and playbooks are yours." },
-              { icon: <TrendingUp className="w-5 h-5 text-rebel-red" />, title: "EarthDaily Federal", desc: "On EarthDaily Federal, nine placements avoided roughly $294K in agency fees, at about 335% confirmed ROI on what they spent." },
+              { icon: <TrendingUp className="w-5 h-5 text-rebel-red" />, title: "EarthDaily Federal", desc: "On EarthDaily Federal, nine placements avoided roughly $294K in agency fees. That is a 3.3x return on about $88K spent." },
             ].map((item) => (
               <div
                 key={item.title}
@@ -699,7 +699,7 @@ export default function Home() {
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">CASE STUDY 01 · FRACTIONAL</div>
               <h2 className="font-display text-xl font-bold text-white uppercase mb-2">EarthDaily Federal</h2>
               <p className="text-zinc-400 text-sm leading-relaxed mb-3">
-                Defense-sector geospatial intelligence firm. 6 FTE + 3 contractors placed over 8 months: VP of Growth, Director of Strategic Partnerships, Backend Engineer, AI Engineer, Controller, IT Manager, and 3 contractors. 4 more in active pipeline. 20 hrs/week at $120/hr.
+                Defense-sector geospatial intelligence firm. 6 FTE + 3 contractors placed over 8 months: VP of Growth, Director of Strategic Partnerships, Backend Engineer, AI Engineer, Controller, IT Manager, and 3 contractors. 4 more in active pipeline. Flat monthly retainer.
               </p>
               <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-5">
                 {[
@@ -735,7 +735,7 @@ export default function Home() {
               <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">CASE STUDY 02 · RETAINED SEARCH</div>
               <h2 className="font-display text-xl font-bold text-white uppercase mb-2">Kalibri Labs</h2>
               <p className="text-zinc-400 text-sm leading-relaxed mb-3">
-                ML Engineer search run as an embedded 50/50 retained project, half down, half on placement, operating inside their email, Slack, and ATS. Signed offer in 34 days against a flooded inbound funnel of 360+ AI-polished applications. Saved ~$20K against the agency quote.
+                ML Engineer search run as a retained project, $10K up front and $20K on start, operating inside their email, Slack, and ATS. Signed offer in 34 days against a flooded inbound funnel of 360+ AI-polished applications. Saved ~$20K against the agency quote.
               </p>
               <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-5">
                 {[
@@ -770,7 +770,7 @@ export default function Home() {
               <div className="font-mono text-zinc-400 text-xs tracking-widest uppercase mb-1">Sector</div>
               <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">Hospitality / AI</div>
               <div className="font-mono text-zinc-400 text-xs tracking-widest uppercase mt-4 mb-1">Engagement</div>
-              <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">50 / 50 Retained</div>
+              <div className="font-display text-sm font-bold text-zinc-300 uppercase text-center">$10K + $20K</div>
             </div>
           </div>
           </ScrollReveal>
@@ -993,7 +993,7 @@ export default function Home() {
                 </h2>
                 <div className="space-y-4 mb-8">
                   <p className="text-zinc-400 text-[15px] leading-relaxed">
-                    The people pitching AI to your team don't run searches. I do. Twenty-seven autonomous agents handling sourcing, screening, communication, and pipeline management, on my own client work, every week, with real candidates and real consequences when something breaks.
+                    The people pitching AI to your team don't run searches. I do. Twenty-seven agents draft sourcing, screening notes, and outbound on my client work every week. A person signs off before anything goes out.
                   </p>
                   <p className="text-zinc-400 text-[15px] leading-relaxed">
                     Four ways to put that to work for your team. Pick the one that matches where you are.

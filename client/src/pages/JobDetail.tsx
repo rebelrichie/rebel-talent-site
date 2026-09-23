@@ -118,6 +118,35 @@ function parseSalary(comp: string | null): Record<string, unknown> | null {
   return null;
 }
 
+// Public copy fix for the Full Desk Recruiter post. The source listing
+// still lives in Rebel Command. This only rewrites that role on the way
+// to the page. Other roles, including EarthDaily BD COCOM, pass through.
+const RECRUITER_ROLE_PREFIX = "eda03068";
+
+function publicRecruiterCopy(job: Job): Job {
+  if (!job.id?.startsWith(RECRUITER_ROLE_PREFIX)) return job;
+  const clean = (value: string | null) => {
+    if (!value) return value;
+    return value
+      .replace(/\s*\([^)]*obviously we don.?t have these[^)]*\)/gi, "")
+      .replace(/contingent with a deposit/gi, "contingent with no deposit")
+      .replace(
+        /First APPLY here\.\s*After that\s*[-\u2013\u2014]\s*Email /g,
+        "First APPLY here. After that, email ",
+      )
+      .replace(
+        /We.?ll be hiring for this again in the near future(?![.!?])/g,
+        "We'll be hiring for this again in the near future.",
+      );
+  };
+  return {
+    ...job,
+    requirements: clean(job.requirements),
+    idealProfile: clean(job.idealProfile),
+    notes: clean(job.notes),
+  };
+}
+
 function buildJobJsonLd(job: Job): Record<string, unknown> {
   const { city, state } = parseLocation(job.location);
   const created = new Date(job.openedAt || job.createdAt);
@@ -197,7 +226,7 @@ export default function JobDetail() {
         if (!r.ok) throw new Error(r.status === 404 ? "Role not found" : `HTTP ${r.status}`);
         const data = await r.json();
         if (cancelled) return;
-        setJob(data.job);
+        setJob(publicRecruiterCopy(data.job));
         setLoading(false);
       })
       .catch((e) => {

@@ -20,7 +20,7 @@ const caseStudySchema = {
       "item": {
         "@type": "Article",
         "headline": "EarthDaily Federal: about $294K in agency fees avoided, 9 placements",
-        "description": "Nine placements. About $294K in agency fees avoided, about $88K invested over eight months, about 335% confirmed ROI on dollars spent to date. 470%+ only as a projection if the remaining pipeline closes.",
+        "description": "Nine placements. About $294K in agency fees avoided on about $88K invested over eight months. That is a 3.3x return on dollars spent to date. About 4.7x is the projection if the remaining pipeline closes.",
         "url": "https://rebeltalentsystems.com/case-studies",
         "author": { "@type": "Person", "name": "Richie Lampani" },
         "publisher": { "@type": "Organization", "name": "Rebel Talent" }
@@ -58,10 +58,10 @@ export default function CaseStudies() {
     <PageLayout>
       <PageSEO
         title="Startup & Defense Recruiting Case Studies | Rebel Talent"
-        description="Named clients and named roles. EarthDaily: about $294K in fees avoided, about 335% confirmed ROI. Kalibri Labs: offer in 34 days. Legal Managed Services: 20 GTM hires, 90% retention."
+        description="Named clients and named roles. EarthDaily: about $294K in fees avoided, a 3.3x return. Kalibri Labs: offer in 34 days. Legal Managed Services: 20 GTM hires, 90% retention."
         path="/case-studies"
         ogTitle="Startup & Defense Recruiting Case Studies | Rebel Talent"
-        ogDescription="EarthDaily: about $294K avoided, about 335% confirmed ROI, 470%+ only as a projection. Kalibri Labs: 360+ applications, offer in 34 days. Legal Managed Services: 20 GTM hires, 90% retention."
+        ogDescription="EarthDaily: about $294K avoided, a 3.3x return, about 4.7x only as a projection. Kalibri Labs: 360+ applications, offer in 34 days. Legal Managed Services: 20 GTM hires, 90% retention."
         ogImage="og-case-studies.png"
         schemas={[caseStudySchema]}
         breadcrumbs={[
@@ -111,7 +111,7 @@ export default function CaseStudies() {
             <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-8">
               {[
                 { value: "~$294K", label: "FEES AVOIDED", sub: "9 placements, no agency" },
-                { value: "~335%", label: "CONFIRMED ROI", sub: "~$88K invested over 8 months" },
+                { value: "3.3x", label: "RETURN", sub: "~$294K avoided on ~$88K" },
                 { value: "9", label: "ROLES PLACED", sub: "4 more in pipeline" },
               ].map((stat) => (
                 <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-2 sm:p-5 text-center">
@@ -145,7 +145,7 @@ export default function CaseStudies() {
                 <h3 className="font-display text-base font-bold text-rebel-red uppercase mb-4">What Was Built</h3>
                 <ul className="space-y-2">
                   {[
-                    "Custom ATS with clearance tracking, AI-powered scoring, and fraud detection",
+                    "Custom ATS with clearance tracking, workflow stages, and fraud checks",
                     "Full Recruiting OS with SOPs covering every hiring stage",
                     "Sourcing playbooks built by role type and function",
                     "Interview frameworks and scorecards for hiring managers",
@@ -238,23 +238,23 @@ export default function CaseStudies() {
                 </div>
                 <div className="bg-[#0d0d14] px-4 py-3">
                   <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Projected at Full Pipeline Close</div>
-                  <div className="text-rebel-red font-display text-xl font-bold mb-0.5">$415K+</div>
+                  <div className="text-rebel-red font-display text-xl font-bold mb-0.5">~$415K</div>
                   <div className="text-zinc-400 text-xs">5 additional roles at standard agency rates</div>
                 </div>
                 <div className="bg-[#0d0d14] px-4 py-3">
-                  <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Confirmed ROI</div>
-                  <div className="text-white font-display text-xl font-bold mb-0.5">~335%</div>
-                  <div className="text-zinc-400 text-xs">~$88K invested over 8 months</div>
+                  <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Confirmed return</div>
+                  <div className="text-white font-display text-xl font-bold mb-0.5">3.3x</div>
+                  <div className="text-zinc-400 text-xs">~$294K avoided on ~$88K</div>
                 </div>
                 <div className="bg-[#0d0d14] px-4 py-3">
-                  <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Projected ROI only</div>
-                  <div className="text-rebel-red font-display text-xl font-bold mb-0.5">470%+</div>
+                  <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Projected return</div>
+                  <div className="text-rebel-red font-display text-xl font-bold mb-0.5">~4.7x</div>
                   <div className="text-zinc-400 text-xs">If the remaining pipeline closes</div>
                 </div>
               </div>
 
               <p className="text-zinc-400 text-sm leading-relaxed mb-3">
-                About $294K in fees avoided across 9 placements, on about $88K invested over eight months. That is about 335% confirmed ROI on dollars spent to date. 470%+ is a projection if the remaining pipeline closes. The ATS, sourcing playbooks, scorecards, and documented process stayed with EDF when the engagement scaled down.
+                About $294K in fees avoided across 9 placements, on about $88K invested over eight months. That is a 3.3x return on dollars spent to date. About 4.7x is the projection if the remaining pipeline closes. The ATS, sourcing playbooks, scorecards, and documented process stayed with EDF when the engagement scaled down.
               </p>
               <p className="text-zinc-300 text-sm leading-relaxed">
                 <span className="text-rebel-red font-mono font-bold">Every future hire EDF makes runs on infrastructure I built. That compounds.</span>
@@ -276,7 +276,7 @@ export default function CaseStudies() {
               360 applications in 24 hours. Every company thinks that's good news. It isn't. It means your job post attracted a flood of AI-optimized applications, polished, technically fluent, confident on paper. It means your hiring team just got a second job. And it means the person you actually need probably isn't in that pile.
             </p>
             <p className="text-zinc-400 text-sm mb-8">
-              Retained search, 50% down / 50% on placement. What this engagement proved about why posting and waiting doesn't work anymore.
+              Retained search. $10K up front and $20K on start. What this engagement proved about why posting and waiting doesn't work anymore.
             </p>
             </ScrollReveal>
 
@@ -432,7 +432,7 @@ export default function CaseStudies() {
                   { label: "Meetings before execution", value: "1" },
                   { label: "Days to first pipeline", value: "1" },
                   { label: "Cost vs. contingency agency", value: "~50% less" },
-                  { label: "Structure", value: "50/50 Retained" },
+                  { label: "Structure", value: "$10K up front, $20K on start" },
                 ].map((s) => (
                   <div key={s.label} className="bg-zinc-900 border border-zinc-800 p-4 text-center">
                     <div className="font-display text-xl font-bold text-rebel-red mb-1">{s.value}</div>
