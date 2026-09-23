@@ -53,3 +53,10 @@ export function extractJobId(param: string | null | undefined): string | null {
   const m = param.match(UUID_RX);
   return m ? m[0].toLowerCase() : null;
 }
+
+// True only for /jobs/<uuid> with nothing in front of the id.
+// Slug URLs end in the same UUID and must not match.
+export function isBareJobUuid(param: string | null | undefined): boolean {
+  if (!param) return false;
+  return new RegExp(`^${UUID_RX.source}$`, "i").test(param);
+}

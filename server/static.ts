@@ -2,6 +2,29 @@ import express, { type Express } from "express";
 import fs from "fs";
 import path from "path";
 
+const BARE_JOB_UUID = /^\/jobs\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\/?$/i;
+
+function loadJobRedirects(distPath: string): Record<string, string> {
+  try {
+    const raw = fs.readFileSync(path.resolve(distPath, "job-redirects.json"), "utf-8");
+    const parsed = JSON.parse(raw) as Record<string, unknown>;
+    const map: Record<string, string> = {};
+    for (const [id, target] of Object.entries(parsed)) {
+      if (typeof target === "string") map[id.toLowerCase()] = target;
+    }
+    return map;
+  } catch {
+    return {};
+  }
+}
+
+function safeJobTarget(target: string, uuid: string): boolean {
+  if (!target.startsWith("/jobs/") || target.startsWith("//") || target.includes("://")) return false;
+  if (BARE_JOB_UUID.test(target)) return false;
+  if (target === `/jobs/${uuid}` || target === `/jobs/${uuid}/`) return false;
+  return true;
+}
+
 export function serveStatic(app: Express) {
   const distPath = path.resolve(__dirname, "public");
   if (!fs.existsSync(distPath)) {
@@ -9,6 +32,30 @@ export function serveStatic(app: Express) {
       `Could not find the build directory: ${distPath}, make sure to build the client first`,
     );
   }
+
+  const jobRedirects = loadJobRedirects(distPath);
+
+  // 301 UUID job twins to the slug URL, and /defense to /cleared.
+  // Slug job URLs do not match the bare-UUID pattern.
+  app.use((req, res, next) => {
+    const pathOnly = req.path;
+    if (pathOnly === "/defense" || pathOnly === "/defense/") {
+      const q = req.originalUrl.includes("?") ? req.originalUrl.slice(req.originalUrl.indexOf("?")) : "";
+      res.redirect(301, `/cleared${q}`);
+      return;
+    }
+    const match = pathOnly.match(BARE_JOB_UUID);
+    if (match) {
+      const uuid = match[1].toLowerCase();
+      const target = jobRedirects[uuid];
+      if (target && safeJobTarget(target, uuid)) {
+        const q = req.originalUrl.includes("?") ? req.originalUrl.slice(req.originalUrl.indexOf("?")) : "";
+        res.redirect(301, `${target}${q}`);
+        return;
+      }
+    }
+    next();
+  });
 
   app.use(express.static(distPath));
 

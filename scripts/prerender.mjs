@@ -30,6 +30,8 @@ const ROUTES = [
   "/jobs/general",
   "/advisory",
   "/startups",
+  "/fractional",
+  "/cleared",
 ];
 
 // Sitemap entries for the curated static routes. Kept here (not read from the
@@ -44,6 +46,8 @@ const SITEMAP_STATIC = [
   { path: "/about/vision", changefreq: "monthly", priority: "0.8" },
   { path: "/services", changefreq: "monthly", priority: "0.9" },
   { path: "/contingent", changefreq: "monthly", priority: "0.95" },
+  { path: "/fractional", changefreq: "monthly", priority: "0.9" },
+  { path: "/cleared", changefreq: "monthly", priority: "0.9" },
   { path: "/case-studies", changefreq: "monthly", priority: "0.9" },
   { path: "/testimonials", changefreq: "monthly", priority: "0.8" },
   { path: "/blog", changefreq: "weekly", priority: "0.8" },
@@ -125,28 +129,62 @@ function jobSlugPath(job) {
   return slug ? `/jobs/${slug}-${job.id}` : `/jobs/${job.id}`;
 }
 
+const BARE_JOB_UUID = /^\/jobs\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\/?$/i;
+
+// Immediate HTML redirect for hosts that cannot emit an HTTP 301 (nginx
+// try_files). Express serveStatic upgrades the same map to a real 301.
+// Slug URLs are never redirected.
+function writeRedirect(fromPath, toPath) {
+  if (!fromPath.startsWith("/") || !toPath.startsWith("/") || fromPath === toPath) return;
+  if (toPath.startsWith("//") || toPath.includes("://")) return;
+  const dir = join(DIST_DIR, fromPath);
+  mkdirSync(dir, { recursive: true });
+  const canonical = `${SITE_URL}${toPath}`;
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Redirecting</title>
+<link rel="canonical" href="${canonical}">
+<meta http-equiv="refresh" content="0; url=${toPath}">
+<script>location.replace(${JSON.stringify(toPath)}+(location.search||""));</script>
+</head>
+<body>
+<p><a href="${toPath}">Continue</a></p>
+</body>
+</html>
+`;
+  writeFileSync(join(dir, "index.html"), html, "utf-8");
+}
+
 // Safe addition — fetch all open jobs so we can pre-render a detail page for
-// each one. Every job gets TWO routes: the new slug URL (canonical, goes in
-// the sitemap first) and the old plain-UUID URL (kept so existing links and
-// indexed pages keep resolving to real HTML). Each page bakes JobPosting
-// JSON-LD into the HTML for Google Jobs indexing.
+// each one. The sitemap lists the slug URL only. The plain UUID URL stays
+// reachable as a redirect to that slug when a slug exists. Each slug page
+// bakes JobPosting JSON-LD into the HTML for Google Jobs indexing.
 async function fetchJobRoutes() {
   try {
     const res = await fetch("https://rebelcommand.dev/api/public/jobs");
     if (!res.ok) {
       console.warn(`[prerender] jobs fetch failed (${res.status}) — skipping detail pages`);
-      return { slugRoutes: [], uuidRoutes: [] };
+      return { slugRoutes: [], redirects: [] };
     }
     const data = await res.json();
     const jobs = (data.jobs || []).filter((j) => j && j.id);
     console.log(`[prerender] Fetched ${jobs.length} open roles for detail pre-render`);
-    return {
-      slugRoutes: jobs.map((j) => jobSlugPath(j)),
-      uuidRoutes: jobs.map((j) => `/jobs/${j.id}`),
-    };
+    const slugRoutes = [];
+    const redirects = [];
+    for (const job of jobs) {
+      const slugPath = jobSlugPath(job);
+      const uuidPath = `/jobs/${job.id}`;
+      slugRoutes.push(slugPath);
+      if (slugPath !== uuidPath && BARE_JOB_UUID.test(uuidPath)) {
+        redirects.push({ from: uuidPath, to: slugPath });
+      }
+    }
+    return { slugRoutes, redirects };
   } catch (err) {
     console.warn(`[prerender] jobs fetch errored — skipping detail pages: ${err.message}`);
-    return { slugRoutes: [], uuidRoutes: [] };
+    return { slugRoutes: [], redirects: [] };
   }
 }
 
@@ -177,9 +215,7 @@ function generateSitemap(jobRoutes, blogPosts) {
   for (const s of SITEMAP_STATIC) {
     entries.push({ loc: `${SITE_URL}${s.path}`, lastmod: today, changefreq: s.changefreq, priority: s.priority });
   }
-  // jobRoutes carries slug URLs first, then the old UUID URLs. Both are
-  // listed so every live job URL in the wild resolves and is crawlable;
-  // canonicals on the pages point Google at the slug form.
+  // Slug job URLs only. UUID twins are redirects, not sitemap entries.
   for (const route of jobRoutes) {
     entries.push({ loc: `${SITE_URL}${route}`, lastmod: today, changefreq: "weekly", priority: "0.8" });
   }
@@ -201,12 +237,12 @@ function generateSitemap(jobRoutes, blogPosts) {
 }
 
 async function prerender() {
-  const { slugRoutes, uuidRoutes } = await fetchJobRoutes();
-  // Slug URLs are canonical; UUID URLs are kept alive for old links.
-  const jobRoutes = [...slugRoutes, ...uuidRoutes];
+  const { slugRoutes, redirects } = await fetchJobRoutes();
+  // Sitemap and full HTML are slug URLs only. UUID paths get a redirect stub.
+  const jobRoutes = slugRoutes;
   const { routes: blogRoutes, posts: blogPosts } = await fetchBlogRoutes();
   const allRoutes = [...ROUTES, ...jobRoutes, ...blogRoutes];
-  console.log(`[prerender] Starting pre-render of ${allRoutes.length} routes (${ROUTES.length} static + ${slugRoutes.length} slug + ${uuidRoutes.length} uuid role detail + ${blogRoutes.length} blog)...`);
+  console.log(`[prerender] Starting pre-render of ${allRoutes.length} routes (${ROUTES.length} static + ${slugRoutes.length} slug role detail + ${blogRoutes.length} blog, ${redirects.length} uuid redirects)...`);
 
   const server = await startServer();
   const browser = await launch({ headless: true, args: ["--no-sandbox"] });
@@ -246,6 +282,20 @@ async function prerender() {
 
   await browser.close();
   server.close();
+
+  // UUID job URLs and /defense redirect. They are not sitemap entries.
+  try {
+    const map = {};
+    for (const redirect of redirects) {
+      writeRedirect(redirect.from, redirect.to);
+      map[redirect.from.replace(/^\/jobs\//, "").toLowerCase()] = redirect.to;
+    }
+    writeRedirect("/defense", "/cleared");
+    writeFileSync(join(DIST_DIR, "job-redirects.json"), JSON.stringify(map), "utf-8");
+    console.log(`[prerender] Wrote ${redirects.length} job UUID redirects + /defense -> /cleared`);
+  } catch (err) {
+    console.warn(`[prerender] redirect stubs failed: ${err.message}`);
+  }
 
   // Regenerate sitemap.xml from the routes we just rendered.
   try {

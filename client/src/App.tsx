@@ -26,6 +26,8 @@ const Blog = lazy(() => import("@/pages/Blog"));
 const BlogPost = lazy(() => import("@/pages/BlogPost"));
 const Certification = lazy(() => import("@/pages/Certification"));
 const Advisory = lazy(() => import("@/pages/Advisory"));
+const Fractional = lazy(() => import("@/pages/Fractional"));
+const Cleared = lazy(() => import("@/pages/Cleared"));
 // Safe addition — Series A-C startup search landing page (search desk inbound)
 const Startups = lazy(() => import("@/pages/Startups"));
 const StrategyCall = lazy(() => import("@/pages/StrategyCall"));
@@ -46,6 +48,10 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/services" component={Services} />
       <Route path="/contingent" component={Contingent} />
+      <Route path="/fractional" component={Fractional} />
+      <Route path="/cleared" component={Cleared} />
+      {/* /defense is the old keyword path. Primary hub is /cleared. */}
+      <Route path="/defense">{() => { window.location.replace("/cleared"); return null; }}</Route>
       {/* /how-it-works merged into /services. 301 to the consolidated page. */}
       <Route path="/how-it-works">{() => { window.location.href = "/services"; return null; }}</Route>
       <Route path="/testimonials" component={Testimonials} />
@@ -60,9 +66,9 @@ function Router() {
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/certification" component={Certification} />
-      {/* /fractional-head-of-talent, /fractional-recruiting-services, /pricing merged into /services. 301 to the consolidated page. */}
-      <Route path="/fractional-head-of-talent">{() => { window.location.href = "/services"; return null; }}</Route>
-      <Route path="/fractional-recruiting-services">{() => { window.location.href = "/services"; return null; }}</Route>
+      {/* Older fractional URLs now land on the fractional page. */}
+      <Route path="/fractional-head-of-talent">{() => { window.location.replace("/fractional"); return null; }}</Route>
+      <Route path="/fractional-recruiting-services">{() => { window.location.replace("/fractional"); return null; }}</Route>
       <Route path="/pricing">{() => { window.location.href = "/services"; return null; }}</Route>
       {/* /rachael retired. 301 to home. */}
       <Route path="/rachael">{() => { window.location.href = "/"; return null; }}</Route>

@@ -170,8 +170,10 @@ function inlineFormat(text: string): string {
     .replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded bg-zinc-800 text-rebel-red text-sm font-mono">$1</code>')
     .replace(/\*\*(.+?)\*\*/g, '<strong class="font-bold text-white">$1</strong>')
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
-    // Links, only allow http/https/mailto protocols (XSS protection)
-    .replace(/\[([^\]]+)\]\(((?:https?:\/\/|mailto:)[^)]+)\)/g, '<a href="$2" class="text-rebel-red font-medium underline hover:text-red-400" target="_blank" rel="noopener noreferrer">$1</a>');
+    // Links. External http/https/mailto open in a new tab.
+    // Root-relative paths stay on this site.
+    .replace(/\[([^\]]+)\]\(((?:https?:\/\/|mailto:)[^)]+)\)/g, '<a href="$2" class="text-rebel-red font-medium underline hover:text-red-400" target="_blank" rel="noopener noreferrer">$1</a>')
+    .replace(/\[([^\]]+)\]\((\/(?!\/)[A-Za-z0-9/_\-.?#=&%]+)\)/g, '<a href="$2" class="text-rebel-red font-medium underline hover:text-red-400">$1</a>');
 }
 
 export default function BlogPost() {

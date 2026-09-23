@@ -214,10 +214,10 @@ export default function Home() {
     <PageLayout>
       <PageSEO
         title="Contingent recruiting with a flat fee by salary band | Rebel Talent"
-        description="Contingent recruiting with a flat fee by salary band, due on placement. Chris Moscato runs new search conversations. Startups and defense teams. Retained, embedded, and advisory when you need more than a single search."
+        description="Contingent recruiting with a flat fee by salary band, due on placement. Four models: contingent, retained, embedded, and advisory. Cleared and startup teams."
         path="/"
         ogTitle="Contingent recruiting with a flat fee by salary band | Rebel Talent"
-        ogDescription="Contingent recruiting with a flat fee by salary band. Chris Moscato owns new search conversations. Startups and defense teams. Retained, embedded, or advisory when the work is bigger than one seat."
+        ogDescription="Contingent recruiting with a flat fee by salary band, due on placement. Four models: contingent, retained, embedded, and advisory. Cleared and startup teams."
         ogImage="og-home.png"
         schemas={[homepageSchema]}
       />
@@ -392,7 +392,8 @@ export default function Home() {
               {[
                 { label: "Contingent", href: "/contingent" },
                 { label: "Retained", href: "/services" },
-                { label: "Embedded", href: "/services" },
+                { label: "Fractional", href: "/fractional" },
+                { label: "Cleared", href: "/cleared" },
                 { label: "Advisory", href: "/advisory" },
               ].map(({ label, href }) => (
                 <Link
@@ -468,6 +469,7 @@ export default function Home() {
                   "CMMC compliance requirements",
                   "Pipeline built on community knowledge, not guesswork",
                 ],
+                cta: { href: "/cleared", label: "Cleared recruiting for defense teams" },
               },
               {
                 icon: <TrendingUp className="w-5 h-5" />,
@@ -497,6 +499,11 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
+                {"cta" in cat && cat.cta && (
+                  <Link href={cat.cta.href} className="inline-block mt-4 text-sm text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red">
+                    {cat.cta.label}
+                  </Link>
+                )}
               </div>
               </ScrollReveal>
             ))}
@@ -625,6 +632,11 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
+              <Link href="/fractional" data-testid="link-fractional-details" className="block">
+                <Button onClick={hapticTap} className="font-display tracking-wider uppercase text-sm w-full">
+                  View fractional recruiting <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
             </GlowCard>
 
             <GlowCard className="border border-zinc-800 bg-zinc-900/50 p-5 sm:p-8 group transition-colors hover:border-rebel-red/30 snap-start shrink-0 w-[82vw] md:w-auto flex flex-col" data-testid="card-advisory">
@@ -1027,6 +1039,15 @@ export default function Home() {
                 See how I work <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
+            <p className="mt-4">
+              <Link
+                href="/cleared"
+                data-testid="link-cleared-defense"
+                className="text-sm text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red"
+              >
+                Cleared recruiting for defense teams
+              </Link>
+            </p>
 
             <div className="mt-6">
               <a
