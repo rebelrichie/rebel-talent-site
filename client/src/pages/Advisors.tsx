@@ -128,16 +128,6 @@ export default function Advisors() {
 
       <section className="py-14 sm:py-20 border-t border-zinc-900" style={{ background: "#0E0D11" }}>
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
-          <p className="font-mono text-rebel-red text-[11px] tracking-[0.22em] uppercase mb-3">
-            The bench
-          </p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4 max-w-xl">
-            Named with a written yes.
-          </h2>
-          <p className="text-zinc-300 text-base leading-relaxed max-w-2xl mb-10">
-            One advisor is public. We add the next name only after that person agrees in writing.
-          </p>
-
           <div className="grid md:grid-cols-2 gap-4 sm:gap-5">
             <article
               data-testid="card-advisor-arin"
@@ -170,12 +160,9 @@ export default function Advisors() {
               <p className="font-mono text-zinc-500 text-[11px] tracking-[0.22em] uppercase mb-3">
                 Open
               </p>
-              <h3 className="font-display text-2xl font-bold text-zinc-300 tracking-tight mb-3">
+              <h3 className="font-display text-2xl font-bold text-zinc-300 tracking-tight">
                 More advisors joining.
               </h3>
-              <p className="text-zinc-500 text-sm sm:text-base leading-relaxed">
-                The next name appears here after a written yes.
-              </p>
             </aside>
           </div>
 
