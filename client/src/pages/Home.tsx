@@ -151,15 +151,63 @@ export default function Home() {
         schemas={[homepageSchema]}
       />
 
-      <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
+      <section data-testid="section-hero" className="space-hero space-hero--home relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{
+          style={
+            zIndex: 3,
             background:
               "radial-gradient(ellipse 70% 50% at 0% 0%, rgba(247,26,41,0.08) 0%, transparent 55%)",
-          }}
+          }
         />
-        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-28 pb-14 sm:pb-20">
+        <div className="space-hero__command" aria-hidden="true" />
+        <div className="space-hero__grid" aria-hidden="true" />
+        <svg
+          className="space-hero__nodes"
+          viewBox="0 0 1200 800"
+          preserveAspectRatio="xMaxYMid slice"
+          aria-hidden="true"
+        >
+          <g fill="none" stroke="rgba(150, 198, 255, 0.72)" strokeWidth="1.15">
+            <line x1="790" y1="118" x2="918" y2="84" />
+            <line x1="918" y1="84" x2="1034" y2="156" />
+            <line x1="790" y1="118" x2="1034" y2="156" />
+            <line x1="1034" y1="156" x2="948" y2="236" />
+            <line x1="1034" y1="156" x2="1132" y2="204" />
+            <line x1="948" y1="236" x2="868" y2="318" />
+            <line x1="1034" y1="156" x2="1052" y2="348" />
+            <line x1="1132" y1="204" x2="1168" y2="308" />
+            <line x1="1052" y1="348" x2="1168" y2="308" />
+            <line x1="868" y1="318" x2="768" y2="428" />
+            <line x1="868" y1="318" x2="992" y2="478" />
+            <line x1="1052" y1="348" x2="992" y2="478" />
+            <line x1="992" y1="478" x2="1136" y2="436" />
+            <line x1="1168" y1="308" x2="1136" y2="436" />
+          </g>
+          <g fill="none" stroke="rgba(186, 160, 255, 0.62)" strokeWidth="1.05">
+            <line x1="908" y1="186" x2="948" y2="236" />
+            <line x1="908" y1="186" x2="1034" y2="156" />
+          </g>
+          <g>
+            <circle cx="1034" cy="156" r="10" fill="rgba(140, 190, 255, 0.10)" />
+            <circle cx="992" cy="478" r="9" fill="rgba(176, 150, 255, 0.10)" />
+            <circle cx="790" cy="118" r="2.1" fill="rgba(198, 220, 255, 0.85)" />
+            <circle cx="918" cy="84" r="1.5" fill="rgba(186, 164, 255, 0.75)" />
+            <circle cx="1034" cy="156" r="2.5" fill="rgba(210, 230, 255, 0.95)" />
+            <circle cx="948" cy="236" r="1.7" fill="rgba(186, 164, 255, 0.8)" />
+            <circle cx="1132" cy="204" r="1.5" fill="rgba(198, 220, 255, 0.75)" />
+            <circle cx="868" cy="318" r="2" fill="rgba(198, 220, 255, 0.85)" />
+            <circle cx="1052" cy="348" r="1.6" fill="rgba(186, 164, 255, 0.78)" />
+            <circle cx="1168" cy="308" r="2.2" fill="rgba(210, 230, 255, 0.9)" />
+            <circle cx="768" cy="428" r="1.5" fill="rgba(186, 164, 255, 0.7)" />
+            <circle cx="992" cy="478" r="2.4" fill="rgba(210, 230, 255, 0.92)" />
+            <circle cx="1136" cy="436" r="1.6" fill="rgba(198, 220, 255, 0.78)" />
+            <circle cx="908" cy="186" r="1.4" fill="rgba(186, 164, 255, 0.72)" />
+          </g>
+        </svg>
+        <div className="space-hero__scan" aria-hidden="true" />
+        <div className="space-hero__scrim" aria-hidden="true" />
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-28 pb-14 sm:pb-20">
           <p className="font-mono text-[11px] sm:text-xs tracking-[0.28em] uppercase text-zinc-400 mb-6 sm:mb-8">
             Rebel Talent Systems
           </p>
