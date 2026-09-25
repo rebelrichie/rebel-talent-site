@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Shield } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import ContingentChrisSection from "@/components/ContingentChrisSection";
@@ -291,6 +291,90 @@ export default function Home() {
           >
             See the work <ArrowRight className="w-4 h-4" />
           </Link>
+        </div>
+      </section>
+
+
+      <section
+        data-testid="section-veterans"
+        className="relative overflow-hidden border-t border-zinc-900"
+      >
+        <div
+          className="absolute inset-0 bg-cover"
+          style={{
+            backgroundImage: "url('/hero-command.jpg')",
+            backgroundPosition: "center top",
+          }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(5,7,14,0.94) 0%, rgba(5,7,14,0.78) 42%, rgba(5,7,14,0.34) 100%)",
+          }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(0deg, rgba(5,7,14,0.9) 0%, rgba(5,7,14,0.2) 45%, rgba(5,7,14,0.55) 100%)",
+          }}
+          aria-hidden="true"
+        />
+
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 py-16 sm:py-24">
+          <div className="max-w-2xl">
+            <p className="inline-flex items-center gap-2 font-mono text-rebel-red text-[11px] tracking-[0.22em] uppercase mb-5">
+              <Shield className="w-4 h-4" />
+              Cleared Defense · Startups · Veteran-Supported
+            </p>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.05] mb-6">
+              For the ones who{" "}
+              <span className="text-rebel-red">stood up</span> when it mattered.
+            </h2>
+            <p className="text-zinc-300 text-base sm:text-lg leading-relaxed max-w-xl mb-8">
+              Intelligence community members, people active in politics, and current and former service members trust Rebel to build their teams. The firm speaks their language. Transitioning veterans get free resume and LinkedIn reviews. No corporate fluff, just real talent leadership for cleared defense and startups.
+            </p>
+
+            <div className="border-l-2 border-rebel-red pl-4 mb-9">
+              <p className="text-white font-semibold text-lg">Ask for references.</p>
+              <p className="text-zinc-400 text-sm mt-1">
+                Intelligence community. People active in politics. Current and former servicemembers. Shared privately, on request.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <Link
+                href="/strategy-call"
+                data-testid="button-veterans-strategy"
+                className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-semibold text-sm px-6 py-3.5 rounded-full transition-colors no-underline"
+              >
+                Book a strategy call <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/cleared"
+                data-testid="link-veterans-cleared"
+                className="inline-flex items-center justify-center gap-2 border border-zinc-700 hover:border-rebel-red/60 text-white font-semibold text-sm px-6 py-3.5 rounded-full transition-colors no-underline"
+              >
+                Cleared recruiting
+              </Link>
+            </div>
+
+            <div className="mt-6">
+              <a
+                href="https://calendly.com/richielam/vets?back=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="button-vet-review"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-white border border-zinc-700 hover:border-rebel-red/60 px-5 py-2.5 rounded-full transition-colors no-underline"
+              >
+                Free veteran resume and LinkedIn review <ArrowRight className="w-4 h-4" />
+              </a>
+              <p className="text-zinc-400 text-xs mt-2">Transitioning out? No strings.</p>
+            </div>
+          </div>
         </div>
       </section>
 
