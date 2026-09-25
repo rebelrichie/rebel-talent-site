@@ -20,7 +20,6 @@ const advisorsSchema = {
     "affiliation": [
       { "@type": "Organization", "name": "EarthDaily Federal" },
       { "@type": "Organization", "name": "ScaleByrd" },
-      { "@type": "Organization", "name": "Waveguide" },
     ],
     "sameAs": ["https://www.linkedin.com/in/arin-frye/"],
     "url": "https://www.linkedin.com/in/arin-frye/",
@@ -153,7 +152,7 @@ export default function Advisors() {
                 </div>
               </div>
               <p className="mt-6 text-zinc-300 text-sm sm:text-base leading-relaxed">
-                Twenty years as an ops leader across defense, intelligence, and technical programs. She founded ScaleByrd to help defense and IC startups scale through cross-functional ops, program leadership, org design, and executive coaching. Day role is VP Operations at EarthDaily Federal. Based in Reston, VA. Credentials include PMP, CSM, and SHRM-SCP. Network across Waveguide and adjacent GEOINT operators. She advises Rebel.
+                Twenty years as an ops leader across defense, intelligence, and technical programs. She founded ScaleByrd to help defense and IC startups scale through cross-functional ops, program leadership, org design, and executive coaching. Day role is VP Operations at EarthDaily Federal. Based in Reston, VA. Credentials include PMP, CSM, and SHRM-SCP. She advises Rebel.
               </p>
               <a
                 href="https://www.linkedin.com/in/arin-frye/"
