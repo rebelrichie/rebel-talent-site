@@ -120,7 +120,6 @@ function StarfieldCanvas() {
       canvas.height = canvas.offsetHeight;
     };
     resize();
-    window.addEventListener("resize", resize);
 
     // Deterministic-looking star positions via sine-based pseudo-random
     const rng = (seed: number) => { const x = Math.sin(seed + 1) * 73856; return x - Math.floor(x); };
@@ -134,6 +133,29 @@ function StarfieldCanvas() {
       speed: rng(i * 7 + 7) * 0.009 + 0.003,
     }));
 
+    const paint = (tick: number | null) => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (const s of stars) {
+        const alpha = tick !== null && s.twinkle
+          ? s.baseOpacity * (0.45 + 0.55 * Math.sin(tick * s.speed + s.phase))
+          : s.baseOpacity;
+        ctx.beginPath();
+        ctx.arc(s.x * canvas.width, s.y * canvas.height, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${alpha.toFixed(3)})`;
+        ctx.fill();
+      }
+    };
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      const onResize = () => { resize(); paint(null); };
+      paint(null);
+      window.addEventListener("resize", onResize);
+      return () => window.removeEventListener("resize", onResize);
+    }
+
+    window.addEventListener("resize", resize);
+
     let tick = 0;
     let raf = 0;
     let last = 0;
@@ -144,16 +166,7 @@ function StarfieldCanvas() {
       raf = requestAnimationFrame(draw);
       if (ts - last < 42) return; // ~24 fps
       last = ts;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (const s of stars) {
-        const alpha = s.twinkle
-          ? s.baseOpacity * (0.45 + 0.55 * Math.sin(tick * s.speed + s.phase))
-          : s.baseOpacity;
-        ctx.beginPath();
-        ctx.arc(s.x * canvas.width, s.y * canvas.height, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,255,255,${alpha.toFixed(3)})`;
-        ctx.fill();
-      }
+      paint(tick);
       tick++;
     };
 
@@ -225,25 +238,75 @@ export default function Home() {
       <section
         ref={heroRef}
         data-testid="section-hero"
-        className="relative overflow-hidden bg-rebel-space lg:min-h-[82vh]"
+        className="space-hero space-hero--home relative overflow-hidden lg:min-h-[82vh]"
       >
         {/* Subtle ambient glow — left red, right orange */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
+            zIndex: 3,
             background:
               "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(247,26,41,0.10) 0%, transparent 55%), radial-gradient(ellipse 60% 40% at 100% 100%, rgba(245,132,30,0.06) 0%, transparent 55%)",
           }}
         />
+
+        {/* Ops depth, orbital grid, and a sparse node field. Under the scrim. */}
+        <div className="space-hero__command" aria-hidden="true" />
+        <div className="space-hero__grid" aria-hidden="true" />
+        <svg
+          className="space-hero__nodes"
+          viewBox="0 0 1200 800"
+          preserveAspectRatio="xMaxYMid slice"
+          aria-hidden="true"
+        >
+          <g fill="none" stroke="rgba(150, 198, 255, 0.72)" strokeWidth="1.15">
+            <line x1="790" y1="118" x2="918" y2="84" />
+            <line x1="918" y1="84" x2="1034" y2="156" />
+            <line x1="790" y1="118" x2="1034" y2="156" />
+            <line x1="1034" y1="156" x2="948" y2="236" />
+            <line x1="1034" y1="156" x2="1132" y2="204" />
+            <line x1="948" y1="236" x2="868" y2="318" />
+            <line x1="1034" y1="156" x2="1052" y2="348" />
+            <line x1="1132" y1="204" x2="1168" y2="308" />
+            <line x1="1052" y1="348" x2="1168" y2="308" />
+            <line x1="868" y1="318" x2="768" y2="428" />
+            <line x1="868" y1="318" x2="992" y2="478" />
+            <line x1="1052" y1="348" x2="992" y2="478" />
+            <line x1="992" y1="478" x2="1136" y2="436" />
+            <line x1="1168" y1="308" x2="1136" y2="436" />
+          </g>
+          <g fill="none" stroke="rgba(186, 160, 255, 0.62)" strokeWidth="1.05">
+            <line x1="908" y1="186" x2="948" y2="236" />
+            <line x1="908" y1="186" x2="1034" y2="156" />
+          </g>
+          <g>
+            <circle cx="1034" cy="156" r="10" fill="rgba(140, 190, 255, 0.10)" />
+            <circle cx="992" cy="478" r="9" fill="rgba(176, 150, 255, 0.10)" />
+            <circle cx="790" cy="118" r="2.1" fill="rgba(198, 220, 255, 0.85)" />
+            <circle cx="918" cy="84" r="1.5" fill="rgba(186, 164, 255, 0.75)" />
+            <circle cx="1034" cy="156" r="2.5" fill="rgba(210, 230, 255, 0.95)" />
+            <circle cx="948" cy="236" r="1.7" fill="rgba(186, 164, 255, 0.8)" />
+            <circle cx="1132" cy="204" r="1.5" fill="rgba(198, 220, 255, 0.75)" />
+            <circle cx="868" cy="318" r="2" fill="rgba(198, 220, 255, 0.85)" />
+            <circle cx="1052" cy="348" r="1.6" fill="rgba(186, 164, 255, 0.78)" />
+            <circle cx="1168" cy="308" r="2.2" fill="rgba(210, 230, 255, 0.9)" />
+            <circle cx="768" cy="428" r="1.5" fill="rgba(186, 164, 255, 0.7)" />
+            <circle cx="992" cy="478" r="2.4" fill="rgba(210, 230, 255, 0.92)" />
+            <circle cx="1136" cy="436" r="1.6" fill="rgba(198, 220, 255, 0.78)" />
+            <circle cx="908" cy="186" r="1.4" fill="rgba(186, 164, 255, 0.72)" />
+          </g>
+        </svg>
+        <div className="space-hero__scan" aria-hidden="true" />
+        <div className="space-hero__scrim" aria-hidden="true" />
 
         {/* ── Starfield canvas — full hero, z:1 ── */}
         <StarfieldCanvas />
 
         {/* ── Satellite — drifts slowly across upper-right, z:2 ── */}
         <div
-          className="absolute pointer-events-none hidden lg:block"
+          className="space-hero__satellite absolute pointer-events-none hidden lg:block"
           style={{
-            zIndex: 2,
+            zIndex: 3,
             top: "14%",
             right: "9%",
             opacity: 0.42,
