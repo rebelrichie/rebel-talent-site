@@ -318,7 +318,7 @@ export default function About() {
             {[
               {
                 name: "Chris Moscato",
-                photo: "/team-chris.jpg",
+                photo: "/chris-moscato.jpg",
                 title: "Head of Client Acquisition",
                 blurb:
                   "The commercial lead startups actually want on the first call. Calm under pressure, direct on the phone, and still on the account after the paperwork.",

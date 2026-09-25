@@ -1,3 +1,4 @@
+import { useState, FormEvent } from "react";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
@@ -25,6 +26,195 @@ const advisorsSchema = {
     "url": "https://www.linkedin.com/in/arin-frye/",
   },
 };
+
+
+const inputClass =
+  "w-full bg-zinc-900/50 border border-zinc-800 px-4 py-2.5 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:border-rebel-red/50 transition-colors";
+
+function Field({
+  label,
+  required,
+  hint,
+  children,
+}: {
+  label: string;
+  required?: boolean;
+  hint?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <label className="block">
+      <span className="block text-sm text-zinc-300 mb-1.5">
+        {label}
+        {required ? <span className="text-rebel-red"> *</span> : null}
+      </span>
+      {children}
+      {hint ? <span className="block mt-1.5 text-xs text-zinc-500">{hint}</span> : null}
+    </label>
+  );
+}
+
+function AdvisorInterestForm() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [linkedin, setLinkedin] = useState("");
+  const [role, setRole] = useState("");
+  const [why, setWhy] = useState("");
+  const [websiteUrl, setWebsiteUrl] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (websiteUrl.trim()) return;
+    if (!name.trim() || !email.trim()) return;
+
+    setStatus("loading");
+    setErrorMsg("");
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/richie@rebeltalentsystems.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          linkedin: linkedin.trim() || "(not provided)",
+          current_role: role.trim() || "(not provided)",
+          why: why.trim() || "(not provided)",
+          _subject: "Advisor interest - Rebel Talent Systems",
+          _template: "table",
+          _captcha: "false",
+          source: "rebeltalentsystems.com/advisors#advisor-interest",
+        }),
+      });
+      const data = (await res.json().catch(() => ({}))) as { success?: string; message?: string };
+      if (!res.ok) {
+        throw new Error(data.message || "Submit failed");
+      }
+      setStatus("success");
+      setName("");
+      setEmail("");
+      setLinkedin("");
+      setRole("");
+      setWhy("");
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Email richie@rebeltalentsystems.com instead.",
+      );
+    }
+  };
+
+  if (status === "success") {
+    return (
+      <div
+        data-testid="advisor-interest-success"
+        className="border border-zinc-800 bg-zinc-950/50 p-6 sm:p-8"
+      >
+        <p className="font-mono text-rebel-red text-[11px] tracking-[0.22em] uppercase mb-3">Sent</p>
+        <h3 className="font-display text-2xl font-bold text-white tracking-tight mb-3">Got it.</h3>
+        <p className="text-zinc-300 text-sm sm:text-base leading-relaxed">
+          Your note is in Richie&rsquo;s inbox. He will reply if there is a fit.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-5" data-testid="form-advisor-interest">
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="advisor_website_url">Leave this empty</label>
+        <input
+          id="advisor_website_url"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={websiteUrl}
+          onChange={(e) => setWebsiteUrl(e.target.value)}
+        />
+      </div>
+
+      <div className="grid sm:grid-cols-2 gap-5">
+        <Field label="Your name" required>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            autoComplete="name"
+            className={inputClass}
+            data-testid="input-advisor-name"
+          />
+        </Field>
+        <Field label="Email" required>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            autoComplete="email"
+            className={inputClass}
+            data-testid="input-advisor-email"
+          />
+        </Field>
+      </div>
+
+      <div className="grid sm:grid-cols-2 gap-5">
+        <Field label="LinkedIn" hint="Profile URL if you have one">
+          <input
+            type="url"
+            value={linkedin}
+            onChange={(e) => setLinkedin(e.target.value)}
+            placeholder="https://www.linkedin.com/in/..."
+            className={inputClass}
+            data-testid="input-advisor-linkedin"
+          />
+        </Field>
+        <Field label="Current role" hint="Title and company">
+          <input
+            type="text"
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            placeholder="VP Ops, Example Co"
+            className={inputClass}
+            data-testid="input-advisor-role"
+          />
+        </Field>
+      </div>
+
+      <Field label="Why advise Rebel?" hint="A few sentences is enough">
+        <textarea
+          value={why}
+          onChange={(e) => setWhy(e.target.value)}
+          rows={4}
+          className={`${inputClass} resize-y min-h-[6rem]`}
+          data-testid="input-advisor-why"
+        />
+      </Field>
+
+      {status === "error" ? (
+        <p className="text-red-400 text-sm" data-testid="advisor-interest-error">
+          {errorMsg || "Something went wrong. Try again or email richie@rebeltalentsystems.com."}
+        </p>
+      ) : null}
+
+      <button
+        type="submit"
+        disabled={status === "loading"}
+        data-testid="button-advisor-interest-submit"
+        className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-semibold text-sm sm:text-base px-6 py-3.5 rounded-full transition-colors disabled:opacity-50"
+      >
+        {status === "loading" ? "Sending..." : "Send interest"}
+        <ArrowRight className="w-4 h-4 shrink-0" />
+      </button>
+    </form>
+  );
+}
 
 export default function Advisors() {
   return (
@@ -172,9 +362,16 @@ export default function Advisors() {
               <p className="font-mono text-zinc-500 text-[11px] tracking-[0.22em] uppercase mb-3">
                 Open
               </p>
-              <h3 className="font-display text-2xl font-bold text-zinc-300 tracking-tight">
+              <h3 className="font-display text-2xl font-bold text-zinc-300 tracking-tight mb-4">
                 More advisors joining.
               </h3>
+              <a
+                href="#advisor-interest"
+                data-testid="link-advisors-interested"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-rebel-red transition-colors no-underline"
+              >
+                Interested? <ArrowRight className="w-4 h-4 shrink-0" />
+              </a>
             </aside>
           </div>
 
@@ -195,6 +392,34 @@ export default function Advisors() {
             </Link>
             .
           </p>
+        </div>
+      </section>
+
+
+      <section
+        id="advisor-interest"
+        data-testid="section-advisor-interest"
+        className="py-16 sm:py-24 border-t border-zinc-900 bg-zinc-950 scroll-mt-24"
+      >
+        <div className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-12">
+          <p className="font-mono text-rebel-red text-[11px] tracking-[0.22em] uppercase mb-3">
+            Interested?
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
+            Advise Rebel.
+          </h2>
+          <div className="space-y-4 text-zinc-300 text-sm sm:text-base leading-relaxed mb-10">
+            <p>
+              A Rebel strategic advisor is not a board seat and not a full-time hire. You lend judgment, introductions, and hard-won pattern recognition while we place people and build hiring systems for commercial and cleared teams.
+            </p>
+            <p>
+              Fit looks like operators and leaders who have scaled teams, won hard seats, or opened markets we care about. You stay in your day role. We reach out when your lens actually moves a search or a client conversation.
+            </p>
+            <p>
+              Fill this out and it emails Richie directly. No automated sequence. He reads it himself.
+            </p>
+          </div>
+          <AdvisorInterestForm />
         </div>
       </section>
 
