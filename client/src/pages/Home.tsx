@@ -142,10 +142,10 @@ export default function Home() {
   return (
     <PageLayout>
       <PageSEO
-        title="Fill the seat. Keep the system. | Rebel Talent Systems"
+        title="Recruiting that scales with the company you're becoming. | Rebel Talent Systems"
         description="We fill the open role and leave the hiring system. Contingent search or an embedded desk, for Series A through C and defense teams. Book a strategy call."
         path="/"
-        ogTitle="Fill the seat. Keep the system. | Rebel Talent Systems"
+        ogTitle="Recruiting that scales with the company you're becoming. | Rebel Talent Systems"
         ogDescription="We fill the open role and leave the hiring system. Contingent search or an embedded desk, for Series A through C and defense teams. Book a strategy call."
         ogImage="og-home.png"
         schemas={[homepageSchema]}
@@ -167,8 +167,9 @@ export default function Home() {
             className="font-display font-black text-white leading-[1.02] tracking-tight max-w-4xl"
             style={{ fontSize: "clamp(2.4rem, 5.4vw, 4.75rem)" }}
           >
-            Fill the seat.
-            <span className="block text-rebel-red">Keep the system.</span>
+            <span className="block">Recruiting that scales</span>
+            <span className="block">with the company</span>
+            <span className="block text-rebel-red">you&rsquo;re becoming.</span>
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-lg text-zinc-300 max-w-2xl leading-relaxed">
             We fill open roles for technical, go-to-market, and operations teams. Contingent search is for one seat. Embedded recruiting is for the function you still need after we leave. We work with Series A through C companies and with defense teams, cleared and uncleared.
