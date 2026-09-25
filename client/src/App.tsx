@@ -28,6 +28,7 @@ const Certification = lazy(() => import("@/pages/Certification"));
 const Advisory = lazy(() => import("@/pages/Advisory"));
 const Fractional = lazy(() => import("@/pages/Fractional"));
 const Cleared = lazy(() => import("@/pages/Cleared"));
+const Advisors = lazy(() => import("@/pages/Advisors"));
 // Safe addition — Series A-C startup search landing page (search desk inbound)
 const Startups = lazy(() => import("@/pages/Startups"));
 const StrategyCall = lazy(() => import("@/pages/StrategyCall"));
@@ -50,6 +51,7 @@ function Router() {
       <Route path="/contingent" component={Contingent} />
       <Route path="/fractional" component={Fractional} />
       <Route path="/cleared" component={Cleared} />
+      <Route path="/advisors" component={Advisors} />
       {/* /defense is the old keyword path. Primary hub is /cleared. */}
       <Route path="/defense">{() => { window.location.replace("/cleared"); return null; }}</Route>
       {/* /how-it-works merged into /services. 301 to the consolidated page. */}

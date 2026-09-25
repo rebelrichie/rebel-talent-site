@@ -47,6 +47,7 @@ export default function Footer() {
               <Link href="/advisory" data-testid="link-footer-advisory" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Advisory</Link>
               <Link href="/testimonials" data-testid="link-footer-testimonials" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Testimonials</Link>
               <Link href="/case-studies" data-testid="link-footer-case-studies" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Case Studies</Link>
+              <Link href="/advisors" data-testid="link-footer-advisors" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Advisors</Link>
               <Link href="/about" data-testid="link-footer-about" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">About</Link>
               <Link href="/about/vision" data-testid="link-footer-vision" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Vision</Link>
             </div>
