@@ -154,11 +154,11 @@ export default function Home() {
       <section data-testid="section-hero" className="space-hero space-hero--home relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
-          style={
+          style={{
             zIndex: 3,
             background:
               "radial-gradient(ellipse 70% 50% at 0% 0%, rgba(247,26,41,0.08) 0%, transparent 55%)",
-          }
+          }}
         />
         <div className="space-hero__command" aria-hidden="true" />
         <div className="space-hero__grid" aria-hidden="true" />
