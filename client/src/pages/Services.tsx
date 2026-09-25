@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CalendarClock, Compass, Crosshair, Waypoints } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 
@@ -55,6 +55,9 @@ const serviceSchemas = [
 const OFFERINGS = [
   {
     id: "contingent",
+    index: "01",
+    primary: true,
+    icon: Crosshair,
     kicker: "Contingent",
     title: "One role, one fee.",
     body: "You set the salary range. We lock a flat fee to that band before the search starts, and you pay when the candidate accepts. There is no deposit and no percentage of salary. The contingent page has the long version.",
@@ -63,14 +66,10 @@ const OFFERINGS = [
     ctaHref: "/strategy-call?engagement=contingent",
   },
   {
-    id: "retained",
-    kicker: "Retained",
-    title: "A defined role, with a deadline.",
-    body: "The fee is $10K up front and $20K on start. It fits executive and specialized technical searches, cleared or uncleared. The search stays with us from the day it opens through the accepted offer.",
-    ctaHref: "/strategy-call?engagement=retained",
-  },
-  {
     id: "embedded",
+    index: "02",
+    primary: true,
+    icon: Waypoints,
     kicker: "Embedded / Fractional",
     title: "The desk, then the handoff.",
     body: "A monthly retainer, with three months to start. We run recruiting from inside the company, on your tools, with your hiring managers. When the engagement ends, you keep the ATS setup, the scorecards, and the playbooks.",
@@ -79,7 +78,20 @@ const OFFERINGS = [
     ctaHref: "/strategy-call?engagement=fractional",
   },
   {
+    id: "retained",
+    index: "03",
+    primary: false,
+    icon: CalendarClock,
+    kicker: "Retained",
+    title: "A defined role, with a deadline.",
+    body: "The fee is $10K up front and $20K on start. It fits executive and specialized technical searches, cleared or uncleared. The search stays with us from the day it opens through the accepted offer.",
+    ctaHref: "/strategy-call?engagement=retained",
+  },
+  {
     id: "advisory",
+    index: "04",
+    primary: false,
+    icon: Compass,
     kicker: "Advisory",
     title: "The plan, before the search.",
     body: "This is the work before a search: a hiring plan, compensation, interview design, or a hard look at the tools. The scope is fixed and priced up front. It is for teams that need a judgment, not a slate of candidates.",
@@ -106,12 +118,43 @@ export default function Services() {
         ]}
       />
 
-      <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
+      <section data-testid="section-hero" className="space-hero space-hero--services relative overflow-hidden min-h-[32rem] sm:min-h-[36rem]">
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse 70% 45% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%)" }}
+          style={{
+            zIndex: 3,
+            background: "radial-gradient(ellipse 70% 50% at 0% 0%, rgba(247,26,41,0.07) 0%, transparent 55%)",
+          }}
         />
-        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-28 pb-12 sm:pb-16">
+        <div className="space-hero__command" aria-hidden="true" />
+        <div className="space-hero__grid" aria-hidden="true" />
+        <svg
+          className="space-hero__nodes"
+          viewBox="0 0 1200 700"
+          preserveAspectRatio="xMaxYMid slice"
+          aria-hidden="true"
+        >
+          <g fill="none" stroke="rgba(150, 198, 255, 0.62)" strokeWidth="1.05">
+            <line x1="860" y1="150" x2="990" y2="110" />
+            <line x1="990" y1="110" x2="1105" y2="190" />
+            <line x1="860" y1="150" x2="980" y2="250" />
+            <line x1="980" y1="250" x2="1105" y2="190" />
+            <line x1="1105" y1="190" x2="1148" y2="310" />
+            <line x1="980" y1="250" x2="1040" y2="390" />
+            <line x1="1040" y1="390" x2="1148" y2="310" />
+          </g>
+          <g>
+            <circle cx="860" cy="150" r="1.6" fill="rgba(198, 220, 255, 0.8)" />
+            <circle cx="990" cy="110" r="1.4" fill="rgba(186, 164, 255, 0.75)" />
+            <circle cx="1105" cy="190" r="2.2" fill="rgba(210, 230, 255, 0.9)" />
+            <circle cx="980" cy="250" r="1.7" fill="rgba(198, 220, 255, 0.8)" />
+            <circle cx="1148" cy="310" r="1.5" fill="rgba(186, 164, 255, 0.72)" />
+            <circle cx="1040" cy="390" r="2" fill="rgba(210, 230, 255, 0.88)" />
+          </g>
+        </svg>
+        <div className="space-hero__scan" aria-hidden="true" />
+        <div className="space-hero__scrim" aria-hidden="true" />
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-28 pb-16 sm:pb-20">
           <p className="font-mono text-[11px] sm:text-xs tracking-[0.28em] uppercase text-zinc-400 mb-6 sm:mb-8">
             How we engage
           </p>
@@ -128,19 +171,29 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="py-14 sm:py-20 border-t border-zinc-900" style={{ background: "#0E0D11" }}>
+      <section className="engage-band py-16 sm:py-24" style={{ background: "#0E0D11" }}>
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
-          <div className="grid md:grid-cols-2 gap-4 sm:gap-5">
-            {OFFERINGS.map((offer) => (
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
+            {OFFERINGS.map((offer) => {
+              const Icon = offer.icon;
+              return (
               <article
                 key={offer.id}
                 id={offer.id}
                 data-testid={`card-service-${offer.id}`}
-                className="flex flex-col h-full border border-zinc-800 border-t-2 border-t-rebel-red bg-zinc-900/40 p-6 sm:p-8"
+                className={`engage-card flex flex-col h-full p-6 sm:p-8 ${offer.primary ? "engage-card--primary" : ""}`}
               >
-                <p className="font-mono text-rebel-red text-[11px] tracking-[0.22em] uppercase mb-3">
-                  {offer.kicker}
-                </p>
+                <div className="flex items-center justify-between gap-3 mb-5">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <span className="engage-card__mark" aria-hidden="true">
+                      <Icon className="w-4 h-4" strokeWidth={1.75} />
+                    </span>
+                    <p className="font-mono text-rebel-red text-[11px] tracking-[0.22em] uppercase">
+                      {offer.kicker}
+                    </p>
+                  </div>
+                  <span className="engage-card__index font-mono text-[11px] tracking-[0.2em] shrink-0">{offer.index}</span>
+                </div>
                 <h2 className="font-display text-2xl font-bold text-white tracking-tight mb-4">
                   {offer.title}
                 </h2>
@@ -166,10 +219,11 @@ export default function Services() {
                   )}
                 </div>
               </article>
-            ))}
+              );
+            })}
           </div>
 
-          <p className="mt-10 text-sm sm:text-base text-zinc-400 leading-relaxed max-w-3xl">
+          <p className="mt-12 sm:mt-14 pt-8 border-t border-white/10 text-sm sm:text-base text-zinc-400 leading-relaxed max-w-3xl">
             Roles run from individual contributor through executive, across technical, go-to-market, and operations work. Series A through C, and defense teams. Cleared hiring, including Secret, TS, and TS/SCI, stays on its{" "}
             <Link
               href="/cleared"
@@ -182,8 +236,9 @@ export default function Services() {
         </div>
       </section>
 
-      <section data-testid="section-proof" className="py-14 sm:py-20 border-t border-zinc-900 bg-rebel-space">
-        <div className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-12">
+      <section data-testid="section-proof" className="engage-band engage-surface py-16 sm:py-24">
+        <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-6 lg:px-12">
+          <div className="engage-panel engage-panel--proof px-6 py-8 sm:px-10 sm:py-10">
           <p className="font-mono text-rebel-red text-[11px] tracking-[0.22em] uppercase mb-3">
             Proof
           </p>
@@ -199,11 +254,13 @@ export default function Services() {
           >
             See the work <ArrowRight className="w-4 h-4" />
           </Link>
+          </div>
         </div>
       </section>
 
-      <section data-testid="section-cta" className="py-16 sm:py-24 border-t border-zinc-900" style={{ background: "#0E0D11" }}>
-        <div className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-12">
+      <section data-testid="section-cta" className="engage-band engage-surface py-16 sm:py-24">
+        <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-6 lg:px-12">
+          <div className="engage-panel engage-panel--cta px-6 py-8 sm:px-10 sm:py-12">
           <p className="font-mono text-rebel-red text-[11px] tracking-[0.22em] uppercase mb-3">
             How to start
           </p>
@@ -220,6 +277,7 @@ export default function Services() {
           >
             Book a strategy call <ArrowRight className="w-4 h-4 shrink-0" />
           </Link>
+          </div>
         </div>
       </section>
     </PageLayout>
