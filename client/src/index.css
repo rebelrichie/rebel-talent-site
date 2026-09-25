@@ -281,8 +281,9 @@
   animation: starTwinkle 6s ease-in-out infinite alternate;
 }
 
-/* Home hero only. Platform keeps the base .space-hero nebula + starfield.
-   Extra layers sit under the copy: ops plate, orbital grid, constellation, scrim. */
+/* Home hero. Platform keeps the base .space-hero nebula + starfield.
+   Extra layers sit under the copy: ops plate, orbital grid, constellation, scrim.
+   How we engage (space-hero--services) shares these layers and turns them down. */
 .space-hero.space-hero--home {
   background-image:
     linear-gradient(to bottom, rgba(8, 7, 10, 0.08) 0%, rgba(8, 7, 10, 0.22) 52%, #08070A 100%),
@@ -291,17 +292,23 @@
 }
 
 .space-hero--home .space-hero__command,
+.space-hero--services .space-hero__command,
 .space-hero--home .space-hero__grid,
+.space-hero--services .space-hero__grid,
 .space-hero--home .space-hero__nodes,
+.space-hero--services .space-hero__nodes,
 .space-hero--home .space-hero__scan,
-.space-hero--home .space-hero__scrim {
+.space-hero--services .space-hero__scan,
+.space-hero--home .space-hero__scrim,
+.space-hero--services .space-hero__scrim {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
 /* Faint ops-room plate. Screen blend keeps the dark room quiet and lets screen glow through. */
-.space-hero--home .space-hero__command {
+.space-hero--home .space-hero__command,
+.space-hero--services .space-hero__command {
   z-index: 0;
   background-image: url('/hero-command.jpg');
   background-size: cover;
@@ -314,7 +321,8 @@
 }
 
 /* Cool tactical grid + horizon lines. Right-weighted so type stays clean. */
-.space-hero--home .space-hero__grid {
+.space-hero--home .space-hero__grid,
+.space-hero--services .space-hero__grid {
   z-index: 3;
   background-image:
     repeating-linear-gradient(
@@ -337,7 +345,8 @@
   mask-image: linear-gradient(90deg, transparent 0%, transparent 54%, rgba(0, 0, 0, 0.85) 72%, #000 100%);
 }
 
-.space-hero--home .space-hero__nodes {
+.space-hero--home .space-hero__nodes,
+.space-hero--services .space-hero__nodes {
   z-index: 3;
   width: 100%;
   height: 100%;
@@ -346,7 +355,8 @@
   mask-image: linear-gradient(90deg, transparent 0%, transparent 52%, #000 70%);
 }
 
-.space-hero--home .space-hero__scan {
+.space-hero--home .space-hero__scan,
+.space-hero--services .space-hero__scan {
   z-index: 3;
   top: -8%;
   height: 22%;
@@ -364,7 +374,8 @@
 }
 
 /* Darkness sits behind the tactical marks and over the type column. */
-.space-hero--home .space-hero__scrim {
+.space-hero--home .space-hero__scrim,
+.space-hero--services .space-hero__scrim {
   z-index: 2;
   background:
     radial-gradient(ellipse 72% 78% at 22% 46%, rgba(8, 7, 10, 0.82) 0%, rgba(8, 7, 10, 0.58) 46%, rgba(8, 7, 10, 0.16) 70%, transparent 82%),
@@ -386,6 +397,192 @@
   .space-hero--home .space-hero__grid {
     opacity: 0.7;
   }
+}
+
+/* How we engage. Same layers as the home hero, held quieter so the short
+   type column stays readable. Home values above are unchanged. */
+.space-hero.space-hero--services {
+  background-image:
+    linear-gradient(to bottom, rgba(8, 7, 10, 0.10) 0%, rgba(8, 7, 10, 0.16) 68%, rgba(8, 7, 10, 0.88) 100%),
+    linear-gradient(to right, rgba(8, 7, 10, 0.62) 0%, rgba(8, 7, 10, 0.16) 40%, transparent 68%),
+    url('/hero-banner.jpg');
+  /* Home's tall hero zooms this panorama via cover. Match that crop on a shorter band,
+     with the bright core sitting to the right of the type. */
+  background-size: auto, auto, 280% auto;
+  background-position: center top, center top, 46% 38%;
+}
+
+.space-hero--services .space-hero__command {
+  opacity: 0.1;
+}
+
+.space-hero--services .space-hero__grid {
+  opacity: 0.72;
+}
+
+.space-hero--services .space-hero__nodes {
+  opacity: 0.72;
+}
+
+.space-hero--services .space-hero__scan {
+  opacity: 0.7;
+  animation-duration: 36s;
+}
+
+.space-hero--services .space-hero__scrim {
+  background:
+    radial-gradient(ellipse 62% 76% at 18% 46%, rgba(8, 7, 10, 0.86) 0%, rgba(8, 7, 10, 0.48) 38%, transparent 66%),
+    linear-gradient(180deg, rgba(8, 7, 10, 0.06) 0%, transparent 14%, transparent 76%, rgba(8, 7, 10, 0.92) 100%);
+}
+
+@media (max-width: 767px) {
+  .space-hero--services .space-hero__scrim {
+    background:
+      linear-gradient(180deg, rgba(8, 7, 10, 0.58) 0%, rgba(8, 7, 10, 0.80) 16%, rgba(8, 7, 10, 0.84) 72%, #08070A 100%);
+  }
+  .space-hero--services .space-hero__nodes {
+    opacity: 0.26;
+  }
+  .space-hero--services .space-hero__command {
+    opacity: 0.04;
+  }
+  .space-hero--services .space-hero__grid {
+    opacity: 0.34;
+  }
+}
+
+/* Offering cards and the closing bands on /services. */
+.engage-card {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 28%),
+    #0E0D11;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 1px solid rgba(247, 26, 41, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    0 18px 40px -28px rgba(0, 0, 0, 0.85);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.engage-card--primary {
+  background:
+    linear-gradient(180deg, rgba(247, 26, 41, 0.11), transparent 46%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 22%),
+    #100e12;
+  border-color: rgba(247, 26, 41, 0.28);
+  border-top: 2px solid #F71A29;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 22px 48px -28px rgba(247, 26, 41, 0.32);
+}
+
+.engage-card__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  flex: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #C9C5D0;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.engage-card--primary .engage-card__mark {
+  border-color: rgba(247, 26, 41, 0.45);
+  color: #F71A29;
+  background: rgba(247, 26, 41, 0.08);
+}
+
+.engage-card__index {
+  color: rgba(201, 197, 208, 0.5);
+  font-variant-numeric: tabular-nums;
+}
+
+.engage-card--primary .engage-card__index {
+  color: rgba(247, 26, 41, 0.8);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .engage-card:hover {
+    border-color: rgba(247, 26, 41, 0.42);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 20px 44px -24px rgba(0, 0, 0, 0.9),
+      0 0 32px -10px rgba(247, 26, 41, 0.28);
+    transform: translateY(-2px);
+  }
+
+  .engage-card--primary:hover {
+    border-color: rgba(247, 26, 41, 0.55);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.07),
+      0 22px 50px -22px rgba(0, 0, 0, 0.9),
+      0 0 42px -8px rgba(247, 26, 41, 0.4);
+  }
+}
+
+.engage-band {
+  position: relative;
+}
+
+.engage-band::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(247, 26, 41, 0.45), rgba(140, 206, 236, 0.28), transparent);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.engage-surface {
+  position: relative;
+  background:
+    radial-gradient(ellipse 42% 55% at 100% 0%, rgba(126, 210, 236, 0.05), transparent 60%),
+    radial-gradient(ellipse 36% 50% at 0% 100%, rgba(247, 26, 41, 0.055), transparent 55%),
+    #08070A;
+}
+
+.engage-surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  background-image:
+    linear-gradient(rgba(140, 206, 236, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(140, 206, 236, 0.08) 1px, transparent 1px);
+  background-size: 84px 84px;
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 16%, #000 84%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 16%, #000 84%, transparent);
+}
+
+.engage-panel {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(8, 7, 10, 0.72);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    0 24px 48px -32px rgba(0, 0, 0, 0.85);
+}
+
+.engage-panel--proof {
+  border-left: 2px solid #F71A29;
+}
+
+.engage-panel--cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(247, 26, 41, 0.75), transparent);
 }
 
 .space-card {
@@ -688,6 +885,7 @@ button,
 @media (prefers-reduced-motion: reduce) {
   .bg-zinc-950.border.border-zinc-800,
   .space-card,
+  .engage-card,
   .bg-rebel-red,
   a,
   button {
@@ -695,11 +893,13 @@ button,
   }
   .bg-zinc-950.border.border-zinc-800:hover,
   .space-card:hover,
+  .engage-card:hover,
   .bg-rebel-red:hover {
     transform: none !important;
   }
   .space-hero::before,
   .space-hero--home .space-hero__scan,
+  .space-hero--services .space-hero__scan,
   .space-hero--home .space-hero__satellite {
     animation: none !important;
   }
