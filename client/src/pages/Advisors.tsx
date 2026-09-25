@@ -375,23 +375,6 @@ export default function Advisors() {
             </aside>
           </div>
 
-          <p className="mt-10 text-sm sm:text-base text-zinc-400 leading-relaxed max-w-3xl">
-            Cleared hiring stays on its{" "}
-            <Link
-              href="/cleared"
-              className="text-zinc-200 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red"
-            >
-              own page
-            </Link>
-            . Contingent and embedded recruiting stay on{" "}
-            <Link
-              href="/services"
-              className="text-zinc-200 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red"
-            >
-              How we engage
-            </Link>
-            .
-          </p>
         </div>
       </section>
 
