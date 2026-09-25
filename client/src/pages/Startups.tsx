@@ -56,7 +56,7 @@ const OFFERINGS = [
   {
     title: "Retained",
     tag: "COMMITTED SEARCH",
-    desc: "$10K up front and $20K on start. The full team commits from day one. Built for the hires you cannot afford to get wrong.",
+    desc: "50% up front and 50% at placement. The full team commits from day one. Built for the hires you cannot afford to get wrong.",
     bullets: [
       "VP Sales, VP Engineering, and other leadership searches",
       "Defined role, defined deadline, weekly reporting",

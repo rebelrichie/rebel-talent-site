@@ -62,7 +62,7 @@ const homepageSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Retained Search",
-          "description": "A defined role with a deadline. $10K up front and $20K on start.",
+          "description": "A defined role with a deadline. 50% up front and 50% at placement.",
           "url": "https://rebeltalentsystems.com/services"
         }
       },

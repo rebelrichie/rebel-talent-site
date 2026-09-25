@@ -276,7 +276,7 @@ export default function CaseStudies() {
               360 applications in 24 hours. Every company thinks that's good news. It isn't. It means your job post attracted a flood of AI-optimized applications, polished, technically fluent, confident on paper. It means your hiring team just got a second job. And it means the person you actually need probably isn't in that pile.
             </p>
             <p className="text-zinc-400 text-sm mb-8">
-              Retained search. $10K up front and $20K on start. What this engagement proved about why posting and waiting doesn't work anymore.
+              Retained search. 50% up front and 50% at placement. What this engagement proved about why posting and waiting doesn't work anymore.
             </p>
             </ScrollReveal>
 
@@ -432,7 +432,7 @@ export default function CaseStudies() {
                   { label: "Meetings before execution", value: "1" },
                   { label: "Days to first pipeline", value: "1" },
                   { label: "Cost vs. contingency agency", value: "~50% less" },
-                  { label: "Structure", value: "$10K up front, $20K on start" },
+                  { label: "Structure", value: "50% up front, 50% at placement" },
                 ].map((s) => (
                   <div key={s.label} className="bg-zinc-900 border border-zinc-800 p-4 text-center">
                     <div className="font-display text-xl font-bold text-rebel-red mb-1">{s.value}</div>

@@ -45,9 +45,9 @@ const STRATEGY_COPY: Record<string, { eyebrow: string; title: string; descriptio
   retained: {
     eyebrow: "RETAINED SEARCH",
     title: "Start a retained search | Rebel Talent",
-    description: "A defined role with a deadline. $10K up front and $20K on start.",
+    description: "A defined role with a deadline. 50% up front and 50% at placement.",
     headline: "Start a retained search.",
-    deck: "A defined role with a deadline. $10K up front and $20K on start. Name, email, and company get you through.",
+    deck: "A defined role with a deadline. 50% up front and 50% at placement. Name, email, and company get you through.",
     footer: "Retained notes come to the team. No list-building. FOCI-sensitive work is supported.",
   },
   fractional: {

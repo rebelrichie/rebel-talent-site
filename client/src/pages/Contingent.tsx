@@ -31,7 +31,7 @@ const FAQS = [
   },
   {
     q: "How is this different from retained search?",
-    a: "Retained is for a date that cannot slip. $10K up front and $20K on start, and retained placements include a guarantee. Contingent is the search without a retainer and without a deposit. A contingent guarantee applies only if we agree to one in writing. If the date cannot slip, start on retained.",
+    a: "Retained is for a date that cannot slip. 50% up front and 50% at placement, and retained placements include a guarantee. Contingent is the search without a retainer and without a deposit. A contingent guarantee applies only if we agree to one in writing. If the date cannot slip, start on retained.",
   },
   {
     q: "How is this different from embedded or fractional recruiting?",
@@ -92,7 +92,7 @@ const COMPARE = [
   {
     title: "Retained",
     tag: "DEFINED ROLE",
-    body: "The date cannot slip. $10K up front and $20K on start.",
+    body: "The date cannot slip. 50% up front and 50% at placement.",
     href: "/services",
   },
   {
