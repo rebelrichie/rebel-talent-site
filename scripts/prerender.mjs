@@ -32,6 +32,7 @@ const ROUTES = [
   "/startups",
   "/fractional",
   "/cleared",
+  "/advisors",
 ];
 
 // Sitemap entries for the curated static routes. Kept here (not read from the
@@ -48,6 +49,7 @@ const SITEMAP_STATIC = [
   { path: "/contingent", changefreq: "monthly", priority: "0.95" },
   { path: "/fractional", changefreq: "monthly", priority: "0.9" },
   { path: "/cleared", changefreq: "monthly", priority: "0.9" },
+  { path: "/advisors", changefreq: "monthly", priority: "0.7" },
   { path: "/case-studies", changefreq: "monthly", priority: "0.9" },
   { path: "/testimonials", changefreq: "monthly", priority: "0.8" },
   { path: "/blog", changefreq: "weekly", priority: "0.8" },

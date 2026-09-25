@@ -23,6 +23,12 @@ const NAV = [
     active: (path: string) => path === "/case-studies" || path === "/results",
   },
   {
+    href: "/advisors",
+    label: "Advisors",
+    testId: "advisors",
+    active: (path: string) => path === "/advisors",
+  },
+  {
     href: "/about",
     label: "About",
     testId: "about",
