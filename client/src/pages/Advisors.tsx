@@ -18,10 +18,12 @@ const advisorsSchema = {
     "name": "J. Arin Frye",
     "jobTitle": "Strategic Advisor, Rebel Talent Systems",
     "affiliation": [
+      { "@type": "Organization", "name": "EarthDaily Federal" },
       { "@type": "Organization", "name": "ScaleByrd" },
       { "@type": "Organization", "name": "Waveguide" },
     ],
-    "url": "https://rebeltalentsystems.com/advisors",
+    "sameAs": ["https://www.linkedin.com/in/arin-frye/"],
+    "url": "https://www.linkedin.com/in/arin-frye/",
   },
 };
 
@@ -30,10 +32,10 @@ export default function Advisors() {
     <PageLayout>
       <PageSEO
         title="Advisors | Rebel Talent Systems"
-        description="Rebel Talent advisors add judgment, network, and depth across cleared and commercial work. J. Arin Frye is Strategic Advisor, with ScaleByrd and Waveguide."
+        description="Rebel Talent advisors add judgment, network, and depth across cleared and commercial work. J. Arin Frye is Strategic Advisor. VP Operations at EarthDaily Federal and founder of ScaleByrd."
         path="/advisors"
         ogTitle="Advisors | Rebel Talent Systems"
-        ogDescription="Judgment, network, and depth across cleared and commercial work. J. Arin Frye, Strategic Advisor. ScaleByrd and Waveguide."
+        ogDescription="Judgment, network, and depth across cleared and commercial work. J. Arin Frye, Strategic Advisor. EarthDaily Federal and ScaleByrd."
         ogImage="og-services.png"
         schemas={[advisorsSchema]}
         breadcrumbs={[
@@ -145,12 +147,23 @@ export default function Advisors() {
                     J. Arin Frye
                   </h3>
                   <p className="mt-1 text-sm text-zinc-200">Strategic Advisor</p>
-                  <p className="mt-1 text-sm text-zinc-400">ScaleByrd / Waveguide</p>
+                  <p className="mt-1 text-sm text-zinc-400">
+                    VP Operations, EarthDaily Federal · Founder, ScaleByrd
+                  </p>
                 </div>
               </div>
               <p className="mt-6 text-zinc-300 text-sm sm:text-base leading-relaxed">
-                An operator with ScaleByrd and Waveguide. She advises Rebel.
+                Twenty years as an ops leader across defense, intelligence, and technical programs. She founded ScaleByrd to help defense and IC startups scale through cross-functional ops, program leadership, org design, and executive coaching. Day role is VP Operations at EarthDaily Federal. Based in Reston, VA. Credentials include PMP, CSM, and SHRM-SCP. Network across Waveguide and adjacent GEOINT operators. She advises Rebel.
               </p>
+              <a
+                href="https://www.linkedin.com/in/arin-frye/"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="link-advisor-arin-linkedin"
+                className="mt-6 inline-flex text-sm font-semibold text-zinc-200 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red"
+              >
+                LinkedIn profile
+              </a>
             </article>
 
             <aside
