@@ -14,6 +14,12 @@ if [[ ! -f dist/public/services/index.html || ! -f dist/public/sitemap.xml ]]; t
   exit 1
 fi
 
+# The job feed must be real XML. A missing file falls through to the SPA shell.
+if [[ ! -f dist/public/feeds/jobs.xml ]] || ! head -c 80 dist/public/feeds/jobs.xml | grep -q '<?xml'; then
+  echo "✗ Job feed missing or not XML (dist/public/feeds/jobs.xml). Aborting, nothing deployed." >&2
+  exit 1
+fi
+
 # Gate 2: prove the prerender captured REAL rendered content, not a Suspense/SPA
 # shell. The copyright line is footer text that only exists once React has rendered,
 # so its presence on both an eager route (/) and a lazy route (/services, /pricing)

@@ -1,0 +1,7 @@
+name = "jobs-feed"
+main = "jobs-feed-worker.js"
+compatibility_date = "2026-06-01"
+
+routes = [
+  { pattern = "rebeltalentsystems.com/feeds/jobs.xml", zone_name = "rebeltalentsystems.com" }
+]
