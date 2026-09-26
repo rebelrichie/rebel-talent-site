@@ -22,7 +22,7 @@ import {
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
-// Safe addition — human-readable job URLs (slug + UUID)
+// Safe addition. Human-readable job URLs (slug + UUID)
 import { jobPath } from "@/lib/jobSlug";
 
 const JOBS_API = "https://rebelcommand.dev/api/public/jobs";
@@ -63,7 +63,7 @@ function deriveClearance(j: Job): string | null {
 }
 
 // Map department text to a smaller set of buyer-side categories.
-// Safe addition — patterns are word-bounded so "Linux" no longer matches /ux/
+// Safe addition. Patterns are word-bounded so "Linux" no longer matches /ux/
 // and "Recruiter" no longer matches /ui/. Recruiting titles are checked before
 // product/design, and Engineering now catches admins, network, systems, and
 // scientist roles that previously had no Function chip at all.
@@ -232,7 +232,7 @@ export default function Jobs() {
     <PageLayout>
       <PageSEO
         title="Open Roles: Cleared, AI/ML & GTM Hiring | Rebel Talent"
-        description="Open full-time, fractional, and contract roles: Forward Deployed Engineers, AI/ML, GTM, and cleared (TS/SCI) search. Hand-vetted, response within 48 hours."
+        description="Open full-time, fractional, and contract roles: Forward Deployed Engineers, AI/ML, GTM, and cleared (TS/SCI) search. Hand-vetted, response within two business days."
         path="/jobs"
         schemas={schemas}
         breadcrumbs={[

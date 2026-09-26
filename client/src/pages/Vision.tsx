@@ -97,7 +97,7 @@ export default function Vision() {
                 A small number of exceptional recruiters, each running a full desk, doing the work of four. Not a body shop. Not a hundred people billing hours against a spreadsheet.
               </p>
               <p>
-                The leverage is internal. We built Rebel OS because nothing off the shelf does what this work actually needs, and every search we run makes it sharper. Clients do not run the stack. They get the outcomes and the reporting, and the searches close faster than they should.
+                The leverage is internal. We built Rebel Command because nothing off the shelf does what this work actually needs, and every search we run makes it sharper. Clients do not run the stack. They get the outcomes and the reporting, and the searches close faster than they should.
               </p>
             </div>
           </ScrollReveal>
@@ -138,8 +138,8 @@ export default function Vision() {
                   body: "Sending more resumes is not the same as solving your hiring, and we refuse to confuse the two.",
                 },
                 {
-                  head: "We will not work for free.",
-                  body: "Every search we run is scoped, priced, and committed to on both sides before we start.",
+                  head: "We will not start without a priced agreement.",
+                  body: "Every search is scoped, priced, and agreed on both sides before we start. That agreement is the scope and the price. It is not a cash deposit. Contingent work is billed on start, with no deposit.",
                 },
                 {
                   head: "We will not sell a client a search we do not believe is fillable.",

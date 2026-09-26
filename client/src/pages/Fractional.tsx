@@ -31,7 +31,7 @@ const FAQS = [
   },
   {
     q: "What happens when you leave?",
-    a: "You keep the ATS configuration, the pipelines, the scorecards, the playbooks, and the documentation. Rebel OS stays with us. You get the outcomes and the reporting. You do not run the agent stack.",
+    a: "You keep the ATS configuration, the pipelines, the scorecards, the playbooks, and the documentation. Rebel Command stays with us. You get the outcomes and the reporting. You do not run the agent stack.",
   },
 ];
 
@@ -88,7 +88,7 @@ const COMPARE = [
   {
     title: "Contingent",
     tag: "ONE SEAT",
-    body: "Flat fee by salary band. Due on placement. No deposit.",
+    body: "Flat fee by salary band. Billed on start. No deposit.",
     href: "/contingent",
   },
   {

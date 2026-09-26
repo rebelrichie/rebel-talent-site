@@ -14,8 +14,8 @@ const serviceSchemas = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Contingent Recruiting",
-    "serviceType": "Contingent recruiting, flat fee by salary band, paid on accept",
-    "description": "One role. Flat fee by salary band, paid when the candidate accepts. No percentage of salary and no deposit.",
+    "serviceType": "Contingent recruiting, flat fee by salary band, billed on start",
+    "description": "One role. Flat fee by salary band, billed on start. No percentage of salary and no deposit.",
     "provider": serviceProvider,
     "areaServed": "US",
     "url": "https://rebeltalentsystems.com/contingent",
@@ -60,7 +60,7 @@ const OFFERINGS = [
     icon: Crosshair,
     kicker: "Contingent",
     title: "One role, one fee.",
-    body: "You set the salary range. We lock a flat fee to that band before the search starts, and you pay when the candidate accepts. There is no deposit and no percentage of salary. The contingent page has the long version.",
+    body: "You set the salary range. We lock a flat fee to that band before the search starts, and you are billed on start. There is no deposit and no percentage of salary. The contingent page has the long version.",
     detailsHref: "/contingent",
     detailsLabel: "Contingent search",
     ctaHref: "/strategy-call?engagement=contingent",
@@ -106,10 +106,10 @@ export default function Services() {
     <PageLayout>
       <PageSEO
         title="How we engage | Rebel Talent Systems"
-        description="Four ways to engage Rebel Talent: contingent, retained, embedded, and advisory. Contingent is a flat fee by salary band, paid when the candidate accepts."
+        description="Four ways to engage Rebel Talent: contingent, retained, embedded, and advisory. Contingent is a flat fee by salary band, billed on start."
         path="/services"
         ogTitle="How we engage | Rebel Talent Systems"
-        ogDescription="Four ways to engage Rebel Talent: contingent, retained, embedded, and advisory. Contingent is a flat fee by salary band, paid when the candidate accepts."
+        ogDescription="Four ways to engage Rebel Talent: contingent, retained, embedded, and advisory. Contingent is a flat fee by salary band, billed on start."
         ogImage="og-services.png"
         schemas={serviceSchemas}
         breadcrumbs={[
@@ -246,7 +246,7 @@ export default function Services() {
             From recent work.
           </h2>
           <p className="text-zinc-300 text-base leading-relaxed">
-            EarthDaily Federal made nine placements. About $294K in agency fees were avoided, at about 335% confirmed ROI, with an average time to hire under 30 days. Kalibri Labs signed a machine learning hire in 34 days, about $20K under the agency quote. Legal Managed Services made 20 go-to-market hires in 24 months, with 90% retention.
+            EarthDaily Federal made nine placements. About $294K in agency fees were avoided on about $88K, a 3.3x return, with an average time to hire under 30 days. Kalibri Labs signed a machine learning hire in 34 days, about $20K under the agency quote. Legal Managed Services made 20 go-to-market hires in 24 months, with 90% retention. That Legal Managed Services work was done before Rebel Talent, at a prior firm.
           </p>
           <Link
             href="/case-studies"

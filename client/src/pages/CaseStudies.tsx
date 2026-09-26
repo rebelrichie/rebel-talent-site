@@ -44,7 +44,7 @@ const caseStudySchema = {
       "item": {
         "@type": "Article",
         "headline": "Legal Managed Services: 20 GTM hires in 24 months, 90% retention",
-        "description": "20 GTM hires in 24 months, with 90% retention.",
+        "description": "20 GTM hires in 24 months, with 90% retention. This work was done before Rebel Talent, at a prior firm.",
         "url": "https://rebeltalentsystems.com/case-studies",
         "author": { "@type": "Person", "name": "Richie Lampani" },
         "publisher": { "@type": "Organization", "name": "Rebel Talent" }
@@ -58,10 +58,10 @@ export default function CaseStudies() {
     <PageLayout>
       <PageSEO
         title="Startup & Defense Recruiting Case Studies | Rebel Talent"
-        description="Named clients and named roles. EarthDaily: about $294K in fees avoided, a 3.3x return. Kalibri Labs: offer in 34 days. Legal Managed Services: 20 GTM hires, 90% retention."
+        description="Named clients and named roles. EarthDaily: about $294K in fees avoided, a 3.3x return. Kalibri Labs: offer in 34 days. Legal Managed Services: 20 GTM hires, 90% retention, before Rebel Talent."
         path="/case-studies"
         ogTitle="Startup & Defense Recruiting Case Studies | Rebel Talent"
-        ogDescription="EarthDaily: about $294K avoided, a 3.3x return, about 4.7x only as a projection. Kalibri Labs: 360+ applications, offer in 34 days. Legal Managed Services: 20 GTM hires, 90% retention."
+        ogDescription="EarthDaily: about $294K avoided, a 3.3x return, about 4.7x only as a projection. Kalibri Labs: 360+ applications, offer in 34 days. Legal Managed Services: 20 GTM hires, 90% retention, before Rebel Talent."
         ogImage="og-case-studies.png"
         schemas={[caseStudySchema]}
         breadcrumbs={[
@@ -239,7 +239,7 @@ export default function CaseStudies() {
                 <div className="bg-[#0d0d14] px-4 py-3">
                   <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Projected at Full Pipeline Close</div>
                   <div className="text-rebel-red font-display text-xl font-bold mb-0.5">~$415K</div>
-                  <div className="text-zinc-400 text-xs">5 additional roles at standard agency rates</div>
+                  <div className="text-zinc-400 text-xs">4 additional roles at standard agency rates</div>
                 </div>
                 <div className="bg-[#0d0d14] px-4 py-3">
                   <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Confirmed return</div>
@@ -305,7 +305,7 @@ export default function CaseStudies() {
                     "Posted to ATS day one, 360+ applications within 24 hours",
                     "No existing sourcing infrastructure for technical roles",
                     "First engagement with this client: one intro call, then execution",
-                    "Operated as embedded agent: company email, Slack, their ATS",
+                    "Worked inside the company: company email, Slack, their ATS",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-zinc-400">
                       <span className="text-rebel-red font-mono text-xs mt-0.5">&gt;</span>
@@ -423,7 +423,7 @@ export default function CaseStudies() {
 
             <ScrollReveal variant="fade-up" delay={100}>
             <div className="border border-zinc-800 bg-zinc-900/30 p-6">
-              <h3 className="font-display text-base font-bold text-rebel-red uppercase mb-4">What Embedded Actually Means</h3>
+              <h3 className="font-display text-base font-bold text-rebel-red uppercase mb-4">How the search ran</h3>
               <p className="text-zinc-400 text-sm leading-relaxed mb-4">
                 First engagement with this client. One meeting. Notes taken, job posted same day. Company email, Slack access, full run of their ATS. No handholding, no ramp period, no account manager in between. Just execution from inside their operation, the same day we shook hands.
               </p>
@@ -454,7 +454,7 @@ export default function CaseStudies() {
                 Legal Managed Services
               </h2>
               <p className="text-zinc-300 text-base leading-relaxed">
-                20 GTM hires in 24 months, with 90% retention.
+                20 GTM hires in 24 months, with 90% retention. This work was done before Rebel Talent, at a prior firm.
               </p>
             </div>
             </ScrollReveal>

@@ -112,7 +112,7 @@ export default function About() {
                 I didn&rsquo;t leave to start another agency. I left to build the thing I wanted when I was on the other side of the desk.
               </p>
               <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-[1.55] mb-6">
-                Contingent is a flat fee by salary band, due on placement. When a team needs someone inside the function, Rebel embeds as Head of Talent and leaves them owning the system.
+                When a team needs someone inside the function, Rebel embeds as Head of Talent and leaves them owning the system.
               </p>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-6">
                 <CapacityBadge />
@@ -262,7 +262,7 @@ export default function About() {
                 {/* Safe addition (2026-09 trim): era condensed to one paragraph */}
                 <div className="text-zinc-300 text-base leading-[1.7]">
                   <p>
-                    My partner Amy and I got laid off from the same company in the same week. Five days later we started <span className="text-white">Underground Admins</span>. I&rsquo;m still a minority owner, but it runs independently of Rebel Talent. Contingent search is a Rebel desk. Chris Moscato owns every new contingent conversation.
+                    My partner Amy and I got laid off from the same company in the same week. Five days later we started <span className="text-white">Underground Admins</span>. I&rsquo;m still a minority owner, but it runs independently of Rebel Talent.
                   </p>
                 </div>
               </div>
@@ -278,7 +278,7 @@ export default function About() {
                     moved to the new team section below */}
                 <div className="text-zinc-300 text-base leading-[1.7]">
                   <p>
-                    Rebel Talent is scaling. I embed as your Head of Talent/Lead Talent Consultant for a quarter, six months, a year. I build the funnel, write the JDs, run interview loops, close hires, and I&rsquo;m on every engagement, backed by the team below. Wrote two books in the first six months (Head and Heart, December 2025; Unfinished Rooms, March 2026) and built Rebel OS, the operator stack I run the work on: 27 AI agents and a custom ATS/CRM, from scratch. Clients get the outcomes and the reporting. They do not run the stack.
+                    Rebel Talent is scaling. I embed as your Head of Talent/Lead Talent Consultant for a quarter, six months, a year. I build the funnel, write the JDs, run interview loops, close hires, and I&rsquo;m on every engagement, backed by the team below. Wrote two books in the first six months (Head and Heart, December 2025; Unfinished Rooms, March 2026) and built Rebel Command, the operator stack I run the work on: 27 AI agents and a custom ATS/CRM, from scratch. Clients get the outcomes and the reporting. They do not run the stack.
                   </p>
                 </div>
               </div>
@@ -423,7 +423,7 @@ export default function About() {
                 name: "Rachael",
                 role: "The Cleared Sourcer",
                 blurb:
-                  "Maps cleared talent: Secret, TS, TS/SCI. Builds candidate profiles for the roles most tools can't touch.",
+                  "Maps cleared talent: Secret, TS, TS/SCI. Builds candidate profiles for the roles most tools can't touch. A person reviews every profile before it is used, and cleared candidate data stays off public models.",
               },
               {
                 name: "Larry",
@@ -498,7 +498,7 @@ export default function About() {
               <div className="border border-zinc-800 bg-zinc-900/40 p-6 h-full">
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">Legal Managed Services</div>
                 <div className="font-display text-3xl font-bold text-white mb-1">20 hires</div>
-                <div className="text-zinc-400 text-sm mb-4">GTM hires &middot; 24 months</div>
+                <div className="text-zinc-400 text-sm mb-4">GTM hires in 24 months. This work was done before Rebel Talent, at a prior firm.</div>
                 <ul className="text-zinc-300 text-sm space-y-1.5 leading-relaxed">
                   <li>&bull; 20 GTM hires</li>
                   <li>&bull; 90% retention</li>
@@ -617,7 +617,7 @@ export default function About() {
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">Operator Stack</div>
                 <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Rebel Command</h3>
                 <p className="text-zinc-300 text-sm leading-relaxed">
-                  The system I run my business on, built from scratch. Custom ATS/CRM and 27 AI agents for sourcing, outreach, and contract intelligence, embedded into how I work, not bolted on top. Clients get the outcomes and the reporting. They do not run Rebel OS.
+                  The system I run my business on, built from scratch. Custom ATS/CRM and 27 AI agents for sourcing, outreach, and contract intelligence, embedded into how I work, not bolted on top. Clients get the outcomes and the reporting. They do not run Rebel Command.
                 </p>
               </div>
             </GlowCard>

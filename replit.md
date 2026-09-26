@@ -39,4 +39,4 @@ The new globe/planet logo is at `client/public/logo.png` (from attached_assets/l
 - Calendar booking: https://calendar.app.google/TqhGeNMKZPcRmb4o8
 - LinkedIn: https://linkedin.com/in/richielampani
 - Email: richie@rebeltalentsystems.com
-- Phone: (770) 233-7548
+- Phone: (202) 524-0255
