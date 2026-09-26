@@ -460,12 +460,12 @@ export default function About() {
             <GlowCard>
               <div className="border border-zinc-800 bg-zinc-900/40 p-6 h-full">
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">EarthDaily Federal</div>
-                <div className="font-display text-3xl font-bold text-white mb-1">9 hires</div>
+                <div className="font-display text-3xl font-bold text-white mb-1">11 hires</div>
                 <div className="text-zinc-400 text-sm mb-4">ongoing engagement</div>
                 <ul className="text-zinc-300 text-sm space-y-1.5 leading-relaxed">
-                  <li>&bull; 6 FTE + 3 contractors (geospatial / cleared)</li>
-                  <li>&bull; ~$294K in agency fees avoided</li>
-                  <li>&bull; 3.3x return on ~$88K invested</li>
+                  <li>&bull; 8 FTE + 3 contractors (geospatial / cleared)</li>
+                  <li>&bull; ~$550K in agency fees avoided</li>
+                  <li>&bull; 4.8x return on ~$115K invested</li>
                   <li>&bull; &lt; 30 days average time-to-hire</li>
                 </ul>
               </div>

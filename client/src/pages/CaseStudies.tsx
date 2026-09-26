@@ -19,8 +19,8 @@ const caseStudySchema = {
       "position": 1,
       "item": {
         "@type": "Article",
-        "headline": "EarthDaily Federal: about $294K in agency fees avoided, 9 placements",
-        "description": "Nine placements. About $294K in agency fees avoided on about $88K invested over eight months. That is a 3.3x return on dollars spent to date. About 4.7x is the projection if the remaining pipeline closes.",
+        "headline": "EarthDaily Federal: about $550K in agency fees avoided, 11 placements",
+        "description": "Eleven placements. About $550K in agency fees avoided on about $115K invested. That is a 4.8x return on dollars spent to date. About 6.5x is the projection if the remaining pipeline closes.",
         "url": "https://rebeltalentsystems.com/case-studies",
         "author": { "@type": "Person", "name": "Richie Lampani" },
         "publisher": { "@type": "Organization", "name": "Rebel Talent" }
@@ -58,10 +58,10 @@ export default function CaseStudies() {
     <PageLayout>
       <PageSEO
         title="Startup & Defense Recruiting Case Studies | Rebel Talent"
-        description="Named clients and named roles. EarthDaily: about $294K in fees avoided, a 3.3x return. Kalibri Labs: offer in 34 days. Legal Managed Services: 20 GTM hires, 90% retention, before Rebel Talent."
+        description="Named clients and named roles. EarthDaily: about $550K in fees avoided, a 4.8x return. Kalibri Labs: offer in 34 days. Legal Managed Services: 20 GTM hires, 90% retention, before Rebel Talent."
         path="/case-studies"
         ogTitle="Startup & Defense Recruiting Case Studies | Rebel Talent"
-        ogDescription="EarthDaily: about $294K avoided, a 3.3x return, about 4.7x only as a projection. Kalibri Labs: 360+ applications, offer in 34 days. Legal Managed Services: 20 GTM hires, 90% retention, before Rebel Talent."
+        ogDescription="EarthDaily: about $550K avoided, a 4.8x return, about 6.5x only as a projection. Kalibri Labs: 360+ applications, offer in 34 days. Legal Managed Services: 20 GTM hires, 90% retention, before Rebel Talent."
         ogImage="og-case-studies.png"
         schemas={[caseStudySchema]}
         breadcrumbs={[
@@ -110,9 +110,9 @@ export default function CaseStudies() {
 
             <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-8">
               {[
-                { value: "~$294K", label: "FEES AVOIDED", sub: "9 placements, no agency" },
-                { value: "3.3x", label: "RETURN", sub: "~$294K avoided on ~$88K" },
-                { value: "9", label: "ROLES PLACED", sub: "4 more in pipeline" },
+                { value: "~$550K", label: "FEES AVOIDED", sub: "11 placements, no agency" },
+                { value: "4.8x", label: "RETURN", sub: "~$550K avoided on ~$115K" },
+                { value: "11", label: "ROLES PLACED", sub: "4 more in pipeline" },
               ].map((stat) => (
                 <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-2 sm:p-5 text-center">
                   <AnimatedCounter value={stat.value} className="font-display text-base sm:text-2xl md:text-3xl font-bold text-rebel-red mb-1" />
@@ -176,15 +176,17 @@ export default function CaseStudies() {
                   </thead>
                   <tbody className="text-zinc-400">
                     {[
-                      { role: "VP of Growth", type: "FTE", fee: "~$55,000" },
+                      { role: "VP of Growth", type: "FTE", fee: "~$50,000" },
                       { role: "Director of Strategic Partnerships", type: "FTE", fee: "~$50,000" },
-                      { role: "AI Engineer", type: "FTE", fee: "~$43,000" },
-                      { role: "Backend Engineer", type: "FTE", fee: "~$41,000" },
-                      { role: "Controller", type: "FTE", fee: "~$31,000" },
-                      { role: "IT Manager", type: "FTE", fee: "~$26,000" },
-                      { role: "Contract 1", type: "Contract", fee: "~$16,000" },
-                      { role: "Contract 2", type: "Contract", fee: "~$16,000" },
-                      { role: "Contract 3", type: "Contract", fee: "~$16,000" },
+                      { role: "AI Engineer", type: "FTE", fee: "~$50,000" },
+                      { role: "Backend Engineer", type: "FTE", fee: "~$50,000" },
+                      { role: "Controller", type: "FTE", fee: "~$50,000" },
+                      { role: "IT Manager", type: "FTE", fee: "~$50,000" },
+                      { role: "Sales Engineer", type: "FTE", fee: "~$50,000" },
+                      { role: "Director of BD - IC", type: "FTE", fee: "~$50,000" },
+                      { role: "Contract 1", type: "Contract", fee: "~$50,000" },
+                      { role: "Contract 2", type: "Contract", fee: "~$50,000" },
+                      { role: "Contract 3", type: "Contract", fee: "~$50,000" },
                     ].map((r) => (
                       <tr key={r.role} className="border-b border-zinc-800/50">
                         <td className="py-2 pr-4 text-zinc-300">{r.role}</td>
@@ -195,8 +197,8 @@ export default function CaseStudies() {
                       </tr>
                     ))}
                     <tr className="border-t border-zinc-700">
-                      <td colSpan={2} className="py-2 pr-4 text-zinc-300 font-bold">TOTAL AVOIDED (9 placements)</td>
-                      <td className="py-2 text-right font-mono text-rebel-red font-bold">~$294,000</td>
+                      <td colSpan={2} className="py-2 pr-4 text-zinc-300 font-bold">TOTAL AVOIDED (11 placements)</td>
+                      <td className="py-2 text-right font-mono text-rebel-red font-bold">~$550,000</td>
                     </tr>
                   </tbody>
                 </table>
@@ -212,7 +214,7 @@ export default function CaseStudies() {
                   { label: "Cost structure", value: "Flat monthly retainer, no success fees, no surprise invoices when each hire closed." },
                   { label: "Institutional knowledge", value: "Process documentation, sourcing playbooks, and pipeline history stayed inside EDF when the engagement scaled down." },
                   { label: "Process ownership", value: "Custom ATS, scorecards, and SOPs handed off to the internal team, owned, exportable, and auditable." },
-                  { label: "Candidate experience", value: "Standardized across all 9 placements: same screening rigor, same interview frameworks, same communication cadence." },
+                  { label: "Candidate experience", value: "Standardized across all 11 placements: same screening rigor, same interview frameworks, same communication cadence." },
                   { label: "Infrastructure built", value: "Custom ATS with clearance tracking, sourcing playbooks by role type, interview scorecards, and reporting dashboards." },
                   { label: "What EDF owns at the end", value: "A working recruiting function, not just a stack of hires." },
                 ].map((row) => (
@@ -233,28 +235,28 @@ export default function CaseStudies() {
               <div className="grid grid-cols-2 gap-px bg-zinc-700/40 mb-5">
                 <div className="bg-[#0d0d14] px-4 py-3">
                   <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Confirmed Fees Avoided</div>
-                  <div className="text-white font-display text-xl font-bold mb-0.5">~$294K</div>
-                  <div className="text-zinc-400 text-xs">9 placements closed, no agency</div>
+                  <div className="text-white font-display text-xl font-bold mb-0.5">~$550K</div>
+                  <div className="text-zinc-400 text-xs">11 placements closed, no agency</div>
                 </div>
                 <div className="bg-[#0d0d14] px-4 py-3">
                   <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Projected at Full Pipeline Close</div>
-                  <div className="text-rebel-red font-display text-xl font-bold mb-0.5">~$415K</div>
-                  <div className="text-zinc-400 text-xs">4 additional roles at standard agency rates</div>
+                  <div className="text-rebel-red font-display text-xl font-bold mb-0.5">~$750K</div>
+                  <div className="text-zinc-400 text-xs">4 additional roles at ~$50K agency fee each</div>
                 </div>
                 <div className="bg-[#0d0d14] px-4 py-3">
                   <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Confirmed return</div>
-                  <div className="text-white font-display text-xl font-bold mb-0.5">3.3x</div>
-                  <div className="text-zinc-400 text-xs">~$294K avoided on ~$88K</div>
+                  <div className="text-white font-display text-xl font-bold mb-0.5">4.8x</div>
+                  <div className="text-zinc-400 text-xs">~$550K avoided on ~$115K</div>
                 </div>
                 <div className="bg-[#0d0d14] px-4 py-3">
                   <div className="text-zinc-400 text-[10px] font-mono tracking-widest uppercase mb-2">Projected return</div>
-                  <div className="text-rebel-red font-display text-xl font-bold mb-0.5">~4.7x</div>
+                  <div className="text-rebel-red font-display text-xl font-bold mb-0.5">~6.5x</div>
                   <div className="text-zinc-400 text-xs">If the remaining pipeline closes</div>
                 </div>
               </div>
 
               <p className="text-zinc-400 text-sm leading-relaxed mb-3">
-                About $294K in fees avoided across 9 placements, on about $88K invested over eight months. That is a 3.3x return on dollars spent to date. About 4.7x is the projection if the remaining pipeline closes. The ATS, sourcing playbooks, scorecards, and documented process stayed with EDF when the engagement scaled down.
+                About $550K in fees avoided across 11 placements, on about $115K invested. That is a 4.8x return on dollars spent to date. About 6.5x is the projection if the remaining pipeline closes. The ATS, sourcing playbooks, scorecards, and documented process stayed with EDF when the engagement scaled down.
               </p>
               <p className="text-zinc-300 text-sm leading-relaxed">
                 <span className="text-rebel-red font-mono font-bold">Every future hire EDF makes runs on infrastructure I built. That compounds.</span>

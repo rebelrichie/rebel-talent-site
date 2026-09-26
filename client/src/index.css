@@ -858,7 +858,7 @@ button,
 }
 
 /* 3-col stat grids (Pricing and Case Studies): keep 3 columns but scale the
-   numbers fluidly so the widest token ("$294K+") never bleeds past its box on
+   numbers fluidly so the widest token ("$550K+") never bleeds past its box on
    small phones. A fixed 1.5rem overflowed the narrow case-study cards below
    ~400px wide (the substring selector also catches "md:text-3xl", so the
    counters were locked at 24px regardless of the Tailwind size utility). */

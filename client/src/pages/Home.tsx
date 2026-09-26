@@ -126,7 +126,7 @@ const AUDIENCES = [
 const PROOF = [
   {
     client: "EarthDaily Federal",
-    body: "Nine placements. About $294K in agency fees avoided, a 3.3x return, with an average time to hire under 30 days.",
+    body: "Eleven placements. About $550K in agency fees avoided, a 4.8x return, with an average time to hire under 30 days.",
   },
   {
     client: "Kalibri Labs",

@@ -246,7 +246,7 @@ export default function Services() {
             From recent work.
           </h2>
           <p className="text-zinc-300 text-base leading-relaxed">
-            EarthDaily Federal made nine placements. About $294K in agency fees were avoided, a 3.3x return, with an average time to hire under 30 days. Kalibri Labs signed a machine learning hire in 34 days, about $20K under the agency quote. Legal Managed Services made 20 go-to-market hires in 24 months, with 90% retention.
+            EarthDaily Federal made eleven placements. About $550K in agency fees were avoided, a 4.8x return, with an average time to hire under 30 days. Kalibri Labs signed a machine learning hire in 34 days, about $20K under the agency quote. Legal Managed Services made 20 go-to-market hires in 24 months, with 90% retention.
           </p>
           <Link
             href="/case-studies"
