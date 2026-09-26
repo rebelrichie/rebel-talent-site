@@ -211,7 +211,7 @@ export default function FreeTools() {
           <ScrollReveal variant="fade-up">
           <div className="grid sm:grid-cols-2 gap-6">
             <a
-              href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824"
+              href="https://www.linkedin.com/newsletters/rebel-built-7412825035092045824/"
               target="_blank"
               rel="noopener noreferrer"
               data-testid="link-newsletter-freetools"

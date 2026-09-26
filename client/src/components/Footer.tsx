@@ -63,7 +63,7 @@ export default function Footer() {
               <Link href="/free-tools" data-testid="link-footer-free-tools" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Free Tools</Link>
               <Link href="/certification" data-testid="link-footer-certification" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">ABCR Certification</Link>
               <a href="https://rebel-talent-shop.fourthwall.com/" target="_blank" rel="noopener noreferrer" data-testid="link-footer-shop" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Shop</a>
-              <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824" target="_blank" rel="noopener noreferrer" data-testid="link-footer-newsletter" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Rebel Built Newsletter</a>
+              <a href="https://www.linkedin.com/newsletters/rebel-built-7412825035092045824/" target="_blank" rel="noopener noreferrer" data-testid="link-footer-newsletter" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">Rebel Built Newsletter</a>
               <Link href="/jobs" data-testid="link-footer-apply" className="text-rebel-red text-sm no-underline hover:text-white transition-colors font-semibold">Apply to Open Jobs</Link>
             </div>
           </div>

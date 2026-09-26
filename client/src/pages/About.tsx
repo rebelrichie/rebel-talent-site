@@ -38,7 +38,7 @@ const personSchema = {
   ],
   "sameAs": [
     "https://linkedin.com/in/richielampani",
-    "https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824"
+    "https://www.linkedin.com/newsletters/rebel-built-7412825035092045824/"
   ],
   "alumniOf": [
     {
@@ -123,7 +123,7 @@ export default function About() {
                 <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-linkedin" className="text-zinc-400 hover:text-white text-sm transition-colors no-underline">
                   LinkedIn ↗
                 </a>
-                <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white text-sm transition-colors no-underline">
+                <a href="https://www.linkedin.com/newsletters/rebel-built-7412825035092045824/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white text-sm transition-colors no-underline">
                   Rebel Built (newsletter) ↗
                 </a>
                 <a href="mailto:richie@rebeltalentsystems.com" data-testid="link-email" className="text-zinc-400 hover:text-white text-sm transition-colors no-underline">
@@ -598,7 +598,7 @@ export default function About() {
                 <p className="text-zinc-300 text-sm leading-relaxed mb-4">
                   Weekly notes for operators, founders, and recruiters. 9K+ subscribers. No sponsored takes, and no &ldquo;5 hacks to&rdquo; bait.
                 </p>
-                <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-rebel-red text-sm font-semibold no-underline hover:text-white transition-colors">
+                <a href="https://www.linkedin.com/newsletters/rebel-built-7412825035092045824/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-rebel-red text-sm font-semibold no-underline hover:text-white transition-colors">
                   Subscribe <span className="text-xs">&#8594;</span>
                 </a>
               </div>

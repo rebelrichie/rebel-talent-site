@@ -9,3 +9,4 @@ netlify-deploy
 make-zip.cjs
 .local
 attached_assets
+.claude/
