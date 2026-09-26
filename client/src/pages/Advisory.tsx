@@ -249,13 +249,15 @@ export default function Advisory() {
                   </div>
                 )}
                 <h3 className={`font-display text-xl font-bold text-white uppercase mb-4 ${p.featured ? "mt-3" : ""}`}>{p.title}</h3>
-                <div className="mb-1">
+                <div className="mb-1 flex flex-wrap items-baseline gap-x-2 gap-y-1">
                   {p.pricePrefix && (
-                    <span className="text-zinc-400 font-mono text-sm mr-2">{p.pricePrefix}</span>
+                    <span className="text-zinc-400 font-mono text-sm">{p.pricePrefix}</span>
                   )}
+                  {p.pricePrefix ? " " : null}
                   <span className="font-display text-3xl font-extrabold text-white tracking-tight">{p.price}</span>
+                  {p.cadence ? " " : null}
                   {p.cadence && (
-                    <span className="text-zinc-400 font-mono text-sm ml-2">{p.cadence}</span>
+                    <span className="text-zinc-400 font-mono text-sm">{p.cadence}</span>
                   )}
                 </div>
                 {p.priceSub && (

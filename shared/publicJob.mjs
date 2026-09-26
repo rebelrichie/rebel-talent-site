@@ -79,6 +79,25 @@ function softenRecruiter(job) {
   job.notes = cleanRecruiterText(job.notes);
 }
 
+
+// Site voice: no em/en dashes as clause breaks in public location/salary copy.
+// Numeric ranges keep an ASCII hyphen. Clause breaks become a comma.
+function displayCopyDashes(value, mode) {
+  if (!hasText(value)) return value ?? null;
+  let next = value;
+  if (mode === "salary") {
+    // $85,000–$115,000 or 85k—110k → ASCII hyphen
+    next = next.replace(DASHES, "-");
+  } else {
+    // Remote — DC preferred → Remote, DC preferred
+    // Keep digit–digit ranges as ASCII hyphen if any appear in location.
+    next = next
+      .replace(/(\d)\s*[\u2010\u2011\u2012\u2013\u2014\u2015\u2212]\s*(\d)/g, "$1-$2")
+      .replace(/\s*[\u2010\u2011\u2012\u2013\u2014\u2015\u2212]\s*/g, ", ");
+  }
+  return next.replace(/,\s*,/g, ",").replace(/\s+/g, " ").trim();
+}
+
 function fillRemoteUs(job) {
   if (hasText(job.location)) return;
   job.location = "Remote, US";
@@ -96,6 +115,10 @@ export function toPublicJob(job) {
   if (id.startsWith(FULL_STACK_ID)) softenFullStack(next);
   if (id.startsWith(RECRUITER_ID)) softenRecruiter(next);
   if (id.startsWith(AE_ID) || id.startsWith(BD_ID)) fillRemoteUs(next);
+  if (hasText(next.location)) next.location = displayCopyDashes(next.location, "location");
+  if (hasText(next.compensationRange)) {
+    next.compensationRange = displayCopyDashes(next.compensationRange, "salary");
+  }
   return next;
 }
 

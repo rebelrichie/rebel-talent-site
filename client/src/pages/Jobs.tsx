@@ -24,6 +24,7 @@ import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
 // Safe addition. Human-readable job URLs (slug + UUID)
 import { jobPath } from "@/lib/jobSlug";
+import { toPublicJob } from "@shared/publicJob.mjs";
 
 const JOBS_API = "https://rebelcommand.dev/api/public/jobs";
 
@@ -106,7 +107,12 @@ function parseCompMidpoint(comp: string | null): number {
 
 function locationLabel(j: Job): string {
   const parts: string[] = [];
-  if (j.location) parts.push(j.location);
+  // toPublicJob already normalizes location dashes; keep a local guard for safety.
+  const loc = (j.location || "")
+    .replace(/\s*[\u2010\u2011\u2012\u2013\u2014\u2015\u2212]\s*/g, ", ")
+    .replace(/,\s*,/g, ",")
+    .trim();
+  if (loc) parts.push(loc);
   if (j.remotePolicy && j.remotePolicy.toLowerCase().includes("remote")) parts.push("Remote OK");
   return parts.join(" · ") || "Remote";
 }
@@ -146,7 +152,7 @@ export default function Jobs() {
       .then((r) => r.json())
       .then((data: { jobs: Job[] }) => {
         if (cancelled) return;
-        setJobs(data.jobs || []);
+        setJobs((data.jobs || []).map((j) => toPublicJob(j)));
         setLoading(false);
       })
       .catch((e) => {
