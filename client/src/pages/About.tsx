@@ -464,8 +464,8 @@ export default function About() {
                 <div className="text-zinc-400 text-sm mb-4">ongoing engagement</div>
                 <ul className="text-zinc-300 text-sm space-y-1.5 leading-relaxed">
                   <li>&bull; 8 FTE + 3 contractors (geospatial / cleared)</li>
-                  <li>&bull; ~$550K in agency fees avoided</li>
-                  <li>&bull; 4.8x return on ~$115K invested</li>
+                  <li>&bull; ~$394K in agency fees avoided</li>
+                  <li>&bull; 3.4x return on ~$115K invested</li>
                   <li>&bull; &lt; 30 days average time-to-hire</li>
                 </ul>
               </div>
