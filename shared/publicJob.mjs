@@ -57,10 +57,24 @@ function cleanRecruiterText(value) {
     );
 }
 
+function isOldTpmBand(comp) {
+  const parsed = parseSalary(comp);
+  const value = parsed && parsed.value;
+  return !!value
+    && value.unitText === "YEAR"
+    && value.minValue === 85000
+    && value.maxValue === 115000;
+}
+
 function softenTpm(job) {
   job.location = "West Michigan";
   job.requirements = TPM_REQUIREMENTS;
   job.idealProfile = TPM_IDEAL;
+  // Command still stores the previous band. The public page and feed
+  // show the approved range until Command itself is updated.
+  if (isOldTpmBand(job.compensationRange)) {
+    job.compensationRange = "$100,000 - $140,000";
+  }
 }
 
 function softenFullStack(job) {

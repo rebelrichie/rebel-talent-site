@@ -8,6 +8,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { resolve, join, extname, dirname } from "path";
 import { launch } from "puppeteer";
 import { applyDocumentShell, toPublicJob } from "../shared/publicJob.mjs";
+import { buildJobsFeedXml } from "../shared/jobFeed.mjs";
 
 const DIST_DIR = resolve(import.meta.dirname, "../dist/public");
 const PORT = 4173;
@@ -286,6 +287,21 @@ function writeApplyNoindexPages(shell, jobs) {
   console.log(`[prerender] Wrote ${written} noindex apply shells`);
 }
 
+// Talent.com feed from the same open-role payload as the sitemap.
+// /jobs/general is not in that payload and is filtered again in the builder.
+function generateJobFeed(jobs) {
+  if (!jobs.length) {
+    console.warn("[prerender] job feed skipped (no roles returned)");
+    return;
+  }
+  const xml = buildJobsFeedXml(jobs);
+  const feedDir = join(DIST_DIR, "feeds");
+  mkdirSync(feedDir, { recursive: true });
+  writeFileSync(join(feedDir, "jobs.xml"), xml, "utf-8");
+  const count = (xml.match(/<job>/g) || []).length;
+  console.log(`[prerender] Wrote feeds/jobs.xml (${count} roles)`);
+}
+
 async function prerender() {
   const spaShell = existsSync(join(DIST_DIR, "index.html"))
     ? readFileSync(join(DIST_DIR, "index.html"), "utf-8")
@@ -382,6 +398,12 @@ async function prerender() {
     generateSitemap(jobRoutes, blogPosts);
   } catch (err) {
     console.warn(`[prerender] sitemap generation failed: ${err.message}`);
+  }
+
+  try {
+    generateJobFeed(jobs);
+  } catch (err) {
+    console.warn(`[prerender] job feed failed: ${err.message}`);
   }
 
   console.log(`\n[prerender] Done: ${success} rendered, ${failed} failed`);

@@ -96,9 +96,16 @@ test("company label, recruiter type, and confidential blurbs", () => {
     location: "Byron Center, MI 49315",
     requirements: "Byron Center radar telematics J1939",
     idealProfile: "Grand Rapids / Byron Center MI corridor",
+    compensationRange: "$85,000\u2013$115,000",
   });
   assert.equal(already.companyName, "Confidential Client");
   assert.equal(already.location, "West Michigan");
+  assert.equal(already.compensationRange, "$100,000 - $140,000");
+  const laterBand = toPublicJob({
+    id: "5ab49383-7950-471b-b37a-558c26054eae",
+    compensationRange: "$110k - $150k",
+  });
+  assert.equal(laterBand.compensationRange, "$110k - $150k");
   assert.equal(/byron|49315|grand rapids|telematics|j1939|radar/i.test(
     `${already.location} ${already.requirements} ${already.idealProfile}`,
   ), false);
@@ -212,8 +219,9 @@ test("JobPosting JSON-LD matches the public salary and location", () => {
     openedAt: "2026-09-15T18:23:32.044Z",
     createdAt: "2026-09-15T18:23:32.044Z",
   }), "https://rebeltalentsystems.com/jobs/example");
-  assert.equal(tpm.baseSalary.value.minValue, 85000);
-  assert.equal(tpm.baseSalary.value.maxValue, 115000);
+  assert.equal(tpm.baseSalary.value.minValue, 100000);
+  assert.equal(tpm.baseSalary.value.maxValue, 140000);
+  assert.equal(tpm.baseSalary.currency, "USD");
   assert.equal(tpm.jobLocation.address.addressLocality, "West Michigan");
   assert.equal(tpm.jobLocation.address.addressRegion, "MI");
   assert.equal(/byron/i.test(tpm.description), false);
