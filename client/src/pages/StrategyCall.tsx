@@ -37,9 +37,9 @@ const STRATEGY_COPY: Record<string, { eyebrow: string; title: string; descriptio
   contingent: {
     eyebrow: "CONTINGENT SEARCH",
     title: "Start a search | Rebel Talent",
-    description: "Chris Moscato owns every new contingent conversation. Flat fee by salary band, due when the hire accepts. No deposit. Name, email, and company get you through.",
+    description: "Chris Moscato owns every new contingent conversation. Flat fee by salary band, billed when the hire starts. No deposit. Name, email, and company get you through.",
     headline: "Start a search.",
-    deck: "Chris Moscato owns every new contingent conversation. Flat fee by salary band, due when the hire accepts. No deposit. Name, email, and company get you through. Email us if you would rather skip the form.",
+    deck: "Chris Moscato owns every new contingent conversation. Flat fee by salary band, billed when the hire starts. No deposit. Name, email, and company get you through. Email us if you would rather skip the form.",
     footer: "Contingent notes stay with the search. No list-building. FOCI-sensitive work is supported.",
   },
   retained: {
@@ -76,9 +76,9 @@ const STRATEGY_COPY: Record<string, { eyebrow: string; title: string; descriptio
   },
   unsure: {
     eyebrow: "STRATEGY CALL",
-    title: "Book a strategy call | Rebel Talent",
+    title: "Start a conversation | Rebel Talent",
     description: "Thirty minutes. Name, email, and company get you through. We will say if we are a fit.",
-    headline: "Book a strategy call.",
+    headline: "Start a conversation.",
     deck: "Name, email, and company get you through. Tell us the role and what is stuck. We will say if we are a fit.",
     footer: "No list-building. FOCI-sensitive work is supported.",
   },
@@ -96,9 +96,9 @@ const COMPANY_STAGES = [
 // Safe addition, lets landing pages pre-select the engagement type via
 // /strategy-call?engagement=contingent so search leads route cleanly.
 function engagementFromQuery(): string {
-  if (typeof window === "undefined") return "contingent";
+  if (typeof window === "undefined") return "unsure";
   const value = new URLSearchParams(window.location.search).get("engagement") || "";
-  return ENGAGEMENT_TYPES.some((opt) => opt.value === value) ? value : "contingent";
+  return ENGAGEMENT_TYPES.some((opt) => opt.value === value) ? value : "unsure";
 }
 
 export default function StrategyCall() {
@@ -115,7 +115,7 @@ export default function StrategyCall() {
   const [websiteUrl, setWebsiteUrl] = useState("");
   const [submit, setSubmit] = useState<SubmitState>({ kind: "idle" });
   const isContingent = engagementType === "contingent";
-  const copy = STRATEGY_COPY[engagementType] ?? STRATEGY_COPY.contingent;
+  const copy = STRATEGY_COPY[engagementType] ?? STRATEGY_COPY.unsure;
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();

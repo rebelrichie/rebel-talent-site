@@ -76,8 +76,8 @@ export default function Footer() {
               <a href="mailto:richie@rebeltalentsystems.com" data-testid="link-footer-email" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">
                 richie@rebeltalentsystems.com
               </a>
-              <a href="tel:+17702337548" data-testid="link-footer-phone" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">
-                (770) 233-7548
+              <a href="tel:+12025240255" data-testid="link-footer-phone" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">
+                (202) 524-0255
               </a>
               <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-footer-linkedin" className="text-zinc-400 text-sm no-underline hover:text-white transition-colors">
                 LinkedIn

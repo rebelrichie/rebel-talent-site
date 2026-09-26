@@ -44,7 +44,7 @@ const OFFERINGS = [
   {
     title: "Contingent",
     tag: "PAY ON PLACEMENT",
-    desc: "One role. You pay when the candidate accepts. The fee is locked to the salary band before we start. The long version is on the contingent page.",
+    desc: "One role. You are billed when the hire starts. The fee is locked to the salary band before we start. The long version is on the contingent page.",
     bullets: [
       "GTM desk: AEs, SDR leaders, sales engineers, first marketing hires",
       "Technical desk: founding engineers, AI/ML, platform, security",

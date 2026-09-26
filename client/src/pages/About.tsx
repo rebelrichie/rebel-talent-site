@@ -112,7 +112,7 @@ export default function About() {
                 I didn&rsquo;t leave to start another agency. I left to build the thing I wanted when I was on the other side of the desk.
               </p>
               <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-[1.55] mb-6">
-                Contingent is a flat fee by salary band, due on placement. When a team needs someone inside the function, Rebel embeds as Head of Talent and leaves them owning the system.
+                When a team needs someone inside the function, Rebel embeds as Head of Talent and leaves them owning the system.
               </p>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-6">
                 <CapacityBadge />

@@ -11,7 +11,7 @@ const homepageSchema = {
   "description": "Rebel Talent Systems fills open roles and leaves the hiring system in place. Contingent search or an embedded desk, for Series A through C companies and defense teams. Technical, go-to-market, and operations. Cleared and uncleared.",
   "url": "https://rebeltalentsystems.com",
   "logo": "https://rebeltalentsystems.com/logo.png",
-  "telephone": "+1-770-233-7548",
+  "telephone": "+1-202-524-0255",
   "email": "richie@rebeltalentsystems.com",
   "address": {
     "@type": "PostalAddress",
@@ -44,7 +44,7 @@ const homepageSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Contingent Recruiting",
-          "description": "One role. Flat fee by salary band, invoiced when the candidate accepts. No percentage of salary.",
+          "description": "One role. Flat fee by salary band, invoiced when the hire starts. No percentage of salary.",
           "url": "https://rebeltalentsystems.com/contingent"
         }
       },
@@ -84,7 +84,7 @@ const PATHS = [
     id: "contingent",
     kicker: "Contingent",
     title: "Fill one seat.",
-    body: "One role. The fee is flat, set by the salary band, and invoiced when the candidate accepts. There is no percentage of salary. The long version is on the contingent page.",
+    body: "One role. The fee is flat, set by the salary band, and invoiced when the hire starts. There is no percentage of salary. The long version is on the contingent page.",
     detailsHref: "/contingent",
     detailsLabel: "View contingent details",
     ctaHref: "/strategy-call?engagement=contingent",
@@ -126,7 +126,7 @@ const AUDIENCES = [
 const PROOF = [
   {
     client: "EarthDaily Federal",
-    body: "Nine placements. About $294K in agency fees avoided, at about 335% confirmed ROI, with an average time to hire under 30 days.",
+    body: "Nine placements. About $294K in agency fees avoided, a 3.3x return, with an average time to hire under 30 days.",
   },
   {
     client: "Kalibri Labs",
