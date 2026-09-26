@@ -112,7 +112,7 @@ export default function CaseStudies() {
               {[
                 { value: "~$294K", label: "FEES AVOIDED", sub: "9 placements, no agency" },
                 { value: "3.3x", label: "RETURN", sub: "~$294K avoided on ~$88K" },
-                { value: "9", label: "ROLES PLACED", sub: "5 more in pipeline" },
+                { value: "9", label: "ROLES PLACED", sub: "4 more in pipeline" },
               ].map((stat) => (
                 <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-2 sm:p-5 text-center">
                   <AnimatedCounter value={stat.value} className="font-display text-base sm:text-2xl md:text-3xl font-bold text-rebel-red mb-1" />
