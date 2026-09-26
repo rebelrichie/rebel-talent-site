@@ -5,7 +5,7 @@ import { Link, useParams } from "wouter";
 import { ArrowLeft, Clock } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
-import { getPostBySlug, getRelatedPosts } from "@/lib/blogData";
+import { getPostBySlug, getRelatedPosts, getUnpublishedRedirect } from "@/lib/blogData";
 
 function formatDate(date: string | null) {
   if (!date) return "";
@@ -178,8 +178,27 @@ function inlineFormat(text: string): string {
 
 export default function BlogPost() {
   const params = useParams<{ slug: string }>();
+  const unpublishedTo = getUnpublishedRedirect(params.slug);
   const post = getPostBySlug(params.slug);
   const related = getRelatedPosts(params.slug);
+
+  if (unpublishedTo) {
+    window.location.replace(unpublishedTo);
+    return (
+      <PageLayout>
+        <PageSEO
+          title="Article unpublished | Rebel Talent Systems"
+          description="This article is unpublished. The link continues to the current page."
+          path={unpublishedTo}
+          noindex
+        />
+        <div className="text-center py-32">
+          <h1 className="text-3xl font-bold text-white mb-4">This article is unpublished.</h1>
+          <a href={unpublishedTo} className="text-rebel-red hover:text-red-400 no-underline">Continue</a>
+        </div>
+      </PageLayout>
+    );
+  }
 
   if (!post) {
     return (
@@ -253,7 +272,7 @@ export default function BlogPost() {
             <div>
               <p className="font-bold text-white text-lg">Richie Lampani</p>
               <p className="text-sm text-zinc-400 mt-1 leading-relaxed">
-                Founder of Rebel Talent Systems. Full-time, fractional, and contract recruiting powered by AI.
+                Founder of Rebel Talent Systems. Contingent search on a flat fee by salary band, plus retained search and embedded fractional recruiting.
               </p>
               <a href="/strategy-call"
                 className="text-sm text-rebel-red font-semibold no-underline hover:text-red-400 transition-colors mt-3 inline-block"

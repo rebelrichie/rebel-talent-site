@@ -217,14 +217,23 @@ async function fetchJobRoutes() {
 function fetchBlogRoutes() {
   try {
     const jsonPath = resolve(import.meta.dirname, "../client/src/data/blog-posts.json");
-    const posts = JSON.parse(readFileSync(jsonPath, "utf-8"))
-      .filter((p) => p && p.slug)
+    const all = JSON.parse(readFileSync(jsonPath, "utf-8")).filter((p) => p && p.slug);
+    const posts = all
+      .filter((p) => p.published !== false)
       .map((p) => ({ slug: p.slug, publishedAt: p.publishedAt || null }));
-    console.log(`[prerender] Loaded ${posts.length} blog post slugs from static data`);
-    return { routes: posts.map((p) => `/blog/${p.slug}`), posts };
+    const redirects = all
+      .filter((p) => p.published === false)
+      .map((p) => {
+        const to = typeof p.redirectTo === "string" && p.redirectTo.startsWith("/") && !p.redirectTo.startsWith("//")
+          ? p.redirectTo
+          : "/blog";
+        return { from: `/blog/${p.slug}`, to };
+      });
+    console.log(`[prerender] Loaded ${posts.length} published blog slugs, ${redirects.length} unpublished redirects`);
+    return { routes: posts.map((p) => `/blog/${p.slug}`), posts, redirects };
   } catch (err) {
     console.warn(`[prerender] blog data read errored — skipping blog posts: ${err.message}`);
-    return { routes: [], posts: [] };
+    return { routes: [], posts: [], redirects: [] };
   }
 }
 
@@ -285,7 +294,7 @@ async function prerender() {
   if (spaShell) writeApplyNoindexPages(spaShell, jobs || []);
   // Sitemap and full HTML are slug URLs only. UUID paths get a redirect stub.
   const jobRoutes = slugRoutes;
-  const { routes: blogRoutes, posts: blogPosts } = await fetchBlogRoutes();
+  const { routes: blogRoutes, posts: blogPosts, redirects: blogRedirects } = await fetchBlogRoutes();
   const allRoutes = [...ROUTES, ...jobRoutes, ...blogRoutes];
   console.log(`[prerender] Starting pre-render of ${allRoutes.length} routes (${ROUTES.length} static + ${slugRoutes.length} slug role detail + ${blogRoutes.length} blog, ${redirects.length} uuid redirects)...`);
 
@@ -339,8 +348,11 @@ async function prerender() {
     for (const [from, to] of LEGACY_HTML_REDIRECTS) {
       writeRedirect(from, to);
     }
+    for (const redirect of blogRedirects) {
+      writeRedirect(redirect.from, redirect.to);
+    }
     writeFileSync(join(DIST_DIR, "job-redirects.json"), JSON.stringify(map), "utf-8");
-    console.log(`[prerender] Wrote ${redirects.length} job UUID redirects + /defense -> /cleared + ${LEGACY_HTML_REDIRECTS.length} legacy html redirects`);
+    console.log(`[prerender] Wrote ${redirects.length} job UUID redirects + /defense -> /cleared + ${LEGACY_HTML_REDIRECTS.length} legacy html redirects + ${blogRedirects.length} unpublished blog redirects`);
   } catch (err) {
     console.warn(`[prerender] redirect stubs failed: ${err.message}`);
   }

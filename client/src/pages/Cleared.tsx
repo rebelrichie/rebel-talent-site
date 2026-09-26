@@ -19,11 +19,11 @@ const FAQS = [
   },
   {
     q: "Is this for startups or for contractors?",
-    a: "Both. Defense tech startups that cannot hire like a prime, and contractors who need a pipeline that is not a job board. Sales, Capture, and BD across DoW, IC, civil, and global sit here too.",
+    a: "Both. Defense tech startups that cannot hire like a prime, and contractors who need a pipeline that is not a job board. The same desk hires sales, capture, and business development across the Department of War, the intelligence community, civil agencies, and global programs.",
   },
   {
     q: "Contingent, retained, or fractional?",
-    a: "One seat with a flat fee by salary band is contingent, and Chris Moscato owns that conversation. A defined role with a deadline is retained, at 50% up front and 50% at placement. A standing cleared pipeline is embedded fractional, on a flat monthly retainer. All four models are on the services page.",
+    a: "One seat with a flat fee by salary band is contingent, invoiced when the hire starts, with no deposit. Chris Moscato owns that conversation. A defined role with a deadline is retained, at 50% up front and 50% at placement. A standing cleared pipeline is embedded fractional, on a flat monthly retainer. All four models are on the services page.",
   },
   {
     q: "Why do cleared searches stall?",

@@ -1,7 +1,24 @@
 import express, { type Express } from "express";
 import fs from "fs";
 import path from "path";
-import { applyDocumentShell } from "../shared/publicJob.mjs";
+import rawBlogPosts from "../client/src/data/blog-posts.json";
+
+type BlogRedirectRecord = {
+  slug?: string;
+  published?: boolean;
+  redirectTo?: string;
+};
+
+function loadBlogRedirects(): Record<string, string> {
+  const map: Record<string, string> = {};
+  for (const post of rawBlogPosts as BlogRedirectRecord[]) {
+    if (post.published !== false || !post.slug) continue;
+    const to = post.redirectTo;
+    if (typeof to !== "string" || !to.startsWith("/") || to.startsWith("//") || to.includes("://")) continue;
+    map[post.slug] = to;
+  }
+  return map;
+}
 
 const BARE_JOB_UUID = /^\/jobs\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\/?$/i;
 
@@ -45,6 +62,7 @@ export function serveStatic(app: Express) {
   }
 
   const jobRedirects = loadJobRedirects(distPath);
+  const blogRedirects = loadBlogRedirects();
 
   // 301 UUID job twins to the slug URL, /defense to /cleared, and old
   // .html pages to the routes that replaced them.
@@ -61,6 +79,14 @@ export function serveStatic(app: Express) {
     if (legacyTarget) {
       res.redirect(301, `${legacyTarget}${q}`);
       return;
+    }
+    const blogMatch = legacyKey.match(/^\/blog\/([^/]+)$/);
+    if (blogMatch) {
+      const blogTarget = blogRedirects[blogMatch[1]];
+      if (blogTarget) {
+        res.redirect(301, `${blogTarget}${q}`);
+        return;
+      }
     }
     const match = pathOnly.match(BARE_JOB_UUID);
     if (match) {

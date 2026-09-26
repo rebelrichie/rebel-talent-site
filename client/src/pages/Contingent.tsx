@@ -31,11 +31,11 @@ const FAQS = [
   },
   {
     q: "How is this different from retained search?",
-    a: "Retained is for a date that cannot slip. 50% up front and 50% at placement, and retained placements include a guarantee. Contingent is the search without a retainer and without a deposit. A contingent guarantee applies only if we agree to one in writing. If the date cannot slip, start on retained.",
+    a: "Retained is for a date that cannot slip. 50% up front and 50% at placement. Contingent is one flat fee by salary band, invoiced when the hire starts, with no deposit and no second invoice when the offer is accepted. If the date cannot slip, start on retained.",
   },
   {
     q: "How is this different from embedded or fractional recruiting?",
-    a: "Embedded is when you need the whole function stood up. A monthly retainer, then you keep the system. Contingent is one role, or a few. If that is the job, this is the wrong page.",
+    a: "Embedded is the whole function on a monthly retainer. You keep the ATS, scorecards, and playbooks. Rebel Command stays with us. Contingent is one role, or a few. If you need the function, start on the fractional page.",
   },
 ];
 
