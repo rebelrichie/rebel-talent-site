@@ -88,7 +88,7 @@ const COMPARE = [
   {
     title: "Contingent",
     tag: "ONE SEAT",
-    body: "Flat fee by salary band. Invoiced when the search starts. No deposit.",
+    body: "Flat fee by salary band. Invoiced when the hire starts. No deposit.",
     href: "/contingent",
   },
   {

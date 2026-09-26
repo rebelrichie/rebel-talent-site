@@ -23,7 +23,7 @@ const FAQS = [
   },
   {
     q: "Contingent, retained, or fractional?",
-    a: "One seat with a flat fee by salary band is contingent, invoiced when the search starts, with no deposit. Chris Moscato owns that conversation. A defined role with a deadline is retained, at 50% up front and 50% at placement. A standing cleared pipeline is embedded fractional, on a flat monthly retainer. All four models are on the services page.",
+    a: "One seat with a flat fee by salary band is contingent, invoiced when the hire starts, with no deposit. Chris Moscato owns that conversation. A defined role with a deadline is retained, at 50% up front and 50% at placement. A standing cleared pipeline is embedded fractional, on a flat monthly retainer. All four models are on the services page.",
   },
   {
     q: "Why do cleared searches stall?",

@@ -44,7 +44,7 @@ const OFFERINGS = [
   {
     title: "Contingent",
     tag: "BILLED AT START",
-    desc: "One role. The flat fee is invoiced when the search starts, not when the candidate accepts. No deposit. The fee is locked to the salary band before we start. The long version is on the contingent page.",
+    desc: "One role. The flat fee is invoiced when the hire starts, not when the candidate accepts. No deposit. The fee is locked to the salary band before we start. The long version is on the contingent page.",
     bullets: [
       "GTM desk: AEs, SDR leaders, sales engineers, first marketing hires",
       "Technical desk: founding engineers, AI/ML, platform, security",
