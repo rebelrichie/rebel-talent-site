@@ -37,9 +37,9 @@ const STRATEGY_COPY: Record<string, { eyebrow: string; title: string; descriptio
   contingent: {
     eyebrow: "CONTINGENT SEARCH",
     title: "Start a search | Rebel Talent",
-    description: "Chris Moscato owns every new contingent conversation. Flat fee by salary band, due when the hire accepts. No deposit. Name, email, and company get you through.",
+    description: "Chris Moscato owns every new contingent conversation. Flat fee by salary band, invoiced when the search starts. No deposit. Name, email, and company get you through.",
     headline: "Start a search.",
-    deck: "Chris Moscato owns every new contingent conversation. Flat fee by salary band, due when the hire accepts. No deposit. Name, email, and company get you through. Email us if you would rather skip the form.",
+    deck: "Chris Moscato owns every new contingent conversation. Flat fee by salary band, invoiced when the search starts. No deposit. Name, email, and company get you through. Email us if you would rather skip the form.",
     footer: "Contingent notes stay with the search. No list-building. FOCI-sensitive work is supported.",
   },
   retained: {

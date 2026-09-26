@@ -5,6 +5,7 @@ import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
 import GlowCard from "@/components/GlowCard";
+import { SCORECARD_GATE, scorecardCategorySentence } from "@/lib/hiringScorecard";
 import headAndHeartCover from "@assets/Head_And_Heart_1773068092478.PNG";
 import unfinishedRoomsCover from "@assets/UR-BookCover_1773068071585.png";
 
@@ -34,7 +35,7 @@ export default function FreeTools() {
             <span className="text-rebel-red">actually work.</span>
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            Built by someone who actually does the work. Diagnostic tools for hiring teams. Frameworks for jobseekers. All free, none gated by a marketing sequence.
+            Built by someone who actually does the work. Diagnostic tools for hiring teams. Frameworks for jobseekers. Free. None of them starts a marketing sequence. The scorecard shows your score before it asks for an email.
           </p>
         </div>
       </section>
@@ -61,7 +62,7 @@ export default function FreeTools() {
                       Hiring Readiness Scorecard
                     </h3>
                     <p className="text-zinc-400 text-sm leading-relaxed mb-5">
-                      Ten yes/no questions across the same dimensions I assess on every engagement. Get a score out of 100, your weakest categories, and a specific fix for every gap. ~5 minutes, no sales follow-up.
+                      {scorecardCategorySentence()} {SCORECARD_GATE} About five minutes.
                     </p>
                     <Link href="/hiring-readiness">
                       <Button className="font-display tracking-wider uppercase text-sm">

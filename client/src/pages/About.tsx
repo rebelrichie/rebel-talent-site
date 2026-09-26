@@ -112,7 +112,7 @@ export default function About() {
                 I didn&rsquo;t leave to start another agency. I left to build the thing I wanted when I was on the other side of the desk.
               </p>
               <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-[1.55] mb-6">
-                Contingent is a flat fee by salary band, due on placement. When a team needs someone inside the function, Rebel embeds as Head of Talent and leaves them owning the system.
+                Contingent is a flat fee by salary band, invoiced when the search starts. No deposit. When a team needs someone inside the function, Rebel embeds as Head of Talent and leaves them the ATS, scorecards, and playbooks. Rebel Command stays with us.
               </p>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-6">
                 <CapacityBadge />
@@ -278,7 +278,7 @@ export default function About() {
                     moved to the new team section below */}
                 <div className="text-zinc-300 text-base leading-[1.7]">
                   <p>
-                    Rebel Talent is scaling. I embed as your Head of Talent/Lead Talent Consultant for a quarter, six months, a year. I build the funnel, write the JDs, run interview loops, close hires, and I&rsquo;m on every engagement, backed by the team below. Wrote two books in the first six months (Head and Heart, December 2025; Unfinished Rooms, March 2026) and built Rebel OS, the operator stack I run the work on: 27 AI agents and a custom ATS/CRM, from scratch. Clients get the outcomes and the reporting. They do not run the stack.
+                    Rebel Talent is scaling. I embed as your Head of Talent/Lead Talent Consultant for a quarter, six months, a year. I build the funnel, write the JDs, run interview loops, close hires, and I&rsquo;m on every engagement, backed by the team below. Wrote two books in the first six months (Head and Heart, December 2025; Unfinished Rooms, March 2026) and built Rebel Command, the operator stack I run the work on: 27 AI agents and a custom ATS/CRM, from scratch. Clients get the outcomes and the reporting. They do not run the stack.
                   </p>
                 </div>
               </div>
@@ -617,7 +617,7 @@ export default function About() {
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">Operator Stack</div>
                 <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Rebel Command</h3>
                 <p className="text-zinc-300 text-sm leading-relaxed">
-                  The system I run my business on, built from scratch. Custom ATS/CRM and 27 AI agents for sourcing, outreach, and contract intelligence, embedded into how I work, not bolted on top. Clients get the outcomes and the reporting. They do not run Rebel OS.
+                  The system I run my business on, built from scratch. Custom ATS/CRM and 27 AI agents for sourcing, outreach, and contract intelligence, embedded into how I work, not bolted on top. Clients get the outcomes and the reporting. They do not run Rebel Command.
                 </p>
               </div>
             </GlowCard>

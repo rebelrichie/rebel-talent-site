@@ -27,11 +27,11 @@ const FAQS = [
   },
   {
     q: "Do you publish the retainer?",
-    a: "No. We do not post the retainer on this page because scope changes the number. A strategy call is the right first step. Cleared and defense work is priced separately on advisory if you only need the plan, not the desk.",
+    a: "No. The fractional retainer is not on this page. Scope changes the number, and a strategy call is how it gets set. Advisory is a different offer: a hiring plan, an AI read, a recruiting infrastructure build, or an advisory retainer. Those prices are on the advisory page. They are not the price of this desk, and they are not a cleared search fee.",
   },
   {
     q: "What happens when you leave?",
-    a: "You keep the ATS configuration, the pipelines, the scorecards, the playbooks, and the documentation. Rebel OS stays with us. You get the outcomes and the reporting. You do not run the agent stack.",
+    a: "You keep the ATS configuration, the pipelines, the scorecards, the playbooks, and the documentation. That is the same handoff EarthDaily Federal kept when the engagement scaled down. Rebel Command stays with us. You get the outcomes and the reporting. You do not run the agent stack.",
   },
 ];
 
@@ -74,7 +74,7 @@ const STEPS = [
   {
     icon: Undo2,
     title: "Hand it back",
-    body: "When the retainer winds down, the ATS, scorecards, playbooks, and pipeline stay.",
+    body: "When the retainer winds down, the ATS, scorecards, playbooks, and pipeline stay with you. Rebel Command stays with us.",
   },
 ];
 
@@ -88,7 +88,7 @@ const COMPARE = [
   {
     title: "Contingent",
     tag: "ONE SEAT",
-    body: "Flat fee by salary band. Due on placement. No deposit.",
+    body: "Flat fee by salary band. Invoiced when the search starts. No deposit.",
     href: "/contingent",
   },
   {
@@ -281,13 +281,13 @@ export default function Fractional() {
             ))}
           </Accordion>
           <p className="mt-8 text-zinc-500 text-sm leading-relaxed">
-            Longer reads:{" "}
-            <Link href="/blog/what-is-fractional-recruiting" className="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red">
-              what fractional recruiting is
+            Longer read:{" "}
+            <Link href="/blog/when-contingent-beats-retained-and-embedded" className="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red">
+              when contingent beats retained and embedded
             </Link>
-            {" "}and{" "}
-            <Link href="/blog/how-much-does-fractional-recruiting-cost" className="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red">
-              how fractional recruiting cost compares
+            . One seat is{" "}
+            <Link href="/contingent" className="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red">
+              contingent search
             </Link>
             .
           </p>

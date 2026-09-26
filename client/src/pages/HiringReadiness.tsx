@@ -14,28 +14,16 @@ import {
 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
+import {
+  QUESTIONS,
+  SCORECARD_GATE,
+  localScore,
+  scorecardCategories,
+  scorecardCategorySentence,
+} from "@/lib/hiringScorecard";
 
 const SCORECARD_API = "https://rebelapply.com/api/public/scorecard";
-
-interface Question {
-  id: string;
-  category: string;
-  prompt: string;
-}
-
-// Keep in sync with src/app/api/public/scorecard/route.ts QUESTIONS.
-const QUESTIONS: Question[] = [
-  { id: "roadmap", category: "Strategy", prompt: "Do you have a documented hiring roadmap for the next 6 months?" },
-  { id: "scorecards", category: "Process", prompt: "Do all of your hiring managers use the same interview scorecard?" },
-  { id: "cost-per-hire", category: "Metrics", prompt: "Do you know your current cost per hire across all sourcing channels?" },
-  { id: "sourcing-playbooks", category: "Sourcing", prompt: "Do you have a sourcing playbook for each role type you regularly hire?" },
-  { id: "candidate-response", category: "Candidate Experience", prompt: "Do candidates get a substantive response within 48 hours of applying?" },
-  { id: "comp-framework", category: "Compensation", prompt: "Do you have a defensible compensation framework by level and function?" },
-  { id: "pipeline-metrics", category: "Data", prompt: "Can your ATS tell you the conversion rate at each pipeline stage?" },
-  { id: "interview-calibration", category: "Process", prompt: "Are interview questions calibrated against the actual job requirements?" },
-  { id: "onboarding-plan", category: "Onboarding", prompt: "Do new hires get a documented 30/60/90-day plan in their first week?" },
-  { id: "exit-feedback", category: "Retention", prompt: "Do you ask departing employees what would have kept them?" },
-];
+const CATEGORY_COUNT = scorecardCategories().length;
 
 interface BreakdownItem {
   id: string;
@@ -58,7 +46,7 @@ type ResultPayload = {
   breakdown: BreakdownItem[];
 };
 
-type Step = "intro" | "questions" | "contact" | "result";
+type Step = "intro" | "questions" | "score" | "result";
 
 export default function HiringReadiness() {
   const [step, setStep] = useState<Step>("intro");
@@ -134,10 +122,10 @@ export default function HiringReadiness() {
     <PageLayout>
       <PageSEO
         title="Hiring Readiness Scorecard | Rebel Talent"
-        description="Ten yes-or-no questions across strategy, process, sourcing, metrics, candidate experience, and retention. A score out of 100, the weak spots, and a specific fix for each one. Free. About five minutes. No pitch on the results screen."
+        description={`${scorecardCategorySentence()} ${SCORECARD_GATE} Free. About five minutes.`}
         path="/hiring-readiness"
         ogTitle="Hiring Readiness Scorecard | Rebel Talent"
-        ogDescription="Where does recruiting actually stand? Ten questions, a score out of 100, and a fix for each gap. Free. About five minutes."
+        ogDescription={`${scorecardCategorySentence()} The score shows before any form. Free. About five minutes.`}
         ogImage="og-home.png"
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
@@ -166,12 +154,12 @@ export default function HiringReadiness() {
               answeredCount={answeredCount}
               total={QUESTIONS.length}
               onBack={() => setStep("intro")}
-              onContinue={() => setStep("contact")}
+              onContinue={() => setStep("score")}
               allAnswered={allAnswered}
             />
           )}
 
-          {step === "contact" && (
+          {step === "score" && (
             <ContactPanel
               name={name}
               setName={setName}
@@ -184,6 +172,7 @@ export default function HiringReadiness() {
               websiteUrl={websiteUrl}
               setWebsiteUrl={setWebsiteUrl}
               yesCount={yesCount}
+              answers={answers}
               onBack={() => setStep("questions")}
               onSubmit={submit}
               submitting={submitting}
@@ -210,12 +199,13 @@ function IntroPanel({ onStart }: { onStart: () => void }) {
         Where does recruiting<br className="hidden sm:block" /> actually stand?
       </h1>
       <p className="text-zinc-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-        Ten yes-or-no questions across the same things we look at on an engagement: strategy, process, sourcing, metrics, candidate experience, retention. You get a score out of 100, the weak spots, and a specific fix for each one. Free. About five minutes. No pitch on the results screen.
+        {scorecardCategorySentence()} {SCORECARD_GATE} Free. About five minutes. No pitch on the results screen.
       </p>
 
-      <div className="grid sm:grid-cols-3 gap-3 max-w-2xl mx-auto mb-10">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto mb-10">
         {[
-          { label: "Questions", value: "10" },
+          { label: "Questions", value: String(QUESTIONS.length) },
+          { label: "Categories", value: String(CATEGORY_COUNT) },
           { label: "Time", value: "~5 min" },
           { label: "Cost", value: "Free" },
         ].map((s) => (
@@ -267,10 +257,10 @@ function QuestionsPanel({
       <div className="flex items-end justify-between mb-6">
         <div>
           <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-2">
-            SCORECARD · 10 QUESTIONS
+            SCORECARD · {QUESTIONS.length} QUESTIONS · {CATEGORY_COUNT} CATEGORIES
           </div>
           <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">
-            Ten questions.
+            {QUESTIONS.length} questions. {CATEGORY_COUNT} categories.
           </h2>
         </div>
         <div className="text-zinc-400 font-mono text-xs">
@@ -320,7 +310,7 @@ function QuestionsPanel({
           onClick={onContinue}
           className="inline-flex items-center gap-2 px-8 py-4 bg-rebel-red hover:bg-red-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-display text-sm font-semibold uppercase tracking-wider rounded-md transition-colors"
         >
-          {allAnswered ? "Continue to Your Score" : `Answer all ${total} questions`}
+          {allAnswered ? "See my score" : `Answer all ${total} questions`}
           <ArrowRight className="w-4 h-4" />
         </button>
       </div>
@@ -364,7 +354,7 @@ function YesNoButton({
 
 function ContactPanel({
   name, setName, email, setEmail, company, setCompany, role, setRole,
-  websiteUrl, setWebsiteUrl, yesCount, onBack, onSubmit, submitting, errMsg,
+  websiteUrl, setWebsiteUrl, yesCount, answers, onBack, onSubmit, submitting, errMsg,
 }: {
   name: string; setName: (v: string) => void;
   email: string; setEmail: (v: string) => void;
@@ -372,11 +362,15 @@ function ContactPanel({
   role: string; setRole: (v: string) => void;
   websiteUrl: string; setWebsiteUrl: (v: string) => void;
   yesCount: number;
+  answers: Record<string, boolean>;
   onBack: () => void;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   submitting: boolean;
   errMsg: string | null;
 }) {
+  const gapCategories = scorecardCategories().filter((category) =>
+    QUESTIONS.some((q) => q.category === category && answers[q.id] === false),
+  );
   return (
     <div>
       <button
@@ -389,14 +383,32 @@ function ContactPanel({
 
       <div className="text-center mb-8">
         <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-          ONE LAST STEP
+          YOUR SCORE
         </div>
-        <h2 className="font-display text-2xl sm:text-4xl font-bold text-white uppercase tracking-tight leading-tight mb-4">
-          Where should I send your report?
+        <div className="inline-flex items-end justify-center gap-2 mb-3">
+          <span className="font-display text-7xl sm:text-8xl font-bold text-rebel-red leading-none">{localScore(yesCount)}</span>
+          <span className="text-zinc-400 text-2xl font-mono pb-2">/100</span>
+        </div>
+        <p className="text-zinc-300 text-base leading-relaxed max-w-xl mx-auto mb-4">
+          {yesCount} of {QUESTIONS.length} yes. Each yes is an equal share of 100. This number is not behind a form.
+        </p>
+        {gapCategories.length > 0 ? (
+          <p className="text-zinc-400 text-sm leading-relaxed max-w-xl mx-auto">
+            Gaps in {gapCategories.join(", ")}.
+          </p>
+        ) : (
+          <p className="text-zinc-400 text-sm leading-relaxed max-w-xl mx-auto">
+            No gaps in these {CATEGORY_COUNT} categories.
+          </p>
+        )}
+      </div>
+
+      <div className="text-center mb-6">
+        <h2 className="font-display text-xl sm:text-2xl font-bold text-white uppercase tracking-tight mb-3">
+          Written fixes
         </h2>
-        <p className="text-zinc-400 text-base leading-relaxed max-w-xl mx-auto">
-          You answered <span className="text-white font-semibold">{yesCount} of 10 yes</span>.
-          Drop your details and the per-question breakdown, including the specific fix for every gap, comes up immediately.
+        <p className="text-zinc-400 text-sm leading-relaxed max-w-xl mx-auto">
+          {SCORECARD_GATE}
         </p>
       </div>
 
@@ -442,7 +454,7 @@ function ContactPanel({
           disabled={submitting}
           className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-rebel-red hover:bg-red-600 disabled:opacity-60 disabled:cursor-not-allowed text-white font-display text-sm font-semibold uppercase tracking-wider rounded-md transition-colors"
         >
-          {submitting ? "Calculating..." : (<>See My Score <ArrowRight className="w-4 h-4" /></>)}
+          {submitting ? "Sending..." : (<>Send the written fixes <ArrowRight className="w-4 h-4" /></>)}
         </button>
 
         <p className="text-zinc-400 text-xs text-center pt-2">

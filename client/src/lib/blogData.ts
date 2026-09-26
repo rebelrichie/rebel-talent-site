@@ -21,14 +21,35 @@ export interface StaticBlogPost {
   tags: string[];
   featured: boolean;
   publishedAt: string | null;
+  published?: boolean;
+  redirectTo?: string | null;
 }
 
-// Newest first, exactly as exported.
-export const BLOG_POSTS: StaticBlogPost[] = postsJson as StaticBlogPost[];
+type BlogRecord = StaticBlogPost;
+
+const ALL_POSTS = postsJson as BlogRecord[];
+
+function safeRedirect(to: string | null | undefined): string {
+  if (typeof to === "string" && to.startsWith("/") && !to.startsWith("//") && !to.includes("://")) {
+    return to;
+  }
+  return "/blog";
+}
+
+// Public index only. Unpublished posts stay in the JSON for a later rewrite
+// and resolve to a 301 (see getUnpublishedRedirect).
+export const BLOG_POSTS: StaticBlogPost[] = ALL_POSTS.filter((p) => p.published !== false);
 
 export function getPostBySlug(slug: string | undefined): StaticBlogPost | null {
   if (!slug) return null;
   return BLOG_POSTS.find((p) => p.slug === slug) ?? null;
+}
+
+export function getUnpublishedRedirect(slug: string | undefined): string | null {
+  if (!slug) return null;
+  const post = ALL_POSTS.find((p) => p.slug === slug && p.published === false);
+  if (!post) return null;
+  return safeRedirect(post.redirectTo);
 }
 
 // The three most recent posts other than the one being read.

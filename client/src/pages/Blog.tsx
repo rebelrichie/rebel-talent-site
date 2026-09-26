@@ -22,7 +22,7 @@ export default function Blog() {
     <PageLayout>
       <PageSEO
         title="Rebel Built: Talent, Tech & Defense | Rebel Talent Systems"
-        description="Insights on recruiting, talent strategy, defense tech, and AI-powered operations from Richie Lampani."
+        description="Insights on contingent, retained, and embedded recruiting, plus defense tech and how a hiring desk actually runs."
         path="/blog"
         ogTitle="Rebel Built Blog"
         ogDescription="Recruiting, AI, and talent strategy insights."
