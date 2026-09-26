@@ -299,22 +299,38 @@ async function prerender() {
   console.log(`[prerender] Starting pre-render of ${allRoutes.length} routes (${ROUTES.length} static + ${slugRoutes.length} slug role detail + ${blogRoutes.length} blog, ${redirects.length} uuid redirects)...`);
 
   const server = await startServer();
-  const browser = await launch({ headless: true, args: ["--no-sandbox"] });
+  // Restart Chromium every few routes. A single long-lived browser gets
+  // OOM-killed on this Mac when prerendering 50+ SPA routes.
+  const chromeArgs = [
+    "--no-sandbox",
+    "--disable-dev-shm-usage",
+    "--disable-gpu",
+    "--disable-extensions",
+    "--no-first-run",
+    "--single-process",
+  ];
+  let browser = await launch({ headless: true, args: chromeArgs });
 
   let success = 0;
   let failed = 0;
+  let sinceRestart = 0;
 
   for (const route of allRoutes) {
     try {
+      if (sinceRestart >= 5) {
+        await browser.close().catch(() => {});
+        browser = await launch({ headless: true, args: chromeArgs });
+        sinceRestart = 0;
+      }
       const page = await browser.newPage();
       await page.goto(`http://localhost:${PORT}${route}`, {
-        waitUntil: "networkidle0",
-        timeout: 15000,
+        waitUntil: "domcontentloaded",
+        timeout: 30000,
       });
 
       // Wait for React to render + ScrollReveal animations to settle
-      await page.waitForSelector("main", { timeout: 5000 }).catch(() => {});
-      await new Promise((r) => setTimeout(r, 1000));
+      await page.waitForSelector("main", { timeout: 10000 }).catch(() => {});
+      await new Promise((r) => setTimeout(r, 800));
 
       // Get the fully rendered HTML
       const html = await page.content();
@@ -327,14 +343,18 @@ async function prerender() {
 
       console.log(`  ✅ ${route} → ${filePath.replace(DIST_DIR, "dist/public")} (${Math.round(html.length / 1024)}KB)`);
       success++;
-      await page.close();
+      await page.close().catch(() => {});
+      sinceRestart++;
     } catch (err) {
       console.error(`  ❌ ${route} — ${err.message}`);
       failed++;
+      await browser.close().catch(() => {});
+      browser = await launch({ headless: true, args: chromeArgs });
+      sinceRestart = 0;
     }
   }
 
-  await browser.close();
+  await browser.close().catch(() => {});
   server.close();
 
   // UUID job URLs and /defense redirect. They are not sitemap entries.
