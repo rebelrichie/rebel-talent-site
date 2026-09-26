@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
 import GlowCard from "@/components/GlowCard";
 import CurrentEngagements from "@/components/CurrentEngagements";
-import EmailCapture from "@/components/EmailCapture";
 
 // Safe addition, haptic feedback for PWA CTA taps
 function hapticTap() {
@@ -394,16 +393,20 @@ export default function Advisory() {
           <ScrollReveal variant="fade-up">
           <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">NOT READY TO TALK</div>
           <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-4">
-            Cleared Talent Market Report
+            Rebel Built newsletter
           </h2>
           <p className="text-zinc-400 text-sm mb-8 max-w-lg mx-auto leading-relaxed">
-            Real comp bands, time to fill on full scope poly, and clearance transfer rates. Sent when it publishes.
+            Hiring notes from the desk. Subscribe on LinkedIn. No separate email list on this site.
           </p>
-          <EmailCapture
-            source="advisory-cleared-report"
-            placeholder="Enter your email"
-            buttonText="Send it to me"
-          />
+          <a
+            href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7412825035092045824"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="link-advisory-newsletter"
+            className="inline-flex items-center gap-2 bg-rebel-red hover:bg-rebel-red/90 text-white font-display text-xs tracking-wider uppercase px-5 py-2.5 transition-colors no-underline"
+          >
+            Follow on LinkedIn
+          </a>
           </ScrollReveal>
         </div>
       </section>
