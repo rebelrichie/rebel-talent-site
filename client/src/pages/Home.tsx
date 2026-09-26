@@ -44,7 +44,7 @@ const homepageSchema = {
         "itemOffered": {
           "@type": "Service",
           "name": "Contingent Recruiting",
-          "description": "One role. Flat fee by salary band, billed on start. No percentage of salary.",
+          "description": "One role. Flat fee by salary band, invoiced when the hire starts. No percentage of salary. No deposit.",
           "url": "https://rebeltalentsystems.com/contingent"
         }
       },
@@ -84,7 +84,7 @@ const PATHS = [
     id: "contingent",
     kicker: "Contingent",
     title: "Fill one seat.",
-    body: "One role. The fee is flat, set by the salary band, and billed on start. There is no percentage of salary. The long version is on the contingent page.",
+    body: "One role. The fee is flat, set by the salary band, and invoiced when the hire starts. There is no percentage of salary and no deposit. The long version is on the contingent page.",
     detailsHref: "/contingent",
     detailsLabel: "View contingent details",
     ctaHref: "/strategy-call?engagement=contingent",

@@ -14,8 +14,8 @@ const serviceSchemas = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Contingent Recruiting",
-    "serviceType": "Contingent recruiting, flat fee by salary band, billed on start",
-    "description": "One role. Flat fee by salary band, billed on start. No percentage of salary and no deposit.",
+    "serviceType": "Contingent recruiting, flat fee by salary band, invoiced when the hire starts",
+    "description": "One role. Flat fee by salary band, invoiced when the hire starts. No percentage of salary and no deposit.",
     "provider": serviceProvider,
     "areaServed": "US",
     "url": "https://rebeltalentsystems.com/contingent",
@@ -60,7 +60,7 @@ const OFFERINGS = [
     icon: Crosshair,
     kicker: "Contingent",
     title: "One role, one fee.",
-    body: "You set the salary range. We lock a flat fee to that band before the search starts, and you are billed on start. There is no deposit and no percentage of salary. The contingent page has the long version.",
+    body: "You set the salary range. We lock a flat fee to that band before the search starts, and you are invoiced when the hire starts. There is no deposit and no percentage of salary. The contingent page has the long version.",
     detailsHref: "/contingent",
     detailsLabel: "Contingent search",
     ctaHref: "/strategy-call?engagement=contingent",
@@ -106,10 +106,10 @@ export default function Services() {
     <PageLayout>
       <PageSEO
         title="How we engage | Rebel Talent Systems"
-        description="Four ways to engage Rebel Talent: contingent, retained, embedded, and advisory. Contingent is a flat fee by salary band, billed on start."
+        description="Four ways to engage Rebel Talent: contingent, retained, embedded, and advisory. Contingent is a flat fee by salary band, invoiced when the hire starts."
         path="/services"
         ogTitle="How we engage | Rebel Talent Systems"
-        ogDescription="Four ways to engage Rebel Talent: contingent, retained, embedded, and advisory. Contingent is a flat fee by salary band, billed on start."
+        ogDescription="Four ways to engage Rebel Talent: contingent, retained, embedded, and advisory. Contingent is a flat fee by salary band, invoiced when the hire starts."
         ogImage="og-services.png"
         schemas={serviceSchemas}
         breadcrumbs={[

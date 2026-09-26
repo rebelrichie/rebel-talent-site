@@ -139,7 +139,7 @@ export default function Vision() {
                 },
                 {
                   head: "We will not start without a priced agreement.",
-                  body: "Every search is scoped, priced, and agreed on both sides before we start. That agreement is the scope and the price. It is not a cash deposit. Contingent work is billed on start, with no deposit.",
+                  body: "Every search is scoped, priced, and agreed on both sides before we start. That agreement is the scope and the price. It is not prepaid cash. Contingent work is invoiced when the hire starts, with no deposit.",
                 },
                 {
                   head: "We will not sell a client a search we do not believe is fillable.",

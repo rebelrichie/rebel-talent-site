@@ -43,8 +43,8 @@ const PAIN_POINTS = [
 const OFFERINGS = [
   {
     title: "Contingent",
-    tag: "BILLED ON START",
-    desc: "One role. You are billed on start. The fee is locked to the salary band before we start. The long version is on the contingent page.",
+    tag: "BILLED WHEN THEY START",
+    desc: "One role. You are invoiced when the hire starts. The fee is locked to the salary band before we start. There is no deposit. The long version is on the contingent page.",
     bullets: [
       "GTM desk: AEs, SDR leaders, sales engineers, first marketing hires",
       "Technical desk: founding engineers, AI/ML, platform, security",

@@ -38,7 +38,7 @@ export default function ContingentChrisSection() {
                 Contingent search, priced by salary band.
               </h2>
               <p className="text-zinc-300 text-base sm:text-lg leading-[1.7] max-w-xl">
-                Most firms take a percentage of the offer, so they make more when you pay more. We do not. You pick the salary range for the role. We lock a flat fee to that band before the search starts. You are billed on start. If you hire at the top of the range, the fee does not move.
+                Most firms take a percentage of the offer, so they make more when you pay more. We do not. You pick the salary range for the role. We lock a flat fee to that band before the search starts. You are invoiced when the hire starts. If you hire at the top of the range, the fee does not move. There is no deposit and no percentage of salary.
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">
                 <Link
