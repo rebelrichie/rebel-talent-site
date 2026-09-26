@@ -22,9 +22,8 @@ import {
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
-// Safe addition — human-readable job URLs (slug + UUID)
+// Safe addition. Human-readable job URLs (slug + UUID)
 import { jobPath } from "@/lib/jobSlug";
-import { toPublicJob } from "@shared/publicJob.mjs";
 
 const JOBS_API = "https://rebelcommand.dev/api/public/jobs";
 
@@ -64,7 +63,7 @@ function deriveClearance(j: Job): string | null {
 }
 
 // Map department text to a smaller set of buyer-side categories.
-// Safe addition — patterns are word-bounded so "Linux" no longer matches /ux/
+// Safe addition. Patterns are word-bounded so "Linux" no longer matches /ux/
 // and "Recruiter" no longer matches /ui/. Recruiting titles are checked before
 // product/design, and Engineering now catches admins, network, systems, and
 // scientist roles that previously had no Function chip at all.
@@ -147,7 +146,7 @@ export default function Jobs() {
       .then((r) => r.json())
       .then((data: { jobs: Job[] }) => {
         if (cancelled) return;
-        setJobs((data.jobs || []).map((job) => toPublicJob(job)));
+        setJobs(data.jobs || []);
         setLoading(false);
       })
       .catch((e) => {
@@ -233,7 +232,7 @@ export default function Jobs() {
     <PageLayout>
       <PageSEO
         title="Open Roles: Cleared, AI/ML & GTM Hiring | Rebel Talent"
-        description="Open full-time, fractional, and contract roles: Forward Deployed Engineers, AI/ML, GTM, and cleared (TS/SCI) search. Hand-vetted. We reply within two business days."
+        description="Open full-time, fractional, and contract roles: Forward Deployed Engineers, AI/ML, GTM, and cleared (TS/SCI) search. Hand-vetted, response within two business days."
         path="/jobs"
         schemas={schemas}
         breadcrumbs={[
@@ -508,7 +507,7 @@ export default function Jobs() {
               },
               {
                 icon: <MessageSquare className="w-5 h-5 text-rebel-red" />,
-                title: "Yes or no in two business days",
+                title: "Yes or no in two days",
                 body: "You hear yes or no within two business days. If there is a fit, we schedule a 30-minute intro that same week. If there is not, we will say why.",
               },
               {

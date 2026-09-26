@@ -492,7 +492,7 @@ export default function About() {
               <div className="border border-zinc-800 bg-zinc-900/40 p-6 h-full">
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">Legal Managed Services</div>
                 <div className="font-display text-3xl font-bold text-white mb-1">20 hires</div>
-                <div className="text-zinc-400 text-sm mb-4">GTM hires &middot; 24 months</div>
+                <div className="text-zinc-400 text-sm mb-4">GTM hires in 24 months. This work was done before Rebel Talent, at a prior firm.</div>
                 <ul className="text-zinc-300 text-sm space-y-1.5 leading-relaxed">
                   <li>&bull; 20 GTM hires</li>
                   <li>&bull; 90% retention</li>

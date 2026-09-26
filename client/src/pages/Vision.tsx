@@ -138,8 +138,8 @@ export default function Vision() {
                   body: "Sending more resumes is not the same as solving your hiring, and we refuse to confuse the two.",
                 },
                 {
-                  head: "We require a scoped, priced commitment.",
-                  body: "Every search we run is scoped and priced on both sides before we start. That is a written commitment, not a cash deposit.",
+                  head: "We will not start without a priced agreement.",
+                  body: "Every search is scoped, priced, and agreed on both sides before we start. That agreement is the scope and the price. It is not prepaid cash. Contingent work is invoiced when the hire starts, with no deposit.",
                 },
                 {
                   head: "We will not sell a client a search we do not believe is fillable.",

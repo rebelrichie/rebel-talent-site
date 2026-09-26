@@ -18,10 +18,10 @@ export default function Certification() {
     <PageLayout>
       <PageSEO
         title="ABCR Recruiter Certification | Rebel Talent"
-        description="The American Board of Certified Recruiters (ABCR) is establishing the first exam-based professional credential for recruiting. Founded by Richie Lampani."
+        description="The American Board of Certified Recruiters (ABCR) is establishing an exam-based professional credential for recruiting. Founded by Richie Lampani."
         path="/certification"
         ogTitle="ABCR: The Standard for Recruiting Professionals"
-        ogDescription="The first exam-based professional credential for the recruiting profession. The CR designation signals verified competency, ethical conduct, and commitment to excellence."
+        ogDescription="An exam-based professional credential for the recruiting profession. The CR designation signals verified competency, ethical conduct, and commitment to excellence."
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
           { name: "Certification", item: "https://rebeltalentsystems.com/certification" },
@@ -40,7 +40,7 @@ export default function Certification() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">recruiting professionals.</span>
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
-            The American Board of Certified Recruiters is establishing the first exam-based professional credential for the recruiting profession. The CR designation signals verified competency, ethical conduct, and commitment to excellence.
+            The American Board of Certified Recruiters is establishing an exam-based professional credential for the recruiting profession. The CR designation signals verified competency, ethical conduct, and commitment to excellence.
           </p>
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3">
             <a href="https://certifiedrecruiters.org/" target="_blank" rel="noopener noreferrer" className="block sm:inline-block">
@@ -65,7 +65,7 @@ export default function Certification() {
             {[
               { value: "7", label: "CORE EXAM DOMAINS" },
               { value: "2", label: "CERTIFICATION LEVELS" },
-              { value: "501(c)(6)", label: "NONPROFIT STATUS" },
+              { value: "Seeking", label: "501(C)(6) STATUS" },
               { value: "Founding", label: "CLASS NOW FORMING" },
             ].map((stat) => (
               <div key={stat.label} className="text-center border border-zinc-800 bg-zinc-900/30 rounded-lg p-4">
