@@ -24,6 +24,7 @@ import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
 // Safe addition — human-readable job URLs (slug + UUID)
 import { jobPath } from "@/lib/jobSlug";
+import { toPublicJob } from "@shared/publicJob.mjs";
 
 const JOBS_API = "https://rebelcommand.dev/api/public/jobs";
 
@@ -146,7 +147,7 @@ export default function Jobs() {
       .then((r) => r.json())
       .then((data: { jobs: Job[] }) => {
         if (cancelled) return;
-        setJobs(data.jobs || []);
+        setJobs((data.jobs || []).map((job) => toPublicJob(job)));
         setLoading(false);
       })
       .catch((e) => {
@@ -232,7 +233,7 @@ export default function Jobs() {
     <PageLayout>
       <PageSEO
         title="Open Roles: Cleared, AI/ML & GTM Hiring | Rebel Talent"
-        description="Open full-time, fractional, and contract roles: Forward Deployed Engineers, AI/ML, GTM, and cleared (TS/SCI) search. Hand-vetted, response within 48 hours."
+        description="Open full-time, fractional, and contract roles: Forward Deployed Engineers, AI/ML, GTM, and cleared (TS/SCI) search. Hand-vetted. We reply within two business days."
         path="/jobs"
         schemas={schemas}
         breadcrumbs={[
@@ -507,7 +508,7 @@ export default function Jobs() {
               },
               {
                 icon: <MessageSquare className="w-5 h-5 text-rebel-red" />,
-                title: "Yes or no in two days",
+                title: "Yes or no in two business days",
                 body: "You hear yes or no within two business days. If there is a fit, we schedule a 30-minute intro that same week. If there is not, we will say why.",
               },
               {

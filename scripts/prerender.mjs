@@ -7,6 +7,7 @@ import { createServer } from "http";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { resolve, join, extname, dirname } from "path";
 import { launch } from "puppeteer";
+import { applyDocumentShell, toPublicJob } from "../shared/publicJob.mjs";
 
 const DIST_DIR = resolve(import.meta.dirname, "../dist/public");
 const PORT = 4173;
@@ -123,12 +124,13 @@ function slugify(text) {
 }
 
 function jobSlugPath(job) {
-  const parts = [job.title, job.companyName, job.location]
+  const pub = toPublicJob(job);
+  const parts = [pub.title, pub.companyName, pub.location]
     .filter((p) => p && String(p).trim().length > 0)
     .map(slugify)
     .filter((p) => p.length > 0);
   const slug = parts.join("-");
-  return slug ? `/jobs/${slug}-${job.id}` : `/jobs/${job.id}`;
+  return slug ? `/jobs/${slug}-${pub.id}` : `/jobs/${job.id}`;
 }
 
 const BARE_JOB_UUID = /^\/jobs\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\/?$/i;
@@ -186,7 +188,7 @@ async function fetchJobRoutes() {
     const res = await fetch("https://rebelcommand.dev/api/public/jobs");
     if (!res.ok) {
       console.warn(`[prerender] jobs fetch failed (${res.status}) — skipping detail pages`);
-      return { slugRoutes: [], redirects: [] };
+      return { slugRoutes: [], redirects: [], jobs: [] };
     }
     const data = await res.json();
     const jobs = (data.jobs || []).filter((j) => j && j.id);
@@ -201,10 +203,10 @@ async function fetchJobRoutes() {
         redirects.push({ from: uuidPath, to: slugPath });
       }
     }
-    return { slugRoutes, redirects };
+    return { slugRoutes, redirects, jobs };
   } catch (err) {
     console.warn(`[prerender] jobs fetch errored — skipping detail pages: ${err.message}`);
-    return { slugRoutes: [], redirects: [] };
+    return { slugRoutes: [], redirects: [], jobs: [] };
   }
 }
 
@@ -256,8 +258,31 @@ function generateSitemap(jobRoutes, blogPosts) {
   console.log(`[prerender] Wrote sitemap.xml (${entries.length} URLs: ${SITEMAP_STATIC.length} static + ${jobRoutes.length} jobs + ${blogPosts.length} blog)`);
 }
 
+// /jobs/:id/apply is not a document we want indexed. nginx falls through
+// to the homepage shell, so write a real shell with noindex and the role title.
+function writeApplyNoindexPages(shell, jobs) {
+  let written = 0;
+  for (const job of jobs) {
+    const pub = toPublicJob(job);
+    const title = `Apply: ${pub.title || "Role"} | Rebel Talent`;
+    const html = applyDocumentShell(shell, title);
+    const targets = new Set([`/jobs/${job.id}/apply`, `${jobSlugPath(pub)}/apply`]);
+    for (const route of targets) {
+      const dir = join(DIST_DIR, route);
+      mkdirSync(dir, { recursive: true });
+      writeFileSync(join(dir, "index.html"), html, "utf-8");
+      written++;
+    }
+  }
+  console.log(`[prerender] Wrote ${written} noindex apply shells`);
+}
+
 async function prerender() {
-  const { slugRoutes, redirects } = await fetchJobRoutes();
+  const spaShell = existsSync(join(DIST_DIR, "index.html"))
+    ? readFileSync(join(DIST_DIR, "index.html"), "utf-8")
+    : "";
+  const { slugRoutes, redirects, jobs } = await fetchJobRoutes();
+  if (spaShell) writeApplyNoindexPages(spaShell, jobs || []);
   // Sitemap and full HTML are slug URLs only. UUID paths get a redirect stub.
   const jobRoutes = slugRoutes;
   const { routes: blogRoutes, posts: blogPosts } = await fetchBlogRoutes();
