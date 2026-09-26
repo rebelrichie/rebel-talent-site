@@ -22,9 +22,9 @@ fi
 
 # Gate 2: prove the prerender captured REAL rendered content, not a Suspense/SPA
 # shell. The copyright line is footer text that only exists once React has rendered,
-# so its presence on both an eager route (/) and a lazy route (/services, /pricing)
+# so its presence on both an eager route (/) and a lazy route (/services, /advisory)
 # confirms code-split routes prerendered correctly. Guards against lazy-load regressions.
-for f in dist/public/index.html dist/public/services/index.html dist/public/pricing/index.html; do
+for f in dist/public/index.html dist/public/services/index.html dist/public/advisory/index.html; do
   if ! grep -qi "all rights reserved" "$f"; then
     echo "✗ $f looks like an unrendered shell (no rendered footer content). Aborting, nothing deployed." >&2
     exit 1
