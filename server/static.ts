@@ -1,6 +1,7 @@
 import express, { type Express } from "express";
 import fs from "fs";
 import path from "path";
+import { applyDocumentShell } from "../shared/publicJob.mjs";
 
 const BARE_JOB_UUID = /^\/jobs\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\/?$/i;
 
@@ -77,7 +78,7 @@ export function serveStatic(app: Express) {
 
   // Missing files with an extension (og-*.png, .js, .css) are real 404s.
   // Extensionless paths stay on the SPA fallback so client routing still works.
-  app.use("/{*path}", (req, res) => {
+  app.use("/{*path}", async (req, res) => {
     const last = (req.path.split("/").pop() || "");
     if (last.includes(".")) {
       const notFound = path.resolve(distPath, "404.html");
@@ -88,6 +89,26 @@ export function serveStatic(app: Express) {
       res.status(404).type("text/plain").send("Not found");
       return;
     }
-    res.sendFile(path.resolve(distPath, "index.html"));
+    const indexFile = path.resolve(distPath, "index.html");
+    if (/\/apply\/?$/.test(req.path) && fs.existsSync(indexFile)) {
+      let title = "Apply | Rebel Talent";
+      const id = req.path.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i)?.[0];
+      if (id) {
+        try {
+          const response = await fetch(`https://rebelcommand.dev/api/public/jobs/${id}`, {
+            headers: { Accept: "application/json", "User-Agent": "RebelTalentSite" },
+          });
+          if (response.ok) {
+            const data = await response.json() as { job?: { title?: string } };
+            if (data?.job?.title) title = `Apply: ${data.job.title} | Rebel Talent`;
+          }
+        } catch {
+          // Keep the generic apply title. The page is still noindex.
+        }
+      }
+      res.status(200).type("html").send(applyDocumentShell(fs.readFileSync(indexFile, "utf-8"), title));
+      return;
+    }
+    res.sendFile(indexFile);
   });
 }

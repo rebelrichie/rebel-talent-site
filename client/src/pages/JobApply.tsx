@@ -11,6 +11,7 @@ import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 // Safe addition — accepts both old UUID links and new slug-uuid links
 import { extractJobId } from "@/lib/jobSlug";
+import { toPublicJob } from "@shared/publicJob.mjs";
 
 const JOB_API = "https://rebelcommand.dev/api/public/jobs";
 const APPLY_API = "https://rebelcommand.dev/api/public/apply";
@@ -141,7 +142,7 @@ export default function JobApply() {
         if (!r.ok) throw new Error(r.status === 404 ? "Role not found" : `HTTP ${r.status}`);
         const data = await r.json();
         if (cancelled) return;
-        setJob(data.job);
+        setJob(toPublicJob(data.job));
         // Safe addition (2026-06-03): pick up screener if role has one
         if (data.assessment) setAssessment(data.assessment as AssessmentTemplate);
         setJobLoading(false);
@@ -231,7 +232,7 @@ export default function JobApply() {
       }
       setSubmit({
         kind: "success",
-        message: data?.message || "Application received. We'll be in touch within 48 hours.",
+        message: data?.message || "Application received. We'll be in touch within two business days.",
         duplicate: !!data?.duplicate,
         bookingUrl: typeof data?.booking?.url === "string" ? data.booking.url : undefined,
       });
@@ -267,6 +268,7 @@ export default function JobApply() {
             : "Apply for open roles through Rebel Talent."
         }
         path={id ? `/jobs/${id}/apply` : "/jobs"}
+        noindex
       />
 
       <section data-testid="section-hero" className="px-4 sm:px-6 lg:px-8 pt-8 pb-16 max-w-2xl mx-auto">
@@ -799,7 +801,7 @@ export default function JobApply() {
 
             <p className="text-[11px] text-zinc-400 leading-relaxed pt-2">
               Submitting takes a few seconds while we parse your resume.
-              We'll review and reach out within 48 hours. By submitting,
+              We'll review and reach out within two business days. By submitting,
               you agree to be contacted about this and similar roles.
               Free for candidates, always.
             </p>

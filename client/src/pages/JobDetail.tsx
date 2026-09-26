@@ -11,6 +11,7 @@ import PageSEO from "@/components/PageSEO";
 // Safe addition — human-readable job URLs (slug + UUID)
 import { extractJobId, isBareJobUuid, jobPath } from "@/lib/jobSlug";
 import { buildJobMetaDescription } from "@/lib/jobMeta";
+import { buildJobJsonLd as jobPostingJsonLd, toPublicJob } from "@shared/publicJob.mjs";
 
 const API_BASE = "https://rebelcommand.dev/api/public/jobs";
 
@@ -93,110 +94,8 @@ function renderRich(text: string): string {
   return out.join("\n");
 }
 
-function parseLocation(location: string | null): { city: string; state: string } {
-  if (!location) return { city: "", state: "" };
-  const parts = location.split(",").map((p) => p.trim());
-  return { city: parts[0] || "", state: parts[1] || "" };
-}
-
-function parseSalary(comp: string | null): Record<string, unknown> | null {
-  if (!comp) return null;
-  const hourly = comp.match(/\$\s*([\d,.]+)\s*\/?\s*hr/i);
-  if (hourly) {
-    const value = parseFloat(hourly[1].replace(/,/g, ""));
-    return { "@type": "MonetaryAmount", currency: "USD", value: { "@type": "QuantitativeValue", value, unitText: "HOUR" } };
-  }
-  const range = comp.match(/\$\s*([\d,.]+)\s*k?\s*[--to]+\s*\$?\s*([\d,.]+)\s*k?/i);
-  if (range) {
-    let mn = parseFloat(range[1].replace(/,/g, ""));
-    let mx = parseFloat(range[2].replace(/,/g, ""));
-    if (mn < 1000 && comp.toLowerCase().includes("k")) mn *= 1000;
-    if (mx < 1000 && comp.toLowerCase().includes("k")) mx *= 1000;
-    if (mn < 1000 && mx < 1000) { mn *= 1000; mx *= 1000; }
-    return { "@type": "MonetaryAmount", currency: "USD", value: { "@type": "QuantitativeValue", minValue: mn, maxValue: mx, unitText: "YEAR" } };
-  }
-  return null;
-}
-
-// Public copy fix for the Full Desk Recruiter post. The source listing
-// still lives in Rebel Command. This only rewrites that role on the way
-// to the page. Other roles, including EarthDaily BD COCOM, pass through.
-const RECRUITER_ROLE_PREFIX = "eda03068";
-
-function publicRecruiterCopy(job: Job): Job {
-  if (!job.id?.startsWith(RECRUITER_ROLE_PREFIX)) return job;
-  const clean = (value: string | null) => {
-    if (!value) return value;
-    return value
-      .replace(/\s*\([^)]*obviously we don.?t have these[^)]*\)/gi, "")
-      .replace(/contingent with a deposit/gi, "contingent with no deposit")
-      .replace(
-        /First APPLY here\.\s*After that\s*[-\u2013\u2014]\s*Email /g,
-        "First APPLY here. After that, email ",
-      )
-      .replace(
-        /We.?ll be hiring for this again in the near future(?![.!?])/g,
-        "We'll be hiring for this again in the near future.",
-      );
-  };
-  return {
-    ...job,
-    requirements: clean(job.requirements),
-    idealProfile: clean(job.idealProfile),
-    notes: clean(job.notes),
-  };
-}
-
 function buildJobJsonLd(job: Job): Record<string, unknown> {
-  const { city, state } = parseLocation(job.location);
-  const created = new Date(job.openedAt || job.createdAt);
-  const validThrough = new Date(created);
-  validThrough.setDate(validThrough.getDate() + 90);
-  const isRemote = (job.remotePolicy || "").toLowerCase().includes("remote");
-
-  const descriptionHtml = [
-    job.requirements && `<h3>Requirements</h3><p>${job.requirements.replace(/\n/g, "<br/>")}</p>`,
-    job.idealProfile && `<h3>Ideal Candidate</h3><p>${job.idealProfile.replace(/\n/g, "<br/>")}</p>`,
-    job.notes && `<h3>Additional Details</h3><p>${job.notes.replace(/\n/g, "<br/>")}</p>`,
-  ].filter(Boolean).join("\n") || "See full listing for details.";
-
-  const ld: Record<string, unknown> = {
-    "@context": "https://schema.org/",
-    "@type": "JobPosting",
-    title: job.title,
-    description: descriptionHtml,
-    datePosted: created.toISOString().split("T")[0],
-    validThrough: validThrough.toISOString().split("T")[0],
-    employmentType: "FULL_TIME",
-    hiringOrganization: {
-      "@type": "Organization",
-      name: job.companyName,
-      sameAs: job.companyWebsite || "https://rebeltalentsystems.com",
-    },
-    jobLocation: {
-      "@type": "Place",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: city,
-        addressRegion: state,
-        addressCountry: "US",
-      },
-    },
-    directApply: false,
-    // Safe addition — canonical job URL is the slug form; old UUID URLs
-    // still resolve to the same page.
-    url: `https://rebeltalentsystems.com${jobPath(job)}`,
-  };
-
-  if (isRemote) {
-    ld.jobLocationType = "TELECOMMUTE";
-    ld.applicantLocationRequirements = { "@type": "Country", name: "US" };
-  }
-
-  const salary = parseSalary(job.compensationRange);
-  if (salary) ld.baseSalary = salary;
-
-  return ld;
+  return jobPostingJsonLd(job, `https://rebeltalentsystems.com${jobPath(job)}`);
 }
 
 export default function JobDetail() {
@@ -226,7 +125,7 @@ export default function JobDetail() {
         if (!r.ok) throw new Error(r.status === 404 ? "Role not found" : `HTTP ${r.status}`);
         const data = await r.json();
         if (cancelled) return;
-        setJob(publicRecruiterCopy(data.job));
+        setJob(toPublicJob(data.job));
         setLoading(false);
       })
       .catch((e) => {
@@ -351,7 +250,7 @@ export default function JobDetail() {
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <span className="text-xs text-zinc-400">
-                Quick application. Free for candidates. We reply within 48h.
+                Quick application. Free for candidates. We reply within two business days.
               </span>
             </div>
 
