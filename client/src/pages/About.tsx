@@ -247,7 +247,7 @@ export default function About() {
                 {/* Safe addition (2026-09 trim): era condensed to one paragraph, photo dropped */}
                 <div className="text-zinc-300 text-base leading-[1.7]">
                   <p>
-                    Robert Half. Addison Group. A dozen names in between. Eleven years of sales rankings, quarterly contests, and resumes by the hundred taught me how to read a JD between the lines, pull a cleared candidate out of nowhere on a Friday afternoon, and talk to engineers who hate being talked to by recruiters. It also taught me where the old model breaks: contingency pay rewards speed, not fit. Quality of hire, retention, your CFO&rsquo;s blood pressure. None of that pays the recruiter. I wanted to build the opposite.
+                    Robert Half. Addison Group. A few startups. Eleven years of sales rankings, quarterly contests, and resumes by the hundred taught me how to read a JD between the lines, pull a cleared candidate out of nowhere on a Friday afternoon, and talk to engineers who hate being talked to by recruiters. It also taught me where the old model breaks: contingency pay rewards speed, not fit. Quality of hire, retention, your CFO&rsquo;s blood pressure. None of that pays the recruiter. I wanted to build the opposite.
                   </p>
                 </div>
               </div>
@@ -278,7 +278,7 @@ export default function About() {
                     moved to the new team section below */}
                 <div className="text-zinc-300 text-base leading-[1.7]">
                   <p>
-                    Rebel Talent is scaling. I embed as your Head of Talent/Lead Talent Consultant for a quarter, six months, a year. I build the funnel, write the JDs, run interview loops, close hires, and I&rsquo;m on every engagement, backed by the team below. Wrote two books in the first six months (Head and Heart, December 2025; Unfinished Rooms, March 2026) and built Rebel OS, the operator stack I run the work on: 27 AI agents and a custom ATS/CRM, from scratch. Clients get the outcomes and the reporting. They do not run the stack.
+                    Rebel Talent is scaling. I embed as your Head of Talent/Lead Talent Consultant for a quarter, six months, a year. I build the funnel, write the JDs, run interview loops, close hires, and I&rsquo;m on every engagement, backed by the team below. Wrote two books in the first six months (Head and Heart, December 2025; Unfinished Rooms, March 2026) and built Rebel Command, the operator stack I run the work on: AI agents and a custom ATS/CRM, from scratch. On embedded work you get the outcomes, the reporting, and a bench that compounds. Some engagements leave you with tooling built for your house.
                   </p>
                 </div>
               </div>
@@ -395,7 +395,7 @@ export default function About() {
               The agents
             </h2>
             <p className="text-zinc-400 text-sm mb-10 italic max-w-2xl">
-              Rebel Command runs 27 AI agents under the hood. These five do the front-line work. Nothing goes out without a person signing off.
+              Rebel Command runs 27 AI agents under the hood. These four do the front-line work. Nothing goes out without a person signing off.
             </p>
           </ScrollReveal>
 
@@ -412,12 +412,6 @@ export default function About() {
                 role: "The SDR",
                 blurb:
                   "Drafts outbound. Researches prospects, writes the note, and a person signs off before anything goes out.",
-              },
-              {
-                name: "Vicky",
-                role: "Admin",
-                blurb:
-                  "Schedules, screens, coordinates. Keeps every search organized so nothing slips through the cracks.",
               },
               {
                 name: "Rachael",
@@ -617,7 +611,7 @@ export default function About() {
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">Operator Stack</div>
                 <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Rebel Command</h3>
                 <p className="text-zinc-300 text-sm leading-relaxed">
-                  The system I run my business on, built from scratch. Custom ATS/CRM and 27 AI agents for sourcing, outreach, and contract intelligence, embedded into how I work, not bolted on top. Clients get the outcomes and the reporting. They do not run Rebel OS.
+                  The operating system behind the firm. Custom ATS and CRM, sourcing lanes, outreach, and contract intelligence, run by our team with AI agents under human sign-off. On embedded work you get the outcomes, the reporting, and a bench that compounds. Some engagements leave you with tooling built for your house.
                 </p>
               </div>
             </GlowCard>
