@@ -395,45 +395,66 @@ export default function About() {
               The agents
             </h2>
             <p className="text-zinc-400 text-sm mb-10 italic max-w-2xl">
-              Rebel Command runs 27 AI agents under the hood. These four do the front-line work. Nothing goes out without a person signing off.
+              These five do the front-line work, and every one of them answers to a person on the desk.
             </p>
           </ScrollReveal>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
-                name: "Architect",
-                role: "The Leader",
+                name: "Archie Bunker",
+                photo: "/agent-archie.jpg",
+                role: "The Architect",
                 blurb:
-                  "Runs point on the whole system. Directs the other agents, watches the pipeline, and flags what needs a human.",
+                  "Builds and runs Rebel Command, the system the whole desk works on. He ships fixes, checks every agent's work, and flags anything that needs a person.",
               },
               {
-                name: "Miles",
-                role: "The SDR",
+                name: "Miles Jensen",
+                photo: "/agent-miles.jpg",
+                role: "Client Acquisition",
                 blurb:
-                  "Drafts outbound. Researches prospects, writes the note, and a person signs off before anything goes out.",
+                  "Finds Series A through C startups that are hiring hard and writes the first note himself, after doing the homework. When a founder bites, he books the strategy call with Chris and Richie.",
               },
               {
-                name: "Rachael",
-                role: "The Cleared Sourcer",
+                name: "Jonah Stark",
+                photo: "/agent-jonah.jpg",
+                role: "Embedded Partnerships",
                 blurb:
-                  "Maps cleared talent: Secret, TS, TS/SCI. Builds candidate profiles for the roles most tools can't touch.",
+                  "Looks for teams that need a Head of Talent inside the building, not another agency. He opens those conversations with engineering and GTM leaders and hands warm ones to Richie.",
               },
               {
-                name: "Larry",
+                name: "Rachael Tyrell",
+                photo: "/agent-rachael.jpg",
+                role: "Cleared Sourcing",
+                blurb:
+                  "Maps Secret, TS, and TS/SCI talent for defense and intel seats that most tools can't touch. She brings in vetted profiles, and the recruiter's first call starts warm.",
+              },
+              {
+                name: "Larry Anders",
+                photo: "/agent-larry.jpg",
                 role: "Commercial Sourcing",
                 blurb:
-                  "Sources commercial tech and GTM talent, engineers to account executives, enriched before a recruiter ever opens a tab.",
+                  "Sources commercial engineering, product, and GTM talent, from TPMs to account executives. Every profile is checked and has a personal email before a recruiter opens a tab.",
               },
             ].map((agent) => (
               <ScrollReveal key={agent.name} variant="fade-up">
                 <GlowCard>
-                  <div className="border border-zinc-800 bg-zinc-900/30 p-6 h-full" data-testid={`agent-${agent.name.toLowerCase()}`}>
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="font-display text-lg font-bold text-white uppercase">{agent.name}</h3>
-                      <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-zinc-400 border border-zinc-700 rounded-full px-2 py-0.5">AI</span>
+                  <div className="border border-zinc-800 bg-zinc-900/30 p-6 h-full" data-testid={`agent-${agent.name.split(" ")[0].toLowerCase()}`}>
+                    <div className="flex items-center gap-4 mb-4">
+                      <img
+                        src={agent.photo}
+                        alt={`${agent.name}, AI agent for ${agent.role} at Rebel Talent Systems`}
+                        loading="lazy"
+                        className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border border-zinc-700 shrink-0"
+                      />
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <h3 className="font-display text-lg font-bold text-white uppercase">{agent.name}</h3>
+                          <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-zinc-400 border border-zinc-700 rounded-full px-2 py-0.5">AI</span>
+                        </div>
+                        <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">{agent.role}</div>
+                      </div>
                     </div>
-                    <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">{agent.role}</div>
                     <p className="text-zinc-300 text-sm leading-relaxed">{agent.blurb}</p>
                   </div>
                 </GlowCard>
