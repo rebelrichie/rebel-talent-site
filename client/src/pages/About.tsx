@@ -352,6 +352,22 @@ export default function About() {
                 linkedin: "https://www.linkedin.com/in/wrona/",
                 email: "mike@rebeltalentsystems.com",
               },
+              {
+                name: "Anthony Lynch",
+                photo: "/team-anthony.jpg",
+                title: "Commercial Contingent Recruiter",
+                blurb:
+                  "Covers commercial contingent searches with Kelli. He runs his own shop, Recruiting Juggernaut, and brings that full-desk pace to every req he picks up.",
+                linkedin: "https://www.linkedin.com/in/anthonylynch/",
+              },
+              {
+                name: "Kelli Hrivnak",
+                photo: "/team-kelli.jpg",
+                title: "Commercial Contingent Recruiter",
+                blurb:
+                  "Covers commercial contingent searches with Anthony. She takes the screens on active searches and keeps candidates moving from the first call to the submittal.",
+                linkedin: "https://www.linkedin.com/in/kellihrivnak/",
+              },
             ].map((person) => (
               <ScrollReveal key={person.name} variant="fade-up">
                 <GlowCard>
@@ -373,9 +389,11 @@ export default function About() {
                       <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors no-underline">
                         LinkedIn ↗
                       </a>
-                      <a href={`mailto:${person.email}`} className="text-zinc-400 hover:text-white transition-colors no-underline">
-                        Email ↗
-                      </a>
+                      {"email" in person && person.email && (
+                        <a href={`mailto:${person.email}`} className="text-zinc-400 hover:text-white transition-colors no-underline">
+                          Email ↗
+                        </a>
+                      )}
                     </div>
                   </div>
                 </GlowCard>
