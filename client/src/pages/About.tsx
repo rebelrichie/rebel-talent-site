@@ -357,7 +357,7 @@ export default function About() {
                 photo: "/team-anthony.jpg",
                 title: "Commercial Contingent Recruiter",
                 blurb:
-                  "Covers commercial contingent searches with Kelli. He runs his own shop, Recruiting Juggernaut, and brings that full-desk pace to every req he picks up.",
+                  "Runs commercial contingent searches end to end, from the first sourcing pass to the signed offer. Works the full desk and keeps every req moving.",
                 linkedin: "https://www.linkedin.com/in/anthonylynch/",
                 email: "anthony@rebeltalentsystems.com",
               },
@@ -366,7 +366,7 @@ export default function About() {
                 photo: "/team-kelli.jpg",
                 title: "Commercial Contingent Recruiter",
                 blurb:
-                  "Covers commercial contingent searches with Anthony. She takes the screens on active searches and keeps candidates moving from the first call to the submittal.",
+                  "Runs commercial contingent searches and owns the screen. Keeps candidates moving from the first call to the submittal, with nothing left sitting.",
                 linkedin: "https://www.linkedin.com/in/kellihrivnak/",
                 email: "kelli@knakdigital.com",
               },
