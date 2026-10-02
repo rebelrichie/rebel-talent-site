@@ -359,6 +359,7 @@ export default function About() {
                 blurb:
                   "Covers commercial contingent searches with Kelli. He runs his own shop, Recruiting Juggernaut, and brings that full-desk pace to every req he picks up.",
                 linkedin: "https://www.linkedin.com/in/anthonylynch/",
+                email: "anthony@rebeltalentsystems.com",
               },
               {
                 name: "Kelli Hrivnak",
@@ -367,6 +368,7 @@ export default function About() {
                 blurb:
                   "Covers commercial contingent searches with Anthony. She takes the screens on active searches and keeps candidates moving from the first call to the submittal.",
                 linkedin: "https://www.linkedin.com/in/kellihrivnak/",
+                email: "kelli@knakdigital.com",
               },
             ].map((person) => (
               <ScrollReveal key={person.name} variant="fade-up">
