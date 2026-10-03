@@ -1,10 +1,10 @@
 // Talent.com XML feed for the public jobs board.
-// Inventory is the Rebel Command public jobs API. Public copy, salary,
-// and location come from publicJob.mjs, the same module the pages use.
+// Inventory is the Rebel Command public jobs API. Public copy and
+// location come from publicJob.mjs, the same module the pages use.
+// Salary fields are omitted. Pay on the site is DOE.
 
 import {
   employmentTypeFor,
-  parseSalary,
   postingDates,
   structuredPlace,
   toPublicJob,
@@ -128,31 +128,6 @@ function isoStamp(value) {
   return d.toISOString().replace(/\.\d{3}Z$/, "Z");
 }
 
-function salaryParts(comp) {
-  const parsed = parseSalary(comp);
-  const value = parsed && parsed.value;
-  if (!value) return null;
-  if (value.unitText === "HOUR" && Number.isFinite(value.value)) {
-    return { min: value.value, max: value.value, period: "hour" };
-  }
-  if (!Number.isFinite(value.minValue) || !Number.isFinite(value.maxValue)) return null;
-  return { min: value.minValue, max: value.maxValue, period: "year" };
-}
-
-function salaryXml(comp) {
-  const salary = salaryParts(comp);
-  if (!salary) return "";
-  return [
-    "    <salary>",
-    `      <salary_min>${cdata(salary.min)}</salary_min>`,
-    `      <salary_max>${cdata(salary.max)}</salary_max>`,
-    `      <salary_currency>${cdata("USD")}</salary_currency>`,
-    `      <period>${cdata(salary.period)}</period>`,
-    `      <type>${cdata("BASE_SALARY")}</type>`,
-    "    </salary>",
-  ].join("\n");
-}
-
 function jobTypeLabel(job) {
   return employmentTypeFor(job) === "CONTRACTOR" ? "Contract" : "Full time";
 }
@@ -187,8 +162,6 @@ function jobXml(job, generatedAt) {
   const postal = postalOf(job);
   if (postal) lines.push(`    <postalcode>${cdata(postal)}</postalcode>`);
   if (expiration) lines.push(`    <expirationdate>${cdata(expiration)}</expirationdate>`);
-  const salary = salaryXml(job.compensationRange);
-  if (salary) lines.push(salary);
   lines.push(`    <isremote>${cdata(place.remote ? "yes" : "no")}</isremote>`);
   lines.push(`    <jobtype>${cdata(jobTypeLabel(job))}</jobtype>`);
   lines.push("  </job>");

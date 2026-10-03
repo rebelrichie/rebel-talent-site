@@ -14,7 +14,7 @@ function blocks(xml) {
   return [...xml.matchAll(/<job>[\s\S]*?<\/job>/g)].map((m) => m[0]);
 }
 
-test("feed uses the public TPM salary, skips general, and keeps other companies", () => {
+test("feed skips salary, general, and keeps other companies", () => {
   const xml = buildJobsFeedXml([
     {
       id: TPM_ID,
@@ -40,7 +40,7 @@ test("feed uses the public TPM salary, skips general, and keeps other companies"
       location: "Remote USA (Seattle / West Coast preferred)",
       remotePolicy: "Remote",
       compensationRange: `$80,000${EN}$110,000`,
-      requirements: "Government accounting experience for a federal client team.",
+      requirements: "Government accounting experience for a federal client team. Compensation is $80,000-$110,000.",
       openedAt: "2026-09-22T11:58:04.296Z",
       address: { addressCountry: "US" },
     },
@@ -64,9 +64,8 @@ test("feed uses the public TPM salary, skips general, and keeps other companies"
 
   const tpm = jobs.find((block) => block.includes(TPM_ID));
   assert.ok(tpm);
-  assert.match(tpm, /<salary_min><!\[CDATA\[100000\]\]><\/salary_min>/);
-  assert.match(tpm, /<salary_max><!\[CDATA\[140000\]\]><\/salary_max>/);
-  assert.match(tpm, /<salary_currency><!\[CDATA\[USD\]\]><\/salary_currency>/);
+  assert.doesNotMatch(xml, /<salary/);
+  assert.doesNotMatch(xml, /\$\s*\d/);
   assert.match(tpm, /<isremote><!\[CDATA\[no\]\]><\/isremote>/);
   assert.match(tpm, /<city><!\[CDATA\[West Michigan\]\]><\/city>/);
   assert.match(tpm, /<state><!\[CDATA\[MI\]\]><\/state>/);
@@ -78,13 +77,13 @@ test("feed uses the public TPM salary, skips general, and keeps other companies"
 
   const accountant = jobs.find((block) => block.includes("8844a230"));
   assert.match(accountant, /<company><!\[CDATA\[EarthDaily Federal\]\]><\/company>/);
-  assert.match(accountant, /<salary_min><!\[CDATA\[80000\]\]><\/salary_min>/);
-  assert.match(accountant, /<salary_max><!\[CDATA\[110000\]\]><\/salary_max>/);
+  assert.match(accountant, /Pay is DOE\./);
+  assert.doesNotMatch(accountant, /<salary/);
+  assert.doesNotMatch(accountant, /80000|110000|\$/);
   assert.match(accountant, /<isremote><!\[CDATA\[yes\]\]><\/isremote>/);
-  assert.doesNotMatch(accountant, /100000/);
 
   const engineer = jobs.find((block) => block.includes("b2b4ef85"));
-  assert.doesNotMatch(engineer, /<salary>/);
+  assert.doesNotMatch(engineer, /<salary/);
   assert.match(engineer, /<isremote><!\[CDATA\[yes\]\]><\/isremote>/);
   assert.match(engineer, /<city><!\[CDATA\[\]\]><\/city>/);
 });
@@ -115,9 +114,9 @@ test("live board inventory becomes the feed", async () => {
 
   const tpm = feedJobs.find((block) => block.includes(`<referencenumber><![CDATA[${TPM_ID}]]>`));
   assert.ok(tpm, "TPM role missing from feed");
-  assert.match(tpm, /<salary_min><!\[CDATA\[100000\]\]><\/salary_min>/);
-  assert.match(tpm, /<salary_max><!\[CDATA\[140000\]\]><\/salary_max>/);
-  assert.match(tpm, /<salary_currency><!\[CDATA\[USD\]\]><\/salary_currency>/);
+  assert.doesNotMatch(xml, /<salary/);
+  assert.doesNotMatch(xml, /\$\s*\d/);
+  assert.match(xml, /Pay is DOE\./);
   assert.match(tpm, /<company><!\[CDATA\[Confidential Client\]\]><\/company>/);
   assert.match(tpm, /west-michigan-5ab49383-7950-471b-b37a-558c26054eae/);
 
@@ -130,12 +129,8 @@ test("live board inventory becomes the feed", async () => {
     assert.match(block, new RegExp(`<title><!\\[CDATA\\[${title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\]\\]>`));
     const company = String(pub.companyName || "");
     assert.match(block, new RegExp(`<company><!\\[CDATA\\[${company.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\]\\]>`));
-    if (String(job.id).toLowerCase() === TPM_ID) {
-      assert.equal(pub.compensationRange, "$100,000 - $140,000");
-      continue;
-    }
-    // Other roles keep the API amount. Public copy only swaps unicode dashes
-    // for an ASCII hyphen, matching the jobs board.
+    // Public copy keeps the API amount and only swaps unicode dashes
+    // for an ASCII hyphen. The page shows DOE and does not print it.
     const raw = job.compensationRange ?? null;
     const expected = raw == null
       ? null

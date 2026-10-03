@@ -6,6 +6,7 @@ import {
   employmentTypeFor,
   parseSalary,
   postingDates,
+  redactPayCopy,
   structuredPlace,
   toPublicJob,
 } from "../shared/publicJob.mjs";
@@ -100,7 +101,7 @@ test("company label, recruiter type, and confidential blurbs", () => {
   });
   assert.equal(already.companyName, "Confidential Client");
   assert.equal(already.location, "West Michigan");
-  assert.equal(already.compensationRange, "$100,000 - $140,000");
+  assert.equal(already.compensationRange, "$85,000-$115,000");
   const laterBand = toPublicJob({
     id: "5ab49383-7950-471b-b37a-558c26054eae",
     compensationRange: "$110k - $150k",
@@ -207,7 +208,44 @@ test("missing locations and expired windows", () => {
   assert.equal(fresh.validThrough, "2026-10-20");
 });
 
-test("JobPosting JSON-LD matches the public salary and location", () => {
+test("public copy replaces pay sentences with DOE", () => {
+  const raw = [
+    "TS/SCI required.",
+    "Compensation is $245k-$265k depending on experience.",
+    "Salary range: $230k - $270k with healthcare election, $210k without.",
+    "Competitive salary and comprehensive benefits package",
+    "$1,500/$3,000 family deductible",
+    "HSA employer contributions of $1,500",
+    "7-12% profit sharing contribution, calculated on billable hours x hourly salary, begins accumulating after 1 year of service with Waveguide",
+  ].join("\n");
+  const job = toPublicJob({
+    id: "pay-redact",
+    title: "AV Engineer",
+    compensationRange: "$245k\u2013$265k",
+    requirements: raw,
+    idealProfile: "Senior Manager seat. Comp $220,000 + performance bonus. Low-travel default schedule.",
+    description: "The seat pays $185,000 plus bonus. You will lead a team.",
+    notes: "Relocation is $15,000. The team is small.",
+  });
+  const blob = `${job.requirements}\n${job.idealProfile}\n${job.description}\n${job.notes}`;
+  assert.equal((job.requirements.match(/Pay is DOE\./g) || []).length, 1);
+  assert.match(job.requirements, /TS\/SCI required/);
+  assert.match(job.requirements, /hourly salary/);
+  assert.equal(job.idealProfile, "Senior Manager seat. Pay is DOE. Low-travel default schedule.");
+  assert.equal(job.description, "Pay is DOE. You will lead a team.");
+  assert.equal(job.notes, "Pay is DOE. The team is small.");
+  assert.doesNotMatch(blob, /\$\s*\d/);
+  assert.doesNotMatch(blob, /245|220,000|185,000|1,500/);
+  assert.doesNotMatch(blob, /[\u2013\u2014]/);
+  assert.equal(redactPayCopy(job.requirements), job.requirements);
+
+  const ld = buildJobJsonLd(job, "https://rebeltalentsystems.com/jobs/example");
+  assert.equal("baseSalary" in ld, false);
+  assert.match(ld.description, /Pay is DOE\./);
+  assert.doesNotMatch(ld.description, /\$\s*\d/);
+});
+
+test("JobPosting JSON-LD omits salary and keeps location", () => {
   const tpm = buildJobJsonLd(toPublicJob({
     id: "5ab49383-7950-471b-b37a-558c26054eae",
     title: "Technical Product Manager",
@@ -219,9 +257,7 @@ test("JobPosting JSON-LD matches the public salary and location", () => {
     openedAt: "2026-09-15T18:23:32.044Z",
     createdAt: "2026-09-15T18:23:32.044Z",
   }), "https://rebeltalentsystems.com/jobs/example");
-  assert.equal(tpm.baseSalary.value.minValue, 100000);
-  assert.equal(tpm.baseSalary.value.maxValue, 140000);
-  assert.equal(tpm.baseSalary.currency, "USD");
+  assert.equal("baseSalary" in tpm, false);
   assert.equal(tpm.jobLocation.address.addressLocality, "West Michigan");
   assert.equal(tpm.jobLocation.address.addressRegion, "MI");
   assert.equal(/byron/i.test(tpm.description), false);
@@ -236,8 +272,8 @@ test("JobPosting JSON-LD matches the public salary and location", () => {
     openedAt: "2026-07-22T11:28:08.267Z",
     createdAt: "2026-07-22T11:28:08.267Z",
   }, "https://rebeltalentsystems.com/jobs/example");
-  assert.equal(senior.baseSalary.value.minValue, 215000);
-  assert.equal(senior.baseSalary.value.maxValue, 255000);
+  assert.equal("baseSalary" in senior, false);
+  assert.doesNotMatch(JSON.stringify(senior), /215000|255000/);
 
   const recruiter = buildJobJsonLd(toPublicJob({
     id: "eda03068-8c4b-4c58-9aa9-b48d50e02f1c",

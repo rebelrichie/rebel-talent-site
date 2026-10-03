@@ -109,7 +109,6 @@ export function buildJobMetaDescription(job: JobMetaInput): string {
   const level = squash(job.level);
   const dept = squash(job.department);
   const industry = squash(job.companyIndustry);
-  const comp = squash(job.compensationRange);
   const req = job.requirements || "";
   const ideal = job.idealProfile || "";
   const notes = job.notes || "";
@@ -139,7 +138,7 @@ export function buildJobMetaDescription(job: JobMetaInput): string {
   if (industry && !text.toLowerCase().includes(industry.toLowerCase())) {
     text = addBit(text, `Industry: ${industry}.`);
   }
-  if (comp) text = addBit(text, `Pay: ${comp}.`);
+  text = addBit(text, "Pay: DOE.");
   if (dept && !title.toLowerCase().includes(dept.toLowerCase())) {
     text = addBit(text, `Team: ${dept}.`);
   }

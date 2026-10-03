@@ -57,24 +57,10 @@ function cleanRecruiterText(value) {
     );
 }
 
-function isOldTpmBand(comp) {
-  const parsed = parseSalary(comp);
-  const value = parsed && parsed.value;
-  return !!value
-    && value.unitText === "YEAR"
-    && value.minValue === 85000
-    && value.maxValue === 115000;
-}
-
 function softenTpm(job) {
   job.location = "West Michigan";
   job.requirements = TPM_REQUIREMENTS;
   job.idealProfile = TPM_IDEAL;
-  // Command still stores the previous band. The public page and feed
-  // show the approved range until Command itself is updated.
-  if (isOldTpmBand(job.compensationRange)) {
-    job.compensationRange = "$100,000 - $140,000";
-  }
 }
 
 function softenFullStack(job) {
@@ -133,7 +119,60 @@ export function toPublicJob(job) {
   if (hasText(next.compensationRange)) {
     next.compensationRange = displayCopyDashes(next.compensationRange, "salary");
   }
+  for (const field of ["description", "requirements", "idealProfile", "notes"]) {
+    if (hasText(next[field])) next[field] = redactPayCopy(next[field]);
+  }
   return next;
+}
+
+const PAY_SENTENCE = "Pay is DOE.";
+
+// A dollar amount, a k-range (245k-265k), or a sentence that states pay.
+const MONEY_IN_COPY =
+  /\$\s*\d|\b\d{2,3}\s*k\s*(?:[-\u2010\u2011\u2012\u2013\u2014\u2015\u2212]|to)\s*\$?\s*\d{2,3}\s*k\b/i;
+const SALARY_PHRASE =
+  /\b(?:salary range|compensation is|compensation range|competitive salary|base salary|pay range)\b/i;
+
+function isPaySentence(text) {
+  const t = String(text || "").trim();
+  if (!t) return false;
+  return MONEY_IN_COPY.test(t) || SALARY_PHRASE.test(t);
+}
+
+function isPayOnlyLine(line) {
+  const t = String(line || "").trim();
+  return t === PAY_SENTENCE || /^(?:[-*]|\d+\.)\s+Pay is DOE\.$/.test(t);
+}
+
+// Replace pay sentences in public role text. Consecutive replacements
+// collapse to one line so a benefits block does not repeat the line.
+export function redactPayCopy(value) {
+  if (!hasText(value)) return value ?? null;
+  const out = [];
+  for (const line of String(value).split("\n")) {
+    const trimmed = line.trim();
+    if (!trimmed) {
+      out.push("");
+      continue;
+    }
+    const indent = line.match(/^\s*/)[0];
+    const bullet = trimmed.match(/^([-*]|\d+\.)\s+(.*)$/);
+    const marker = bullet ? `${bullet[1]} ` : "";
+    const body = bullet ? bullet[2] : trimmed;
+    const next = [];
+    for (const part of body.split(/(?<=[.!?])\s+/)) {
+      if (!part) continue;
+      if (isPaySentence(part)) {
+        if (next[next.length - 1] !== PAY_SENTENCE) next.push(PAY_SENTENCE);
+      } else {
+        next.push(part);
+      }
+    }
+    const rebuilt = `${indent}${marker}${next.join(" ")}`;
+    if (isPayOnlyLine(rebuilt) && out.length && isPayOnlyLine(out[out.length - 1])) continue;
+    out.push(rebuilt);
+  }
+  return out.join("\n").replace(/\n{3,}/g, "\n\n").trim();
 }
 
 function monetary(value, unitText) {
@@ -260,10 +299,13 @@ export function structuredPlace(job) {
 export function buildJobJsonLd(job, url) {
   const place = structuredPlace(job);
   const { datePosted, validThrough } = postingDates(job?.openedAt, job?.createdAt);
+  const requirements = redactPayCopy(job?.requirements);
+  const idealProfile = redactPayCopy(job?.idealProfile);
+  const notes = redactPayCopy(job?.notes);
   const descriptionHtml = [
-    job?.requirements && `<h3>Requirements</h3><p>${String(job.requirements).replace(/\n/g, "<br/>")}</p>`,
-    job?.idealProfile && `<h3>Ideal Candidate</h3><p>${String(job.idealProfile).replace(/\n/g, "<br/>")}</p>`,
-    job?.notes && `<h3>Additional Details</h3><p>${String(job.notes).replace(/\n/g, "<br/>")}</p>`,
+    requirements && `<h3>Requirements</h3><p>${String(requirements).replace(/\n/g, "<br/>")}</p>`,
+    idealProfile && `<h3>Ideal Candidate</h3><p>${String(idealProfile).replace(/\n/g, "<br/>")}</p>`,
+    notes && `<h3>Additional Details</h3><p>${String(notes).replace(/\n/g, "<br/>")}</p>`,
   ].filter(Boolean).join("\n") || "See full listing for details.";
 
   const ld = {
@@ -303,8 +345,6 @@ export function buildJobJsonLd(job, url) {
     };
   }
 
-  const salary = parseSalary(job?.compensationRange);
-  if (salary) ld.baseSalary = salary;
   return ld;
 }
 
