@@ -290,7 +290,7 @@ export default function JobApply() {
           <p className="text-sm text-zinc-400 mb-8">
             {job.companyName}
             {job.location ? ` · ${job.location}` : ""}
-            {job.compensationRange ? ` · ${job.compensationRange}` : ""}
+            {" · Pay: DOE"}
           </p>
         )}
 

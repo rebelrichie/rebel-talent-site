@@ -22,7 +22,7 @@ The route is `rebeltalentsystems.com/feeds/jobs.xml`. After that, adding or remo
 
 Local dev serves the same XML from the Express route `GET /feeds/jobs.xml`.
 
-The Technical Product Manager role (`5ab49383-7950-471b-b37a-558c26054eae`) is shown as `$100,000 - $140,000` while the API still stores the previous $85,000 to $115,000 band. Other roles keep the compensation the API sends. If that role's API band changes to something else, the site shows the API value.
+Every public role shows pay as DOE. The feed does not include salary fields (`salary`, `salary_min`, `salary_max`, `salary_currency`, `period`, or `type`). Dollar amounts and salary sentences in the public description are replaced with "Pay is DOE." so a number does not reach Google Jobs or a partner crawl.
 
 ## Register the feed
 
@@ -34,7 +34,7 @@ Give each partner the URL above. They crawl it. Approval is theirs, even when th
 2. Choose crawl by XML URL (not FTP).
 3. Submit `https://rebeltalentsystems.com/feeds/jobs.xml`.
 4. Required fields already in the feed: `referencenumber`, `title`, `company`, `city`, `state`, `country`, `dateposted`, `url`, `description`.
-5. Salary is included only when the role has a pay range (`salary_min`, `salary_max`, `salary_currency`, `period`, `type`). `isremote` is `yes` or `no` when the role says how the work is done.
+5. Salary fields are left out of every role. `isremote` is `yes` or `no` when the role says how the work is done.
 6. The `<url>` is the canonical job page. Add `?source=talent` yourself only if you want click tracking. The feed leaves the URL canonical.
 
 ### Jooble

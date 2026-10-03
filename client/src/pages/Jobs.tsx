@@ -455,9 +455,9 @@ export default function Jobs() {
                             {j._function}
                           </span>
                         )}
-                        <span className={`inline-flex items-center gap-1.5 ${j.compensationRange ? "text-emerald-400/90" : "text-zinc-400"}`}>
+                        <span className="inline-flex items-center gap-1.5 text-emerald-400/90">
                           <DollarSign className="h-3.5 w-3.5" />
-                          {j.compensationRange || "Comp DOE, discussed on intro call"}
+                          Pay: DOE
                         </span>
                       </div>
                     </Link>
