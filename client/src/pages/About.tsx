@@ -370,6 +370,15 @@ export default function About() {
                 linkedin: "https://www.linkedin.com/in/kellihrivnak/",
                 email: "kelli@knakdigital.com",
               },
+              {
+                name: "Bonnie Elton",
+                photo: "/team-bonnie.jpg",
+                title: "Full Desk Recruiter",
+                blurb:
+                  "Bonnie brings in new clients and recruits across commercial and cleared searches. She stays with each search from the first conversation through a signed offer.",
+                linkedin: "https://www.linkedin.com/in/bonniemontgomery/",
+                email: "bonnie@rebeltalentsystems.com",
+              },
             ].map((person) => (
               <ScrollReveal key={person.name} variant="fade-up">
                 <GlowCard>
