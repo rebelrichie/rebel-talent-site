@@ -83,6 +83,7 @@ function startServer() {
     ".woff2": "font/woff2",
     ".woff": "font/woff",
     ".xml": "application/xml",
+    ".pdf": "application/pdf",
     ".webmanifest": "application/manifest+json",
   };
 

@@ -97,10 +97,18 @@ export default function Footer() {
             <Link href="/privacy-policy" data-testid="link-footer-privacy" className="text-zinc-400 text-xs hover:text-white no-underline transition-colors">Privacy Policy</Link>
           </div>
         </div>
-        <div className="border-t border-zinc-800/40 mt-4 pt-4 flex flex-wrap gap-x-6 gap-y-1">
+        <div className="border-t border-zinc-800/40 mt-4 pt-4 flex flex-wrap items-center gap-x-6 gap-y-1">
           <span className="text-zinc-700 text-[11px] font-mono tracking-wider">SAM.gov Registered</span>
           <span className="text-zinc-700 text-[11px] font-mono tracking-wider">CAGE: 202V6</span>
           <span className="text-zinc-700 text-[11px] font-mono tracking-wider">UEI: JQ4MZ69FNAK4</span>
+          <a
+            href="/Rebel-Talent-Systems-Capability-Statement.pdf"
+            download="Rebel-Talent-Systems-Capability-Statement.pdf"
+            data-testid="link-footer-capability-statement"
+            className="text-zinc-400 hover:text-white text-[11px] font-mono tracking-wider underline underline-offset-2"
+          >
+            Capability statement (PDF)
+          </a>
         </div>
       </div>
     </footer>
