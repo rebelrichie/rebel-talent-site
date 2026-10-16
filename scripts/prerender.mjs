@@ -83,6 +83,7 @@ function startServer() {
     ".woff2": "font/woff2",
     ".woff": "font/woff",
     ".xml": "application/xml",
+    ".pdf": "application/pdf",
     ".webmanifest": "application/manifest+json",
   };
 
@@ -317,13 +318,14 @@ async function prerender() {
   const server = await startServer();
   // Restart Chromium every few routes. A single long-lived browser gets
   // OOM-killed on this Mac when prerendering 50+ SPA routes.
+  // --single-process used to cut that memory use, and current Chrome exits
+  // immediately with it, so the restart loop is the guard instead.
   const chromeArgs = [
     "--no-sandbox",
     "--disable-dev-shm-usage",
     "--disable-gpu",
     "--disable-extensions",
     "--no-first-run",
-    "--single-process",
   ];
   let browser = await launch({ headless: true, args: chromeArgs });
 

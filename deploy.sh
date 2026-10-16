@@ -20,6 +20,14 @@ if [[ ! -f dist/public/feeds/jobs.xml ]] || ! head -c 80 dist/public/feeds/jobs.
   exit 1
 fi
 
+# Vite copies client/public into dist/public. The rsync below sends that whole
+# directory, so this file lands at /Rebel-Talent-Systems-Capability-Statement.pdf.
+CAPABILITY_PDF="dist/public/Rebel-Talent-Systems-Capability-Statement.pdf"
+if [[ ! -f "$CAPABILITY_PDF" ]] || ! head -c 5 "$CAPABILITY_PDF" | grep -q '%PDF'; then
+  echo "✗ Capability statement PDF missing or not a PDF ($CAPABILITY_PDF). Aborting, nothing deployed." >&2
+  exit 1
+fi
+
 # Gate 2: prove the prerender captured REAL rendered content, not a Suspense/SPA
 # shell. The copyright line is footer text that only exists once React has rendered,
 # so its presence on both an eager route (/) and a lazy route (/services, /advisory)
@@ -30,9 +38,14 @@ for f in dist/public/index.html dist/public/services/index.html dist/public/advi
     exit 1
   fi
 done
+if ! grep -q 'download="Rebel-Talent-Systems-Capability-Statement.pdf"' dist/public/index.html; then
+  echo "✗ Homepage prerender is missing the capability statement download. Aborting, nothing deployed." >&2
+  exit 1
+fi
 echo "==> Prerender verified (files present + real content rendered)."
 
 echo "==> Syncing to server…"
+# Whole dist/public tree, including the capability statement PDF. No exclude filter.
 rsync -az --delete dist/public/ root@64.225.2.41:/opt/fcc/static/rts/
 
 echo "==> Committing + pushing…"

@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight, Shield } from "lucide-react";
+import { ArrowRight, Download, Shield } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import ContingentChrisSection from "@/components/ContingentChrisSection";
@@ -78,6 +78,9 @@ const homepageSchema = {
     ]
   }
 };
+
+const CAPABILITY_STATEMENT_HREF = "/Rebel-Talent-Systems-Capability-Statement.pdf";
+const CAPABILITY_STATEMENT_FILENAME = "Rebel-Talent-Systems-Capability-Statement.pdf";
 
 const PATHS = [
   {
@@ -278,6 +281,34 @@ export default function Home() {
             </Link>
             .
           </p>
+        </div>
+      </section>
+
+      <section
+        data-testid="section-government-buyers"
+        className="border-t border-zinc-900 bg-[#0E0D11]"
+      >
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 py-6 sm:py-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
+          <div className="min-w-0 max-w-2xl">
+            <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-rebel-red mb-2">
+              Government buyers
+            </p>
+            <p className="text-zinc-200 text-sm sm:text-base font-medium leading-snug">
+              Registered on SAM.gov.
+            </p>
+            <p className="mt-1 text-sm text-zinc-400 leading-relaxed">
+              CAGE 202V6. UEI JQ4MZ69FNAK4. The capability statement is a one-page PDF.
+            </p>
+          </div>
+          <a
+            href={CAPABILITY_STATEMENT_HREF}
+            download={CAPABILITY_STATEMENT_FILENAME}
+            data-testid="link-download-capability-statement"
+            className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-semibold text-sm px-5 py-3 rounded-full transition-colors no-underline shrink-0 self-start lg:self-center"
+          >
+            <Download className="w-4 h-4 shrink-0" aria-hidden="true" />
+            Download capability statement (PDF)
+          </a>
         </div>
       </section>
 
