@@ -87,23 +87,12 @@ export default function About() {
       />
 
       {/* ───────────── HERO ───────────── */}
-      <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%)",
-          }}
-        />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-16 sm:pb-20 z-10">
-          <p className="font-mono text-[11px] sm:text-xs tracking-[0.3em] uppercase text-zinc-400 mb-6 sm:mb-10">
-            About
-          </p>
-          <div className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-end">
-            <div>
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] mb-4 sm:mb-6" data-testid="text-name">
+      <section data-testid="section-hero" className="bg-white">
+        <div className="grid lg:grid-cols-2 lg:min-h-[680px]">
+          <div className="order-2 lg:order-1 flex flex-col justify-center py-12 lg:py-16 px-5 sm:px-8 lg:pl-[max(2rem,calc((100vw-1200px)/2+2rem))] lg:pr-14">
+              <h1 className="text-4xl sm:text-6xl font-extrabold tracking-[-0.04em] text-[#12161c] leading-[0.98] mb-4 sm:mb-6" data-testid="text-name">
                 Richie Lampani.<br />
-                <span className="text-rebel-red">Five cities. One thesis.</span>
+                <span className="text-[#C8102E]">Five cities. One thesis.</span>
               </h1>
               <p className="text-base sm:text-xl text-zinc-300 max-w-2xl leading-[1.55] mb-4" data-testid="text-intro">
                 I started in music venues in Grand Rapids, reading rooms and booking bands nobody had heard of yet. Then more than a decade in staffing, watching the old model up close.
@@ -131,12 +120,9 @@ export default function About() {
                 </a>
               </div>
             </div>
-            <div className="shrink-0">
-              <div className="w-44 h-44 sm:w-56 sm:h-56 lg:w-64 lg:h-64 overflow-hidden border border-zinc-800 rounded-sm">
-                <img src="/richie-portrait.jpg" alt="Richie Lampani, Founder of Rebel Talent Systems" className="w-full h-full object-cover object-top" data-testid="img-profile" />
-              </div>
+            <div className="order-1 lg:order-2 relative min-h-[78vw] sm:min-h-[520px] lg:min-h-0">
+                <img src="/team-richie.jpg" alt="Richie Lampani, Founder of Rebel Talent Systems" className="absolute inset-0 w-full h-full object-cover object-top" data-testid="img-profile" />
             </div>
-          </div>
         </div>
       </section>
 
@@ -152,7 +138,7 @@ export default function About() {
               { value: "9K+", label: "Rebel Built Subscribers", numeric: true },
               { value: "TS/SCI", label: "Cleared Hiring", numeric: false },
             ].map((stat) => (
-              <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-4 sm:p-5 text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
+              <div key={stat.label} className="py-2 text-left" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
                 {stat.numeric ? (
                   <AnimatedCounter value={stat.value} className="font-display text-xl sm:text-2xl font-bold text-rebel-red mb-1" />
                 ) : (

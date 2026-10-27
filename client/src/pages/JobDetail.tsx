@@ -232,7 +232,7 @@ export default function JobDetail() {
                   <ShieldCheck className="h-3.5 w-3.5" /> {job.level}
                 </span>
               )}
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-950/40 border border-emerald-800/60 rounded-md text-xs text-emerald-300">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-800/40 rounded-md text-xs text-emerald-800">
                 <DollarSign className="h-3.5 w-3.5" /> Pay: DOE
               </span>
             </div>

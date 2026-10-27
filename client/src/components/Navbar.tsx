@@ -43,8 +43,8 @@ const NAV = [
 ];
 
 function linkClass(active: boolean) {
-  return `px-3 py-2 text-sm no-underline whitespace-nowrap transition-colors ${
-    active ? "text-stone-900 font-semibold" : "text-stone-500 hover:text-stone-900 font-medium"
+  return `px-3 py-2 text-[15px] font-medium no-underline whitespace-nowrap ${
+    active ? "text-[#12161c]" : "text-[#3c4553] hover:text-[#12161c]"
   }`;
 }
 
@@ -58,22 +58,19 @@ export default function Navbar() {
   }, [location]);
 
   return (
-    <nav
-      data-testid="navbar"
-      className="fixed top-0 left-0 w-full z-50 bg-[#F6F3ED] border-b border-stone-200"
-    >
-      <div className="max-w-6xl mx-auto px-5 sm:px-6">
-        <div className="flex items-center justify-between h-16">
+    <nav data-testid="navbar" className="sticky top-0 left-0 w-full z-50 bg-white border-b border-[#e4e7ee]">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8">
+        <div className="flex items-center justify-between h-[72px]">
           <Link href="/" data-testid="link-home" className="flex items-center gap-2.5 no-underline shrink-0">
-            <img src="/logo.png" alt="Rebel Talent" className="w-8 h-8" />
-            <span className="font-display text-[1.15rem] font-medium tracking-tight text-stone-900 whitespace-nowrap">
+            <img src="/logo.png" alt="Rebel Talent" className="w-9 h-9" />
+            <span className="text-[17px] font-bold tracking-[-0.03em] text-[#12161c] whitespace-nowrap">
               Rebel Talent
             </span>
           </Link>
 
           <button
             data-testid="button-mobile-menu"
-            className="lg:hidden text-stone-900 p-2"
+            className="lg:hidden text-[#12161c] p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
             aria-expanded={isOpen}
@@ -100,7 +97,7 @@ export default function Navbar() {
               href="/strategy-call"
               data-testid="link-nav-contact"
               aria-current={contactActive ? "page" : undefined}
-              className="ml-3 inline-flex items-center px-3.5 py-2 text-sm font-semibold bg-rebel-red text-white no-underline"
+              className="ml-3 inline-flex items-center bg-rebel-red text-white text-[15px] font-semibold px-4 py-2 rounded-full no-underline"
             >
               Contact
             </Link>
@@ -109,7 +106,7 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="lg:hidden border-t border-stone-200 bg-[#F6F3ED]">
+        <div className="lg:hidden border-t border-[#e4e7ee] bg-white">
           {NAV.map((item) => {
             const active = item.active(location);
             return (
@@ -118,8 +115,8 @@ export default function Navbar() {
                 href={item.href}
                 data-testid={`link-mobile-${item.testId}`}
                 aria-current={active ? "page" : undefined}
-                className={`block px-5 py-3.5 text-base border-b border-stone-200 no-underline ${
-                  active ? "text-stone-900 font-semibold" : "text-stone-600"
+                className={`block px-5 py-3.5 text-base border-b border-[#eef0f4] no-underline ${
+                  active ? "text-[#12161c] font-semibold" : "text-[#3c4553]"
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -130,7 +127,7 @@ export default function Navbar() {
           <Link
             href="/strategy-call"
             data-testid="link-mobile-contact"
-            className="block px-5 py-3.5 text-base font-semibold border-b border-stone-200 no-underline text-white bg-rebel-red"
+            className="block px-5 py-3.5 text-base font-semibold no-underline text-white bg-rebel-red"
             onClick={() => setIsOpen(false)}
           >
             Contact

@@ -15,12 +15,12 @@ export default function ScrollProgress() {
   }, []);
 
   return (
-    <div className="fixed top-16 left-0 w-full h-[2px] z-50 pointer-events-none" style={{ background: "transparent" }}>
+    <div className="fixed top-[72px] left-0 w-full h-[2px] z-50 pointer-events-none" style={{ background: "transparent" }}>
       <div
         className="h-full"
         style={{
           width: `${progress}%`,
-          background: "#9E2330",
+          background: "#C8102E",
           transition: "width 50ms linear",
         }}
       />

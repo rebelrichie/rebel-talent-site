@@ -250,10 +250,7 @@ export default function Jobs() {
       {/* ===== HERO ===== */}
       <section data-testid="section-hero" className="relative pt-16 pb-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-left">
-          <p className="text-[11px] tracking-[0.18em] uppercase text-stone-500 mb-4">
-            Now Hiring
-          </p>
-          <h1 className="font-display text-5xl md:text-6xl text-stone-900 leading-[1.05] mb-6">
+          <h1 className="text-5xl md:text-6xl text-[#12161c] leading-[1.02] tracking-[-0.04em] mb-6">
             Open roles
           </h1>
           <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
@@ -433,7 +430,7 @@ export default function Jobs() {
                             </h2>
                             {j._clearance && (
                               <span
-                                className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-amber-500/10 text-amber-300 border border-amber-500/30"
+                                className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-amber-500/10 text-amber-900 border border-amber-700/30"
                                 title="Clearance required"
                               >
                                 <Shield className="h-3 w-3" /> {j._clearance}
@@ -455,7 +452,7 @@ export default function Jobs() {
                             {j._function}
                           </span>
                         )}
-                        <span className="inline-flex items-center gap-1.5 text-emerald-400/90">
+                        <span className="inline-flex items-center gap-1.5 text-emerald-800">
                           <DollarSign className="h-3.5 w-3.5" />
                           Pay: DOE
                         </span>

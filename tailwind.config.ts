@@ -81,11 +81,11 @@ export default {
           offline: "rgb(156 163 175)",
         },
         rebel: {
-          red: "#9E2330",
-          "red-dark": "#7E1B27",
-          "red-light": "#B42318",
-          black: "#1C1917",
-          space: "#F6F3ED",
+          red: "#C8102E",
+          "red-dark": "#9E0C24",
+          "red-light": "#E10600",
+          black: "#12161C",
+          space: "#FFFFFF",
           carbon: "#FFFFFF",
           charcoal: "#292524",
           steel: "#E4DFD6",
@@ -97,10 +97,10 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["'Archivo'", "system-ui", "sans-serif"],
+        sans: ["'Public Sans'", "'Source Sans 3'", "system-ui", "sans-serif"],
         serif: ["Georgia", "serif"],
-        mono: ["'Archivo'", "ui-monospace", "monospace"],
-        display: ["'Newsreader'", "Georgia", "serif"],
+        mono: ["'Public Sans'", "ui-monospace", "sans-serif"],
+        display: ["'Source Sans 3'", "'Public Sans'", "system-ui", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
