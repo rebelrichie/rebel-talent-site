@@ -171,7 +171,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="engage-band py-16 sm:py-24" style={{ background: "#0E0D11" }}>
+      <section className="engage-band py-16 sm:py-24 border-t border-stone-200">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
           <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
             {OFFERINGS.map((offer) => {
@@ -204,15 +204,15 @@ export default function Services() {
                   <Link
                     href={offer.ctaHref}
                     data-testid={`button-service-${offer.id}`}
-                    className="inline-flex items-center justify-center gap-2 bg-rebel-red hover:bg-red-700 text-white font-semibold text-sm px-5 py-3 rounded-full transition-colors no-underline"
+                    className="text-sm font-medium text-stone-800 underline underline-offset-4 decoration-stone-300 hover:decoration-[#9E2330]"
                   >
-                    Book a strategy call <ArrowRight className="w-4 h-4 shrink-0" />
+                    Book a strategy call
                   </Link>
                   {offer.detailsHref && (
                     <Link
                       href={offer.detailsHref}
                       data-testid={`link-service-${offer.id}`}
-                      className="text-sm text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red"
+                      className="text-sm text-stone-500 underline underline-offset-4 decoration-stone-300 hover:text-stone-900 hover:decoration-[#9E2330]"
                     >
                       {offer.detailsLabel}
                     </Link>

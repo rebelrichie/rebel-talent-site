@@ -317,7 +317,7 @@ export default function Advisors() {
         </div>
       </section>
 
-      <section className="py-14 sm:py-20 border-t border-zinc-900" style={{ background: "#0E0D11" }}>
+      <section className="py-14 sm:py-20 border-t border-stone-200">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
           <div className="grid md:grid-cols-2 gap-4 sm:gap-5">
             <article

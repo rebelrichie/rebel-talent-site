@@ -8,35 +8,35 @@
   --opaque-button-border-intensity: -8;
   --elevate-1: rgba(0,0,0, .03);
   --elevate-2: rgba(0,0,0, .08);
-  --background: 240 30% 3%;
-  --foreground: 0 0% 95%;
-  --border: 230 15% 14%;
-  --card: 235 25% 5%;
-  --card-foreground: 0 0% 95%;
-  --card-border: 230 15% 10%;
-  --sidebar: 0 0% 6%;
-  --sidebar-foreground: 0 0% 95%;
-  --sidebar-border: 0 0% 12%;
-  --sidebar-primary: 0 84% 45%;
-  --sidebar-primary-foreground: 0 0% 98%;
-  --sidebar-accent: 0 0% 12%;
-  --sidebar-accent-foreground: 0 0% 95%;
-  --sidebar-ring: 0 84% 45%;
-  --popover: 0 0% 8%;
-  --popover-foreground: 0 0% 95%;
-  --popover-border: 0 0% 14%;
-  --primary: 0 84% 40%;
-  --primary-foreground: 0 0% 98%;
-  --secondary: 0 0% 12%;
-  --secondary-foreground: 0 0% 95%;
-  --muted: 0 2% 12%;
-  --muted-foreground: 0 0% 55%;
-  --accent: 0 3% 10%;
-  --accent-foreground: 0 0% 95%;
-  --destructive: 0 84% 40%;
-  --destructive-foreground: 0 0% 98%;
-  --input: 0 0% 20%;
-  --ring: 0 84% 45%;
+  --background: 40 33% 95%;
+  --foreground: 24 10% 10%;
+  --border: 36 18% 86%;
+  --card: 0 0% 100%;
+  --card-foreground: 24 10% 10%;
+  --card-border: 36 18% 86%;
+  --sidebar: 40 33% 95%;
+  --sidebar-foreground: 24 10% 10%;
+  --sidebar-border: 36 18% 86%;
+  --sidebar-primary: 351 64% 38%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 40 20% 93%;
+  --sidebar-accent-foreground: 24 10% 10%;
+  --sidebar-ring: 351 64% 38%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 24 10% 10%;
+  --popover-border: 36 18% 86%;
+  --primary: 351 64% 38%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 40 20% 93%;
+  --secondary-foreground: 24 10% 12%;
+  --muted: 40 20% 93%;
+  --muted-foreground: 30 6% 36%;
+  --accent: 40 20% 93%;
+  --accent-foreground: 24 10% 12%;
+  --destructive: 351 64% 38%;
+  --destructive-foreground: 0 0% 100%;
+  --input: 36 14% 80%;
+  --ring: 351 64% 38%;
   --chart-1: 0 84% 45%;
   --chart-2: 15 70% 40%;
   --chart-3: 30 65% 45%;
@@ -79,35 +79,35 @@
   --opaque-button-border-intensity: 9;
   --elevate-1: rgba(255,255,255, .04);
   --elevate-2: rgba(255,255,255, .09);
-  --background: 240 30% 3%;
-  --foreground: 0 0% 95%;
-  --border: 230 15% 14%;
-  --card: 235 25% 5%;
-  --card-foreground: 0 0% 95%;
-  --card-border: 230 15% 10%;
-  --sidebar: 0 0% 6%;
-  --sidebar-foreground: 0 0% 95%;
-  --sidebar-border: 0 0% 12%;
-  --sidebar-primary: 0 84% 45%;
-  --sidebar-primary-foreground: 0 0% 98%;
-  --sidebar-accent: 0 0% 12%;
-  --sidebar-accent-foreground: 0 0% 95%;
-  --sidebar-ring: 0 84% 45%;
-  --popover: 0 0% 8%;
-  --popover-foreground: 0 0% 95%;
-  --popover-border: 0 0% 14%;
-  --primary: 0 84% 40%;
-  --primary-foreground: 0 0% 98%;
-  --secondary: 0 0% 12%;
-  --secondary-foreground: 0 0% 95%;
-  --muted: 0 2% 12%;
-  --muted-foreground: 0 0% 55%;
-  --accent: 0 3% 10%;
-  --accent-foreground: 0 0% 95%;
-  --destructive: 0 84% 40%;
-  --destructive-foreground: 0 0% 98%;
-  --input: 0 0% 20%;
-  --ring: 0 84% 45%;
+  --background: 40 33% 95%;
+  --foreground: 24 10% 10%;
+  --border: 36 18% 86%;
+  --card: 0 0% 100%;
+  --card-foreground: 24 10% 10%;
+  --card-border: 36 18% 86%;
+  --sidebar: 40 33% 95%;
+  --sidebar-foreground: 24 10% 10%;
+  --sidebar-border: 36 18% 86%;
+  --sidebar-primary: 351 64% 38%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 40 20% 93%;
+  --sidebar-accent-foreground: 24 10% 10%;
+  --sidebar-ring: 351 64% 38%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 24 10% 10%;
+  --popover-border: 36 18% 86%;
+  --primary: 351 64% 38%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 40 20% 93%;
+  --secondary-foreground: 24 10% 12%;
+  --muted: 40 20% 93%;
+  --muted-foreground: 30 6% 36%;
+  --accent: 40 20% 93%;
+  --accent-foreground: 24 10% 12%;
+  --destructive: 351 64% 38%;
+  --destructive-foreground: 0 0% 100%;
+  --input: 36 14% 80%;
+  --ring: 351 64% 38%;
   --chart-1: 0 84% 65%;
   --chart-2: 15 80% 70%;
   --chart-3: 30 75% 75%;
@@ -1132,3 +1132,281 @@ h1.font-display {
 /* ── Body text color tokens ── */
 .text-fog { color: #C9C5D0; }
 .text-smoke { color: #8E8A95; }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Paper system
+   Quiet boutique surface. Later rules win over the older void/glow layer.
+   Filled red controls keep white type. Everything else reads as ink on paper.
+   ───────────────────────────────────────────────────────────────────── */
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background-color: #F6F3ED !important;
+  background-image: none !important;
+  color: #1C1917 !important;
+  letter-spacing: 0;
+}
+
+::selection {
+  background: #E8D3D6;
+  color: #1C1917;
+}
+
+h1, h2, h3, h4,
+.font-display,
+h1.font-display,
+h2.font-display,
+h3.font-display,
+h4.font-display {
+  font-family: "Newsreader", Georgia, serif !important;
+  font-variation-settings: normal !important;
+  font-stretch: normal !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.02em !important;
+  text-shadow: none !important;
+  text-transform: none !important;
+  color: inherit;
+}
+
+h1, h2 {
+  font-weight: 500 !important;
+}
+
+.text-white {
+  color: #1C1917 !important;
+}
+
+.hover\:text-white:hover {
+  color: #1C1917 !important;
+}
+
+.text-zinc-100,
+.text-zinc-200 {
+  color: #292524 !important;
+}
+
+.text-zinc-300 {
+  color: #44403C !important;
+}
+
+.text-zinc-400,
+.text-zinc-500,
+.text-zinc-600 {
+  color: #57534E !important;
+}
+
+.text-zinc-700 {
+  color: #57534E !important;
+}
+
+.hover\:text-zinc-200:hover,
+.hover\:text-zinc-300:hover {
+  color: #1C1917 !important;
+}
+
+.text-rebel-red {
+  color: #9E2330 !important;
+  text-shadow: none !important;
+}
+
+.font-mono.uppercase.text-rebel-red,
+.font-mono.text-rebel-red.uppercase,
+.text-xs.text-rebel-red,
+.text-\[10px\].text-rebel-red,
+.text-\[11px\].text-rebel-red {
+  color: #7A736A !important;
+  text-shadow: none !important;
+  font-family: Archivo, system-ui, sans-serif !important;
+  letter-spacing: 0.16em !important;
+  font-weight: 600 !important;
+}
+
+.font-mono {
+  font-family: Archivo, system-ui, sans-serif !important;
+}
+
+.bg-rebel-space,
+.bg-rebel-black,
+.bg-zinc-950,
+.bg-zinc-900,
+.min-h-screen.bg-rebel-space {
+  background-color: #F6F3ED !important;
+  background-image: none !important;
+}
+
+.bg-rebel-carbon,
+.bg-zinc-900\/20,
+.bg-zinc-900\/30,
+.bg-zinc-900\/40,
+.bg-zinc-900\/50,
+.bg-zinc-900\/60,
+.bg-zinc-950\/40,
+.bg-zinc-950\/50,
+.bg-zinc-950\/60 {
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+}
+
+.border-zinc-700,
+.border-zinc-800,
+.border-zinc-900,
+.border-zinc-700\/80,
+.border-zinc-800\/40,
+.border-zinc-800\/50,
+.border-zinc-800\/60,
+.border-zinc-800\/80,
+.border-white\/10,
+.divide-zinc-800 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #E4DFD6 !important;
+}
+
+.space-hero,
+.space-hero.space-hero--home,
+.space-hero.space-hero--services {
+  background: #F6F3ED !important;
+  background-image: none !important;
+  min-height: 0 !important;
+}
+
+.space-hero::before,
+.space-hero__command,
+.space-hero__grid,
+.space-hero__nodes,
+.space-hero__scan,
+.space-hero__scrim,
+.space-hero__satellite {
+  display: none !important;
+}
+
+[data-testid="section-hero"] > div.absolute.inset-0 {
+  display: none !important;
+}
+
+.engage-card,
+.engage-card--primary,
+.engage-panel,
+.engage-surface,
+.space-card,
+.carbon-card,
+.bg-zinc-950.border.border-zinc-800 {
+  background: #FFFFFF !important;
+  background-image: none !important;
+  border-color: #E4DFD6 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.engage-card--primary {
+  border-top: 2px solid #9E2330 !important;
+}
+
+.engage-panel--proof {
+  border-left: 2px solid #9E2330 !important;
+}
+
+.engage-surface::after,
+.engage-band::before,
+.engage-panel--cta::before,
+.bg-zinc-950.border.border-zinc-800::before,
+.space-card::before {
+  display: none !important;
+}
+
+.engage-card__mark {
+  border-color: #E4DFD6 !important;
+  color: #7A736A !important;
+  background: transparent !important;
+}
+
+.engage-card--primary .engage-card__mark,
+.engage-card__index,
+.engage-card--primary .engage-card__index {
+  color: #7A736A !important;
+  border-color: #E4DFD6 !important;
+  background: transparent !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .bg-zinc-950.border.border-zinc-800:hover,
+  .space-card:hover,
+  .engage-card:hover,
+  .engage-card--primary:hover,
+  .carbon-card:hover {
+    border-color: #D6D0C6 !important;
+    background: #FFFFFF !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+}
+
+.bg-rebel-red,
+a.bg-rebel-red,
+button.bg-rebel-red,
+.bg-primary {
+  background: #9E2330 !important;
+  background-image: none !important;
+  color: #FFFFFF !important;
+  border-color: #9E2330 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  transform: none !important;
+  font-family: Archivo, system-ui, sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  border-radius: 2px !important;
+}
+
+.bg-rebel-red:hover,
+a.bg-rebel-red:hover,
+button.bg-rebel-red:hover,
+.bg-primary:hover,
+.hover\:bg-red-700:hover,
+.hover\:bg-red-600:hover,
+.hover\:bg-rebel-red:hover {
+  background: #7E1B27 !important;
+  background-image: none !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.bg-rebel-red .text-white,
+a.bg-rebel-red.text-white,
+button.bg-rebel-red.text-white,
+.bg-primary .text-white {
+  color: #FFFFFF !important;
+}
+
+footer {
+  background: #EFEBE3 !important;
+  color: #44403C;
+}
+
+footer h2,
+footer h2.text-rebel-red {
+  font-family: Archivo, system-ui, sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: #7A736A !important;
+}
+
+.text-fog { color: #44403C !important; }
+.text-smoke { color: #78716C !important; }
+
+@media (max-width: 639px) {
+  [data-testid="section-hero"] h1,
+  [data-testid="section-hero"] h1.font-extrabold,
+  [data-testid="section-hero"] h1.font-display,
+  [data-testid="section-hero"] h2,
+  [data-testid="section-hero"] h2.font-extrabold {
+    font-size: 2.4rem !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.02em !important;
+  }
+}

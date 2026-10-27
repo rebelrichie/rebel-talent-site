@@ -259,7 +259,7 @@ export default function JobDetail() {
                   Requirements
                 </h2>
                 <div
-                  className="prose prose-invert max-w-none"
+                  className="prose prose-stone max-w-none"
                   dangerouslySetInnerHTML={{ __html: renderRich(job.requirements) }}
                 />
               </div>
@@ -271,7 +271,7 @@ export default function JobDetail() {
                   Ideal Candidate
                 </h2>
                 <div
-                  className="prose prose-invert max-w-none"
+                  className="prose prose-stone max-w-none"
                   dangerouslySetInnerHTML={{ __html: renderRich(job.idealProfile) }}
                 />
               </div>
@@ -283,7 +283,7 @@ export default function JobDetail() {
                   Additional Details
                 </h2>
                 <div
-                  className="prose prose-invert max-w-none"
+                  className="prose prose-stone max-w-none"
                   dangerouslySetInnerHTML={{ __html: renderRich(job.notes) }}
                 />
               </div>

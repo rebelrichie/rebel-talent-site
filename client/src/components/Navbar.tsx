@@ -43,8 +43,8 @@ const NAV = [
 ];
 
 function linkClass(active: boolean) {
-  return `px-2.5 py-2 text-[11px] font-semibold tracking-[0.14em] uppercase transition-colors duration-200 no-underline whitespace-nowrap ${
-    active ? "text-rebel-red" : "text-zinc-400 hover:text-white"
+  return `px-3 py-2 text-sm no-underline whitespace-nowrap transition-colors ${
+    active ? "text-stone-900 font-semibold" : "text-stone-500 hover:text-stone-900 font-medium"
   }`;
 }
 
@@ -60,25 +60,20 @@ export default function Navbar() {
   return (
     <nav
       data-testid="navbar"
-      className="fixed top-0 left-0 w-full z-50"
-      style={{ background: "linear-gradient(135deg, #08070A 0%, #0E0D11 60%, #0A0812 100%)" }}
+      className="fixed top-0 left-0 w-full z-50 bg-[#F6F3ED] border-b border-stone-200"
     >
-      <div
-        className="absolute bottom-0 left-0 right-0 h-px pointer-events-none"
-        style={{ background: "linear-gradient(90deg, transparent 0%, #F71A29 30%, #F5841E 60%, transparent 100%)", zIndex: 0 }}
-      />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="flex items-center justify-between h-16">
           <Link href="/" data-testid="link-home" className="flex items-center gap-2.5 no-underline shrink-0">
             <img src="/logo.png" alt="Rebel Talent" className="w-8 h-8" />
-            <span className="font-display text-base font-bold tracking-wider text-white uppercase whitespace-nowrap">
-              REBEL TALENT
+            <span className="font-display text-[1.15rem] font-medium tracking-tight text-stone-900 whitespace-nowrap">
+              Rebel Talent
             </span>
           </Link>
 
           <button
             data-testid="button-mobile-menu"
-            className="lg:hidden text-white p-2"
+            className="lg:hidden text-stone-900 p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
             aria-expanded={isOpen}
@@ -86,7 +81,7 @@ export default function Navbar() {
             {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
 
-          <div className="hidden lg:flex items-center gap-0.5">
+          <div className="hidden lg:flex items-center gap-1">
             {NAV.map((item) => {
               const active = item.active(location);
               return (
@@ -105,11 +100,7 @@ export default function Navbar() {
               href="/strategy-call"
               data-testid="link-nav-contact"
               aria-current={contactActive ? "page" : undefined}
-              className={`ml-2 px-3.5 py-2 text-[11px] font-semibold tracking-[0.14em] uppercase border rounded-md transition-colors no-underline whitespace-nowrap ${
-                contactActive
-                  ? "bg-rebel-red text-white border-rebel-red"
-                  : "border-rebel-red text-rebel-red hover:bg-rebel-red hover:text-white"
-              }`}
+              className="ml-3 inline-flex items-center px-3.5 py-2 text-sm font-semibold bg-rebel-red text-white no-underline"
             >
               Contact
             </Link>
@@ -118,7 +109,7 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="lg:hidden border-t border-zinc-800" style={{ background: "#050505" }}>
+        <div className="lg:hidden border-t border-stone-200 bg-[#F6F3ED]">
           {NAV.map((item) => {
             const active = item.active(location);
             return (
@@ -127,8 +118,8 @@ export default function Navbar() {
                 href={item.href}
                 data-testid={`link-mobile-${item.testId}`}
                 aria-current={active ? "page" : undefined}
-                className={`block px-6 py-3 text-xs font-semibold tracking-[0.16em] uppercase border-b border-zinc-900 no-underline ${
-                  active ? "text-rebel-red" : "text-zinc-400"
+                className={`block px-5 py-3.5 text-base border-b border-stone-200 no-underline ${
+                  active ? "text-stone-900 font-semibold" : "text-stone-600"
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -139,7 +130,7 @@ export default function Navbar() {
           <Link
             href="/strategy-call"
             data-testid="link-mobile-contact"
-            className="block px-6 py-3 text-xs font-semibold tracking-[0.16em] uppercase border-b border-zinc-900 no-underline text-white bg-rebel-red/10"
+            className="block px-5 py-3.5 text-base font-semibold border-b border-stone-200 no-underline text-white bg-rebel-red"
             onClick={() => setIsOpen(false)}
           >
             Contact

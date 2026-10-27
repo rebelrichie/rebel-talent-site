@@ -81,26 +81,26 @@ export default {
           offline: "rgb(156 163 175)",
         },
         rebel: {
-          red: "#F71A29",          // Signal Red — primary accent
-          "red-dark": "#C4101D",
-          "red-light": "#FF3344",
-          black: "#08070A",        // Void Black — primary bg
-          space: "#08070A",        // Void Black — primary bg
-          carbon: "#0E0D11",       // Carbon — surface / card bg
-          charcoal: "#1A1920",
-          steel: "#2A2830",
-          gunmetal: "#3A3845",
-          orbit: "#F5841E",        // Ember Orange — accent
-          gold: "#FDBD41",         // Solar Gold — accent
-          fog: "#C9C5D0",          // Fog — body text
-          smoke: "#8E8A95",        // Smoke — muted text
+          red: "#9E2330",
+          "red-dark": "#7E1B27",
+          "red-light": "#B42318",
+          black: "#1C1917",
+          space: "#F6F3ED",
+          carbon: "#FFFFFF",
+          charcoal: "#292524",
+          steel: "#E4DFD6",
+          gunmetal: "#D6D0C6",
+          orbit: "#9E2330",
+          gold: "#9E2330",
+          fog: "#44403C",
+          smoke: "#78716C",
         },
       },
       fontFamily: {
         sans: ["'Archivo'", "system-ui", "sans-serif"],
         serif: ["Georgia", "serif"],
-        mono: ["'Space Mono'", "monospace"],
-        display: ["'Archivo'", "sans-serif"],
+        mono: ["'Archivo'", "ui-monospace", "monospace"],
+        display: ["'Newsreader'", "Georgia", "serif"],
       },
       keyframes: {
         "accordion-down": {

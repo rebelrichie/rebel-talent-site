@@ -249,12 +249,12 @@ export default function Jobs() {
 
       {/* ===== HERO ===== */}
       <section data-testid="section-hero" className="relative pt-16 pb-10 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto text-center">
-          <p className="text-rebel-red text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+        <div className="max-w-3xl mx-auto text-left">
+          <p className="text-[11px] tracking-[0.18em] uppercase text-stone-500 mb-4">
             Now Hiring
           </p>
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
-            Open <span className="text-rebel-red">Roles</span>
+          <h1 className="font-display text-5xl md:text-6xl text-stone-900 leading-[1.05] mb-6">
+            Open roles
           </h1>
           <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
             Roles from startups, defense primes, and growth teams we are actively working. Cleared, AI/ML, forward deployed, GTM, and executive. One profile. One apply.
