@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import ReachPeople from "@/components/ReachPeople";
+import { BlueprintField, BlueprintRule } from "@/components/Blueprint";
 
 const serviceProvider = {
   "@type": "Organization",
@@ -110,7 +111,8 @@ export default function Services() {
         ]}
       />
 
-      <section data-testid="section-hero" className="mi-band bg-[#003E53]">
+      <section data-testid="section-hero" className="mi-band bp-wrap bg-[#0E1A33]">
+        <BlueprintField />
         <div className="max-w-[1140px] mx-auto px-5 py-16 sm:py-20">
           <h1
             className="text-white max-w-4xl"
@@ -125,7 +127,8 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section className="bg-[#F4F7FB]">
+        <BlueprintRule />
         <div className="max-w-[1140px] mx-auto px-5">
           {OFFERINGS.map((offer) => (
             <article
@@ -137,7 +140,7 @@ export default function Services() {
               <p className="text-2xl font-bold tracking-[-0.04em] text-[#C8102E]">{offer.index}</p>
               <div>
                 <p className="text-[16px] text-[#272c30] mb-2">{offer.kicker}</p>
-                <h2 className="text-[25px] leading-tight text-[#137287] mb-3">
+                <h2 className="text-[25px] leading-tight text-[#16315C] mb-3">
                   {offer.title}
                 </h2>
                 <p className="text-[#272c30] text-[18px] leading-[1.6] font-light max-w-2xl mb-5">
@@ -155,7 +158,7 @@ export default function Services() {
                     <Link
                       href={offer.detailsHref}
                       data-testid={`link-service-${offer.id}`}
-                      className="text-[16px] text-[#137287] underline underline-offset-4"
+                      className="text-[16px] text-[#16315C] underline underline-offset-4"
                     >
                       {offer.detailsLabel}
                     </Link>
@@ -174,23 +177,25 @@ export default function Services() {
         </div>
       </section>
 
-      <section data-testid="section-proof" className="bg-white border-t border-[#e4e7ee]">
+      <section data-testid="section-proof" className="bg-[#F4F7FB]">
+        <BlueprintRule />
         <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16">
-          <h2 className="text-[34px] leading-none text-[#137287] mb-4">
+          <h2 className="text-[34px] leading-none text-[#16315C] mb-4">
             From recent work.
           </h2>
           <p className="text-[#272c30] text-[18px] leading-[1.6] font-light max-w-3xl">
             EarthDaily Federal made eleven placements. About $394K in agency fees were avoided, a 3.4x return, with an average time to hire under 30 days. Kalibri Labs signed a machine learning hire in 34 days, about $20K under the agency quote. Legal Managed Services made 20 go-to-market hires in 24 months, with 90% retention.
           </p>
-          <Link href="/case-studies" className="inline-flex mt-6 text-[16px] font-medium text-[#137287] underline underline-offset-4">
+          <Link href="/case-studies" className="inline-flex mt-6 text-[16px] font-medium text-[#16315C] underline underline-offset-4">
             See the work
           </Link>
         </div>
       </section>
 
-      <section data-testid="section-cta" className="bg-white border-t border-[#e4e7ee]">
+      <section data-testid="section-cta" className="bg-[#F4F7FB]">
+        <BlueprintRule />
         <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16">
-          <h2 className="text-[34px] leading-none text-[#137287] mb-4">
+          <h2 className="text-[34px] leading-none text-[#16315C] mb-4">
             Bring the role, or the question.
           </h2>
           <p className="text-[#272c30] text-[18px] leading-[1.6] font-light mb-8 max-w-xl">

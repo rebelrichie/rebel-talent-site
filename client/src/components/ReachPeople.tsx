@@ -1,4 +1,5 @@
 import { BOOK_CHRIS_HREF } from "@/components/ContingentChrisSection";
+import { BlueprintRule } from "@/components/Blueprint";
 
 const PEOPLE = [
   {
@@ -24,9 +25,10 @@ const PEOPLE = [
 export default function ReachPeople({ id, tone = "plain" }: { id?: string; tone?: "plain" | "band" }) {
   const onBand = tone === "band";
   return (
-    <section id={id} data-testid={id === "reach" ? "section-reach" : undefined} className={onBand ? "mi-band bg-[#003E53]" : "bg-white"}>
+    <section id={id} data-testid={id === "reach" ? "section-reach" : undefined} className={onBand ? "mi-band bg-[#0E1A33]" : "bg-[#F4F7FB]"}>
+      {!onBand && <BlueprintRule />}
       <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16">
-        <h2 className={`text-[34px] leading-none mb-8 ${onBand ? "text-white" : "text-[#137287]"}`}>
+        <h2 className={`text-[34px] leading-none mb-8 ${onBand ? "text-white" : "text-[#16315C]"}`}>
           Reach us
         </h2>
         <div className="grid md:grid-cols-2 gap-10">
@@ -37,7 +39,7 @@ export default function ReachPeople({ id, tone = "plain" }: { id?: string; tone?
               <a
                 href={`mailto:${person.email}`}
                 data-testid={person.emailTestId}
-                className={`block text-[18px] no-underline mb-4 ${onBand ? "text-white underline underline-offset-4" : "text-[#137287] underline underline-offset-4"}`}
+                className={`block text-[18px] no-underline mb-4 ${onBand ? "text-white underline underline-offset-4" : "text-[#16315C] underline underline-offset-4"}`}
               >
                 {person.email}
               </a>

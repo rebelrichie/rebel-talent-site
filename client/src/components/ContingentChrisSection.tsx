@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import ScrollReveal from "@/components/ScrollReveal";
+import { BlueprintField, BlueprintRule } from "@/components/Blueprint";
 
 function hapticTap() {
   if (navigator.vibrate) navigator.vibrate(15);
@@ -21,12 +22,13 @@ export default function ContingentChrisSection() {
     <section
       id="contingent-search"
       data-testid="section-contingent-search"
-      className="bg-white"
+      className="bg-[#F4F7FB]"
     >
+      <BlueprintRule />
       <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16 grid lg:grid-cols-2 gap-10 items-start">
         <ScrollReveal variant="fade-up">
           <div data-testid="card-chris-moscato">
-            <h2 className="text-[34px] leading-none text-[#137287] mb-5">
+            <h2 className="text-[34px] leading-none text-[#16315C] mb-5">
               Contingent search, priced by salary band.
             </h2>
             <p className="text-[#272c30] text-[18px] leading-[1.6] max-w-xl font-light">
@@ -36,7 +38,7 @@ export default function ContingentChrisSection() {
               <Link
                 href="/contingent"
                 data-testid="link-view-contingent-details"
-                className="text-[#137287] text-[16px] font-medium underline underline-offset-4"
+                className="text-[#16315C] text-[16px] font-medium underline underline-offset-4"
               >
                 View contingent details
               </Link>
@@ -51,7 +53,8 @@ export default function ContingentChrisSection() {
           </div>
         </ScrollReveal>
         <ScrollReveal variant="fade-up" delay={80}>
-          <div className="mi-band bg-[#003E53] p-8 sm:p-10">
+          <div className="mi-band bp-wrap bg-[#0E1A33] p-8 sm:p-10">
+            <BlueprintField />
             <p className="text-[25px] text-white leading-tight mb-1">Chris Moscato</p>
             <p className="text-white/80 text-[16px] mb-6">Head of Client Acquisition</p>
             <ul className="flex flex-col gap-2 mb-8">

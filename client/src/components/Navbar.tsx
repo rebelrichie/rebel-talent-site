@@ -60,16 +60,16 @@ export default function Navbar() {
 
   return (
     <div className="sticky top-0 z-50">
-      <div className="bg-black text-[#d5dbe3]">
+      <div className="bg-[#081422] text-[#C9D6E5] border-b border-[#8FD4EA]/30">
         <div className="max-w-[1140px] mx-auto px-5 h-9 flex items-center justify-between gap-4 text-[12px]">
           <div className="flex items-center gap-4 min-w-0">
-            <a href="tel:+12025240255" className="no-underline text-[#d5dbe3] hover:text-white whitespace-nowrap">(202) 524-0255</a>
-            <a href="mailto:richie@rebeltalentsystems.com" className="no-underline text-[#d5dbe3] hover:text-white truncate">richie@rebeltalentsystems.com</a>
+            <a href="tel:+12025240255" className="no-underline text-[#C9D6E5] hover:text-white whitespace-nowrap">(202) 524-0255</a>
+            <a href="mailto:richie@rebeltalentsystems.com" className="no-underline text-[#C9D6E5] hover:text-white truncate">richie@rebeltalentsystems.com</a>
           </div>
-          <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="no-underline text-[#d5dbe3] hover:text-white shrink-0">LinkedIn</a>
+          <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="no-underline text-[#C9D6E5] hover:text-white shrink-0">LinkedIn</a>
         </div>
       </div>
-      <nav data-testid="navbar" className="site-nav bg-[#003E53]">
+      <nav data-testid="navbar" className="site-nav bg-[#0E1A33]">
         <div className="max-w-[1140px] mx-auto px-5">
           <div className="flex items-center justify-between h-[72px]">
             <Link href="/" data-testid="link-home" className="flex items-center gap-2.5 no-underline shrink-0">
@@ -117,7 +117,7 @@ export default function Navbar() {
         </div>
 
         {isOpen && (
-          <div className="lg:hidden border-t border-white/15 bg-[#003E53]">
+          <div className="lg:hidden border-t border-white/15 bg-[#0E1A33]">
             {NAV.map((item) => {
               const active = item.active(location);
               return (

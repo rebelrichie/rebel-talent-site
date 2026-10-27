@@ -3,6 +3,7 @@ import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import ContingentChrisSection from "@/components/ContingentChrisSection";
 import ReachPeople from "@/components/ReachPeople";
+import { BlueprintField, BlueprintRule } from "@/components/Blueprint";
 
 const homepageSchema = {
   "@context": "https://schema.org",
@@ -144,7 +145,7 @@ const PROOF = [
 ];
 
 const btn = "mi-btn";
-const textLink = "text-[16px] font-medium text-[#137287] underline underline-offset-4";
+const textLink = "text-[16px] font-medium text-[#16315C] underline underline-offset-4";
 
 export default function Home() {
   return (
@@ -159,7 +160,8 @@ export default function Home() {
         schemas={[homepageSchema]}
       />
 
-      <section data-testid="section-hero" className="mi-band bg-[#003E53]">
+      <section data-testid="section-hero" className="mi-band bp-wrap bg-[#0E1A33]">
+        <BlueprintField />
         <div className="max-w-[1140px] mx-auto px-5 py-16 sm:py-24">
           <h1 className="text-white max-w-4xl" style={{ fontSize: "clamp(2rem, 4vw, 2.625rem)", fontWeight: 400, lineHeight: 1.15 }}>
             Recruiting that scales with the company you&rsquo;re becoming.
@@ -178,7 +180,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="section-government-buyers" className="mi-band bg-[#002633]">
+      <section data-testid="section-government-buyers" className="mi-band bp-wrap bg-[#0E1A33]">
+        <BlueprintField />
         <div className="max-w-[1140px] mx-auto px-5 py-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
           <p className="text-white text-[18px] leading-snug font-light max-w-3xl">
             <span className="font-normal">Registered on SAM.gov.</span>{" "}
@@ -195,7 +198,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section className="bg-[#F4F7FB]">
+        <BlueprintRule />
         <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16 grid md:grid-cols-2 gap-12">
           {PATHS.map((path, i) => (
             <article
@@ -205,7 +209,7 @@ export default function Home() {
               className="py-2"
             >
               <p className="text-[16px] text-[#272c30] mb-2">{path.kicker}</p>
-              <h2 className="text-[25px] leading-tight text-[#137287] mb-4">
+              <h2 className="text-[25px] leading-tight text-[#16315C] mb-4">
                 {path.title}
               </h2>
               <p className="text-[#272c30] text-[18px] leading-[1.6] font-light mb-6 max-w-md">
@@ -225,11 +229,11 @@ export default function Home() {
         <div className="max-w-[1140px] mx-auto px-5 pb-14">
           <p className="text-[16px] text-[#272c30] leading-relaxed max-w-2xl font-light">
             Retained search and advisory are on{" "}
-            <Link href="/services" data-testid="link-view-services" className="text-[#137287] underline underline-offset-4">
+            <Link href="/services" data-testid="link-view-services" className="text-[#16315C] underline underline-offset-4">
               How we engage
             </Link>
             . Cleared hiring stays on its{" "}
-            <Link href="/cleared" className="text-[#137287] underline underline-offset-4">
+            <Link href="/cleared" className="text-[#16315C] underline underline-offset-4">
               own page
             </Link>
             .
@@ -239,9 +243,10 @@ export default function Home() {
 
       <ContingentChrisSection />
 
-      <section data-testid="section-who" className="bg-white border-t border-[#e4e7ee]">
+      <section data-testid="section-who" className="bg-[#F4F7FB]">
+        <BlueprintRule />
         <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16">
-          <h2 className="text-[34px] leading-none text-[#137287] max-w-xl mb-4">
+          <h2 className="text-[34px] leading-none text-[#16315C] max-w-xl mb-4">
             Teams that can name the missing seat.
           </h2>
           <p className="text-[#272c30] text-[18px] leading-[1.6] font-light max-w-2xl mb-10">
@@ -265,9 +270,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="section-proof" className="bg-white border-t border-[#e4e7ee]">
+      <section data-testid="section-proof" className="bg-[#F4F7FB]">
+        <BlueprintRule />
         <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16">
-          <h2 className="text-[34px] leading-none text-[#137287] mb-3">
+          <h2 className="text-[34px] leading-none text-[#16315C] mb-3">
             From recent work.
           </h2>
           <p className="text-[#272c30] text-[18px] leading-[1.6] font-light max-w-2xl mb-8">
@@ -288,13 +294,14 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <Link href="/case-studies" data-testid="link-case-studies" className="inline-flex mt-8 text-[16px] font-medium text-[#137287] underline underline-offset-4">
+          <Link href="/case-studies" data-testid="link-case-studies" className="inline-flex mt-8 text-[16px] font-medium text-[#16315C] underline underline-offset-4">
             See the work
           </Link>
         </div>
       </section>
 
-      <section data-testid="section-veterans" className="mi-band bg-[#003E53]">
+      <section data-testid="section-veterans" className="mi-band bp-wrap bg-[#0E1A33]">
+        <BlueprintField />
         <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16">
           <div className="max-w-3xl">
             <p className="text-[16px] text-white/80 mb-3">
@@ -336,9 +343,10 @@ export default function Home() {
 
       <ReachPeople id="reach" />
 
-      <section data-testid="section-cta" className="bg-white border-t border-[#e4e7ee]">
+      <section data-testid="section-cta" className="bg-[#F4F7FB]">
+        <BlueprintRule />
         <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16">
-          <h2 className="text-[34px] leading-none text-[#137287] mb-4">
+          <h2 className="text-[34px] leading-none text-[#16315C] mb-4">
             Bring the open role.
           </h2>
           <p className="text-[#272c30] text-[18px] leading-[1.6] font-light mb-8 max-w-xl">
@@ -349,7 +357,7 @@ export default function Home() {
           </Link>
           <p className="mt-6 text-[16px] text-[#272c30]">
             Looking for a role?{" "}
-            <Link href="/jobs" className="text-[#137287] underline underline-offset-4">
+            <Link href="/jobs" className="text-[#16315C] underline underline-offset-4">
               See open jobs
             </Link>
             .

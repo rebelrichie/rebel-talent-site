@@ -8,6 +8,7 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import GlowCard from "@/components/GlowCard";
 import CapacityBadge from "@/components/CapacityBadge";
 import ReachPeople from "@/components/ReachPeople";
+import { BlueprintField } from "@/components/Blueprint";
 
 import headAndHeartCover from "@assets/Head_And_Heart_1773068092478.PNG";
 import unfinishedRoomsCover from "@assets/UR-BookCover_1773068071585.png";
@@ -88,7 +89,8 @@ export default function About() {
       />
 
       {/* ───────────── HERO ───────────── */}
-      <section data-testid="section-hero" className="mi-band bg-[#003E53]">
+      <section data-testid="section-hero" className="mi-band bp-wrap bg-[#0E1A33]">
+        <BlueprintField />
         <div className="max-w-[1140px] mx-auto px-5 py-16 sm:py-20">
           <div className="flex items-center gap-4 mb-5">
             <img src="/team-richie.jpg" alt="Richie Lampani, Founder of Rebel Talent Systems" className="w-16 h-16 rounded-full object-cover object-top shrink-0" data-testid="img-profile" />
