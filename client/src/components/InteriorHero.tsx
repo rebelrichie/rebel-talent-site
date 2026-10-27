@@ -9,9 +9,9 @@ export default function InteriorHero({
   testId?: string;
 }) {
   return (
-    <section data-testid={testId} className="border-b border-[#E7E9EE] bg-white">
+    <section data-testid={testId} className="band-hero">
       <div className="grid lg:min-h-[400px] lg:grid-cols-2">
-        <div className="relative z-10 flex flex-col justify-center px-6 py-12 sm:px-10 lg:px-14 lg:py-14">
+        <div className="band-hero-copy relative z-10 flex flex-col justify-center px-6 py-12 sm:px-10 lg:px-14 lg:py-14">
           {children}
         </div>
         <OrbitPanel compact className="min-h-[240px] lg:min-h-full" />

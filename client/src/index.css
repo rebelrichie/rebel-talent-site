@@ -1349,8 +1349,12 @@ a[class*="C8102E"], button[class*="C8102E"] { color: #ffffff !important; }
 .site-footer a:hover { color: #ffffff !important; }
 .site-footer .text-white { color: #ffffff !important; }
 .site-footer a.mi-btn, .site-footer a.bg-rebel-red { color: #ffffff !important; background: #C8102E !important; }
-.site-nav, .site-nav a, .site-nav span, .site-nav button { color: #0C1220 !important; }
-.site-nav a.mi-btn, .site-nav a.mi-btn span { color: #ffffff !important; background: #C8102E !important; }
+.site-chrome { background: #001028 !important; }
+.site-chrome a, .site-chrome span, .site-chrome button { color: #E7EEF5 !important; }
+.site-chrome a.mi-btn, .site-chrome a.mi-btn span, .site-nav a.mi-btn, .site-nav a.mi-btn span {
+  color: #ffffff !important;
+  background: #C8102E !important;
+}
 .site-nav a.mi-btn svg { color: #ffffff !important; stroke: #ffffff; }
 
 .text-fog { color: #3a4250 !important; }
@@ -1395,10 +1399,8 @@ a[class*="C8102E"], button[class*="C8102E"] { color: #ffffff !important; }
 .orbit-label { z-index: 3; }
 
 main {
-  background-image:
-    linear-gradient(rgba(12, 18, 32, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(12, 18, 32, 0.035) 1px, transparent 1px);
-  background-size: 88px 88px;
+  background-color: #001028 !important;
+  background-image: none !important;
 }
 
 .font-serif { font-family: Inter, "Public Sans", sans-serif !important; }
@@ -1442,4 +1444,194 @@ input::placeholder, textarea::placeholder { color: #8B919A !important; }
     font-weight: 800 !important;
   }
   [data-testid="section-hero"] h1.hero-display { font-size: 2.55rem !important; }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Bands
+   Full-bleed navy, slate, and one cool gray. Boxes drop to hairlines.
+   ───────────────────────────────────────────────────────────────────── */
+
+body {
+  background-color: #001028 !important;
+  color: #F4F7FB !important;
+}
+
+.band-hero,
+.band-hero-copy {
+  background-color: #102848 !important;
+  color: #F4F7FB !important;
+}
+.band-hero-copy {
+  background-image:
+    linear-gradient(rgba(143, 219, 239, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(143, 219, 239, 0.06) 1px, transparent 1px) !important;
+  background-size: 64px 64px !important;
+}
+.band-hero-copy h1,
+.band-hero-copy h2,
+.band-hero-copy p,
+.band-hero-copy li,
+.band-hero-copy a:not(.mi-btn):not(.bg-rebel-red):not(.bg-primary) {
+  color: #F4F7FB !important;
+}
+.band-hero-copy .text-rebel-red {
+  color: #FF8A96 !important;
+}
+
+main .page-bands > section:nth-child(4n+1) {
+  background-color: #001028 !important;
+  background-image:
+    linear-gradient(rgba(143, 219, 239, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(143, 219, 239, 0.055) 1px, transparent 1px) !important;
+  background-size: 72px 72px !important;
+  color: #F4F7FB !important;
+}
+main .page-bands > section:nth-child(4n+2),
+main .page-bands > section:nth-child(4n) {
+  background-color: #16304F !important;
+  background-image: none !important;
+  color: #F4F7FB !important;
+}
+main .page-bands > section:is(:nth-child(4n+3), .band-light) {
+  background-color: #E6EBF2 !important;
+  background-image: none !important;
+  color: #0C1220 !important;
+}
+main .page-bands > section[data-testid="section-hero"] {
+  background-color: #102848 !important;
+  background-image: none !important;
+}
+
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light) :is(h1, h2, h3, h4, p, li, label, blockquote) {
+  color: #F4F7FB !important;
+}
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light) :is(
+  .text-zinc-400, .text-zinc-500, .text-zinc-600, .text-zinc-700,
+  .text-\[\#5C6570\], .text-\[\#8B919A\], .text-\[\#3D4450\], .text-\[\#272c30\], .muted
+) {
+  color: rgba(244, 247, 251, 0.74) !important;
+}
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light) a:not(.mi-btn):not(.bg-rebel-red):not(.bg-primary) {
+  color: #F4F7FB !important;
+}
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light) a.text-rebel-red:not(.mi-btn),
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light) .text-rebel-red {
+  color: #FF8A96 !important;
+}
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light) .text-emerald-800 {
+  color: #8EE0B0 !important;
+}
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light) img[src*="logo-"] {
+  filter: brightness(0) invert(1);
+}
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light) :is(div, article, a, section).bg-white,
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light) :is(div, article, a)[class*="bg-zinc"] {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+main .page-bands > section:is(:nth-child(4n+3), .band-light) :is(h1, h2, h3, h4, p, li, label, blockquote, a, span) {
+  color: #0C1220 !important;
+}
+main .page-bands > section:is(:nth-child(4n+3), .band-light) :is(.text-zinc-400, .text-zinc-500, .text-\[\#5C6570\], .text-\[\#8B919A\]) {
+  color: #3D4450 !important;
+}
+main .page-bands > section:is(:nth-child(4n+3), .band-light) .text-rebel-red {
+  color: #C8102E !important;
+}
+main .page-bands > section:is(:nth-child(4n+3), .band-light) .mi-btn,
+main .page-bands > section:is(:nth-child(4n+3), .band-light) .mi-btn * {
+  color: #ffffff !important;
+}
+main .page-bands > section:is(:nth-child(4n+3), .band-light) .mi-btn {
+  background: #C8102E !important;
+  border-color: #C8102E !important;
+}
+
+main .page-bands :is(article, a, div)[class*="border-zinc"],
+main .page-bands :is(article, a, div)[class*="border-stone"],
+main .page-bands :is(article, a, div)[class*="rounded-lg"],
+main .page-bands :is(article, a, div)[class*="rounded-xl"],
+main .page-bands :is(article, a, div)[class*="rounded-md"][class*="border"] {
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+[data-testid="job-list"] > * { margin-top: 0 !important; }
+[data-testid="job-list"] a {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+main .page-bands > section:is(:nth-child(4n+3), .band-light) [data-testid="job-list"] a {
+  border-bottom-color: rgba(12, 18, 32, 0.16) !important;
+}
+
+.stat-row > * + * { border-top: 1px solid rgba(255, 255, 255, 0.16); }
+@media (min-width: 640px) {
+  .stat-row > * + * { border-top: 0; }
+  .stat-row > *:nth-child(odd) { border-right: 1px solid rgba(255, 255, 255, 0.16); }
+}
+@media (min-width: 1024px) {
+  .stat-row > *:nth-child(odd) { border-right: 0; }
+  .stat-row > * + * { border-left: 1px solid rgba(255, 255, 255, 0.16); }
+}
+
+.band-cols > article + article {
+  border-top: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+  padding-top: 2.5rem;
+}
+@media (min-width: 1024px) {
+  .band-cols > article + article {
+    border-top: 0;
+    padding-top: 0;
+    border-left: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+    padding-left: 1.75rem;
+  }
+}
+.band-rule { border-color: color-mix(in srgb, currentColor 22%, transparent); }
+
+main .page-bands > section.band-red {
+  background-color: #C8102E !important;
+  background-image: none !important;
+  color: #ffffff !important;
+}
+main .page-bands > section.band-red :is(h1, h2, h3, p, li, a:not(.mi-btn)) {
+  color: #ffffff !important;
+}
+main .page-bands > section.band-red .mi-btn {
+  background: #ffffff !important;
+  color: #9E0C24 !important;
+  border-color: #ffffff !important;
+}
+main .page-bands > section.band-red .mi-btn * {
+  background: transparent !important;
+  color: #9E0C24 !important;
+}
+
+main .page-bands :is(a, article, div).bg-zinc-950.border.border-zinc-800,
+main .page-bands :is(a, article, div).bg-zinc-950.border.border-zinc-800:hover {
+  background: transparent !important;
+  background-image: none !important;
+  border-width: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+main .page-bands [data-testid="job-list"] a.bg-zinc-950.border.border-zinc-800 {
+  border-width: 0 0 1px !important;
+  border-style: solid !important;
+  border-color: color-mix(in srgb, currentColor 22%, transparent) !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }

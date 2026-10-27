@@ -183,7 +183,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section data-testid="section-proof" className="border-t border-[#E7E9EE] bg-white">
+      <section data-testid="section-proof">
         <div className="max-w-[1140px] mx-auto px-5 py-16 sm:py-20">
           <h2 className="text-[40px] leading-[1.05] text-[#0C1220] mb-4 sm:text-[44px]">
             From recent work.
@@ -197,7 +197,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section data-testid="section-cta" className="border-t border-[#E7E9EE] bg-white">
+      <section data-testid="section-cta" className="band-red">
         <div className="max-w-[1140px] mx-auto px-5 py-16 sm:py-20">
           <h2 className="text-[40px] leading-[1.05] text-[#0C1220] mb-4 sm:text-[44px]">
             Bring the role, or the question.

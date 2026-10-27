@@ -30,6 +30,7 @@ export default function PageTransition({ children }: PageTransitionProps) {
 
   return (
     <div
+      className="page-bands"
       style={{
         opacity: transitioning ? 0 : 1,
         transform: transitioning ? "translateY(8px)" : "translateY(0)",

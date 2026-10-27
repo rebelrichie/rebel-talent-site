@@ -202,37 +202,30 @@ export default function Home() {
         schemas={[homepageSchema]}
       />
 
-      <section data-testid="section-hero" className="bg-white">
+      <section data-testid="section-hero" className="band-hero">
         <div className="grid lg:min-h-[560px] lg:grid-cols-2">
-          <div className="flex flex-col justify-center bg-white px-6 py-14 sm:px-12 lg:px-16 lg:py-16 xl:px-20">
-            <h1 className="hero-display max-w-[11ch] text-[#0C1220]">
+          <div className="band-hero-copy flex flex-col justify-center px-6 py-14 sm:px-12 lg:px-16 lg:py-16 xl:px-20">
+            <h1 className="hero-display max-w-[11ch]">
               Recruiting that scales with the company you&rsquo;re becoming.
             </h1>
             <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
               <Link href="/strategy-call" data-testid="button-hero-strategy" className={btn}>
                 Book a strategy call <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-              <Link href="/jobs" className="text-[15px] font-medium text-[#0C1220] underline underline-offset-4">
+              <Link href="/jobs" className="text-[15px] font-medium underline underline-offset-4">
                 See open jobs
               </Link>
             </div>
           </div>
           <OrbitPanel className="min-h-[460px] lg:min-h-full" />
         </div>
-        <div className="grid lg:grid-cols-2">
-          <div className="grid border-t border-[#E7E9EE] bg-white sm:grid-cols-2 sm:divide-x divide-[#E7E9EE]">
-            {LIGHT_STATS.map((stat) => (
-              <Stat key={stat.value + stat.caption} {...stat} light />
-            ))}
-          </div>
-          <div className="mi-band grid bg-[#001028] sm:grid-cols-2 sm:divide-x divide-white/15">
-            {NAVY_STATS.map((stat) => (
-              <Stat key={stat.value + stat.caption} {...stat} light={false} />
-            ))}
-          </div>
+        <div className="stat-row grid border-t border-white/15 sm:grid-cols-2 lg:grid-cols-4">
+          {[...LIGHT_STATS, ...NAVY_STATS].map((stat) => (
+            <Stat key={stat.value + stat.caption} {...stat} light={false} />
+          ))}
         </div>
         <div className="mx-auto max-w-[1200px] px-6 py-12 sm:px-10">
-          <p className="max-w-3xl text-[18px] leading-[1.6] text-[#3D4450]">
+          <p className="max-w-3xl text-[18px] leading-[1.6]">
             We fill open roles for technical, go-to-market, and operations teams. Contingent search is for one seat. Embedded recruiting is for the function you still need after we leave. We work with Series A through C companies and with defense teams, cleared and uncleared.
           </p>
         </div>
@@ -248,7 +241,7 @@ export default function Home() {
           <h2 className="mx-auto mb-16 max-w-3xl text-center text-[40px] leading-[1.05] text-[#0C1220] sm:text-[48px]">
             Four ways to take the work.
           </h2>
-          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          <div className="band-cols grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
             {SERVICES.map((item) => {
               const Icon = item.icon;
               return (
@@ -335,7 +328,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="section-proof" className="border-t border-[#E7E9EE] bg-white">
+      <section data-testid="section-proof">
         <div className="max-w-[1140px] mx-auto px-5 py-16 sm:py-20">
           <h2 className="text-[40px] leading-[1.05] text-[#0C1220] mb-3 sm:text-[48px]">
             From recent work.
@@ -406,7 +399,7 @@ export default function Home() {
 
       <ReachPeople id="reach" />
 
-      <section data-testid="section-cta" className="border-t border-[#E7E9EE] bg-white">
+      <section data-testid="section-cta" className="band-red">
         <div className="max-w-[1140px] mx-auto px-5 py-16 sm:py-24">
           <h2 className="text-[40px] leading-[1.05] text-[#0C1220] mb-4 sm:text-[48px]">
             Bring the open role.

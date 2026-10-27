@@ -359,7 +359,7 @@ export default function Advisors() {
         </div>
       </section>
 
-      <section data-testid="section-cta" className="py-16 sm:py-24 border-t border-zinc-900 bg-rebel-space">
+      <section data-testid="section-cta" className="band-red py-16 sm:py-24">
         <div className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-12">
           <p className="font-mono text-rebel-red text-[11px] tracking-[0.22em] uppercase mb-3">
             Contact

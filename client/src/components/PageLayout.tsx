@@ -55,7 +55,7 @@ export default function PageLayout({ children }: PageLayoutProps) {
   }, [location]);
 
   return (
-    <div className="min-h-screen bg-white text-[#272c30] relative">
+    <div className="min-h-screen bg-[#001028] text-[#F4F7FB] relative">
       {/* Safe addition, skip to main content link for keyboard/screen reader users */}
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[999] focus:px-4 focus:py-2 focus:bg-rebel-red focus:text-white focus:rounded-md focus:text-sm">
         Skip to main content

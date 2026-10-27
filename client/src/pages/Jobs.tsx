@@ -411,7 +411,7 @@ export default function Jobs() {
               <p className="text-xs text-zinc-400 uppercase tracking-wider mb-4">
                 {filtered.length} of {jobs.length} {jobs.length === 1 ? "role" : "roles"}
               </p>
-              <div className="space-y-3" data-testid="job-list">
+              <div data-testid="job-list">
                 {filtered.map((j) => (
                   <ScrollReveal key={j.id} immediate>
                     <Link
@@ -462,7 +462,7 @@ export default function Jobs() {
               {/* Safe addition (2026-06-05): general application discovery card */}
               <Link
                 href="/jobs/general"
-                className="mt-6 block bg-zinc-950/50 border border-dashed border-zinc-700 rounded-lg p-5 sm:p-6 hover:border-rebel-red/60 hover:bg-zinc-900/40 transition-all group no-underline text-center"
+                className="mt-8 block border-t border-current/20 py-6 text-center no-underline"
               >
                 <p className="text-sm text-zinc-300 group-hover:text-white transition-colors">
                   Don&rsquo;t see your role? Submit a {" "}
@@ -493,7 +493,7 @@ export default function Jobs() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="band-cols grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
             {[
               {
                 icon: <Eye className="w-5 h-5 text-rebel-red" />,
@@ -518,7 +518,7 @@ export default function Jobs() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm p-5 hover:border-zinc-700 transition-colors"
+                className="py-1"
               >
                 <div className="mb-3">{item.icon}</div>
                 <div className="font-display text-sm font-bold text-white uppercase mb-2">{item.title}</div>

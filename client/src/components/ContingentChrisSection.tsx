@@ -51,12 +51,12 @@ export default function ContingentChrisSection() {
           </div>
         </ScrollReveal>
         <ScrollReveal variant="fade-up" delay={80}>
-          <div className="mi-band bg-[#001028] p-8 sm:p-10">
-            <p className="text-[25px] text-white leading-tight mb-1">Chris Moscato</p>
-            <p className="text-white/80 text-[16px] mb-6">Head of Client Acquisition</p>
+          <div className="band-rule lg:border-l lg:pl-10">
+            <p className="text-[25px] leading-tight mb-1">Chris Moscato</p>
+            <p className="text-[16px] mb-6">Head of Client Acquisition</p>
             <ul className="flex flex-col gap-2 mb-8">
               {STRIP.map((text) => (
-                <li key={text} className="text-white text-[16px] leading-snug">{text}</li>
+                <li key={text} className="text-[16px] leading-snug">{text}</li>
               ))}
             </ul>
             <div className="flex flex-col sm:flex-row gap-3">
@@ -74,7 +74,7 @@ export default function ContingentChrisSection() {
                 href={EMAIL_CHRIS_HREF}
                 onClick={hapticTap}
                 data-testid="button-email-chris"
-                className="inline-flex items-center justify-center rounded-[6px] border border-white px-5 py-3 text-[16px] font-medium text-white no-underline"
+                className="inline-flex items-center text-[16px] font-medium underline underline-offset-4"
               >
                 Email Chris
               </a>
