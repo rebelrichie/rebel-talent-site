@@ -7,6 +7,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import GlowCard from "@/components/GlowCard";
 import CapacityBadge from "@/components/CapacityBadge";
+import ReachPeople from "@/components/ReachPeople";
+import InteriorHero from "@/components/InteriorHero";
 
 import headAndHeartCover from "@assets/Head_And_Heart_1773068092478.PNG";
 import unfinishedRoomsCover from "@assets/UR-BookCover_1773068071585.png";
@@ -87,58 +89,40 @@ export default function About() {
       />
 
       {/* ───────────── HERO ───────────── */}
-      <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%)",
-          }}
-        />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-16 sm:pb-20 z-10">
-          <p className="font-mono text-[11px] sm:text-xs tracking-[0.3em] uppercase text-zinc-400 mb-6 sm:mb-10">
-            About
-          </p>
-          <div className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-end">
-            <div>
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] mb-4 sm:mb-6" data-testid="text-name">
-                Richie Lampani.<br />
-                <span className="text-rebel-red">Five cities. One thesis.</span>
-              </h1>
-              <p className="text-base sm:text-xl text-zinc-300 max-w-2xl leading-[1.55] mb-4" data-testid="text-intro">
-                I started in music venues in Grand Rapids, reading rooms and booking bands nobody had heard of yet. Then more than a decade in staffing, watching the old model up close.
-              </p>
-              <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-[1.55] mb-4">
-                I didn&rsquo;t leave to start another agency. I left to build the thing I wanted when I was on the other side of the desk.
-              </p>
-              <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-[1.55] mb-6">
-                When a team needs someone inside the function, Rebel embeds as Head of Talent and leaves them owning the system.
-              </p>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-6">
-                <CapacityBadge />
-                {/* Safe addition — link to the Vision manifesto */}
-                <Link href="/about/vision" data-testid="link-about-vision" className="text-rebel-red hover:text-white text-sm font-semibold transition-colors no-underline">
-                  Read the vision &rarr;
-                </Link>
-                <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-linkedin" className="text-zinc-400 hover:text-white text-sm transition-colors no-underline">
-                  LinkedIn ↗
-                </a>
-                <a href="https://www.linkedin.com/newsletters/rebel-built-7412825035092045824/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white text-sm transition-colors no-underline">
-                  Rebel Built (newsletter) ↗
-                </a>
-                <a href="mailto:richie@rebeltalentsystems.com" data-testid="link-email" className="text-zinc-400 hover:text-white text-sm transition-colors no-underline">
-                  Email ↗
-                </a>
-              </div>
-            </div>
-            <div className="shrink-0">
-              <div className="w-44 h-44 sm:w-56 sm:h-56 lg:w-64 lg:h-64 overflow-hidden border border-zinc-800 rounded-sm">
-                <img src="/richie-portrait.jpg" alt="Richie Lampani, Founder of Rebel Talent Systems" className="w-full h-full object-cover object-top" data-testid="img-profile" />
-              </div>
-            </div>
-          </div>
+      <InteriorHero>
+        <div className="mb-6 flex items-center gap-4">
+          <img src="/team-richie.jpg" alt="Richie Lampani, Founder of Rebel Talent Systems" className="h-16 w-16 shrink-0 rounded-full object-cover object-top" data-testid="img-profile" />
+          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#8B919A]">Founder</p>
         </div>
-      </section>
+        <h1 className="max-w-[14ch] text-[#0C1220]" data-testid="text-name">
+          Richie Lampani.
+          <span className="mt-2 block">Five cities. One thesis.</span>
+        </h1>
+        <p className="mt-6 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]" data-testid="text-intro">
+          I started in music venues in Grand Rapids, reading rooms and booking bands nobody had heard of yet. Then more than a decade in staffing, watching the old model up close.
+        </p>
+        <p className="mt-4 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]">
+          I didn&rsquo;t leave to start another agency. I left to build the thing I wanted when I was on the other side of the desk.
+        </p>
+        <p className="mt-4 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]">
+          When a team needs someone inside the function, Rebel embeds as Head of Talent and leaves them owning the system.
+        </p>
+        <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3">
+          <CapacityBadge />
+          <Link href="/about/vision" data-testid="link-about-vision" className="text-[16px] font-medium text-[#0C1220] underline underline-offset-4">
+            Read the vision
+          </Link>
+          <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-linkedin" className="text-[16px] text-[#0C1220] no-underline">
+            LinkedIn
+          </a>
+          <a href="https://www.linkedin.com/newsletters/rebel-built-7412825035092045824/" target="_blank" rel="noopener noreferrer" className="text-[16px] text-[#0C1220] no-underline">
+            Rebel Built (newsletter)
+          </a>
+          <a href="mailto:richie@rebeltalentsystems.com" data-testid="link-email" className="text-[16px] text-[#0C1220] no-underline">
+            Email
+          </a>
+        </div>
+      </InteriorHero>
 
       {/* ───────────── STATS GRID ───────────── */}
       <section className="bg-rebel-space pt-4 pb-12 sm:pb-16 border-t border-zinc-900">
@@ -152,7 +136,7 @@ export default function About() {
               { value: "9K+", label: "Rebel Built Subscribers", numeric: true },
               { value: "TS/SCI", label: "Cleared Hiring", numeric: false },
             ].map((stat) => (
-              <div key={stat.label} className="border border-zinc-800 bg-zinc-900/30 p-4 sm:p-5 text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
+              <div key={stat.label} className="py-2 text-left" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
                 {stat.numeric ? (
                   <AnimatedCounter value={stat.value} className="font-display text-xl sm:text-2xl font-bold text-rebel-red mb-1" />
                 ) : (
@@ -183,41 +167,9 @@ export default function About() {
               <p className="text-zinc-300 text-base sm:text-lg leading-[1.7] max-w-3xl mb-8">
                 Grew up on a farm. Went to school in the city. Bartended for years. Moved to New York the first chance I got, then Chicago. Atlanta&rsquo;s home now.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <figure>
-                  <img
-                    src="/richie-hudsonville-1990.jpg"
-                    alt="Hudsonville Rocket Football team photo, 1990"
-                    loading="lazy"
-                    className="w-full aspect-[4/3] object-cover border border-zinc-800"
-                  />
-                  <figcaption className="text-zinc-400 text-xs italic mt-2 leading-snug">
-                    Hudsonville, 1990. Find me in the lineup.
-                  </figcaption>
-                </figure>
-                <figure>
-                  <img
-                    src="/richie-bartending.jpg"
-                    alt="Richie Lampani behind the bar, Patagonia trucker hat"
-                    loading="lazy"
-                    className="w-full aspect-[4/3] object-cover border border-zinc-800"
-                  />
-                  <figcaption className="text-zinc-400 text-xs italic mt-2 leading-snug">
-                    Behind the bar. Years of it.
-                  </figcaption>
-                </figure>
-                <figure>
-                  <img
-                    src="/richie-longboard.jpg"
-                    alt="Richie Lampani on a longboard at golden hour in Atlanta"
-                    loading="lazy"
-                    className="w-full aspect-[4/3] object-cover object-top border border-zinc-800"
-                  />
-                  <figcaption className="text-zinc-400 text-xs italic mt-2 leading-snug">
-                    Atlanta now. Golden hour, longboard, headphones.
-                  </figcaption>
-                </figure>
-              </div>
+              <p className="text-zinc-400 text-sm italic leading-snug">
+                Hudsonville, 1990. Find me in the lineup. Behind the bar. Years of it. Atlanta now. Golden hour, longboard, headphones.
+              </p>
             </div>
           </ScrollReveal>
 
@@ -731,6 +683,7 @@ export default function About() {
           </ScrollReveal>
         </div>
       </section>
+      <ReachPeople />
     </PageLayout>
   );
 }

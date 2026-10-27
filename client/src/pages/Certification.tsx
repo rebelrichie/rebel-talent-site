@@ -2,6 +2,7 @@ import { ArrowRight, Award, ShieldCheck, Users, Building2, BookOpen, Scale, Chec
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import { Button } from "@/components/ui/button";
+import InteriorHero from "@/components/InteriorHero";
 
 const examDomains = [
   { icon: Users, title: "Sourcing & Pipeline Development", desc: "Identifying and engaging qualified candidates across channels." },
@@ -29,15 +30,13 @@ export default function Certification() {
       />
 
       {/* HERO, Hunt Club / Riviera register */}
-      <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(245,158,11,0.08) 0%, transparent 55%)" }} />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
-          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-amber-400 mb-6 sm:mb-10">
+      <InteriorHero>
+
+          <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-[#C8102E] mb-6 sm:mb-10">
             A Rebel Talent Initiative
           </p>
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-5xl">
-            The standard for{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">recruiting professionals.</span>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-[#0C1220] leading-[1.02] max-w-5xl">
+            The standard for recruiting professionals.
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
             The American Board of Certified Recruiters is establishing an exam-based professional credential for the recruiting profession. The CR designation signals verified competency, ethical conduct, and commitment to excellence.
@@ -54,8 +53,8 @@ export default function Certification() {
               </Button>
             </a>
           </div>
-        </div>
-      </section>
+        
+      </InteriorHero>
 
       <section className="bg-rebel-space pt-4 pb-16 sm:pb-24 border-t border-zinc-900">
         <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10">

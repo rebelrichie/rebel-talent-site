@@ -10,6 +10,7 @@ import { ArrowLeft, ArrowRight, FileText, CheckCircle2, AlertCircle, Upload, Cal
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 // Safe addition — accepts both old UUID links and new slug-uuid links
+import InteriorHero from "@/components/InteriorHero";
 import { extractJobId } from "@/lib/jobSlug";
 import { toPublicJob } from "@shared/publicJob.mjs";
 
@@ -271,28 +272,29 @@ export default function JobApply() {
         noindex
       />
 
-      <section data-testid="section-hero" className="px-4 sm:px-6 lg:px-8 pt-8 pb-16 max-w-2xl mx-auto">
+      <InteriorHero>
         <Link
           href={id ? `/jobs/${id}` : "/jobs"}
           data-testid="link-back-to-role"
-          className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-zinc-400 hover:text-rebel-red transition-colors no-underline mb-8"
+          className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-[#5C6570] no-underline mb-6"
         >
           <ArrowLeft className="h-3.5 w-3.5" /> Back to Role
         </Link>
-
-        <p className="text-xs text-rebel-red font-semibold tracking-[0.2em] uppercase mb-3">
+        <p className="text-xs text-[#C8102E] font-semibold tracking-[0.16em] uppercase mb-3">
           Apply for This Role
         </p>
-        <h1 className="font-display text-3xl md:text-4xl font-bold text-white leading-tight mb-2">
+        <h1 className="text-[#0C1220]">
           {jobLoading ? "Loading…" : job ? job.title : "Role"}
         </h1>
         {job && (
-          <p className="text-sm text-zinc-400 mb-8">
+          <p className="mt-3 text-sm text-[#5C6570]">
             {job.companyName}
             {job.location ? ` · ${job.location}` : ""}
             {" · Pay: DOE"}
           </p>
         )}
+      </InteriorHero>
+      <section className="px-4 sm:px-6 lg:px-8 pt-10 pb-16 max-w-2xl mx-auto">
 
         {/* Success state replaces the form */}
         {submit.kind === "success" ? (

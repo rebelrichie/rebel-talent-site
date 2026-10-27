@@ -8,6 +8,7 @@ import GlowCard from "@/components/GlowCard";
 import { SCORECARD_GATE, scorecardCategorySentence } from "@/lib/hiringScorecard";
 import headAndHeartCover from "@assets/Head_And_Heart_1773068092478.PNG";
 import unfinishedRoomsCover from "@assets/UR-BookCover_1773068071585.png";
+import InteriorHero from "@/components/InteriorHero";
 
 export default function FreeTools() {
   return (
@@ -24,9 +25,8 @@ export default function FreeTools() {
         ]}
       />
       {/* HERO, Hunt Club / Riviera register */}
-      <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%)" }} />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
+      <InteriorHero>
+
           <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-400 mb-6 sm:mb-10">
             Resources
           </p>
@@ -37,8 +37,8 @@ export default function FreeTools() {
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
             Built by someone who actually does the work. Diagnostic tools for hiring teams. Frameworks for jobseekers. Free. None of them starts a marketing sequence. The scorecard shows your score before it asks for an email.
           </p>
-        </div>
-      </section>
+        
+      </InteriorHero>
 
       <section className="bg-rebel-space pt-4 pb-16 sm:pb-24 border-t border-zinc-900">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">

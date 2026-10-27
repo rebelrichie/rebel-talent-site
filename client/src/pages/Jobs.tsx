@@ -23,6 +23,7 @@ import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
 // Safe addition. Human-readable job URLs (slug + UUID)
+import InteriorHero from "@/components/InteriorHero";
 import { jobPath } from "@/lib/jobSlug";
 import { toPublicJob } from "@shared/publicJob.mjs";
 
@@ -248,19 +249,12 @@ export default function Jobs() {
       />
 
       {/* ===== HERO ===== */}
-      <section data-testid="section-hero" className="relative pt-16 pb-10 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto text-center">
-          <p className="text-rebel-red text-xs font-semibold tracking-[0.2em] uppercase mb-4">
-            Now Hiring
-          </p>
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
-            Open <span className="text-rebel-red">Roles</span>
-          </h1>
-          <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            Roles from startups, defense primes, and growth teams we are actively working. Cleared, AI/ML, forward deployed, GTM, and executive. One profile. One apply.
-          </p>
-        </div>
-      </section>
+      <InteriorHero>
+        <h1 className="text-[#0C1220]">Open roles</h1>
+        <p className="mt-5 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]">
+          Roles from startups, defense primes, and growth teams we are actively working. Cleared, AI/ML, forward deployed, GTM, and executive. One profile. One apply.
+        </p>
+      </InteriorHero>
 
       {/* ===== SEARCH + FILTER ===== */}
       <section className="px-4 sm:px-6 lg:px-8 pb-6">
@@ -417,7 +411,7 @@ export default function Jobs() {
               <p className="text-xs text-zinc-400 uppercase tracking-wider mb-4">
                 {filtered.length} of {jobs.length} {jobs.length === 1 ? "role" : "roles"}
               </p>
-              <div className="space-y-3" data-testid="job-list">
+              <div data-testid="job-list">
                 {filtered.map((j) => (
                   <ScrollReveal key={j.id} immediate>
                     <Link
@@ -433,7 +427,7 @@ export default function Jobs() {
                             </h2>
                             {j._clearance && (
                               <span
-                                className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-amber-500/10 text-amber-300 border border-amber-500/30"
+                                className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-amber-500/10 text-amber-900 border border-amber-700/30"
                                 title="Clearance required"
                               >
                                 <Shield className="h-3 w-3" /> {j._clearance}
@@ -455,7 +449,7 @@ export default function Jobs() {
                             {j._function}
                           </span>
                         )}
-                        <span className="inline-flex items-center gap-1.5 text-emerald-400/90">
+                        <span className="inline-flex items-center gap-1.5 text-emerald-800">
                           <DollarSign className="h-3.5 w-3.5" />
                           Pay: DOE
                         </span>
@@ -468,7 +462,7 @@ export default function Jobs() {
               {/* Safe addition (2026-06-05): general application discovery card */}
               <Link
                 href="/jobs/general"
-                className="mt-6 block bg-zinc-950/50 border border-dashed border-zinc-700 rounded-lg p-5 sm:p-6 hover:border-rebel-red/60 hover:bg-zinc-900/40 transition-all group no-underline text-center"
+                className="mt-8 block border-t border-current/20 py-6 text-center no-underline"
               >
                 <p className="text-sm text-zinc-300 group-hover:text-white transition-colors">
                   Don&rsquo;t see your role? Submit a {" "}
@@ -499,7 +493,7 @@ export default function Jobs() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="band-cols grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
             {[
               {
                 icon: <Eye className="w-5 h-5 text-rebel-red" />,
@@ -524,7 +518,7 @@ export default function Jobs() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm p-5 hover:border-zinc-700 transition-colors"
+                className="py-1"
               >
                 <div className="mb-3">{item.icon}</div>
                 <div className="font-display text-sm font-bold text-white uppercase mb-2">{item.title}</div>

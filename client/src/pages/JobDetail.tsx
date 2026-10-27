@@ -9,6 +9,7 @@ import { ArrowLeft, ArrowRight, MapPin, DollarSign, Briefcase, ShieldCheck } fro
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 // Safe addition — human-readable job URLs (slug + UUID)
+import InteriorHero from "@/components/InteriorHero";
 import { extractJobId, isBareJobUuid, jobPath } from "@/lib/jobSlug";
 import { buildJobMetaDescription } from "@/lib/jobMeta";
 import { buildJobJsonLd as jobPostingJsonLd, toPublicJob } from "@shared/publicJob.mjs";
@@ -182,75 +183,76 @@ export default function JobDetail() {
         />
       )}
 
-      <section data-testid="section-hero" className="px-4 sm:px-6 lg:px-8 pt-8 pb-6 max-w-4xl mx-auto">
-        <Link
-          href="/jobs"
-          data-testid="link-back-to-jobs"
-          className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-zinc-400 hover:text-rebel-red transition-colors no-underline mb-8"
-        >
-          <ArrowLeft className="h-3.5 w-3.5" /> All Open Roles
-        </Link>
+      {loading && (
+        <section className="px-6 py-16 max-w-3xl mx-auto text-[#5C6570]">Loading role…</section>
+      )}
 
-        {loading && (
-          <div className="py-16 text-center text-zinc-400">Loading role…</div>
-        )}
+      {error && !loading && (
+        <InteriorHero>
+          <Link
+            href="/jobs"
+            data-testid="link-back-to-jobs"
+            className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-[#5C6570] no-underline mb-6"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" /> All Open Roles
+          </Link>
+          <p className="text-[#3D4450] mb-4">{error}</p>
+          <Link href="/jobs" className="text-[#C8102E] no-underline">
+            Back to open roles
+          </Link>
+        </InteriorHero>
+      )}
 
-        {error && !loading && (
-          <div className="py-16 text-center">
-            <p className="text-zinc-400 mb-4">{error}</p>
-            <Link href="/jobs" className="text-rebel-red hover:text-white transition-colors">
-              Back to open roles
+      {!loading && !error && job && (
+        <>
+          <InteriorHero>
+            <Link
+              href="/jobs"
+              data-testid="link-back-to-jobs"
+              className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-[#5C6570] no-underline mb-6"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" /> All Open Roles
             </Link>
-          </div>
-        )}
-
-        {!loading && !error && job && (
-          <>
-            {/* Title block */}
-            <p className="text-xs text-rebel-red font-semibold tracking-[0.2em] uppercase mb-3">
+            <p className="text-xs text-[#C8102E] font-semibold tracking-[0.16em] uppercase mb-3">
               {job.companyName}
               {job.companyIndustry ? ` · ${job.companyIndustry}` : ""}
             </p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              {job.title}
-            </h1>
-
-            {/* Meta pills */}
+            <h1 className="text-[#0C1220] mb-6">{job.title}</h1>
             <div className="flex flex-wrap gap-2 mb-8">
               {remoteLabel && (
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-950 border border-zinc-800 rounded-md text-xs text-zinc-400">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-[#E7E9EE] text-xs text-[#5C6570]">
                   <MapPin className="h-3.5 w-3.5" /> {remoteLabel}
                 </span>
               )}
               {job.department && (
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-950 border border-zinc-800 rounded-md text-xs text-zinc-400">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-[#E7E9EE] text-xs text-[#5C6570]">
                   <Briefcase className="h-3.5 w-3.5" /> {job.department}
                 </span>
               )}
               {job.level && (
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-950 border border-zinc-800 rounded-md text-xs text-zinc-400">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-[#E7E9EE] text-xs text-[#5C6570]">
                   <ShieldCheck className="h-3.5 w-3.5" /> {job.level}
                 </span>
               )}
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-950/40 border border-emerald-800/60 rounded-md text-xs text-emerald-300">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-800/40 text-xs text-emerald-800">
                 <DollarSign className="h-3.5 w-3.5" /> Pay: DOE
               </span>
             </div>
-
-            {/* Primary apply CTA */}
-            <div className="flex flex-wrap items-center gap-3 mb-10 pb-10 border-b border-zinc-800">
+            <div className="flex flex-wrap items-center gap-3">
               <Link
                 href={`/jobs/${job.id}/apply`}
                 data-testid="button-apply"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-rebel-red hover:bg-red-700 text-white font-semibold rounded-md transition-colors no-underline group"
+                className="bg-rebel-red no-underline"
               >
                 Apply for This Role
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-4 w-4" />
               </Link>
-              <span className="text-xs text-zinc-400">
+              <span className="text-xs text-[#5C6570]">
                 Quick application. Free for candidates. We reply within two business days.
               </span>
             </div>
+          </InteriorHero>
+          <section className="max-w-3xl mx-auto px-6 py-12">
 
             {/* Sections */}
             {job.requirements && (
@@ -259,7 +261,7 @@ export default function JobDetail() {
                   Requirements
                 </h2>
                 <div
-                  className="prose prose-invert max-w-none"
+                  className="prose prose-stone max-w-none"
                   dangerouslySetInnerHTML={{ __html: renderRich(job.requirements) }}
                 />
               </div>
@@ -271,7 +273,7 @@ export default function JobDetail() {
                   Ideal Candidate
                 </h2>
                 <div
-                  className="prose prose-invert max-w-none"
+                  className="prose prose-stone max-w-none"
                   dangerouslySetInnerHTML={{ __html: renderRich(job.idealProfile) }}
                 />
               </div>
@@ -283,7 +285,7 @@ export default function JobDetail() {
                   Additional Details
                 </h2>
                 <div
-                  className="prose prose-invert max-w-none"
+                  className="prose prose-stone max-w-none"
                   dangerouslySetInnerHTML={{ __html: renderRich(job.notes) }}
                 />
               </div>
@@ -324,9 +326,9 @@ export default function JobDetail() {
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
-          </>
-        )}
-      </section>
+          </section>
+        </>
+      )}
     </PageLayout>
   );
 }

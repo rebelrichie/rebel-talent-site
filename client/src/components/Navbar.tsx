@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 
 const NAV = [
   {
@@ -43,8 +43,8 @@ const NAV = [
 ];
 
 function linkClass(active: boolean) {
-  return `px-2.5 py-2 text-[11px] font-semibold tracking-[0.14em] uppercase transition-colors duration-200 no-underline whitespace-nowrap ${
-    active ? "text-rebel-red" : "text-zinc-400 hover:text-white"
+  return `px-2.5 py-2 text-[15px] font-medium no-underline whitespace-nowrap ${
+    active ? "text-white" : "text-white/75 hover:text-white"
   }`;
 }
 
@@ -52,100 +52,103 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [location] = useLocation();
   const contactActive = location === "/strategy-call" || location.startsWith("/strategy-call?");
+  const contactHref = location === "/" ? "#reach" : "/#reach";
 
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
 
   return (
-    <nav
-      data-testid="navbar"
-      className="fixed top-0 left-0 w-full z-50"
-      style={{ background: "linear-gradient(135deg, #08070A 0%, #0E0D11 60%, #0A0812 100%)" }}
-    >
-      <div
-        className="absolute bottom-0 left-0 right-0 h-px pointer-events-none"
-        style={{ background: "linear-gradient(90deg, transparent 0%, #F71A29 30%, #F5841E 60%, transparent 100%)", zIndex: 0 }}
-      />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" data-testid="link-home" className="flex items-center gap-2.5 no-underline shrink-0">
-            <img src="/logo.png" alt="Rebel Talent" className="w-8 h-8" />
-            <span className="font-display text-base font-bold tracking-wider text-white uppercase whitespace-nowrap">
-              REBEL TALENT
-            </span>
-          </Link>
+    <div className="site-chrome sticky top-0 z-50 bg-[#001028]">
+      <div className="border-b border-white/10">
+        <div className="mx-auto flex h-8 max-w-[1440px] items-center justify-between gap-4 px-5 text-[12px] sm:px-8">
+          <div className="flex min-w-0 items-center gap-4">
+            <a href="tel:+12025240255" className="whitespace-nowrap no-underline">(202) 524-0255</a>
+            <a href="mailto:richie@rebeltalentsystems.com" className="truncate no-underline">richie@rebeltalentsystems.com</a>
+          </div>
+          <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="shrink-0 no-underline">LinkedIn</a>
+        </div>
+      </div>
+      <nav data-testid="navbar" className="site-nav border-b border-white/10 bg-[#001028]">
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
+          <div className="flex h-[68px] items-center justify-between gap-6">
+            <Link href="/" data-testid="link-home" className="flex shrink-0 items-center gap-2.5 no-underline">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white">
+                <img src="/logo.png" alt="" className="h-8 w-8 object-contain" />
+              </span>
+              <span className="text-[13px] font-semibold uppercase leading-none tracking-[0.12em] text-white">
+                Rebel Talent
+                <span className="mt-1 block tracking-[0.16em] text-white/60">Systems</span>
+              </span>
+            </Link>
 
-          <button
-            data-testid="button-mobile-menu"
-            className="lg:hidden text-white p-2"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-            aria-expanded={isOpen}
-          >
-            {isOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+            <button
+              data-testid="button-mobile-menu"
+              className="p-2 text-white lg:hidden"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
 
-          <div className="hidden lg:flex items-center gap-0.5">
+            <div className="hidden items-center gap-0.5 lg:flex">
+              {NAV.map((item) => {
+                const active = item.active(location);
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    data-testid={`link-nav-${item.testId}`}
+                    aria-current={active ? "page" : undefined}
+                    className={linkClass(active)}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+              <a
+                href={contactHref}
+                data-testid="link-nav-contact"
+                aria-current={contactActive ? "page" : undefined}
+                className="mi-btn mi-btn-sm ml-3"
+              >
+                Contact <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {isOpen && (
+          <div className="border-t border-white/10 bg-[#001028] lg:hidden">
             {NAV.map((item) => {
               const active = item.active(location);
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  data-testid={`link-nav-${item.testId}`}
+                  data-testid={`link-mobile-${item.testId}`}
                   aria-current={active ? "page" : undefined}
-                  className={linkClass(active)}
+                  className={`block border-b border-white/10 px-5 py-3.5 text-base no-underline ${
+                    active ? "font-semibold text-white" : "text-white/75"
+                  }`}
+                  onClick={() => setIsOpen(false)}
                 >
                   {item.label}
                 </Link>
               );
             })}
-            <Link
-              href="/strategy-call"
-              data-testid="link-nav-contact"
-              aria-current={contactActive ? "page" : undefined}
-              className={`ml-2 px-3.5 py-2 text-[11px] font-semibold tracking-[0.14em] uppercase border rounded-md transition-colors no-underline whitespace-nowrap ${
-                contactActive
-                  ? "bg-rebel-red text-white border-rebel-red"
-                  : "border-rebel-red text-rebel-red hover:bg-rebel-red hover:text-white"
-              }`}
+            <a
+              href={contactHref}
+              data-testid="link-mobile-contact"
+              className="mi-btn is-block"
+              onClick={() => setIsOpen(false)}
             >
-              Contact
-            </Link>
+              Contact <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
           </div>
-        </div>
-      </div>
-
-      {isOpen && (
-        <div className="lg:hidden border-t border-zinc-800" style={{ background: "#050505" }}>
-          {NAV.map((item) => {
-            const active = item.active(location);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                data-testid={`link-mobile-${item.testId}`}
-                aria-current={active ? "page" : undefined}
-                className={`block px-6 py-3 text-xs font-semibold tracking-[0.16em] uppercase border-b border-zinc-900 no-underline ${
-                  active ? "text-rebel-red" : "text-zinc-400"
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-          <Link
-            href="/strategy-call"
-            data-testid="link-mobile-contact"
-            className="block px-6 py-3 text-xs font-semibold tracking-[0.16em] uppercase border-b border-zinc-900 no-underline text-white bg-rebel-red/10"
-            onClick={() => setIsOpen(false)}
-          >
-            Contact
-          </Link>
-        </div>
-      )}
-    </nav>
+        )}
+      </nav>
+    </div>
   );
 }

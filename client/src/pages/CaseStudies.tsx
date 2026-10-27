@@ -6,6 +6,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import GlowCard from "@/components/GlowCard";
 import TypedText from "@/components/TypedText";
+import InteriorHero from "@/components/InteriorHero";
 
 const caseStudySchema = {
   "@context": "https://schema.org",
@@ -70,15 +71,8 @@ export default function CaseStudies() {
         ]}
       />
       {/* HERO, Hunt Club / Riviera register */}
-      <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%)",
-          }}
-        />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 z-10">
+      <InteriorHero>
+
           <p className="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-zinc-400 mb-6 sm:mb-10">
             Proof in the metrics
           </p>
@@ -88,8 +82,8 @@ export default function CaseStudies() {
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
             Named clients. Named roles. Fees avoided, time-to-hire, and what the company still owns. No composite case studies.
           </p>
-        </div>
-      </section>
+        
+      </InteriorHero>
 
       <section className="bg-rebel-space pt-4 pb-16 sm:pb-24 border-t border-zinc-900">
         <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10">

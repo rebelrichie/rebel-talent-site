@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
+import InteriorHero from "@/components/InteriorHero";
 
 const advisorsSchema = {
   "@context": "https://schema.org",
@@ -233,56 +234,8 @@ export default function Advisors() {
         ]}
       />
 
-      <section data-testid="section-hero" className="space-hero space-hero--home relative overflow-hidden">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            zIndex: 3,
-            background:
-              "radial-gradient(ellipse 70% 50% at 0% 0%, rgba(247,26,41,0.08) 0%, transparent 55%)",
-          }}
-        />
-        <div className="space-hero__command" aria-hidden="true" />
-        <div className="space-hero__grid" aria-hidden="true" />
-        <svg
-          className="space-hero__nodes"
-          viewBox="0 0 1200 800"
-          preserveAspectRatio="xMaxYMid slice"
-          aria-hidden="true"
-        >
-          <g fill="none" stroke="rgba(150, 198, 255, 0.72)" strokeWidth="1.15">
-            <line x1="790" y1="118" x2="918" y2="84" />
-            <line x1="918" y1="84" x2="1034" y2="156" />
-            <line x1="790" y1="118" x2="1034" y2="156" />
-            <line x1="1034" y1="156" x2="948" y2="236" />
-            <line x1="1034" y1="156" x2="1132" y2="204" />
-            <line x1="948" y1="236" x2="868" y2="318" />
-            <line x1="1034" y1="156" x2="1052" y2="348" />
-            <line x1="1132" y1="204" x2="1168" y2="308" />
-            <line x1="1052" y1="348" x2="1168" y2="308" />
-            <line x1="868" y1="318" x2="768" y2="428" />
-            <line x1="868" y1="318" x2="992" y2="478" />
-            <line x1="1052" y1="348" x2="992" y2="478" />
-            <line x1="992" y1="478" x2="1136" y2="436" />
-            <line x1="1168" y1="308" x2="1136" y2="436" />
-          </g>
-          <g>
-            <circle cx="1034" cy="156" r="2.5" fill="rgba(210, 230, 255, 0.95)" />
-            <circle cx="790" cy="118" r="2.1" fill="rgba(198, 220, 255, 0.85)" />
-            <circle cx="918" cy="84" r="1.5" fill="rgba(186, 164, 255, 0.75)" />
-            <circle cx="948" cy="236" r="1.7" fill="rgba(186, 164, 255, 0.8)" />
-            <circle cx="1132" cy="204" r="1.5" fill="rgba(198, 220, 255, 0.75)" />
-            <circle cx="868" cy="318" r="2" fill="rgba(198, 220, 255, 0.85)" />
-            <circle cx="1052" cy="348" r="1.6" fill="rgba(186, 164, 255, 0.78)" />
-            <circle cx="1168" cy="308" r="2.2" fill="rgba(210, 230, 255, 0.9)" />
-            <circle cx="992" cy="478" r="2.4" fill="rgba(210, 230, 255, 0.92)" />
-            <circle cx="1136" cy="436" r="1.6" fill="rgba(198, 220, 255, 0.78)" />
-          </g>
-        </svg>
-        <div className="space-hero__scan" aria-hidden="true" />
-        <div className="space-hero__scrim" aria-hidden="true" />
+      <InteriorHero>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-28 pb-14 sm:pb-20">
           <nav aria-label="Breadcrumb" className="mb-6 sm:mb-8">
             <ol className="flex flex-wrap items-center gap-2 text-[11px] font-mono tracking-[0.18em] uppercase">
               <li>
@@ -314,10 +267,10 @@ export default function Advisors() {
           <p className="mt-6 sm:mt-8 text-base sm:text-lg text-zinc-300 max-w-2xl leading-relaxed">
             Advisors exist so the firm is not guessing alone. They add judgment, a working network, and depth across cleared programs and commercial teams.
           </p>
-        </div>
-      </section>
+        
+      </InteriorHero>
 
-      <section className="py-14 sm:py-20 border-t border-zinc-900" style={{ background: "#0E0D11" }}>
+      <section className="py-14 sm:py-20 border-t border-stone-200">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
           <div className="grid md:grid-cols-2 gap-4 sm:gap-5">
             <article
@@ -406,7 +359,7 @@ export default function Advisors() {
         </div>
       </section>
 
-      <section data-testid="section-cta" className="py-16 sm:py-24 border-t border-zinc-900 bg-rebel-space">
+      <section data-testid="section-cta" className="band-red py-16 sm:py-24">
         <div className="max-w-3xl mx-auto px-5 sm:px-6 lg:px-12">
           <p className="font-mono text-rebel-red text-[11px] tracking-[0.22em] uppercase mb-3">
             Contact
