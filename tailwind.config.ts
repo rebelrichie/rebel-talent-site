@@ -97,10 +97,10 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["'Public Sans'", "Roboto", "system-ui", "sans-serif"],
+        sans: ["Inter", "'Public Sans'", "system-ui", "sans-serif"],
         serif: ["Georgia", "serif"],
-        mono: ["'Public Sans'", "ui-monospace", "sans-serif"],
-        display: ["Roboto", "'Public Sans'", "system-ui", "sans-serif"],
+        mono: ["Inter", "ui-monospace", "sans-serif"],
+        display: ["Inter", "'Public Sans'", "system-ui", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {

@@ -1,8 +1,9 @@
 import { Link } from "wouter";
+import { ArrowRight, Compass, Layers, Search, Target } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import ReachPeople from "@/components/ReachPeople";
-import { BlueprintField, BlueprintRule } from "@/components/Blueprint";
+import OrbitPanel from "@/components/OrbitPanel";
 
 const serviceProvider = {
   "@type": "Organization",
@@ -63,6 +64,7 @@ const OFFERINGS = [
     detailsHref: "/contingent",
     detailsLabel: "Contingent search",
     ctaHref: "/strategy-call?engagement=contingent",
+    icon: Target,
   },
   {
     id: "embedded",
@@ -73,6 +75,7 @@ const OFFERINGS = [
     detailsHref: "/fractional",
     detailsLabel: "Embedded recruiting",
     ctaHref: "/strategy-call?engagement=fractional",
+    icon: Layers,
   },
   {
     id: "retained",
@@ -81,6 +84,7 @@ const OFFERINGS = [
     title: "A defined role, with a deadline.",
     body: "The fee is 50% up front and 50% at placement. It fits executive and specialized technical searches, cleared or uncleared. The search stays with us from the day it opens through the accepted offer.",
     ctaHref: "/strategy-call?engagement=retained",
+    icon: Search,
   },
   {
     id: "advisory",
@@ -91,8 +95,18 @@ const OFFERINGS = [
     detailsHref: "/advisory",
     detailsLabel: "Advisory",
     ctaHref: "/strategy-call?engagement=advisory",
+    icon: Compass,
   },
 ];
+
+function OfferMark({ icon: Icon, index }: { icon: typeof Target; index: string }) {
+  return (
+    <div className="flex items-center gap-3 md:block">
+      <Icon className="h-7 w-7 text-[#C8102E]" strokeWidth={1.25} aria-hidden="true" />
+      <p className="text-2xl font-bold tracking-[-0.04em] text-[#C8102E] md:mt-3">{index}</p>
+    </div>
+  );
+}
 
 export default function Services() {
   return (
@@ -111,24 +125,25 @@ export default function Services() {
         ]}
       />
 
-      <section data-testid="section-hero" className="mi-band bp-wrap bg-[#0E1A33]">
-        <BlueprintField />
-        <div className="max-w-[1140px] mx-auto px-5 py-16 sm:py-20">
-          <h1
-            className="text-white max-w-4xl"
-            style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)", fontWeight: 400, lineHeight: 1.15 }}
-            data-testid="heading-services"
-          >
-            Four ways to take the work.
-          </h1>
-          <p className="mt-5 text-white/90 text-[18px] leading-[1.6] font-light max-w-3xl">
-            Contingent covers one role. Retained covers a defined role with a deadline. Embedded covers the desk. Advisory covers the plan before you spend on a search. You keep the scorecards, the process, and the record.
-          </p>
+      <section data-testid="section-hero" className="bg-white">
+        <div className="grid lg:grid-cols-2 lg:min-h-[520px]">
+          <div className="flex flex-col justify-center px-6 py-16 sm:px-12 lg:px-16 lg:py-20">
+            <h1
+              className="max-w-[12ch] text-[#0C1220]"
+              style={{ fontSize: "clamp(2.5rem, 4.4vw, 4.25rem)" }}
+              data-testid="heading-services"
+            >
+              Four ways to take the work.
+            </h1>
+            <p className="mt-6 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]">
+              Contingent covers one role. Retained covers a defined role with a deadline. Embedded covers the desk. Advisory covers the plan before you spend on a search. You keep the scorecards, the process, and the record.
+            </p>
+          </div>
+          <OrbitPanel className="min-h-[420px] lg:min-h-full" />
         </div>
       </section>
 
-      <section className="bg-[#F4F7FB]">
-        <BlueprintRule />
+      <section className="bg-white">
         <div className="max-w-[1140px] mx-auto px-5">
           {OFFERINGS.map((offer) => (
             <article
@@ -137,10 +152,10 @@ export default function Services() {
               data-testid={`card-service-${offer.id}`}
               className="grid md:grid-cols-[88px_1fr] gap-3 md:gap-8 py-10 border-b border-[#e4e7ee]"
             >
-              <p className="text-2xl font-bold tracking-[-0.04em] text-[#C8102E]">{offer.index}</p>
+              <OfferMark icon={offer.icon} index={offer.index} />
               <div>
                 <p className="text-[16px] text-[#272c30] mb-2">{offer.kicker}</p>
-                <h2 className="text-[25px] leading-tight text-[#16315C] mb-3">
+                <h2 className="text-[28px] leading-tight text-[#0C1220] mb-3">
                   {offer.title}
                 </h2>
                 <p className="text-[#272c30] text-[18px] leading-[1.6] font-light max-w-2xl mb-5">
@@ -158,7 +173,7 @@ export default function Services() {
                     <Link
                       href={offer.detailsHref}
                       data-testid={`link-service-${offer.id}`}
-                      className="text-[16px] text-[#16315C] underline underline-offset-4"
+                      className="text-[16px] text-[#0C1220] underline underline-offset-4"
                     >
                       {offer.detailsLabel}
                     </Link>
@@ -177,25 +192,23 @@ export default function Services() {
         </div>
       </section>
 
-      <section data-testid="section-proof" className="bg-[#F4F7FB]">
-        <BlueprintRule />
-        <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16">
-          <h2 className="text-[34px] leading-none text-[#16315C] mb-4">
+      <section data-testid="section-proof" className="border-t border-[#E7E9EE] bg-white">
+        <div className="max-w-[1140px] mx-auto px-5 py-16 sm:py-20">
+          <h2 className="text-[40px] leading-[1.05] text-[#0C1220] mb-4 sm:text-[44px]">
             From recent work.
           </h2>
           <p className="text-[#272c30] text-[18px] leading-[1.6] font-light max-w-3xl">
             EarthDaily Federal made eleven placements. About $394K in agency fees were avoided, a 3.4x return, with an average time to hire under 30 days. Kalibri Labs signed a machine learning hire in 34 days, about $20K under the agency quote. Legal Managed Services made 20 go-to-market hires in 24 months, with 90% retention.
           </p>
-          <Link href="/case-studies" className="inline-flex mt-6 text-[16px] font-medium text-[#16315C] underline underline-offset-4">
+          <Link href="/case-studies" className="inline-flex mt-6 text-[16px] font-medium text-[#0C1220] underline underline-offset-4">
             See the work
           </Link>
         </div>
       </section>
 
-      <section data-testid="section-cta" className="bg-[#F4F7FB]">
-        <BlueprintRule />
-        <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16">
-          <h2 className="text-[34px] leading-none text-[#16315C] mb-4">
+      <section data-testid="section-cta" className="border-t border-[#E7E9EE] bg-white">
+        <div className="max-w-[1140px] mx-auto px-5 py-16 sm:py-20">
+          <h2 className="text-[40px] leading-[1.05] text-[#0C1220] mb-4 sm:text-[44px]">
             Bring the role, or the question.
           </h2>
           <p className="text-[#272c30] text-[18px] leading-[1.6] font-light mb-8 max-w-xl">
@@ -206,7 +219,7 @@ export default function Services() {
             data-testid="button-services-cta"
             className="mi-btn"
           >
-            Book a strategy call
+            Book a strategy call <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
       </section>

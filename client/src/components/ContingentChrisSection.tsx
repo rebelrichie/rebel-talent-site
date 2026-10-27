@@ -1,6 +1,5 @@
 import { Link } from "wouter";
 import ScrollReveal from "@/components/ScrollReveal";
-import { BlueprintField, BlueprintRule } from "@/components/Blueprint";
 
 function hapticTap() {
   if (navigator.vibrate) navigator.vibrate(15);
@@ -22,13 +21,12 @@ export default function ContingentChrisSection() {
     <section
       id="contingent-search"
       data-testid="section-contingent-search"
-      className="bg-[#F4F7FB]"
+      className="border-t border-[#E7E9EE] bg-white"
     >
-      <BlueprintRule />
-      <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16 grid lg:grid-cols-2 gap-10 items-start">
+      <div className="max-w-[1140px] mx-auto px-5 py-16 sm:py-20 grid lg:grid-cols-2 gap-10 items-start">
         <ScrollReveal variant="fade-up">
           <div data-testid="card-chris-moscato">
-            <h2 className="text-[34px] leading-none text-[#16315C] mb-5">
+            <h2 className="text-[40px] leading-[1.05] text-[#0C1220] mb-5 sm:text-[44px]">
               Contingent search, priced by salary band.
             </h2>
             <p className="text-[#272c30] text-[18px] leading-[1.6] max-w-xl font-light">
@@ -38,7 +36,7 @@ export default function ContingentChrisSection() {
               <Link
                 href="/contingent"
                 data-testid="link-view-contingent-details"
-                className="text-[#16315C] text-[16px] font-medium underline underline-offset-4"
+                className="text-[#0C1220] text-[16px] font-medium underline underline-offset-4"
               >
                 View contingent details
               </Link>
@@ -53,8 +51,7 @@ export default function ContingentChrisSection() {
           </div>
         </ScrollReveal>
         <ScrollReveal variant="fade-up" delay={80}>
-          <div className="mi-band bp-wrap bg-[#0E1A33] p-8 sm:p-10">
-            <BlueprintField />
+          <div className="mi-band bg-[#001028] p-8 sm:p-10">
             <p className="text-[25px] text-white leading-tight mb-1">Chris Moscato</p>
             <p className="text-white/80 text-[16px] mb-6">Head of Client Acquisition</p>
             <ul className="flex flex-col gap-2 mb-8">
@@ -77,7 +74,7 @@ export default function ContingentChrisSection() {
                 href={EMAIL_CHRIS_HREF}
                 onClick={hapticTap}
                 data-testid="button-email-chris"
-                className="inline-flex items-center justify-center border border-white text-white font-medium text-[16px] px-5 py-3 no-underline"
+                className="inline-flex items-center justify-center rounded-[6px] border border-white px-5 py-3 text-[16px] font-medium text-white no-underline"
               >
                 Email Chris
               </a>
