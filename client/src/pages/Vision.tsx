@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
+import InteriorHero from "@/components/InteriorHero";
 
 const BREADCRUMBS = [
   { name: "Home", item: "https://rebeltalentsystems.com/" },
@@ -26,15 +27,8 @@ export default function Vision() {
       />
 
       {/* ───────────── HERO ───────────── */}
-      <section data-testid="section-hero" className="relative overflow-hidden bg-rebel-space">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%)",
-          }}
-        />
-        <div className="relative max-w-4xl mx-auto px-6 lg:px-12 pt-16 sm:pt-24 lg:pt-32 pb-14 sm:pb-20 z-10">
+      <InteriorHero>
+
           <p className="font-mono text-[11px] sm:text-xs tracking-[0.3em] uppercase text-zinc-400 mb-6 sm:mb-8">
             About / Vision
           </p>
@@ -53,8 +47,8 @@ export default function Vision() {
           <p className="text-lg sm:text-2xl text-zinc-300 max-w-2xl leading-[1.5]">
             Most recruiting firms sell hours or heads.
           </p>
-        </div>
-      </section>
+        
+      </InteriorHero>
 
       {/* ───────────── SECTION 1 — WHAT WE'RE DOING ───────────── */}
       <section className="bg-rebel-space py-16 sm:py-20 border-t border-zinc-900">

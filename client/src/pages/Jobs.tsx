@@ -23,6 +23,7 @@ import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
 // Safe addition. Human-readable job URLs (slug + UUID)
+import InteriorHero from "@/components/InteriorHero";
 import { jobPath } from "@/lib/jobSlug";
 import { toPublicJob } from "@shared/publicJob.mjs";
 
@@ -248,16 +249,12 @@ export default function Jobs() {
       />
 
       {/* ===== HERO ===== */}
-      <section data-testid="section-hero" className="relative pt-16 pb-10 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-left">
-          <h1 className="text-5xl md:text-6xl text-[#12161c] leading-[1.02] tracking-[-0.04em] mb-6">
-            Open roles
-          </h1>
-          <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            Roles from startups, defense primes, and growth teams we are actively working. Cleared, AI/ML, forward deployed, GTM, and executive. One profile. One apply.
-          </p>
-        </div>
-      </section>
+      <InteriorHero>
+        <h1 className="text-[#0C1220]">Open roles</h1>
+        <p className="mt-5 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]">
+          Roles from startups, defense primes, and growth teams we are actively working. Cleared, AI/ML, forward deployed, GTM, and executive. One profile. One apply.
+        </p>
+      </InteriorHero>
 
       {/* ===== SEARCH + FILTER ===== */}
       <section className="px-4 sm:px-6 lg:px-8 pb-6">

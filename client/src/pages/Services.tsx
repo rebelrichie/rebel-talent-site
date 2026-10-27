@@ -3,7 +3,7 @@ import { ArrowRight, Compass, Layers, Search, Target } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import ReachPeople from "@/components/ReachPeople";
-import OrbitPanel from "@/components/OrbitPanel";
+import InteriorHero from "@/components/InteriorHero";
 
 const serviceProvider = {
   "@type": "Organization",
@@ -125,23 +125,14 @@ export default function Services() {
         ]}
       />
 
-      <section data-testid="section-hero" className="bg-white">
-        <div className="grid lg:grid-cols-2 lg:min-h-[520px]">
-          <div className="flex flex-col justify-center px-6 py-16 sm:px-12 lg:px-16 lg:py-20">
-            <h1
-              className="max-w-[12ch] text-[#0C1220]"
-              style={{ fontSize: "clamp(2.5rem, 4.4vw, 4.25rem)" }}
-              data-testid="heading-services"
-            >
-              Four ways to take the work.
-            </h1>
-            <p className="mt-6 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]">
-              Contingent covers one role. Retained covers a defined role with a deadline. Embedded covers the desk. Advisory covers the plan before you spend on a search. You keep the scorecards, the process, and the record.
-            </p>
-          </div>
-          <OrbitPanel className="min-h-[420px] lg:min-h-full" />
-        </div>
-      </section>
+      <InteriorHero>
+        <h1 className="max-w-[12ch] text-[#0C1220]" data-testid="heading-services">
+          Four ways to take the work.
+        </h1>
+        <p className="mt-6 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]">
+          Contingent covers one role. Retained covers a defined role with a deadline. Embedded covers the desk. Advisory covers the plan before you spend on a search. You keep the scorecards, the process, and the record.
+        </p>
+      </InteriorHero>
 
       <section className="bg-white">
         <div className="max-w-[1140px] mx-auto px-5">

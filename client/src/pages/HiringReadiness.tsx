@@ -12,6 +12,7 @@ import {
   ArrowLeft,
   Calendar,
 } from "lucide-react";
+import InteriorHero from "@/components/InteriorHero";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import {
@@ -133,19 +134,12 @@ export default function HiringReadiness() {
         ]}
       />
 
-      <section className="relative overflow-hidden bg-rebel-space min-h-[calc(100vh-80px)]">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%), radial-gradient(ellipse 60% 40% at 100% 100%, rgba(234,88,12,0.06) 0%, transparent 55%)",
-          }}
-        />
-
-        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
-          {step === "intro" && (
-            <IntroPanel onStart={() => setStep("questions")} />
-          )}
+      {step === "intro" ? (
+        <InteriorHero>
+          <IntroPanel onStart={() => setStep("questions")} />
+        </InteriorHero>
+      ) : (
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
 
           {step === "questions" && (
             <QuestionsPanel
@@ -181,8 +175,8 @@ export default function HiringReadiness() {
           )}
 
           {step === "result" && result && <ResultPanel result={result} />}
-        </div>
-      </section>
+        </section>
+      )}
     </PageLayout>
   );
 }
@@ -191,7 +185,7 @@ export default function HiringReadiness() {
 
 function IntroPanel({ onStart }: { onStart: () => void }) {
   return (
-    <div className="text-center">
+    <div>
       <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
         HIRING READINESS SCORECARD
       </div>

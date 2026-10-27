@@ -205,7 +205,7 @@ export default function Home() {
       <section data-testid="section-hero" className="bg-white">
         <div className="grid lg:min-h-[560px] lg:grid-cols-2">
           <div className="flex flex-col justify-center bg-white px-6 py-14 sm:px-12 lg:px-16 lg:py-16 xl:px-20">
-            <h1 className="max-w-[11ch] text-[#0C1220]" style={{ fontSize: "clamp(2.75rem, 4.7vw, 4.5rem)" }}>
+            <h1 className="hero-display max-w-[11ch] text-[#0C1220]">
               Recruiting that scales with the company you&rsquo;re becoming.
             </h1>
             <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">

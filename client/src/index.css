@@ -1244,7 +1244,12 @@ h3, h4 { font-weight: 600 !important; }
   }
 }
 
-.bg-rebel-red, a.bg-rebel-red, button.bg-rebel-red, .bg-primary, .mi-btn {
+.bg-rebel-red {
+  background-color: #C8102E !important;
+  background-image: none !important;
+  color: #ffffff !important;
+}
+a.bg-rebel-red, button.bg-rebel-red, .bg-primary, .mi-btn {
   background: #C8102E !important;
   background-image: none !important;
   color: #ffffff !important;
@@ -1374,14 +1379,67 @@ a[class*="C8102E"], button[class*="C8102E"] { color: #ffffff !important; }
   .bp-orbit, .animate-pulse { animation: none !important; }
 }
 
+.orbit-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(143, 219, 239, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(143, 219, 239, 0.09) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+.orbit-panel svg { position: absolute; z-index: 2; }
+.orbit-earth { z-index: 0; }
+.orbit-label { z-index: 3; }
+
+main {
+  background-image:
+    linear-gradient(rgba(12, 18, 32, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12, 18, 32, 0.035) 1px, transparent 1px);
+  background-size: 88px 88px;
+}
+
+.font-serif { font-family: Inter, "Public Sans", sans-serif !important; }
+
+.text-amber-400, .text-amber-500, .text-amber-600, .text-amber-900 { color: #C8102E !important; }
+.bg-amber-500, button.bg-amber-500, a.bg-amber-500 {
+  background-color: #C8102E !important;
+  color: #ffffff !important;
+  border-color: #C8102E !important;
+}
+
+[data-testid="section-hero"] h1 {
+  font-size: clamp(2.15rem, 3.2vw, 3.25rem) !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.038em !important;
+  font-weight: 800 !important;
+  text-transform: none !important;
+}
+[data-testid="section-hero"] h1.hero-display {
+  font-size: clamp(2.75rem, 4.7vw, 4.5rem) !important;
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+textarea,
+select {
+  background-color: #ffffff !important;
+  color: #0C1220 !important;
+  border-color: #D5DAE1 !important;
+  border-radius: 6px !important;
+}
+input::placeholder, textarea::placeholder { color: #8B919A !important; }
+
 @media (max-width: 639px) {
   .on-photo[data-testid="section-hero"] h1,
   [data-testid="section-hero"] h1,
   [data-testid="section-hero"] h1.font-extrabold,
   [data-testid="section-hero"] h1.font-display {
-    font-size: 2.55rem !important;
+    font-size: 2.15rem !important;
     line-height: 0.98 !important;
     letter-spacing: -0.038em !important;
     font-weight: 800 !important;
   }
+  [data-testid="section-hero"] h1.hero-display { font-size: 2.55rem !important; }
 }

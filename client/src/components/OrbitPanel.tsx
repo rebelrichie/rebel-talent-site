@@ -4,7 +4,7 @@
  * (Johnson Space Center), 20 Nov 2020, Western Australia.
  * Diagram lines are SVG. No stock illustration, no glow.
  */
-export default function OrbitPanel({ className = "" }: { className?: string }) {
+export default function OrbitPanel({ className = "", compact = false }: { className?: string; compact?: boolean }) {
   const marks = [
     { rx: 268, ry: 102, deg: -28 },
     { rx: 268, ry: 102, deg: 36 },
@@ -67,18 +67,22 @@ export default function OrbitPanel({ className = "" }: { className?: string }) {
         </g>
       </svg>
 
-      <div className="orbit-label absolute left-[7%] top-[12%] max-w-[11rem]">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.18em]">Contingent</p>
-        <p className="mt-1 text-[13px] text-white/70">One role</p>
-      </div>
-      <div className="orbit-label absolute right-[7%] top-[16%] max-w-[11rem] text-right">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.18em]">Embedded</p>
-        <p className="mt-1 text-[13px] text-white/70">The desk</p>
-      </div>
-      <div className="orbit-label absolute bottom-[34%] right-[8%] max-w-[12rem] text-right">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.18em]">Cleared</p>
-        <p className="mt-1 text-[13px] text-white/70">Secret, TS, TS/SCI</p>
-      </div>
+      {!compact && (
+        <>
+          <div className="orbit-label absolute left-[7%] top-[12%] max-w-[11rem]">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em]">Contingent</p>
+            <p className="mt-1 text-[13px] text-white/70">One role</p>
+          </div>
+          <div className="orbit-label absolute right-[7%] top-[16%] max-w-[11rem] text-right">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em]">Embedded</p>
+            <p className="mt-1 text-[13px] text-white/70">The desk</p>
+          </div>
+          <div className="orbit-label absolute bottom-[34%] right-[8%] max-w-[12rem] text-right">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em]">Cleared</p>
+            <p className="mt-1 text-[13px] text-white/70">Secret, TS, TS/SCI</p>
+          </div>
+        </>
+      )}
     </div>
   );
 }

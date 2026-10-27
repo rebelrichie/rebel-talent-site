@@ -5,6 +5,7 @@ import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
+import InteriorHero from "@/components/InteriorHero";
 import { BLOG_POSTS } from "@/lib/blogData";
 
 function formatDate(date: string | null) {
@@ -33,16 +34,12 @@ export default function Blog() {
       />
 
       {/* Hero */}
-      <section className="py-16 text-center" style={{ background: "linear-gradient(180deg, rgba(255,69,0,0.04) 0%, transparent 100%)" }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <h1 className="font-display text-4xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-4">
-            Rebel Built
-          </h1>
-          <p className="text-zinc-400 text-lg max-w-2xl mx-auto leading-relaxed">
-            Insights on contingent, retained, and embedded recruiting, plus defense tech, engineering, and building teams that win.
-          </p>
-        </div>
-      </section>
+      <InteriorHero>
+        <h1 className="text-[#0C1220]">Rebel Built</h1>
+        <p className="mt-5 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]">
+          Insights on contingent, retained, and embedded recruiting, plus defense tech, engineering, and building teams that win.
+        </p>
+      </InteriorHero>
 
       {/* Content */}
       <section className="py-12">

@@ -1,3 +1,4 @@
+import InteriorHero from "@/components/InteriorHero";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 
@@ -13,17 +14,16 @@ export default function PrivacyPolicy() {
           { name: "Privacy Policy", item: "https://rebeltalentsystems.com/privacy-policy" },
         ]}
       />
-      <section className="py-20 sm:py-28">
+      <InteriorHero>
+        <p className="text-xs font-semibold tracking-[0.16em] uppercase text-[#C8102E] mb-3">Legal</p>
+        <h1 className="text-[#0C1220] mb-4" data-testid="heading-privacy">
+          Privacy Policy
+        </h1>
+        <p className="text-[#5C6570] text-sm">Last updated: April 2026</p>
+      </InteriorHero>
+      <section className="py-14 sm:py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <div className="mb-12">
-            <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">LEGAL</div>
-            <h1 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight mb-4" data-testid="heading-privacy">
-              Privacy Policy
-            </h1>
-            <p className="text-zinc-400 text-sm">Last updated: April 2026</p>
-          </div>
-
-          <div className="space-y-8 text-zinc-400 text-sm leading-relaxed">
+          <div className="space-y-8 text-[#3D4450] text-sm leading-relaxed">
             <div>
               <h2 className="font-display text-lg font-bold text-white uppercase mb-3">Information We Collect</h2>
               <p>Rebel Talent Systems collects information you voluntarily provide when you contact us, book a strategy call, or submit an application. This may include your name, email address, phone number, and professional background.</p>

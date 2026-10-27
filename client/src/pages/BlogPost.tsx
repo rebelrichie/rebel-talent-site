@@ -5,6 +5,7 @@ import { Link, useParams } from "wouter";
 import { ArrowLeft, Clock } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
+import InteriorHero from "@/components/InteriorHero";
 import { getPostBySlug, getRelatedPosts, getUnpublishedRedirect } from "@/lib/blogData";
 
 function formatDate(date: string | null) {
@@ -192,10 +193,10 @@ export default function BlogPost() {
           path={unpublishedTo}
           noindex
         />
-        <div className="text-center py-32">
-          <h1 className="text-3xl font-bold text-white mb-4">This article is unpublished.</h1>
-          <a href={unpublishedTo} className="text-rebel-red hover:text-red-400 no-underline">Continue</a>
-        </div>
+        <InteriorHero>
+          <h1 className="text-[#0C1220]">This article is unpublished.</h1>
+          <a href={unpublishedTo} className="mt-6 text-[#C8102E] no-underline">Continue</a>
+        </InteriorHero>
       </PageLayout>
     );
   }
@@ -203,10 +204,10 @@ export default function BlogPost() {
   if (!post) {
     return (
       <PageLayout>
-        <div className="text-center py-32">
-          <h1 className="text-3xl font-bold text-white mb-4">Post Not Found</h1>
-          <Link href="/blog" className="text-rebel-red hover:text-red-400 no-underline">← Back to Blog</Link>
-        </div>
+        <InteriorHero>
+          <h1 className="text-[#0C1220]">Post Not Found</h1>
+          <Link href="/blog" className="mt-6 text-[#C8102E] no-underline">Back to Blog</Link>
+        </InteriorHero>
       </PageLayout>
     );
   }
@@ -226,41 +227,32 @@ export default function BlogPost() {
         ]}
       />
 
-      <article className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-        {/* Breadcrumb */}
-        <nav className="mb-8">
-          <Link href="/blog" className="text-sm text-zinc-400 hover:text-white no-underline flex items-center gap-2 transition-colors">
-            <ArrowLeft className="w-4 h-4" /> Back to Rebel Built
-          </Link>
-        </nav>
-
-        {/* Header */}
-        <header className="mb-10">
-          {post.category && (
-            <span className="text-sm font-bold uppercase tracking-wider text-rebel-red block mb-4">{post.category}</span>
-          )}
-          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-5 leading-tight tracking-tight">
-            {post.title}
-          </h1>
-          <div className="flex items-center gap-3 text-base text-zinc-400">
-            <span className="font-medium">{post.author || "Richie Lampani"}</span>
-            <span>·</span>
-            <time>{formatDate(post.publishedAt)}</time>
-            <span>·</span>
-            <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {estimateReadTime(post.body)}</span>
+      <InteriorHero>
+        <Link href="/blog" className="text-sm text-[#5C6570] no-underline flex items-center gap-2 mb-6">
+          <ArrowLeft className="w-4 h-4" /> Back to Rebel Built
+        </Link>
+        {post.category && (
+          <span className="text-sm font-semibold uppercase tracking-wider text-[#C8102E] block mb-4">{post.category}</span>
+        )}
+        <h1 className="text-[#0C1220] mb-5">{post.title}</h1>
+        <div className="flex flex-wrap items-center gap-3 text-base text-[#5C6570]">
+          <span className="font-medium">{post.author || "Richie Lampani"}</span>
+          <span>·</span>
+          <time>{formatDate(post.publishedAt)}</time>
+          <span>·</span>
+          <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {estimateReadTime(post.body)}</span>
+        </div>
+        {post.tags && post.tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mt-5">
+            {post.tags.map((tag) => (
+              <span key={tag} className="px-3 py-1 border border-[#E7E9EE] text-sm text-[#5C6570]">
+                {tag}
+              </span>
+            ))}
           </div>
-          {post.tags && post.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-5">
-              {post.tags.map((tag) => (
-                <span key={tag} className="px-3 py-1 rounded-full bg-zinc-800 text-sm text-zinc-400 font-medium">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-        </header>
-
-        {/* Body */}
+        )}
+      </InteriorHero>
+      <article className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
         <div className="prose-rebel" dangerouslySetInnerHTML={{ __html: renderBody(post.body || "") }} />
 
         {/* Author */}

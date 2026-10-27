@@ -4,6 +4,7 @@
 
 import { useState } from "react";
 import { ArrowRight, CheckCircle2, AlertCircle, Calendar } from "lucide-react";
+import InteriorHero from "@/components/InteriorHero";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import { BOOK_CHRIS_HREF, EMAIL_CHRIS_HREF } from "@/components/ContingentChrisSection";
@@ -195,52 +196,39 @@ export default function StrategyCall() {
         ]}
       />
 
-      <section className="relative overflow-hidden bg-rebel-space min-h-[calc(100vh-80px)]">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 80% 50% at 0% 0%, rgba(220,38,38,0.08) 0%, transparent 55%), radial-gradient(ellipse 60% 40% at 100% 100%, rgba(234,88,12,0.06) 0%, transparent 55%)",
-          }}
-        />
-
-        <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
-          {submit.kind === "success" ? (
-            <SuccessPanel calendlyUrl={submit.calendlyUrl} message={submit.message} />
-          ) : (
-            <>
-              <div className="text-center mb-10">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.3em] uppercase mb-3">
-                  {copy.eyebrow}
-                </div>
-                <h1 className="font-display text-3xl sm:text-4xl font-bold text-white uppercase tracking-tight leading-tight mb-4">
-                  {copy.headline}
-                </h1>
-                <p className="text-zinc-400 text-base leading-relaxed">
-                  {copy.deck}
-                </p>
-                {isContingent && (
-                  <p className="text-zinc-300 text-sm mt-4">
-                    Prefer email?{" "}
-                    <a
-                      href={EMAIL_CHRIS_HREF}
-                      data-testid="link-strategy-email-chris"
-                      className="text-white hover:text-rebel-red underline underline-offset-4 decoration-zinc-600 hover:decoration-rebel-red transition-colors"
-                    >
-                      Email us
-                    </a>
-                  </p>
-                )}
-                {/* Safe addition — lower-commitment path for people not ready to book */}
-                <p className="text-zinc-400 text-sm mt-3">
-                  Not ready for a call?{" "}
-                  <a href="/hiring-readiness" className="text-zinc-300 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red transition-colors">
-                    Take the hiring scorecard
-                  </a>
-                  . Five minutes. No follow-up sequence.
-                </p>
-              </div>
-
+      {submit.kind === "success" ? (
+        <InteriorHero>
+          <SuccessPanel calendlyUrl={submit.calendlyUrl} message={submit.message} />
+        </InteriorHero>
+      ) : (
+        <>
+          <InteriorHero>
+            <p className="text-xs font-semibold tracking-[0.16em] uppercase text-[#C8102E] mb-3">
+              {copy.eyebrow}
+            </p>
+            <h1 className="text-[#0C1220] mb-4">{copy.headline}</h1>
+            <p className="text-[#3D4450] text-base leading-relaxed">{copy.deck}</p>
+            {isContingent && (
+              <p className="text-[#3D4450] text-sm mt-4">
+                Prefer email?{" "}
+                <a
+                  href={EMAIL_CHRIS_HREF}
+                  data-testid="link-strategy-email-chris"
+                  className="text-[#0C1220] underline underline-offset-4"
+                >
+                  Email us
+                </a>
+              </p>
+            )}
+            <p className="text-[#5C6570] text-sm mt-3">
+              Not ready for a call?{" "}
+              <a href="/hiring-readiness" className="text-[#0C1220] underline underline-offset-4">
+                Take the hiring scorecard
+              </a>
+              . Five minutes. No follow-up sequence.
+            </p>
+          </InteriorHero>
+          <section className="max-w-2xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Honeypot, visually hidden, off-screen, no autofocus */}
                 <div className="hidden" aria-hidden="true">
@@ -386,10 +374,9 @@ export default function StrategyCall() {
                   {copy.footer}
                 </p>
               </form>
-            </>
-          )}
-        </div>
-      </section>
+          </section>
+        </>
+      )}
     </PageLayout>
   );
 }

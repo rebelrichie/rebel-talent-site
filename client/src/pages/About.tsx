@@ -8,7 +8,7 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import GlowCard from "@/components/GlowCard";
 import CapacityBadge from "@/components/CapacityBadge";
 import ReachPeople from "@/components/ReachPeople";
-import OrbitPanel from "@/components/OrbitPanel";
+import InteriorHero from "@/components/InteriorHero";
 
 import headAndHeartCover from "@assets/Head_And_Heart_1773068092478.PNG";
 import unfinishedRoomsCover from "@assets/UR-BookCover_1773068071585.png";
@@ -89,45 +89,40 @@ export default function About() {
       />
 
       {/* ───────────── HERO ───────────── */}
-      <section data-testid="section-hero" className="bg-white">
-        <div className="grid lg:grid-cols-2 lg:min-h-[560px]">
-          <div className="flex flex-col justify-center px-6 py-16 sm:px-12 lg:px-16 lg:py-20">
-            <div className="mb-6 flex items-center gap-4">
-              <img src="/team-richie.jpg" alt="Richie Lampani, Founder of Rebel Talent Systems" className="h-16 w-16 shrink-0 rounded-full object-cover object-top" data-testid="img-profile" />
-              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#8B919A]">Founder</p>
-            </div>
-            <h1 className="max-w-[14ch] text-[#0C1220]" style={{ fontSize: "clamp(2.5rem, 4.2vw, 4rem)" }} data-testid="text-name">
-              Richie Lampani.
-              <span className="mt-2 block">Five cities. One thesis.</span>
-            </h1>
-            <p className="mt-6 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]" data-testid="text-intro">
-              I started in music venues in Grand Rapids, reading rooms and booking bands nobody had heard of yet. Then more than a decade in staffing, watching the old model up close.
-            </p>
-            <p className="mt-4 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]">
-              I didn&rsquo;t leave to start another agency. I left to build the thing I wanted when I was on the other side of the desk.
-            </p>
-            <p className="mt-4 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]">
-              When a team needs someone inside the function, Rebel embeds as Head of Talent and leaves them owning the system.
-            </p>
-            <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3">
-              <CapacityBadge />
-              <Link href="/about/vision" data-testid="link-about-vision" className="text-[16px] font-medium text-[#0C1220] underline underline-offset-4">
-                Read the vision
-              </Link>
-              <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-linkedin" className="text-[16px] text-[#0C1220] no-underline">
-                LinkedIn
-              </a>
-              <a href="https://www.linkedin.com/newsletters/rebel-built-7412825035092045824/" target="_blank" rel="noopener noreferrer" className="text-[16px] text-[#0C1220] no-underline">
-                Rebel Built (newsletter)
-              </a>
-              <a href="mailto:richie@rebeltalentsystems.com" data-testid="link-email" className="text-[16px] text-[#0C1220] no-underline">
-                Email
-              </a>
-            </div>
-          </div>
-          <OrbitPanel className="min-h-[420px] lg:min-h-full" />
+      <InteriorHero>
+        <div className="mb-6 flex items-center gap-4">
+          <img src="/team-richie.jpg" alt="Richie Lampani, Founder of Rebel Talent Systems" className="h-16 w-16 shrink-0 rounded-full object-cover object-top" data-testid="img-profile" />
+          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#8B919A]">Founder</p>
         </div>
-      </section>
+        <h1 className="max-w-[14ch] text-[#0C1220]" data-testid="text-name">
+          Richie Lampani.
+          <span className="mt-2 block">Five cities. One thesis.</span>
+        </h1>
+        <p className="mt-6 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]" data-testid="text-intro">
+          I started in music venues in Grand Rapids, reading rooms and booking bands nobody had heard of yet. Then more than a decade in staffing, watching the old model up close.
+        </p>
+        <p className="mt-4 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]">
+          I didn&rsquo;t leave to start another agency. I left to build the thing I wanted when I was on the other side of the desk.
+        </p>
+        <p className="mt-4 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]">
+          When a team needs someone inside the function, Rebel embeds as Head of Talent and leaves them owning the system.
+        </p>
+        <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3">
+          <CapacityBadge />
+          <Link href="/about/vision" data-testid="link-about-vision" className="text-[16px] font-medium text-[#0C1220] underline underline-offset-4">
+            Read the vision
+          </Link>
+          <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-linkedin" className="text-[16px] text-[#0C1220] no-underline">
+            LinkedIn
+          </a>
+          <a href="https://www.linkedin.com/newsletters/rebel-built-7412825035092045824/" target="_blank" rel="noopener noreferrer" className="text-[16px] text-[#0C1220] no-underline">
+            Rebel Built (newsletter)
+          </a>
+          <a href="mailto:richie@rebeltalentsystems.com" data-testid="link-email" className="text-[16px] text-[#0C1220] no-underline">
+            Email
+          </a>
+        </div>
+      </InteriorHero>
 
       {/* ───────────── STATS GRID ───────────── */}
       <section className="bg-rebel-space pt-4 pb-12 sm:pb-16 border-t border-zinc-900">
