@@ -15,7 +15,7 @@ export default function ScrollProgress() {
   }, []);
 
   return (
-    <div className="fixed top-[72px] left-0 w-full h-[2px] z-50 pointer-events-none" style={{ background: "transparent" }}>
+    <div className="fixed top-[108px] left-0 w-full h-[2px] z-50 pointer-events-none" style={{ background: "transparent" }}>
       <div
         className="h-full"
         style={{

@@ -43,8 +43,8 @@ const NAV = [
 ];
 
 function linkClass(active: boolean) {
-  return `px-3 py-2 text-[15px] font-medium no-underline whitespace-nowrap ${
-    active ? "text-[#12161c]" : "text-[#3c4553] hover:text-[#12161c]"
+  return `px-3 py-2 text-[16px] font-medium no-underline whitespace-nowrap ${
+    active ? "text-white" : "text-white/90 hover:text-white"
   }`;
 }
 
@@ -52,88 +52,100 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [location] = useLocation();
   const contactActive = location === "/strategy-call" || location.startsWith("/strategy-call?");
+  const contactHref = location === "/" ? "#reach" : "/#reach";
 
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
 
   return (
-    <nav data-testid="navbar" className="sticky top-0 left-0 w-full z-50 bg-white border-b border-[#e4e7ee]">
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-8">
-        <div className="flex items-center justify-between h-[72px]">
-          <Link href="/" data-testid="link-home" className="flex items-center gap-2.5 no-underline shrink-0">
-            <img src="/logo.png" alt="Rebel Talent" className="w-9 h-9" />
-            <span className="text-[17px] font-bold tracking-[-0.03em] text-[#12161c] whitespace-nowrap">
-              Rebel Talent
-            </span>
-          </Link>
+    <div className="sticky top-0 z-50">
+      <div className="bg-black text-[#d5dbe3]">
+        <div className="max-w-[1140px] mx-auto px-5 h-9 flex items-center justify-between gap-4 text-[12px]">
+          <div className="flex items-center gap-4 min-w-0">
+            <a href="tel:+12025240255" className="no-underline text-[#d5dbe3] hover:text-white whitespace-nowrap">(202) 524-0255</a>
+            <a href="mailto:richie@rebeltalentsystems.com" className="no-underline text-[#d5dbe3] hover:text-white truncate">richie@rebeltalentsystems.com</a>
+          </div>
+          <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" className="no-underline text-[#d5dbe3] hover:text-white shrink-0">LinkedIn</a>
+        </div>
+      </div>
+      <nav data-testid="navbar" className="site-nav bg-[#003E53]">
+        <div className="max-w-[1140px] mx-auto px-5">
+          <div className="flex items-center justify-between h-[72px]">
+            <Link href="/" data-testid="link-home" className="flex items-center gap-2.5 no-underline shrink-0">
+              <img src="/logo.png" alt="Rebel Talent" className="w-9 h-9 bg-white p-0.5" />
+              <span className="text-[17px] font-medium text-white whitespace-nowrap">
+                Rebel Talent
+              </span>
+            </Link>
 
-          <button
-            data-testid="button-mobile-menu"
-            className="lg:hidden text-[#12161c] p-2"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-            aria-expanded={isOpen}
-          >
-            {isOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+            <button
+              data-testid="button-mobile-menu"
+              className="lg:hidden text-white p-2"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
 
-          <div className="hidden lg:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-1">
+              {NAV.map((item) => {
+                const active = item.active(location);
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    data-testid={`link-nav-${item.testId}`}
+                    aria-current={active ? "page" : undefined}
+                    className={linkClass(active)}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+              <a
+                href={contactHref}
+                data-testid="link-nav-contact"
+                aria-current={contactActive ? "page" : undefined}
+                className="mi-btn ml-3 text-[15px] px-4 py-2"
+              >
+                Contact
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {isOpen && (
+          <div className="lg:hidden border-t border-white/15 bg-[#003E53]">
             {NAV.map((item) => {
               const active = item.active(location);
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  data-testid={`link-nav-${item.testId}`}
+                  data-testid={`link-mobile-${item.testId}`}
                   aria-current={active ? "page" : undefined}
-                  className={linkClass(active)}
+                  className={`block px-5 py-3.5 text-base border-b border-white/10 no-underline ${
+                    active ? "text-white font-medium" : "text-white/90"
+                  }`}
+                  onClick={() => setIsOpen(false)}
                 >
                   {item.label}
                 </Link>
               );
             })}
-            <Link
-              href="/strategy-call"
-              data-testid="link-nav-contact"
-              aria-current={contactActive ? "page" : undefined}
-              className="ml-3 inline-flex items-center bg-rebel-red text-white text-[15px] font-semibold px-4 py-2 rounded-full no-underline"
+            <a
+              href={contactHref}
+              data-testid="link-mobile-contact"
+              className="mi-btn block mx-5 my-3 text-center"
+              onClick={() => setIsOpen(false)}
             >
               Contact
-            </Link>
+            </a>
           </div>
-        </div>
-      </div>
-
-      {isOpen && (
-        <div className="lg:hidden border-t border-[#e4e7ee] bg-white">
-          {NAV.map((item) => {
-            const active = item.active(location);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                data-testid={`link-mobile-${item.testId}`}
-                aria-current={active ? "page" : undefined}
-                className={`block px-5 py-3.5 text-base border-b border-[#eef0f4] no-underline ${
-                  active ? "text-[#12161c] font-semibold" : "text-[#3c4553]"
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-          <Link
-            href="/strategy-call"
-            data-testid="link-mobile-contact"
-            className="block px-5 py-3.5 text-base font-semibold no-underline text-white bg-rebel-red"
-            onClick={() => setIsOpen(false)}
-          >
-            Contact
-          </Link>
-        </div>
-      )}
-    </nav>
+        )}
+      </nav>
+    </div>
   );
 }

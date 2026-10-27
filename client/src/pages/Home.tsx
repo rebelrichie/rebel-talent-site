@@ -1,8 +1,8 @@
 import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import ContingentChrisSection from "@/components/ContingentChrisSection";
+import ReachPeople from "@/components/ReachPeople";
 
 const homepageSchema = {
   "@context": "https://schema.org",
@@ -143,9 +143,8 @@ const PROOF = [
   },
 ];
 
-const btn =
-  "inline-flex items-center justify-center gap-2 bg-rebel-red text-white font-semibold text-sm px-5 py-3 rounded-full no-underline";
-const textLink = "text-sm font-semibold text-[#12161c] underline underline-offset-4";
+const btn = "mi-btn";
+const textLink = "text-[16px] font-medium text-[#137287] underline underline-offset-4";
 
 export default function Home() {
   return (
@@ -160,48 +159,36 @@ export default function Home() {
         schemas={[homepageSchema]}
       />
 
-      <section data-testid="section-hero" className="bg-white">
-        <div className="grid lg:grid-cols-2 lg:min-h-[calc(100vh-72px)]">
-          <div className="order-2 lg:order-1 flex flex-col justify-center py-12 sm:py-16 lg:py-20 px-5 sm:px-8 lg:pl-[max(2rem,calc((100vw-1200px)/2+2rem))] lg:pr-16">
-            <h1
-              className="text-[#12161c] tracking-[-0.04em] leading-[0.98]"
-              style={{ fontSize: "clamp(2.7rem, 4.6vw, 4.6rem)", fontWeight: 800 }}
-            >
-              Recruiting that scales with the company you&rsquo;re becoming.
-            </h1>
-            <p className="mt-6 text-base sm:text-lg text-[#3a4250] max-w-xl leading-relaxed">
-              We fill open roles for technical, go-to-market, and operations teams. Contingent search is for one seat. Embedded recruiting is for the function you still need after we leave. We work with Series A through C companies and with defense teams, cleared and uncleared.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
-              <Link href="/strategy-call" data-testid="button-hero-strategy" className={btn}>
-                Book a strategy call <ArrowRight className="w-4 h-4 shrink-0" />
-              </Link>
-              <Link href="/jobs" className={textLink}>
-                See open jobs
-              </Link>
-            </div>
-          </div>
-          <div className="order-1 lg:order-2 relative min-h-[78vw] sm:min-h-[560px] lg:min-h-0">
-            <img
-              src="/richie-portrait.jpg"
-              alt="Richie Lampani, founder of Rebel Talent Systems"
-              className="absolute inset-0 w-full h-full object-cover object-[center_18%]"
-            />
+      <section data-testid="section-hero" className="mi-band bg-[#003E53]">
+        <div className="max-w-[1140px] mx-auto px-5 py-16 sm:py-24">
+          <h1 className="text-white max-w-4xl" style={{ fontSize: "clamp(2rem, 4vw, 2.625rem)", fontWeight: 400, lineHeight: 1.15 }}>
+            Recruiting that scales with the company you&rsquo;re becoming.
+          </h1>
+          <p className="mt-5 text-white/90 text-[18px] leading-[1.6] max-w-3xl font-light">
+            We fill open roles for technical, go-to-market, and operations teams. Contingent search is for one seat. Embedded recruiting is for the function you still need after we leave. We work with Series A through C companies and with defense teams, cleared and uncleared.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+            <Link href="/strategy-call" data-testid="button-hero-strategy" className={btn}>
+              Book a strategy call
+            </Link>
+            <Link href="/jobs" className="text-[16px] font-medium text-white underline underline-offset-4">
+              See open jobs
+            </Link>
           </div>
         </div>
       </section>
 
-      <section data-testid="section-government-buyers" className="border-y border-[#e4e7ee] bg-white">
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-          <p className="text-sm text-[#3a4250]">
-            <span className="text-[#12161c] font-semibold">Registered on SAM.gov.</span>{" "}
+      <section data-testid="section-government-buyers" className="mi-band bg-[#002633]">
+        <div className="max-w-[1140px] mx-auto px-5 py-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
+          <p className="text-white text-[18px] leading-snug font-light max-w-3xl">
+            <span className="font-normal">Registered on SAM.gov.</span>{" "}
             CAGE 202V6. UEI JQ4MZ69FNAK4. The capability statement is a one-page PDF.
           </p>
           <a
             href={CAPABILITY_STATEMENT_HREF}
             download={CAPABILITY_STATEMENT_FILENAME}
             data-testid="link-download-capability-statement"
-            className="text-sm font-semibold text-[#12161c] underline underline-offset-4 shrink-0"
+            className="mi-btn shrink-0"
           >
             Download capability statement (PDF)
           </a>
@@ -209,19 +196,19 @@ export default function Home() {
       </section>
 
       <section className="bg-white">
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 py-16 sm:py-24 grid md:grid-cols-2">
+        <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16 grid md:grid-cols-2 gap-12">
           {PATHS.map((path, i) => (
             <article
               key={path.id}
               id={path.id}
               data-testid={path.testId}
-              className={`py-2 md:py-0 ${i === 0 ? "md:pr-14 md:border-r md:border-[#e4e7ee]" : "md:pl-14 mt-12 md:mt-0"}`}
+              className="py-2"
             >
-              <p className="text-[15px] font-semibold text-[#12161c] mb-2">{path.kicker}</p>
-              <h2 className="text-3xl sm:text-4xl text-[#12161c] tracking-[-0.035em] mb-4">
+              <p className="text-[16px] text-[#272c30] mb-2">{path.kicker}</p>
+              <h2 className="text-[25px] leading-tight text-[#137287] mb-4">
                 {path.title}
               </h2>
-              <p className="text-[#3a4250] text-base leading-relaxed mb-6 max-w-md">
+              <p className="text-[#272c30] text-[18px] leading-[1.6] font-light mb-6 max-w-md">
                 {path.body}
               </p>
               <div className="flex flex-col items-start gap-3">
@@ -235,14 +222,14 @@ export default function Home() {
             </article>
           ))}
         </div>
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 pb-16">
-          <p className="text-sm text-[#5c6573] leading-relaxed max-w-2xl">
+        <div className="max-w-[1140px] mx-auto px-5 pb-14">
+          <p className="text-[16px] text-[#272c30] leading-relaxed max-w-2xl font-light">
             Retained search and advisory are on{" "}
-            <Link href="/services" data-testid="link-view-services" className="text-[#12161c] underline underline-offset-4">
+            <Link href="/services" data-testid="link-view-services" className="text-[#137287] underline underline-offset-4">
               How we engage
             </Link>
             . Cleared hiring stays on its{" "}
-            <Link href="/cleared" className="text-[#12161c] underline underline-offset-4">
+            <Link href="/cleared" className="text-[#137287] underline underline-offset-4">
               own page
             </Link>
             .
@@ -253,19 +240,19 @@ export default function Home() {
       <ContingentChrisSection />
 
       <section data-testid="section-who" className="bg-white border-t border-[#e4e7ee]">
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 py-16 sm:py-24">
-          <h2 className="text-3xl sm:text-4xl text-[#12161c] tracking-[-0.035em] max-w-xl mb-4">
+        <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16">
+          <h2 className="text-[34px] leading-none text-[#137287] max-w-xl mb-4">
             Teams that can name the missing seat.
           </h2>
-          <p className="text-[#3a4250] text-base leading-relaxed max-w-2xl mb-12">
+          <p className="text-[#272c30] text-[18px] leading-[1.6] font-light max-w-2xl mb-10">
             We are a fit when hiring is already the constraint. The company is usually Series A through C, or a defense team with a real req, not a wish list.
           </p>
           <div className="border-t border-[#e4e7ee]">
             {AUDIENCES.map((item) => (
-              <article key={item.title} className="grid md:grid-cols-[16rem_1fr] gap-2 md:gap-16 py-7 border-b border-[#e4e7ee]">
-                <h3 className="text-2xl text-[#12161c]">{item.title}</h3>
+              <article key={item.title} className="grid md:grid-cols-[16rem_1fr] gap-2 md:gap-16 py-6 border-b border-[#e4e7ee]">
+                <h3 className="text-[22px] text-[#272c30]">{item.title}</h3>
                 <div>
-                  <p className="text-[#3a4250] text-base leading-relaxed max-w-xl">{item.body}</p>
+                  <p className="text-[#272c30] text-[18px] leading-[1.6] font-light max-w-xl">{item.body}</p>
                   {item.href && (
                     <Link href={item.href} className={`${textLink} inline-block mt-3`}>
                       {item.linkLabel}
@@ -279,11 +266,11 @@ export default function Home() {
       </section>
 
       <section data-testid="section-proof" className="bg-white border-t border-[#e4e7ee]">
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 py-16 sm:py-24">
-          <h2 className="text-3xl sm:text-4xl text-[#12161c] tracking-[-0.035em] mb-3">
+        <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16">
+          <h2 className="text-[34px] leading-none text-[#137287] mb-3">
             From recent work.
           </h2>
-          <p className="text-[#3a4250] text-base leading-relaxed max-w-2xl mb-12">
+          <p className="text-[#272c30] text-[18px] leading-[1.6] font-light max-w-2xl mb-8">
             Three engagements, with the figures we can stand behind. The case studies page has the fuller account.
           </p>
           <div className="border-t border-[#e4e7ee]">
@@ -292,40 +279,40 @@ export default function Home() {
                 {item.logo ? (
                   <img src={item.logo} alt="" className="h-9 w-auto max-w-[10rem] object-contain object-left" />
                 ) : (
-                  <h3 className="text-lg text-[#12161c]">{item.client}</h3>
+                  <h3 className="text-[18px] text-[#272c30]">{item.client}</h3>
                 )}
                 <div>
-                  {item.logo && <h3 className="text-lg text-[#12161c] mb-1">{item.client}</h3>}
-                  <p className="text-[#3a4250] text-base leading-relaxed max-w-2xl">{item.body}</p>
+                  {item.logo && <h3 className="text-[18px] text-[#272c30] mb-1">{item.client}</h3>}
+                  <p className="text-[#272c30] text-[18px] leading-[1.6] font-light max-w-2xl">{item.body}</p>
                 </div>
               </article>
             ))}
           </div>
-          <Link href="/case-studies" data-testid="link-case-studies" className="inline-flex items-center gap-2 mt-10 text-sm font-semibold text-[#12161c] no-underline">
-            See the work <ArrowRight className="w-4 h-4" />
+          <Link href="/case-studies" data-testid="link-case-studies" className="inline-flex mt-8 text-[16px] font-medium text-[#137287] underline underline-offset-4">
+            See the work
           </Link>
         </div>
       </section>
 
-      <section data-testid="section-veterans" className="on-photo bg-[#12161c]">
-        <div className="grid lg:grid-cols-2 lg:min-h-[620px]">
-          <div className="order-2 lg:order-1 flex flex-col justify-center py-16 sm:py-20 px-5 sm:px-8 lg:pl-[max(2rem,calc((100vw-1200px)/2+2rem))] lg:pr-16">
-            <p className="text-sm font-semibold text-white/70 mb-4">
+      <section data-testid="section-veterans" className="mi-band bg-[#003E53]">
+        <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16">
+          <div className="max-w-3xl">
+            <p className="text-[16px] text-white/80 mb-3">
               Cleared Defense · Startups · Veteran-Supported
             </p>
-            <h2 className="text-3xl sm:text-5xl text-white tracking-[-0.035em] leading-[1.05] mb-6">
+            <h2 className="text-[34px] leading-none text-white mb-5">
               For the ones who stood up when it mattered.
             </h2>
-            <p className="text-white/80 text-base sm:text-lg leading-relaxed mb-8 max-w-xl">
+            <p className="text-white/90 text-[18px] leading-[1.6] font-light mb-6 max-w-xl">
               Intelligence community members, people active in politics, and current and former service members trust Rebel to build their teams. The firm speaks their language. Transitioning veterans get free resume and LinkedIn reviews. No corporate fluff, just real talent leadership for cleared defense and startups.
             </p>
-            <p className="text-white font-semibold text-lg">Ask for references.</p>
-            <p className="text-white/65 text-sm mt-1 mb-8 max-w-lg">
+            <p className="text-white text-[18px]">Ask for references.</p>
+            <p className="text-white/80 text-[16px] mt-1 mb-8 max-w-lg font-light">
               Intelligence community. People active in politics. Current and former servicemembers. Shared privately, on request.
             </p>
             <div className="flex flex-col items-start gap-4">
               <Link href="/strategy-call" data-testid="button-veterans-strategy" className={btn}>
-                Book a strategy call <ArrowRight className="w-4 h-4" />
+                Book a strategy call
               </Link>
               <Link href="/cleared" data-testid="link-veterans-cleared" className="text-sm font-semibold text-white underline underline-offset-4">
                 Cleared recruiting
@@ -340,34 +327,29 @@ export default function Home() {
                 >
                   Free veteran resume and LinkedIn review
                 </a>
-                <p className="text-white/60 text-xs mt-2">Transitioning out? No strings.</p>
+                <p className="text-white/75 text-[14px] mt-2">Transitioning out? No strings.</p>
               </div>
             </div>
-          </div>
-          <div className="order-1 lg:order-2 relative min-h-[72vw] sm:min-h-[480px] lg:min-h-0">
-            <img
-              src="/team-richie.jpg"
-              alt="Richie Lampani"
-              className="absolute inset-0 w-full h-full object-cover object-top"
-            />
           </div>
         </div>
       </section>
 
+      <ReachPeople id="reach" />
+
       <section data-testid="section-cta" className="bg-white border-t border-[#e4e7ee]">
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 py-20 sm:py-28">
-          <h2 className="text-3xl sm:text-5xl text-[#12161c] tracking-[-0.035em] mb-4">
+        <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16">
+          <h2 className="text-[34px] leading-none text-[#137287] mb-4">
             Bring the open role.
           </h2>
-          <p className="text-[#3a4250] text-base leading-relaxed mb-8 max-w-xl">
+          <p className="text-[#272c30] text-[18px] leading-[1.6] font-light mb-8 max-w-xl">
             A strategy call is thirty minutes. Bring the open role, or the desk you want run. We will tell you which path fits. If we are not the right firm, we will say that too.
           </p>
           <Link href="/strategy-call" data-testid="button-book-strategy" className={btn}>
-            Book a strategy call <ArrowRight className="w-4 h-4 shrink-0" />
+            Book a strategy call
           </Link>
-          <p className="mt-6 text-sm text-[#5c6573]">
+          <p className="mt-6 text-[16px] text-[#272c30]">
             Looking for a role?{" "}
-            <Link href="/jobs" className="text-[#12161c] underline underline-offset-4">
+            <Link href="/jobs" className="text-[#137287] underline underline-offset-4">
               See open jobs
             </Link>
             .

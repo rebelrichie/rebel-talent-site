@@ -7,6 +7,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import GlowCard from "@/components/GlowCard";
 import CapacityBadge from "@/components/CapacityBadge";
+import ReachPeople from "@/components/ReachPeople";
 
 import headAndHeartCover from "@assets/Head_And_Heart_1773068092478.PNG";
 import unfinishedRoomsCover from "@assets/UR-BookCover_1773068071585.png";
@@ -87,42 +88,39 @@ export default function About() {
       />
 
       {/* ───────────── HERO ───────────── */}
-      <section data-testid="section-hero" className="bg-white">
-        <div className="grid lg:grid-cols-2 lg:min-h-[680px]">
-          <div className="order-2 lg:order-1 flex flex-col justify-center py-12 lg:py-16 px-5 sm:px-8 lg:pl-[max(2rem,calc((100vw-1200px)/2+2rem))] lg:pr-14">
-              <h1 className="text-4xl sm:text-6xl font-extrabold tracking-[-0.04em] text-[#12161c] leading-[0.98] mb-4 sm:mb-6" data-testid="text-name">
-                Richie Lampani.<br />
-                <span className="text-[#C8102E]">Five cities. One thesis.</span>
-              </h1>
-              <p className="text-base sm:text-xl text-zinc-300 max-w-2xl leading-[1.55] mb-4" data-testid="text-intro">
-                I started in music venues in Grand Rapids, reading rooms and booking bands nobody had heard of yet. Then more than a decade in staffing, watching the old model up close.
-              </p>
-              <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-[1.55] mb-4">
-                I didn&rsquo;t leave to start another agency. I left to build the thing I wanted when I was on the other side of the desk.
-              </p>
-              <p className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-[1.55] mb-6">
-                When a team needs someone inside the function, Rebel embeds as Head of Talent and leaves them owning the system.
-              </p>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-6">
-                <CapacityBadge />
-                {/* Safe addition — link to the Vision manifesto */}
-                <Link href="/about/vision" data-testid="link-about-vision" className="text-rebel-red hover:text-white text-sm font-semibold transition-colors no-underline">
-                  Read the vision &rarr;
-                </Link>
-                <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-linkedin" className="text-zinc-400 hover:text-white text-sm transition-colors no-underline">
-                  LinkedIn ↗
-                </a>
-                <a href="https://www.linkedin.com/newsletters/rebel-built-7412825035092045824/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white text-sm transition-colors no-underline">
-                  Rebel Built (newsletter) ↗
-                </a>
-                <a href="mailto:richie@rebeltalentsystems.com" data-testid="link-email" className="text-zinc-400 hover:text-white text-sm transition-colors no-underline">
-                  Email ↗
-                </a>
-              </div>
-            </div>
-            <div className="order-1 lg:order-2 relative min-h-[78vw] sm:min-h-[520px] lg:min-h-0">
-                <img src="/team-richie.jpg" alt="Richie Lampani, Founder of Rebel Talent Systems" className="absolute inset-0 w-full h-full object-cover object-top" data-testid="img-profile" />
-            </div>
+      <section data-testid="section-hero" className="mi-band bg-[#003E53]">
+        <div className="max-w-[1140px] mx-auto px-5 py-16 sm:py-20">
+          <div className="flex items-center gap-4 mb-5">
+            <img src="/team-richie.jpg" alt="Richie Lampani, Founder of Rebel Talent Systems" className="w-16 h-16 rounded-full object-cover object-top shrink-0" data-testid="img-profile" />
+            <h1 className="text-white text-[42px] leading-[1.15]" data-testid="text-name">
+              Richie Lampani.<br />
+              <span className="text-white">Five cities. One thesis.</span>
+            </h1>
+          </div>
+          <p className="text-white/90 text-[18px] leading-[1.6] font-light max-w-3xl mb-4" data-testid="text-intro">
+            I started in music venues in Grand Rapids, reading rooms and booking bands nobody had heard of yet. Then more than a decade in staffing, watching the old model up close.
+          </p>
+          <p className="text-white/85 text-[18px] leading-[1.6] font-light max-w-3xl mb-4">
+            I didn&rsquo;t leave to start another agency. I left to build the thing I wanted when I was on the other side of the desk.
+          </p>
+          <p className="text-white/85 text-[18px] leading-[1.6] font-light max-w-3xl mb-6">
+            When a team needs someone inside the function, Rebel embeds as Head of Talent and leaves them owning the system.
+          </p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+            <CapacityBadge />
+            <Link href="/about/vision" data-testid="link-about-vision" className="text-white text-[16px] font-medium underline underline-offset-4">
+              Read the vision
+            </Link>
+            <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-linkedin" className="text-white/90 text-[16px] no-underline">
+              LinkedIn
+            </a>
+            <a href="https://www.linkedin.com/newsletters/rebel-built-7412825035092045824/" target="_blank" rel="noopener noreferrer" className="text-white/90 text-[16px] no-underline">
+              Rebel Built (newsletter)
+            </a>
+            <a href="mailto:richie@rebeltalentsystems.com" data-testid="link-email" className="text-white/90 text-[16px] no-underline">
+              Email
+            </a>
+          </div>
         </div>
       </section>
 
@@ -169,41 +167,9 @@ export default function About() {
               <p className="text-zinc-300 text-base sm:text-lg leading-[1.7] max-w-3xl mb-8">
                 Grew up on a farm. Went to school in the city. Bartended for years. Moved to New York the first chance I got, then Chicago. Atlanta&rsquo;s home now.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <figure>
-                  <img
-                    src="/richie-hudsonville-1990.jpg"
-                    alt="Hudsonville Rocket Football team photo, 1990"
-                    loading="lazy"
-                    className="w-full aspect-[4/3] object-cover border border-zinc-800"
-                  />
-                  <figcaption className="text-zinc-400 text-xs italic mt-2 leading-snug">
-                    Hudsonville, 1990. Find me in the lineup.
-                  </figcaption>
-                </figure>
-                <figure>
-                  <img
-                    src="/richie-bartending.jpg"
-                    alt="Richie Lampani behind the bar, Patagonia trucker hat"
-                    loading="lazy"
-                    className="w-full aspect-[4/3] object-cover border border-zinc-800"
-                  />
-                  <figcaption className="text-zinc-400 text-xs italic mt-2 leading-snug">
-                    Behind the bar. Years of it.
-                  </figcaption>
-                </figure>
-                <figure>
-                  <img
-                    src="/richie-longboard.jpg"
-                    alt="Richie Lampani on a longboard at golden hour in Atlanta"
-                    loading="lazy"
-                    className="w-full aspect-[4/3] object-cover object-top border border-zinc-800"
-                  />
-                  <figcaption className="text-zinc-400 text-xs italic mt-2 leading-snug">
-                    Atlanta now. Golden hour, longboard, headphones.
-                  </figcaption>
-                </figure>
-              </div>
+              <p className="text-zinc-400 text-sm italic leading-snug">
+                Hudsonville, 1990. Find me in the lineup. Behind the bar. Years of it. Atlanta now. Golden hour, longboard, headphones.
+              </p>
             </div>
           </ScrollReveal>
 
@@ -717,6 +683,7 @@ export default function About() {
           </ScrollReveal>
         </div>
       </section>
+      <ReachPeople />
     </PageLayout>
   );
 }

@@ -1,7 +1,7 @@
 import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
+import ReachPeople from "@/components/ReachPeople";
 
 const serviceProvider = {
   "@type": "Organization",
@@ -110,32 +110,23 @@ export default function Services() {
         ]}
       />
 
-      <section data-testid="section-hero" className="bg-white border-b border-[#e4e7ee]">
-        <div className="grid lg:grid-cols-2 lg:min-h-[640px]">
-          <div className="order-2 lg:order-1 flex flex-col justify-center py-14 lg:py-20 px-5 sm:px-8 lg:pl-[max(2rem,calc((100vw-1200px)/2+2rem))] lg:pr-16">
-            <h1
-              className="text-[#12161c] tracking-[-0.04em] leading-[1.02] max-w-3xl"
-              style={{ fontSize: "clamp(2.4rem, 4.4vw, 4rem)", fontWeight: 800 }}
-              data-testid="heading-services"
-            >
-              Four ways to take the work.
-            </h1>
-            <p className="mt-6 text-base sm:text-lg text-[#3a4250] max-w-xl leading-relaxed">
-              Contingent covers one role. Retained covers a defined role with a deadline. Embedded covers the desk. Advisory covers the plan before you spend on a search. You keep the scorecards, the process, and the record.
-            </p>
-          </div>
-          <div className="order-1 lg:order-2 relative min-h-[72vw] sm:min-h-[480px] lg:min-h-0">
-            <img
-              src="/chris-moscato.jpg"
-              alt="Chris Moscato, Head of Client Acquisition"
-              className="absolute inset-0 w-full h-full object-cover object-top"
-            />
-          </div>
+      <section data-testid="section-hero" className="mi-band bg-[#003E53]">
+        <div className="max-w-[1140px] mx-auto px-5 py-16 sm:py-20">
+          <h1
+            className="text-white max-w-4xl"
+            style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)", fontWeight: 400, lineHeight: 1.15 }}
+            data-testid="heading-services"
+          >
+            Four ways to take the work.
+          </h1>
+          <p className="mt-5 text-white/90 text-[18px] leading-[1.6] font-light max-w-3xl">
+            Contingent covers one role. Retained covers a defined role with a deadline. Embedded covers the desk. Advisory covers the plan before you spend on a search. You keep the scorecards, the process, and the record.
+          </p>
         </div>
       </section>
 
       <section className="bg-white">
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-8">
+        <div className="max-w-[1140px] mx-auto px-5">
           {OFFERINGS.map((offer) => (
             <article
               key={offer.id}
@@ -145,18 +136,18 @@ export default function Services() {
             >
               <p className="text-2xl font-bold tracking-[-0.04em] text-[#C8102E]">{offer.index}</p>
               <div>
-                <p className="text-[15px] font-semibold text-[#12161c] mb-2">{offer.kicker}</p>
-                <h2 className="text-2xl sm:text-3xl text-[#12161c] tracking-[-0.035em] mb-3">
+                <p className="text-[16px] text-[#272c30] mb-2">{offer.kicker}</p>
+                <h2 className="text-[25px] leading-tight text-[#137287] mb-3">
                   {offer.title}
                 </h2>
-                <p className="text-[#3a4250] text-base leading-relaxed max-w-2xl mb-5">
+                <p className="text-[#272c30] text-[18px] leading-[1.6] font-light max-w-2xl mb-5">
                   {offer.body}
                 </p>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                   <Link
                     href={offer.ctaHref}
                     data-testid={`button-service-${offer.id}`}
-                    className="text-sm font-semibold text-[#12161c] underline underline-offset-4"
+                    className="mi-btn"
                   >
                     Book a strategy call
                   </Link>
@@ -164,7 +155,7 @@ export default function Services() {
                     <Link
                       href={offer.detailsHref}
                       data-testid={`link-service-${offer.id}`}
-                      className="text-sm font-semibold text-[#3a4250] underline underline-offset-4"
+                      className="text-[16px] text-[#137287] underline underline-offset-4"
                     >
                       {offer.detailsLabel}
                     </Link>
@@ -184,36 +175,38 @@ export default function Services() {
       </section>
 
       <section data-testid="section-proof" className="bg-white border-t border-[#e4e7ee]">
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 py-16 sm:py-20">
-          <h2 className="text-3xl sm:text-4xl text-[#12161c] tracking-[-0.035em] mb-4">
+        <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16">
+          <h2 className="text-[34px] leading-none text-[#137287] mb-4">
             From recent work.
           </h2>
-          <p className="text-[#3a4250] text-base leading-relaxed max-w-3xl">
+          <p className="text-[#272c30] text-[18px] leading-[1.6] font-light max-w-3xl">
             EarthDaily Federal made eleven placements. About $394K in agency fees were avoided, a 3.4x return, with an average time to hire under 30 days. Kalibri Labs signed a machine learning hire in 34 days, about $20K under the agency quote. Legal Managed Services made 20 go-to-market hires in 24 months, with 90% retention.
           </p>
-          <Link href="/case-studies" className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-[#12161c] no-underline">
-            See the work <ArrowRight className="w-4 h-4" />
+          <Link href="/case-studies" className="inline-flex mt-6 text-[16px] font-medium text-[#137287] underline underline-offset-4">
+            See the work
           </Link>
         </div>
       </section>
 
       <section data-testid="section-cta" className="bg-white border-t border-[#e4e7ee]">
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 py-16 sm:py-24">
-          <h2 className="text-3xl sm:text-5xl text-[#12161c] tracking-[-0.035em] mb-4">
+        <div className="max-w-[1140px] mx-auto px-5 py-14 sm:py-16">
+          <h2 className="text-[34px] leading-none text-[#137287] mb-4">
             Bring the role, or the question.
           </h2>
-          <p className="text-[#3a4250] text-base leading-relaxed mb-8 max-w-xl">
+          <p className="text-[#272c30] text-[18px] leading-[1.6] font-light mb-8 max-w-xl">
             Thirty minutes is enough to tell you which of the four fits. Bring the open role, or the question you need answered before you hire. If none of them fit, we will say so.
           </p>
           <Link
             href="/strategy-call"
             data-testid="button-services-cta"
-            className="inline-flex items-center justify-center gap-2 bg-rebel-red text-white font-semibold text-sm sm:text-base px-6 py-3.5 rounded-full no-underline"
+            className="mi-btn"
           >
-            Book a strategy call <ArrowRight className="w-4 h-4 shrink-0" />
+            Book a strategy call
           </Link>
         </div>
       </section>
+
+      <ReachPeople />
     </PageLayout>
   );
 }

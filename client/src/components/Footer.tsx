@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer data-testid="footer" className="site-footer">
       <div className="border-b border-white/10">
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="max-w-[1140px] mx-auto px-5 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p className="text-[15px]">
             Ready to build your team the right way?
           </p>
@@ -15,7 +15,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 py-14">
+        <div className="max-w-[1140px] mx-auto px-5 py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-4">
@@ -58,16 +58,29 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
+          <div id="footer-reach">
             <h2 className="mb-4">Contact</h2>
-            <div className="flex flex-col gap-2.5">
-              <a href="mailto:richie@rebeltalentsystems.com" data-testid="link-footer-email" className="text-sm no-underline">
-                richie@rebeltalentsystems.com
-              </a>
-              <a href="tel:+12025240255" data-testid="link-footer-phone" className="text-sm no-underline">
+            <div className="flex flex-col gap-4 text-sm">
+              <div>
+                <p className="text-white">Richie Lampani</p>
+                <p className="text-[#d5dbe3]">Founder, Rebel Talent Systems</p>
+                <a href="mailto:richie@rebeltalentsystems.com" data-testid="link-footer-email" className="no-underline">
+                  richie@rebeltalentsystems.com
+                </a>
+                <a href="/strategy-call" className="block no-underline font-medium text-white">Book a call</a>
+              </div>
+              <div>
+                <p className="text-white">Chris Moscato</p>
+                <p className="text-[#d5dbe3]">Head of Client Acquisition</p>
+                <a href="mailto:christopher@rebeltalentsystems.com" className="no-underline">
+                  christopher@rebeltalentsystems.com
+                </a>
+                <a href="https://calendly.com/christopher-rebeltalentsystems/30min" target="_blank" rel="noopener noreferrer" className="block no-underline font-medium text-white">Book a call</a>
+              </div>
+              <a href="tel:+12025240255" data-testid="link-footer-phone" className="no-underline">
                 (202) 524-0255
               </a>
-              <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-footer-linkedin" className="text-sm no-underline">
+              <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-footer-linkedin" className="no-underline">
                 LinkedIn
               </a>
               <span className="sr-only">Rebel Talent Systems, United States</span>
@@ -75,13 +88,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <p className="text-xs text-[#9aa3af]">
-            &copy; {new Date().getFullYear()} Rebel Talent Systems. All rights reserved.
-          </p>
-          <Link href="/privacy-policy" data-testid="link-footer-privacy" className="text-xs no-underline text-[#9aa3af]">Privacy Policy</Link>
-        </div>
-        <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-[#9aa3af]">
+        <div className="border-t border-white/15 pt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-[#d5dbe3]">
           <span>SAM.gov Registered</span>
           <span>CAGE: 202V6</span>
           <span>UEI: JQ4MZ69FNAK4</span>
@@ -93,6 +100,12 @@ export default function Footer() {
           >
             Capability statement (PDF)
           </a>
+        </div>
+      </div>
+      <div className="mi-legal">
+        <div className="max-w-[1140px] mx-auto px-5 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-[12px]">
+          <p>&copy; {new Date().getFullYear()} Rebel Talent Systems. All rights reserved.</p>
+          <Link href="/privacy-policy" data-testid="link-footer-privacy" className="no-underline">Privacy Policy</Link>
         </div>
       </div>
     </footer>
