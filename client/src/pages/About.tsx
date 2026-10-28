@@ -338,7 +338,7 @@ export default function About() {
                     <div className="flex items-center gap-4 mb-4">
                       <picture>
                         <source
-                          srcSet={person.photo.replace(/\.(jpe?g|png)$/i, ".webp")}
+                          srcSet={person.photo.includes("chris-moscato") ? "/chris-moscato-v2.webp" : person.photo.replace(/\.(jpe?g|png)$/i, ".webp")}
                           type="image/webp"
                         />
                         <img
