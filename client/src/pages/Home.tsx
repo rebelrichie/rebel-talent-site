@@ -204,7 +204,7 @@ export default function Home() {
         <div className="hero-split hero-split-tall">
           <div className="band-wrap relative z-10 flex items-center py-14 lg:min-h-[520px] lg:py-16">
             <div className="band-hero-copy w-full lg:w-1/2 lg:pr-10">
-              <h1 className="hero-display max-w-[11ch]">
+              <h1 className="hero-display lg:max-w-none">
                 Recruiting that scales with the company you&rsquo;re becoming.
               </h1>
               <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">

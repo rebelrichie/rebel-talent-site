@@ -12,14 +12,16 @@ export type OrbitVariant = "home" | "services" | "cleared" | "jobs" | "blog" | "
 
 type Label = { kicker: string; line: string };
 
-const VARIANTS: Record<OrbitVariant, { rotate: number; viewBox: string; rings: 1 | 2 | 3; slice: boolean; dashOuter: boolean }> = {
-  home: { rotate: -18, viewBox: "20 10 760 540", rings: 2, slice: true, dashOuter: false },
-  services: { rotate: 22, viewBox: "120 40 640 480", rings: 2, slice: true, dashOuter: true },
-  cleared: { rotate: -40, viewBox: "60 70 700 460", rings: 3, slice: true, dashOuter: false },
-  jobs: { rotate: 8, viewBox: "160 90 560 420", rings: 1, slice: true, dashOuter: true },
-  blog: { rotate: 46, viewBox: "40 120 720 400", rings: 1, slice: true, dashOuter: true },
-  about: { rotate: -6, viewBox: "0 50 760 480", rings: 2, slice: true, dashOuter: true },
-  default: { rotate: -18, viewBox: "40 30 720 500", rings: 2, slice: false, dashOuter: false },
+// viewBox frames the rotated outer ellipse (center 418,292, rx 268, ry 102)
+// with padding, so `meet` never slices a ring off the edge.
+const VARIANTS: Record<OrbitVariant, { rotate: number; viewBox: string; rings: 1 | 2 | 3; dashOuter: boolean }> = {
+  home: { rotate: -18, viewBox: "133 136 570 312", rings: 2, dashOuter: false },
+  services: { rotate: 22, viewBox: "110 100 620 380", rings: 2, dashOuter: true },
+  cleared: { rotate: -40, viewBox: "174 74 488 435", rings: 3, dashOuter: false },
+  jobs: { rotate: 8, viewBox: "100 60 640 440", rings: 1, dashOuter: true },
+  blog: { rotate: 46, viewBox: "189 58 457 467", rings: 1, dashOuter: true },
+  about: { rotate: -6, viewBox: "100 60 640 440", rings: 2, dashOuter: true },
+  default: { rotate: -18, viewBox: "133 136 570 312", rings: 2, dashOuter: false },
 };
 
 const HOME_LABELS: Label[] = [
@@ -44,7 +46,7 @@ export default function OrbitPanel({
     { rx: 268, ry: 102, deg: 158 },
     { rx: 168, ry: 62, deg: 12 },
     { rx: 168, ry: 62, deg: 198 },
-  ];
+  ].filter((mark) => spec.rings > 1 || mark.rx === 268);
   const showLabels = !compact && variant === "home";
 
   return (
@@ -53,7 +55,7 @@ export default function OrbitPanel({
       <svg
         className="absolute inset-0 h-full w-full"
         viewBox={spec.viewBox}
-        preserveAspectRatio={spec.slice ? "xMidYMid slice" : "xMidYMid meet"}
+        preserveAspectRatio="xMidYMid meet"
         aria-hidden="true"
         focusable="false"
       >

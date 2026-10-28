@@ -1420,7 +1420,7 @@ main {
   text-transform: none !important;
 }
 [data-testid="section-hero"] h1.hero-display {
-  font-size: clamp(2.75rem, 4.7vw, 4.5rem) !important;
+  font-size: clamp(2.5rem, 3vw, 3.4rem) !important;
 }
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
@@ -1685,6 +1685,26 @@ main .page-bands > section[class*="max-w-"] {
     height: auto !important;
     min-height: 100%;
   }
+  /* Interior heroes stay a similar height so a long about intro does not
+     stretch the orbit into a square that slices the ring. */
+  .hero-split:not(.hero-split-tall) .hero-orbit {
+    bottom: auto !important;
+    height: 480px !important;
+    max-height: 480px !important;
+    min-height: 0 !important;
+  }
+}
+@media (min-width: 1600px) {
+  .hero-split-tall .band-wrap {
+    width: min(1280px, calc(100% - 3rem));
+  }
+  .hero-split-tall .band-hero-copy {
+    width: min(52rem, 68%);
+  }
+  .hero-split-tall .hero-orbit {
+    right: max(0px, calc((100% - min(1280px, 100%)) / 2));
+    width: min(520px, 38vw);
+  }
 }
 .orbit-label-left {
   position: absolute;
@@ -1726,7 +1746,17 @@ main .page-bands > section[class*="max-w-"] {
   gap: 1.25rem 1rem;
 }
 .about-stats > * { min-width: 0; }
-.about-stats .about-stat-label { min-height: 2.6em; }
+.about-stat-band { padding: 0.75rem 0 1.25rem; }
+.about-stats .about-stat-value {
+  display: block;
+  min-height: 1.35em;
+  line-height: 1.15;
+  margin-bottom: 0.35rem;
+}
+.about-stats .about-stat-label {
+  min-height: 2.5em;
+  line-height: 1.25;
+}
 @media (min-width: 900px) {
   .about-stats { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 }
@@ -1734,6 +1764,24 @@ main .page-bands > section[class*="max-w-"] {
 .hero-lede { letter-spacing: 0 !important; }
 
 .prose-rebel h2 { scroll-margin-top: 6.5rem; }
+
+.blog-layout { display: block; }
+.blog-rail { display: none; }
+.blog-article { max-width: 70ch; }
+@media (min-width: 1024px) {
+  .blog-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 70ch) minmax(16rem, 1fr);
+    column-gap: 4rem;
+    align-items: start;
+  }
+  .blog-rail {
+    display: block;
+    position: sticky;
+    top: 7rem;
+  }
+  .blog-related-mobile { display: none; }
+}
 
 :focus-visible {
   outline: 2px solid #F7F9FC;

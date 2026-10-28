@@ -279,8 +279,8 @@ export default function BlogPost() {
         )}
       </InteriorHero>
       <section>
-        <div className="band-wrap grid gap-12 py-12 lg:grid-cols-[minmax(0,70ch)_17rem] lg:items-start">
-        <article>
+        <div className="band-wrap blog-layout py-12">
+        <article className="blog-article">
         <div className="prose-rebel max-w-[70ch]" dangerouslySetInnerHTML={{ __html: renderBody(post.body || "") }} />
 
         {/* Author */}
@@ -305,7 +305,7 @@ export default function BlogPost() {
 
         {/* Related */}
         {related.length > 0 && (
-          <div className="mt-16 lg:hidden">
+          <div className="blog-related-mobile mt-16">
             <h2 className="text-xl font-bold text-white mb-6">More from the blog</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {related.map((r) => (
@@ -322,7 +322,7 @@ export default function BlogPost() {
           </div>
         )}
         </article>
-        <aside className="hidden lg:block">
+        <aside className="blog-rail">
           <div className="sticky top-28 space-y-10">
             {headings.length > 0 && (
               <nav aria-label="On this page">

@@ -125,7 +125,7 @@ export default function About() {
       </InteriorHero>
 
       {/* ───────────── STATS GRID ───────────── */}
-      <section className="bg-rebel-space pt-4 pb-12 sm:pb-16 border-t border-zinc-900">
+      <section className="about-stat-band border-t border-zinc-900">
         <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10">
           <ScrollReveal variant="fade-up" delay={200}>
           <div className="about-stats">
@@ -138,9 +138,9 @@ export default function About() {
             ].map((stat) => (
               <div key={stat.label} className="py-2 text-left" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
                 {stat.numeric ? (
-                  <AnimatedCounter value={stat.value} className="font-display text-xl sm:text-2xl font-bold text-rebel-red mb-1" />
+                  <AnimatedCounter value={stat.value} className="about-stat-value font-display text-xl sm:text-2xl font-bold text-rebel-red" />
                 ) : (
-                  <div className="font-display text-xl sm:text-2xl font-bold text-rebel-red mb-1">{stat.value}</div>
+                  <div className="about-stat-value font-display text-xl sm:text-2xl font-bold text-rebel-red">{stat.value}</div>
                 )}
                 <div className="about-stat-label text-zinc-400 text-xs tracking-widest uppercase">{stat.label}</div>
               </div>

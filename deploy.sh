@@ -76,19 +76,22 @@ python3 - "$site" << 'PY'
 import re, sys
 path = sys.argv[1]
 text = open(path).read()
-new_try = "try_files $uri $uri/ $uri/index.html =404;"
-text2, n = re.subn(r"try_files\s+\$uri\s+\$uri/\s+/index\.html\s*;", new_try, text)
-if n == 0 and new_try not in text:
-    sys.stderr.write("Could not find the SPA try_files line in %s. Not editing.\n" % path)
-    sys.exit(2)
-text = text2
-if "error_page 404 /404.html;" not in text:
-    if "server {" in text:
-        text = text.replace("server {", "server {\n    error_page 404 /404.html;", 1)
+include = "include /etc/nginx/snippets/rebel-talent-routes.conf;"
+# Drop the old SPA location so it does not fight the snippet's location /.
+text2, n = re.subn(
+    r"[ \t]*location\s+/\s*\{[^{}]*try_files\s+\$uri\s+\$uri/\s+/index\.html\s*;[^{}]*\}\s*",
+    "    " + include + "\n",
+    text,
+    count=1,
+)
+if include not in text2:
+    if "server {" in text2:
+        text2 = text2.replace("server {", "server {\n    " + include, 1)
     else:
-        text = "error_page 404 /404.html;\n" + text
-open(path, "w").write(text)
-print("nginx site updated:", path)
+        sys.stderr.write("Could not find a server block in %s. Not editing.\n" % path)
+        sys.exit(2)
+open(path, "w").write(text2)
+print("nginx site includes rebel-talent-routes.conf:", path, "replaced_location" if n else "inserted_include")
 PY
 if nginx -t; then
   if command -v systemctl >/dev/null 2>&1; then
