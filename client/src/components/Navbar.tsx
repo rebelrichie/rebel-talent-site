@@ -72,14 +72,14 @@ export default function Navbar() {
       <nav data-testid="navbar" className="site-nav border-b border-white/10 bg-[#001028]">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
           <div className="flex h-[68px] items-center justify-between gap-6">
-            <Link href="/" data-testid="link-home" className="flex shrink-0 items-center gap-2.5 no-underline">
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white">
-                <img src="/logo.png" alt="" width={200} height={200} className="h-8 w-8 object-contain" />
-              </span>
-              <span className="text-[13px] font-semibold uppercase leading-none tracking-[0.12em] text-white">
-                Rebel Talent
-                <span className="mt-1 block tracking-[0.16em] text-white/60">Systems</span>
-              </span>
+            <Link href="/" data-testid="link-home" className="flex shrink-0 items-center no-underline">
+              <img
+                src="/images/rebel-logo-mark.webp"
+                alt="Rebel Talent"
+                width={1856}
+                height={888}
+                className="site-logo"
+              />
             </Link>
 
             <button

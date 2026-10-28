@@ -18,12 +18,14 @@ export default function Footer() {
         <div className="max-w-[1140px] mx-auto px-5 py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-12">
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <img src="/logo.png" alt="Rebel Talent" width={200} height={200} className="w-8 h-8 bg-white rounded-sm" loading="lazy" />
-              <span className="text-lg font-bold tracking-[-0.03em] text-white">
-                Rebel Talent
-              </span>
-            </div>
+            <img
+              src="/images/rebel-logo-mark.webp"
+              alt="Rebel Talent"
+              width={1856}
+              height={888}
+              className="site-logo site-logo-footer"
+              loading="lazy"
+            />
             <p className="text-sm leading-relaxed text-[#c5ccd4]">
               We install the hiring infrastructure your team runs on, across cleared and noncleared, entry to executive.
             </p>

@@ -4,7 +4,7 @@ import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import ContingentChrisSection from "@/components/ContingentChrisSection";
 import ReachPeople from "@/components/ReachPeople";
-import OrbitPanel from "@/components/OrbitPanel";
+import BannerHero from "@/components/BannerHero";
 import { LogoStrip, PullQuotes } from "@/components/Proof";
 
 const homepageSchema = {
@@ -202,25 +202,19 @@ export default function Home() {
       />
 
       <section data-testid="section-hero" className="band-hero">
-        <div className="hero-split hero-split-tall">
-          <div className="band-wrap relative z-10 flex items-center py-14 lg:min-h-[520px] lg:py-16">
-            <div className="band-hero-copy w-full lg:w-1/2 lg:pr-10">
-              <p className="eyebrow eyebrow-gold mb-4">Break orbit.</p>
-              <h1 className="hero-display lg:max-w-none">
-                Recruiting that scales with the company you&rsquo;re becoming.
-              </h1>
-              <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-                <Link href="/strategy-call" data-testid="button-hero-strategy" className={btn}>
-                  Book a strategy call <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Link>
-                <Link href="/jobs" className="text-[15px] font-medium underline underline-offset-4">
-                  See open jobs
-                </Link>
-              </div>
-            </div>
+        <BannerHero tall mark priority>
+          <h1 className="hero-display">
+            Recruiting that scales with the company you&rsquo;re becoming.
+          </h1>
+          <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+            <Link href="/strategy-call" data-testid="button-hero-strategy" className={btn}>
+              Book a strategy call <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+            <Link href="/jobs" className="text-[15px] font-medium underline underline-offset-4">
+              See open jobs
+            </Link>
           </div>
-          <OrbitPanel variant="home" className="hero-orbit" />
-        </div>
+        </BannerHero>
         <div className="band-wrap">
           <div className="stat-row border-t border-white/15">
             {[...LIGHT_STATS, ...NAVY_STATS].map((stat) => (
