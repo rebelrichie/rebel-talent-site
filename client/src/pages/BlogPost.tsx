@@ -6,6 +6,7 @@ import { ArrowLeft, Clock } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import InteriorHero from "@/components/InteriorHero";
+import NotFound from "@/pages/not-found";
 import { getPostBySlug, getRelatedPosts, getUnpublishedRedirect } from "@/lib/blogData";
 
 function formatDate(date: string | null) {
@@ -131,12 +132,12 @@ function renderBody(body: string): string {
       if (inList) { html.push("</ul>"); inList = false; }
       if (inOl) { html.push("</ol>"); inOl = false; }
       if (inBlockquote) { html.push("</blockquote>"); inBlockquote = false; }
-      html.push(`<h2 class="text-2xl font-bold text-white mt-12 mb-5">${inlineFormat(trimmed.slice(3))}</h2>`);
+      html.push(`<h2 id="${headingId(trimmed.slice(3))}" class="text-2xl font-bold text-white mt-12 mb-5">${inlineFormat(trimmed.slice(3))}</h2>`);
     } else if (trimmed.startsWith("# ")) {
       if (inList) { html.push("</ul>"); inList = false; }
       if (inOl) { html.push("</ol>"); inOl = false; }
       if (inBlockquote) { html.push("</blockquote>"); inBlockquote = false; }
-      html.push(`<h2 class="text-2xl font-bold text-white mt-12 mb-5">${inlineFormat(trimmed.slice(2))}</h2>`);
+      html.push(`<h2 id="${headingId(trimmed.slice(2))}" class="text-2xl font-bold text-white mt-12 mb-5">${inlineFormat(trimmed.slice(2))}</h2>`);
     } else if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
       if (inOl) { html.push("</ol>"); inOl = false; }
       if (inBlockquote) { html.push("</blockquote>"); inBlockquote = false; }
@@ -163,6 +164,29 @@ function renderBody(body: string): string {
   if (inBlockquote) html.push("</blockquote>");
   if (inTable) html.push("</tbody></table></div>");
   return html.join("\n");
+}
+
+function headingId(text: string): string {
+  return text
+    .replace(/[*_`[\]]/g, "")
+    .toLowerCase()
+    .replace(/&[^;]+;/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function articleHeadings(body: string): { id: string; text: string }[] {
+  const found: { id: string; text: string }[] = [];
+  for (const line of body.split("\n")) {
+    const trimmed = line.trim();
+    if (!trimmed.startsWith("## ") && !trimmed.startsWith("# ")) continue;
+    if (trimmed.startsWith("### ")) continue;
+    const raw = trimmed.startsWith("## ") ? trimmed.slice(3) : trimmed.slice(2);
+    const text = raw.replace(/\*\*/g, "").replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+    const id = headingId(text);
+    if (id) found.push({ id, text });
+  }
+  return found;
 }
 
 function inlineFormat(text: string): string {
@@ -193,7 +217,7 @@ export default function BlogPost() {
           path={unpublishedTo}
           noindex
         />
-        <InteriorHero>
+        <InteriorHero orbit="blog">
           <h1 className="text-[#0C1220]">This article is unpublished.</h1>
           <a href={unpublishedTo} className="mt-6 text-[#C8102E] no-underline">Continue</a>
         </InteriorHero>
@@ -202,15 +226,10 @@ export default function BlogPost() {
   }
 
   if (!post) {
-    return (
-      <PageLayout>
-        <InteriorHero>
-          <h1 className="text-[#0C1220]">Post Not Found</h1>
-          <Link href="/blog" className="mt-6 text-[#C8102E] no-underline">Back to Blog</Link>
-        </InteriorHero>
-      </PageLayout>
-    );
+    return <NotFound />;
   }
+
+  const headings = articleHeadings(post.body || "");
 
   return (
     <PageLayout>
@@ -220,6 +239,7 @@ export default function BlogPost() {
         path={`/blog/${post.slug}`}
         ogTitle={post.title}
         ogDescription={post.metaDescription || post.excerpt || ""}
+        ogImage={post.ogImage || "og-home.png"}
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
           { name: "Blog", item: "https://rebeltalentsystems.com/blog" },
@@ -227,7 +247,7 @@ export default function BlogPost() {
         ]}
       />
 
-      <InteriorHero>
+      <InteriorHero orbit="blog">
         <Link href="/blog" className="text-sm text-[#5C6570] no-underline flex items-center gap-2 mb-6">
           <ArrowLeft className="w-4 h-4" /> Back to Rebel Built
         </Link>
@@ -253,8 +273,9 @@ export default function BlogPost() {
         )}
       </InteriorHero>
       <section>
-        <article className="band-wrap py-12">
-        <div className="prose-rebel max-w-[68ch]" dangerouslySetInnerHTML={{ __html: renderBody(post.body || "") }} />
+        <div className="band-wrap blog-layout py-12">
+        <article className="blog-article">
+        <div className="prose-rebel max-w-[70ch]" dangerouslySetInnerHTML={{ __html: renderBody(post.body || "") }} />
 
         {/* Author */}
         <div className="mt-12 p-6 rounded-xl border border-zinc-800 bg-zinc-900/60">
@@ -278,7 +299,7 @@ export default function BlogPost() {
 
         {/* Related */}
         {related.length > 0 && (
-          <div className="mt-16">
+          <div className="blog-related-mobile mt-16">
             <h2 className="text-xl font-bold text-white mb-6">More from the blog</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {related.map((r) => (
@@ -295,6 +316,43 @@ export default function BlogPost() {
           </div>
         )}
         </article>
+        <aside className="blog-rail">
+          <div className="sticky top-28 space-y-10">
+            {headings.length > 0 && (
+              <nav aria-label="On this page">
+                <p className="mb-3 text-[12px] font-semibold uppercase tracking-[0.16em]">On this page</p>
+                <ul className="space-y-2">
+                  {headings.map((heading) => (
+                    <li key={heading.id}>
+                      <a href={`#${heading.id}`} className="text-[15px] leading-snug underline-offset-4 hover:underline">
+                        {heading.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            )}
+            <div>
+              <p className="mb-4 text-[16px] leading-snug">Bring the open role, or the question.</p>
+              <a href="/strategy-call" className="mi-btn">Book a strategy call</a>
+            </div>
+            {related.length > 0 && (
+              <div>
+                <p className="mb-3 text-[12px] font-semibold uppercase tracking-[0.16em]">More from the blog</p>
+                <ul className="space-y-3">
+                  {related.slice(0, 3).map((item) => (
+                    <li key={item.slug}>
+                      <Link href={`/blog/${item.slug}`} className="text-[15px] font-medium leading-snug underline underline-offset-4">
+                        {item.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </aside>
+        </div>
       </section>
     </PageLayout>
   );

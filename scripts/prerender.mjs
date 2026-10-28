@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+// Chrome: set PUPPETEER_EXECUTABLE_PATH to a Chrome or Chromium binary
+// when one is already installed. Otherwise Puppeteer uses the browser
+// from its own download. package.json engines: Node >= 20, npm >= 10.
 // Safe addition — Pre-render all static routes after Vite build
 // Spins up a local server, visits each route with Puppeteer, saves rendered HTML
 // Run: node scripts/prerender.mjs (after vite build)
@@ -150,10 +153,26 @@ const LEGACY_HTML_REDIRECTS = [
   ["/case-studies.html", "/case-studies"],
 ];
 
+// Extensionless routes that the SPA used to handle. Without a file, nginx
+// hard-404s them. Stubs match App.tsx. Keep deploy/nginx-site.conf in sync.
+const LEGACY_ROUTE_REDIRECTS = [
+  ["/results", "/case-studies"],
+  ["/pricing", "/services"],
+  ["/platform", "/services"],
+  ["/how-it-works", "/services"],
+  ["/fractional-head-of-talent", "/fractional"],
+  ["/fractional-recruiting-services", "/fractional"],
+  ["/abcr-certification", "/certification"],
+  ["/rachael", "/"],
+  ["/command", "/"],
+  ["/shop", "https://rebel-talent-shop.fourthwall.com/"],
+];
+
 function writeRedirect(fromPath, toPath) {
-  if (!fromPath.startsWith("/") || !toPath.startsWith("/") || fromPath === toPath) return;
-  if (toPath.startsWith("//") || toPath.includes("://")) return;
-  const canonical = `${SITE_URL}${toPath}`;
+  const external = /^https?:\/\//i.test(toPath);
+  if (!fromPath.startsWith("/") || fromPath.includes("..")) return;
+  if (!external && (!toPath.startsWith("/") || toPath.startsWith("//") || fromPath === toPath)) return;
+  const canonical = external ? toPath : `${SITE_URL}${toPath}`;
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -332,6 +351,7 @@ async function prerender() {
     "/usr/bin/google-chrome-stable",
     "/usr/bin/google-chrome",
     "/usr/local/bin/google-chrome",
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
   ].filter(Boolean);
   const executablePath = chromeCandidates.find((candidate) => existsSync(candidate));
   const launchOpts = { headless: true, args: chromeArgs, ...(executablePath ? { executablePath } : {}) };
@@ -349,6 +369,9 @@ async function prerender() {
         sinceRestart = 0;
       }
       const page = await browser.newPage();
+      await page.evaluateOnNewDocument(() => {
+        window.__PRERENDER = true;
+      });
       await page.goto(`http://localhost:${PORT}${route}`, {
         waitUntil: "domcontentloaded",
         timeout: 30000,
@@ -385,6 +408,9 @@ async function prerender() {
   //   location / { try_files $uri $uri/ $uri/index.html =404; }
   try {
     const page = await browser.newPage();
+    await page.evaluateOnNewDocument(() => {
+      window.__PRERENDER = true;
+    });
     await page.goto(`http://localhost:${PORT}/this-page-is-not-real`, {
       waitUntil: "domcontentloaded",
       timeout: 30000,
@@ -413,11 +439,14 @@ async function prerender() {
     for (const [from, to] of LEGACY_HTML_REDIRECTS) {
       writeRedirect(from, to);
     }
+    for (const [from, to] of LEGACY_ROUTE_REDIRECTS) {
+      writeRedirect(from, to);
+    }
     for (const redirect of blogRedirects) {
       writeRedirect(redirect.from, redirect.to);
     }
     writeFileSync(join(DIST_DIR, "job-redirects.json"), JSON.stringify(map), "utf-8");
-    console.log(`[prerender] Wrote ${redirects.length} job UUID redirects + /defense -> /cleared + ${LEGACY_HTML_REDIRECTS.length} legacy html redirects + ${blogRedirects.length} unpublished blog redirects`);
+    console.log(`[prerender] Wrote ${redirects.length} job UUID redirects + /defense -> /cleared + ${LEGACY_HTML_REDIRECTS.length} legacy html redirects + ${LEGACY_ROUTE_REDIRECTS.length} legacy route redirects + ${blogRedirects.length} unpublished blog redirects`);
   } catch (err) {
     console.warn(`[prerender] redirect stubs failed: ${err.message}`);
   }

@@ -5,6 +5,7 @@ import PageSEO from "@/components/PageSEO";
 import ContingentChrisSection from "@/components/ContingentChrisSection";
 import ReachPeople from "@/components/ReachPeople";
 import OrbitPanel from "@/components/OrbitPanel";
+import { LogoStrip, PullQuotes } from "@/components/Proof";
 
 const homepageSchema = {
   "@context": "https://schema.org",
@@ -122,13 +123,13 @@ const btn = "mi-btn";
 const textLink = "text-[15px] font-medium text-[#0C1220] underline underline-offset-4";
 
 const LIGHT_STATS = [
-  { client: "EarthDaily Federal", value: "<30", caption: "Days, average time to hire" },
-  { client: "EarthDaily Federal", value: "11", caption: "Placements" },
+  { client: "EarthDaily Federal", value: "<30", caption: "Average time to hire" },
+  { client: "Kalibri Labs", value: "34", caption: "Days to a signed ML hire" },
 ];
 
 const NAVY_STATS = [
-  { client: "EarthDaily Federal", value: "3.4x", caption: "Return. About $394K in fees avoided" },
-  { client: "Legal Managed Services", value: "90%", caption: "Retention. 20 hires in 24 months" },
+  { client: "Fee return", value: "3.4x", caption: "About $394K in fees avoided" },
+  { client: "Legal Managed Services", value: "90%", caption: "Retention. 20 hires, 24 months" },
 ];
 
 const SERVICES = [
@@ -179,12 +180,10 @@ const SERVICES = [
 function Stat({ client, value, caption, light }: { client: string; value: string; caption: string; light: boolean }) {
   return (
     <div className="px-0 py-8 pr-4 sm:pr-6">
-      <p className={`text-[11px] font-semibold uppercase tracking-[0.16em] ${light ? "text-[#8B919A]" : "muted"}`}>{client}</p>
-      <p className={`mt-4 text-[56px] font-extrabold leading-none tracking-[-0.045em] sm:text-[68px] ${light ? "text-[#0C1220]" : "text-white"}`}>{value}</p>
-      <p className={`mt-4 flex items-center gap-2.5 text-[14px] leading-snug ${light ? "text-[#5C6570]" : "muted"}`}>
-        <span className="inline-block h-px w-5 shrink-0 bg-[#C8102E]" />
-        {caption}
-      </p>
+      <p className={`stat-kicker text-[11px] font-semibold uppercase tracking-[0.12em] ${light ? "text-[#8B919A]" : "muted"}`}>{client}</p>
+      <p className={`mt-3 text-[52px] font-extrabold leading-none tracking-[-0.045em] sm:text-[64px] ${light ? "text-[#0C1220]" : "text-white"}`}>{value}</p>
+      <span className="stat-rule" aria-hidden="true" />
+      <p className={`stat-caption text-[14px] leading-snug ${light ? "text-[#5C6570]" : "muted"}`}>{caption}</p>
     </div>
   );
 }
@@ -206,7 +205,8 @@ export default function Home() {
         <div className="hero-split hero-split-tall">
           <div className="band-wrap relative z-10 flex items-center py-14 lg:min-h-[520px] lg:py-16">
             <div className="band-hero-copy w-full lg:w-1/2 lg:pr-10">
-              <h1 className="hero-display max-w-[11ch]">
+              <p className="eyebrow eyebrow-gold mb-4">Break orbit.</p>
+              <h1 className="hero-display lg:max-w-none">
                 Recruiting that scales with the company you&rsquo;re becoming.
               </h1>
               <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
@@ -219,7 +219,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <OrbitPanel className="hero-orbit" />
+          <OrbitPanel variant="home" className="hero-orbit" />
         </div>
         <div className="band-wrap">
           <div className="stat-row border-t border-white/15">
@@ -229,7 +229,7 @@ export default function Home() {
           </div>
         </div>
         <div className="band-wrap py-12">
-          <p className="max-w-3xl text-[18px] leading-[1.6]">
+          <p className="hero-lede max-w-3xl text-[18px] leading-[1.6]">
             We fill open roles for technical, go-to-market, and operations teams. Contingent search is for one seat. Embedded recruiting is for the function you still need after we leave. We work with Series A through C companies and with defense teams, cleared and uncleared.
           </p>
         </div>
@@ -344,7 +344,7 @@ export default function Home() {
             {PROOF.map((item) => (
               <article key={item.client} className="grid sm:grid-cols-[11rem_1fr] gap-4 sm:gap-10 py-8 border-b border-[#e4e7ee] items-center">
                 {item.logo ? (
-                  <img src={item.logo} alt="" className="h-9 w-auto max-w-[10rem] object-contain object-left" />
+                  <img src={item.logo} alt="" width={item.logo.includes("kalibri") ? 600 : 200} height={item.logo.includes("kalibri") ? 264 : 64} className="h-9 w-auto max-w-[10rem] object-contain object-left" loading="lazy" />
                 ) : (
                   <h3 className="text-[18px] text-[#272c30]">{item.client}</h3>
                 )}
@@ -405,6 +405,8 @@ export default function Home() {
         </div>
       </section>
 
+      <LogoStrip />
+      <PullQuotes />
       <ReachPeople id="reach" />
 
       <section data-testid="section-cta" className="band-red">

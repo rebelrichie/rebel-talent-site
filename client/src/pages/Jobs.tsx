@@ -242,6 +242,7 @@ export default function Jobs() {
         title="Open Roles: Cleared, AI/ML & GTM Hiring | Rebel Talent"
         description="Open full-time, fractional, and contract roles: Forward Deployed Engineers, AI/ML, GTM, and cleared (TS/SCI) search. Hand-vetted, response within two business days."
         path="/jobs"
+        ogImage="og-home.png"
         schemas={schemas}
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
@@ -250,7 +251,7 @@ export default function Jobs() {
       />
 
       {/* ===== HERO ===== */}
-      <InteriorHero>
+      <InteriorHero orbit="jobs">
         <h1 className="text-[#0C1220]">Open roles</h1>
         <p className="mt-5 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]">
           Roles from startups, defense primes, and growth teams we are actively working. Cleared, AI/ML, forward deployed, GTM, and executive. One profile. One apply.
@@ -310,8 +311,9 @@ export default function Jobs() {
                 </button>
 
                 <div className="ml-auto flex items-center gap-2">
-                  <label className="text-xs text-zinc-400 uppercase tracking-wider">Sort</label>
+                  <label htmlFor="job-sort" className="text-xs text-zinc-400 uppercase tracking-wider">Sort</label>
                   <select
+                    id="job-sort"
                     value={sort}
                     onChange={(e) => setSort(e.target.value as SortKey)}
                     className="bg-zinc-950 border border-zinc-800 rounded-md text-zinc-300 text-xs px-3 py-1.5 focus:outline-none focus:border-zinc-600"

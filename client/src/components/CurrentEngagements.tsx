@@ -45,6 +45,9 @@ export default function CurrentEngagements({ className = "" }: { className?: str
               <img
                 src={e.logo}
                 alt={`${e.client} logo`}
+                width={e.logo.includes("waveguide") ? 1100 : 200}
+                height={e.logo.includes("waveguide") ? 260 : 64}
+                loading="lazy"
                 className="w-full h-full object-contain"
               />
             </div>

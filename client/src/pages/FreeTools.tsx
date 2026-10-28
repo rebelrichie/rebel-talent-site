@@ -138,7 +138,7 @@ export default function FreeTools() {
               <ScrollReveal variant="fade-up" delay={0}>
               <GlowCard className="border border-zinc-800 bg-zinc-900/30 p-6 text-center">
                 <div data-testid="card-book-head-heart">
-                <img src={headAndHeartCover} alt="Head and Heart book cover" className="w-36 mx-auto mb-4 border border-zinc-700" loading="lazy" />
+                <img src={headAndHeartCover} alt="Head and Heart book cover" width={400} height={600} className="w-36 mx-auto mb-4 border border-zinc-700" loading="lazy" />
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">BOOK</div>
                 <h3 className="font-display text-lg font-bold text-white uppercase mb-1">Head and Heart</h3>
                 <p className="text-zinc-400 text-sm mb-3">Winning the AI Recruiting War</p>
@@ -157,7 +157,7 @@ export default function FreeTools() {
               <ScrollReveal variant="fade-up" delay={150}>
               <GlowCard className="border border-zinc-800 bg-zinc-900/30 p-6 text-center">
                 <div data-testid="card-book-unfinished">
-                <img src={unfinishedRoomsCover} alt="Unfinished Rooms book cover" className="w-36 mx-auto mb-4 border border-zinc-700" loading="lazy" />
+                <img src={unfinishedRoomsCover} alt="Unfinished Rooms book cover" width={1024} height={1536} className="w-36 mx-auto mb-4 border border-zinc-700" loading="lazy" />
                 <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">BOOK</div>
                 <h3 className="font-display text-lg font-bold text-white uppercase mb-1">Unfinished Rooms</h3>
                 <p className="text-zinc-400 text-sm mb-3">Why Great Employees Keep One Foot Out the Door</p>

@@ -43,8 +43,8 @@ const NAV = [
 ];
 
 function linkClass(active: boolean) {
-  return `px-2.5 py-2 text-[15px] font-medium no-underline whitespace-nowrap ${
-    active ? "text-white" : "text-white/75 hover:text-white"
+  return `nav-link px-2.5 py-2 text-[15px] font-medium no-underline whitespace-nowrap ${
+    active ? "is-active text-white" : "text-white/75 hover:text-white"
   }`;
 }
 
@@ -74,7 +74,7 @@ export default function Navbar() {
           <div className="flex h-[68px] items-center justify-between gap-6">
             <Link href="/" data-testid="link-home" className="flex shrink-0 items-center gap-2.5 no-underline">
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white">
-                <img src="/logo.png" alt="" className="h-8 w-8 object-contain" />
+                <img src="/logo.png" alt="" width={200} height={200} className="h-8 w-8 object-contain" />
               </span>
               <span className="text-[13px] font-semibold uppercase leading-none tracking-[0.12em] text-white">
                 Rebel Talent
