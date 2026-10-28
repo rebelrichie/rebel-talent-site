@@ -311,8 +311,9 @@ export default function Jobs() {
                 </button>
 
                 <div className="ml-auto flex items-center gap-2">
-                  <label className="text-xs text-zinc-400 uppercase tracking-wider">Sort</label>
+                  <label htmlFor="job-sort" className="text-xs text-zinc-400 uppercase tracking-wider">Sort</label>
                   <select
+                    id="job-sort"
                     value={sort}
                     onChange={(e) => setSort(e.target.value as SortKey)}
                     className="bg-zinc-950 border border-zinc-800 rounded-md text-zinc-300 text-xs px-3 py-1.5 focus:outline-none focus:border-zinc-600"

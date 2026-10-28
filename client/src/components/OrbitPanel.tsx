@@ -48,12 +48,25 @@ export default function OrbitPanel({
     { rx: 168, ry: 62, deg: 198 },
   ].filter((mark) => spec.rings > 1 || mark.rx === 268);
   const showLabels = !compact && variant === "home";
+  const drawnMarks = variant === "home" ? marks.filter((mark) => mark.rx === 268).slice(0, 2) : marks;
 
   return (
     <div className={`orbit-panel mi-band relative overflow-hidden bg-[#001028] ${className}`} data-orbit={variant}>
-      <img src="/earth-limb.jpg" alt="" className="orbit-earth" />
+      <picture>
+        <source srcSet={variant === "home" ? "/earth-limb-arc.avif" : "/earth-limb.avif"} type="image/avif" />
+        <img
+          src={variant === "home" ? "/earth-limb-arc.webp" : "/earth-limb.webp"}
+          alt=""
+          width={variant === "home" ? 960 : 1280}
+          height={variant === "home" ? 640 : 719}
+          decoding="async"
+          fetchPriority="low"
+          className="orbit-earth"
+        />
+      </picture>
       <svg
         className="absolute inset-0 h-full w-full"
+        shapeRendering="geometricPrecision"
         viewBox={spec.viewBox}
         preserveAspectRatio="xMidYMid meet"
         aria-hidden="true"
@@ -81,7 +94,7 @@ export default function OrbitPanel({
             rx="268"
             ry="102"
             fill="none"
-            stroke="rgba(255,255,255,0.95)"
+            stroke={variant === "home" ? "rgba(255,255,255,0.78)" : "rgba(255,255,255,0.95)"}
             strokeWidth="1.6"
             strokeDasharray={spec.dashOuter ? "7 9" : undefined}
           />
@@ -91,14 +104,15 @@ export default function OrbitPanel({
           {spec.rings >= 3 && (
             <ellipse rx="96" ry="36" fill="none" stroke="rgba(143,219,239,0.9)" strokeWidth="1.1" />
           )}
-          {marks.map((mark) => {
+          {drawnMarks.map((mark) => {
             const rad = (mark.deg * Math.PI) / 180;
             const cx = Math.cos(rad) * mark.rx;
             const cy = Math.sin(rad) * mark.ry;
+            const dot = variant === "home" ? 2.6 : 4.2;
             return (
               <g key={`${mark.rx}-${mark.deg}`}>
-                <circle cx={cx} cy={cy} r="8" fill="none" stroke="#C8102E" strokeWidth="1.1" />
-                <circle cx={cx} cy={cy} r="4.2" fill="#C8102E" />
+                <circle cx={cx} cy={cy} r={dot + 3.4} fill="none" stroke="#C8102E" strokeWidth="1.1" />
+                <circle cx={cx} cy={cy} r={dot} fill="#C8102E" />
               </g>
             );
           })}
@@ -109,6 +123,34 @@ export default function OrbitPanel({
           <line x1="640" y1="150" x2="560" y2="220" />
           <line x1="630" y1="470" x2="548" y2="390" />
         </g>
+
+        {variant === "home" && (
+          <g className="flight-home" fill="none">
+            <path d="M168 338C286 246 392 392 508 292" stroke="#E23B4A" strokeWidth="1.15" />
+            <path d="M188 392C292 332 390 358 486 334" stroke="#E23B4A" strokeWidth="1" opacity="0.9" />
+            <path className="flight-node-path flight-node-a" d="M168 338C286 246 392 392 508 292" stroke="rgba(226,59,74,0.28)" strokeWidth="6.5" strokeLinecap="round" pathLength={100} strokeDasharray="2.4 36.4 2.4 58.8" />
+            <path className="flight-node-path flight-node-a" d="M168 338C286 246 392 392 508 292" stroke="#E23B4A" strokeWidth="2.5" strokeLinecap="round" pathLength={100} strokeDasharray="0.85 37.95 0.85 60.35" />
+            <path className="flight-node-path flight-node-b" d="M188 392C292 332 390 358 486 334" stroke="rgba(226,59,74,0.28)" strokeWidth="6" strokeLinecap="round" pathLength={100} strokeDasharray="2.2 97.8" />
+            <path className="flight-node-path flight-node-b" d="M188 392C292 332 390 358 486 334" stroke="#E23B4A" strokeWidth="2.4" strokeLinecap="round" pathLength={100} strokeDasharray="0.8 99.2" />
+            <g className="flight-brackets" stroke="rgba(255,255,255,0.55)" strokeWidth="1" opacity="0.22">
+              <path d="M236 196v6h6" />
+              <path d="M258 196h6v6" />
+              <path d="M236 218v-6h6" />
+              <path d="M258 218h6v-6" />
+              <path d="M412 268v5h5" />
+              <path d="M430 268h5v5" />
+              <path d="M412 286v-5h5" />
+              <path d="M430 286h5v-5" />
+            </g>
+          </g>
+        )}
+
+        {variant === "cleared" && (
+          <g opacity="0.22" fill="none">
+            <path d="M220 430C330 300 500 290 640 410" stroke="#E23B4A" strokeWidth="1.35" />
+            <circle cx="412" cy="318" r="3.1" fill="#E23B4A" stroke="none" />
+          </g>
+        )}
       </svg>
 
       {showLabels && (

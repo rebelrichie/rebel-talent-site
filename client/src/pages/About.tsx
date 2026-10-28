@@ -91,7 +91,7 @@ export default function About() {
       {/* ───────────── HERO ───────────── */}
       <InteriorHero orbit="about">
         <div className="mb-6 flex items-center gap-4">
-          <img src="/team-richie.jpg" alt="Richie Lampani, Founder of Rebel Talent Systems" className="h-16 w-16 shrink-0 rounded-full object-cover object-top" data-testid="img-profile" />
+          <img src="/team-richie.webp" alt="Richie Lampani, Founder of Rebel Talent Systems" width={600} height={600} className="h-16 w-16 shrink-0 rounded-full object-cover object-top" data-testid="img-profile" />
           <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#8B919A]">Founder</p>
         </div>
         <h1 className="max-w-[14ch] text-[#0C1220]" data-testid="text-name">
@@ -270,7 +270,7 @@ export default function About() {
             {[
               {
                 name: "Chris Moscato",
-                photo: "/chris-moscato.jpg",
+                photo: "/chris-moscato.webp",
                 title: "Head of Client Acquisition",
                 blurb:
                   "The commercial lead startups actually want on the first call. Calm under pressure, direct on the phone, and still on the account after the paperwork.",
@@ -279,7 +279,7 @@ export default function About() {
               },
               {
                 name: "Hannah Kerrigan",
-                photo: "/team-hannah.jpg",
+                photo: "/team-hannah.webp",
                 title: "Full Desk Recruiter",
                 blurb:
                   "Hannah lives in sales talent. She knows how AEs and SDRs think, so the conversation never needs a translator.",
@@ -288,7 +288,7 @@ export default function About() {
               },
               {
                 name: "Veronica S.",
-                photo: "/team-veronica.jpg",
+                photo: "/team-veronica.webp",
                 title: "Recruiter / Chief of Staff",
                 blurb:
                   "The quiet operator who keeps the house from catching fire while the searches move. Detail-obsessed, hard to rattle, usually three steps ahead of the calendar.",
@@ -297,7 +297,7 @@ export default function About() {
               },
               {
                 name: "Mike Wrona",
-                photo: "/team-mike.jpg",
+                photo: "/team-mike.webp",
                 title: "Recruitment Consultant",
                 blurb:
                   "Dual-use recruiter: federal one week, tech and GTM the next, without going soft on either. Built for the hard req and the long engagement.",
@@ -306,7 +306,7 @@ export default function About() {
               },
               {
                 name: "Anthony Lynch",
-                photo: "/team-anthony.jpg",
+                photo: "/team-anthony.webp",
                 title: "Commercial Contingent Recruiter",
                 blurb:
                   "Runs commercial contingent searches end to end, from the first sourcing pass to the signed offer. Works the full desk and keeps every req moving.",
@@ -315,7 +315,7 @@ export default function About() {
               },
               {
                 name: "Kelli Hrivnak",
-                photo: "/team-kelli.jpg",
+                photo: "/team-kelli.webp",
                 title: "Commercial Contingent Recruiter",
                 blurb:
                   "Runs commercial contingent searches and owns the screen. Keeps candidates moving from the first call to the submittal, with nothing left sitting.",
@@ -324,7 +324,7 @@ export default function About() {
               },
               {
                 name: "Bonnie Elton",
-                photo: "/team-bonnie.jpg",
+                photo: "/team-bonnie.webp",
                 title: "Full Desk Recruiter",
                 blurb:
                   "Bonnie brings in new clients and recruits across commercial and cleared searches. She stays with each search from the first conversation through a signed offer.",
@@ -339,6 +339,8 @@ export default function About() {
                       <img
                         src={person.photo}
                         alt={`${person.name}, ${person.title} at Rebel Talent Systems`}
+                        width={320}
+                        height={320}
                         loading="lazy"
                         className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border border-zinc-700 shrink-0"
                       />
@@ -425,6 +427,8 @@ export default function About() {
                       <img
                         src={agent.photo}
                         alt={`${agent.name}, AI agent for ${agent.role} at Rebel Talent Systems`}
+                        width={320}
+                        height={320}
                         loading="lazy"
                         className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border border-zinc-700 shrink-0"
                       />
@@ -555,7 +559,7 @@ export default function About() {
             <ScrollReveal variant="fade-up">
             <GlowCard>
               <div className="border border-zinc-800 bg-zinc-900/30 p-6 flex flex-col sm:flex-row gap-5 items-start h-full">
-                <img src={headAndHeartCover} alt="Head and Heart book cover" className="w-28 shrink-0 border border-zinc-700" loading="lazy" />
+                <img src={headAndHeartCover} alt="Head and Heart book cover" width={400} height={600} className="w-28 shrink-0 border border-zinc-700" loading="lazy" />
                 <div>
                   <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">Book &middot; Dec 2025</div>
                   <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Head and Heart</h3>
@@ -574,7 +578,7 @@ export default function About() {
             <ScrollReveal variant="fade-up">
             <GlowCard>
               <div className="border border-zinc-800 bg-zinc-900/30 p-6 flex flex-col sm:flex-row gap-5 items-start h-full">
-                <img src={unfinishedRoomsCover} alt="Unfinished Rooms book cover" className="w-28 shrink-0 border border-zinc-700" loading="lazy" />
+                <img src={unfinishedRoomsCover} alt="Unfinished Rooms book cover" width={1024} height={1536} className="w-28 shrink-0 border border-zinc-700" loading="lazy" />
                 <div>
                   <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">Book &middot; Mar 2026</div>
                   <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Unfinished Rooms</h3>

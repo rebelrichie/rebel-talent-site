@@ -5,7 +5,7 @@ export function BlueprintField() {
   const horizontal = Array.from({ length: 9 }, (_, i) => i * GRID);
   const ticks = Array.from({ length: 25 }, (_, i) => i * 48);
   return (
-    <svg className="bp-field" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <svg className="bp-field" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false" shapeRendering="geometricPrecision">
       <g className="bp-grid" fill="none" stroke="#8FD4EA" strokeWidth="0.7">
         {vertical.map((x) => (
           <line key={`v${x}`} x1={x} y1="0" x2={x} y2="640" />

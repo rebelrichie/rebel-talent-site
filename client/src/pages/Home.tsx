@@ -5,6 +5,7 @@ import PageSEO from "@/components/PageSEO";
 import ContingentChrisSection from "@/components/ContingentChrisSection";
 import ReachPeople from "@/components/ReachPeople";
 import OrbitPanel from "@/components/OrbitPanel";
+import { LogoStrip, PullQuotes } from "@/components/Proof";
 
 const homepageSchema = {
   "@context": "https://schema.org",
@@ -122,12 +123,12 @@ const btn = "mi-btn";
 const textLink = "text-[15px] font-medium text-[#0C1220] underline underline-offset-4";
 
 const LIGHT_STATS = [
-  { client: "EarthDaily Federal", value: "<30", caption: "Days, average time to hire" },
-  { client: "EarthDaily Federal", value: "11", caption: "Placements" },
+  { client: "EarthDaily Federal", value: "<30", caption: "Average time to hire" },
+  { client: "Kalibri Labs", value: "34", caption: "Days to a signed ML hire" },
 ];
 
 const NAVY_STATS = [
-  { client: "EarthDaily Federal", value: "3.4x", caption: "Return. About $394K avoided" },
+  { client: "Fee return", value: "3.4x", caption: "About $394K in fees avoided" },
   { client: "Legal Managed Services", value: "90%", caption: "Retention. 20 hires, 24 months" },
 ];
 
@@ -204,6 +205,7 @@ export default function Home() {
         <div className="hero-split hero-split-tall">
           <div className="band-wrap relative z-10 flex items-center py-14 lg:min-h-[520px] lg:py-16">
             <div className="band-hero-copy w-full lg:w-1/2 lg:pr-10">
+              <p className="eyebrow eyebrow-gold mb-4">Break orbit.</p>
               <h1 className="hero-display lg:max-w-none">
                 Recruiting that scales with the company you&rsquo;re becoming.
               </h1>
@@ -342,7 +344,7 @@ export default function Home() {
             {PROOF.map((item) => (
               <article key={item.client} className="grid sm:grid-cols-[11rem_1fr] gap-4 sm:gap-10 py-8 border-b border-[#e4e7ee] items-center">
                 {item.logo ? (
-                  <img src={item.logo} alt="" className="h-9 w-auto max-w-[10rem] object-contain object-left" />
+                  <img src={item.logo} alt="" width={item.logo.includes("kalibri") ? 600 : 200} height={item.logo.includes("kalibri") ? 264 : 64} className="h-9 w-auto max-w-[10rem] object-contain object-left" loading="lazy" />
                 ) : (
                   <h3 className="text-[18px] text-[#272c30]">{item.client}</h3>
                 )}
@@ -403,6 +405,8 @@ export default function Home() {
         </div>
       </section>
 
+      <LogoStrip />
+      <PullQuotes />
       <ReachPeople id="reach" />
 
       <section data-testid="section-cta" className="band-red">

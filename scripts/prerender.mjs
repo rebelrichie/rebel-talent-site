@@ -369,6 +369,9 @@ async function prerender() {
         sinceRestart = 0;
       }
       const page = await browser.newPage();
+      await page.evaluateOnNewDocument(() => {
+        window.__PRERENDER = true;
+      });
       await page.goto(`http://localhost:${PORT}${route}`, {
         waitUntil: "domcontentloaded",
         timeout: 30000,
@@ -405,6 +408,9 @@ async function prerender() {
   //   location / { try_files $uri $uri/ $uri/index.html =404; }
   try {
     const page = await browser.newPage();
+    await page.evaluateOnNewDocument(() => {
+      window.__PRERENDER = true;
+    });
     await page.goto(`http://localhost:${PORT}/this-page-is-not-real`, {
       waitUntil: "domcontentloaded",
       timeout: 30000,
