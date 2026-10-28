@@ -1685,25 +1685,19 @@ main .page-bands > section[class*="max-w-"] {
     height: auto !important;
     min-height: 100%;
   }
-  /* Interior heroes stay a similar height so a long about intro does not
-     stretch the orbit into a square that slices the ring. */
-  .hero-split:not(.hero-split-tall) .hero-orbit {
-    bottom: auto !important;
-    height: 480px !important;
-    max-height: 480px !important;
-    min-height: 0 !important;
-  }
 }
 @media (min-width: 1600px) {
   .hero-split-tall .band-wrap {
     width: min(1280px, calc(100% - 3rem));
   }
+  /* Stay clear of the 520px orbit. 100% is the content box. */
   .hero-split-tall .band-hero-copy {
-    width: min(52rem, 68%);
+    width: min(52rem, calc(100% - 520px - 2rem)) !important;
+    max-width: calc(100% - 520px - 2rem);
   }
   .hero-split-tall .hero-orbit {
     right: max(0px, calc((100% - min(1280px, 100%)) / 2));
-    width: min(520px, 38vw);
+    width: 520px;
   }
 }
 .orbit-label-left {
@@ -1716,9 +1710,9 @@ main .page-bands > section[class*="max-w-"] {
 .orbit-labels-right {
   position: absolute;
   z-index: 3;
-  right: 7%;
-  top: 12%;
-  bottom: 14%;
+  right: 14%;
+  top: 28%;
+  bottom: 16%;
   width: 10rem;
   display: flex;
   flex-direction: column;
@@ -1728,6 +1722,7 @@ main .page-bands > section[class*="max-w-"] {
   text-align: right;
 }
 .orbit-labels-right .orbit-label { position: static; max-width: 10rem; }
+.orbit-labels-right .orbit-label:first-child { transform: translate(-7.5rem, 0.4rem); }
 @media (max-width: 1023px) {
   .orbit-label, .orbit-label-left, .orbit-labels-right { display: none; }
 }

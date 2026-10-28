@@ -10,6 +10,7 @@ import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 // Safe addition — human-readable job URLs (slug + UUID)
 import InteriorHero from "@/components/InteriorHero";
+import NotFound from "@/pages/not-found";
 import { extractJobId, isBareJobUuid, jobPath } from "@/lib/jobSlug";
 import { buildJobMetaDescription } from "@/lib/jobMeta";
 import { publicPayLine } from "@/lib/payLabel";
@@ -163,6 +164,10 @@ export default function JobDetail() {
     return loc || rp || "Remote";
   })();
 
+  if (!loading && error === "Role not found") {
+    return <NotFound />;
+  }
+
   return (
     <PageLayout>
       {/* Safe addition — only swap the head once we know what this page is.
@@ -188,7 +193,7 @@ export default function JobDetail() {
         <section className="px-6 py-16 max-w-3xl mx-auto text-[#5C6570]">Loading role…</section>
       )}
 
-      {error && !loading && (
+      {error && error !== "Role not found" && !loading && (
         <InteriorHero>
           <Link
             href="/jobs"

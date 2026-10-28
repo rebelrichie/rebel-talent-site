@@ -6,6 +6,7 @@ import { ArrowLeft, Clock } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import InteriorHero from "@/components/InteriorHero";
+import NotFound from "@/pages/not-found";
 import { getPostBySlug, getRelatedPosts, getUnpublishedRedirect } from "@/lib/blogData";
 
 function formatDate(date: string | null) {
@@ -225,14 +226,7 @@ export default function BlogPost() {
   }
 
   if (!post) {
-    return (
-      <PageLayout>
-        <InteriorHero orbit="blog">
-          <h1 className="text-[#0C1220]">Post Not Found</h1>
-          <Link href="/blog" className="mt-6 text-[#C8102E] no-underline">Back to Blog</Link>
-        </InteriorHero>
-      </PageLayout>
-    );
+    return <NotFound />;
   }
 
   const headings = articleHeadings(post.body || "");

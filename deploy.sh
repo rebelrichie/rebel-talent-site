@@ -70,9 +70,22 @@ if [[ -z "$site" ]]; then
   echo "No nginx site file mentions the Rebel docroot. Snippet saved at /etc/nginx/snippets/rebel-talent-routes.conf. Not reloading." >&2
   exit 1
 fi
-backup="${site}.bak-rts-$(date +%Y%m%d%H%M%S)"
-cp -a "$site" "$backup"
-python3 - "$site" << 'PY'
+site_real=$(readlink -f "$site")
+mkdir -p /etc/nginx/backups
+backup="/etc/nginx/backups/$(basename "$site_real").bak-rts-$(date +%Y%m%d%H%M%S)"
+cp -a "$site_real" "$backup"
+restore_nginx() {
+  echo "Restoring ${backup} and reloading the previous config." >&2
+  cp -a "$backup" "$site_real"
+  if nginx -t; then
+    if command -v systemctl >/dev/null 2>&1; then
+      systemctl reload nginx
+    else
+      nginx -s reload
+    fi
+  fi
+}
+python3 - "$site_real" << 'PY'
 import re, sys
 path = sys.argv[1]
 text = open(path).read()
@@ -93,18 +106,31 @@ if include not in text2:
 open(path, "w").write(text2)
 print("nginx site includes rebel-talent-routes.conf:", path, "replaced_location" if n else "inserted_include")
 PY
-if nginx -t; then
-  if command -v systemctl >/dev/null 2>&1; then
-    systemctl reload nginx
-  else
-    nginx -s reload
-  fi
-  echo "nginx reloaded"
-else
+if ! nginx -t; then
   echo "nginx -t failed. Restoring ${backup}. Not reloading." >&2
-  cp -a "$backup" "$site"
+  cp -a "$backup" "$site_real"
   exit 1
 fi
+reloaded=0
+if command -v systemctl >/dev/null 2>&1; then
+  systemctl reload nginx && reloaded=1
+else
+  nginx -s reload && reloaded=1
+fi
+if [[ "$reloaded" -ne 1 ]]; then
+  restore_nginx
+  exit 1
+fi
+code_home=$(curl -sk -o /dev/null -w "%{http_code}" https://rebeltalentsystems.com/ || true)
+code_missing=$(curl -sk -o /dev/null -w "%{http_code}" https://rebeltalentsystems.com/nonexistent-xyz || true)
+code_results=$(curl -sk -o /dev/null -w "%{http_code}" https://rebeltalentsystems.com/results || true)
+echo "smoke /:${code_home} /nonexistent-xyz:${code_missing} /results:${code_results}"
+if [[ "$code_home" != "200" || "$code_missing" != "404" || "$code_results" != "301" ]]; then
+  echo "Smoke test failed. Restoring the previous nginx config." >&2
+  restore_nginx
+  exit 1
+fi
+echo "nginx reloaded and smoke test passed"
 REMOTE
 fi
 

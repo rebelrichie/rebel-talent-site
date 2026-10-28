@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+// Chrome: set PUPPETEER_EXECUTABLE_PATH to a Chrome or Chromium binary
+// when one is already installed. Otherwise Puppeteer uses the browser
+// from its own download. package.json engines: Node >= 20, npm >= 10.
 // Safe addition — Pre-render all static routes after Vite build
 // Spins up a local server, visits each route with Puppeteer, saves rendered HTML
 // Run: node scripts/prerender.mjs (after vite build)
@@ -348,6 +351,7 @@ async function prerender() {
     "/usr/bin/google-chrome-stable",
     "/usr/bin/google-chrome",
     "/usr/local/bin/google-chrome",
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
   ].filter(Boolean);
   const executablePath = chromeCandidates.find((candidate) => existsSync(candidate));
   const launchOpts = { headless: true, args: chromeArgs, ...(executablePath ? { executablePath } : {}) };
