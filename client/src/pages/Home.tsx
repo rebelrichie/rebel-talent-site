@@ -203,7 +203,6 @@ export default function Home() {
 
       <section data-testid="section-hero" className="band-hero">
         <BannerHero tall mark priority>
-          <p className="eyebrow eyebrow-gold">Break orbit.</p>
           <h1 className="hero-display">
             Recruiting that scales with the company you&rsquo;re becoming.
           </h1>

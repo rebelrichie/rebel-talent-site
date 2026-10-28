@@ -44,59 +44,6 @@ function Bracket({ x, y, s = 28 }: { x: number; y: number; s?: number }) {
   );
 }
 
-function RebelMark() {
-  return (
-    <svg className="banner-mark" viewBox="0 0 400 470" role="img" aria-label="Rebel Talent">
-      <defs>
-        <linearGradient id="rebel-orbit" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stopColor="#C8102E" />
-          <stop offset="0.55" stopColor="#E23B4A" />
-          <stop offset="1" stopColor="#F08A2A" />
-        </linearGradient>
-      </defs>
-      <g transform="translate(200 168)">
-        <polygon
-          fill="#F7F9FC"
-          points="0,-132 14,-16 132,0 14,16 0,132 -14,16 -132,0 -14,-16"
-        />
-        <ellipse
-          rx="158"
-          ry="54"
-          fill="none"
-          stroke="url(#rebel-orbit)"
-          strokeWidth="7"
-          transform="rotate(-16)"
-        />
-        <circle cx="149" cy="-25" r="7" fill="#E23B4A" />
-      </g>
-      <text
-        x="200"
-        y="360"
-        textAnchor="middle"
-        fill="#F7F9FC"
-        fontFamily="Inter, sans-serif"
-        fontSize="64"
-        fontWeight="800"
-        letterSpacing="-1.5"
-      >
-        REBEL
-      </text>
-      <text
-        x="200"
-        y="412"
-        textAnchor="middle"
-        fill="#F7F9FC"
-        fontFamily="Inter, sans-serif"
-        fontSize="26"
-        fontWeight="600"
-        letterSpacing="12"
-      >
-        TALENT
-      </text>
-    </svg>
-  );
-}
-
 export default function BannerHero({
   children,
   tall = false,
@@ -163,9 +110,17 @@ export default function BannerHero({
         ))}
       </svg>
       <div className="banner-scrim" aria-hidden="true" />
+      {mark && (
+        <img
+          className="banner-mark"
+          src="/images/rebel-logo-break-orbit.webp"
+          alt="Rebel Talent. Break orbit."
+          width={1856}
+          height={1056}
+        />
+      )}
       <div className="band-wrap banner-copy">
         <div className="band-hero-copy">{children}</div>
-        {mark && <RebelMark />}
       </div>
     </div>
   );

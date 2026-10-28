@@ -1544,7 +1544,7 @@ main .page-bands > section:not(:nth-child(4n+3)):not(.band-light) .text-rebel-re
 main .page-bands > section:not(:nth-child(4n+3)):not(.band-light) .text-emerald-800 {
   color: #8EE0B0 !important;
 }
-main .page-bands > section:not(:nth-child(4n+3)):not(.band-light) img[src*="logo-"] {
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light) img[src*="logo-"]:not(.banner-mark):not(.site-logo) {
   filter: brightness(0) invert(1);
 }
 main .page-bands > section:not(:nth-child(4n+3)):not(.band-light) :is(div, article, a, section).bg-white,
@@ -2228,13 +2228,12 @@ main .page-bands > section.band-red::after {
 .banner-copy {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: minmax(0, 46rem) auto;
-  align-items: center;
-  gap: 2.5rem;
-  width: min(1240px, 100%);
+  width: min(1480px, 100%);
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
+}
+.banner-stage-tall .band-hero-copy {
+  max-width: 40rem;
 }
 .banner-stage .band-hero-copy {
   background: transparent !important;
@@ -2243,10 +2242,28 @@ main .page-bands > section.band-red::after {
   max-width: none !important;
 }
 .banner-mark {
-  width: min(340px, 34vw);
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: max(1.5rem, calc((100% - 1480px) / 2 + 1.25rem));
+  width: min(460px, 34vw);
   height: auto;
-  justify-self: end;
+  transform: translateY(-50%);
+  mix-blend-mode: screen;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 47%, #000 42%, transparent 68%);
+  mask-image: radial-gradient(ellipse at 50% 47%, #000 42%, transparent 68%);
+  pointer-events: none;
+}
+.site-logo {
+  display: block;
+  height: 64px;
+  width: auto;
+  mix-blend-mode: screen;
   background: none;
+}
+.site-logo-footer {
+  height: 84px;
+  margin-bottom: 1rem;
 }
 .banner-stage .band-hero-copy h1,
 .banner-stage .band-hero-copy h1.hero-display {
@@ -2284,10 +2301,12 @@ main .page-bands > section.band-red::after {
     padding-top: 8.75rem;
   }
   .banner-mark {
-    position: absolute;
-    top: 0.15rem;
-    right: 1rem;
-    width: 108px;
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    width: min(300px, 88%);
+    margin: 0 0 1.5rem;
   }
   .banner-stage .band-hero-copy h1,
   .banner-stage .band-hero-copy h1.hero-display {
