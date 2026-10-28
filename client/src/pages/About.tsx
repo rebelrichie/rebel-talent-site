@@ -270,7 +270,7 @@ export default function About() {
             {[
               {
                 name: "Chris Moscato",
-                photo: "/chris-moscato.webp",
+                photo: "/chris-moscato.jpg",
                 title: "Head of Client Acquisition",
                 blurb:
                   "The commercial lead startups actually want on the first call. Calm under pressure, direct on the phone, and still on the account after the paperwork.",
@@ -336,14 +336,20 @@ export default function About() {
                 <GlowCard>
                   <div className="border border-zinc-800 bg-zinc-900/40 p-6 h-full flex flex-col" data-testid={`team-${person.name.split(" ")[0].toLowerCase()}`}>
                     <div className="flex items-center gap-4 mb-4">
-                      <img
-                        src={person.photo}
-                        alt={`${person.name}, ${person.title} at Rebel Talent Systems`}
-                        width={320}
-                        height={320}
-                        loading="lazy"
-                        className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border border-zinc-700 shrink-0"
-                      />
+                      <picture>
+                        <source
+                          srcSet={person.photo.replace(/\.(jpe?g|png)$/i, ".webp")}
+                          type="image/webp"
+                        />
+                        <img
+                          src={person.photo.replace(/\.webp$/i, ".jpg")}
+                          alt={`${person.name}, ${person.title} at Rebel Talent Systems`}
+                          width={320}
+                          height={320}
+                          loading="lazy"
+                          className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border border-zinc-700 shrink-0"
+                        />
+                      </picture>
                       <div>
                         <h3 className="font-display text-lg font-bold text-white uppercase mb-1">{person.name}</h3>
                         <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">{person.title}</div>
