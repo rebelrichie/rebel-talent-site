@@ -2183,7 +2183,7 @@ main .page-bands > section.band-red::after {
   line-height: 1.4;
 }
 
-/* Full-bleed night-Earth banner. Later rules win over the split-hero type. */
+/* Night-Earth hero. Later rules win over the split-hero type. */
 .banner-stage {
   position: relative;
   isolation: isolate;
@@ -2211,7 +2211,7 @@ main .page-bands > section.band-red::after {
 .banner-flight {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   height: 100%;
   pointer-events: none;
@@ -2225,10 +2225,12 @@ main .page-bands > section.band-red::after {
     linear-gradient(180deg, rgba(0, 6, 16, 0.78) 0%, rgba(0, 6, 16, 0.62) 46%, rgba(0, 6, 16, 0.18) 78%),
     linear-gradient(90deg, rgba(0, 6, 16, 0.72) 0%, rgba(0, 6, 16, 0.45) 42%, rgba(0, 6, 16, 0.08) 68%);
 }
+.banner-flight-base { display: none; }
 .banner-copy {
   position: relative;
   z-index: 2;
-  width: min(1480px, 100%);
+  width: min(1140px, 100%);
+  min-width: 0;
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
 }
@@ -2292,24 +2294,58 @@ main .page-bands > section.band-red::after {
 .banner-stage .band-hero-copy a:not(.mi-btn) {
   color: #ffffff !important;
 }
-@media (max-width: 800px) {
+@media (max-width: 900px) {
+  .banner-stage {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
   .banner-copy {
-    grid-template-columns: 1fr;
-    padding-top: 8.75rem;
+    width: 100%;
+    padding-top: 0.25rem;
+    padding-bottom: 6.5rem;
+  }
+  .banner-flight-sky { display: none; }
+  .banner-flight-base {
+    display: block;
+    inset: auto 0 0.85rem 0;
+    height: 4.75rem;
+  }
+  .banner-stage-tall .band-hero-copy {
+    max-width: none;
   }
   .banner-mark {
     position: relative;
     top: auto;
     right: auto;
     transform: none;
-    width: min(300px, 88%);
-    margin: 0 0 1.5rem;
+    width: min(86vw, 22rem);
+    max-width: 86%;
+    height: auto;
+    margin: 1.25rem auto 0.25rem;
+    align-self: center;
   }
   .banner-stage .band-hero-copy h1,
   .banner-stage .band-hero-copy h1.hero-display {
-    font-size: 2.35rem !important;
-    line-height: 0.96 !important;
+    font-size: clamp(1.7rem, 7.6vw, 2.45rem) !important;
+    line-height: 0.98 !important;
     letter-spacing: -0.03em !important;
+    max-width: 100%;
+  }
+  .stat-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+  .stat-row > * {
+    min-width: 0;
+    padding-right: 0.75rem;
+  }
+  .stat-row > * > p:nth-of-type(2) {
+    font-size: clamp(1.85rem, 10vw, 2.75rem) !important;
+  }
+  .stat-kicker,
+  .stat-caption {
+    overflow-wrap: anywhere;
   }
 }
 main .page-bands > section:has(.banner-stage) {
