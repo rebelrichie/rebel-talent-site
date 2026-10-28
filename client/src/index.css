@@ -2183,29 +2183,30 @@ main .page-bands > section.band-red::after {
   line-height: 1.4;
 }
 
-/* Deep-navy hero. Later rules win over the split-hero type. */
+/* Full-bleed night-Earth banner. Later rules win over the split-hero type. */
 .banner-stage {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   display: flex;
   align-items: center;
-  background-color: #001028 !important;
-  background-image:
-    radial-gradient(1px 1px at 8% 18%, rgba(247, 249, 252, 0.7) 50%, transparent 52%),
-    radial-gradient(1px 1px at 22% 72%, rgba(247, 249, 252, 0.45) 50%, transparent 52%),
-    radial-gradient(1.4px 1.4px at 78% 16%, rgba(247, 249, 252, 0.65) 50%, transparent 52%),
-    radial-gradient(1px 1px at 90% 64%, rgba(247, 249, 252, 0.4) 50%, transparent 52%),
-    radial-gradient(1px 1px at 48% 38%, rgba(247, 249, 252, 0.28) 50%, transparent 52%),
-    linear-gradient(rgba(143, 186, 214, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(143, 186, 214, 0.07) 1px, transparent 1px) !important;
-  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 72px 72px, 72px 72px !important;
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat, repeat !important;
+  background: #00060f !important;
 }
 .banner-stage-tall { min-height: calc(100svh - 6.75rem); }
 .banner-stage-short { min-height: 26rem; }
 @media (min-width: 1024px) {
   .banner-stage-short { min-height: 32rem; }
+}
+.banner-earth {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.banner-earth img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 .banner-flight {
   position: absolute;
@@ -2215,7 +2216,15 @@ main .page-bands > section.band-red::after {
   height: 100%;
   pointer-events: none;
 }
-.banner-flight-base { display: none; }
+.banner-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(0, 6, 16, 0.78) 0%, rgba(0, 6, 16, 0.62) 46%, rgba(0, 6, 16, 0.18) 78%),
+    linear-gradient(90deg, rgba(0, 6, 16, 0.72) 0%, rgba(0, 6, 16, 0.45) 42%, rgba(0, 6, 16, 0.08) 68%);
+}
 .banner-copy {
   position: relative;
   z-index: 2;
@@ -2237,7 +2246,7 @@ main .page-bands > section.band-red::after {
   z-index: 2;
   top: 50%;
   right: max(1.5rem, calc((100% - 1480px) / 2 + 1.25rem));
-  width: min(620px, 42vw);
+  width: min(460px, 34vw);
   height: auto;
   transform: translateY(-50%);
   pointer-events: none;
@@ -2283,58 +2292,24 @@ main .page-bands > section.band-red::after {
 .banner-stage .band-hero-copy a:not(.mi-btn) {
   color: #ffffff !important;
 }
-@media (max-width: 900px) {
-  .banner-stage {
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-  }
+@media (max-width: 800px) {
   .banner-copy {
-    width: 100%;
-    padding-top: 0.25rem;
-    padding-bottom: 6.5rem;
-  }
-  .banner-flight-sky { display: none; }
-  .banner-flight-base {
-    display: block;
-    inset: auto 0 0 0;
-    height: 5.25rem;
-  }
-  .banner-stage-tall .band-hero-copy {
-    max-width: none;
+    grid-template-columns: 1fr;
+    padding-top: 8.75rem;
   }
   .banner-mark {
     position: relative;
     top: auto;
     right: auto;
     transform: none;
-    width: min(86vw, 22rem);
-    max-width: 86%;
-    height: auto;
-    margin: 1.25rem auto 0.25rem;
-    align-self: center;
+    width: min(300px, 88%);
+    margin: 0 0 1.5rem;
   }
   .banner-stage .band-hero-copy h1,
   .banner-stage .band-hero-copy h1.hero-display {
-    font-size: clamp(1.7rem, 7.6vw, 2.45rem) !important;
-    line-height: 0.98 !important;
+    font-size: 2.35rem !important;
+    line-height: 0.96 !important;
     letter-spacing: -0.03em !important;
-    max-width: 100%;
-  }
-  .stat-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: 100%;
-  }
-  .stat-row > * {
-    min-width: 0;
-    padding-right: 0.75rem;
-  }
-  .stat-row > * > p:nth-of-type(2) {
-    font-size: clamp(1.85rem, 10vw, 2.75rem) !important;
-  }
-  .stat-kicker,
-  .stat-caption {
-    overflow-wrap: anywhere;
   }
 }
 main .page-bands > section:has(.banner-stage) {
@@ -2387,21 +2362,20 @@ main .page-bands > section:not(.band-red) [class*="border-[#e"] {
   border-color: rgba(247, 249, 252, 0.16) !important;
 }
 main .page-bands > section:not(:has(.banner-stage)):not(.band-red) {
-  background-image:
-    radial-gradient(1.2px 1.2px at 14% 24%, rgba(247, 249, 252, 0.55) 50%, transparent 52%),
-    radial-gradient(1.2px 1.2px at 70% 30%, rgba(247, 249, 252, 0.4) 50%, transparent 52%),
-    radial-gradient(1px 1px at 42% 68%, rgba(247, 249, 252, 0.28) 50%, transparent 52%),
-    linear-gradient(rgba(143, 186, 214, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(143, 186, 214, 0.045) 1px, transparent 1px) !important;
-  background-repeat: no-repeat, no-repeat, no-repeat, repeat, repeat !important;
-  background-position: 0 0, 0 0, 0 0, 0 0, 0 0 !important;
-  background-size: 100% 100%, 100% 100%, 100% 100%, 72px 72px, 72px 72px !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cg opacity='0.28'%3E%3Ccircle cx='352' cy='1062' r='1168' fill='none' stroke='%23E23B4A' stroke-width='1.5' stroke-dasharray='11 9'/%3E%3Ccircle cx='352' cy='1062' r='1292' fill='none' stroke='%23E23B4A' stroke-width='1.5' stroke-dasharray='11 9'/%3E%3C/g%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right -8% bottom -40% !important;
+  background-size: 78% auto !important;
 }
 main .page-bands > section.band-red::after {
-  opacity: 0.7;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 160'%3E%3Cg fill='none' stroke='white' stroke-width='1.6' stroke-dasharray='12 9'%3E%3Cellipse cx='320' cy='155' rx='290' ry='115'/%3E%3Cellipse cx='320' cy='180' rx='370' ry='135'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 100% 100%;
-  background-position: right bottom;
+  opacity: 0.34;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Ccircle cx='352' cy='1062' r='1168' fill='none' stroke='white' stroke-width='1.6' stroke-dasharray='11 9'/%3E%3Ccircle cx='352' cy='1062' r='1292' fill='none' stroke='white' stroke-width='1.6' stroke-dasharray='11 9'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center top;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  bottom: 0;
 }
 main .page-bands > section:not(:has(.banner-stage)) h2 {
   font-size: clamp(1.85rem, 2.7vw, 2.7rem) !important;

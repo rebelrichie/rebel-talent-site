@@ -1,76 +1,34 @@
+import { Helmet } from "react-helmet-async";
+
 /**
- * Deep-navy hero. Flight paths are smooth ellipses in open sky.
- * The mark is the real logo file.
+ * Full-bleed night-Earth hero.
+ * Photo: NASA Earth Observatory, "Black Marble" Americas, Suomi NPP VIIRS,
+ * April and October 2012. Public domain.
+ * https://commons.wikimedia.org/wiki/File:Black_Marble_Americas.jpg
+ * Flight paths, nodes, and brackets are SVG. The mark is the existing logo.
  */
 
-type Orbit = { cx: number; cy: number; rx: number; ry: number };
+const AVIF = "/earth-night-800.avif 800w, /earth-night-1280.avif 1280w, /earth-night-1920.avif 1920w, /earth-night-2400.avif 2400w";
+const WEBP = "/earth-night-800.webp 800w, /earth-night-1280.webp 1280w, /earth-night-1920.webp 1920w, /earth-night-2400.webp 2400w";
 
-const SKY: Orbit[] = [
-  { cx: 1500, cy: -40, rx: 520, ry: 150 },
-  { cx: 1580, cy: -80, rx: 640, ry: 190 },
-];
+/** Earth center in the 1600×900 hero frame. Matches the cropped Black Marble disk. */
+const EARTH = { cx: 352, cy: 1062 };
+const ORBITS = [1168, 1292];
 
-const BASE: Orbit[] = [
-  { cx: 800, cy: 340, rx: 760, ry: 200 },
-  { cx: 800, cy: 390, rx: 980, ry: 250 },
-];
-
-function onEllipse(orbit: Orbit, deg: number) {
+function onOrbit(radius: number, deg: number) {
   const t = (deg * Math.PI) / 180;
   return {
-    x: orbit.cx + orbit.rx * Math.cos(t),
-    y: orbit.cy + orbit.ry * Math.sin(t),
+    x: EARTH.cx + radius * Math.cos(t),
+    y: EARTH.cy + radius * Math.sin(t),
   };
 }
 
-const SKY_NODES = [
-  onEllipse(SKY[1], 148),
-  onEllipse(SKY[0], 122),
-  onEllipse(SKY[1], 108),
+const NODES = [
+  onOrbit(1168, -58),
+  onOrbit(1168, -14),
+  onOrbit(1292, -48),
+  onOrbit(1292, -30),
 ];
-
-const BASE_NODES = [
-  onEllipse(BASE[1], -130),
-  onEllipse(BASE[1], -90),
-  onEllipse(BASE[1], -50),
-];
-
-function Flight({
-  className,
-  viewBox,
-  orbits,
-  nodes,
-}: {
-  className: string;
-  viewBox: string;
-  orbits: Orbit[];
-  nodes: { x: number; y: number }[];
-}) {
-  return (
-    <svg className={className} viewBox={viewBox} preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
-      {orbits.map((orbit) => (
-        <ellipse
-          key={orbit.rx}
-          cx={orbit.cx}
-          cy={orbit.cy}
-          rx={orbit.rx}
-          ry={orbit.ry}
-          fill="none"
-          stroke="#E23B4A"
-          strokeWidth="1.5"
-          strokeDasharray="12 9"
-        />
-      ))}
-      {nodes.map((node) => (
-        <g key={`${node.x}-${node.y}`}>
-          <circle cx={node.x} cy={node.y} r="8" fill="rgba(226,59,74,0.32)" />
-          <circle cx={node.x} cy={node.y} r="3.1" fill="#FF4B5A" />
-          <Bracket x={node.x} y={node.y} />
-        </g>
-      ))}
-    </svg>
-  );
-}
 
 function Bracket({ x, y, s = 28 }: { x: number; y: number; s?: number }) {
   const a = s * 0.28;
@@ -90,6 +48,7 @@ export default function BannerHero({
   children,
   tall = false,
   mark = false,
+  priority = false,
 }: {
   children: React.ReactNode;
   tall?: boolean;
@@ -98,8 +57,59 @@ export default function BannerHero({
 }) {
   return (
     <div className={`banner-stage ${tall ? "banner-stage-tall" : "banner-stage-short"}`}>
-      <Flight className="banner-flight banner-flight-sky" viewBox="0 0 1600 900" orbits={SKY} nodes={SKY_NODES} />
-      <Flight className="banner-flight banner-flight-base" viewBox="0 0 1600 220" orbits={BASE} nodes={BASE_NODES} />
+      {priority && (
+        <Helmet>
+          <link
+            rel="preload"
+            as="image"
+            type="image/avif"
+            imageSrcSet={AVIF}
+            imageSizes="100vw"
+            fetchPriority="high"
+          />
+        </Helmet>
+      )}
+      <picture className="banner-earth">
+        <source type="image/avif" srcSet={AVIF} sizes="100vw" />
+        <img
+          src="/earth-night-1280.webp"
+          srcSet={WEBP}
+          sizes="100vw"
+          width={2400}
+          height={1350}
+          alt=""
+          decoding="async"
+          fetchPriority={priority ? "high" : "auto"}
+        />
+      </picture>
+      <svg
+        className="banner-flight"
+        viewBox="0 0 1600 900"
+        preserveAspectRatio="xMidYMin slice"
+        aria-hidden="true"
+        focusable="false"
+      >
+        {ORBITS.map((radius) => (
+          <circle
+            key={radius}
+            cx={EARTH.cx}
+            cy={EARTH.cy}
+            r={radius}
+            fill="none"
+            stroke="#E23B4A"
+            strokeWidth="1.5"
+            strokeDasharray="11 9"
+          />
+        ))}
+        {NODES.map((node) => (
+          <g key={`${node.x}-${node.y}`}>
+            <circle cx={node.x} cy={node.y} r="8" fill="rgba(226,59,74,0.32)" />
+            <circle cx={node.x} cy={node.y} r="3.1" fill="#FF4B5A" />
+            <Bracket x={node.x} y={node.y} />
+          </g>
+        ))}
+      </svg>
+      <div className="banner-scrim" aria-hidden="true" />
       {mark && (
         <img
           className="banner-mark"
