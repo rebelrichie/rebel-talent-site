@@ -2398,21 +2398,20 @@ main .page-bands > section:not(.band-red) [class*="border-[#e"] {
   border-color: rgba(247, 249, 252, 0.16) !important;
 }
 main .page-bands > section:not(:has(.banner-stage)):not(.band-red) {
-  background-image:
-    radial-gradient(1.2px 1.2px at 14% 24%, rgba(247, 249, 252, 0.55) 50%, transparent 52%),
-    radial-gradient(1.2px 1.2px at 70% 30%, rgba(247, 249, 252, 0.4) 50%, transparent 52%),
-    radial-gradient(1px 1px at 42% 68%, rgba(247, 249, 252, 0.28) 50%, transparent 52%),
-    linear-gradient(rgba(143, 186, 214, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(143, 186, 214, 0.045) 1px, transparent 1px) !important;
-  background-repeat: no-repeat, no-repeat, no-repeat, repeat, repeat !important;
-  background-position: 0 0, 0 0, 0 0, 0 0, 0 0 !important;
-  background-size: 100% 100%, 100% 100%, 100% 100%, 72px 72px, 72px 72px !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cg opacity='0.28'%3E%3Ccircle cx='352' cy='1062' r='1168' fill='none' stroke='%23E23B4A' stroke-width='1.5' stroke-dasharray='11 9'/%3E%3Ccircle cx='352' cy='1062' r='1292' fill='none' stroke='%23E23B4A' stroke-width='1.5' stroke-dasharray='11 9'/%3E%3C/g%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right -8% bottom -40% !important;
+  background-size: 78% auto !important;
 }
 main .page-bands > section.band-red::after {
-  opacity: 0.7;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 160'%3E%3Cg fill='none' stroke='white' stroke-width='1.6' stroke-dasharray='12 9'%3E%3Cellipse cx='320' cy='155' rx='290' ry='115'/%3E%3Cellipse cx='320' cy='180' rx='370' ry='135'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 100% 100%;
-  background-position: right bottom;
+  opacity: 0.34;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Ccircle cx='352' cy='1062' r='1168' fill='none' stroke='white' stroke-width='1.6' stroke-dasharray='11 9'/%3E%3Ccircle cx='352' cy='1062' r='1292' fill='none' stroke='white' stroke-width='1.6' stroke-dasharray='11 9'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center top;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  bottom: 0;
 }
 main .page-bands > section:not(:has(.banner-stage)) h2 {
   font-size: clamp(1.85rem, 2.7vw, 2.7rem) !important;
