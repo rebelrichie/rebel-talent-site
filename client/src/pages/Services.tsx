@@ -156,7 +156,7 @@ export default function Services() {
                   <Link
                     href={offer.ctaHref}
                     data-testid={`button-service-${offer.id}`}
-                    className="mi-btn"
+                    className={offer.id === "contingent" ? "mi-btn" : "text-[16px] font-medium underline underline-offset-4"}
                   >
                     Book a strategy call
                   </Link>
@@ -184,16 +184,25 @@ export default function Services() {
       </section>
 
       <section data-testid="section-proof">
-        <div className="max-w-[1140px] mx-auto px-5 py-16 sm:py-20">
-          <h2 className="text-[40px] leading-[1.05] text-[#0C1220] mb-4 sm:text-[44px]">
-            From recent work.
-          </h2>
-          <p className="text-[#272c30] text-[18px] leading-[1.6] font-light max-w-3xl">
-            EarthDaily Federal made eleven placements. About $394K in agency fees were avoided, a 3.4x return, with an average time to hire under 30 days. Kalibri Labs signed a machine learning hire in 34 days, about $20K under the agency quote. Legal Managed Services made 20 go-to-market hires in 24 months, with 90% retention.
-          </p>
-          <Link href="/case-studies" className="inline-flex mt-6 text-[16px] font-medium text-[#0C1220] underline underline-offset-4">
-            See the work
-          </Link>
+        <div className="band-wrap py-16 sm:py-20">
+          <div className="grid items-start gap-10 lg:grid-cols-2">
+            <div>
+              <h2 className="text-[40px] leading-[1.05] mb-4 sm:text-[44px]">
+                From recent work.
+              </h2>
+              <p className="text-[18px] leading-[1.6] font-light">
+                Three engagements, with the figures we can stand behind.
+              </p>
+              <Link href="/case-studies" className="inline-flex mt-6 text-[16px] font-medium underline underline-offset-4">
+                See the work
+              </Link>
+            </div>
+            <ul className="space-y-6 text-[18px] leading-[1.55] font-light">
+              <li>EarthDaily Federal made eleven placements. About $394K in agency fees were avoided, a 3.4x return, with an average time to hire under 30 days.</li>
+              <li>Kalibri Labs signed a machine learning hire in 34 days, about $20K under the agency quote.</li>
+              <li>Legal Managed Services made 20 go-to-market hires in 24 months, with 90% retention.</li>
+            </ul>
+          </div>
         </div>
       </section>
 

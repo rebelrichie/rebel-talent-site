@@ -270,31 +270,23 @@ export default function Advisors() {
         
       </InteriorHero>
 
-      <section className="py-14 sm:py-20 border-t border-stone-200">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
-          <div className="grid md:grid-cols-2 gap-4 sm:gap-5">
-            <article
-              data-testid="card-advisor-arin"
-              className="flex flex-col h-full border border-zinc-800 border-t-2 border-t-rebel-red bg-zinc-900/40 p-6 sm:p-8"
-            >
+      <section className="py-14 sm:py-20">
+        <div className="band-wrap">
+          <div className="grid gap-12 lg:grid-cols-2">
+            <article data-testid="card-advisor-arin">
               <div className="flex items-start gap-5">
-                <div
-                  className="shrink-0 w-16 h-16 border border-zinc-700 bg-zinc-950 flex items-center justify-center font-display text-sm font-bold tracking-[0.14em] text-white"
-                  aria-hidden="true"
-                >
-                  JAF
-                </div>
+                <div className="advisor-mark" aria-hidden="true">JAF</div>
                 <div className="min-w-0">
-                  <h3 className="font-display text-2xl font-bold text-white tracking-tight">
+                  <h3 className="text-[28px] leading-tight">
                     J. Arin Frye
                   </h3>
-                  <p className="mt-1 text-sm text-zinc-200">Strategic Advisor</p>
-                  <p className="mt-1 text-sm text-zinc-400">
+                  <p className="mt-1 text-[16px]">Strategic Advisor</p>
+                  <p className="mt-1 text-[16px]">
                     VP Operations, EarthDaily Federal · Founder, ScaleByrd
                   </p>
                 </div>
               </div>
-              <p className="mt-6 text-zinc-300 text-sm sm:text-base leading-relaxed">
+              <p className="mt-6 text-[17px] leading-[1.6] font-light">
                 Twenty years as an ops leader across defense, intelligence, and technical programs. She founded ScaleByrd to help defense and IC startups scale through cross-functional ops, program leadership, org design, and executive coaching. Day role is VP Operations at EarthDaily Federal. Based in Reston, VA. Credentials include PMP, CSM, and SHRM-SCP. She advises Rebel.
               </p>
               <a
@@ -302,32 +294,31 @@ export default function Advisors() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="link-advisor-arin-linkedin"
-                className="mt-6 inline-flex text-sm font-semibold text-zinc-200 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-rebel-red"
+                className="mt-6 inline-flex text-[16px] font-semibold underline underline-offset-4"
               >
                 LinkedIn profile
               </a>
             </article>
 
-            <aside
-              data-testid="slot-advisors-open"
-              className="flex flex-col justify-center h-full border border-dashed border-zinc-800 bg-zinc-950/40 p-6 sm:p-8"
-            >
-              <p className="font-mono text-zinc-500 text-[11px] tracking-[0.22em] uppercase mb-3">
+            <div data-testid="slot-advisors-open" className="lg:pt-2">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] mb-3">
                 Open
               </p>
-              <h3 className="font-display text-2xl font-bold text-zinc-300 tracking-tight mb-4">
+              <h3 className="text-[32px] leading-tight mb-4">
                 More advisors joining.
               </h3>
+              <p className="text-[17px] leading-[1.6] font-light mb-5 max-w-md">
+                A Rebel strategic advisor is not a board seat and not a full-time hire. You lend judgment, introductions, and hard-won pattern recognition.
+              </p>
               <a
                 href="#advisor-interest"
                 data-testid="link-advisors-interested"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-rebel-red transition-colors no-underline"
+                className="inline-flex items-center gap-2 text-[16px] font-semibold underline underline-offset-4"
               >
-                Interested? <ArrowRight className="w-4 h-4 shrink-0" />
+                Interested?
               </a>
-            </aside>
+            </div>
           </div>
-
         </div>
       </section>
 

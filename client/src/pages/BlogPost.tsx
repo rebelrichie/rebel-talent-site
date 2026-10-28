@@ -252,8 +252,9 @@ export default function BlogPost() {
           </div>
         )}
       </InteriorHero>
-      <article className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-        <div className="prose-rebel" dangerouslySetInnerHTML={{ __html: renderBody(post.body || "") }} />
+      <section>
+        <article className="band-wrap py-12">
+        <div className="prose-rebel max-w-[68ch]" dangerouslySetInnerHTML={{ __html: renderBody(post.body || "") }} />
 
         {/* Author */}
         <div className="mt-12 p-6 rounded-xl border border-zinc-800 bg-zinc-900/60">
@@ -293,7 +294,8 @@ export default function BlogPost() {
             </div>
           </div>
         )}
-      </article>
+        </article>
+      </section>
     </PageLayout>
   );
 }

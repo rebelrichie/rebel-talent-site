@@ -178,7 +178,7 @@ const SERVICES = [
 
 function Stat({ client, value, caption, light }: { client: string; value: string; caption: string; light: boolean }) {
   return (
-    <div className="px-8 py-10 sm:px-10 sm:py-12">
+    <div className="px-0 py-8 pr-4 sm:pr-6">
       <p className={`text-[11px] font-semibold uppercase tracking-[0.16em] ${light ? "text-[#8B919A]" : "muted"}`}>{client}</p>
       <p className={`mt-4 text-[56px] font-extrabold leading-none tracking-[-0.045em] sm:text-[68px] ${light ? "text-[#0C1220]" : "text-white"}`}>{value}</p>
       <p className={`mt-4 flex items-center gap-2.5 text-[14px] leading-snug ${light ? "text-[#5C6570]" : "muted"}`}>
@@ -203,28 +203,32 @@ export default function Home() {
       />
 
       <section data-testid="section-hero" className="band-hero">
-        <div className="grid lg:min-h-[560px] lg:grid-cols-2">
-          <div className="band-hero-copy flex flex-col justify-center px-6 py-14 sm:px-12 lg:px-16 lg:py-16 xl:px-20">
-            <h1 className="hero-display max-w-[11ch]">
-              Recruiting that scales with the company you&rsquo;re becoming.
-            </h1>
-            <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              <Link href="/strategy-call" data-testid="button-hero-strategy" className={btn}>
-                Book a strategy call <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-              <Link href="/jobs" className="text-[15px] font-medium underline underline-offset-4">
-                See open jobs
-              </Link>
+        <div className="hero-split hero-split-tall">
+          <div className="band-wrap relative z-10 flex items-center py-14 lg:min-h-[520px] lg:py-16">
+            <div className="band-hero-copy w-full lg:w-1/2 lg:pr-10">
+              <h1 className="hero-display max-w-[11ch]">
+                Recruiting that scales with the company you&rsquo;re becoming.
+              </h1>
+              <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+                <Link href="/strategy-call" data-testid="button-hero-strategy" className={btn}>
+                  Book a strategy call <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+                <Link href="/jobs" className="text-[15px] font-medium underline underline-offset-4">
+                  See open jobs
+                </Link>
+              </div>
             </div>
           </div>
-          <OrbitPanel className="min-h-[460px] lg:min-h-full" />
+          <OrbitPanel className="hero-orbit" />
         </div>
-        <div className="stat-row grid border-t border-white/15 sm:grid-cols-2 lg:grid-cols-4">
-          {[...LIGHT_STATS, ...NAVY_STATS].map((stat) => (
-            <Stat key={stat.value + stat.caption} {...stat} light={false} />
-          ))}
+        <div className="band-wrap">
+          <div className="stat-row border-t border-white/15">
+            {[...LIGHT_STATS, ...NAVY_STATS].map((stat) => (
+              <Stat key={stat.value + stat.caption} {...stat} light={false} />
+            ))}
+          </div>
         </div>
-        <div className="mx-auto max-w-[1200px] px-6 py-12 sm:px-10">
+        <div className="band-wrap py-12">
           <p className="max-w-3xl text-[18px] leading-[1.6]">
             We fill open roles for technical, go-to-market, and operations teams. Contingent search is for one seat. Embedded recruiting is for the function you still need after we leave. We work with Series A through C companies and with defense teams, cleared and uncleared.
           </p>
@@ -358,39 +362,43 @@ export default function Home() {
       </section>
 
       <section data-testid="section-veterans" className="mi-band bg-[#001028]">
-        <div className="max-w-[1140px] mx-auto px-5 py-16 sm:py-20">
-          <div className="max-w-3xl">
-            <p className="text-[16px] text-white/80 mb-3">
-              Cleared Defense · Startups · Veteran-Supported
-            </p>
-            <h2 className="text-[40px] leading-[1.05] text-white mb-5 sm:text-[48px]">
-              For the ones who stood up when it mattered.
-            </h2>
-            <p className="text-white/90 text-[18px] leading-[1.6] font-light mb-6 max-w-xl">
-              Intelligence community members, people active in politics, and current and former service members trust Rebel to build their teams. The firm speaks their language. Transitioning veterans get free resume and LinkedIn reviews. No corporate fluff, just real talent leadership for cleared defense and startups.
-            </p>
-            <p className="text-white text-[18px]">Ask for references.</p>
-            <p className="text-white/80 text-[16px] mt-1 mb-8 max-w-lg font-light">
-              Intelligence community. People active in politics. Current and former servicemembers. Shared privately, on request.
-            </p>
-            <div className="flex flex-col items-start gap-4">
-              <Link href="/strategy-call" data-testid="button-veterans-strategy" className={btn}>
-                Book a strategy call
-              </Link>
-              <Link href="/cleared" data-testid="link-veterans-cleared" className="text-sm font-semibold text-white underline underline-offset-4">
-                Cleared recruiting
-              </Link>
-              <div>
-                <a
-                  href="https://calendly.com/richielam/vets?back=1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-testid="button-vet-review"
-                  className="text-sm font-semibold text-white underline underline-offset-4"
-                >
-                  Free veteran resume and LinkedIn review
-                </a>
-                <p className="text-white/75 text-[14px] mt-2">Transitioning out? No strings.</p>
+        <div className="band-wrap py-16 sm:py-20">
+          <div className="grid items-start gap-10 lg:grid-cols-2">
+            <div>
+              <p className="text-[16px] mb-3">
+                Cleared Defense · Startups · Veteran-Supported
+              </p>
+              <h2 className="text-[40px] leading-[1.05] mb-5 sm:text-[48px]">
+                For the ones who stood up when it mattered.
+              </h2>
+              <p className="text-[18px] leading-[1.6] font-light">
+                Intelligence community members, people active in politics, and current and former service members trust Rebel to build their teams. The firm speaks their language. Transitioning veterans get free resume and LinkedIn reviews. No corporate fluff, just real talent leadership for cleared defense and startups.
+              </p>
+            </div>
+            <div className="lg:pt-16">
+              <p className="text-[18px]">Ask for references.</p>
+              <p className="text-[16px] mt-1 mb-8 font-light">
+                Intelligence community. People active in politics. Current and former servicemembers. Shared privately, on request.
+              </p>
+              <div className="flex flex-col items-start gap-4">
+                <Link href="/strategy-call" data-testid="button-veterans-strategy" className={btn}>
+                  Book a strategy call
+                </Link>
+                <Link href="/cleared" data-testid="link-veterans-cleared" className="text-sm font-semibold underline underline-offset-4">
+                  Cleared recruiting
+                </Link>
+                <div>
+                  <a
+                    href="https://calendly.com/richielam/vets?back=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid="button-vet-review"
+                    className="text-sm font-semibold underline underline-offset-4"
+                  >
+                    Free veteran resume and LinkedIn review
+                  </a>
+                  <p className="text-[14px] mt-2">Transitioning out? No strings.</p>
+                </div>
               </div>
             </div>
           </div>

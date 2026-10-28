@@ -22,8 +22,8 @@ export default function OrbitPanel({ className = "", compact = false }: { classN
       />
       <svg
         className="absolute inset-0 h-full w-full"
-        viewBox="0 0 800 860"
-        preserveAspectRatio="xMidYMid slice"
+        viewBox="40 30 720 500"
+        preserveAspectRatio="xMidYMid meet"
         aria-hidden="true"
         focusable="false"
       >

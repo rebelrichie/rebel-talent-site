@@ -327,7 +327,15 @@ async function prerender() {
     "--disable-extensions",
     "--no-first-run",
   ];
-  let browser = await launch({ headless: true, args: chromeArgs });
+  const chromeCandidates = [
+    process.env.PUPPETEER_EXECUTABLE_PATH,
+    "/usr/bin/google-chrome-stable",
+    "/usr/bin/google-chrome",
+    "/usr/local/bin/google-chrome",
+  ].filter(Boolean);
+  const executablePath = chromeCandidates.find((candidate) => existsSync(candidate));
+  const launchOpts = { headless: true, args: chromeArgs, ...(executablePath ? { executablePath } : {}) };
+  let browser = await launch(launchOpts);
 
   let success = 0;
   let failed = 0;
@@ -337,7 +345,7 @@ async function prerender() {
     try {
       if (sinceRestart >= 5) {
         await browser.close().catch(() => {});
-        browser = await launch({ headless: true, args: chromeArgs });
+        browser = await launch(launchOpts);
         sinceRestart = 0;
       }
       const page = await browser.newPage();
@@ -367,9 +375,28 @@ async function prerender() {
       console.error(`  ❌ ${route} — ${err.message}`);
       failed++;
       await browser.close().catch(() => {});
-      browser = await launch({ headless: true, args: chromeArgs });
+      browser = await launch(launchOpts);
       sinceRestart = 0;
     }
+  }
+
+  // Unknown URLs. nginx can serve this file with:
+  //   error_page 404 /404.html;
+  //   location / { try_files $uri $uri/ $uri/index.html =404; }
+  try {
+    const page = await browser.newPage();
+    await page.goto(`http://localhost:${PORT}/this-page-is-not-real`, {
+      waitUntil: "domcontentloaded",
+      timeout: 30000,
+    });
+    await page.waitForSelector("[data-testid='text-not-found']", { timeout: 10000 });
+    const html = await page.content();
+    writeFileSync(join(DIST_DIR, "404.html"), html, "utf-8");
+    console.log("[prerender] Wrote 404.html");
+    await page.close().catch(() => {});
+  } catch (err) {
+    console.error(`  ❌ 404.html — ${err.message}`);
+    failed++;
   }
 
   await browser.close().catch(() => {});
