@@ -12,6 +12,7 @@ import PageSEO from "@/components/PageSEO";
 import InteriorHero from "@/components/InteriorHero";
 import { extractJobId, isBareJobUuid, jobPath } from "@/lib/jobSlug";
 import { buildJobMetaDescription } from "@/lib/jobMeta";
+import { publicPayLine } from "@/lib/payLabel";
 import { buildJobJsonLd as jobPostingJsonLd, toPublicJob } from "@shared/publicJob.mjs";
 
 const API_BASE = "https://rebelcommand.dev/api/public/jobs";
@@ -234,9 +235,11 @@ export default function JobDetail() {
                   <ShieldCheck className="h-3.5 w-3.5" /> {job.level}
                 </span>
               )}
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-800/40 text-xs text-emerald-800">
-                <DollarSign className="h-3.5 w-3.5" /> Pay: DOE
-              </span>
+              {publicPayLine(job.compensationRange) && (
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs">
+                  <DollarSign className="h-3.5 w-3.5" /> Pay: {publicPayLine(job.compensationRange)}
+                </span>
+              )}
             </div>
             <div className="flex flex-wrap items-center gap-3">
               <Link
@@ -252,7 +255,9 @@ export default function JobDetail() {
               </span>
             </div>
           </InteriorHero>
-          <section className="max-w-3xl mx-auto px-6 py-12">
+          <section>
+            <div className="band-wrap grid gap-12 py-12 lg:grid-cols-[minmax(0,1fr)_16rem]">
+            <div>
 
             {/* Sections */}
             {job.requirements && (
@@ -314,17 +319,31 @@ export default function JobDetail() {
             )}
 
             {/* Footer CTA */}
-            <div className="mt-12 pt-10 border-t border-zinc-800 text-center">
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">
+            <div className="mt-12 pt-10 border-t border-current/20">
+              <h3 className="text-xl sm:text-2xl font-bold mb-6">
                 Ready to apply?
               </h3>
               <Link
                 href={`/jobs/${job.id}/apply`}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-rebel-red hover:bg-red-700 text-white font-semibold rounded-md transition-colors no-underline group"
+                className="mi-btn no-underline"
               >
                 Apply Now
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-4 w-4" />
               </Link>
+            </div>
+            </div>
+            <aside className="lg:pt-2">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.16em] mb-3">The role</p>
+              <p className="text-[18px] mb-2">{job.companyName}</p>
+              {job.location && <p className="text-[16px] mb-2">{job.location}</p>}
+              {job.department && <p className="text-[16px] mb-2">{job.department}</p>}
+              {publicPayLine(job.compensationRange) && (
+                <p className="text-[16px] mb-6">Pay: {publicPayLine(job.compensationRange)}</p>
+              )}
+              <Link href={`/jobs/${job.id}/apply`} className="mi-btn">
+                Apply for this role
+              </Link>
+            </aside>
             </div>
           </section>
         </>

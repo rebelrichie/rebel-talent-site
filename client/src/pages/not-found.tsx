@@ -3,54 +3,52 @@ import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import InteriorHero from "@/components/InteriorHero";
 
-const quickLinks = [
-  { href: "/services", label: "How we engage" },
-  { href: "/cleared", label: "Cleared" },
-  { href: "/case-studies", label: "Work" },
-  { href: "/advisors", label: "Advisors" },
-  { href: "/about", label: "About" },
-  { href: "/jobs", label: "Jobs" },
-  { href: "/blog", label: "Insights" },
-  { href: "/strategy-call", label: "Contact" },
+const links = [
+  { href: "/", label: "Home", testId: "link-go-home" },
+  { href: "/jobs", label: "Jobs", testId: "link-404-jobs" },
+  { href: "/strategy-call", label: "Contact", testId: "link-404-contact" },
 ];
 
 export default function NotFound() {
   return (
     <PageLayout>
       <PageSEO
-        title="Page Not Found | Rebel Talent Systems"
-        description="This page does not exist. Head back to the main site or reach out and we will point you the right way."
+        title="Page not found | Rebel Talent Systems"
+        description="This page is not on the site. Go home, see open roles, or contact the firm."
         path="/404"
         noindex
       />
 
       <InteriorHero>
-        <p className="text-xs font-semibold tracking-[0.16em] uppercase text-[#C8102E]">404</p>
-        <h1 className="mt-4 text-[#0C1220]" data-testid="text-not-found">
-          Target Not Found
-        </h1>
-        <p className="mt-5 max-w-md text-[17px] leading-[1.6] text-[#3D4450]">
-          The page you're looking for has gone dark.
+        <p className="text-[12px] font-semibold uppercase tracking-[0.16em] mb-4">404</p>
+        <h1 data-testid="text-not-found">This page is not on the site.</h1>
+        <p className="mt-5 max-w-md text-[17px] leading-[1.6]">
+          The address does not match a page. Head home, look at open roles, or reach the firm.
         </p>
-        <Link href="/" data-testid="link-go-home" className="mi-btn mt-8">
-          Return to Base
-        </Link>
       </InteriorHero>
 
-      <section className="border-t border-[#E7E9EE]">
-        <div className="max-w-[1140px] mx-auto px-6 py-14">
-          <h2 className="text-[28px] text-[#0C1220] mb-6">Keep going</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {quickLinks.map((link) => (
+      <section>
+        <div className="band-wrap py-14">
+          <h2 className="text-[32px] leading-tight mb-6">Keep going</h2>
+          <div className="flex flex-col items-start gap-4 sm:flex-row sm:gap-8">
+            {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="border border-[#E7E9EE] bg-white px-4 py-4 text-[15px] text-[#0C1220] no-underline hover:border-[#C8102E]"
+                data-testid={link.testId}
+                className="text-[18px] font-medium underline underline-offset-4"
               >
                 {link.label}
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="band-red">
+        <div className="band-wrap py-14">
+          <h2 className="text-[32px] leading-tight mb-4">Start from a page that exists.</h2>
+          <Link href="/" className="mi-btn">Home</Link>
         </div>
       </section>
     </PageLayout>

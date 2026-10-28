@@ -228,7 +228,8 @@ export default function StrategyCall() {
               . Five minutes. No follow-up sequence.
             </p>
           </InteriorHero>
-          <section className="max-w-2xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+          <section>
+            <div className="band-wrap grid gap-12 py-12 sm:py-16 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Honeypot, visually hidden, off-screen, no autofocus */}
                 <div className="hidden" aria-hidden="true">
@@ -370,10 +371,20 @@ export default function StrategyCall() {
                   )}
                 </button>
 
-                <p className="text-zinc-400 text-xs text-center pt-2">
+                <p className="text-xs pt-2">
                   {copy.footer}
                 </p>
               </form>
+              <aside className="lg:pt-2">
+                <h2 className="text-[28px] leading-tight mb-4">What you are sending</h2>
+                <p className="text-[17px] leading-[1.6] font-light mb-4">
+                  Name, email, and company get you through. The rest is context for the call.
+                </p>
+                <p className="text-[17px] leading-[1.6] font-light">
+                  {copy.footer}
+                </p>
+              </aside>
+            </div>
           </section>
         </>
       )}
@@ -421,11 +432,7 @@ function RadioPill({
 }) {
   return (
     <label
-      className={`flex items-center gap-2 px-4 py-3 border rounded-md cursor-pointer text-sm transition-colors ${
-        checked
-          ? "border-rebel-red bg-rebel-red/10 text-white"
-          : "border-zinc-800 bg-zinc-900/40 text-zinc-400 hover:border-zinc-700 hover:text-zinc-200"
-      }`}
+      className={`choice-pill flex items-center gap-2 px-4 py-3 rounded-md cursor-pointer text-sm ${checked ? "is-on" : ""}`}
     >
       <input
         type="radio"
@@ -435,7 +442,7 @@ function RadioPill({
         onChange={onChange}
         className="sr-only"
       />
-      <span className={`w-3.5 h-3.5 rounded-full border ${checked ? "border-rebel-red bg-rebel-red" : "border-zinc-600"}`} />
+      <span className="choice-dot w-3.5 h-3.5 rounded-full" />
       <span className="leading-snug">{label}</span>
     </label>
   );

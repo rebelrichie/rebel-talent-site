@@ -12,6 +12,7 @@ import PageSEO from "@/components/PageSEO";
 // Safe addition — accepts both old UUID links and new slug-uuid links
 import InteriorHero from "@/components/InteriorHero";
 import { extractJobId } from "@/lib/jobSlug";
+import { publicPayLine } from "@/lib/payLabel";
 import { toPublicJob } from "@shared/publicJob.mjs";
 
 const JOB_API = "https://rebelcommand.dev/api/public/jobs";
@@ -290,7 +291,7 @@ export default function JobApply() {
           <p className="mt-3 text-sm text-[#5C6570]">
             {job.companyName}
             {job.location ? ` · ${job.location}` : ""}
-            {" · Pay: DOE"}
+            {publicPayLine(job.compensationRange) ? ` · Pay: ${publicPayLine(job.compensationRange)}` : ""}
           </p>
         )}
       </InteriorHero>

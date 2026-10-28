@@ -2,22 +2,50 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Not found | Rebel Talent Systems</title>
+    <title>Page not found | Rebel Talent Systems</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
     <style>
-      html, body { margin: 0; min-height: 100%; background: #08070A; color: #a1a1aa; font-family: system-ui, sans-serif; }
-      main { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; text-align: center; }
-      h1 { color: #fff; font-size: 1.5rem; margin: 0 0 0.75rem; }
-      p { margin: 0 0 1.25rem; max-width: 28rem; line-height: 1.5; }
-      a { color: #F71A29; }
+      html, body { margin: 0; background: #001028; color: #F7F9FC; font-family: Inter, "Helvetica Neue", sans-serif; }
+      a { color: #F7F9FC; }
+      .hero { background: #102848; padding: 4.5rem 1.25rem 3rem; }
+      .wrap { width: min(1140px, 100%); margin: 0 auto; }
+      h1 { font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 0.98; letter-spacing: -0.04em; margin: 0.6rem 0 0; }
+      p { font-size: 1.05rem; line-height: 1.6; max-width: 36rem; }
+      .kicker { letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; }
+      .links { display: flex; flex-wrap: wrap; gap: 1.5rem; padding: 3rem 0; }
+      .links a { font-size: 1.15rem; font-weight: 600; }
+      .red { background: #C8102E; color: #fff; padding: 3rem 0; }
+      .red a { display: inline-flex; background: #fff; color: #9E0C24; text-decoration: none; font-weight: 600; padding: 0.9rem 1.2rem; border-radius: 6px; }
     </style>
   </head>
   <body>
     <main>
-      <h1>File not found</h1>
-      <p>This asset does not exist. If you were looking for a page, start at the home site.</p>
-      <p><a href="/">Back to Rebel Talent</a></p>
+      <header class="hero">
+        <div class="wrap">
+          <p class="kicker">404</p>
+          <h1>This page is not on the site.</h1>
+          <p>The address does not match a page. Head home, look at open roles, or reach the firm.</p>
+        </div>
+      </header>
+      <section>
+        <div class="wrap">
+          <h2>Keep going</h2>
+          <nav class="links" aria-label="Keep going">
+            <a href="/">Home</a>
+            <a href="/jobs">Jobs</a>
+            <a href="/strategy-call">Contact</a>
+          </nav>
+        </div>
+      </section>
+      <section class="red">
+        <div class="wrap">
+          <h2>Start from a page that exists.</h2>
+          <a href="/">Home</a>
+        </div>
+      </section>
     </main>
   </body>
 </html>

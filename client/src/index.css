@@ -1488,9 +1488,9 @@ main .page-bands > section:nth-child(4n+1) {
 }
 main .page-bands > section:nth-child(4n+2),
 main .page-bands > section:nth-child(4n) {
-  background-color: #16304F !important;
+  background-color: #2C5278 !important;
   background-image: none !important;
-  color: #F4F7FB !important;
+  color: #F7F9FC !important;
 }
 main .page-bands > section:is(:nth-child(4n+3), .band-light) {
   background-color: #E6EBF2 !important;
@@ -1574,13 +1574,15 @@ main .page-bands > section:is(:nth-child(4n+3), .band-light) [data-testid="job-l
   border-bottom-color: rgba(12, 18, 32, 0.16) !important;
 }
 
-.stat-row > * + * { border-top: 1px solid rgba(255, 255, 255, 0.16); }
-@media (min-width: 640px) {
-  .stat-row > * + * { border-top: 0; }
-  .stat-row > *:nth-child(odd) { border-right: 1px solid rgba(255, 255, 255, 0.16); }
+.stat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
+.stat-row > *:nth-child(odd) { border-right: 1px solid rgba(255, 255, 255, 0.16); }
+.stat-row > *:nth-child(n+3) { border-top: 1px solid rgba(255, 255, 255, 0.16); }
 @media (min-width: 1024px) {
-  .stat-row > *:nth-child(odd) { border-right: 0; }
+  .stat-row { grid-template-columns: repeat(4, 1fr); }
+  .stat-row > * { border-top: 0; border-right: 0; }
   .stat-row > * + * { border-left: 1px solid rgba(255, 255, 255, 0.16); }
 }
 
@@ -1634,4 +1636,282 @@ main .page-bands [data-testid="job-list"] a.bg-zinc-950.border.border-zinc-800 {
   box-shadow: none !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Band-aware type, one content grid, hero orbit
+   Later rules win. Text color follows the band, including prose.
+   ───────────────────────────────────────────────────────────────────── */
+
+.band-wrap {
+  width: min(1140px, 100%);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  box-sizing: border-box;
+}
+
+main .page-bands > section > [class*="max-w-"],
+main .page-bands > article[class*="max-w-"],
+main .page-bands > section[class*="max-w-"] {
+  max-width: 1140px !important;
+  width: 100%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 1.25rem !important;
+  padding-right: 1.25rem !important;
+  box-sizing: border-box;
+}
+
+.hero-split { position: relative; }
+.hero-orbit {
+  position: relative;
+  height: 132px;
+  width: 100%;
+  min-height: 0 !important;
+}
+.hero-split-tall .hero-orbit { height: 148px; }
+@media (min-width: 1024px) {
+  .hero-split { min-height: 420px; }
+  .hero-split-tall { min-height: 520px; }
+  .hero-orbit {
+    position: absolute;
+    z-index: 0;
+    inset: 0 0 0 auto;
+    width: 50%;
+    height: 100%;
+  }
+}
+@media (max-width: 1023px) {
+  .orbit-label { display: none; }
+}
+
+.agent-mark,
+.advisor-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 999px;
+  background: #102848 !important;
+  color: #F7F9FC !important;
+  border: 1px solid rgba(247, 249, 252, 0.4);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-size: 0.95rem;
+}
+.advisor-mark { width: 4.5rem; height: 4.5rem; letter-spacing: 0.12em; }
+
+.capacity-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: #9AF0C0 !important;
+  flex: none;
+}
+.capacity-label { color: #9AF0C0 !important; }
+main .page-bands > section:is(:nth-child(4n+3), .band-light):not(.band-red) .capacity-label {
+  color: #065f46 !important;
+}
+main .page-bands > section:is(:nth-child(4n+3), .band-light):not(.band-red) .capacity-dot {
+  background: #065f46 !important;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 100%;
+}
+
+.choice-pill {
+  background: #0E1C33 !important;
+  color: #F7F9FC !important;
+  border: 1px solid rgba(247, 249, 252, 0.45) !important;
+}
+.choice-pill.is-on {
+  background: #F7F9FC !important;
+  color: #0C1220 !important;
+  border-color: #F7F9FC !important;
+}
+
+.prose-rebel,
+.prose,
+.prose-stone {
+  --tw-prose-body: currentColor;
+  --tw-prose-headings: currentColor;
+  --tw-prose-lead: currentColor;
+  --tw-prose-links: currentColor;
+  --tw-prose-bold: currentColor;
+  --tw-prose-counters: currentColor;
+  --tw-prose-bullets: currentColor;
+  --tw-prose-quotes: currentColor;
+  --tw-prose-quote-borders: currentColor;
+  --tw-prose-captions: currentColor;
+  --tw-prose-code: currentColor;
+  --tw-prose-th-borders: currentColor;
+  --tw-prose-td-borders: currentColor;
+  color: inherit;
+}
+
+/* Dark bands: every text node reads light, including utilities and prose. */
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light):not(.band-red) :where(:not(input):not(textarea):not(select):not(option):not(.mi-btn):not(.choice-pill)),
+main .page-bands > article :where(:not(input):not(textarea):not(select):not(option):not(.mi-btn):not(.choice-pill)) {
+  color: #F7F9FC !important;
+}
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light):not(.band-red) :is(
+  .text-zinc-400, .text-zinc-500, .text-zinc-600, .text-\[\#5C6570\], .text-\[\#8B919A\], .text-\[\#3D4450\], .muted
+),
+main .page-bands > article :is(
+  .text-zinc-400, .text-zinc-500, .text-zinc-600, .text-\[\#5C6570\], .text-\[\#8B919A\], .text-\[\#3D4450\], .muted
+) {
+  color: #E7EEF5 !important;
+}
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light):not(.band-red) :is(.text-rebel-red, [class*="C8102E"]),
+main .page-bands > article :is(.text-rebel-red, [class*="C8102E"]) {
+  color: #FFC9CE !important;
+}
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light):not(.band-red) :is(a.mi-btn, button.mi-btn, .bg-rebel-red, .bg-primary),
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light):not(.band-red) :is(a.mi-btn, button.mi-btn, .bg-rebel-red, .bg-primary) * {
+  color: #ffffff !important;
+}
+
+/* Light bands: ink on cool gray. */
+main .page-bands > section:is(:nth-child(4n+3), .band-light):not(.band-red) :where(:not(input):not(textarea):not(select):not(option):not(.mi-btn):not(.choice-pill)) {
+  color: #0C1220 !important;
+}
+main .page-bands > section:is(:nth-child(4n+3), .band-light):not(.band-red) :is(
+  .text-zinc-400, .text-zinc-500, .text-\[\#5C6570\], .text-\[\#8B919A\], .muted
+) {
+  color: #243044 !important;
+}
+main .page-bands > section:is(:nth-child(4n+3), .band-light):not(.band-red) :is(.text-rebel-red, [class*="C8102E"]) {
+  color: #9E0C24 !important;
+}
+main .page-bands > section:is(:nth-child(4n+3), .band-light):not(.band-red) :is(a.mi-btn, button.mi-btn, .bg-rebel-red, .bg-primary),
+main .page-bands > section:is(:nth-child(4n+3), .band-light):not(.band-red) :is(a.mi-btn, button.mi-btn, .bg-rebel-red, .bg-primary) * {
+  color: #ffffff !important;
+}
+
+/* Red closing band: solid white body copy, 5.88:1 on #C8102E. */
+main .page-bands > section.band-red :where(:not(input):not(textarea):not(select):not(option):not(.mi-btn):not(.choice-pill)) {
+  color: #ffffff !important;
+}
+main .page-bands > section.band-red :is(a.mi-btn, button.mi-btn),
+main .page-bands > section.band-red :is(a.mi-btn, button.mi-btn) * {
+  color: #9E0C24 !important;
+  background-color: transparent !important;
+}
+main .page-bands > section.band-red :is(a.mi-btn, button.mi-btn) {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* Pills beat the band color so labels are never white on white. */
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light):not(.band-red) .choice-pill,
+main .page-bands > section:is(:nth-child(4n+3), .band-light):not(.band-red) .choice-pill,
+main .page-bands > section.band-red .choice-pill {
+  background-color: #0E1C33 !important;
+  color: #F7F9FC !important;
+  border-color: rgba(247, 249, 252, 0.5) !important;
+}
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light):not(.band-red) .choice-pill *,
+main .page-bands > section:is(:nth-child(4n+3), .band-light):not(.band-red) .choice-pill *,
+main .page-bands > section.band-red .choice-pill * {
+  background-color: transparent !important;
+  color: #F7F9FC !important;
+}
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light):not(.band-red) .choice-pill.is-on,
+main .page-bands > section:is(:nth-child(4n+3), .band-light):not(.band-red) .choice-pill.is-on,
+main .page-bands > section.band-red .choice-pill.is-on {
+  background-color: #F7F9FC !important;
+  color: #0C1220 !important;
+  border-color: #F7F9FC !important;
+}
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light):not(.band-red) .choice-pill.is-on *,
+main .page-bands > section:is(:nth-child(4n+3), .band-light):not(.band-red) .choice-pill.is-on *,
+main .page-bands > section.band-red .choice-pill.is-on * {
+  color: #0C1220 !important;
+  background-color: transparent !important;
+}
+main .page-bands > section .choice-pill .choice-dot {
+  background-color: transparent !important;
+  border: 1px solid #F7F9FC !important;
+}
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light):not(.band-red) .choice-pill.is-on .choice-dot,
+main .page-bands > section:is(:nth-child(4n+3), .band-light):not(.band-red) .choice-pill.is-on .choice-dot,
+main .page-bands > section.band-red .choice-pill.is-on .choice-dot {
+  background-color: #C8102E !important;
+  border-color: #C8102E !important;
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+textarea,
+select {
+  background-color: #ffffff !important;
+  color: #0C1220 !important;
+  border-color: #6B7280 !important;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #3D4450 !important;
+}
+
+.agent-mark,
+.advisor-mark,
+.agent-mark *,
+.advisor-mark * {
+  color: #F7F9FC !important;
+  background-color: #102848 !important;
+}
+
+.site-chrome,
+.site-chrome a,
+.site-chrome span,
+.site-chrome button,
+.site-nav a,
+.site-nav button {
+  color: #F7F9FC !important;
+}
+.site-chrome a.mi-btn,
+.site-chrome a.mi-btn *,
+.site-nav a.mi-btn,
+.site-nav a.mi-btn * {
+  color: #ffffff !important;
+  background: #C8102E !important;
+}
+
+/* Zinc "cards" were remapped to white. On a dark band that paints light type
+   onto a white chip. Drop the chip fill so the type sits on the band. */
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light):not(.band-red) :is(span, div, a, button, label, p, li, article, th, td, pre, code, blockquote)[class*="bg-zinc"],
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light):not(.band-red) :is(span, div, a, button, label, p, li, article, th, td, pre, code, blockquote)[class*="bg-white"],
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light):not(.band-red) :is(span, div, a, button, label, p, li, article, th, td, pre, code, blockquote)[class*="bg-emerald"],
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light):not(.band-red) :is(span, div, a, button, label, p, li, article, th, td)[class*="bg-amber"] {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+main .page-bands > section:not(:nth-child(4n+3)):not(.band-light):not(.band-red) :is(.text-amber-400, .text-amber-500, .text-amber-600, .text-amber-900, .text-emerald-300, .text-emerald-400, .text-emerald-800) {
+  color: #9AF0C0 !important;
+}
+
+/* Red band copy is solid white. This beats the older muted-zinc remap. */
+main .page-bands > section.band-red:not(:nth-child(0)):not(.band-light) :is(h1, h2, h3, h4, p, li, span, a, div, strong, em, small, label, time):not(.mi-btn) {
+  color: #ffffff !important;
+}
+main .page-bands > section.band-red:not(:nth-child(0)):not(.band-light) :is(a.mi-btn, button.mi-btn),
+main .page-bands > section.band-red:not(:nth-child(0)):not(.band-light) :is(a.mi-btn, button.mi-btn) * {
+  color: #9E0C24 !important;
+  background-color: transparent !important;
+}
+main .page-bands > section.band-red:not(:nth-child(0)):not(.band-light) :is(a.mi-btn, button.mi-btn) {
+  background-color: #ffffff !important;
+}
+
+@media (max-width: 1023px) {
+  .site-nav [data-testid="button-mobile-menu"] {
+    color: #F7F9FC !important;
+  }
 }

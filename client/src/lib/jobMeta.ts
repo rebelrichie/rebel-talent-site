@@ -2,6 +2,8 @@
 // Built from the public job fields. Never the shared
 // "Apply through Rebel Talent." closer.
 
+import { publicPayLine } from "@/lib/payLabel";
+
 export interface JobMetaInput {
   title?: string | null;
   companyName?: string | null;
@@ -138,7 +140,8 @@ export function buildJobMetaDescription(job: JobMetaInput): string {
   if (industry && !text.toLowerCase().includes(industry.toLowerCase())) {
     text = addBit(text, `Industry: ${industry}.`);
   }
-  text = addBit(text, "Pay: DOE.");
+  const pay = publicPayLine(job.compensationRange);
+  if (pay) text = addBit(text, `Pay: ${pay}.`);
   if (dept && !title.toLowerCase().includes(dept.toLowerCase())) {
     text = addBit(text, `Team: ${dept}.`);
   }

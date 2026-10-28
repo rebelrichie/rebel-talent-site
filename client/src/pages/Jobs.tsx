@@ -25,6 +25,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 // Safe addition. Human-readable job URLs (slug + UUID)
 import InteriorHero from "@/components/InteriorHero";
 import { jobPath } from "@/lib/jobSlug";
+import { publicPayLine } from "@/lib/payLabel";
 import { toPublicJob } from "@shared/publicJob.mjs";
 
 const JOBS_API = "https://rebelcommand.dev/api/public/jobs";
@@ -303,11 +304,7 @@ export default function Jobs() {
                 <button
                   type="button"
                   onClick={() => setRemoteOnly((v) => !v)}
-                  className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-medium transition-colors ${
-                    remoteOnly
-                      ? "border-rebel-red bg-rebel-red/10 text-white"
-                      : "border-zinc-700 text-zinc-400 hover:text-white hover:border-zinc-500"
-                  }`}
+                  className={`choice-pill inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium ${remoteOnly ? "is-on" : ""}`}
                 >
                   <MapPin className="h-3.5 w-3.5" /> Remote OK only
                 </button>
@@ -449,10 +446,12 @@ export default function Jobs() {
                             {j._function}
                           </span>
                         )}
-                        <span className="inline-flex items-center gap-1.5 text-emerald-800">
-                          <DollarSign className="h-3.5 w-3.5" />
-                          Pay: DOE
-                        </span>
+                        {publicPayLine(j.compensationRange) && (
+                          <span className="inline-flex items-center gap-1.5">
+                            <DollarSign className="h-3.5 w-3.5" />
+                            Pay: {publicPayLine(j.compensationRange)}
+                          </span>
+                        )}
                       </div>
                     </Link>
                   </ScrollReveal>
@@ -544,8 +543,8 @@ function FilterRow({
   onToggle: (v: string) => void;
 }) {
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <span className="text-zinc-400 text-[10px] uppercase tracking-[0.18em] font-mono pr-1 inline-flex items-center gap-1.5">
+    <div className="filter-row">
+      <span className="text-[11px] uppercase tracking-[0.16em] font-semibold pr-1 inline-flex items-center gap-1.5">
         <FilterIcon className="h-3 w-3" /> {label}
       </span>
       {options.map((opt) => {
@@ -555,11 +554,8 @@ function FilterRow({
             key={opt}
             type="button"
             onClick={() => onToggle(opt)}
-            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors border ${
-              active
-                ? "border-rebel-red bg-rebel-red/10 text-white"
-                : "border-zinc-800 bg-zinc-900/40 text-zinc-400 hover:text-zinc-200 hover:border-zinc-600"
-            }`}
+            aria-pressed={active}
+            className={`choice-pill px-3 py-1.5 rounded-full text-xs font-medium ${active ? "is-on" : ""}`}
           >
             {opt}
           </button>
