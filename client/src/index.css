@@ -2249,9 +2249,6 @@ main .page-bands > section.band-red::after {
   width: min(460px, 34vw);
   height: auto;
   transform: translateY(-50%);
-  mix-blend-mode: screen;
-  -webkit-mask-image: radial-gradient(ellipse at 50% 47%, #000 42%, transparent 68%);
-  mask-image: radial-gradient(ellipse at 50% 47%, #000 42%, transparent 68%);
   pointer-events: none;
 }
 .site-logo {
