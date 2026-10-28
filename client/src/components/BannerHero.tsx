@@ -11,15 +11,89 @@ import { Helmet } from "react-helmet-async";
 const AVIF = "/earth-night-800.avif 800w, /earth-night-1280.avif 1280w, /earth-night-1920.avif 1920w, /earth-night-2400.avif 2400w";
 const WEBP = "/earth-night-800.webp 800w, /earth-night-1280.webp 1280w, /earth-night-1920.webp 1920w, /earth-night-2400.webp 2400w";
 
-function Bracket({ x, y, s = 18 }: { x: number; y: number; s?: number }) {
-  const a = Math.round(s * 0.32);
+/** Earth center in the 1600×900 hero frame. Matches the cropped Black Marble disk. */
+const EARTH = { cx: 352, cy: 1062 };
+const ORBITS = [1168, 1292];
+
+function onOrbit(radius: number, deg: number) {
+  const t = (deg * Math.PI) / 180;
+  return {
+    x: EARTH.cx + radius * Math.cos(t),
+    y: EARTH.cy + radius * Math.sin(t),
+  };
+}
+
+const NODES = [
+  onOrbit(1168, -58),
+  onOrbit(1168, -14),
+  onOrbit(1292, -48),
+  onOrbit(1292, -30),
+];
+
+function Bracket({ x, y, s = 28 }: { x: number; y: number; s?: number }) {
+  const a = s * 0.28;
+  const x0 = x - s / 2;
+  const y0 = y - s / 2;
   return (
-    <g stroke="rgba(247,249,252,0.72)" strokeWidth="1.25" fill="none">
-      <path d={`M${x} ${y + a}V${y}H${x + a}`} />
-      <path d={`M${x + s - a} ${y}H${x + s}V${y + a}`} />
-      <path d={`M${x} ${y + s - a}V${y + s}H${x + a}`} />
-      <path d={`M${x + s - a} ${y + s}H${x + s}V${y + s - a}`} />
+    <g stroke="rgba(247,249,252,0.82)" strokeWidth="1.15" fill="none">
+      <path d={`M${x0} ${y0 + a}V${y0}H${x0 + a}`} />
+      <path d={`M${x0 + s - a} ${y0}H${x0 + s}V${y0 + a}`} />
+      <path d={`M${x0} ${y0 + s - a}V${y0 + s}H${x0 + a}`} />
+      <path d={`M${x0 + s - a} ${y0 + s}H${x0 + s}V${y0 + s - a}`} />
     </g>
+  );
+}
+
+function RebelMark() {
+  return (
+    <svg className="banner-mark" viewBox="0 0 400 470" role="img" aria-label="Rebel Talent">
+      <defs>
+        <linearGradient id="rebel-orbit" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stopColor="#C8102E" />
+          <stop offset="0.55" stopColor="#E23B4A" />
+          <stop offset="1" stopColor="#F08A2A" />
+        </linearGradient>
+      </defs>
+      <g transform="translate(200 168)">
+        <polygon
+          fill="#F7F9FC"
+          points="0,-132 14,-16 132,0 14,16 0,132 -14,16 -132,0 -14,-16"
+        />
+        <ellipse
+          rx="158"
+          ry="54"
+          fill="none"
+          stroke="url(#rebel-orbit)"
+          strokeWidth="7"
+          transform="rotate(-16)"
+        />
+        <circle cx="149" cy="-25" r="7" fill="#E23B4A" />
+      </g>
+      <text
+        x="200"
+        y="360"
+        textAnchor="middle"
+        fill="#F7F9FC"
+        fontFamily="Inter, sans-serif"
+        fontSize="64"
+        fontWeight="800"
+        letterSpacing="-1.5"
+      >
+        REBEL
+      </text>
+      <text
+        x="200"
+        y="412"
+        textAnchor="middle"
+        fill="#F7F9FC"
+        fontFamily="Inter, sans-serif"
+        fontSize="26"
+        fontWeight="600"
+        letterSpacing="12"
+      >
+        TALENT
+      </text>
+    </svg>
   );
 }
 
@@ -64,59 +138,34 @@ export default function BannerHero({
       <svg
         className="banner-flight"
         viewBox="0 0 1600 900"
-        preserveAspectRatio="xMidYMid slice"
+        preserveAspectRatio="xMidYMin slice"
         aria-hidden="true"
         focusable="false"
       >
-        <g className="flight-tall" fill="none" stroke="#E23B4A" strokeWidth="1.6" strokeDasharray="8 7" strokeLinecap="round">
-          <path d="M1040 760C1200 690 1380 840 1580 680" />
-          <path d="M980 860C1180 790 1420 900 1590 750" />
-        </g>
-        <g className="flight-short" fill="none" stroke="#E23B4A" strokeWidth="1.6" strokeDasharray="8 7" strokeLinecap="round">
-          <path d="M1080 300C1260 230 1440 380 1580 250" />
-          <path d="M1020 460C1240 390 1460 520 1590 400" />
-        </g>
-        <g className="flight-tall">
-          {[
-            [1180, 730],
-            [1420, 740],
-            [1080, 830],
-            [1520, 700],
-          ].map(([cx, cy]) => (
-            <g key={`t${cx}-${cy}`}>
-              <circle cx={cx} cy={cy} r="8" fill="rgba(226,59,74,0.35)" />
-              <circle cx={cx} cy={cy} r="3.1" fill="#FF4B5A" />
-            </g>
-          ))}
-        </g>
-        <g className="flight-short">
-          {[
-            [1240, 270],
-            [1480, 300],
-            [1160, 430],
-            [1500, 430],
-          ].map(([cx, cy]) => (
-            <g key={`s${cx}-${cy}`}>
-              <circle cx={cx} cy={cy} r="8" fill="rgba(226,59,74,0.35)" />
-              <circle cx={cx} cy={cy} r="3.1" fill="#FF4B5A" />
-            </g>
-          ))}
-        </g>
-        <Bracket x={1088} y={168} />
-        <Bracket x={1268} y={300} s={16} />
+        {ORBITS.map((radius) => (
+          <circle
+            key={radius}
+            cx={EARTH.cx}
+            cy={EARTH.cy}
+            r={radius}
+            fill="none"
+            stroke="#E23B4A"
+            strokeWidth="1.5"
+            strokeDasharray="11 9"
+          />
+        ))}
+        {NODES.map((node) => (
+          <g key={`${node.x}-${node.y}`}>
+            <circle cx={node.x} cy={node.y} r="8" fill="rgba(226,59,74,0.32)" />
+            <circle cx={node.x} cy={node.y} r="3.1" fill="#FF4B5A" />
+            <Bracket x={node.x} y={node.y} />
+          </g>
+        ))}
       </svg>
       <div className="banner-scrim" aria-hidden="true" />
       <div className="band-wrap banner-copy">
         <div className="band-hero-copy">{children}</div>
-        {mark && (
-          <img
-            className="banner-mark"
-            src="/logo.png"
-            alt="Rebel Talent"
-            width={200}
-            height={200}
-          />
-        )}
+        {mark && <RebelMark />}
       </div>
     </div>
   );

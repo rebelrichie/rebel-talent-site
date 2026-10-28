@@ -2206,9 +2206,8 @@ main .page-bands > section.band-red::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
+  object-position: center top;
 }
-.banner-stage-short .banner-earth img { object-position: 22% 32%; }
 .banner-flight {
   position: absolute;
   inset: 0;
@@ -2217,8 +2216,6 @@ main .page-bands > section.band-red::after {
   height: 100%;
   pointer-events: none;
 }
-.banner-stage-tall .flight-short { display: none; }
-.banner-stage-short .flight-tall { display: none; }
 .banner-scrim {
   position: absolute;
   inset: 0;
@@ -2246,10 +2243,10 @@ main .page-bands > section.band-red::after {
   max-width: none !important;
 }
 .banner-mark {
-  width: 168px;
-  height: 168px;
-  object-fit: contain;
+  width: min(340px, 34vw);
+  height: auto;
   justify-self: end;
+  background: none;
 }
 .banner-stage .band-hero-copy h1,
 .banner-stage .band-hero-copy h1.hero-display {
@@ -2284,14 +2281,13 @@ main .page-bands > section.band-red::after {
 @media (max-width: 800px) {
   .banner-copy {
     grid-template-columns: 1fr;
-    padding-top: 4.5rem;
+    padding-top: 8.75rem;
   }
   .banner-mark {
     position: absolute;
-    top: 0.25rem;
-    right: 1.25rem;
-    width: 72px;
-    height: 72px;
+    top: 0.15rem;
+    right: 1rem;
+    width: 108px;
   }
   .banner-stage .band-hero-copy h1,
   .banner-stage .band-hero-copy h1.hero-display {
@@ -2311,6 +2307,62 @@ main .page-bands > section:not(:nth-child(4n+3)):not(.band-light):not(.band-red)
   letter-spacing: 0.18em !important;
 }
 main .page-bands > section:is(:nth-child(4n+3), .band-light):not(.band-red) p[class*="uppercase"][class*="tracking"]:not(.stat-kicker) {
-  color: #7A5814 !important;
+  color: #E2C57A !important;
   letter-spacing: 0.18em !important;
+}
+
+/* One dark rhythm. Deep navy, a slightly lighter navy, red close. */
+main .page-bands > section:not(.band-red) {
+  background-color: #001028 !important;
+  background-image: none !important;
+  color: #F4F7FB !important;
+}
+main .page-bands > section:nth-child(even):not(.band-red):not(:has(.banner-stage)) {
+  background-color: #0C2344 !important;
+}
+main .page-bands > section:has(.banner-stage) {
+  background-color: #00060f !important;
+}
+main .page-bands > section:not(.band-red) :is(h1, h2, h3, h4, p, li, label, blockquote, a:not(.mi-btn), span, td, th) {
+  color: #F4F7FB;
+}
+main .page-bands > section:is(:nth-child(4n+3), .band-light):not(.band-red) :where(:not(input):not(textarea):not(select):not(option):not(.mi-btn):not(.choice-pill)) {
+  color: #F7F9FC !important;
+}
+main .page-bands > section:is(:nth-child(4n+3), .band-light):not(.band-red) :is(
+  .text-zinc-400, .text-zinc-500, .text-zinc-600, .text-\[\#5C6570\], .text-\[\#8B919A\], .text-\[\#3D4450\], .text-\[\#272c30\], .muted
+) {
+  color: rgba(244, 247, 251, 0.76) !important;
+}
+main .page-bands > section:is(:nth-child(4n+3), .band-light):not(.band-red) :is(.text-rebel-red, [class*="C8102E"]) {
+  color: #FFC9CE !important;
+}
+main .page-bands > section:is(:nth-child(4n+3), .band-light):not(.band-red) :is(a.mi-btn, button.mi-btn),
+main .page-bands > section:is(:nth-child(4n+3), .band-light):not(.band-red) :is(a.mi-btn, button.mi-btn) * {
+  color: #ffffff !important;
+}
+main .page-bands > section:not(.band-red) [class*="border-[#E"],
+main .page-bands > section:not(.band-red) [class*="border-[#e"] {
+  border-color: rgba(247, 249, 252, 0.16) !important;
+}
+main .page-bands > section:not(:has(.banner-stage)):not(.band-red) {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cg opacity='0.28'%3E%3Ccircle cx='352' cy='1062' r='1168' fill='none' stroke='%23E23B4A' stroke-width='1.5' stroke-dasharray='11 9'/%3E%3Ccircle cx='352' cy='1062' r='1292' fill='none' stroke='%23E23B4A' stroke-width='1.5' stroke-dasharray='11 9'/%3E%3C/g%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right -8% bottom -40% !important;
+  background-size: 78% auto !important;
+}
+main .page-bands > section.band-red::after {
+  opacity: 0.34;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Ccircle cx='352' cy='1062' r='1168' fill='none' stroke='white' stroke-width='1.6' stroke-dasharray='11 9'/%3E%3Ccircle cx='352' cy='1062' r='1292' fill='none' stroke='white' stroke-width='1.6' stroke-dasharray='11 9'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center top;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+}
+main .page-bands > section:not(:has(.banner-stage)) h2 {
+  font-size: clamp(1.85rem, 2.7vw, 2.7rem) !important;
+  letter-spacing: -0.028em !important;
+  line-height: 1.05 !important;
 }
