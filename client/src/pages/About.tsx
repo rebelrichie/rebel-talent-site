@@ -89,7 +89,7 @@ export default function About() {
       />
 
       {/* ───────────── HERO ───────────── */}
-      <InteriorHero>
+      <InteriorHero orbit="about">
         <div className="mb-6 flex items-center gap-4">
           <img src="/team-richie.jpg" alt="Richie Lampani, Founder of Rebel Talent Systems" className="h-16 w-16 shrink-0 rounded-full object-cover object-top" data-testid="img-profile" />
           <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#8B919A]">Founder</p>
@@ -128,7 +128,7 @@ export default function About() {
       <section className="bg-rebel-space pt-4 pb-12 sm:pb-16 border-t border-zinc-900">
         <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10">
           <ScrollReveal variant="fade-up" delay={200}>
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
+          <div className="about-stats">
             {[
               { value: "14+", label: "Years In Recruiting", numeric: true },
               { value: "PMP", label: "Certified 2024", numeric: false },
@@ -142,7 +142,7 @@ export default function About() {
                 ) : (
                   <div className="font-display text-xl sm:text-2xl font-bold text-rebel-red mb-1">{stat.value}</div>
                 )}
-                <div className="text-zinc-400 text-xs tracking-widest uppercase">{stat.label}</div>
+                <div className="about-stat-label text-zinc-400 text-xs tracking-widest uppercase">{stat.label}</div>
               </div>
             ))}
           </div>

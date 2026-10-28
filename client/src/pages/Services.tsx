@@ -125,7 +125,7 @@ export default function Services() {
         ]}
       />
 
-      <InteriorHero>
+      <InteriorHero orbit="services">
         <h1 className="max-w-[12ch] text-[#0C1220]" data-testid="heading-services">
           Four ways to take the work.
         </h1>

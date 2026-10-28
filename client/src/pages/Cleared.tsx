@@ -98,7 +98,7 @@ export default function Cleared() {
         ]}
       />
 
-      <InteriorHero>
+      <InteriorHero orbit="cleared">
         <p className="text-[12px] font-semibold uppercase tracking-[0.16em] mb-4">
           Cleared &amp; Defense
         </p>

@@ -842,9 +842,9 @@ button,
   [data-testid="section-hero"] a[class*="rounded-full"] {
     justify-content: center;
   }
-  /* Eyebrows quieter */
-  [data-testid="section-hero"] > div > p:first-child {
-    letter-spacing: 0.18em !important;
+  /* Kickers only. Body copy under the hero must keep normal tracking. */
+  [data-testid="section-hero"] > div > p:first-child[class*="uppercase"] {
+    letter-spacing: 0.16em !important;
   }
 }
 
@@ -1667,22 +1667,84 @@ main .page-bands > section[class*="max-w-"] {
   position: relative;
   height: 132px;
   width: 100%;
-  min-height: 0 !important;
 }
 .hero-split-tall .hero-orbit { height: 148px; }
 @media (min-width: 1024px) {
   .hero-split { min-height: 420px; }
-  .hero-split-tall { min-height: 520px; }
-  .hero-orbit {
+  .hero-split-tall { min-height: 560px; }
+  /* Equal specificity with the 148px rule, later in the file, so desktop wins. */
+  .hero-split .hero-orbit,
+  .hero-split-tall .hero-orbit {
     position: absolute;
     z-index: 0;
-    inset: 0 0 0 auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
     width: 50%;
-    height: 100%;
+    height: auto !important;
+    min-height: 100%;
   }
 }
+.orbit-label-left {
+  position: absolute;
+  z-index: 3;
+  left: 7%;
+  top: 16%;
+  max-width: 9rem;
+}
+.orbit-labels-right {
+  position: absolute;
+  z-index: 3;
+  right: 7%;
+  top: 12%;
+  bottom: 14%;
+  width: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  pointer-events: none;
+  text-align: right;
+}
+.orbit-labels-right .orbit-label { position: static; max-width: 10rem; }
 @media (max-width: 1023px) {
-  .orbit-label { display: none; }
+  .orbit-label, .orbit-label-left, .orbit-labels-right { display: none; }
+}
+
+.stat-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.stat-row > * { min-width: 0; display: flex; flex-direction: column; }
+.stat-kicker { min-height: 2.4em; }
+.stat-rule { display: block; width: 1.25rem; height: 1px; background: #C8102E; margin: 1rem 0 0.65rem; }
+.stat-caption { min-height: 2.7em; line-height: 1.35; }
+@media (min-width: 1024px) {
+  .stat-row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 1rem;
+}
+.about-stats > * { min-width: 0; }
+.about-stats .about-stat-label { min-height: 2.6em; }
+@media (min-width: 900px) {
+  .about-stats { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+.hero-lede { letter-spacing: 0 !important; }
+
+.prose-rebel h2 { scroll-margin-top: 6.5rem; }
+
+:focus-visible {
+  outline: 2px solid #F7F9FC;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px #9E0C24;
+}
+main .page-bands [data-testid="job-list"] a:hover {
+  background-color: color-mix(in srgb, currentColor 8%, transparent) !important;
+}
+main .page-bands a:not(.mi-btn):hover {
+  text-decoration-thickness: 2px;
 }
 
 .agent-mark,

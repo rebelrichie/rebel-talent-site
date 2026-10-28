@@ -27,6 +27,7 @@ export default function Blog() {
         path="/blog"
         ogTitle="Rebel Built Blog"
         ogDescription="Recruiting, AI, and talent strategy insights."
+        ogImage="og-home.png"
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
           { name: "Blog", item: "https://rebeltalentsystems.com/blog" },
@@ -34,7 +35,7 @@ export default function Blog() {
       />
 
       {/* Hero */}
-      <InteriorHero>
+      <InteriorHero orbit="blog">
         <h1 className="text-[#0C1220]">Rebel Built</h1>
         <p className="mt-5 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]">
           Insights on contingent, retained, and embedded recruiting, plus defense tech, engineering, and building teams that win.

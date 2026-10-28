@@ -48,6 +48,63 @@ echo "==> Syncing to server…"
 # Whole dist/public tree, including the capability statement PDF. No exclude filter.
 rsync -az --delete dist/public/ root@64.225.2.41:/opt/fcc/static/rts/
 
+# Opt in only. Default deploys do not touch nginx.
+# INSTALL_NGINX_CONF=1 ./deploy.sh
+# Copies deploy/nginx-site.conf, points unknown routes at /404.html with
+# status 404, runs nginx -t, and reloads only when the test passes.
+if [[ "${INSTALL_NGINX_CONF:-}" == "1" ]]; then
+  echo "==> Installing nginx route config…"
+  scp deploy/nginx-site.conf root@64.225.2.41:/etc/nginx/snippets/rebel-talent-routes.conf
+  ssh root@64.225.2.41 'bash -s' << 'REMOTE'
+set -euo pipefail
+shopt -s nullglob
+site=""
+for f in /etc/nginx/sites-enabled/* /etc/nginx/conf.d/*.conf /etc/nginx/sites-available/*; do
+  [[ -f "$f" ]] || continue
+  if grep -Eq "opt/fcc/static/rts|rebeltalentsystems.com" "$f"; then
+    site="$f"
+    break
+  fi
+done
+if [[ -z "$site" ]]; then
+  echo "No nginx site file mentions the Rebel docroot. Snippet saved at /etc/nginx/snippets/rebel-talent-routes.conf. Not reloading." >&2
+  exit 1
+fi
+backup="${site}.bak-rts-$(date +%Y%m%d%H%M%S)"
+cp -a "$site" "$backup"
+python3 - "$site" << 'PY'
+import re, sys
+path = sys.argv[1]
+text = open(path).read()
+new_try = "try_files $uri $uri/ $uri/index.html =404;"
+text2, n = re.subn(r"try_files\s+\$uri\s+\$uri/\s+/index\.html\s*;", new_try, text)
+if n == 0 and new_try not in text:
+    sys.stderr.write("Could not find the SPA try_files line in %s. Not editing.\n" % path)
+    sys.exit(2)
+text = text2
+if "error_page 404 /404.html;" not in text:
+    if "server {" in text:
+        text = text.replace("server {", "server {\n    error_page 404 /404.html;", 1)
+    else:
+        text = "error_page 404 /404.html;\n" + text
+open(path, "w").write(text)
+print("nginx site updated:", path)
+PY
+if nginx -t; then
+  if command -v systemctl >/dev/null 2>&1; then
+    systemctl reload nginx
+  else
+    nginx -s reload
+  fi
+  echo "nginx reloaded"
+else
+  echo "nginx -t failed. Restoring ${backup}. Not reloading." >&2
+  cp -a "$backup" "$site"
+  exit 1
+fi
+REMOTE
+fi
+
 echo "==> Committing + pushing…"
 if [[ -n "$(git status --porcelain)" ]]; then
   git add -A

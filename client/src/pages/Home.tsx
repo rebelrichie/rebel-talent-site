@@ -127,8 +127,8 @@ const LIGHT_STATS = [
 ];
 
 const NAVY_STATS = [
-  { client: "EarthDaily Federal", value: "3.4x", caption: "Return. About $394K in fees avoided" },
-  { client: "Legal Managed Services", value: "90%", caption: "Retention. 20 hires in 24 months" },
+  { client: "EarthDaily Federal", value: "3.4x", caption: "Return. About $394K avoided" },
+  { client: "Legal Managed Services", value: "90%", caption: "Retention. 20 hires, 24 months" },
 ];
 
 const SERVICES = [
@@ -179,12 +179,10 @@ const SERVICES = [
 function Stat({ client, value, caption, light }: { client: string; value: string; caption: string; light: boolean }) {
   return (
     <div className="px-0 py-8 pr-4 sm:pr-6">
-      <p className={`text-[11px] font-semibold uppercase tracking-[0.16em] ${light ? "text-[#8B919A]" : "muted"}`}>{client}</p>
-      <p className={`mt-4 text-[56px] font-extrabold leading-none tracking-[-0.045em] sm:text-[68px] ${light ? "text-[#0C1220]" : "text-white"}`}>{value}</p>
-      <p className={`mt-4 flex items-center gap-2.5 text-[14px] leading-snug ${light ? "text-[#5C6570]" : "muted"}`}>
-        <span className="inline-block h-px w-5 shrink-0 bg-[#C8102E]" />
-        {caption}
-      </p>
+      <p className={`stat-kicker text-[11px] font-semibold uppercase tracking-[0.12em] ${light ? "text-[#8B919A]" : "muted"}`}>{client}</p>
+      <p className={`mt-3 text-[52px] font-extrabold leading-none tracking-[-0.045em] sm:text-[64px] ${light ? "text-[#0C1220]" : "text-white"}`}>{value}</p>
+      <span className="stat-rule" aria-hidden="true" />
+      <p className={`stat-caption text-[14px] leading-snug ${light ? "text-[#5C6570]" : "muted"}`}>{caption}</p>
     </div>
   );
 }
@@ -219,7 +217,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <OrbitPanel className="hero-orbit" />
+          <OrbitPanel variant="home" className="hero-orbit" />
         </div>
         <div className="band-wrap">
           <div className="stat-row border-t border-white/15">
@@ -229,7 +227,7 @@ export default function Home() {
           </div>
         </div>
         <div className="band-wrap py-12">
-          <p className="max-w-3xl text-[18px] leading-[1.6]">
+          <p className="hero-lede max-w-3xl text-[18px] leading-[1.6]">
             We fill open roles for technical, go-to-market, and operations teams. Contingent search is for one seat. Embedded recruiting is for the function you still need after we leave. We work with Series A through C companies and with defense teams, cleared and uncleared.
           </p>
         </div>

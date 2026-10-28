@@ -1,12 +1,14 @@
-import OrbitPanel from "@/components/OrbitPanel";
+import OrbitPanel, { type OrbitVariant } from "@/components/OrbitPanel";
 
 /** Interior Orbit Split. Copy sits on the same 1140 grid as the bands below. */
 export default function InteriorHero({
   children,
   testId = "section-hero",
+  orbit = "default",
 }: {
   children: React.ReactNode;
   testId?: string;
+  orbit?: OrbitVariant;
 }) {
   return (
     <section data-testid={testId} className="band-hero">
@@ -16,7 +18,7 @@ export default function InteriorHero({
             {children}
           </div>
         </div>
-        <OrbitPanel compact className="hero-orbit" />
+        <OrbitPanel compact variant={orbit} className="hero-orbit" />
       </div>
     </section>
   );

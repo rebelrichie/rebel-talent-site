@@ -3,8 +3,41 @@
  * Earth limb is NASA public-domain astronaut photo ISS064-E-005209
  * (Johnson Space Center), 20 Nov 2020, Western Australia.
  * Diagram lines are SVG. No stock illustration, no glow.
+ *
+ * Variants change rotation, ring count, and crop so pages are distinguishable.
+ * Labels render only on the home panel, spaced in a column so they cannot stack.
  */
-export default function OrbitPanel({ className = "", compact = false }: { className?: string; compact?: boolean }) {
+
+export type OrbitVariant = "home" | "services" | "cleared" | "jobs" | "blog" | "about" | "default";
+
+type Label = { kicker: string; line: string };
+
+const VARIANTS: Record<OrbitVariant, { rotate: number; viewBox: string; rings: 1 | 2 | 3; slice: boolean; dashOuter: boolean }> = {
+  home: { rotate: -18, viewBox: "20 10 760 540", rings: 2, slice: true, dashOuter: false },
+  services: { rotate: 22, viewBox: "120 40 640 480", rings: 2, slice: true, dashOuter: true },
+  cleared: { rotate: -40, viewBox: "60 70 700 460", rings: 3, slice: true, dashOuter: false },
+  jobs: { rotate: 8, viewBox: "160 90 560 420", rings: 1, slice: true, dashOuter: true },
+  blog: { rotate: 46, viewBox: "40 120 720 400", rings: 1, slice: true, dashOuter: true },
+  about: { rotate: -6, viewBox: "0 50 760 480", rings: 2, slice: true, dashOuter: true },
+  default: { rotate: -18, viewBox: "40 30 720 500", rings: 2, slice: false, dashOuter: false },
+};
+
+const HOME_LABELS: Label[] = [
+  { kicker: "Contingent", line: "One role" },
+  { kicker: "Embedded", line: "The desk" },
+  { kicker: "Cleared", line: "Secret, TS, TS/SCI" },
+];
+
+export default function OrbitPanel({
+  className = "",
+  compact = false,
+  variant = "default",
+}: {
+  className?: string;
+  compact?: boolean;
+  variant?: OrbitVariant;
+}) {
+  const spec = VARIANTS[variant] ?? VARIANTS.default;
   const marks = [
     { rx: 268, ry: 102, deg: -28 },
     { rx: 268, ry: 102, deg: 36 },
@@ -12,18 +45,15 @@ export default function OrbitPanel({ className = "", compact = false }: { classN
     { rx: 168, ry: 62, deg: 12 },
     { rx: 168, ry: 62, deg: 198 },
   ];
+  const showLabels = !compact && variant === "home";
 
   return (
-    <div className={`orbit-panel mi-band relative overflow-hidden bg-[#001028] ${className}`}>
-      <img
-        src="/earth-limb.jpg"
-        alt=""
-        className="orbit-earth"
-      />
+    <div className={`orbit-panel mi-band relative overflow-hidden bg-[#001028] ${className}`} data-orbit={variant}>
+      <img src="/earth-limb.jpg" alt="" className="orbit-earth" />
       <svg
         className="absolute inset-0 h-full w-full"
-        viewBox="40 30 720 500"
-        preserveAspectRatio="xMidYMid meet"
+        viewBox={spec.viewBox}
+        preserveAspectRatio={spec.slice ? "xMidYMid slice" : "xMidYMid meet"}
         aria-hidden="true"
         focusable="false"
       >
@@ -44,9 +74,21 @@ export default function OrbitPanel({ className = "", compact = false }: { classN
           <circle cx="418" cy="292" r="11" />
         </g>
 
-        <g transform="translate(418 292) rotate(-18)">
-          <ellipse rx="268" ry="102" fill="none" stroke="rgba(255,255,255,0.95)" strokeWidth="1.6" />
-          <ellipse rx="168" ry="62" fill="none" stroke="rgba(255,255,255,0.82)" strokeWidth="1.25" />
+        <g transform={`translate(418 292) rotate(${spec.rotate})`}>
+          <ellipse
+            rx="268"
+            ry="102"
+            fill="none"
+            stroke="rgba(255,255,255,0.95)"
+            strokeWidth="1.6"
+            strokeDasharray={spec.dashOuter ? "7 9" : undefined}
+          />
+          {spec.rings >= 2 && (
+            <ellipse rx="168" ry="62" fill="none" stroke="rgba(255,255,255,0.82)" strokeWidth="1.25" />
+          )}
+          {spec.rings >= 3 && (
+            <ellipse rx="96" ry="36" fill="none" stroke="rgba(143,219,239,0.9)" strokeWidth="1.1" />
+          )}
           {marks.map((mark) => {
             const rad = (mark.deg * Math.PI) / 180;
             const cx = Math.cos(rad) * mark.rx;
@@ -67,19 +109,19 @@ export default function OrbitPanel({ className = "", compact = false }: { classN
         </g>
       </svg>
 
-      {!compact && (
+      {showLabels && (
         <>
-          <div className="orbit-label absolute left-[7%] top-[12%] max-w-[11rem]">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em]">Contingent</p>
-            <p className="mt-1 text-[13px] text-white/70">One role</p>
+          <div className="orbit-label orbit-label-left">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em]">{HOME_LABELS[0].kicker}</p>
+            <p className="mt-1 text-[13px]">{HOME_LABELS[0].line}</p>
           </div>
-          <div className="orbit-label absolute right-[7%] top-[16%] max-w-[11rem] text-right">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em]">Embedded</p>
-            <p className="mt-1 text-[13px] text-white/70">The desk</p>
-          </div>
-          <div className="orbit-label absolute bottom-[34%] right-[8%] max-w-[12rem] text-right">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em]">Cleared</p>
-            <p className="mt-1 text-[13px] text-white/70">Secret, TS, TS/SCI</p>
+          <div className="orbit-labels-right">
+            {HOME_LABELS.slice(1).map((label) => (
+              <div key={label.kicker} className="orbit-label">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em]">{label.kicker}</p>
+                <p className="mt-1 text-[13px]">{label.line}</p>
+              </div>
+            ))}
           </div>
         </>
       )}
