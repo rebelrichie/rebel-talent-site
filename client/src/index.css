@@ -3045,3 +3045,134 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
     background: none !important;
   }
 }
+
+/* Proof strip is a dark band. Client marks are a solid light monochrome,
+   and every dark control uses white type. Light bands keep navy type.
+   The primary red CTA stays red with white type. */
+main .page-bands > section.band-steel.proof-strip:nth-child(n):not(.band-red):not(:has(.banner-stage)) {
+  background-color: #001028 !important;
+  background-image: none !important;
+  color: #F4F7FB !important;
+}
+main .page-bands > section.band-steel.proof-strip:nth-child(n):not(.band-red):not(.band-light):not(:has(.banner-stage)) :is(h1, h2, h3, h4, p, li, span, a, label, strong, em) {
+  color: #F4F7FB !important;
+}
+main .page-bands > section.band-steel.proof-strip:not(.band-red) .stat-row > * > p:nth-of-type(2) {
+  color: #ffffff !important;
+}
+main .page-bands > section.band-steel.proof-strip:not(.band-red) :is(.stat-kicker, .stat-caption) {
+  color: rgba(244, 247, 251, 0.82) !important;
+}
+main .page-bands > section.proof-strip .logo-chips {
+  gap: 1.15rem 2.25rem;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+main .page-bands > section.proof-strip .logo-chips li {
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  min-height: 52px;
+  padding: 0.15rem 0 !important;
+}
+main .page-bands > section.proof-strip .logo-chips img {
+  height: 48px !important;
+  width: auto !important;
+  max-width: 14rem !important;
+  opacity: 1 !important;
+  filter: brightness(0) invert(1) !important;
+}
+@media (max-width: 640px) {
+  main .page-bands > section.proof-strip .logo-chips {
+    gap: 1rem 1.5rem;
+  }
+  main .page-bands > section.proof-strip .logo-chips img {
+    height: 40px !important;
+  }
+}
+main .page-bands .logo-chip {
+  background: #071525 !important;
+  border-radius: 10px !important;
+  min-height: 64px;
+  padding: 0.75rem 1.1rem !important;
+}
+main .page-bands .logo-chip img {
+  height: 40px !important;
+  width: auto !important;
+  max-width: 11rem !important;
+  opacity: 1 !important;
+  filter: brightness(0) invert(1) !important;
+}
+
+main .page-bands > section.band-steel:not(.proof-strip):not(.band-red) :is(h1, h2, h3, h4, p, li, a, span, label, blockquote, button) {
+  color: #0C1220 !important;
+}
+main .page-bands:not(:has(.band-steel)) > section:nth-child(3):not(.band-red):not(:has(.banner-stage)) :is(h1, h2, h3, h4, p, li, a, span, label, blockquote, button) {
+  color: #0C1220 !important;
+}
+
+main .page-bands > section:not(.band-red) :is(a.mi-btn, button.mi-btn, a.bg-rebel-red, button.bg-rebel-red, a.bg-primary, button.bg-primary),
+main .page-bands > section.band-steel:not(.band-red) :is(a.mi-btn, button.mi-btn, a.bg-rebel-red, button.bg-rebel-red, a.bg-primary, button.bg-primary),
+main .page-bands:not(:has(.band-steel)) > section:nth-child(3):not(.band-red) :is(a.mi-btn, button.mi-btn, a.bg-rebel-red, button.bg-rebel-red, a.bg-primary, button.bg-primary) {
+  color: #ffffff !important;
+  background-color: #C8102E !important;
+  border-color: #C8102E !important;
+}
+main .page-bands > section:not(.band-red) :is(a.mi-btn, button.mi-btn, a.bg-rebel-red, button.bg-rebel-red, a.bg-primary, button.bg-primary) *,
+main .page-bands > section.band-steel:not(.band-red) :is(a.mi-btn, button.mi-btn, a.bg-rebel-red, button.bg-rebel-red, a.bg-primary, button.bg-primary) *,
+main .page-bands:not(:has(.band-steel)) > section:nth-child(3):not(.band-red) :is(a.mi-btn, button.mi-btn, a.bg-rebel-red, button.bg-rebel-red, a.bg-primary, button.bg-primary) * {
+  color: #ffffff !important;
+  background-color: transparent !important;
+}
+main .page-bands > section.band-red :is(a.mi-btn, button.mi-btn) {
+  color: #9E0C24 !important;
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+main .page-bands > section.band-red :is(a.mi-btn, button.mi-btn) * {
+  color: #9E0C24 !important;
+  background-color: transparent !important;
+}
+main .page-bands > section.band-steel.proof-strip:nth-child(n):not(.band-red):not(.band-light):not(:has(.banner-stage)) .reg-badges li {
+  background-color: #16385A !important;
+  border: 1px solid rgba(255, 255, 255, 0.38) !important;
+  color: #ffffff !important;
+}
+main .page-bands > section.band-steel.proof-strip:nth-child(n):not(.band-red):not(.band-light):not(:has(.banner-stage)) .reg-badges :is(a, span, li) {
+  color: #ffffff !important;
+}
+main .page-bands .choice-pill:not(.is-on),
+main .page-bands > section.band-steel .choice-pill:not(.is-on) {
+  background-color: #0E1C33 !important;
+  border-color: rgba(247, 249, 252, 0.45) !important;
+  color: #F7F9FC !important;
+}
+main .page-bands .choice-pill:not(.is-on) *,
+main .page-bands > section.band-steel .choice-pill:not(.is-on) * {
+  color: #F7F9FC !important;
+  background-color: transparent !important;
+}
+main .page-bands .choice-pill.is-on,
+main .page-bands > section.band-steel .choice-pill.is-on {
+  background-color: #F7F9FC !important;
+  border-color: #F7F9FC !important;
+  color: #0C1220 !important;
+}
+main .page-bands .choice-pill.is-on *,
+main .page-bands > section.band-steel .choice-pill.is-on * {
+  color: #0C1220 !important;
+  background-color: transparent !important;
+}
+main .page-bands > section.band-steel:not(.proof-strip):not(.band-red) button:not(.mi-btn):not(.bg-rebel-red):not(.bg-primary) svg,
+main .page-bands:not(:has(.band-steel)) > section:nth-child(3):not(.band-red):not(:has(.banner-stage)) button:not(.mi-btn):not(.bg-rebel-red):not(.bg-primary) svg {
+  color: #0C1220 !important;
+  stroke: #0C1220 !important;
+}
+main .page-bands > section:not(.band-red) :is(a.mi-btn, button.mi-btn, a.bg-primary, button.bg-primary, a.bg-rebel-red, button.bg-rebel-red) svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+main .page-bands > section.band-red :is(a.mi-btn, button.mi-btn) svg {
+  color: #9E0C24 !important;
+  stroke: #9E0C24 !important;
+}
