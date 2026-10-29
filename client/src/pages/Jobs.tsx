@@ -267,7 +267,7 @@ export default function Jobs() {
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search by role, company, location..."
+              placeholder="Search roles"
               className="w-full pl-11 pr-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white placeholder:text-zinc-400 focus:outline-none focus:border-rebel-red transition-colors"
               data-testid="input-job-search"
             />
@@ -305,7 +305,7 @@ export default function Jobs() {
                 <button
                   type="button"
                   onClick={() => setRemoteOnly((v) => !v)}
-                  className={`choice-pill inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium ${remoteOnly ? "is-on" : ""}`}
+                  className={`choice-pill filter-chip inline-flex items-center gap-2 ${remoteOnly ? "is-on" : ""}`}
                 >
                   <MapPin className="h-3.5 w-3.5" /> Remote OK only
                 </button>
@@ -421,7 +421,7 @@ export default function Jobs() {
                       <div className="flex items-start justify-between gap-4 mb-3">
                         <div className="min-w-0 flex-1">
                           <div className="flex flex-wrap items-center gap-2 mb-1">
-                            <h2 className="text-lg sm:text-xl font-semibold text-white group-hover:text-rebel-red transition-colors">
+                            <h2 className="job-title font-semibold group-hover:text-rebel-red transition-colors">
                               {j.title}
                             </h2>
                             {j._clearance && (
@@ -480,7 +480,7 @@ export default function Jobs() {
       </section>
 
       {/* ===== WHAT TO EXPECT (candidate experience promise) ===== */}
-      <section className="px-4 sm:px-6 lg:px-8 pb-24 border-t border-zinc-800/50 pt-16">
+      <section className="band-steel px-4 sm:px-6 lg:px-8 pb-24 border-t border-zinc-800/50 pt-16">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <p className="text-rebel-red text-xs font-semibold tracking-[0.2em] uppercase mb-3">
@@ -557,7 +557,7 @@ function FilterRow({
             type="button"
             onClick={() => onToggle(opt)}
             aria-pressed={active}
-            className={`choice-pill px-3 py-1.5 rounded-full text-xs font-medium ${active ? "is-on" : ""}`}
+            className={`choice-pill filter-chip ${active ? "is-on" : ""}`}
           >
             {opt}
           </button>

@@ -83,6 +83,8 @@ const OFFERINGS = [
     kicker: "Retained",
     title: "A defined role, with a deadline.",
     body: "The fee is 50% up front and 50% at placement. It fits executive and specialized technical searches, cleared or uncleared. The search stays with us from the day it opens through the accepted offer.",
+    detailsHref: undefined,
+    detailsLabel: undefined,
     ctaHref: "/strategy-call?engagement=retained",
     icon: Search,
   },
@@ -152,24 +154,13 @@ export default function Services() {
                 <p className="text-[#272c30] text-[18px] leading-[1.6] font-light max-w-2xl mb-5">
                   {offer.body}
                 </p>
-                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                  <Link
-                    href={offer.ctaHref}
-                    data-testid={`button-service-${offer.id}`}
-                    className={offer.id === "contingent" ? "mi-btn" : "text-[16px] font-medium underline underline-offset-4"}
-                  >
-                    Book a strategy call
-                  </Link>
-                  {offer.detailsHref && (
-                    <Link
-                      href={offer.detailsHref}
-                      data-testid={`link-service-${offer.id}`}
-                      className="text-[16px] text-[#0C1220] underline underline-offset-4"
-                    >
-                      {offer.detailsLabel}
-                    </Link>
-                  )}
-                </div>
+                <Link
+                  href={offer.detailsHref ?? offer.ctaHref}
+                  data-testid={offer.detailsHref ? `link-service-${offer.id}` : `button-service-${offer.id}`}
+                  className="tap-link text-[16px] font-medium underline underline-offset-4"
+                >
+                  {offer.detailsLabel ?? "Book a strategy call"}
+                </Link>
               </div>
             </article>
           ))}
@@ -183,7 +174,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section data-testid="section-proof">
+      <section data-testid="section-proof" className="band-steel">
         <div className="band-wrap py-16 sm:py-20">
           <div className="grid items-start gap-10 lg:grid-cols-2">
             <div>

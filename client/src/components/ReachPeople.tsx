@@ -43,11 +43,11 @@ export default function ReachPeople({ id, tone = "plain" }: { id?: string; tone?
               </a>
               {person.bookExternal ? (
                 <a href={person.bookHref} target="_blank" rel="noopener noreferrer" data-testid={person.bookTestId} className="mi-btn">
-                  Book a call
+                  Book a strategy call
                 </a>
               ) : (
                 <a href={person.bookHref} data-testid={person.bookTestId} className="mi-btn">
-                  Book a call
+                  Book a strategy call
                 </a>
               )}
             </article>

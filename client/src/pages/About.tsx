@@ -2,16 +2,8 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
-import { Button } from "@/components/ui/button";
-import ScrollReveal from "@/components/ScrollReveal";
-import AnimatedCounter from "@/components/AnimatedCounter";
-import GlowCard from "@/components/GlowCard";
-import CapacityBadge from "@/components/CapacityBadge";
 import ReachPeople from "@/components/ReachPeople";
 import InteriorHero from "@/components/InteriorHero";
-
-import headAndHeartCover from "@assets/Head_And_Heart_1773068092478.PNG";
-import unfinishedRoomsCover from "@assets/UR-BookCover_1773068071585.png";
 
 const personSchema = {
   "@context": "https://schema.org",
@@ -74,623 +66,168 @@ const BREADCRUMBS = [
   { name: "About", item: "https://rebeltalentsystems.com/about" },
 ];
 
+const TEAM = [
+  { name: "Richie Lampani", title: "Founder", email: "richie@rebeltalentsystems.com", linkedin: "https://linkedin.com/in/richielampani" },
+  { name: "Chris Moscato", title: "Head of Client Acquisition", email: "christopher@rebeltalentsystems.com", linkedin: "https://www.linkedin.com/in/chrismoscato/" },
+  { name: "Hannah Kerrigan", title: "Full Desk Recruiter", email: "hannah@rebeltalentsystems.com", linkedin: "https://www.linkedin.com/in/-hannah-kerrigan/" },
+  { name: "Veronica S.", title: "Recruiter / Chief of Staff", email: "veronica@rebeltalentsystems.com", linkedin: "https://www.linkedin.com/in/veronica-s-26750a110/" },
+  { name: "Mike Wrona", title: "Recruitment Consultant", email: "mike@rebeltalentsystems.com", linkedin: "https://www.linkedin.com/in/wrona/" },
+  { name: "Anthony Lynch", title: "Commercial Contingent Recruiter", email: "anthony@rebeltalentsystems.com", linkedin: "https://www.linkedin.com/in/anthonylynch/" },
+  { name: "Kelli Hrivnak", title: "Commercial Contingent Recruiter", email: "kelli@knakdigital.com", linkedin: "https://www.linkedin.com/in/kellihrivnak/" },
+  { name: "Bonnie Elton", title: "Full Desk Recruiter", email: "bonnie@rebeltalentsystems.com", linkedin: "https://www.linkedin.com/in/bonniemontgomery/" },
+];
+
+const AGENTS = [
+  { name: "Archie Bunker", role: "The Architect", blurb: "Builds and runs Rebel Command. He ships fixes and flags anything that needs a person." },
+  { name: "Miles Jensen", role: "Client Acquisition", blurb: "Finds Series A through C teams that are hiring hard, then books the strategy call." },
+  { name: "Jonah Stark", role: "Embedded Partnerships", blurb: "Opens conversations with teams that need a Head of Talent inside the building." },
+  { name: "Rachael Tyrell", role: "Cleared Sourcing", blurb: "Maps Secret, TS, and TS/SCI talent so the recruiter's first call starts warm." },
+  { name: "Larry Anders", role: "Commercial Sourcing", blurb: "Sources commercial engineering, product, and go-to-market talent before a recruiter opens a tab." },
+];
+
 export default function About() {
   return (
     <PageLayout>
       <PageSEO
         title="Richie Lampani | Founder, Rebel Talent Systems"
-        description="Richie Lampani: 14 years in recruiting, from booking bands in Grand Rapids to building cleared/AI hiring funnels for defense and startups. Founder, Rebel Talent."
+        description="Richie Lampani: 14 years in recruiting, from booking bands in Grand Rapids to building cleared and commercial hiring systems. Founder, Rebel Talent."
         path="/about"
         ogTitle="Richie Lampani | Founder, Rebel Talent Systems"
-        ogDescription="Founder of Rebel Talent Systems. Contingent search, retained, and embedded recruiting for startups and defense. Five cities. Two books."
+        ogDescription="Founder of Rebel Talent Systems. Contingent search, retained, and embedded recruiting for startups and defense."
         ogImage="og-about.png"
         schemas={[personSchema]}
         breadcrumbs={BREADCRUMBS}
       />
 
-      {/* ───────────── HERO ───────────── */}
       <InteriorHero orbit="about">
-        <div className="mb-6 flex items-center gap-4">
-          <img src="/team-richie.webp" alt="Richie Lampani, Founder of Rebel Talent Systems" width={600} height={600} className="h-16 w-16 shrink-0 rounded-full object-cover object-top" data-testid="img-profile" />
-          <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[#8B919A]">Founder</p>
-        </div>
-        <h1 className="max-w-[14ch] text-[#0C1220]" data-testid="text-name">
-          Richie Lampani.
-          <span className="mt-2 block">Five cities. One thesis.</span>
+        <p className="eyebrow-gold">Founder</p>
+        <h1 className="max-w-[14ch]" data-testid="text-name">
+          We fill the seat. The system stays.
         </h1>
-        <p className="mt-6 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]" data-testid="text-intro">
-          I started in music venues in Grand Rapids, reading rooms and booking bands nobody had heard of yet. Then more than a decade in staffing, watching the old model up close.
+        <p className="measure mt-6 text-[18px] leading-[1.6]">
+          Rebel Talent Systems is my firm. Fourteen years of recruiting, from Grand Rapids rooms to defense and commercial desks. I stay on the engagement. The team below runs the work with me.
         </p>
-        <p className="mt-4 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]">
-          I didn&rsquo;t leave to start another agency. I left to build the thing I wanted when I was on the other side of the desk.
-        </p>
-        <p className="mt-4 max-w-xl text-[17px] leading-[1.6] text-[#3D4450]">
-          When a team needs someone inside the function, Rebel embeds as Head of Talent and leaves them owning the system.
-        </p>
-        <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3">
-          <CapacityBadge />
-          <Link href="/about/vision" data-testid="link-about-vision" className="text-[16px] font-medium text-[#0C1220] underline underline-offset-4">
-            Read the vision
-          </Link>
-          <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-linkedin" className="text-[16px] text-[#0C1220] no-underline">
-            LinkedIn
-          </a>
-          <a href="https://www.linkedin.com/newsletters/rebel-built-7412825035092045824/" target="_blank" rel="noopener noreferrer" className="text-[16px] text-[#0C1220] no-underline">
-            Rebel Built (newsletter)
-          </a>
-          <a href="mailto:richie@rebeltalentsystems.com" data-testid="link-email" className="text-[16px] text-[#0C1220] no-underline">
-            Email
-          </a>
+        <div className="hero-actions">
+          <Link href="/strategy-call" className="mi-btn">Book a strategy call</Link>
+          <Link href="/about/vision" data-testid="link-about-vision" className="hero-action">Read the vision</Link>
+          <a href="https://linkedin.com/in/richielampani" target="_blank" rel="noopener noreferrer" data-testid="link-linkedin" className="hero-action">LinkedIn</a>
+          <a href="mailto:richie@rebeltalentsystems.com" data-testid="link-email" className="hero-action">Email</a>
         </div>
+        <p className="capacity-note">Capacity is open for contingent, retained, embedded, and advisory.</p>
       </InteriorHero>
 
-      {/* ───────────── STATS GRID ───────────── */}
-      <section className="about-stat-band border-t border-zinc-900">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10">
-          <ScrollReveal variant="fade-up" delay={200}>
-          <div className="about-stats">
-            {[
-              { value: "14+", label: "Years In Recruiting", numeric: true },
-              { value: "PMP", label: "Certified 2024", numeric: false },
-              { value: "55,500+", label: "LinkedIn Followers", numeric: true },
-              { value: "9K+", label: "Rebel Built Subscribers", numeric: true },
-              { value: "TS/SCI", label: "Cleared Hiring", numeric: false },
-            ].map((stat) => (
-              <div key={stat.label} className="py-2 text-left" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
-                {stat.numeric ? (
-                  <AnimatedCounter value={stat.value} className="about-stat-value font-display text-xl sm:text-2xl font-bold text-rebel-red" />
-                ) : (
-                  <div className="about-stat-value font-display text-xl sm:text-2xl font-bold text-rebel-red">{stat.value}</div>
-                )}
-                <div className="about-stat-label text-zinc-400 text-xs tracking-widest uppercase">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-          </ScrollReveal>
+      <section className="band-steel">
+        <div className="band-wrap py-16 sm:py-20">
+          <h2 className="mb-6 max-w-[16ch]">Five cities. One thesis.</h2>
+          <p className="measure text-[18px] leading-[1.6]">
+            Hudsonville, Grand Rapids, New York, Chicago, Atlanta. I booked shows, then spent eleven years in staffing at Robert Half, Addison Group, and a few startups. The old model pays for speed. It does not pay for the hire that stays.
+          </p>
+          <p className="measure mt-5 text-[18px] leading-[1.6]">
+            In 2023 Amy and I started Underground Admins after the same layoff week. It still runs on its own. Rebel is the desk I wanted on the other side of the table: the search, the scorecards, and a handoff you can run. PMP, 2024. Two books in the first six months. Rebel Command is the operator stack under the desk.
+          </p>
         </div>
       </section>
 
-      {/* ───────────── HOW I GOT HERE (Narrative timeline) ───────────── */}
-      <section className="bg-rebel-space py-16 sm:py-20 border-t border-zinc-900">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          <ScrollReveal variant="fade-up">
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-2 pb-3 border-b border-rebel-red/30">
-              How I got here
-            </h2>
-            <p className="text-zinc-400 text-sm mb-8 italic">
-              Hudsonville &rarr; Grand Rapids &rarr; New York &rarr; Chicago &rarr; Atlanta.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal variant="fade-up">
-            <div className="mb-14">
-              <p className="text-zinc-300 text-base sm:text-lg leading-[1.7] max-w-3xl mb-8">
-                Grew up on a farm. Went to school in the city. Bartended for years. Moved to New York the first chance I got, then Chicago. Atlanta&rsquo;s home now.
-              </p>
-              <p className="text-zinc-400 text-sm italic leading-snug">
-                Hudsonville, 1990. Find me in the lineup. Behind the bar. Years of it. Atlanta now. Golden hour, longboard, headphones.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <div className="space-y-12">
-
-            <ScrollReveal variant="fade-up">
-              <div className="grid sm:grid-cols-[160px_1fr] gap-6 sm:gap-10">
-                <div>
-                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">2005 to 2013</div>
-                  <div className="text-zinc-300 font-semibold mt-1">Music venues</div>
+      <section>
+        <div className="band-wrap py-16 sm:py-20">
+          <h2 className="mb-3" data-testid="heading-team">The team</h2>
+          <p className="measure mb-8 text-[18px] leading-[1.6]">
+            Everyone works under my direction, and I stay on the engagement.
+          </p>
+          <div className="roster">
+            {TEAM.map((person) => (
+              <article key={person.name} className="roster-row" data-testid={`team-${person.name.split(" ")[0].toLowerCase()}`}>
+                <h3>{person.name}</h3>
+                <p>{person.title}</p>
+                <div className="roster-links">
+                  <a href={`mailto:${person.email}`}>{person.email}</a>
+                  <a href={person.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 </div>
-                {/* Safe addition (2026-09 trim): era condensed to one paragraph, photos dropped */}
-                <div className="text-zinc-300 text-base leading-[1.7]">
-                  <p>
-                    Started in 2005 booking shows at a small Grand Rapids venue, renting the big room at <span className="text-white">The Intersection</span> whenever I had a name big enough to fill it. Co-founded <span className="text-white">Rocket Entertainment Group</span> and wrote a column for <span className="text-white">Recoil Magazine</span> on the side. A guy named Dave taught me audiences prefer authenticity over polish. Two decades later, that&rsquo;s still the line I build on.
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal variant="fade-up">
-              <div className="grid sm:grid-cols-[160px_1fr] gap-6 sm:gap-10">
-                <div>
-                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">2012 to 2023</div>
-                  <div className="text-zinc-300 font-semibold mt-1">Staffing trenches</div>
-                </div>
-                {/* Safe addition (2026-09 trim): era condensed to one paragraph, photo dropped */}
-                <div className="text-zinc-300 text-base leading-[1.7]">
-                  <p>
-                    Robert Half. Addison Group. A few startups. Eleven years of sales rankings, quarterly contests, and resumes by the hundred taught me how to read a JD between the lines, pull a cleared candidate out of nowhere on a Friday afternoon, and talk to engineers who hate being talked to by recruiters. It also taught me where the old model breaks: contingency pay rewards speed, not fit. Quality of hire, retention, your CFO&rsquo;s blood pressure. None of that pays the recruiter. I wanted to build the opposite.
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal variant="fade-up">
-              <div className="grid sm:grid-cols-[160px_1fr] gap-6 sm:gap-10">
-                <div>
-                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">Feb 2023</div>
-                  <div className="text-zinc-300 font-semibold mt-1">Underground Admins</div>
-                </div>
-                {/* Safe addition (2026-09 trim): era condensed to one paragraph */}
-                <div className="text-zinc-300 text-base leading-[1.7]">
-                  <p>
-                    My partner Amy and I got laid off from the same company in the same week. Five days later we started <span className="text-white">Underground Admins</span>. I&rsquo;m still a minority owner, but it runs independently of Rebel Talent. Contingent search is a Rebel desk. Chris Moscato owns every new contingent conversation.
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal variant="fade-up">
-              <div className="grid sm:grid-cols-[160px_1fr] gap-6 sm:gap-10">
-                <div>
-                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">Oct 2025 to now</div>
-                  <div className="text-zinc-300 font-semibold mt-1">Rebel Talent Systems</div>
-                </div>
-                {/* Safe addition (2026-09 trim): era condensed, photo dropped; team details
-                    moved to the new team section below */}
-                <div className="text-zinc-300 text-base leading-[1.7]">
-                  <p>
-                    Rebel Talent is scaling. I embed as your Head of Talent/Lead Talent Consultant for a quarter, six months, a year. I build the funnel, write the JDs, run interview loops, close hires, and I&rsquo;m on every engagement, backed by the team below. Wrote two books in the first six months (Head and Heart, December 2025; Unfinished Rooms, March 2026) and built Rebel Command, the operator stack I run the work on: AI agents and a custom ATS/CRM, from scratch. On embedded work you get the outcomes, the reporting, and a bench that compounds. Some engagements leave you with tooling built for your house.
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-
-          </div>
-
-          {/* Pull quote */}
-          <ScrollReveal variant="fade-up">
-          <blockquote className="mt-14 border-l-2 border-rebel-red pl-6 max-w-3xl">
-            <p className="text-zinc-200 text-lg sm:text-xl leading-relaxed italic">
-              &ldquo;I&rsquo;ve been doing this for 14+ years and I still love it, which either means I&rsquo;m dedicated or slightly unhinged. Probably both.&rdquo;
-            </p>
-          </blockquote>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Section removed 2026-08: "Why I won't run an agency" contradicted the
-          contingent and retained offerings now sold on /services and /startups. */}
-
-      {/* ───────────── THE TEAM ───────────── */}
-      {/* Safe addition (2026-09): the team section. Everyone who touches an
-          engagement, what they do, first names only. */}
-      <section className="bg-rebel-space py-16 sm:py-20 border-t border-zinc-900">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
-          <ScrollReveal variant="fade-up">
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-3 pb-3 border-b border-rebel-red/30" data-testid="heading-team">
-              The team
-            </h2>
-            <p className="text-zinc-400 text-sm mb-10 italic max-w-2xl">
-              Everyone works under my direction, and I stay on the engagement. Here is who does what.
-            </p>
-          </ScrollReveal>
-
-          <div className="grid sm:grid-cols-2 gap-4">
-            {[
-              {
-                name: "Chris Moscato",
-                photo: "/chris-moscato.jpg",
-                title: "Head of Client Acquisition",
-                blurb:
-                  "The commercial lead startups actually want on the first call. Calm under pressure, direct on the phone, and still on the account after the paperwork.",
-                linkedin: "https://www.linkedin.com/in/chrismoscato/",
-                email: "christopher@rebeltalentsystems.com",
-              },
-              {
-                name: "Hannah Kerrigan",
-                photo: "/team-hannah.webp",
-                title: "Full Desk Recruiter",
-                blurb:
-                  "Hannah lives in sales talent. She knows how AEs and SDRs think, so the conversation never needs a translator.",
-                linkedin: "https://www.linkedin.com/in/-hannah-kerrigan/",
-                email: "hannah@rebeltalentsystems.com",
-              },
-              {
-                name: "Veronica S.",
-                photo: "/team-veronica.webp",
-                title: "Recruiter / Chief of Staff",
-                blurb:
-                  "The quiet operator who keeps the house from catching fire while the searches move. Detail-obsessed, hard to rattle, usually three steps ahead of the calendar.",
-                linkedin: "https://www.linkedin.com/in/veronica-s-26750a110/",
-                email: "veronica@rebeltalentsystems.com",
-              },
-              {
-                name: "Mike Wrona",
-                photo: "/team-mike.webp",
-                title: "Recruitment Consultant",
-                blurb:
-                  "Dual-use recruiter: federal one week, tech and GTM the next, without going soft on either. Built for the hard req and the long engagement.",
-                linkedin: "https://www.linkedin.com/in/wrona/",
-                email: "mike@rebeltalentsystems.com",
-              },
-              {
-                name: "Anthony Lynch",
-                photo: "/team-anthony.webp",
-                title: "Commercial Contingent Recruiter",
-                blurb:
-                  "Runs commercial contingent searches end to end, from the first sourcing pass to the signed offer. Works the full desk and keeps every req moving.",
-                linkedin: "https://www.linkedin.com/in/anthonylynch/",
-                email: "anthony@rebeltalentsystems.com",
-              },
-              {
-                name: "Kelli Hrivnak",
-                photo: "/team-kelli.webp",
-                title: "Commercial Contingent Recruiter",
-                blurb:
-                  "Runs commercial contingent searches and owns the screen. Keeps candidates moving from the first call to the submittal, with nothing left sitting.",
-                linkedin: "https://www.linkedin.com/in/kellihrivnak/",
-                email: "kelli@knakdigital.com",
-              },
-              {
-                name: "Bonnie Elton",
-                photo: "/team-bonnie.webp",
-                title: "Full Desk Recruiter",
-                blurb:
-                  "Bonnie brings in new clients and recruits across commercial and cleared searches. She stays with each search from the first conversation through a signed offer.",
-                linkedin: "https://www.linkedin.com/in/bonniemontgomery/",
-                email: "bonnie@rebeltalentsystems.com",
-              },
-            ].map((person) => (
-              <ScrollReveal key={person.name} variant="fade-up">
-                <GlowCard>
-                  <div className="border border-zinc-800 bg-zinc-900/40 p-6 h-full flex flex-col" data-testid={`team-${person.name.split(" ")[0].toLowerCase()}`}>
-                    <div className="flex items-center gap-4 mb-4">
-                      <picture>
-                        <source
-                          srcSet={person.photo.includes("chris-moscato") ? "/chris-moscato-v2.webp" : person.photo.replace(/\.(jpe?g|png)$/i, ".webp")}
-                          type="image/webp"
-                        />
-                        <img
-                          src={person.photo.replace(/\.webp$/i, ".jpg")}
-                          alt={`${person.name}, ${person.title} at Rebel Talent Systems`}
-                          width={320}
-                          height={320}
-                          loading="lazy"
-                          className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border border-zinc-700 shrink-0"
-                        />
-                      </picture>
-                      <div>
-                        <h3 className="font-display text-lg font-bold text-white uppercase mb-1">{person.name}</h3>
-                        <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">{person.title}</div>
-                      </div>
-                    </div>
-                    <p className="text-zinc-300 text-sm leading-relaxed mb-4">{person.blurb}</p>
-                    <div className="mt-auto flex items-center gap-4 text-sm">
-                      <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors no-underline">
-                        LinkedIn ↗
-                      </a>
-                      {"email" in person && person.email && (
-                        <a href={`mailto:${person.email}`} className="text-zinc-400 hover:text-white transition-colors no-underline">
-                          Email ↗
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </GlowCard>
-              </ScrollReveal>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ───────────── THE AGENTS ───────────── */}
-      {/* Safe addition (2026-09): the named AI agents inside Rebel Command.
-          Clearly labeled as AI so nobody mistakes them for people. */}
-      <section className="bg-zinc-950 py-16 sm:py-20 border-t border-zinc-900">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
-          <ScrollReveal variant="fade-up">
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-3 pb-3 border-b border-rebel-red/30" data-testid="heading-agents">
-              The agents
-            </h2>
-            <p className="text-zinc-400 text-sm mb-10 italic max-w-2xl">
-              These five do the front-line work, and every one of them answers to a person on the desk.
-            </p>
-          </ScrollReveal>
+      <section>
+        <div className="band-wrap py-16 sm:py-20">
+          <h2 className="mb-4">From the work</h2>
+          <ul className="measure space-y-4 text-[18px] leading-[1.6]">
+            <li>EarthDaily Federal: 11 hires, about $394K in agency fees avoided, a 3.4x return, average time to hire under 30 days.</li>
+            <li>Kalibri Labs: an ML engineer signed in 34 days, about $20K under the agency quote.</li>
+            <li>Legal Managed Services: 20 go-to-market hires in 24 months, with 90% retention. This work was done before Rebel Talent, at a prior firm.</li>
+          </ul>
+          <Link href="/case-studies" className="tap-link mt-6 inline-flex font-medium underline underline-offset-4">See the work</Link>
+        </div>
+      </section>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              {
-                name: "Archie Bunker",
-                photo: "/agent-archie.jpg",
-                role: "The Architect",
-                blurb:
-                  "Builds and runs Rebel Command, the system the whole desk works on. He ships fixes, checks every agent's work, and flags anything that needs a person.",
-              },
-              {
-                name: "Miles Jensen",
-                photo: "/agent-miles.jpg",
-                role: "Client Acquisition",
-                blurb:
-                  "Finds Series A through C startups that are hiring hard and writes the first note himself, after doing the homework. When a founder bites, he books the strategy call with Chris and Richie.",
-              },
-              {
-                name: "Jonah Stark",
-                photo: "/agent-jonah.jpg",
-                role: "Embedded Partnerships",
-                blurb:
-                  "Looks for teams that need a Head of Talent inside the building, not another agency. He opens those conversations with engineering and GTM leaders and hands warm ones to Richie.",
-              },
-              {
-                name: "Rachael Tyrell",
-                photo: "/agent-rachael.jpg",
-                role: "Cleared Sourcing",
-                blurb:
-                  "Maps Secret, TS, and TS/SCI talent for defense and intel seats that most tools can't touch. She brings in vetted profiles, and the recruiter's first call starts warm.",
-              },
-              {
-                name: "Larry Anders",
-                photo: "/agent-larry.jpg",
-                role: "Commercial Sourcing",
-                blurb:
-                  "Sources commercial engineering, product, and GTM talent, from TPMs to account executives. Every profile is checked and has a personal email before a recruiter opens a tab.",
-              },
-            ].map((agent) => (
-              <ScrollReveal key={agent.name} variant="fade-up">
-                <GlowCard>
-                  <div className="border border-zinc-800 bg-zinc-900/30 p-6 h-full" data-testid={`agent-${agent.name.split(" ")[0].toLowerCase()}`}>
-                    <div className="flex items-center gap-4 mb-4">
-                      <img
-                        src={agent.photo}
-                        alt={`${agent.name}, AI agent for ${agent.role} at Rebel Talent Systems`}
-                        width={320}
-                        height={320}
-                        loading="lazy"
-                        className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border border-zinc-700 shrink-0"
-                      />
-                      <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <h3 className="font-display text-lg font-bold text-white uppercase">{agent.name}</h3>
-                          <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-zinc-400 border border-zinc-700 rounded-full px-2 py-0.5">AI</span>
-                        </div>
-                        <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase">{agent.role}</div>
-                      </div>
-                    </div>
-                    <p className="text-zinc-300 text-sm leading-relaxed">{agent.blurb}</p>
-                  </div>
-                </GlowCard>
-              </ScrollReveal>
+      <section>
+        <div className="band-wrap py-16 sm:py-20">
+          <h2 className="mb-6" data-testid="heading-books">Built by me</h2>
+          <div className="roster">
+            <article className="roster-row">
+              <h3>Head and Heart</h3>
+              <p>Book, December 2025. Winning the AI Recruiting War.</p>
+              <div className="roster-links">
+                <a href="https://a.co/d/0hQXqHMm" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
+              </div>
+            </article>
+            <article className="roster-row">
+              <h3>Unfinished Rooms</h3>
+              <p>Book, March 2026. Why great employees keep one foot out the door.</p>
+              <div className="roster-links">
+                <a href="https://a.co/d/00XELail" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
+              </div>
+            </article>
+            <article className="roster-row">
+              <h3>Rebel Built</h3>
+              <p>Weekly notes for operators, founders, and recruiters.</p>
+              <div className="roster-links">
+                <a href="https://www.linkedin.com/newsletters/rebel-built-7412825035092045824/" target="_blank" rel="noopener noreferrer">Subscribe</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="band-wrap py-16 sm:py-20">
+          <h2 className="mb-3" data-testid="heading-agents">The agents</h2>
+          <p className="measure mb-8 text-[18px] leading-[1.6]">
+            Five AI agents do front-line work inside Rebel Command. Every one of them answers to a person on the desk.
+          </p>
+          <div className="roster">
+            {AGENTS.map((agent) => (
+              <article key={agent.name} className="roster-row" data-testid={`agent-${agent.name.split(" ")[0].toLowerCase()}`}>
+                <h3>{agent.name} <span className="ai-tag">AI</span></h3>
+                <p>{agent.role}</p>
+                <p className="measure">{agent.blurb}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ───────────── PROOF: WHAT 14 YEARS BUILT ───────────── */}
-      <section className="bg-rebel-space py-16 sm:py-20 border-t border-zinc-900">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
-          <ScrollReveal variant="fade-up">
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-3 pb-3 border-b border-rebel-red/30">
-              What 14 years actually built
-            </h2>
-            <p className="text-zinc-400 text-sm mb-10 italic max-w-2xl">
-              Real engagements. Real numbers. Pulled straight from the case studies. Go read them if you want the full receipts.
-            </p>
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-3 gap-4">
-            <ScrollReveal variant="fade-up">
-            <GlowCard>
-              <div className="border border-zinc-800 bg-zinc-900/40 p-6 h-full">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">EarthDaily Federal</div>
-                <div className="font-display text-3xl font-bold text-white mb-1">11 hires</div>
-                <div className="text-zinc-400 text-sm mb-4">ongoing engagement</div>
-                <ul className="text-zinc-300 text-sm space-y-1.5 leading-relaxed">
-                  <li>&bull; 8 FTE + 3 contractors (geospatial / cleared)</li>
-                  <li>&bull; ~$394K in agency fees avoided</li>
-                  <li>&bull; 3.4x return on ~$115K invested</li>
-                  <li>&bull; &lt; 30 days average time-to-hire</li>
-                </ul>
-              </div>
-            </GlowCard>
-            </ScrollReveal>
-
-            <ScrollReveal variant="fade-up">
-            <GlowCard>
-              <div className="border border-zinc-800 bg-zinc-900/40 p-6 h-full">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">Kalibri Labs</div>
-                <div className="font-display text-3xl font-bold text-white mb-1">360+ apps</div>
-                <div className="text-zinc-400 text-sm mb-4">in 24 hours from launch</div>
-                <ul className="text-zinc-300 text-sm space-y-1.5 leading-relaxed">
-                  <li>&bull; ML Engineer, offer in 34 days</li>
-                  <li>&bull; About $20K under the agency quote</li>
-                  <li>&bull; Zero inbound in finals</li>
-                </ul>
-              </div>
-            </GlowCard>
-            </ScrollReveal>
-
-            <ScrollReveal variant="fade-up">
-            <GlowCard>
-              <div className="border border-zinc-800 bg-zinc-900/40 p-6 h-full">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-3">Legal Managed Services</div>
-                <div className="font-display text-3xl font-bold text-white mb-1">20 hires</div>
-                <div className="text-zinc-400 text-sm mb-4">GTM hires in 24 months. This work was done before Rebel Talent, at a prior firm.</div>
-                <ul className="text-zinc-300 text-sm space-y-1.5 leading-relaxed">
-                  <li>&bull; 20 GTM hires</li>
-                  <li>&bull; 90% retention</li>
-                </ul>
-              </div>
-            </GlowCard>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ───────────── SPECIALIZATIONS ───────────── */}
-      <section className="bg-rebel-space py-16 sm:py-20 border-t border-zinc-900">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
-          <ScrollReveal variant="fade-up">
-            <h2 className="font-display text-xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-3 pb-3 border-b border-rebel-red/30" data-testid="heading-specializations">
-              Specializations
-            </h2>
-            <p className="text-zinc-400 text-sm mb-8 italic max-w-2xl">
-              The seats I&rsquo;ve actually filled, not the keywords on my LinkedIn.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal variant="fade-up">
-          <div className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
-            {[
-              { area: "Forward Deployed Engineers (FDEs)", note: "Technical enough to build. Commercial enough to close. Rare." },
-              { area: "AI/ML Engineers & Research Scientists", note: "From applied ML to research scientist with publications." },
-              { area: "Cleared positions: Secret, TS, TS/SCI", note: "FSP, CI-poly, lifestyle. I know what each gates." },
-              { area: "Geospatial scientists & intelligence analysts", note: "Defense and federal geo-intel programs." },
-              { area: "GTM: AEs, SEs, RevOps, CSMs", note: "Series A to C startups. Founder-led to first VP." },
-              { area: "Defense contractor workforce buildouts", note: "Standing up entire functions from scratch." },
-              { area: "Backend & infrastructure engineers", note: "Distributed systems, platform, SRE." },
-              { area: "ATS implementation & optimization", note: "Greenhouse, Ashby, Lever, Workable, custom." },
-            ].map((item) => (
-              <div key={item.area} className="border-l border-zinc-800 pl-4 py-1">
-                <div className="text-zinc-200 text-sm font-semibold leading-snug">{item.area}</div>
-                <div className="text-zinc-400 text-xs mt-1 leading-relaxed">{item.note}</div>
-              </div>
-            ))}
-          </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ───────────── BUILT BY ME (books + newsletter + system) ───────────── */}
-      <section className="bg-zinc-950 py-16 sm:py-20 border-t border-zinc-900">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12">
-          <ScrollReveal variant="fade-up">
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-3 pb-3 border-b border-rebel-red/30" data-testid="heading-books">
-              Built by me
-            </h2>
-            <p className="text-zinc-400 text-sm mb-10 italic max-w-2xl">
-              The books, the newsletter, and the operator stack I run my business on.
-            </p>
-          </ScrollReveal>
-
-          <div className="grid sm:grid-cols-2 gap-6 mb-8">
-            <ScrollReveal variant="fade-up">
-            <GlowCard>
-              <div className="border border-zinc-800 bg-zinc-900/30 p-6 flex flex-col sm:flex-row gap-5 items-start h-full">
-                <img src={headAndHeartCover} alt="Head and Heart book cover" width={400} height={600} className="w-28 shrink-0 border border-zinc-700" loading="lazy" />
-                <div>
-                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">Book &middot; Dec 2025</div>
-                  <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Head and Heart</h3>
-                  <p className="text-zinc-400 text-sm mb-3 italic">Winning the AI Recruiting War</p>
-                  <p className="text-zinc-300 text-sm leading-relaxed mb-4">
-                    Stories for the recruiters, jobseekers, and leaders who refuse to play the game safe. The Code, Creed, and Oath every recruiter needs, plus a Candidate Playbook appendix for the other side of the table.
-                  </p>
-                  <a href="https://a.co/d/0hQXqHMm" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-rebel-red text-sm font-semibold no-underline hover:text-white transition-colors">
-                    Buy on Amazon <span className="text-xs">&#8594;</span>
-                  </a>
-                </div>
-              </div>
-            </GlowCard>
-            </ScrollReveal>
-
-            <ScrollReveal variant="fade-up">
-            <GlowCard>
-              <div className="border border-zinc-800 bg-zinc-900/30 p-6 flex flex-col sm:flex-row gap-5 items-start h-full">
-                <img src={unfinishedRoomsCover} alt="Unfinished Rooms book cover" width={1024} height={1536} className="w-28 shrink-0 border border-zinc-700" loading="lazy" />
-                <div>
-                  <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">Book &middot; Mar 2026</div>
-                  <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Unfinished Rooms</h3>
-                  <p className="text-zinc-400 text-sm mb-3 italic">Why Great Employees Keep One Foot Out the Door</p>
-                  <p className="text-zinc-300 text-sm leading-relaxed mb-4">
-                    Started as a single chapter in Head and Heart. I couldn&rsquo;t let go of the idea. Retention isn&rsquo;t satisfaction, it&rsquo;s cognitive closure. Every unresolved conversation, every unclear expectation, every abandoned project leaves an &ldquo;unfinished room&rdquo; in someone&rsquo;s mind. Smart companies close those rooms. Great ones never open them.
-                  </p>
-                  <a href="https://a.co/d/00XELail" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-rebel-red text-sm font-semibold no-underline hover:text-white transition-colors">
-                    Buy on Amazon <span className="text-xs">&#8594;</span>
-                  </a>
-                </div>
-              </div>
-            </GlowCard>
-            </ScrollReveal>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-6">
-            <ScrollReveal variant="fade-up">
-            <GlowCard>
-              <div className="border border-zinc-800 bg-zinc-900/30 p-6 h-full">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">Newsletter</div>
-                <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Rebel Built</h3>
-                <p className="text-zinc-300 text-sm leading-relaxed mb-4">
-                  Weekly notes for operators, founders, and recruiters. 9K+ subscribers. No sponsored takes, and no &ldquo;5 hacks to&rdquo; bait.
-                </p>
-                <a href="https://www.linkedin.com/newsletters/rebel-built-7412825035092045824/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-rebel-red text-sm font-semibold no-underline hover:text-white transition-colors">
-                  Subscribe <span className="text-xs">&#8594;</span>
-                </a>
-              </div>
-            </GlowCard>
-            </ScrollReveal>
-
-            <ScrollReveal variant="fade-up">
-            <GlowCard>
-              <div className="border border-zinc-800 bg-zinc-900/30 p-6 h-full">
-                <div className="font-mono text-rebel-red text-xs tracking-[0.2em] uppercase mb-2">Operator Stack</div>
-                <h3 className="font-display text-lg font-bold text-white uppercase mb-2">Rebel Command</h3>
-                <p className="text-zinc-300 text-sm leading-relaxed">
-                  The operating system behind the firm. Custom ATS and CRM, sourcing lanes, outreach, and contract intelligence, run by our team with AI agents under human sign-off. On embedded work you get the outcomes, the reporting, and a bench that compounds. Some engagements leave you with tooling built for your house.
-                </p>
-              </div>
-            </GlowCard>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ───────────── TESTIMONIALS (two) ───────────── */}
-      <section className="bg-rebel-space py-16 sm:py-20 border-t border-zinc-900">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 space-y-12">
-          <ScrollReveal variant="fade-up">
-          <blockquote className="relative">
-            <span className="absolute -top-4 -left-2 text-rebel-red/20 text-6xl font-serif leading-none select-none">&ldquo;</span>
-            <p className="text-zinc-200 text-lg sm:text-xl leading-relaxed italic mb-4 pl-4">
+      <section>
+        <div className="band-wrap py-16 sm:py-20">
+          <blockquote className="measure">
+            <p className="text-[22px] leading-snug">
               In a review, I was told I had an amazing team, cohesive and indistinguishable from full time employees.
             </p>
-            <footer className="text-zinc-400 text-sm pl-4">
-              <span className="text-zinc-300 font-semibold">Arin</span>, VP of Operations &middot; EarthDaily Federal
-            </footer>
+            <footer className="mt-4 text-[15px]">Arin, VP of Operations, EarthDaily Federal</footer>
           </blockquote>
-          </ScrollReveal>
-
-          <ScrollReveal variant="fade-up">
-          <blockquote className="relative">
-            <span className="absolute -top-4 -left-2 text-rebel-red/20 text-6xl font-serif leading-none select-none">&ldquo;</span>
-            <p className="text-zinc-200 text-lg leading-relaxed italic mb-4 pl-4">
-              I&rsquo;m used to recruiters sending half-vetted resumes that I still need to comb through. With Richie? Not the case. He does the heavy lifting, and the quality speaks for itself. One standout IT candidate has already proven to be a rockstar. Within just over 13 months, they&rsquo;ve grown into a more valuable role and are thriving.
-            </p>
-            <footer className="text-zinc-400 text-sm pl-4">
-              <span className="text-zinc-300 font-semibold">Keisha Ah Loo-Yates</span>, Strategic IT Leader &middot; U.S. Army (Airborne) Combat Veteran
-            </footer>
-          </blockquote>
-          </ScrollReveal>
-
-          <ScrollReveal variant="fade-up">
-          <blockquote className="relative">
-            <span className="absolute -top-4 -left-2 text-rebel-red/20 text-6xl font-serif leading-none select-none">&ldquo;</span>
-            <p className="text-zinc-200 text-lg leading-relaxed italic mb-4 pl-4">
-              I just want to thank you for all your assistance moving this pipeline to completion. It means a lot to me, and the tech org.
-            </p>
-            <footer className="text-zinc-400 text-sm pl-4">
-              <span className="text-zinc-300 font-semibold">Michael Tracey</span>, Director of Engineering &middot; Kalibri Labs
-            </footer>
-          </blockquote>
-          </ScrollReveal>
         </div>
       </section>
 
-      {/* ───────────── CTA ───────────── */}
-      <section className="bg-rebel-space pb-20 border-t border-zinc-900">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12 pt-12">
-          <ScrollReveal variant="scale">
-          <div className="border border-zinc-800 bg-gradient-to-r from-rebel-red/10 to-transparent p-8 sm:p-10 text-center">
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-3">
-              Start a search
-            </h2>
-            <p className="text-zinc-400 text-sm sm:text-base mb-6 max-w-lg mx-auto">
-              Thirty minutes. Bring the role that is stuck. Rebel takes the search from that call.
-            </p>
-            <a href="/strategy-call" data-testid="button-about-cta" className="block sm:inline-block">
-              <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
-                Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </a>
-          </div>
-          </ScrollReveal>
+      <section data-testid="section-cta" className="band-red">
+        <div className="band-wrap py-16 sm:py-24">
+          <h2 className="mb-4 max-w-[16ch]">Bring the role that is stuck.</h2>
+          <p className="measure mb-8 text-[18px] leading-[1.6]">
+            Thirty minutes. We will tell you which path fits. If we are not the right firm, we will say that too.
+          </p>
+          <a href="/strategy-call" data-testid="button-about-cta" className="mi-btn">
+            Book a strategy call <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </a>
         </div>
       </section>
       <ReachPeople />

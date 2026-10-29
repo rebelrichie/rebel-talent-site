@@ -85,7 +85,7 @@ export default function CaseStudies() {
         
       </InteriorHero>
 
-      <section className="bg-rebel-space pt-4 pb-16 sm:pb-24 border-t border-zinc-900">
+      <section className="band-steel bg-rebel-space pt-4 pb-16 sm:pb-24 border-t border-zinc-900">
         <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10">
 
           <div className="mb-20" data-testid="case-study-earthdaily">
@@ -466,7 +466,7 @@ export default function CaseStudies() {
             </p>
             <a href="/strategy-call" data-testid="button-casestudies-cta" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto whitespace-normal text-center leading-tight h-auto min-h-9 py-2">
-                Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
+                Book a strategy call <ArrowRight className="ml-2 w-4 h-4 shrink-0" />
               </Button>
             </a>
           </div>

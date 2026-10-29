@@ -162,7 +162,7 @@ export default function Advisory() {
           <div className="mt-8 sm:mt-10">
             <a href="/strategy-call" onClick={hapticTap} data-testid="button-advisory-hero-cta" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
-                Book a call <ArrowRight className="ml-2 w-4 h-4" />
+                Book a strategy call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>
           </div>
@@ -284,7 +284,7 @@ export default function Advisory() {
           <div className="text-center mt-8">
             <a href="/strategy-call" onClick={hapticTap} data-testid="button-advisory-pricing-cta" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
-                Book a call <ArrowRight className="ml-2 w-4 h-4" />
+                Book a strategy call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>
           </div>
@@ -423,7 +423,7 @@ export default function Advisory() {
             </p>
             <a href="/strategy-call" onClick={hapticTap} data-testid="button-advisory-closing-cta" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
-                Book a call <ArrowRight className="ml-2 w-4 h-4" />
+                Book a strategy call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </a>
           </div>

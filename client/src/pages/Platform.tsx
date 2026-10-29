@@ -244,7 +244,7 @@ export default function Platform() {
           </p>
           <a href="/strategy-call">
             <Button size="lg" className="font-display tracking-wider uppercase text-sm px-8">
-              Book a Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
+              Book a strategy call <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </a>
         </div>

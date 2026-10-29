@@ -118,7 +118,7 @@ export default function Blog() {
           <a href="/strategy-call"
             className="inline-flex items-center gap-2 px-8 py-3 bg-rebel-red text-white font-display text-sm font-semibold uppercase tracking-wider rounded-md hover:bg-red-600 transition-colors no-underline"
           >
-            Book a Call <ArrowRight className="w-4 h-4" />
+            Book a strategy call <ArrowRight className="w-4 h-4" />
           </a>
         </div>
       </section>

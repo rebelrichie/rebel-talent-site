@@ -6,7 +6,7 @@ import InteriorHero from "@/components/InteriorHero";
 const links = [
   { href: "/", label: "Home", testId: "link-go-home" },
   { href: "/jobs", label: "Jobs", testId: "link-404-jobs" },
-  { href: "/strategy-call", label: "Contact", testId: "link-404-contact" },
+  { href: "/strategy-call", label: "Book a strategy call", testId: "link-404-contact" },
 ];
 
 export default function NotFound() {
