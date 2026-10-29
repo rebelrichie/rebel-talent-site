@@ -1,5 +1,4 @@
 import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import ContingentChrisSection from "@/components/ContingentChrisSection";
@@ -206,8 +205,8 @@ export default function Home() {
           </h1>
           <p className="hero-for">For defense and commercial buyers.</p>
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-            <Link href="/strategy-call" data-testid="button-hero-strategy" className={btn}>
-              Book a strategy call <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            <Link href="/strategy-call" data-testid="button-hero-strategy" className={`${btn} hero-cta`}>
+              Book a strategy call
             </Link>
             <Link href="/jobs" className="tap-link text-[15px] font-medium underline underline-offset-4">
               See open jobs
