@@ -3015,8 +3015,8 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
 }
 
 /* Desktop lockup. Phone rules stay under 900px.
-   BREAK ORBIT sits centered over the mark, smaller than before, with the
-   logo larger beneath it. The limb crosses only the star and orbit. */
+   BREAK ORBIT sits in the same column as the mark, with a short gap,
+   on the dark sky under the limb. */
 @media (min-width: 901px) {
   .banner-stage-tall {
     align-items: start;
@@ -3030,11 +3030,11 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
     flex-direction: column;
     align-items: center;
     grid-column: 2;
-    grid-row: 2 / span 2;
+    grid-row: 1 / span 4;
     justify-self: center;
-    align-self: start;
+    align-self: end;
     width: min(50vw, 46rem);
-    margin-top: 0.25rem;
+    margin: 0 0 4.5rem;
     z-index: 3;
     isolation: isolate;
     mix-blend-mode: screen;
@@ -3043,7 +3043,7 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
     grid-row: auto;
     grid-column: auto;
     position: relative;
-    left: 4.72%;
+    left: 6%;
     width: auto;
     max-width: none;
     margin: 0;
@@ -3065,7 +3065,7 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
     grid-column: auto;
     align-self: center;
     width: 70%;
-    margin: 16.6rem 0 0;
+    margin: 0.45rem 0 0;
     mix-blend-mode: normal !important;
   }
   .banner-stage-tall .banner-copy {
@@ -3083,8 +3083,23 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
     max-width: none;
     object-fit: cover !important;
     object-position: 50% 0% !important;
-    transform: translate(44%, 36%) scale(1.7);
+    transform: translate(44%, 24%) scale(1.7);
     transform-origin: 60% 20%;
+  }
+  /* Wider stages drop the limb through the lockup and push the wordmark
+     past the bottom of the window. Lift the curve and the stack together. */
+  @media (min-width: 1600px) {
+    .banner-stage-tall .banner-earth img {
+      transform: translate(44%, 12%) scale(1.7);
+    }
+    .banner-stage-tall .hero-lockup {
+      margin-bottom: 8.75rem;
+    }
+  }
+  @media (min-width: 1800px) {
+    .banner-stage-tall .break-orbit {
+      left: 6.4%;
+    }
   }
   .banner-stage-tall .banner-scrim {
     background: linear-gradient(
