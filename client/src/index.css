@@ -3030,6 +3030,8 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
     width: min(50vw, 46rem);
     margin-top: 1.75rem;
     z-index: 3;
+    isolation: isolate;
+    mix-blend-mode: screen;
   }
   .banner-stage-tall .break-orbit {
     grid-row: auto;
@@ -3051,14 +3053,21 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
     align-self: center;
     width: 100%;
     margin: -1.15rem 0 0;
+    mix-blend-mode: normal !important;
   }
   .banner-stage-tall .banner-copy {
     grid-row: 1 / span 4;
   }
+  .banner-stage-tall .banner-earth {
+    overflow: hidden;
+  }
   .banner-stage-tall .banner-earth img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
     object-position: 50% 0% !important;
-    transform: translate(42%, 34%) scale(1.18);
-    transform-origin: 58% 22%;
+    transform: translate(44%, 36%) scale(1.22);
+    transform-origin: 60% 20%;
   }
   .banner-stage-tall .banner-scrim,
   .banner-stage-tall .banner-rim {
