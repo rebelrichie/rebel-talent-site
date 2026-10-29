@@ -127,7 +127,7 @@ export default function HiringReadiness() {
         path="/hiring-readiness"
         ogTitle="Hiring Readiness Scorecard | Rebel Talent"
         ogDescription={`${scorecardCategorySentence()} The score shows before any form. Free. About five minutes.`}
-        ogImage="og-home.png"
+        ogImage="og-home-v2.png"
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
           { name: "Hiring Readiness Scorecard", item: "https://rebeltalentsystems.com/hiring-readiness" },
