@@ -3238,31 +3238,59 @@ main .page-bands > section.band-steel:not(.proof-strip):not(.band-red) :is(.text
 main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip) :is(.text-rebel-red, [class*="text-rebel-red"]) {
   color: #FF8A96 !important;
 }
+/* White option pills keep navy labels in every state. Checked gets a ring. */
 main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill,
-main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill span {
-  color: #0C1220 !important;
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill:hover,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill:focus,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill:focus-visible,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill.is-on,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill.is-on:hover,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill.is-on:focus,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill.is-on:focus-visible,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill span,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill:hover span,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill:focus span,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill:focus-visible span,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill.is-on span,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill.is-on:hover span,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill.is-on:focus span {
+  color: #001028 !important;
 }
-main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill {
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill:hover,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill:focus,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill:focus-visible {
   background-color: #ffffff !important;
-  border-color: #ffffff !important;
+  border: 1.5px solid #001028 !important;
+  box-shadow: none !important;
+}
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill:hover {
+  background-color: #E6EDF5 !important;
+}
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill:focus,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill:focus-visible,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill:focus-within {
+  outline: 2px solid #001028 !important;
+  outline-offset: 2px !important;
+}
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill.is-on,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill.is-on:hover,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill.is-on:focus,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill.is-on:focus-visible {
+  background-color: #E6EDF5 !important;
+  border: 2px solid #001028 !important;
+  box-shadow: 0 0 0 2px #001028 !important;
 }
 main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill span {
   background-color: transparent !important;
-}
-main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill.is-on {
-  background-color: #0C1220 !important;
-  border-color: #0C1220 !important;
-}
-main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill.is-on span {
-  color: #ffffff !important;
 }
 main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill .choice-dot {
   background-color: transparent !important;
-  border: 1.5px solid #0C1220 !important;
+  border: 1.5px solid #001028 !important;
 }
 main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill.is-on .choice-dot {
-  background-color: #C8102E !important;
-  border-color: #C8102E !important;
+  background-color: #001028 !important;
+  border-color: #001028 !important;
 }
 
 /* Hover utilities were remapped to near-black, which disappears on navy. */
