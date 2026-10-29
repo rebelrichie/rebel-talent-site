@@ -54,7 +54,7 @@ export default function BannerHero({
       <div className="banner-rim" aria-hidden="true" />
       <div className="banner-scrim" aria-hidden="true" />
       {mark && (
-        <>
+        <div className="hero-lockup">
           <p className="break-orbit">BREAK ORBIT</p>
           <img
             className="hero-logo-screen"
@@ -63,7 +63,7 @@ export default function BannerHero({
             width={1856}
             height={1056}
           />
-        </>
+        </div>
       )}
       <div className="band-wrap banner-copy">
         <div className="band-hero-copy">{children}</div>
