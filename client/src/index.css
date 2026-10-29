@@ -3004,3 +3004,39 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
 main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light) label.choice-pill.is-on span {
   color: #ffffff !important;
 }
+
+/* Desktop lockup matches the phone composition. Phone rules stay under 900px. */
+@media (min-width: 901px) {
+  .banner-stage-tall {
+    grid-template-rows: 1.55fr auto auto 1.05fr;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  .banner-stage-tall .break-orbit {
+    grid-row: 2;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    letter-spacing: 0.02em !important;
+    text-shadow: none;
+  }
+  main .page-bands > section.band-hero:not(.band-red):not(.band-light) .banner-stage-tall p.break-orbit {
+    font-size: clamp(3.35rem, 4.55vw, 4.35rem) !important;
+  }
+  .banner-stage-tall .hero-logo-screen {
+    grid-row: 3;
+    width: min(34vw, 29rem);
+    margin: 0.7rem 0 0;
+  }
+  .banner-stage-tall .banner-copy {
+    grid-row: 1 / span 4;
+  }
+  .banner-stage-tall .banner-earth img {
+    object-position: 64% 0% !important;
+    transform: translateY(9.4%) scale(1.85);
+    transform-origin: 66% 46%;
+  }
+  .banner-stage-tall .banner-scrim {
+    background: none !important;
+  }
+}
