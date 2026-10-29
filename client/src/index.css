@@ -3036,6 +3036,8 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
   .banner-stage-tall .break-orbit {
     grid-row: auto;
     grid-column: auto;
+    position: relative;
+    left: 5.65%;
     width: auto;
     max-width: none;
     margin: 0;
@@ -3054,8 +3056,8 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
     grid-row: auto;
     grid-column: auto;
     align-self: center;
-    width: 100%;
-    margin: 2.6rem 0 0;
+    width: 70%;
+    margin: 14.5rem 0 0;
     mix-blend-mode: normal !important;
   }
   .banner-stage-tall .banner-copy {
