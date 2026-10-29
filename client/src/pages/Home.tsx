@@ -195,7 +195,7 @@ export default function Home() {
         path="/"
         ogTitle="Recruiting that scales with the company you're becoming. | Rebel Talent Systems"
         ogDescription="We fill the open role and leave the hiring system. Contingent search or an embedded desk, for Series A through C and defense teams. Book a strategy call."
-        ogImage="og-home.png"
+        ogImage="og-home-v2.png"
         schemas={[homepageSchema]}
       />
 

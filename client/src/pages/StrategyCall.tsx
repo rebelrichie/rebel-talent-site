@@ -189,7 +189,7 @@ export default function StrategyCall() {
         path="/strategy-call"
         ogTitle={copy.title}
         ogDescription={copy.description}
-        ogImage="og-home.png"
+        ogImage="og-home-v2.png"
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
           { name: "Book a Strategy Call", item: "https://rebeltalentsystems.com/strategy-call" },

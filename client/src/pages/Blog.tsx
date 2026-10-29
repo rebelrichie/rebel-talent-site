@@ -27,7 +27,7 @@ export default function Blog() {
         path="/blog"
         ogTitle="Rebel Built Blog"
         ogDescription="Recruiting, AI, and talent strategy insights."
-        ogImage="og-home.png"
+        ogImage="og-home-v2.png"
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
           { name: "Blog", item: "https://rebeltalentsystems.com/blog" },

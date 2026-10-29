@@ -239,7 +239,7 @@ export default function BlogPost() {
         path={`/blog/${post.slug}`}
         ogTitle={post.title}
         ogDescription={post.metaDescription || post.excerpt || ""}
-        ogImage={post.ogImage || "og-home.png"}
+        ogImage={post.ogImage || "og-home-v2.png"}
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
           { name: "Blog", item: "https://rebeltalentsystems.com/blog" },
