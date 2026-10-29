@@ -72,13 +72,12 @@ export default function Navbar() {
       <nav data-testid="navbar" className="site-nav border-b border-white/10 bg-[#001028]">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
           <div className="flex h-[88px] items-center justify-between gap-4">
-            <Link href="/" data-testid="link-home" className="flex shrink-0 items-center no-underline">
+            <Link href="/" data-testid="link-home" className="logo-screen-frame logo-screen-nav shrink-0 no-underline">
               <img
-                src="/images/rebel-logo-transparent.png"
+                src="/images/rebel-logo-original-v2.jpg"
                 alt="Rebel Talent"
-                width={965}
-                height={782}
-                className="site-logo"
+                width={1856}
+                height={1056}
               />
             </Link>
 

@@ -33,7 +33,7 @@ export default function PageTransition({ children }: PageTransitionProps) {
       className="page-bands"
       style={{
         opacity: transitioning ? 0 : 1,
-        transform: transitioning ? "translateY(8px)" : "translateY(0)",
+        transform: transitioning ? "translateY(8px)" : "none",
         transition: "opacity 200ms ease-out, transform 200ms ease-out",
       }}
     >

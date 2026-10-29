@@ -54,16 +54,16 @@ export default function BannerHero({
       <div className="banner-rim" aria-hidden="true" />
       <div className="banner-scrim" aria-hidden="true" />
       {mark && (
-        <div className="banner-orbit">
+        <>
           <p className="break-orbit">BREAK ORBIT</p>
           <img
-            className="banner-mark"
-            src="/images/rebel-logo-transparent.png"
+            className="hero-logo-screen"
+            src="/images/rebel-logo-original-v2.jpg"
             alt="Rebel Talent"
-            width={965}
-            height={782}
+            width={1856}
+            height={1056}
           />
-        </div>
+        </>
       )}
       <div className="band-wrap banner-copy">
         <div className="band-hero-copy">{children}</div>
