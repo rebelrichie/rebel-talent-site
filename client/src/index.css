@@ -3072,9 +3072,9 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
     top: 0;
     max-width: none;
     object-fit: cover !important;
-    object-position: center center !important;
-    transform: translate(4%, 20%) scale(1.55);
-    transform-origin: center center;
+    object-position: 50% 0% !important;
+    transform: translate(44%, 36%) scale(1.7);
+    transform-origin: 60% 20%;
   }
   .banner-stage-tall .banner-scrim {
     background: linear-gradient(
