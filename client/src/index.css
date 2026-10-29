@@ -3006,19 +3006,20 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
 }
 
 /* Desktop lockup. Phone rules stay under 900px.
-   The photo covers the whole hero so the sky has no seam.
-   The limb sits on the star. The wordmark stays on the dark side. */
+   Black sky above the headline. The limb crosses only the star and orbit. */
 @media (min-width: 901px) {
   .banner-stage-tall {
-    grid-template-rows: 0.55fr auto auto 1.5fr;
-    padding-top: 1.25rem;
+    align-items: start;
+    grid-template-rows: auto auto auto 1fr;
+    padding-top: 2.25rem;
     padding-bottom: 1.5rem;
+    background-color: #000 !important;
   }
   .banner-stage-tall .break-orbit {
     grid-row: 2;
     width: auto;
     max-width: none;
-    margin: -4.5rem 0 0;
+    margin: 0.5rem 0 0;
     letter-spacing: 0.02em !important;
     text-shadow: none;
   }
@@ -3027,16 +3028,17 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
   }
   .banner-stage-tall .hero-logo-screen {
     grid-row: 3;
-    width: 40vw;
-    margin: 0.7rem 0 0;
+    align-self: start;
+    width: 42vw;
+    margin: 0.15rem 0 0;
   }
   .banner-stage-tall .banner-copy {
     grid-row: 1 / span 4;
   }
   .banner-stage-tall .banner-earth img {
-    object-position: 70% 0% !important;
-    transform: translate(8%, -4%) scale(1.5);
-    transform-origin: 75% 30%;
+    object-position: 50% 0% !important;
+    transform: translate(44%, 36%) scale(1.22);
+    transform-origin: 60% 20%;
   }
   .banner-stage-tall .banner-scrim,
   .banner-stage-tall .banner-rim {
