@@ -3221,3 +3221,75 @@ main .page-bands > section.band-red :is(a.mi-btn, button.mi-btn) svg {
   color: #9E0C24 !important;
   stroke: #9E0C24 !important;
 }
+
+/* QA: pale steel bands read as stray light blue. Keep them in the navy
+   family, with light type. The proof strip and the home hero stay put. */
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.proof-strip):not(:has(.banner-stage)) {
+  background-color: #102848 !important;
+  background-image: none !important;
+  color: #F4F7FB !important;
+}
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) :is(h1, h2, h3, h4, p, li, span, a:not(.mi-btn), label, div, strong, em, blockquote, footer, cite, th, td) {
+  color: #F4F7FB !important;
+}
+main .page-bands > section.band-steel:not(.proof-strip):not(.band-red) :is(.text-zinc-400, .text-zinc-500, .text-zinc-600, .muted, .stat-caption, .stat-kicker) {
+  color: rgba(244, 247, 251, 0.82) !important;
+}
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip) :is(.text-rebel-red, [class*="text-rebel-red"]) {
+  color: #FF8A96 !important;
+}
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill,
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill span {
+  color: #0C1220 !important;
+}
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill span {
+  background-color: transparent !important;
+}
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill.is-on {
+  background-color: #0C1220 !important;
+  border-color: #0C1220 !important;
+}
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill.is-on span {
+  color: #ffffff !important;
+}
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill .choice-dot {
+  background-color: transparent !important;
+  border: 1.5px solid #0C1220 !important;
+}
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(.proof-strip):not(:has(.banner-stage)) label.choice-pill.is-on .choice-dot {
+  background-color: #C8102E !important;
+  border-color: #C8102E !important;
+}
+
+/* Hover utilities were remapped to near-black, which disappears on navy. */
+.hover\:text-white:hover,
+.site-chrome a:hover,
+.site-nav a:hover,
+.site-nav button:hover {
+  color: #ffffff !important;
+}
+.site-chrome a.mi-btn:hover,
+.site-nav a.mi-btn:hover,
+.site-chrome a.mi-btn:hover *,
+.site-nav a.mi-btn:hover * {
+  color: #ffffff !important;
+  background-color: #9E0C24 !important;
+}
+.hover\:text-zinc-100:hover,
+.hover\:text-zinc-200:hover,
+.hover\:text-zinc-300:hover {
+  color: #F4F7FB !important;
+}
+
+main :is(input, textarea, select):not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):not([type="hidden"]) {
+  background-color: #ffffff !important;
+  color: #0C1220 !important;
+  border: 1.5px solid #3E4C63 !important;
+}
+main :is(input, textarea, select)::placeholder {
+  color: #3D4450 !important;
+}
