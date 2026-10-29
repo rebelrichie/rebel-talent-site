@@ -132,7 +132,7 @@ export default function Fractional() {
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-3">
             <Link href="/strategy-call" onClick={hapticTap} data-testid="button-fractional-strategy" className="block sm:inline-block">
               <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
-                Book a Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
+                Book a strategy call <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
             <a
@@ -305,7 +305,7 @@ export default function Fractional() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Link href="/strategy-call" onClick={hapticTap} data-testid="button-fractional-footer-strategy" className="block w-full sm:w-auto">
                   <Button className="font-display tracking-wider uppercase text-sm w-full">
-                    Book a Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
+                    Book a strategy call <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </Link>
                 <a

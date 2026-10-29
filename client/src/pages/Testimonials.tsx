@@ -120,7 +120,7 @@ export default function Testimonials() {
                 </a>
                 <a href="/strategy-call" data-testid="button-testimonials-cta" className="block sm:inline-block">
                   <Button className="font-display tracking-wider uppercase text-sm w-full sm:w-auto">
-                    Book Your Strategy Call <ArrowRight className="ml-2 w-4 h-4" />
+                    Book a strategy call <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </a>
               </div>

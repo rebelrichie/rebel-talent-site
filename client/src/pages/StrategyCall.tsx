@@ -228,7 +228,7 @@ export default function StrategyCall() {
               . Five minutes. No follow-up sequence.
             </p>
           </InteriorHero>
-          <section>
+          <section className="band-steel">
             <div className="band-wrap grid gap-12 py-12 sm:py-16 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Honeypot, visually hidden, off-screen, no autofocus */}
@@ -432,7 +432,7 @@ function RadioPill({
 }) {
   return (
     <label
-      className={`choice-pill flex items-center gap-2 px-4 py-3 rounded-md cursor-pointer text-sm ${checked ? "is-on" : ""}`}
+      className={`choice-pill choice-row flex items-center gap-3 px-4 cursor-pointer ${checked ? "is-on" : ""}`}
     >
       <input
         type="radio"

@@ -541,7 +541,7 @@ function ResultPanel({ result }: { result: ResultPayload }) {
           href="/strategy-call"
           className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-rebel-red hover:bg-red-600 text-white font-display text-sm font-semibold uppercase tracking-wider rounded-md transition-colors no-underline"
         >
-          <Calendar className="w-4 h-4" /> Book a Strategy Call <ArrowRight className="w-4 h-4" />
+          <Calendar className="w-4 h-4" /> Book a strategy call <ArrowRight className="w-4 h-4" />
         </a>
       </div>
     </div>

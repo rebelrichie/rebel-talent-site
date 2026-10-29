@@ -124,26 +124,7 @@ export default function OrbitPanel({
           <line x1="630" y1="470" x2="548" y2="390" />
         </g>
 
-        {variant === "home" && (
-          <g className="flight-home" fill="none">
-            <path d="M168 338C286 246 392 392 508 292" stroke="#E23B4A" strokeWidth="1.15" />
-            <path d="M188 392C292 332 390 358 486 334" stroke="#E23B4A" strokeWidth="1" opacity="0.9" />
-            <path className="flight-node-path flight-node-a" d="M168 338C286 246 392 392 508 292" stroke="rgba(226,59,74,0.28)" strokeWidth="6.5" strokeLinecap="round" pathLength={100} strokeDasharray="2.4 36.4 2.4 58.8" />
-            <path className="flight-node-path flight-node-a" d="M168 338C286 246 392 392 508 292" stroke="#E23B4A" strokeWidth="2.5" strokeLinecap="round" pathLength={100} strokeDasharray="0.85 37.95 0.85 60.35" />
-            <path className="flight-node-path flight-node-b" d="M188 392C292 332 390 358 486 334" stroke="rgba(226,59,74,0.28)" strokeWidth="6" strokeLinecap="round" pathLength={100} strokeDasharray="2.2 97.8" />
-            <path className="flight-node-path flight-node-b" d="M188 392C292 332 390 358 486 334" stroke="#E23B4A" strokeWidth="2.4" strokeLinecap="round" pathLength={100} strokeDasharray="0.8 99.2" />
-            <g className="flight-brackets" stroke="rgba(255,255,255,0.55)" strokeWidth="1" opacity="0.22">
-              <path d="M236 196v6h6" />
-              <path d="M258 196h6v6" />
-              <path d="M236 218v-6h6" />
-              <path d="M258 218h6v-6" />
-              <path d="M412 268v5h5" />
-              <path d="M430 268h5v5" />
-              <path d="M412 286v-5h5" />
-              <path d="M430 286h5v-5" />
-            </g>
-          </g>
-        )}
+        {variant === "home" && null}
 
         {variant === "cleared" && (
           <g opacity="0.22" fill="none">

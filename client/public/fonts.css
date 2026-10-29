@@ -26,3 +26,10 @@
   font-display: swap;
   src: url("/fonts/inter-latin-800-normal.woff2") format("woff2");
 }
+@font-face {
+  font-family: Anton;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/anton-latin-400-normal.woff2") format("woff2");
+}

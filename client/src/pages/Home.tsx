@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight, Compass, Layers, Search, Target } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
 import ContingentChrisSection from "@/components/ContingentChrisSection";
@@ -134,46 +134,44 @@ const NAVY_STATS = [
 
 const SERVICES = [
   {
-    icon: Target,
+    index: "01",
     kicker: "Contingent",
-    title: "Fill one seat.",
-    body: "One role. The fee is flat, set by the salary band, and invoiced when the hire starts. There is no percentage of salary. The long version is on the contingent page.",
-    detailsHref: "/contingent",
-    detailsLabel: "View contingent details",
-    ctaHref: "/strategy-call?engagement=contingent",
+    sentence: "One role, one flat fee, billed when the hire starts.",
+    href: "/contingent",
+    label: "Contingent search",
     id: "contingent",
     testId: "path-contingent",
-    ctaTestId: "button-strategy-contingent",
-    detailsTestId: "link-contingent-details",
+    linkTestId: "link-contingent-details",
   },
   {
-    icon: Layers,
-    kicker: "Embedded / Fractional",
-    title: "Keep the system.",
-    body: "We sit inside the company and run the recruiting desk on a monthly retainer. The work covers the open roles, the process, and the handoff. You keep the ATS, the scorecards, and the playbooks.",
-    detailsHref: "/fractional",
-    detailsLabel: "View embedded recruiting",
-    ctaHref: "/strategy-call?engagement=fractional",
+    index: "02",
+    kicker: "Embedded",
+    sentence: "We run the desk on a monthly retainer, then leave the system with you.",
+    href: "/fractional",
+    label: "Embedded recruiting",
     id: "embedded",
     testId: "path-embedded",
-    ctaTestId: "button-strategy-embedded",
-    detailsTestId: "link-fractional-details",
+    linkTestId: "link-fractional-details",
   },
   {
-    icon: Search,
+    index: "03",
     kicker: "Retained",
-    title: "A defined role, with a deadline.",
-    body: "The fee is 50% up front and 50% at placement. It fits executive and specialized technical searches, cleared or uncleared. The search stays with us from the day it opens through the accepted offer.",
-    ctaHref: "/strategy-call?engagement=retained",
+    sentence: "A defined role with a deadline. Half up front, half at placement.",
+    href: "/strategy-call?engagement=retained",
+    label: "Book a strategy call",
+    id: "retained",
+    testId: "path-retained",
+    linkTestId: "button-strategy-retained",
   },
   {
-    icon: Compass,
+    index: "04",
     kicker: "Advisory",
-    title: "The plan, before the search.",
-    body: "This is the work before a search: a hiring plan, compensation, interview design, or a hard look at the tools. The scope is fixed and priced up front. It is for teams that need a judgment, not a slate of candidates.",
-    detailsHref: "/advisory",
-    detailsLabel: "Advisory",
-    ctaHref: "/strategy-call?engagement=advisory",
+    sentence: "The hiring plan, priced before you spend on a search.",
+    href: "/advisory",
+    label: "Advisory",
+    id: "advisory",
+    testId: "path-advisory",
+    linkTestId: "link-advisory-details",
   },
 ];
 
@@ -206,97 +204,64 @@ export default function Home() {
           <h1 className="hero-display">
             Recruiting that scales with the company you&rsquo;re becoming.
           </h1>
-          <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+          <p className="hero-for">For defense and commercial buyers.</p>
+          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
             <Link href="/strategy-call" data-testid="button-hero-strategy" className={btn}>
               Book a strategy call <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
-            <Link href="/jobs" className="text-[15px] font-medium underline underline-offset-4">
+            <Link href="/jobs" className="tap-link text-[15px] font-medium underline underline-offset-4">
               See open jobs
             </Link>
           </div>
         </BannerHero>
+      </section>
+
+      <section data-testid="section-proof-strip" className="band-steel proof-strip">
         <div className="band-wrap">
-          <div className="stat-row border-t border-white/15">
+          <ul className="logo-chips">
+            <li>
+              <img src="/logo-kalibri.png" alt="Kalibri Labs" width={600} height={264} />
+            </li>
+            <li>
+              <img src="/logo-earthdaily.png" alt="EarthDaily Federal" width={200} height={64} />
+            </li>
+          </ul>
+          <div className="stat-row">
             {[...LIGHT_STATS, ...NAVY_STATS].map((stat) => (
-              <Stat key={stat.value + stat.caption} {...stat} light={false} />
+              <Stat key={stat.value + stat.caption} {...stat} light />
             ))}
           </div>
-        </div>
-        <div className="band-wrap py-12">
-          <p className="hero-lede max-w-3xl text-[18px] leading-[1.6]">
-            We fill open roles for technical, go-to-market, and operations teams. Contingent search is for one seat. Embedded recruiting is for the function you still need after we leave. We work with Series A through C companies and with defense teams, cleared and uncleared.
-          </p>
-        </div>
-      </section>
-
-      <section className="bg-white">
-        <div className="mx-auto max-w-[1200px] px-6 py-20 sm:px-10 sm:py-24">
-          <div className="mb-16 flex items-center justify-center gap-4">
-            <span className="h-px w-10 bg-[#C8102E]" />
-            <p className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[#C8102E]">How we engage</p>
-            <span className="h-px w-10 bg-[#C8102E]" />
-          </div>
-          <h2 className="mx-auto mb-16 max-w-3xl text-center text-[40px] leading-[1.05] text-[#0C1220] sm:text-[48px]">
-            Four ways to take the work.
-          </h2>
-          <div className="band-cols grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
-            {SERVICES.map((item) => {
-              const Icon = item.icon;
-              return (
-                <article key={item.title} id={item.id} data-testid={item.testId} className="text-center lg:text-left">
-                  <Icon className="mx-auto mb-5 h-7 w-7 text-[#C8102E] lg:mx-0" strokeWidth={1.25} aria-hidden="true" />
-                  <p className="mb-2 text-[12px] font-semibold uppercase tracking-[0.14em] text-[#8B919A]">{item.kicker}</p>
-                  <h3 className="mb-3 text-[18px] leading-snug text-[#0C1220]">{item.title}</h3>
-                  <p className="text-[15px] leading-[1.55] text-[#3D4450]">{item.body}</p>
-                  <div className="mt-4 flex flex-col items-center gap-2 lg:items-start">
-                    <Link href={item.ctaHref} data-testid={item.ctaTestId} className={textLink}>
-                      Book a strategy call
-                    </Link>
-                    {item.detailsHref && item.detailsTestId && (
-                      <Link href={item.detailsHref} data-testid={item.detailsTestId} className={textLink}>
-                        {item.detailsLabel}
-                      </Link>
-                    )}
-                    {item.detailsHref && !item.detailsTestId && (
-                      <Link href={item.detailsHref} className={textLink}>
-                        {item.detailsLabel}
-                      </Link>
-                    )}
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-          <p className="mx-auto mt-14 max-w-2xl text-center text-[16px] leading-relaxed text-[#3D4450]">
-            Retained search and advisory are on{" "}
-            <Link href="/services" data-testid="link-view-services" className="font-medium text-[#0C1220] underline underline-offset-4">
-              How we engage
-            </Link>
-            . Cleared hiring stays on its{" "}
-            <Link href="/cleared" className="font-medium text-[#0C1220] underline underline-offset-4">
-              own page
-            </Link>
-            .
-          </p>
+          <ul className="reg-badges" data-testid="section-government-buyers">
+            <li>SAM.gov</li>
+            <li>CAGE 202V6</li>
+            <li>UEI JQ4MZ69FNAK4</li>
+            <li>
+              <a
+                href={CAPABILITY_STATEMENT_HREF}
+                download={CAPABILITY_STATEMENT_FILENAME}
+                data-testid="link-download-capability-statement"
+              >
+                Capability statement
+              </a>
+            </li>
+          </ul>
         </div>
       </section>
 
-      <section data-testid="section-government-buyers" className="border-t border-[#E7E9EE] bg-white">
-        <div className="mx-auto flex max-w-[1200px] flex-col items-start justify-between gap-6 px-6 py-12 sm:px-10 lg:flex-row lg:items-center">
-          <p className="max-w-3xl text-[18px] leading-snug text-[#0C1220]">
-            <span className="font-semibold">Registered on SAM.gov.</span>{" "}
-            CAGE 202V6. UEI JQ4MZ69FNAK4. The capability statement is a one-page PDF.
-          </p>
-          <a
-            href={CAPABILITY_STATEMENT_HREF}
-            download={CAPABILITY_STATEMENT_FILENAME}
-            data-testid="link-download-capability-statement"
-            className="mi-btn shrink-0"
-          >
-            Download capability statement (PDF)
-          </a>
-        </div>
-      </section>
+      {SERVICES.map((item) => (
+        <section key={item.id} className="offer-band">
+          <div className="band-wrap offer-band-inner">
+            <p className="offer-index" aria-hidden="true">{item.index}</p>
+            <article id={item.id} data-testid={item.testId}>
+              <h2>{item.kicker}</h2>
+              <p className="measure">{item.sentence}</p>
+              <Link href={item.href} data-testid={item.linkTestId} className="tap-link">
+                {item.label}
+              </Link>
+            </article>
+          </div>
+        </section>
+      ))}
 
       <ContingentChrisSection />
 
@@ -338,7 +303,9 @@ export default function Home() {
             {PROOF.map((item) => (
               <article key={item.client} className="grid sm:grid-cols-[11rem_1fr] gap-4 sm:gap-10 py-8 border-b border-[#e4e7ee] items-center">
                 {item.logo ? (
-                  <img src={item.logo} alt="" width={item.logo.includes("kalibri") ? 600 : 200} height={item.logo.includes("kalibri") ? 264 : 64} className="h-9 w-auto max-w-[10rem] object-contain object-left" loading="lazy" />
+                  <span className="logo-chip">
+                    <img src={item.logo} alt={item.client} width={item.logo.includes("kalibri") ? 600 : 200} height={item.logo.includes("kalibri") ? 264 : 64} loading="lazy" />
+                  </span>
                 ) : (
                   <h3 className="text-[18px] text-[#272c30]">{item.client}</h3>
                 )}
