@@ -3005,11 +3005,12 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
   color: #ffffff !important;
 }
 
-/* Desktop lockup matches the phone composition. Phone rules stay under 900px. */
+/* Desktop lockup matches the phone composition. Phone rules stay under 900px.
+   The headline sits on the dark side of the planet. The limb stays below it. */
 @media (min-width: 901px) {
   .banner-stage-tall {
-    grid-template-rows: 1.55fr auto auto 1.05fr;
-    padding-top: 1.5rem;
+    grid-template-rows: 0.55fr auto auto 1.5fr;
+    padding-top: 1.25rem;
     padding-bottom: 1.5rem;
   }
   .banner-stage-tall .break-orbit {
@@ -3021,22 +3022,23 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
     text-shadow: none;
   }
   main .page-bands > section.band-hero:not(.band-red):not(.band-light) .banner-stage-tall p.break-orbit {
-    font-size: clamp(3.35rem, 4.55vw, 4.35rem) !important;
+    font-size: 8.7vw !important;
   }
   .banner-stage-tall .hero-logo-screen {
     grid-row: 3;
-    width: min(34vw, 29rem);
+    width: 40vw;
     margin: 0.7rem 0 0;
   }
   .banner-stage-tall .banner-copy {
     grid-row: 1 / span 4;
   }
   .banner-stage-tall .banner-earth img {
-    object-position: 64% 0% !important;
-    transform: translateY(9.4%) scale(1.85);
-    transform-origin: 66% 46%;
+    object-position: 100% 0% !important;
+    transform: translateY(22%) scale(1.08);
+    transform-origin: 70% 42%;
   }
-  .banner-stage-tall .banner-scrim {
+  .banner-stage-tall .banner-scrim,
+  .banner-stage-tall .banner-rim {
     background: none !important;
   }
 }
