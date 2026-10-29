@@ -2476,7 +2476,7 @@ main .page-bands > section.band-red::before {
   letter-spacing: 0.015em !important;
   text-transform: uppercase !important;
   text-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
-  color: #ffffff !important;
+  color: #C9D1DC !important;
   margin: 0 auto;
   max-width: 100%;
   text-align: center;
@@ -2863,9 +2863,13 @@ main .page-bands :is(div, article, a)[class*="border-zinc"][class*="bg-zinc"] {
     gap: 0.7rem;
   }
   .break-orbit {
+    position: relative;
+    left: calc(0.06 * min(86vw, 18rem));
     text-align: center;
-    font-size: clamp(2.85rem, 12.2vw, 4.2rem) !important;
+    font-size: clamp(1.9rem, 8.13vw, 2.8rem) !important;
+    font-weight: 400 !important;
     letter-spacing: 0.01em !important;
+    color: #C9D1DC !important;
   }
   .hero-logo-screen {
     width: min(86%, 18rem);
@@ -2902,11 +2906,11 @@ main .page-bands :is(div, article, a)[class*="border-zinc"][class*="bg-zinc"] {
 main .page-bands > section.band-hero:not(.band-red):not(.band-light) p.break-orbit {
   font-family: Anton, "Arial Narrow", Impact, sans-serif !important;
   font-weight: 400 !important;
-  font-size: clamp(2.8rem, 7vw, 7.4rem) !important;
+  font-size: clamp(1.87rem, 4.67vw, 4.93rem) !important;
   line-height: 0.82 !important;
   letter-spacing: 0.012em !important;
   text-transform: uppercase !important;
-  color: #ffffff !important;
+  color: #C9D1DC !important;
   text-align: center !important;
   white-space: nowrap;
 }
@@ -2923,7 +2927,9 @@ main .page-bands > section.band-hero:not(.band-red):not(.band-light) p.hero-for 
 }
 @media (max-width: 900px) {
   main .page-bands > section.band-hero:not(.band-red):not(.band-light) p.break-orbit {
-    font-size: clamp(2.7rem, 12.2vw, 4.15rem) !important;
+    font-size: clamp(1.8rem, 8.13vw, 2.77rem) !important;
+    font-weight: 400 !important;
+    color: #C9D1DC !important;
     text-align: center !important;
   }
 }
@@ -3037,7 +3043,7 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
     grid-row: auto;
     grid-column: auto;
     position: relative;
-    left: 5.65%;
+    left: 4.72%;
     width: auto;
     max-width: none;
     margin: 0;
@@ -3048,16 +3054,18 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
     padding-bottom: 0.08em;
   }
   main .page-bands > section.band-hero:not(.band-red):not(.band-light) .banner-stage-tall p.break-orbit {
-    font-size: 6.6vw !important;
+    font-size: 4.4vw !important;
+    font-weight: 400 !important;
     line-height: 1.05 !important;
     letter-spacing: 0.12em !important;
+    color: #C9D1DC !important;
   }
   .banner-stage-tall .hero-logo-screen {
     grid-row: auto;
     grid-column: auto;
     align-self: center;
     width: 70%;
-    margin: 14.5rem 0 0;
+    margin: 16.6rem 0 0;
     mix-blend-mode: normal !important;
   }
   .banner-stage-tall .banner-copy {
