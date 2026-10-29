@@ -74,10 +74,10 @@ export default function Navbar() {
           <div className="flex h-[88px] items-center justify-between gap-4">
             <Link href="/" data-testid="link-home" className="flex shrink-0 items-center no-underline">
               <img
-                src="/images/rebel-logo-mark.webp"
+                src="/images/rebel-logo-transparent.png"
                 alt="Rebel Talent"
-                width={1856}
-                height={888}
+                width={965}
+                height={782}
                 className="site-logo"
               />
             </Link>

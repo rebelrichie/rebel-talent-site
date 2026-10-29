@@ -2473,9 +2473,9 @@ main .page-bands > section.band-red::before {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 0.85rem;
   min-width: 0;
   align-self: center;
   padding: 0 3.5vw 0.75rem 0.5rem;
@@ -2492,9 +2492,9 @@ main .page-bands > section.band-red::before {
   text-transform: uppercase !important;
   text-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
   color: #ffffff !important;
-  margin: 0;
+  margin: 0 auto;
   max-width: 100%;
-  text-align: right;
+  text-align: center;
   white-space: nowrap;
 }
 .banner-stage-tall .banner-mark {
@@ -2502,14 +2502,14 @@ main .page-bands > section.band-red::before {
   top: auto !important;
   right: auto !important;
   transform: none !important;
-  width: min(100%, 36rem);
-  align-self: flex-end;
+  width: min(72%, 26rem);
+  align-self: center;
   height: auto;
   max-height: none;
-  aspect-ratio: 1856 / 870;
+  aspect-ratio: auto;
   margin: 0;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
+  object-position: center;
   mix-blend-mode: normal;
   background: transparent;
   pointer-events: none;
@@ -2558,8 +2558,12 @@ main .page-bands > section.band-red::before {
   color: rgba(255, 255, 255, 0.92) !important;
 }
 
-.site-logo { height: 78px; }
-.site-logo-footer { height: 92px; }
+.site-logo {
+  height: 68px;
+  mix-blend-mode: normal !important;
+  background: transparent !important;
+}
+.site-logo-footer { height: 84px; }
 .site-nav .mi-btn,
 .mi-btn.mi-btn-sm {
   min-height: 44px;
@@ -2867,21 +2871,23 @@ main .page-bands :is(div, article, a)[class*="border-zinc"][class*="bg-zinc"] {
     width: 100%;
     order: -1;
     padding: 0 1.15rem;
-    align-items: stretch;
+    align-items: center;
+    gap: 0.7rem;
   }
   .break-orbit {
-    text-align: left;
-    font-size: clamp(2.85rem, 13.2vw, 4.4rem) !important;
+    text-align: center;
+    font-size: clamp(2.85rem, 12.2vw, 4.2rem) !important;
     letter-spacing: 0.01em !important;
   }
   .banner-stage-tall .banner-mark {
-    width: min(100%, 22rem);
+    width: min(68%, 16.5rem);
     height: auto;
     max-height: none;
-    aspect-ratio: 1856 / 870;
-    object-fit: cover;
-    object-position: center top;
-    margin-top: 0.35rem;
+    aspect-ratio: auto;
+    object-fit: contain;
+    object-position: center;
+    align-self: center;
+    margin: 0 auto;
   }
   .banner-stage-tall .banner-copy {
     width: 100% !important;
@@ -2920,6 +2926,7 @@ main .page-bands > section.band-hero:not(.band-red):not(.band-light) p.break-orb
   letter-spacing: 0.012em !important;
   text-transform: uppercase !important;
   color: #ffffff !important;
+  text-align: center !important;
   white-space: nowrap;
 }
 main .page-bands > section.offer-band:not(.band-red):not(.band-light) p.offer-index {
@@ -2935,8 +2942,8 @@ main .page-bands > section.band-hero:not(.band-red):not(.band-light) p.hero-for 
 }
 @media (max-width: 900px) {
   main .page-bands > section.band-hero:not(.band-red):not(.band-light) p.break-orbit {
-    font-size: clamp(2.7rem, 12.4vw, 4.15rem) !important;
-    text-align: left;
+    font-size: clamp(2.7rem, 12.2vw, 4.15rem) !important;
+    text-align: center !important;
   }
 }
 

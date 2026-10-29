@@ -58,10 +58,10 @@ export default function BannerHero({
           <p className="break-orbit">BREAK ORBIT</p>
           <img
             className="banner-mark"
-            src="/images/rebel-logo-break-orbit.webp"
+            src="/images/rebel-logo-transparent.png"
             alt="Rebel Talent"
-            width={1856}
-            height={888}
+            width={965}
+            height={782}
           />
         </div>
       )}

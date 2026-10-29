@@ -19,10 +19,10 @@ export default function Footer() {
         <div className="footer-grid mb-12">
           <div>
             <img
-              src="/images/rebel-logo-mark.webp"
+              src="/images/rebel-logo-transparent.png"
               alt="Rebel Talent"
-              width={1856}
-              height={888}
+              width={965}
+              height={782}
               className="site-logo site-logo-footer"
               loading="lazy"
             />
