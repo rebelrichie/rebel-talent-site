@@ -3045,3 +3045,16 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
     background: none !important;
   }
 }
+
+/* The third section on pages without a steel band was painted light blue
+   while its type stayed white. Return it to the deep navy ground. */
+main .page-bands:not(:has(.band-steel)) > section:nth-child(3):not(.band-red):not(:has(.banner-stage)) {
+  background-color: #001028 !important;
+  background-image: none !important;
+  color: #F4F7FB !important;
+}
+
+/* Steel bands stay light. Table headers were still the light-on-dark zinc color. */
+main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-light):not(:has(.banner-stage)) :is(th, td) {
+  color: #0C1220 !important;
+}
