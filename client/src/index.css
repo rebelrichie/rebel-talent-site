@@ -3005,8 +3005,9 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
   color: #ffffff !important;
 }
 
-/* Desktop lockup matches the phone composition. Phone rules stay under 900px.
-   The headline sits on the dark side of the planet. The limb stays below it. */
+/* Desktop lockup. Phone rules stay under 900px.
+   The photo covers the whole hero so the sky has no seam.
+   The limb sits on the star. The wordmark stays on the dark side. */
 @media (min-width: 901px) {
   .banner-stage-tall {
     grid-template-rows: 0.55fr auto auto 1.5fr;
@@ -3017,7 +3018,7 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
     grid-row: 2;
     width: auto;
     max-width: none;
-    margin: 0;
+    margin: -4.5rem 0 0;
     letter-spacing: 0.02em !important;
     text-shadow: none;
   }
@@ -3033,9 +3034,9 @@ main .page-bands > section.band-steel:nth-child(n):not(.band-red):not(.band-ligh
     grid-row: 1 / span 4;
   }
   .banner-stage-tall .banner-earth img {
-    object-position: 100% 0% !important;
-    transform: translateY(22%) scale(1.08);
-    transform-origin: 70% 42%;
+    object-position: 70% 0% !important;
+    transform: translate(8%, -4%) scale(1.5);
+    transform-origin: 75% 30%;
   }
   .banner-stage-tall .banner-scrim,
   .banner-stage-tall .banner-rim {
