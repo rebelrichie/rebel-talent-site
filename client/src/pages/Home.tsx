@@ -93,8 +93,6 @@ const AUDIENCES = [
   {
     title: "Defense and govtech",
     body: "The roles need a clearance, and the search has to be run by people who know that process.",
-    href: "/cleared",
-    linkLabel: "Talk cleared recruiting",
   },
   {
     title: "Growth companies",
@@ -288,11 +286,6 @@ export default function Home() {
                 <article className="depth-card text-card">
                   <h3>{item.title}</h3>
                   <p className="body-copy">{item.body}</p>
-                  {item.href && (
-                    <Link href={item.href} className="tap-link text-[15px] font-medium underline underline-offset-4">
-                      {item.linkLabel}
-                    </Link>
-                  )}
                 </article>
               </Rise>
             ))}
@@ -364,9 +357,9 @@ export default function Home() {
           <Rise>
             <div>
               <p className="section-eyebrow">Cleared and defense</p>
-              <h2 className="section-display">For the ones who stood up when it mattered.</h2>
+              <h2 className="section-display">A cleared req is not a commercial req.</h2>
               <p className="body-copy">
-                Intelligence community members, people active in politics, and current and former service members trust Rebel to build their teams. The firm speaks their language. Transitioning veterans get free resume and LinkedIn reviews. No corporate fluff, just real talent leadership for cleared defense and startups.
+                The search starts with the clearance, the facility, and who can actually sit in the seat. We source people who already hold it, or who can be put in for it. Secret, TS, and TS/SCI do not get run like a commercial role. The bench is the intelligence community and current or former service members.
               </p>
             </div>
           </Rise>
@@ -374,7 +367,7 @@ export default function Home() {
             <div className="depth-card text-card">
               <p className="text-[18px]">Ask for references.</p>
               <p className="body-copy mt-2">
-                Intelligence community. People active in politics. Current and former servicemembers. Shared privately, on request.
+                Intelligence community, and current or former service members. Shared privately, on request.
               </p>
               <div className="mt-6 flex flex-col items-start gap-3">
                 <Link href="/cleared" data-testid="link-veterans-cleared" className="tap-link text-[16px] font-semibold underline underline-offset-4">
