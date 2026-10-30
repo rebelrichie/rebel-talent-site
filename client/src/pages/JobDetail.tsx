@@ -14,6 +14,7 @@ import NotFound from "@/pages/not-found";
 import { extractJobId, isBareJobUuid, jobPath } from "@/lib/jobSlug";
 import { buildJobMetaDescription } from "@/lib/jobMeta";
 import { publicPayLine } from "@/lib/payLabel";
+import { publicJobTitle } from "@/lib/jobTitle";
 import { buildJobJsonLd as jobPostingJsonLd, toPublicJob } from "@shared/publicJob.mjs";
 
 const API_BASE = "https://rebelcommand.dev/api/public/jobs";
@@ -223,7 +224,7 @@ export default function JobDetail() {
               {job.companyName}
               {job.companyIndustry ? ` · ${job.companyIndustry}` : ""}
             </p>
-            <h1 className="text-[#0C1220] mb-6">{job.title}</h1>
+            <h1 className="text-[#0C1220] mb-6">{publicJobTitle(job.title)}</h1>
             <div className="flex flex-wrap gap-2 mb-8">
               {remoteLabel && (
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-[#E7E9EE] text-xs text-[#5C6570]">
@@ -310,7 +311,7 @@ export default function JobDetail() {
                   About This Role
                 </h2>
                 <p className="text-zinc-300 leading-relaxed mb-3">
-                  {job.companyName} is hiring a {job.title}
+                  {job.companyName} is hiring a {publicJobTitle(job.title)}
                   {job.location ? ` in ${job.location}` : ""}. The full written
                   description is being finalized, but the role is open and we
                   are actively speaking with candidates now.
