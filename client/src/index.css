@@ -1164,28 +1164,17 @@ body {
 
 ::selection { background: #f3c5cc; color: #12161c; }
 
+/* Heading face, size, and case live in type-system.css (display, h1, h2, h3, body, label). */
 h1, h2, h3, h4,
 .font-display,
 h1.font-display,
 h2.font-display,
 h3.font-display,
 h4.font-display {
-  font-family: Inter, "Public Sans", sans-serif !important;
-  font-variation-settings: normal !important;
-  font-stretch: normal !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.03em !important;
   text-shadow: none !important;
-  text-transform: none !important;
-  line-height: 1.05;
 }
 
-h1, h1.font-display { font-weight: 800 !important; letter-spacing: -0.036em !important; line-height: 0.98; text-wrap: balance; }
-h2, h2.font-display { letter-spacing: -0.03em !important; line-height: 1.06; text-wrap: balance; }
-@media (max-width: 639px) {
-  h1, h1.font-display { letter-spacing: -0.03em !important; line-height: 1.02; }
-  h2, h2.font-display { letter-spacing: -0.026em !important; line-height: 1.1; }
-}
+h1, h2 { text-wrap: balance; }
 .eyebrow {
   font-family: Inter, "Public Sans", sans-serif !important;
   font-size: 0.75rem;

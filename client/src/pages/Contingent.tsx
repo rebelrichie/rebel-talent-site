@@ -152,7 +152,7 @@ export default function Contingent() {
         <div className="band-wrap grid gap-10 py-16 sm:py-20 lg:grid-cols-2">
           <div>
             <p className="text-[12px] font-semibold uppercase tracking-[0.16em] mb-3">The fee</p>
-            <h2 className="text-[36px] leading-[1.05] sm:text-[44px]">
+            <h2 className="section-display">
               How the fee works
             </h2>
             <p className="mt-4 text-[18px] leading-[1.6] font-light">
@@ -177,7 +177,7 @@ export default function Contingent() {
         <div className="band-wrap grid gap-10 py-16 sm:py-20 lg:grid-cols-2">
           <div>
             <p className="text-[12px] font-semibold uppercase tracking-[0.16em] mb-3">Who this is for</p>
-            <h2 className="text-[36px] leading-[1.05] sm:text-[44px]">
+            <h2 className="section-display">
               This is for you if
             </h2>
             <p className="mt-4 text-[18px] leading-[1.6] font-light">
@@ -200,7 +200,7 @@ export default function Contingent() {
       <section>
         <div className="band-wrap py-16 sm:py-20">
           <p className="text-[12px] font-semibold uppercase tracking-[0.16em] mb-3">Not this page if</p>
-          <h2 className="text-[36px] leading-[1.05] sm:text-[44px] max-w-3xl">
+          <h2 className="section-display max-w-3xl">
             Contingent, retained, or embedded
           </h2>
           <p className="mt-4 max-w-3xl text-[18px] leading-[1.6] font-light">
@@ -222,7 +222,7 @@ export default function Contingent() {
         <div className="band-wrap grid gap-10 py-16 sm:py-20 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
             <p className="text-[12px] font-semibold uppercase tracking-[0.16em] mb-3">FAQ</p>
-            <h2 className="text-[36px] leading-[1.05] sm:text-[44px]">
+            <h2 className="section-display">
               The questions that decide the search
             </h2>
           </div>
@@ -244,7 +244,7 @@ export default function Contingent() {
       <section data-testid="section-cta" className="band-red">
         <div className="band-wrap grid gap-8 py-16 sm:py-20 lg:grid-cols-2 lg:items-end">
           <div>
-            <h2 className="text-[40px] leading-[1.05] mb-4 sm:text-[44px]">
+            <h2 className="section-display mb-4">
               Start a search
             </h2>
             <p className="text-[18px] leading-[1.6] font-light max-w-xl">

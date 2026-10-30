@@ -2,6 +2,7 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import "./home-audit.css";
+import "./type-system.css";
 
 declare global {
   interface Window {

@@ -178,7 +178,7 @@ export default function Services() {
         <div className="band-wrap py-16 sm:py-20">
           <div className="grid items-start gap-10 lg:grid-cols-2">
             <div>
-              <h2 className="text-[40px] leading-[1.05] mb-4 sm:text-[44px]">
+              <h2 className="section-display mb-4">
                 From recent work.
               </h2>
               <p className="text-[18px] leading-[1.6] font-light">
@@ -199,7 +199,7 @@ export default function Services() {
 
       <section data-testid="section-cta" className="band-red">
         <div className="max-w-[1140px] mx-auto px-5 py-16 sm:py-20">
-          <h2 className="text-[40px] leading-[1.05] text-[#0C1220] mb-4 sm:text-[44px]">
+          <h2 className="section-display mb-4 text-[#0C1220]">
             Bring the role, or the question.
           </h2>
           <p className="text-[#272c30] text-[18px] leading-[1.6] font-light mb-8 max-w-xl">

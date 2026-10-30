@@ -29,7 +29,7 @@ export default function NotFound() {
 
       <section>
         <div className="band-wrap py-14">
-          <h2 className="text-[32px] leading-tight mb-6">Keep going</h2>
+          <h2 className="section-display mb-6">Keep going</h2>
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:gap-8">
             {links.map((link) => (
               <Link
@@ -47,7 +47,7 @@ export default function NotFound() {
 
       <section className="band-red">
         <div className="band-wrap py-14">
-          <h2 className="text-[32px] leading-tight mb-4">Start from a page that exists.</h2>
+          <h2 className="section-display mb-4">Start from a page that exists.</h2>
           <Link href="/" className="mi-btn">Home</Link>
         </div>
       </section>

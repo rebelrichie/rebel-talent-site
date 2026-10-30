@@ -143,7 +143,7 @@ export default function Cleared() {
         <div className="band-wrap grid gap-10 py-16 sm:py-20 lg:grid-cols-2">
           <div>
             <p className="text-[12px] font-semibold uppercase tracking-[0.16em] mb-3">The work</p>
-            <h2 className="text-[36px] leading-[1.05] sm:text-[44px]">
+            <h2 className="section-display">
               A cleared req is not a normal req.
             </h2>
             <p className="mt-4 text-[18px] leading-[1.6] font-light">
@@ -165,7 +165,7 @@ export default function Cleared() {
         <div className="band-wrap grid gap-10 py-16 sm:py-20 lg:grid-cols-2">
           <div>
             <p className="text-[12px] font-semibold uppercase tracking-[0.16em] mb-3">Roles</p>
-            <h2 className="text-[36px] leading-[1.05] sm:text-[44px]">
+            <h2 className="section-display">
               Where the desk goes deep.
             </h2>
             <ul className="mt-8 space-y-4">
@@ -198,7 +198,7 @@ export default function Cleared() {
         <div className="band-wrap grid gap-10 py-16 sm:py-20 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
             <p className="text-[12px] font-semibold uppercase tracking-[0.16em] mb-3">FAQ</p>
-            <h2 className="text-[36px] leading-[1.05] sm:text-[44px]">
+            <h2 className="section-display">
               Before you open a cleared req
             </h2>
           </div>
@@ -220,7 +220,7 @@ export default function Cleared() {
       <section data-testid="section-cta" className="band-red">
         <div className="band-wrap grid gap-8 py-16 sm:py-20 lg:grid-cols-2 lg:items-end">
           <div>
-            <h2 className="text-[40px] leading-[1.05] mb-4 sm:text-[44px]">
+            <h2 className="section-display mb-4">
               Scope the search
             </h2>
             <p className="text-[18px] leading-[1.6] font-light max-w-xl">
