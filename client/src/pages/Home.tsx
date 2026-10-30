@@ -406,10 +406,10 @@ export default function Home() {
           <Rise>
             <figure className="portrait">
               <img
-                src="/richie-portrait.jpg"
-                alt="Richie Lampani"
-                width={1200}
-                height={1500}
+                src="/richie-portrait.webp"
+                alt="Black and white portrait of Richie Lampani, founder of Rebel Talent Systems, in a dark baseball cap."
+                width={960}
+                height={1200}
                 loading="lazy"
               />
             </figure>

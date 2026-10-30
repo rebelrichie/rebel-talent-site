@@ -101,7 +101,7 @@ export default function About() {
 
       <InteriorHero orbit="about">
         <div className="mb-6 flex items-center gap-4">
-          <img src="/team-richie.webp" alt="Richie Lampani, Founder of Rebel Talent Systems" width={600} height={600} className="h-16 w-16 shrink-0 rounded-full object-cover object-top" data-testid="img-profile" />
+          <img src="/richie-portrait.webp" alt="Black and white portrait of Richie Lampani, founder of Rebel Talent Systems, in a dark baseball cap." width={960} height={1200} className="h-16 w-16 shrink-0 rounded-full object-cover" data-testid="img-profile" />
           <p className="eyebrow-gold">Founder</p>
         </div>
         <h1 className="max-w-[14ch]" data-testid="text-name">

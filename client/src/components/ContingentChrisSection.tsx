@@ -10,12 +10,6 @@ export const BOOK_CHRIS_HREF =
   "https://calendly.com/christopher-rebeltalentsystems/30min";
 export const EMAIL_CHRIS_HREF = "mailto:christopher@rebeltalentsystems.com";
 
-const STRIP = [
-  "One flat fee per salary band",
-  "No percentage of salary, ever",
-  "A named human, not a form",
-];
-
 export default function ContingentChrisSection() {
   return (
     <section
@@ -64,11 +58,6 @@ export default function ContingentChrisSection() {
             </figure>
             <p className="portrait-name">Chris Moscato</p>
             <p className="portrait-role">Head of Client Acquisition</p>
-            <ul className="flex flex-col gap-2 mb-5">
-              {STRIP.map((text) => (
-                <li key={text} className="body-copy text-[16px] leading-snug">{text}</li>
-              ))}
-            </ul>
             <a
               href={EMAIL_CHRIS_HREF}
               onClick={hapticTap}
