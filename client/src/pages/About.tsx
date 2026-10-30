@@ -121,7 +121,7 @@ export default function About() {
 
       <section className="band-steel">
         <div className="band-wrap py-16 sm:py-20">
-          <h2 className="mb-6 max-w-[16ch]">Five cities. One thesis.</h2>
+          <h2 className="section-display mb-6 max-w-[16ch]">Five cities. One thesis.</h2>
           <p className="measure text-[18px] leading-[1.6]">
             Hudsonville, Grand Rapids, New York, Chicago, Atlanta. I booked shows, then spent eleven years in staffing at Robert Half, Addison Group, and a few startups. The old model pays for speed. It does not pay for the hire that stays.
           </p>
@@ -133,7 +133,7 @@ export default function About() {
 
       <section>
         <div className="band-wrap py-16 sm:py-20">
-          <h2 className="mb-3" data-testid="heading-team">The team</h2>
+          <h2 className="section-display mb-3" data-testid="heading-team">The team</h2>
           <p className="measure mb-8 text-[18px] leading-[1.6]">
             Everyone works under my direction, and I stay on the engagement.
           </p>
@@ -174,7 +174,7 @@ export default function About() {
 
       <section>
         <div className="band-wrap py-16 sm:py-20">
-          <h2 className="mb-4">From the work</h2>
+          <h2 className="section-display mb-4">From the work</h2>
           <ul className="measure space-y-4 text-[18px] leading-[1.6]">
             <li>EarthDaily Federal: 11 hires, about $394K in agency fees avoided, a 3.4x return, average time to hire under 30 days.</li>
             <li>Kalibri Labs: an ML engineer signed in 34 days, about $20K under the agency quote.</li>
@@ -186,7 +186,7 @@ export default function About() {
 
       <section>
         <div className="band-wrap py-16 sm:py-20">
-          <h2 className="mb-6" data-testid="heading-books">Built by me</h2>
+          <h2 className="section-display mb-6" data-testid="heading-books">Built by me</h2>
           <div className="roster">
             <article className="roster-row">
               <h3>Head and Heart</h3>
@@ -215,7 +215,7 @@ export default function About() {
 
       <section>
         <div className="band-wrap py-16 sm:py-20">
-          <h2 className="mb-3" data-testid="heading-agents">The agents</h2>
+          <h2 className="section-display mb-3" data-testid="heading-agents">The agents</h2>
           <p className="measure mb-8 text-[18px] leading-[1.6]">
             Five AI agents do front-line work inside Rebel Command. Every one of them answers to a person on the desk.
           </p>
@@ -244,7 +244,7 @@ export default function About() {
 
       <section data-testid="section-cta" className="band-red">
         <div className="band-wrap py-16 sm:py-24">
-          <h2 className="mb-4 max-w-[16ch]">Bring the role that is stuck.</h2>
+          <h2 className="section-display mb-4 max-w-[16ch]">Bring the role that is stuck.</h2>
           <p className="measure mb-8 text-[18px] leading-[1.6]">
             Thirty minutes. We will tell you which path fits. If we are not the right firm, we will say that too.
           </p>

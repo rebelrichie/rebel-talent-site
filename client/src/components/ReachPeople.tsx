@@ -26,7 +26,7 @@ export default function ReachPeople({ id, tone = "plain" }: { id?: string; tone?
   return (
     <section id={id} data-testid={id === "reach" ? "section-reach" : undefined} className={onBand ? "mi-band bg-[#001028]" : "border-t border-[#E7E9EE] bg-white"}>
       <div className="max-w-[1140px] mx-auto px-5 py-16 sm:py-20">
-        <h2 className={`text-[40px] leading-[1.05] mb-10 sm:text-[48px] ${onBand ? "text-white" : "text-[#0C1220]"}`}>
+        <h2 className={`section-display mb-10 ${onBand ? "text-white" : "text-[#0C1220]"}`}>
           Reach us
         </h2>
         <div className="grid md:grid-cols-2 gap-10">
