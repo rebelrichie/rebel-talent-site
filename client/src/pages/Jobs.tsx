@@ -26,7 +26,9 @@ import ScrollReveal from "@/components/ScrollReveal";
 import InteriorHero from "@/components/InteriorHero";
 import { jobPath } from "@/lib/jobSlug";
 import { publicPayLine } from "@/lib/payLabel";
+import { publicJobTitle } from "@/lib/jobTitle";
 import { toPublicJob } from "@shared/publicJob.mjs";
+import cachedJobs from "@/data/jobs-cache.json";
 
 const JOBS_API = "https://rebelcommand.dev/api/public/jobs";
 
@@ -137,9 +139,11 @@ function jobJsonLd(jobs: Job[]) {
 
 type SortKey = "newest" | "comp-desc";
 
+const CACHED_JOBS = (cachedJobs as Job[]).map((job) => toPublicJob(job) as Job);
+
 export default function Jobs() {
-  const [jobs, setJobs] = useState<Job[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [jobs, setJobs] = useState<Job[]>(CACHED_JOBS);
+  const [loading, setLoading] = useState(CACHED_JOBS.length === 0);
   const [error, setError] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [clearanceFilter, setClearanceFilter] = useState<Set<string>>(new Set());
@@ -159,7 +163,7 @@ export default function Jobs() {
       })
       .catch((e) => {
         if (cancelled) return;
-        setError(e?.message || "Failed to load roles");
+        if (CACHED_JOBS.length === 0) setError(e?.message || "Failed to load roles");
         setLoading(false);
       });
     return () => { cancelled = true; };
@@ -341,7 +345,7 @@ export default function Jobs() {
       {/* ===== LIST ===== */}
       <section className="px-4 sm:px-6 lg:px-8 pb-16">
         <div className="max-w-5xl mx-auto">
-          {loading && (
+          {loading && jobs.length === 0 && (
             <div className="text-center py-16 text-zinc-400">
               Loading open roles…
             </div>
@@ -422,7 +426,7 @@ export default function Jobs() {
                         <div className="min-w-0 flex-1">
                           <div className="flex flex-wrap items-center gap-2 mb-1">
                             <h2 className="job-title font-semibold group-hover:text-rebel-red transition-colors">
-                              {j.title}
+                              {publicJobTitle(j.title)}
                             </h2>
                             {j._clearance && (
                               <span
