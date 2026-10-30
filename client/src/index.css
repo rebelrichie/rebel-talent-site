@@ -3557,7 +3557,7 @@ main .page-bands > section.band-hero a.mi-btn.hero-cta:focus-visible {
   94% { opacity: 0; transform: translateX(-50%) scaleY(1); }
 }
 
-/* About headshots. Original color, same circle sizes as before the redesign. */
+/* About headshot uses the same grayscale treatment as the portraits. */
 .band-hero-copy > .flex:has([data-testid="img-profile"]) .eyebrow-gold {
   margin-bottom: 0 !important;
 }
@@ -3571,7 +3571,8 @@ img[data-testid="img-profile"],
 img[data-testid="img-profile"] {
   width: 4rem !important;
   height: 4rem !important;
-  object-position: top !important;
+  object-position: center 18% !important;
+  filter: grayscale(1) contrast(1.65) brightness(1.08) !important;
 }
 .roster-row picture {
   display: block;

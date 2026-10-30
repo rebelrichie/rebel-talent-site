@@ -267,86 +267,21 @@ export default function StrategyCall() {
                   </Field>
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <Field label="Company" required>
-                    <input
-                      type="text"
-                      value={company}
-                      onChange={(e) => setCompany(e.target.value)}
-                      required
-                      autoComplete="organization"
-                      className={inputClass}
-                    />
-                  </Field>
-                  <Field label="Company website" hint="Optional, helps me research before the call">
-                    <input
-                      type="text"
-                      value={companyWebsite}
-                      onChange={(e) => setCompanyWebsite(e.target.value)}
-                      placeholder="example.com"
-                      className={inputClass}
-                    />
-                  </Field>
-                </div>
-
-                <Field label="Role you're hiring for" hint="Title or a short description, for example Forward Deployed Engineer with TS/SCI.">
+                <Field label="Company" required>
                   <input
                     type="text"
-                    value={roleToFill}
-                    onChange={(e) => setRoleToFill(e.target.value)}
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
+                    required
+                    autoComplete="organization"
                     className={inputClass}
                   />
                 </Field>
 
-                <Field label="What kind of engagement are you considering?">
-                  <div className="grid sm:grid-cols-2 gap-2">
-                    {ENGAGEMENT_TYPES.map((opt) => (
-                      <RadioPill
-                        key={opt.value}
-                        name="engagementType"
-                        value={opt.value}
-                        label={opt.label}
-                        checked={engagementType === opt.value}
-                        onChange={() => setEngagementType(opt.value)}
-                      />
-                    ))}
-                  </div>
-                </Field>
-
-                <Field label="Company stage" hint="Optional, helps us route you to the right person">
-                  <div className="grid sm:grid-cols-2 gap-2">
-                    {COMPANY_STAGES.map((opt) => (
-                      <RadioPill
-                        key={opt.value}
-                        name="companyStage"
-                        value={opt.value}
-                        label={opt.label}
-                        checked={companyStage === opt.value}
-                        onChange={() => setCompanyStage(opt.value)}
-                      />
-                    ))}
-                  </div>
-                </Field>
-
-                <Field label="Timeline" hint="Optional, defaults to exploring if you skip it">
-                  <div className="grid sm:grid-cols-2 gap-2">
-                    {TIMELINES.map((opt) => (
-                      <RadioPill
-                        key={opt.value}
-                        name="timeline"
-                        value={opt.value}
-                        label={opt.label}
-                        checked={timeline === opt.value}
-                        onChange={() => setTimeline(opt.value)}
-                      />
-                    ))}
-                  </div>
-                </Field>
-
-                <Field label="What's the biggest blocker right now?" hint="What is stuck: no pipeline, the wrong agency, cannot close, something else.">
+                <Field label="The role" hint="The seat, and what is stuck.">
                   <textarea
-                    value={blocker}
-                    onChange={(e) => setBlocker(e.target.value)}
+                    value={roleToFill}
+                    onChange={(e) => setRoleToFill(e.target.value)}
                     rows={4}
                     className={`${inputClass} resize-none`}
                   />
@@ -371,6 +306,17 @@ export default function StrategyCall() {
                   )}
                 </button>
 
+                <p className="text-base leading-relaxed">
+                  Or{" "}
+                  <a
+                    href="mailto:richie@rebeltalentsystems.com"
+                    data-testid="link-strategy-email-richie"
+                    className="underline underline-offset-4 font-medium"
+                  >
+                    email Richie directly
+                  </a>
+                  .
+                </p>
                 <p className="text-xs pt-2">
                   {copy.footer}
                 </p>
@@ -378,10 +324,12 @@ export default function StrategyCall() {
               <aside className="lg:pt-2">
                 <h2 className="text-[28px] leading-tight mb-4">What you are sending</h2>
                 <p className="text-[17px] leading-[1.6] font-light mb-4">
-                  Name, email, and company get you through. The rest is context for the call.
+                  Name, email, company, and the role. That is the whole form.
                 </p>
                 <p className="text-[17px] leading-[1.6] font-light">
-                  {copy.footer}
+                  <a href="mailto:richie@rebeltalentsystems.com" className="underline underline-offset-4">
+                    Or email Richie directly.
+                  </a>
                 </p>
               </aside>
             </div>
