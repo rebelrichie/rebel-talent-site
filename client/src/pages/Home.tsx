@@ -102,22 +102,10 @@ const AUDIENCES = [
   },
 ];
 
-const PROOF = [
-  {
-    client: "EarthDaily Federal",
-    logo: "/logo-earthdaily.png",
-    body: "Eleven placements. About $394K in agency fees avoided, a 3.4x return, with an average time to hire under 30 days.",
-  },
-  {
-    client: "Kalibri Labs",
-    logo: "/logo-kalibri.png",
-    body: "A machine learning engineer signed in 34 days, about $20K under the agency quote.",
-  },
-  {
-    client: "Legal Managed Services",
-    wordmark: true,
-    body: "Twenty go-to-market hires in 24 months, with 90% retention.",
-  },
+const EARTHDAILY_FIGURES = [
+  { value: "About $394K", label: "Fees avoided" },
+  { value: "3.4x", label: "Return on the retainer" },
+  { value: "11", label: "Placements" },
 ];
 
 const btn = "mi-btn";
@@ -154,7 +142,7 @@ const SERVICES = [
     index: "03",
     kicker: "Retained",
     sentence: "A defined role with a deadline. Half up front, half at placement.",
-    href: "/services",
+    href: "/services#retained",
     label: "See retained terms",
     id: "retained",
     testId: "path-retained",
@@ -330,32 +318,43 @@ export default function Home() {
               </div>
             </div>
           </Rise>
-          <div className="proof-grid">
-            {PROOF.map((item, index) => (
-              <Rise key={item.client} delay={index * 60}>
-                <article className="depth-card proof-card">
-                  {item.wordmark ? (
-                    <span className="logo-chip logo-wordmark" role="img" aria-label={item.client}>
-                      Legal Managed Services
-                    </span>
-                  ) : (
-                    <span className="logo-chip">
-                      <img
-                        src={item.logo}
-                        alt={item.client}
-                        width={item.logo?.includes("kalibri") ? 600 : 200}
-                        height={item.logo?.includes("kalibri") ? 264 : 64}
-                        loading="lazy"
-                      />
-                    </span>
-                  )}
-                  <div>
-                    {item.wordmark ? null : <h3>{item.client}</h3>}
-                    <p className="body-copy">{item.body}</p>
-                  </div>
-                </article>
-              </Rise>
-            ))}
+          <Rise>
+            <article className="depth-card proof-feature">
+              <span className="logo-chip">
+                <img src="/logo-earthdaily.png" alt="EarthDaily Federal" width={200} height={64} loading="lazy" />
+              </span>
+              <div>
+                <p className="body-copy">
+                  The documented process stayed with the team when the engagement scaled down.
+                </p>
+              </div>
+              <ul className="proof-figures">
+                {EARTHDAILY_FIGURES.map((figure) => (
+                  <li key={figure.label}>
+                    <strong>{figure.value}</strong>
+                    <span>{figure.label}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </Rise>
+          <div className="proof-pair">
+            <Rise>
+              <article className="depth-card proof-card">
+                <span className="logo-chip">
+                  <img src="/logo-kalibri.png" alt="Kalibri Labs" width={600} height={264} loading="lazy" />
+                </span>
+                <p className="body-copy">A machine learning engineer signed in 34 days, about $20K under the agency quote.</p>
+              </article>
+            </Rise>
+            <Rise delay={60}>
+              <article className="depth-card proof-card">
+                <span className="logo-chip logo-wordmark" role="img" aria-label="Legal Managed Services">
+                  Legal Managed Services
+                </span>
+                <p className="body-copy">Twenty go-to-market hires in 24 months, with 90% retention.</p>
+              </article>
+            </Rise>
           </div>
         </div>
       </section>
