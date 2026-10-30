@@ -170,3 +170,35 @@ main .page-bands:has(.home-hero) > section:not(.band-red):not(.band-light) p.sec
   line-height: var(--type-label-line) !important;
   text-transform: uppercase !important;
 }
+
+/* Body and labels on navy stay at least 14px and 4.5:1. */
+.text-xs,
+.text-\[10px\],
+.text-\[11px\],
+.text-\[12px\],
+.text-\[13px\] {
+  font-size: 0.875rem !important;
+}
+
+main .page-bands > section:not(.band-steel):not(.band-light) :is(
+  .text-zinc-400,
+  .text-zinc-500,
+  .text-zinc-600,
+  .muted,
+  label
+) {
+  color: #d5dde6 !important;
+}
+
+a:focus-visible,
+button:focus-visible,
+.mi-btn:focus-visible,
+.tap-link:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #f4f7fb !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 4px #9e0c24 !important;
+}
