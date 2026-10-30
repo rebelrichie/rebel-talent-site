@@ -1,52 +1,70 @@
-// Safe addition, Animated counter that counts up when scrolled into view
-import { useState, useEffect, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useInView } from "@/hooks/useInView";
 
 interface AnimatedCounterProps {
-  value: string; // e.g. "350%+", "$178K", "14+", "<30", "90%"
+  value: string;
   duration?: number;
   className?: string;
 }
 
-function parseTarget(value: string): { prefix: string; number: number; suffix: string } {
+function parseTarget(value: string): { prefix: string; number: number; suffix: string; decimals: number } {
   const match = value.match(/^([<>$~]*)([\d.]+)(.*)$/);
-  if (!match) return { prefix: "", number: 0, suffix: value };
+  if (!match) return { prefix: "", number: 0, suffix: value, decimals: 0 };
+  const raw = match[2];
+  const decimals = raw.includes(".") ? raw.split(".")[1].length : 0;
   return {
     prefix: match[1],
-    number: parseFloat(match[2]),
+    number: parseFloat(raw),
     suffix: match[3],
+    decimals,
   };
 }
 
-export default function AnimatedCounter({ value, duration = 1200, className = "" }: AnimatedCounterProps) {
-  const { ref, isInView } = useInView({ threshold: 0.3 });
-  const { prefix, number: target, suffix } = parseTarget(value);
-  const isDecimal = value.includes(".");
-  // Safe addition, show target value immediately so numbers never display as 0
-  // The counter animates FROM the target value when scrolled into view (resets to 0 then counts up)
-  const [displayValue, setDisplayValue] = useState(
-    isDecimal ? target.toFixed(1) : Math.floor(target).toString()
-  );
-  const [hasAnimated, setHasAnimated] = useState(false);
+function format(prefix: string, number: number, suffix: string, decimals: number) {
+  const shown = decimals > 0 ? number.toFixed(decimals) : Math.round(number).toString();
+  return `${prefix}${shown}${suffix}`;
+}
 
-  // Safe addition, counter no longer resets to 0 before animating. The previous
-  // behavior caused pre-rendered HTML to capture the "0" state mid-animation,
-  // leaving stats showing 0 in production. Now we just show the target value
-  // immediately. (Visual count-up sacrificed for correctness, net win.)
-  const animate = useCallback(() => {
-    setDisplayValue(isDecimal ? target.toFixed(1) : Math.floor(target).toString());
-  }, [target, isDecimal]);
+export default function AnimatedCounter({ value, duration = 900, className = "" }: AnimatedCounterProps) {
+  const { ref, isInView } = useInView<HTMLSpanElement>({ threshold: 0.45 });
+  const parsed = parseTarget(value);
+  const finalText = format(parsed.prefix, parsed.number, parsed.suffix, parsed.decimals);
+  const [display, setDisplay] = useState(finalText);
+  const armed = useRef(false);
+  const played = useRef(false);
 
   useEffect(() => {
-    if (isInView && !hasAnimated) {
-      setHasAnimated(true);
-      animate();
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const visible = rect.top < window.innerHeight && rect.bottom > 0;
+    if (!visible) armed.current = true;
+  }, [ref]);
+
+  useEffect(() => {
+    if (!isInView || !armed.current || played.current) return;
+    played.current = true;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || parsed.number === 0) {
+      setDisplay(finalText);
+      return;
     }
-  }, [isInView, hasAnimated, animate]);
+
+    const start = performance.now();
+    let raf = 0;
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setDisplay(format(parsed.prefix, parsed.number * eased, parsed.suffix, parsed.decimals));
+      if (t < 1) raf = requestAnimationFrame(tick);
+      else setDisplay(finalText);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [isInView, duration, finalText, parsed.decimals, parsed.number, parsed.prefix, parsed.suffix]);
 
   return (
     <span ref={ref} className={className}>
-      {prefix}{displayValue}{suffix}
+      {display}
     </span>
   );
 }

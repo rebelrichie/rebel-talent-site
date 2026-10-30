@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { ArrowRight, Menu, X } from "lucide-react";
+import ScrollProgress from "./ScrollProgress";
 
 const NAV = [
   {
@@ -52,7 +53,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [location] = useLocation();
   const contactActive = location === "/strategy-call" || location.startsWith("/strategy-call?");
-  const contactHref = location === "/" ? "#reach" : "/#reach";
 
   useEffect(() => {
     setIsOpen(false);
@@ -61,7 +61,7 @@ export default function Navbar() {
   return (
     <div className="site-chrome sticky top-0 z-50 bg-[#001028]">
       <div className="border-b border-white/10">
-        <div className="mx-auto flex min-h-11 max-w-[1440px] items-center justify-between gap-4 px-5 text-[13px] sm:px-8">
+        <div className="mx-auto flex min-h-11 max-w-[1200px] items-center justify-between gap-4 px-5 text-[13px]">
           <div className="flex min-w-0 items-center gap-4">
             <a href="tel:+12025240255" className="whitespace-nowrap no-underline">(202) 524-0255</a>
             <a href="mailto:richie@rebeltalentsystems.com" className="truncate no-underline">richie@rebeltalentsystems.com</a>
@@ -70,8 +70,8 @@ export default function Navbar() {
         </div>
       </div>
       <nav data-testid="navbar" className="site-nav border-b border-white/10 bg-[#001028]">
-        <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
-          <div className="flex h-[88px] items-center justify-between gap-4">
+        <div className="mx-auto max-w-[1200px] px-5">
+          <div className="flex min-h-[104px] items-center justify-between gap-4">
             <Link href="/" data-testid="link-home" className="logo-screen-frame logo-screen-nav shrink-0 no-underline">
               <img
                 src="/images/rebel-logo-original-v2.jpg"
@@ -106,14 +106,14 @@ export default function Navbar() {
                   </Link>
                 );
               })}
-              <a
-                href={contactHref}
+              <Link
+                href="/strategy-call"
                 data-testid="link-nav-contact"
                 aria-current={contactActive ? "page" : undefined}
                 className="mi-btn mi-btn-sm ml-3"
               >
                 Book a strategy call <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -137,17 +137,18 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <a
-              href={contactHref}
+            <Link
+              href="/strategy-call"
               data-testid="link-mobile-contact"
               className="mi-btn is-block"
               onClick={() => setIsOpen(false)}
             >
               Book a strategy call <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
+            </Link>
           </div>
         )}
       </nav>
+      <ScrollProgress />
     </div>
   );
 }

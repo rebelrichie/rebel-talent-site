@@ -1,6 +1,6 @@
-// Safe addition, Scroll progress bar that sits at top of page
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
+/** 2px reading progress, pinned to the sticky header's bottom edge. */
 export default function ScrollProgress() {
   const [progress, setProgress] = useState(0);
 
@@ -15,15 +15,8 @@ export default function ScrollProgress() {
   }, []);
 
   return (
-    <div className="fixed top-[100px] left-0 w-full h-[2px] z-50 pointer-events-none" style={{ background: "transparent" }}>
-      <div
-        className="h-full"
-        style={{
-          width: `${progress}%`,
-          background: "#C8102E",
-          transition: "width 50ms linear",
-        }}
-      />
+    <div className="scroll-progress" aria-hidden="true">
+      <div style={{ width: `${progress}%` }} />
     </div>
   );
 }
