@@ -66,15 +66,15 @@ const BREADCRUMBS = [
   { name: "About", item: "https://rebeltalentsystems.com/about" },
 ];
 
-const TEAM = [
+const TEAM: { name: string; title: string; email: string; linkedin: string; photo?: string }[] = [
   { name: "Richie Lampani", title: "Founder", email: "richie@rebeltalentsystems.com", linkedin: "https://linkedin.com/in/richielampani" },
-  { name: "Chris Moscato", title: "Head of Client Acquisition", email: "christopher@rebeltalentsystems.com", linkedin: "https://www.linkedin.com/in/chrismoscato/" },
-  { name: "Hannah Kerrigan", title: "Full Desk Recruiter", email: "hannah@rebeltalentsystems.com", linkedin: "https://www.linkedin.com/in/-hannah-kerrigan/" },
-  { name: "Veronica S.", title: "Recruiter / Chief of Staff", email: "veronica@rebeltalentsystems.com", linkedin: "https://www.linkedin.com/in/veronica-s-26750a110/" },
-  { name: "Mike Wrona", title: "Recruitment Consultant", email: "mike@rebeltalentsystems.com", linkedin: "https://www.linkedin.com/in/wrona/" },
-  { name: "Anthony Lynch", title: "Commercial Contingent Recruiter", email: "anthony@rebeltalentsystems.com", linkedin: "https://www.linkedin.com/in/anthonylynch/" },
-  { name: "Kelli Hrivnak", title: "Commercial Contingent Recruiter", email: "kelli@knakdigital.com", linkedin: "https://www.linkedin.com/in/kellihrivnak/" },
-  { name: "Bonnie Elton", title: "Full Desk Recruiter", email: "bonnie@rebeltalentsystems.com", linkedin: "https://www.linkedin.com/in/bonniemontgomery/" },
+  { name: "Chris Moscato", photo: "/chris-moscato.jpg", title: "Head of Client Acquisition", email: "christopher@rebeltalentsystems.com", linkedin: "https://www.linkedin.com/in/chrismoscato/" },
+  { name: "Hannah Kerrigan", photo: "/team-hannah.webp", title: "Full Desk Recruiter", email: "hannah@rebeltalentsystems.com", linkedin: "https://www.linkedin.com/in/-hannah-kerrigan/" },
+  { name: "Veronica S.", photo: "/team-veronica.webp", title: "Recruiter / Chief of Staff", email: "veronica@rebeltalentsystems.com", linkedin: "https://www.linkedin.com/in/veronica-s-26750a110/" },
+  { name: "Mike Wrona", photo: "/team-mike.webp", title: "Recruitment Consultant", email: "mike@rebeltalentsystems.com", linkedin: "https://www.linkedin.com/in/wrona/" },
+  { name: "Anthony Lynch", photo: "/team-anthony.webp", title: "Commercial Contingent Recruiter", email: "anthony@rebeltalentsystems.com", linkedin: "https://www.linkedin.com/in/anthonylynch/" },
+  { name: "Kelli Hrivnak", photo: "/team-kelli.webp", title: "Commercial Contingent Recruiter", email: "kelli@knakdigital.com", linkedin: "https://www.linkedin.com/in/kellihrivnak/" },
+  { name: "Bonnie Elton", photo: "/team-bonnie.webp", title: "Full Desk Recruiter", email: "bonnie@rebeltalentsystems.com", linkedin: "https://www.linkedin.com/in/bonniemontgomery/" },
 ];
 
 const AGENTS = [
@@ -100,7 +100,10 @@ export default function About() {
       />
 
       <InteriorHero orbit="about">
-        <p className="eyebrow-gold">Founder</p>
+        <div className="mb-6 flex items-center gap-4">
+          <img src="/team-richie.webp" alt="Richie Lampani, Founder of Rebel Talent Systems" width={600} height={600} className="h-16 w-16 shrink-0 rounded-full object-cover object-top" data-testid="img-profile" />
+          <p className="eyebrow-gold">Founder</p>
+        </div>
         <h1 className="max-w-[14ch]" data-testid="text-name">
           We fill the seat. The system stays.
         </h1>
@@ -137,7 +140,27 @@ export default function About() {
           <div className="roster">
             {TEAM.map((person) => (
               <article key={person.name} className="roster-row" data-testid={`team-${person.name.split(" ")[0].toLowerCase()}`}>
-                <h3>{person.name}</h3>
+                {person.photo ? (
+                  <div className="flex items-center gap-4">
+                    <picture>
+                      <source
+                        srcSet={person.photo.includes("chris-moscato") ? "/chris-moscato-v2.webp" : person.photo.replace(/\.(jpe?g|png)$/i, ".webp")}
+                        type="image/webp"
+                      />
+                      <img
+                        src={person.photo.replace(/\.webp$/i, ".jpg")}
+                        alt={`${person.name}, ${person.title} at Rebel Talent Systems`}
+                        width={320}
+                        height={320}
+                        loading="lazy"
+                        className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border border-zinc-700 shrink-0"
+                      />
+                    </picture>
+                    <h3>{person.name}</h3>
+                  </div>
+                ) : (
+                  <h3>{person.name}</h3>
+                )}
                 <p>{person.title}</p>
                 <div className="roster-links">
                   <a href={`mailto:${person.email}`}>{person.email}</a>
