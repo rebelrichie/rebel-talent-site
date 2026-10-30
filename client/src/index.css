@@ -3567,3 +3567,46 @@ main .page-bands > section.band-hero a.mi-btn.hero-cta:focus-visible {
   87% { opacity: 0.62; transform: translateX(-50%) scaleY(1); }
   94% { opacity: 0; transform: translateX(-50%) scaleY(1); }
 }
+
+/* About headshots. Original color, same circle sizes as before the redesign. */
+.band-hero-copy > .flex:has([data-testid="img-profile"]) .eyebrow-gold {
+  margin-bottom: 0 !important;
+}
+img[data-testid="img-profile"],
+.roster-row picture img {
+  filter: none !important;
+  border-radius: 9999px !important;
+  object-fit: cover !important;
+  flex: none;
+}
+img[data-testid="img-profile"] {
+  width: 4rem !important;
+  height: 4rem !important;
+  object-position: top !important;
+}
+.roster-row picture {
+  display: block;
+  flex: none;
+  line-height: 0;
+}
+.roster-row > .flex {
+  min-width: 0;
+}
+.roster-row > .flex h3 {
+  min-width: 0;
+}
+.roster-row:has(picture) {
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+.roster-row picture img {
+  width: 4rem !important;
+  height: 4rem !important;
+  object-position: center !important;
+}
+@media (min-width: 640px) {
+  .roster-row picture img {
+    width: 5rem !important;
+    height: 5rem !important;
+  }
+}
