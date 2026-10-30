@@ -30,7 +30,7 @@ export default function Platform() {
               THE REBEL PLATFORM
             </div>
             <h1 className="font-display text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight mb-4">
-              I built this.<br />It's not for sale.
+              I built this. <br />It's not for sale.
             </h1>
             <p className="text-zinc-400 text-base max-w-2xl mx-auto leading-relaxed">
               Three integrated applications running my entire recruiting operation in production.

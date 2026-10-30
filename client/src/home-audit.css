@@ -19,11 +19,12 @@ main .page-bands > section[class*="max-w-"] {
   position: absolute;
   left: 0;
   right: 0;
+  width: 100%;
   bottom: 0;
   height: 2px;
   z-index: 6;
   pointer-events: none;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .scroll-progress > div {

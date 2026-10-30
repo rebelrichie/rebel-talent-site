@@ -31,7 +31,7 @@ export default function FreeTools() {
             Resources
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-[-0.035em] text-white leading-[1.02] max-w-4xl" data-testid="heading-free-tools">
-            Tools that<br />
+            Tools that <br />
             <span className="text-rebel-red">actually work.</span>
           </h1>
           <p className="mt-6 sm:mt-8 text-base sm:text-xl text-zinc-400 max-w-2xl leading-[1.55]">
