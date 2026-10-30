@@ -1,5 +1,4 @@
 import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
 
 const SERVICES = [
   { href: "/services", label: "How we engage", testId: "link-footer-services" },
@@ -75,17 +74,6 @@ function Column({ title, links }: { title: string; links: FooterLink[] }) {
 export default function Footer() {
   return (
     <footer data-testid="footer" className="site-footer">
-      <div className="border-b border-white/10">
-        <div className="max-w-[1200px] mx-auto px-5 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <p className="text-[15px]">
-            Ready to build your team the right way?
-          </p>
-          <a href="/strategy-call" className="tap-link inline-flex items-center gap-2 text-[15px] font-semibold no-underline">
-            Book a strategy call <ArrowRight className="w-4 h-4" />
-          </a>
-        </div>
-      </div>
-
       <div className="max-w-[1200px] mx-auto px-5 py-14">
         <div className="footer-grid mb-10">
           <div className="footer-brand">
@@ -164,7 +152,7 @@ export default function Footer() {
       </div>
       <div className="mi-legal">
         <div className="max-w-[1200px] mx-auto px-5 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-[13px]">
-          <p>&copy; {new Date().getFullYear()} Rebel Talent Systems. All rights reserved.</p>
+          <p>&copy; 2026 Rebel Talent Co LLC. Rebel Talent Systems is a brand of Rebel Talent Co LLC.</p>
           <Link href="/privacy-policy" data-testid="link-footer-privacy" className="tap-link no-underline">Privacy Policy</Link>
         </div>
       </div>
