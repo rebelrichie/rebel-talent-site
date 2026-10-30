@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import ScrollProgress from "./ScrollProgress";
 import PageTransition from "./PageTransition";
 
 
@@ -61,7 +60,6 @@ export default function PageLayout({ children }: PageLayoutProps) {
         Skip to main content
       </a>
       <Navbar />
-      <ScrollProgress />
       <main id="main-content" className="relative" style={{ zIndex: 1 }}>
         <PageTransition>{children}</PageTransition>
       </main>

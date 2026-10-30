@@ -7,9 +7,9 @@ interface UseInViewOptions {
   triggerOnce?: boolean;
 }
 
-export function useInView(options: UseInViewOptions = {}) {
+export function useInView<T extends HTMLElement = HTMLDivElement>(options: UseInViewOptions = {}) {
   const { threshold = 0.15, rootMargin = "0px 0px -60px 0px", triggerOnce = true } = options;
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<T>(null);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
