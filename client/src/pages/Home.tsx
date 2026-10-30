@@ -198,7 +198,7 @@ export default function Home() {
       />
 
       <section data-testid="section-hero" className="band-hero home-hero">
-        <BannerHero tall mark priority>
+        <BannerHero tall priority>
           <h1 className="hero-display">
             Recruiting that scales with the company you&rsquo;re becoming.
           </h1>

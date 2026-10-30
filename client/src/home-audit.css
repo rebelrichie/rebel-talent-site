@@ -616,3 +616,82 @@ main .page-bands:has(.home-hero) > section.band-red:not(.band-light) a.mi-btn.ct
     display: none;
   }
 }
+
+/* Homepage hero. Same centered band as the rest of the page.
+   The nav already carries the mark, so the hero is copy only. */
+main .page-bands:has(.home-hero) .home-hero .banner-stage-tall {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: none !important;
+  min-height: min(40rem, calc(100svh - 7.5rem));
+  padding: 4.5rem 0 4.25rem !important;
+  background-color: #00060f !important;
+}
+
+main .page-bands:has(.home-hero) .home-hero .banner-stage-tall .banner-earth img {
+  transform: none !important;
+  object-position: center 28% !important;
+}
+
+main .page-bands:has(.home-hero) .home-hero .banner-stage-tall .banner-scrim {
+  background:
+    linear-gradient(180deg, rgba(0, 6, 16, 0.78) 0%, rgba(0, 6, 16, 0.5) 42%, rgba(0, 6, 16, 0.82) 100%) !important;
+}
+
+main .page-bands:has(.home-hero) .home-hero .break-orbit,
+main .page-bands:has(.home-hero) .home-hero .hero-lockup,
+main .page-bands:has(.home-hero) .home-hero .hero-mark {
+  display: none !important;
+}
+
+main .page-bands:has(.home-hero) .home-hero .banner-stage-tall .banner-copy {
+  width: min(1200px, 100%) !important;
+  max-width: 1200px !important;
+  margin-inline: auto;
+  padding: 0 1.25rem !important;
+  box-sizing: border-box;
+  grid-column: auto !important;
+  grid-row: auto !important;
+  align-self: center;
+}
+
+main .page-bands:has(.home-hero) .home-hero .banner-stage-tall .band-hero-copy {
+  max-width: 40rem !important;
+  width: 100% !important;
+}
+
+main .page-bands:has(.home-hero) .home-hero .banner-stage-tall .band-hero-copy h1,
+main .page-bands:has(.home-hero) .home-hero .banner-stage-tall .band-hero-copy h1.hero-display {
+  max-width: 12em !important;
+}
+
+main .page-bands:has(.home-hero) > section.home-hero.band-hero:not(.band-red):not(.band-light) p.hero-for,
+main .page-bands:has(.home-hero) .home-hero .hero-for {
+  margin-top: 1.25rem;
+  max-width: 34rem;
+  font-size: 1.3125rem !important;
+  line-height: 1.45 !important;
+}
+
+main .page-bands:has(.home-hero) > section.home-hero.band-hero a.mi-btn.hero-cta,
+main .page-bands:has(.home-hero) > section.home-hero.band-hero a.mi-btn.hero-cta:visited {
+  font-size: 1.25rem !important;
+  padding: 22px 40px !important;
+  min-height: 64px;
+}
+
+@media (max-width: 640px) {
+  main .page-bands:has(.home-hero) .home-hero .banner-stage-tall {
+    min-height: 0;
+    padding: 3.25rem 0 2.75rem !important;
+    align-items: stretch;
+  }
+
+  main .page-bands:has(.home-hero) .home-hero .banner-stage-tall .band-hero-copy,
+  main .page-bands:has(.home-hero) .home-hero .banner-stage-tall .band-hero-copy h1,
+  main .page-bands:has(.home-hero) .home-hero .banner-stage-tall .band-hero-copy h1.hero-display {
+    max-width: none !important;
+  }
+}
