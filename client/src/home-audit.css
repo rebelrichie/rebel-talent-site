@@ -256,9 +256,45 @@ main .page-bands:has(.home-hero) .proof-strip .stat-rule {
 
 .offer-list,
 .stack-cards,
-.proof-grid {
+.proof-grid,
+.proof-pair {
   display: grid;
   gap: 0.9rem;
+}
+
+.proof-feature {
+  display: grid;
+  gap: 1.1rem 1.5rem;
+  margin-bottom: 0.9rem;
+  padding: 1.25rem 1.3rem;
+}
+
+.proof-figures {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.proof-figures strong {
+  display: block;
+  color: #e2c57a !important;
+  font-family: Anton, Impact, sans-serif !important;
+  font-size: clamp(1.8rem, 2.4vw, 2.6rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1 !important;
+  text-transform: none !important;
+}
+
+.proof-figures span {
+  display: block;
+  margin-top: 0.35rem;
+  color: #e7edf4 !important;
+  font-size: 15px !important;
+  line-height: 1.35 !important;
 }
 
 .offer-row {
@@ -309,22 +345,39 @@ main .page-bands:has(.home-hero) .offer-row p.offer-index {
 }
 
 @media (min-width: 800px) {
-  .proof-grid {
+  .proof-grid,
+  .proof-pair {
     grid-template-columns: 1fr 1fr;
   }
 
   .proof-grid .rise:last-child:nth-child(odd) {
     grid-column: 1 / -1;
   }
+
+  .proof-feature {
+    grid-template-columns: 14rem minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .proof-feature .proof-figures {
+    grid-column: 1 / -1;
+  }
 }
 
 .proof-card {
   display: grid;
-  grid-template-columns: 11.5rem minmax(0, 1fr);
-  gap: 1rem 1.25rem;
-  align-items: center;
+  gap: 0.85rem;
+  align-content: start;
   height: 100%;
-  padding: 1.1rem 1.2rem;
+  padding: 1.15rem 1.2rem;
+}
+
+.proof-feature .logo-chip,
+.proof-card .logo-chip,
+.proof-card .logo-wordmark,
+.proof-feature .logo-wordmark {
+  height: 40px !important;
+  min-height: 40px !important;
 }
 
 .logo-wordmark {
@@ -353,7 +406,8 @@ main .page-bands:has(.home-hero) .offer-row p.offer-index {
 }
 
 main .page-bands:has(.home-hero) .proof-strip .logo-chips img,
-main .page-bands:has(.home-hero) .proof-card .logo-chip img {
+main .page-bands:has(.home-hero) .proof-card .logo-chip img,
+main .page-bands:has(.home-hero) .proof-feature .logo-chip img {
   height: 40px !important;
   width: auto !important;
   max-width: 11.5rem !important;
@@ -611,6 +665,11 @@ main .page-bands:has(.home-hero) > section.band-red:not(.band-light) a.mi-btn.ct
 
   .proof-card {
     grid-template-columns: 1fr;
+  }
+
+  .proof-figures {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
   }
 
   .about-preview .portrait,
