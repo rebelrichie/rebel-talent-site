@@ -29,11 +29,14 @@ if [[ ! -f "$CAPABILITY_PDF" ]] || ! head -c 5 "$CAPABILITY_PDF" | grep -q '%PDF
 fi
 
 # Gate 2: prove the prerender captured REAL rendered content, not a Suspense/SPA
-# shell. The copyright line is footer text that only exists once React has rendered,
+# shell. The copyright sentence is footer text that only exists once React has rendered,
 # so its presence on both an eager route (/) and a lazy route (/services, /advisory)
 # confirms code-split routes prerendered correctly. Guards against lazy-load regressions.
+# The sentence replaced "All rights reserved" in the footer. Match the words, not the
+# copyright glyph, so the check does not depend on how the entity is serialized.
+FOOTER_MARKER="Rebel Talent Systems is a brand of Rebel Talent Co LLC"
 for f in dist/public/index.html dist/public/services/index.html dist/public/advisory/index.html; do
-  if ! grep -qi "all rights reserved" "$f"; then
+  if ! grep -q "$FOOTER_MARKER" "$f"; then
     echo "✗ $f looks like an unrendered shell (no rendered footer content). Aborting, nothing deployed." >&2
     exit 1
   fi
