@@ -198,12 +198,12 @@ export default function Home() {
       />
 
       <section data-testid="section-hero" className="band-hero home-hero">
-        <BannerHero tall priority parallax>
+        <BannerHero tall mark priority>
           <h1 className="hero-display">
             Recruiting that scales with the company you&rsquo;re becoming.
           </h1>
           <p className="hero-for">For defense and commercial buyers.</p>
-          <div className="hero-actions mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
             <Link href="/strategy-call" data-testid="button-hero-strategy" className={`${btn} hero-cta`}>
               Book a strategy call
             </Link>
@@ -214,7 +214,7 @@ export default function Home() {
         </BannerHero>
       </section>
 
-      <section data-testid="section-proof-strip" className="band-steel proof-strip star-field orbit-divide">
+      <section data-testid="section-proof-strip" className="band-steel proof-strip star-field">
         <div className="band-wrap">
           <ul className="logo-chips">
             <li>
@@ -246,7 +246,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="engage" data-testid="section-engage" className="star-field orbit-divide">
+      <section id="engage" data-testid="section-engage" className="star-field">
         <div className="band-wrap">
           <Rise>
             <div className="section-split section-intro">
@@ -280,7 +280,7 @@ export default function Home() {
 
       <ContingentChrisSection />
 
-      <section data-testid="section-who" className="star-field orbit-divide">
+      <section data-testid="section-who" className="star-field">
         <div className="band-wrap section-split">
           <Rise>
             <div>
@@ -309,7 +309,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="section-proof" className="star-field orbit-divide">
+      <section data-testid="section-proof" className="star-field">
         <div className="band-wrap">
           <Rise>
             <div className="section-split section-intro">
@@ -357,7 +357,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-testid="section-veterans" className="mi-band star-field orbit-divide">
+      <section data-testid="section-veterans" className="mi-band star-field">
         <div className="band-wrap section-split">
           <Rise>
             <div>
@@ -399,7 +399,7 @@ export default function Home() {
       <LogoStrip />
       <PullQuotes />
 
-      <section data-testid="section-about-preview" className="star-field orbit-divide">
+      <section data-testid="section-about-preview" className="star-field">
         <div className="band-wrap section-split about-preview">
           <Rise>
             <figure className="portrait">

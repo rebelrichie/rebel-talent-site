@@ -21,7 +21,7 @@ export default function ContingentChrisSection() {
     <section
       id="contingent-search"
       data-testid="section-contingent-search"
-      className="star-field orbit-divide"
+      className="star-field"
     >
       <div className="band-wrap section-split chris-layout">
         <Rise>
