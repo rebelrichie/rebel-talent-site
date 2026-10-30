@@ -125,7 +125,7 @@ const btn = "mi-btn";
 const STATS = [
   { label: "Average time to hire", value: "<30", caption: "EarthDaily Federal" },
   { label: "Days to a signed ML hire", value: "34", caption: "Kalibri Labs" },
-  { label: "Fee return", value: "3.4x", caption: "EarthDaily Federal fee return" },
+  { label: "Under the agency quote", value: "$20K", caption: "Kalibri Labs" },
   { label: "Retention across 20 hires", value: "90%", caption: "Legal Managed Services" },
 ];
 
@@ -222,6 +222,9 @@ export default function Home() {
             </li>
             <li>
               <img src="/logo-earthdaily.png" alt="EarthDaily Federal" width={200} height={64} />
+            </li>
+            <li>
+              <span className="logo-wordmark" role="img" aria-label="Legal Managed Services">Legal Managed Services</span>
             </li>
           </ul>
           <div className="stat-row">
@@ -332,8 +335,8 @@ export default function Home() {
               <Rise key={item.client} delay={index * 60}>
                 <article className="depth-card proof-card">
                   {item.wordmark ? (
-                    <span className="logo-chip logo-wordmark">
-                      <span>Legal<br />Managed Services</span>
+                    <span className="logo-chip logo-wordmark" role="img" aria-label={item.client}>
+                      Legal Managed Services
                     </span>
                   ) : (
                     <span className="logo-chip">
@@ -347,7 +350,7 @@ export default function Home() {
                     </span>
                   )}
                   <div>
-                    <h3>{item.client}</h3>
+                    {item.wordmark ? null : <h3>{item.client}</h3>}
                     <p className="body-copy">{item.body}</p>
                   </div>
                 </article>

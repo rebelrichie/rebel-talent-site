@@ -199,9 +199,9 @@ main .page-bands:has(.home-hero) > section.band-steel.proof-strip:not(.band-red)
   min-height: 2.8em;
   display: flex;
   align-items: flex-end;
-  color: #c9d1dc !important;
+  color: #e7edf4 !important;
   font-family: Inter, "Public Sans", sans-serif !important;
-  font-size: 13px !important;
+  font-size: 15px !important;
   font-weight: 600 !important;
   letter-spacing: 0.04em !important;
   line-height: 1.35 !important;
@@ -222,8 +222,8 @@ main .page-bands:has(.home-hero) > section.band-steel.proof-strip:not(.band-red)
 main .page-bands:has(.home-hero) > section.band-steel.proof-strip:not(.band-red) .stat-row > .stat > p.stat-caption {
   margin: 0.7rem 0 0;
   min-height: 2.6em;
-  color: #c9d1dc !important;
-  font-size: 14px !important;
+  color: #e7edf4 !important;
+  font-size: 15px !important;
   line-height: 1.35 !important;
 }
 
@@ -331,22 +331,34 @@ main .page-bands:has(.home-hero) .offer-row p.offer-index {
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  width: 11.5rem;
-  min-height: 64px;
-  padding: 0.7rem 0.85rem !important;
-  background: #071525 !important;
-  border-radius: 10px !important;
+  height: 40px;
+  min-height: 40px;
+  padding: 0 0.85rem !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  color: #ffffff !important;
+  font-family: Inter, "Public Sans", sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1 !important;
+  text-align: center;
+  text-transform: none !important;
+  white-space: nowrap;
 }
 
-.logo-wordmark span {
+.proof-strip .logo-wordmark {
+  height: 40px;
   color: #ffffff !important;
-  font-family: Anton, Impact, sans-serif !important;
-  font-size: 0.95rem !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.04em !important;
-  line-height: 1.15 !important;
-  text-align: center;
-  text-transform: uppercase !important;
+}
+
+main .page-bands:has(.home-hero) .proof-strip .logo-chips img,
+main .page-bands:has(.home-hero) .proof-card .logo-chip img {
+  height: 40px !important;
+  width: auto !important;
+  max-width: 11.5rem !important;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0) invert(1) !important;
 }
 
 /* Portraits share one crop and a high-contrast black and white treatment. */
