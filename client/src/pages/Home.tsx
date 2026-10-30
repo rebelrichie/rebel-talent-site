@@ -415,6 +415,19 @@ export default function Home() {
               <p className="body-copy measure">
                 Fourteen years of recruiting, from commercial desks to cleared defense teams. The search ends. The hiring system stays with the company.
               </p>
+              <ul className="founder-lines">
+                <li>14 years recruiting</li>
+                <li>Author of Head and Heart and Unfinished Rooms</li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/newsletters/rebel-built-7412825035092045824/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Rebel Built newsletter
+                  </a>
+                </li>
+              </ul>
               <Link href="/about" className="tap-link mt-4 text-[16px] font-medium underline underline-offset-4">
                 About the firm
               </Link>

@@ -456,6 +456,24 @@ main .page-bands:has(.home-hero) .proof-feature .logo-chip img {
   font-size: 1rem !important;
 }
 
+.founder-lines {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.founder-lines li {
+  margin: 0;
+  color: #e7edf4 !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+}
+
+.founder-lines a {
+  color: #f4f7fb !important;
+  text-underline-offset: 3px;
+}
+
 .chris-card {
   padding: 0.85rem 0.85rem 1.15rem;
 }
