@@ -160,6 +160,12 @@ export default function Fractional() {
         
       </InteriorHero>
 
+      <p className="band-wrap py-8 text-[17px] leading-[1.6]">
+        <Link href="/fractional-recruiter-for-series-a" className="underline underline-offset-4">
+          Fractional recruiter for Series A startups
+        </Link>
+      </p>
+
       <section className="bg-zinc-950 py-16 sm:py-24 border-t border-zinc-900" data-testid="section-fractional-how">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <ScrollReveal variant="fade-up">

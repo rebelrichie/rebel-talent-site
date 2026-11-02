@@ -27,6 +27,9 @@ const BlogPost = lazy(() => import("@/pages/BlogPost"));
 const Certification = lazy(() => import("@/pages/Certification"));
 const Advisory = lazy(() => import("@/pages/Advisory"));
 const Fractional = lazy(() => import("@/pages/Fractional"));
+const SeriesAFractional = lazy(() => import("@/pages/SeriesAFractional"));
+const ContingentTech = lazy(() => import("@/pages/ContingentTech"));
+const HireTpm = lazy(() => import("@/pages/HireTpm"));
 const Cleared = lazy(() => import("@/pages/Cleared"));
 const Advisors = lazy(() => import("@/pages/Advisors"));
 // Safe addition — Series A-C startup search landing page (search desk inbound)
@@ -49,7 +52,10 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/services" component={Services} />
       <Route path="/contingent" component={Contingent} />
+      <Route path="/contingent-tech-recruiting" component={ContingentTech} />
       <Route path="/fractional" component={Fractional} />
+      <Route path="/fractional-recruiter-for-series-a" component={SeriesAFractional} />
+      <Route path="/hire-a-tpm" component={HireTpm} />
       <Route path="/cleared" component={Cleared} />
       <Route path="/advisors" component={Advisors} />
       {/* /defense is the old keyword path. Primary hub is /cleared. */}

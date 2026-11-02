@@ -148,6 +148,12 @@ export default function Contingent() {
         </p>
       </InteriorHero>
 
+      <p className="band-wrap py-8 text-[17px] leading-[1.6]">
+        <Link href="/contingent-tech-recruiting" className="underline underline-offset-4">
+          Contingent tech recruiting for startups
+        </Link>
+      </p>
+
       <section data-testid="section-band-lock">
         <div className="band-wrap grid gap-10 py-16 sm:py-20 lg:grid-cols-2">
           <div>

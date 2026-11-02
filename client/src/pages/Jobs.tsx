@@ -262,6 +262,14 @@ export default function Jobs() {
         </p>
       </InteriorHero>
 
+      <div className="px-4 sm:px-6 lg:px-8 pb-6">
+        <p className="max-w-5xl mx-auto text-[17px] leading-[1.6]">
+          <Link href="/hire-a-tpm" className="underline underline-offset-4">
+            Hiring a technical product manager
+          </Link>
+        </p>
+      </div>
+
       {/* ===== SEARCH + FILTER ===== */}
       <section className="px-4 sm:px-6 lg:px-8 pb-6">
         <div className="max-w-5xl mx-auto">
