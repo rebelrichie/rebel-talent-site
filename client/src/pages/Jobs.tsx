@@ -267,6 +267,11 @@ export default function Jobs() {
           <Link href="/cleared" className="underline underline-offset-4">
             TS/SCI full scope poly recruiting for defense contractors
           </Link>
+          .{" "}
+          <Link href="/hire-a-tpm" className="underline underline-offset-4">
+            Hiring a technical product manager
+          </Link>
+          .
         </p>
       </div>
 

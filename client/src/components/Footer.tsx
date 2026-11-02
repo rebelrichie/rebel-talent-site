@@ -3,7 +3,10 @@ import { Link } from "wouter";
 const SERVICES = [
   { href: "/services", label: "How we engage", testId: "link-footer-services" },
   { href: "/contingent", label: "Contingent", testId: "link-footer-contingent" },
+  { href: "/contingent-tech-recruiting", label: "Contingent tech recruiting", testId: "link-footer-contingent-tech" },
   { href: "/fractional", label: "Embedded recruiting", testId: "link-footer-fractional" },
+  { href: "/fractional-recruiter-for-series-a", label: "Fractional recruiter for Series A", testId: "link-footer-series-a" },
+  { href: "/hire-a-tpm", label: "Hire a TPM", testId: "link-footer-tpm" },
   { href: "/cleared", label: "Cleared and defense", testId: "link-footer-cleared" },
   { href: "/advisory", label: "Advisory", testId: "link-footer-advisory" },
 ];

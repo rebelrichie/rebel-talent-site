@@ -9,7 +9,7 @@ const NAV = [
     label: "How we engage",
     testId: "engage",
     active: (path: string) =>
-      ["/services", "/contingent", "/fractional", "/advisory", "/startups"].includes(path),
+      ["/services", "/contingent", "/contingent-tech-recruiting", "/fractional", "/fractional-recruiter-for-series-a", "/hire-a-tpm", "/advisory", "/startups"].includes(path),
   },
   {
     href: "/cleared",
