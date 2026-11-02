@@ -470,8 +470,80 @@ async function prerender() {
     console.warn(`[prerender] job feed failed: ${err.message}`);
   }
 
+  failed += assertCrawlFiles();
+
   console.log(`\n[prerender] Done: ${success} rendered, ${failed} failed`);
   process.exit(failed > 0 ? 1 : 0);
+}
+
+// Key pages must ship real copy, a canonical URL, and the crawl files in the
+// first HTML response. A bare SPA shell fails this check.
+function assertCrawlFiles() {
+  const pages = [
+    { route: "/", phrase: "Recruiting that scales", canonical: `${SITE_URL}/` },
+    { route: "/cleared", phrase: "TS/SCI", canonical: `${SITE_URL}/cleared` },
+    { route: "/jobs", phrase: "Open roles", canonical: `${SITE_URL}/jobs` },
+    { route: "/fractional", phrase: "You are not buying hours from a bench.", canonical: `${SITE_URL}/fractional` },
+    { route: "/contingent", phrase: "Contingent search", canonical: `${SITE_URL}/contingent` },
+    { route: "/services", phrase: "Four ways to take the work.", canonical: `${SITE_URL}/services` },
+  ];
+  let problems = 0;
+  for (const page of pages) {
+    const filePath = page.route === "/" ? join(DIST_DIR, "index.html") : join(DIST_DIR, page.route, "index.html");
+    if (!existsSync(filePath)) {
+      console.error(`[prerender] missing HTML for ${page.route}`);
+      problems++;
+      continue;
+    }
+    const html = readFileSync(filePath, "utf-8");
+    const withoutScripts = html.replace(/<script[\s\S]*?<\/script>/gi, "");
+    if (!withoutScripts.includes(page.phrase)) {
+      console.error(`[prerender] ${page.route} HTML is missing main copy: ${page.phrase}`);
+      problems++;
+    }
+    const canonical = `rel="canonical" href="${page.canonical}"`;
+    if (!html.includes(canonical)) {
+      console.error(`[prerender] ${page.route} HTML is missing ${canonical}`);
+      problems++;
+    }
+  }
+
+  const sitemapPath = join(DIST_DIR, "sitemap.xml");
+  const sitemap = existsSync(sitemapPath) ? readFileSync(sitemapPath, "utf-8") : "";
+  if (!sitemap.startsWith("<?xml") || !sitemap.includes("<urlset")) {
+    console.error("[prerender] sitemap.xml is missing or not a urlset");
+    problems++;
+  }
+  for (const page of pages) {
+    const expected = page.route === "/" ? `${SITE_URL}/` : `${SITE_URL}${page.route}`;
+    if (!sitemap.includes(`<loc>${expected}</loc>`) && !sitemap.includes(`<loc>${expected}/</loc>`)) {
+      console.error(`[prerender] sitemap.xml is missing ${expected}`);
+      problems++;
+    }
+  }
+
+  const robots = existsSync(join(DIST_DIR, "robots.txt")) ? readFileSync(join(DIST_DIR, "robots.txt"), "utf-8") : "";
+  for (const agent of ["GPTBot", "Google-Extended", "PerplexityBot", "ClaudeBot", "OAI-SearchBot"]) {
+    const block = new RegExp(`User-agent:\\s*${agent}[\\s\\S]*?Allow:\\s*/`, "i");
+    if (!block.test(robots)) {
+      console.error(`[prerender] robots.txt does not allow ${agent}`);
+      problems++;
+    }
+  }
+  if (!robots.includes("Sitemap: https://rebeltalentsystems.com/sitemap.xml")) {
+    console.error("[prerender] robots.txt is missing the sitemap line");
+    problems++;
+  }
+
+  const llmsPath = join(DIST_DIR, "llms.txt");
+  const llms = existsSync(llmsPath) ? readFileSync(llmsPath, "utf-8") : "";
+  if (!llms.includes("# Rebel Talent Systems") || !llms.includes(`${SITE_URL}/cleared`)) {
+    console.error("[prerender] llms.txt is missing or does not list /cleared");
+    problems++;
+  }
+
+  if (problems === 0) console.log("[prerender] Crawl files verified (HTML copy, canonicals, sitemap, robots.txt, llms.txt)");
+  return problems;
 }
 
 prerender();
