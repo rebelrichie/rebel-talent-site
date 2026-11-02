@@ -2,6 +2,7 @@ import express, { type Express } from "express";
 import fs from "fs";
 import path from "path";
 import rawBlogPosts from "../client/src/data/blog-posts.json";
+import { applyDocumentShell } from "../shared/publicJob.mjs";
 
 type BlogRedirectRecord = {
   slug?: string;

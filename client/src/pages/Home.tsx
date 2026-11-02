@@ -371,7 +371,7 @@ export default function Home() {
               </p>
               <div className="mt-6 flex flex-col items-start gap-3">
                 <Link href="/cleared" data-testid="link-veterans-cleared" className="tap-link text-[16px] font-semibold underline underline-offset-4">
-                  Talk cleared recruiting
+                  TS/SCI full scope poly recruiting for defense contractors
                 </Link>
                 <div>
                   <a
