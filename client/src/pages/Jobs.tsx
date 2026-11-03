@@ -246,7 +246,7 @@ export default function Jobs() {
         title="Open Roles: Cleared, AI/ML & GTM Hiring | Rebel Talent"
         description="Open full-time, fractional, and contract roles: Forward Deployed Engineers, AI/ML, GTM, and cleared (TS/SCI) search. Hand-vetted, response within two business days."
         path="/jobs"
-        ogImage="og-home-v2.png"
+        ogImage="og-home-v3.png"
         schemas={schemas}
         breadcrumbs={[
           { name: "Home", item: "https://rebeltalentsystems.com/" },
