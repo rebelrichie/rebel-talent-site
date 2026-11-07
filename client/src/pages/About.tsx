@@ -131,7 +131,7 @@ export default function About() {
         </div>
       </section>
 
-      <section>
+      <section id="team">
         <div className="band-wrap py-16 sm:py-20">
           <h2 className="section-display mb-3" data-testid="heading-team">The team</h2>
           <p className="measure mb-8 text-[18px] leading-[1.6]">
@@ -176,7 +176,7 @@ export default function About() {
         <div className="band-wrap py-16 sm:py-20">
           <h2 className="section-display mb-4">From the work</h2>
           <ul className="measure space-y-4 text-[18px] leading-[1.6]">
-            <li>EarthDaily Federal: 11 hires, about $394K in agency fees avoided, a 3.4x return, average time to hire under 30 days.</li>
+            <li>EarthDaily Federal: 9 placements, about $294K in agency fees avoided, about 335% confirmed ROI, and an average time to hire under 30 days.</li>
             <li>Kalibri Labs: an ML engineer signed in 34 days, about $20K under the agency quote.</li>
             <li>Legal Managed Services: 20 go-to-market hires in 24 months, with 90% retention. This work was done before Rebel Talent, at a prior firm.</li>
           </ul>

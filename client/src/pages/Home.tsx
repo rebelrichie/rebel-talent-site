@@ -1,11 +1,7 @@
 import { Link } from "wouter";
 import PageLayout from "@/components/PageLayout";
 import PageSEO from "@/components/PageSEO";
-import ContingentChrisSection from "@/components/ContingentChrisSection";
-import BannerHero from "@/components/BannerHero";
-import AnimatedCounter from "@/components/AnimatedCounter";
-import Rise from "@/components/Rise";
-import { LogoStrip, PullQuotes } from "@/components/Proof";
+import GlobeTwinkle from "@/components/GlobeTwinkle";
 
 const homepageSchema = {
   "@context": "https://schema.org",
@@ -82,94 +78,6 @@ const homepageSchema = {
   }
 };
 
-const CAPABILITY_STATEMENT_HREF = "/Rebel-Talent-Systems-Capability-Statement.pdf";
-const CAPABILITY_STATEMENT_FILENAME = "Rebel-Talent-Systems-Capability-Statement.pdf";
-
-const AUDIENCES = [
-  {
-    title: "Series A through C",
-    body: "The seat has been open long enough to slip the plan, and there is no internal recruiter yet.",
-  },
-  {
-    title: "Defense and govtech",
-    body: "The roles need a clearance, and the search has to be run by people who know that process.",
-  },
-  {
-    title: "Growth companies",
-    body: "Hiring is the constraint, and you want the process to remain after the engagement ends.",
-  },
-];
-
-const EARTHDAILY_FIGURES = [
-  { value: "About $394K", label: "Fees avoided" },
-  { value: "3.4x", label: "Return on the retainer" },
-  { value: "11", label: "Placements" },
-];
-
-const btn = "mi-btn";
-
-const STATS = [
-  { label: "Average time to hire", value: "<30", caption: "EarthDaily Federal" },
-  { label: "Days to a signed ML hire", value: "34", caption: "Kalibri Labs" },
-  { label: "Under the agency quote", value: "$20K", caption: "Kalibri Labs" },
-  { label: "Retention across 20 hires", value: "90%", caption: "Legal Managed Services" },
-];
-
-const SERVICES = [
-  {
-    index: "01",
-    kicker: "Contingent",
-    sentence: "One role, one flat fee, billed when the hire starts.",
-    href: "/contingent",
-    label: "See contingent pricing",
-    id: "contingent",
-    testId: "path-contingent",
-    linkTestId: "link-contingent-details",
-  },
-  {
-    index: "02",
-    kicker: "Embedded",
-    sentence: "We run the desk on a monthly retainer, then leave the system with you.",
-    href: "/fractional",
-    label: "See embedded recruiting",
-    id: "embedded",
-    testId: "path-embedded",
-    linkTestId: "link-fractional-details",
-  },
-  {
-    index: "03",
-    kicker: "Retained",
-    sentence: "A defined role with a deadline. Half up front, half at placement.",
-    href: "/services#retained",
-    label: "See retained terms",
-    id: "retained",
-    testId: "path-retained",
-    linkTestId: "button-strategy-retained",
-  },
-  {
-    index: "04",
-    kicker: "Advisory",
-    sentence: "The hiring plan, priced before you spend on a search.",
-    href: "/advisory",
-    label: "See advisory scope",
-    id: "advisory",
-    testId: "path-advisory",
-    linkTestId: "link-advisory-details",
-  },
-];
-
-function Stat({ label, value, caption }: { label: string; value: string; caption: string }) {
-  return (
-    <div className="stat">
-      <p className="stat-kicker">{label}</p>
-      <p className="stat-value">
-        <AnimatedCounter value={value} />
-      </p>
-      <p className="stat-caption">{caption}</p>
-    </div>
-  );
-}
-
 export default function Home() {
   return (
     <PageLayout>
@@ -183,283 +91,199 @@ export default function Home() {
         schemas={[homepageSchema]}
       />
 
-      <section data-testid="section-hero" className="band-hero home-hero">
-        <BannerHero tall mark priority>
-          <h1 className="hero-display">
-            Recruiting that scales with the company you&rsquo;re becoming.
-          </h1>
-          <p className="hero-for">For defense and commercial buyers.</p>
-          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-            <Link href="/strategy-call" data-testid="button-hero-strategy" className={`${btn} hero-cta`}>
-              Book a strategy call
+      <div className="v4-home">
+        <section className="hero" id="hero" data-testid="section-hero">
+          <img
+            className="hero-photo"
+            src="/earth-night-2560.webp"
+            alt="Night Earth in the foreground, with illuminated continental cities and subtle illustrative orbital paths"
+            width={2560}
+            height={1440}
+          />
+          <svg className="hero-orbits" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="orbit-fade" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stopColor="#fff" stopOpacity="0" />
+                <stop offset="0.38" stopColor="#fff" stopOpacity="0.05" />
+                <stop offset="0.58" stopColor="#fff" stopOpacity="0.85" />
+                <stop offset="1" stopColor="#fff" stopOpacity="1" />
+              </linearGradient>
+              <mask id="orbit-mask">
+                <rect width="1440" height="900" fill="url(#orbit-fade)" />
+              </mask>
+              <clipPath id="orbit-limb">
+                <ellipse cx="1040" cy="430" rx="760" ry="640" />
+              </clipPath>
+            </defs>
+            <g clipPath="url(#orbit-limb)" mask="url(#orbit-mask)" fill="none" strokeLinecap="round">
+              <path d="M520 250 C 760 80, 1120 120, 1360 340" stroke="#E2C57A" strokeWidth="1.35" opacity="0.9" />
+              <path d="M640 180 C 900 40, 1240 160, 1410 420" stroke="#b9d7ee" strokeWidth="1.05" strokeDasharray="2 8" opacity="0.8" />
+              <path d="M1080 520 C 1180 470, 1280 430, 1388 390" stroke="#E2C57A" strokeWidth="1" strokeDasharray="1.5 6" opacity="0.75" />
+            </g>
+          </svg>
+          <GlobeTwinkle />
+          <div className="hero-shade" />
+          <div className="hero-content">
+            <p className="eyebrow">Defense · Space · Series A to C</p>
+            <h1>
+              <span>Recruiting that scales </span>
+              <span>with the company </span>
+              <span>you’re becoming.</span>
+            </h1>
+            <p className="hero-subline">For defense and commercial buyers.</p>
+            <div className="actions">
+              <Link href="/strategy-call" className="button" data-testid="button-hero-strategy">
+                Book a strategy call <span aria-hidden="true">↗</span>
+              </Link>
+              <Link href="/jobs" className="text-link">
+                See open jobs <span aria-hidden="true">↗</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="mineral" id="statement">
+          <div className="statement">
+            <h2 className="v4-display">Fractional Head of Talent for teams that can name the missing seat, and need the process to remain after it is filled.</h2>
+          </div>
+          <div className="logos" aria-label="Clients">
+            <span>
+              <img className="logo-earthdaily" src="/logo-earthdaily.png" alt="EarthDaily Federal" width={200} height={64} />
+            </span>
+            <span className="logo-name">Waveguide</span>
+            <span>
+              <img className="logo-kalibri" src="/logo-kalibri.png" alt="Kalibri Labs" width={600} height={264} />
+            </span>
+            <span className="logo-name legal">Legal Managed<br />Services</span>
+          </div>
+        </section>
+
+        <section className="approach" id="approach">
+          <figure className="approach-media">
+            <img
+              src="/earth-limb.webp"
+              alt="Earth's limb and cloud deck from orbit, a wide view across the atmosphere"
+              width={1600}
+              height={900}
+            />
+          </figure>
+          <div className="approach-copy">
+            <p className="eyebrow">How we engage</p>
+            <h2 className="v4-display">Strategic work,<br />with a desk that<br />still ships the hire.</h2>
+            <p>We run the search and build the process around it. The artifacts and the system stay with you.</p>
+            <p>Clearance expertise sits inside the same work, not off to the side.</p>
+            <div className="models">
+              <Link href="/fractional">Embedded / fractional <span aria-hidden="true">↗</span></Link>
+              <Link href="/advisory">Advisory <span aria-hidden="true">↗</span></Link>
+              <Link href="/contingent">Contingent <span aria-hidden="true">↗</span></Link>
+              <Link href="/services#retained">Retained <span aria-hidden="true">↗</span></Link>
+            </div>
+            <Link href="/case-studies" className="text-link rule-link" data-testid="link-case-studies">
+              See the work <span aria-hidden="true">↗</span>
             </Link>
-            <Link href="/jobs" className="tap-link text-[15px] font-medium underline underline-offset-4">
-              See open jobs
+          </div>
+        </section>
+
+        <section className="proof" id="proof" data-testid="section-proof">
+          <div className="proof-header">
+            <p className="eyebrow">Recent work</p>
+            <Link href="/case-studies" className="text-link">
+              Explore the case studies <span aria-hidden="true">↗</span>
             </Link>
           </div>
-        </BannerHero>
-      </section>
-
-      <section data-testid="section-proof-strip" className="band-steel proof-strip star-field">
-        <div className="band-wrap">
-          <ul className="logo-chips">
-            <li>
-              <img src="/logo-kalibri.png" alt="Kalibri Labs" width={600} height={264} />
-            </li>
-            <li>
-              <img src="/logo-earthdaily.png" alt="EarthDaily Federal" width={200} height={64} />
-            </li>
-            <li>
-              <span className="logo-wordmark" role="img" aria-label="Legal Managed Services">Legal Managed Services</span>
-            </li>
-          </ul>
-          <div className="stat-row">
-            {STATS.map((stat) => (
-              <Stat key={stat.caption} {...stat} />
-            ))}
-          </div>
-          <ul className="reg-badges" data-testid="section-government-buyers">
-            <li>SAM.gov</li>
-            <li>CAGE 202V6</li>
-            <li>UEI JQ4MZ69FNAK4</li>
-            <li>
-              <a
-                href={CAPABILITY_STATEMENT_HREF}
-                download={CAPABILITY_STATEMENT_FILENAME}
-                data-testid="link-download-capability-statement"
-              >
-                Capability statement
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="engage" data-testid="section-engage" className="star-field">
-        <div className="band-wrap">
-          <Rise>
-            <div className="section-split section-intro">
-              <div>
-                <p className="section-eyebrow">How we engage</p>
-                <h2 className="section-display">Four ways to take the work.</h2>
-              </div>
-              <p className="body-copy measure">
-                Contingent, embedded, retained, or advisory. The path follows the seat you already have open.
-              </p>
-            </div>
-          </Rise>
-          <div className="offer-list">
-            {SERVICES.map((item, index) => (
-              <Rise key={item.id} delay={index * 60}>
-                <article id={item.id} data-testid={item.testId} className="depth-card offer-row">
-                  <p className="offer-index" aria-hidden="true">{item.index}</p>
-                  <div>
-                    <h3 className="offer-title">{item.kicker}</h3>
-                    <p className="body-copy measure">{item.sentence}</p>
-                  </div>
-                  <Link href={item.href} data-testid={item.linkTestId} className="tap-link">
-                    {item.label}
-                  </Link>
-                </article>
-              </Rise>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <ContingentChrisSection />
-
-      <section data-testid="section-who" className="star-field">
-        <div className="band-wrap section-split">
-          <Rise>
-            <div>
-              <p className="section-eyebrow">Who it is for</p>
-              <h2 className="section-display">Teams that can name the missing seat.</h2>
-              <p className="body-copy measure">
-                We are a fit when hiring is already the constraint. The company is usually Series A through C, or a defense team with a real req, not a wish list.
-              </p>
-            </div>
-          </Rise>
-          <div className="stack-cards">
-            {AUDIENCES.map((item, index) => (
-              <Rise key={item.title} delay={index * 60}>
-                <article className="depth-card text-card">
-                  <h3>{item.title}</h3>
-                  <p className="body-copy">{item.body}</p>
-                </article>
-              </Rise>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section data-testid="section-proof" className="star-field">
-        <div className="band-wrap">
-          <Rise>
-            <div className="section-split section-intro">
-              <div>
-                <p className="section-eyebrow">Recent work</p>
-                <h2 className="section-display">From recent work.</h2>
-              </div>
-              <div>
-                <p className="body-copy measure">
-                  Three engagements, with the figures we can stand behind. The case studies page has the fuller account.
-                </p>
-                <Link href="/case-studies" data-testid="link-case-studies" className="tap-link mt-4 text-[16px] font-medium underline underline-offset-4">
-                  See the work
-                </Link>
-              </div>
-            </div>
-          </Rise>
-          <Rise>
-            <article className="depth-card proof-feature">
-              <span className="logo-chip">
-                <img src="/logo-earthdaily.png" alt="EarthDaily Federal" width={200} height={64} loading="lazy" />
-              </span>
-              <div>
-                <p className="body-copy">
-                  The documented process stayed with the team when the engagement scaled down.
-                </p>
-              </div>
-              <ul className="proof-figures">
-                {EARTHDAILY_FIGURES.map((figure) => (
-                  <li key={figure.label}>
-                    <strong>{figure.value}</strong>
-                    <span>{figure.label}</span>
-                  </li>
-                ))}
-              </ul>
+          <div className="proof-columns">
+            <article className="edf">
+              <p className="proof-client">EarthDaily Federal</p>
+              <h3>
+                <span className="metric metric-tab">9</span>
+                <span className="metric-label">placements.</span>
+              </h3>
+              <p className="time">Under 30 days <span>average time to hire.</span></p>
+              <p>About $294K in agency fees avoided, and about 335% confirmed ROI on dollars spent to date.</p>
             </article>
-          </Rise>
-          <div className="proof-pair">
-            <Rise>
-              <article className="depth-card proof-card">
-                <span className="logo-chip">
-                  <img src="/logo-kalibri.png" alt="Kalibri Labs" width={600} height={264} loading="lazy" />
-                </span>
-                <p className="body-copy">A machine learning engineer signed in 34 days, about $20K under the agency quote.</p>
-              </article>
-            </Rise>
-            <Rise delay={60}>
-              <article className="depth-card proof-card">
-                <span className="logo-chip logo-wordmark" role="img" aria-label="Legal Managed Services">
-                  Legal Managed Services
-                </span>
-                <p className="body-copy">Twenty go-to-market hires in 24 months, with 90% retention.</p>
-              </article>
-            </Rise>
+            <article>
+              <p className="proof-client">Kalibri Labs</p>
+              <h3>
+                <span className="metric">34</span>
+                <span className="metric-label">days to offer.</span>
+              </h3>
+              <p>ML Engineer. 360+ applications in 24 hours, zero inbound in the finals, about $20K under the agency quote.</p>
+            </article>
+            <article>
+              <p className="proof-client">Legal Managed Services</p>
+              <h3>
+                <span className="metric">20</span>
+                <span className="metric-label">hires, 90% retained.</span>
+              </h3>
+              <p>GTM seats over 24 months, built as a system the team could keep.</p>
+            </article>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section data-testid="section-veterans" className="mi-band star-field">
-        <div className="band-wrap section-split">
-          <Rise>
-            <div>
-              <p className="section-eyebrow">Cleared and defense</p>
-              <h2 className="section-display">A cleared req is not a commercial req.</h2>
-              <p className="body-copy">
-                The search starts with the clearance, the facility, and who can actually sit in the seat. We source people who already hold it, or who can be put in for it. Secret, TS, and TS/SCI do not get run like a commercial role. The bench is the intelligence community and current or former service members.
-              </p>
-            </div>
-          </Rise>
-          <Rise delay={60}>
-            <div className="depth-card text-card">
-              <p className="text-[18px]">Ask for references.</p>
-              <p className="body-copy mt-2">
-                Intelligence community, and current or former service members. Shared privately, on request.
-              </p>
-              <div className="mt-6 flex flex-col items-start gap-3">
-                <Link href="/cleared" data-testid="link-veterans-cleared" className="tap-link text-[16px] font-semibold underline underline-offset-4">
-                  TS/SCI full scope poly recruiting for defense contractors
-                </Link>
+        <section className="moments" id="moments">
+          <div className="earth-editorial" id="earth-editorial">
+            <img
+              src="/earth-night-2560.webp"
+              alt="A broad night view of Earth, its illuminated cities and curved horizon"
+              width={2560}
+              height={1440}
+            />
+            <div className="earth-shade" />
+            <h2 className="v4-display">When the seat<br />cannot be wrong.</h2>
+          </div>
+          <div className="moments-body" id="moments-body">
+            <div className="moment-list">
+              <article className="moment">
+                <span className="moment-number">01</span>
                 <div>
-                  <a
-                    href="https://calendly.com/richielam/vets?back=1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-testid="button-vet-review"
-                    className="tap-link text-[16px] font-semibold underline underline-offset-4"
-                  >
-                    Free veteran resume and LinkedIn review
-                  </a>
-                  <p className="body-copy mt-2">Transitioning out? No strings.</p>
+                  <h3>A live program is waiting on the hire.</h3>
+                  <p>The work is already in motion. The search has to catch it.</p>
                 </div>
-              </div>
+              </article>
+              <article className="moment">
+                <span className="moment-number">02</span>
+                <div>
+                  <h3>Volume arrived. Signal did not.</h3>
+                  <p>The pipeline is busy, and still empty.</p>
+                </div>
+              </article>
+              <article className="moment">
+                <span className="moment-number">03</span>
+                <div>
+                  <h3>You need a function, not another vendor.</h3>
+                  <p>The seat is the start. The system has to stay.</p>
+                </div>
+              </article>
+              <article className="moment">
+                <span className="moment-number">04</span>
+                <div>
+                  <h3>The work is cleared.</h3>
+                  <p>Most recruiters have never seen a DD-254. This desk has.</p>
+                </div>
+              </article>
             </div>
-          </Rise>
-        </div>
-      </section>
-
-      <LogoStrip />
-      <PullQuotes />
-
-      <section data-testid="section-about-preview" className="star-field">
-        <div className="band-wrap section-split about-preview">
-          <Rise>
-            <figure className="portrait">
+            <figure className="founder">
               <img
                 src="/richie-portrait.webp"
-                alt="Black and white portrait of Richie Lampani, founder of Rebel Talent Systems, in a dark baseball cap."
+                alt="Richie Lampani, founder of Rebel Talent Systems"
                 width={960}
                 height={1200}
-                loading="lazy"
               />
             </figure>
-          </Rise>
-          <Rise delay={60}>
-            <div>
-              <p className="section-eyebrow">The firm</p>
-              <h2 className="section-display">Richie Lampani</h2>
-              <p className="portrait-role">Founder, Rebel Talent Systems</p>
-              <p className="body-copy measure">
-                Fourteen years of recruiting, from commercial desks to cleared defense teams. The search ends. The hiring system stays with the company.
-              </p>
-              <ul className="founder-lines">
-                <li>14 years recruiting</li>
-                <li>Author of Head and Heart and Unfinished Rooms</li>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/newsletters/rebel-built-7412825035092045824/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Rebel Built newsletter
-                  </a>
-                </li>
-              </ul>
-              <Link href="/about" className="tap-link mt-4 text-[16px] font-medium underline underline-offset-4">
-                About the firm
-              </Link>
-            </div>
-          </Rise>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <section data-testid="section-cta" className="band-red">
-        <svg className="orbit-bleed" viewBox="0 0 800 480" aria-hidden="true">
-          <ellipse cx="460" cy="240" rx="310" ry="168" fill="none" stroke="white" strokeWidth="1.75" />
-        </svg>
-        <div className="band-wrap">
-          <Rise>
-            <p className="section-eyebrow section-eyebrow-on-red">The open role</p>
-            <h2 className="section-display red-display">Bring the open role.</h2>
-            <p className="measure mb-8 max-w-xl">
-              A strategy call is thirty minutes. Bring the open role, or the desk you want run. We will tell you which path fits. If we are not the right firm, we will say that too.
-            </p>
-            <Link href="/strategy-call" data-testid="button-book-strategy" className={`${btn} cta-invert`}>
-              Book a strategy call
+        <div className="gold-band" aria-hidden="true" />
+        <section className="closer" id="closer" data-testid="section-cta">
+          <h2 className="v4-display">Tell me about<br />the seat.</h2>
+          <div>
+            <p>A short call. If I can help, I will say how.</p>
+            <Link href="/strategy-call" className="button" data-testid="button-book-strategy">
+              Book a strategy call <span aria-hidden="true">↗</span>
             </Link>
-            <p className="mt-6 text-[16px]">
-              Looking for a role?{" "}
-              <Link href="/jobs" className="underline underline-offset-4">
-                See open jobs
-              </Link>
-              .
-            </p>
-          </Rise>
-        </div>
-      </section>
+          </div>
+        </section>
+      </div>
     </PageLayout>
   );
 }
