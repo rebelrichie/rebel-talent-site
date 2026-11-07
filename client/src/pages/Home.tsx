@@ -161,10 +161,10 @@ export default function Home() {
         <section className="approach" id="approach">
           <figure className="approach-media">
             <img
-              src="/earth-limb.webp"
-              alt="Earth's limb and cloud deck from orbit, a wide view across the atmosphere"
-              width={1600}
-              height={900}
+              src="/map.jpg"
+              alt="A broad view of an operations floor, with people working before a wall of technical displays"
+              width={1152}
+              height={864}
             />
           </figure>
           <div className="approach-copy">

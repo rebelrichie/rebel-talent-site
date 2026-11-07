@@ -204,7 +204,7 @@
   inset: 0;
   object-fit: cover;
   object-position: 49% 50%;
-  filter: brightness(1.08);
+  filter: brightness(1.14);
   max-width: none;
 }
 .v4-home .approach-copy {
@@ -523,6 +523,7 @@
   .v4-home .logos img.logo-kalibri { width: 110px; max-height: 30px; }
   .v4-home .approach { display: flex; flex-direction: column; min-height: 0; }
   .v4-home .approach-media { height: 440px; min-height: 440px; width: 100%; }
+  .v4-home .approach-media img { object-position: 50% 50%; filter: brightness(1.2); }
   .v4-home .approach-copy { padding: 55px 24px 62px; }
   .v4-home .approach h2.v4-display:not(.section-display):not(.font-display):not(.red-display) {
     font-size: 39px !important;

@@ -24,6 +24,9 @@ test("homepage keeps the locked hero and proof copy", () => {
   assert.match(home, /\$20K under the agency quote/);
   assert.match(home, /20/);
   assert.match(home, /90% retained/);
+  assert.match(home, /src="\/map\.jpg"/);
+  assert.match(home, /A broad view of an operations floor, with people working before a wall of technical displays/);
+  assert.doesNotMatch(home, /approach-media[\s\S]*earth-limb/);
   assert.doesNotMatch(home, /\$394K|3\.4x|11 placements|all nine/);
   assert.doesNotMatch(home, /Altman Solon|Pro Vision|Sifted/);
   assert.doesNotMatch(home, /[—–]/);
