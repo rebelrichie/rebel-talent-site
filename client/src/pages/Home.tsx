@@ -97,7 +97,7 @@ export default function Home() {
           <img
             className="hero-photo"
             src="/earth-night-2560.webp"
-            alt="Night Earth in the foreground, with illuminated continental cities and subtle illustrative orbital paths"
+            alt="Night Earth in the foreground, with illuminated continental cities"
             width={2560}
             height={1440}
           />
