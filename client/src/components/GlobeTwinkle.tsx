@@ -21,9 +21,10 @@ export default function GlobeTwinkle() {
 
   useEffect(() => {
     const canvas = ref.current;
-    const hero = canvas?.parentElement;
-    if (!canvas || !hero) return;
-    const img = hero.querySelector(".hero-photo") as HTMLImageElement | null;
+    const stage = canvas?.parentElement;
+    const hero = stage?.closest(".hero") as HTMLElement | null;
+    if (!canvas || !stage || !hero) return;
+    const img = stage.querySelector(".hero-photo") as HTMLImageElement | null;
     if (!img) return;
 
     const ctx = canvas.getContext("2d");
@@ -42,7 +43,7 @@ export default function GlobeTwinkle() {
     let resizeTimer = 0;
 
     const sample = () => {
-      const rect = hero.getBoundingClientRect();
+      const rect = stage.getBoundingClientRect();
       dpr = Math.min(window.devicePixelRatio || 1, 2);
       w = Math.max(1, Math.floor(rect.width));
       h = Math.max(1, Math.floor(rect.height));
@@ -64,12 +65,12 @@ export default function GlobeTwinkle() {
 
       const nw = img.naturalWidth;
       const nh = img.naturalHeight;
-      const heroRect = hero.getBoundingClientRect();
+      const stageRect = stage.getBoundingClientRect();
       const imgRect = img.getBoundingClientRect();
-      const ix = ((imgRect.left - heroRect.left) / Math.max(heroRect.width, 1)) * sw;
-      const iy = ((imgRect.top - heroRect.top) / Math.max(heroRect.height, 1)) * sh;
-      const iw = (imgRect.width / Math.max(heroRect.width, 1)) * sw;
-      const ih = (imgRect.height / Math.max(heroRect.height, 1)) * sh;
+      const ix = ((imgRect.left - stageRect.left) / Math.max(stageRect.width, 1)) * sw;
+      const iy = ((imgRect.top - stageRect.top) / Math.max(stageRect.height, 1)) * sh;
+      const iw = (imgRect.width / Math.max(stageRect.width, 1)) * sw;
+      const ih = (imgRect.height / Math.max(stageRect.height, 1)) * sh;
       const cover = Math.max(iw / nw, ih / nh);
       const dw = nw * cover;
       const dh = nh * cover;
@@ -112,16 +113,16 @@ export default function GlobeTwinkle() {
           if (a < 220) continue;
           const lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
           // City lights are warm. Oceans, space, and the blue limb are not.
-          if (lum < 72 || r < 96 || r < b + 18) continue;
+          if (lum < 110 || r < 140 || r < g + 8 || r < b + 30) continue;
           candidates.push({ x: (x + 0.5) * sx, y: (y + 0.5) * sy, lum });
         }
       }
       candidates.sort((a, b) => b.lum - a.lum);
-      const minDist = 12;
+      const minDist = 22;
       const minDist2 = minDist * minDist;
       const picked: { x: number; y: number; lum: number }[] = [];
       for (const c of candidates) {
-        if (picked.length >= 90) break;
+        if (picked.length >= 70) break;
         let near = false;
         for (const p of picked) {
           const dxp = p.x - c.x;
@@ -137,10 +138,10 @@ export default function GlobeTwinkle() {
       lights = picked.map((p) => ({
         x: p.x,
         y: p.y,
-        r: 0.9 + Math.random() * 1.5,
-        base: 0.55 + Math.min(0.4, (p.lum - 72) / 280),
+        r: 1.3 + Math.random() * 1.1,
+        base: 0.72 + Math.min(0.28, (p.lum - 58) / 400),
         phase: Math.random() * Math.PI * 2,
-        speed: 0.6 + Math.random() * 1.5,
+        speed: 1.4 + Math.random() * 2.4,
         color: Math.random() > 0.72 ? "226,197,122" : "255,244,214",
       }));
       canvas.dataset.lights = String(lights.length);
@@ -149,19 +150,22 @@ export default function GlobeTwinkle() {
     const paint = (time: number) => {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, w, h);
+      ctx.globalCompositeOperation = "lighter";
       const t = reduced ? 0 : time * 0.001;
       for (const light of lights) {
-        const flicker = reduced ? 0.9 : 0.38 + 0.62 * (0.5 + 0.5 * Math.sin(t * light.speed + light.phase));
-        const alpha = light.base * flicker;
-        ctx.fillStyle = `rgba(${light.color},${alpha})`;
+        const wave = reduced ? 0.8 : 0.5 + 0.5 * Math.sin(t * light.speed + light.phase);
+        const alpha = reduced ? 0.7 : 0.08 + 0.92 * wave;
+        const radius = light.r * (2.1 + 0.7 * wave);
+        const glow = ctx.createRadialGradient(light.x, light.y, 0, light.x, light.y, radius);
+        glow.addColorStop(0, `rgba(${light.color},${alpha})`);
+        glow.addColorStop(0.22, `rgba(${light.color},${alpha * 0.55})`);
+        glow.addColorStop(1, `rgba(${light.color},0)`);
+        ctx.fillStyle = glow;
         ctx.beginPath();
-        ctx.arc(light.x, light.y, light.r, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.fillStyle = `rgba(${light.color},${alpha * 0.28})`;
-        ctx.beginPath();
-        ctx.arc(light.x, light.y, light.r * 3.4, 0, Math.PI * 2);
+        ctx.arc(light.x, light.y, radius, 0, Math.PI * 2);
         ctx.fill();
       }
+      ctx.globalCompositeOperation = "source-over";
     };
 
     const frame = (time: number) => {
@@ -199,6 +203,7 @@ export default function GlobeTwinkle() {
     const io = new IntersectionObserver(
       ([entry]) => {
         visible = entry.isIntersecting;
+        hero.dataset.paused = visible ? "false" : "true";
         if (visible) start();
         else stop();
       },

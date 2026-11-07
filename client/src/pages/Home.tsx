@@ -93,6 +93,7 @@ export default function Home() {
 
       <div className="v4-home">
         <section className="hero" id="hero" data-testid="section-hero">
+          <div className="hero-motion">
           <img
             className="hero-photo"
             src="/earth-night-2560.webp"
@@ -116,12 +117,13 @@ export default function Home() {
               </clipPath>
             </defs>
             <g clipPath="url(#orbit-limb)" mask="url(#orbit-mask)" fill="none" strokeLinecap="round">
-              <path d="M520 250 C 760 80, 1120 120, 1360 340" stroke="#E2C57A" strokeWidth="1.35" opacity="0.9" />
+              <path d="M520 250 C 760 80, 1120 120, 1360 340" stroke="#E2C57A" strokeWidth="1.35" strokeDasharray="8 12" opacity="0.9" />
               <path d="M640 180 C 900 40, 1240 160, 1410 420" stroke="#b9d7ee" strokeWidth="1.05" strokeDasharray="2 8" opacity="0.8" />
               <path d="M1080 520 C 1180 470, 1280 430, 1388 390" stroke="#E2C57A" strokeWidth="1" strokeDasharray="1.5 6" opacity="0.75" />
             </g>
           </svg>
           <GlobeTwinkle />
+          </div>
           <div className="hero-shade" />
           <div className="hero-content">
             <p className="eyebrow">Defense · Space · Series A to C</p>
