@@ -1,8 +1,8 @@
 /*
   Type tokens. One scale for the whole site.
 
-  display  Anton, uppercase. Section titles.
-  h1       Anton, uppercase. Page titles.
+  display  Outfit, sentence case. Section titles.
+  h1       Outfit, sentence case. Page titles.
   h2       Inter, sentence case. Secondary headings.
   h3       Inter, sentence case. Card and subsection headings.
   body     Inter.
@@ -13,16 +13,16 @@
 */
 
 :root {
-  --font-display: Anton, Impact, "Arial Narrow", sans-serif;
+  --font-display: Outfit, Inter, sans-serif;
   --font-text: Inter, "Public Sans", system-ui, sans-serif;
 
-  --type-display-size: clamp(2.35rem, 3.5vw, 3.45rem);
-  --type-display-line: 0.96;
+  --type-display-size: clamp(2.2rem, 4vw, 3.6rem);
+  --type-display-line: 1.08;
   --type-display-track: -0.02em;
   --type-display-weight: 400;
 
-  --type-h1-size: clamp(2.75rem, 4.4vw, 4.5rem);
-  --type-h1-line: 0.94;
+  --type-h1-size: clamp(2.6rem, 5vw, 4.75rem);
+  --type-h1-line: 1.04;
   --type-h1-track: -0.02em;
   --type-h1-weight: 400;
 
@@ -78,7 +78,7 @@ h1,
   font-size: var(--type-h1-size) !important;
   line-height: var(--type-h1-line) !important;
   letter-spacing: var(--type-h1-track) !important;
-  text-transform: uppercase !important;
+  text-transform: none !important;
   font-stretch: normal !important;
   font-variation-settings: normal !important;
 }
@@ -97,7 +97,7 @@ main .page-bands:has(.home-hero) > section.band-red h2.red-display {
   font-size: var(--type-display-size) !important;
   line-height: var(--type-display-line) !important;
   letter-spacing: var(--type-display-track) !important;
-  text-transform: uppercase !important;
+  text-transform: none !important;
   font-stretch: normal !important;
   font-variation-settings: normal !important;
 }
@@ -200,5 +200,5 @@ textarea:focus-visible,
 summary:focus-visible {
   outline: 2px solid #f4f7fb !important;
   outline-offset: 3px !important;
-  box-shadow: 0 0 0 4px #9e0c24 !important;
+  box-shadow: 0 0 0 4px #001028 !important;
 }

@@ -3,6 +3,7 @@ import App from "./App";
 import "./index.css";
 import "./home-audit.css";
 import "./type-system.css";
+import "./v4.css";
 
 declare global {
   interface Window {
@@ -12,7 +13,7 @@ declare global {
 
 // Fonts load after first paint. Prerender skips this so the saved HTML
 // does not keep a render-blocking font stylesheet.
-if (!window.__PRERENDER) {
+if (!window.__PRERENDER && !document.querySelector('link[href="/fonts.css"]')) {
   const link = document.createElement("link");
   link.rel = "stylesheet";
   link.href = "/fonts.css";
