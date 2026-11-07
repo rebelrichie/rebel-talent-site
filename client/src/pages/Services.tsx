@@ -60,7 +60,7 @@ const OFFERINGS = [
     index: "01",
     kicker: "Contingent",
     title: "One role, one fee.",
-    body: "You set the salary range. We lock a flat fee to that band before the search starts, and you are billed when the hire starts. There is no deposit and no percentage of salary. The contingent page has the long version.",
+    body: "You set the salary range. We lock a flat fee to that band before the search starts, and you are billed when the hire starts. There is no deposit and no percentage of salary.",
     detailsHref: "/contingent",
     detailsLabel: "Contingent search",
     ctaHref: "/strategy-call?engagement=contingent",

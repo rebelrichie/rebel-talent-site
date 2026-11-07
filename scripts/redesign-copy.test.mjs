@@ -51,10 +51,29 @@ test("footer keeps the registration marks and live routes stay mounted", () => {
   }
 });
 
+test("the band sheet sentence is not rendered", () => {
+  const files = ["Contingent.tsx", "ContingentTech.tsx", "Services.tsx"].map((name) =>
+    readFileSync(new URL(`../client/src/pages/${name}`, import.meta.url), "utf8"),
+  );
+  const css = readFileSync(new URL("../client/src/v4.css", import.meta.url), "utf8");
+  for (const source of files) {
+    assert.doesNotMatch(source, /band sheet/i);
+    assert.doesNotMatch(source, /walked on the call/);
+    assert.doesNotMatch(source, /[—–]/);
+  }
+  assert.match(files[0], /Start a search/);
+  assert.match(files[0], /flat fee by salary band/);
+  assert.match(files[0], /that is embedded/);
+  assert.match(css, /globe-drift/);
+  assert.match(css, /prefers-reduced-motion: reduce/);
+  assert.match(css, /animation: none/);
+});
+
 test("city twinkle respects reduced motion and does not scatter random lights", () => {
   assert.match(twinkle, /prefers-reduced-motion/);
   assert.match(twinkle, /IntersectionObserver/);
   assert.match(twinkle, /devicePixelRatio/);
-  assert.match(twinkle, /r < b \+ 18/);
+  assert.match(twinkle, /r < b \+ 30/);
+  assert.match(twinkle, /createRadialGradient/);
   assert.doesNotMatch(twinkle, /Math\.random\(\) \* 0\.55/);
 });

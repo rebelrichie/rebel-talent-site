@@ -77,7 +77,7 @@ export default function ContingentTech() {
             <p className="section-eyebrow mb-3">The roles</p>
             <h2 className="section-display">The seats a startup actually stalls on.</h2>
             <p className="body-copy mt-4">
-              We write the search from the work, not from a keyword list. A person screens. You meet a short list, not a pile of profiles. The longer version of the contingent offer is on the{" "}
+              We write the search from the work, not from a keyword list. A person screens. You meet a short list, not a pile of profiles. The fee is on the{" "}
               <Link href="/contingent" className="underline underline-offset-4">
                 contingent page
               </Link>

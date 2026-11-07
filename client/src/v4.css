@@ -29,6 +29,13 @@
   isolation: isolate;
   background: #001028;
 }
+.v4-home .hero-motion {
+  position: absolute;
+  inset: -6%;
+  z-index: 0;
+  animation: globe-drift 14s ease-in-out infinite;
+  will-change: transform;
+}
 .v4-home .hero-photo {
   position: absolute;
   inset: 0;
@@ -48,6 +55,9 @@
   z-index: 1;
   pointer-events: none;
 }
+.v4-home .hero-orbits path {
+  animation: orbit-travel 9s linear infinite;
+}
 .v4-home .twinkle {
   position: absolute;
   inset: 0;
@@ -56,7 +66,14 @@
   z-index: 2;
   pointer-events: none;
   mix-blend-mode: screen;
-  opacity: 0.95;
+  opacity: 1;
+}
+@keyframes globe-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-2.4%, 1.6%, 0) scale(1.055); }
+}
+@keyframes orbit-travel {
+  to { stroke-dashoffset: -180; }
 }
 .v4-home .hero-shade {
   position: absolute;
@@ -488,10 +505,8 @@
 @media (max-width: 600px) {
   .v4-home { --gutter: 24px; }
   .v4-home .hero { height: 940px; min-height: 940px; max-height: none; }
+  .v4-home .hero-motion { inset: -8% -4% auto; height: 760px; }
   .v4-home .hero-photo {
-    top: 85px;
-    bottom: auto;
-    height: 700px;
     object-position: 70% 30%;
     filter: brightness(1.1) saturate(1.04);
   }
@@ -547,8 +562,14 @@
   .v4-home .closer h2.v4-display:not(.section-display):not(.font-display):not(.red-display) { font-size: 60px !important; }
 }
 
+.v4-home .hero[data-paused="true"] .hero-motion,
+.v4-home .hero[data-paused="true"] .hero-orbits path {
+  animation-play-state: paused;
+}
 @media (prefers-reduced-motion: reduce) {
-  .v4-home .twinkle { opacity: 0.8; }
+  .v4-home .hero-motion,
+  .v4-home .hero-orbits path { animation: none; }
+  .v4-home .twinkle { opacity: 0.85; }
 }
 
 /* Shared chrome */
