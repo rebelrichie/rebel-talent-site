@@ -16,9 +16,10 @@ test("homepage keeps the locked hero and proof copy", () => {
   assert.match(home, /with the company/);
   assert.match(home, /you’re becoming\./);
   assert.match(home, /For defense and commercial buyers\./);
-  assert.match(home, /About \$294K in agency fees avoided, and about 335% confirmed ROI/);
+  assert.match(home, /About \$406K in agency fees avoided on about \$115K billed, a 3\.5x return/);
+  assert.match(home, /3 more roles in flight and 17 incoming in 2027/);
   assert.match(home, /average time to hire/);
-  assert.match(home, />9</);
+  assert.match(home, />12</);
   assert.match(home, /34/);
   assert.match(home, /360\+/);
   assert.match(home, /\$20K under the agency quote/);
@@ -27,19 +28,24 @@ test("homepage keeps the locked hero and proof copy", () => {
   assert.match(home, /src="\/map\.jpg"/);
   assert.match(home, /A broad view of an operations floor, with people working before a wall of technical displays/);
   assert.doesNotMatch(home, /approach-media[\s\S]*earth-limb/);
-  assert.doesNotMatch(home, /\$394K|3\.4x|11 placements|all nine/);
+  assert.doesNotMatch(home, /\$294K|\$394K|335%|3\.4x|11 placements|all nine/);
   assert.doesNotMatch(home, /Altman Solon|Pro Vision|Sifted/);
   assert.doesNotMatch(home, /[—–]/);
 });
 
 test("public proof pages use the approved EarthDaily figures", () => {
   for (const source of [about, services, cases]) {
-    assert.match(source, /\$294K|~\$294,000/);
-    assert.match(source, /335%/);
-    assert.doesNotMatch(source, /\$394K|3\.4x|5\.2x|11 placements/);
+    assert.match(source, /\$406K|~\$406,000/);
+    assert.match(source, /3\.5x/);
+    assert.match(source, /\$115K/);
+    assert.doesNotMatch(source, /\$294K|\$394K|335%|3\.4x|5\.2x|\b9 placements|11 placements/);
   }
   assert.match(cases, /average time to hire/i);
-  assert.match(cases, /an average, across the nine placements/);
+  assert.match(cases, /an average, across the first nine placements/);
+  assert.match(cases, /Sales Engineer[\s\S]*~\$48,000/);
+  assert.match(cases, /Director of Business Development, IC[\s\S]*~\$48,000/);
+  assert.match(cases, /Contract 4/);
+  assert.match(cases, /17 incoming in 2027/);
 });
 
 test("footer keeps the registration marks and live routes stay mounted", () => {

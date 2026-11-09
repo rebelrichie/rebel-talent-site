@@ -189,7 +189,7 @@ export default function Services() {
               </Link>
             </div>
             <ul className="space-y-6 text-[18px] leading-[1.55] font-light">
-              <li>EarthDaily Federal made 9 placements. About $294K in agency fees were avoided, about 335% confirmed ROI, with an average time to hire under 30 days.</li>
+              <li>EarthDaily Federal made 12 placements. About $406K in agency fees were avoided on about $115K billed, a 3.5x return, with an average time to hire under 30 days.</li>
               <li>Kalibri Labs signed a machine learning hire in 34 days, about $20K under the agency quote.</li>
               <li>Legal Managed Services made 20 go-to-market hires in 24 months, with 90% retention.</li>
             </ul>

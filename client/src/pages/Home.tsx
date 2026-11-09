@@ -220,11 +220,11 @@ export default function Home() {
             <article className="edf">
               <p className="proof-client">EarthDaily Federal</p>
               <h3>
-                <span className="metric metric-tab">9</span>
+                <span className="metric metric-tab">12</span>
                 <span className="metric-label">placements.</span>
               </h3>
               <p className="time">Under 30 days <span>average time to hire.</span></p>
-              <p>About $294K in agency fees avoided, and about 335% confirmed ROI on dollars spent to date.</p>
+              <p>About $406K in agency fees avoided on about $115K billed, a 3.5x return. 3 more roles in flight and 17 incoming in 2027.</p>
             </article>
             <article>
               <p className="proof-client">Kalibri Labs</p>
