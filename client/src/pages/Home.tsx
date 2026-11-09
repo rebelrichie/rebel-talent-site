@@ -156,7 +156,30 @@ export default function Home() {
             <span>
               <img className="logo-kalibri" src="/logo-kalibri.png" alt="Kalibri Labs" width={600} height={264} />
             </span>
-            <span className="logo-name legal">Legal Managed<br />Services</span>
+            <span>
+              <img className="logo-enveil" src="/logo-enveil.png" alt="Enveil" width={281} height={96} />
+            </span>
+            <span>
+              <img className="logo-roadrunner" src="/logo-roadrunner.png" alt="Roadrunner Freight" width={600} height={394} />
+            </span>
+            <span>
+              <img className="logo-platinum" src="/logo-platinum-filings.svg" alt="Platinum Filings" width={314} height={25} />
+            </span>
+            <span>
+              <img className="logo-walgreens" src="/logo-walgreens.svg" alt="Walgreens" width={960} height={199} />
+            </span>
+            <span>
+              <img className="logo-wellsfargo" src="/logo-wells-fargo.svg" alt="Wells Fargo" width={150} height={150} />
+            </span>
+            <span>
+              <img className="logo-dtcc" src="/logo-dtcc.svg" alt="DTCC" width={160} height={39} />
+            </span>
+            <span>
+              <img className="logo-tiffany" src="/logo-tiffany.svg" alt="Tiffany & Co." width={500} height={55} />
+            </span>
+            <span>
+              <img className="logo-bbb" src="/logo-bed-bath-beyond.svg" alt="Bed Bath & Beyond" width={300} height={88} />
+            </span>
           </div>
         </section>
 
