@@ -6,14 +6,14 @@
   --black: #03070c;
   --mineral: #dce3e6;
   --ink: #e8eef6;
-  --muted: #9eadbe;
+  --muted: #b4c2d0;
   --gold: #e2c57a;
   --line: rgba(220, 227, 230, 0.2);
   --gutter: 80px;
   background: var(--navy);
   color: var(--ink);
   font-family: Inter, sans-serif;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.7;
 }
 
@@ -85,8 +85,8 @@
 }
 .v4-home .eyebrow {
   font-family: Outfit, sans-serif;
-  font-weight: 400;
-  font-size: 11px;
+  font-weight: 500;
+  font-size: 13px;
   line-height: 1.7;
   letter-spacing: 0.19em;
   text-transform: uppercase;
@@ -96,7 +96,7 @@
 .v4-home .hero h1,
 .v4-home .hero h1:not(.section-display) {
   font-family: Outfit, sans-serif !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   font-size: 69px !important;
   line-height: 1.055 !important;
   letter-spacing: -0.035em !important;
@@ -112,8 +112,8 @@
   white-space: nowrap;
 }
 .v4-home .hero-subline {
-  font-size: 17px;
-  line-height: 1.7;
+  font-size: 19px;
+  line-height: 1.65;
   color: #ffffff !important;
   text-shadow: 0 1px 1px rgba(0, 8, 20, 0.9), 0 8px 22px rgba(0, 8, 20, 0.7);
   margin: 25px 0 30px;
@@ -126,8 +126,8 @@
   background: var(--mineral);
   color: var(--navy) !important;
   font-family: Outfit, sans-serif;
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: 600;
+  font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.035em;
   padding: 19px 23px;
@@ -138,8 +138,8 @@
 .v4-home .button:hover { background: var(--gold); }
 .v4-home .text-link {
   font-family: Outfit, sans-serif;
-  font-weight: 400;
-  font-size: 11px;
+  font-weight: 500;
+  font-size: 13px;
   line-height: 1.6;
   letter-spacing: 0.1em;
   display: inline-flex;
@@ -164,7 +164,7 @@
 .v4-home .statement h2.v4-display:not(.section-display):not(.font-display):not(.red-display),
 .v4-home .mineral h2 {
   font-family: Outfit, sans-serif !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   font-size: 47px !important;
   line-height: 1.14 !important;
   letter-spacing: -0.025em !important;
@@ -224,7 +224,7 @@
 .v4-home .approach-copy .eyebrow { margin-bottom: 26px; }
 .v4-home .approach h2.v4-display:not(.section-display):not(.font-display):not(.red-display) {
   font-family: Outfit, sans-serif !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   font-size: 46px !important;
   line-height: 1.08 !important;
   letter-spacing: -0.03em !important;
@@ -233,8 +233,8 @@
   margin-bottom: 28px;
 }
 .v4-home .approach-copy > p:not(.eyebrow) {
-  font-size: 15px;
-  line-height: 1.75;
+  font-size: 17px;
+  line-height: 1.7;
   color: var(--muted);
   margin-bottom: 17px;
 }
@@ -245,7 +245,8 @@
   justify-content: space-between;
   gap: 14px;
   font-family: Outfit, sans-serif;
-  font-size: 13px;
+  font-weight: 500;
+  font-size: 15px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   padding: 12px 0;
@@ -282,7 +283,8 @@
 }
 .v4-home .proof-client {
   font-family: Outfit, sans-serif;
-  font-size: 11px;
+  font-weight: 500;
+  font-size: 13px;
   line-height: 1.6;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -292,7 +294,7 @@
 .v4-home .proof h3,
 .v4-home .proof h3:not(.section-display) {
   font-family: Outfit, sans-serif !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   font-size: 30px !important;
   line-height: 1.2 !important;
   letter-spacing: -0.02em !important;
@@ -302,7 +304,7 @@
 .v4-home .metric {
   display: block;
   font-family: Outfit, sans-serif;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 102px;
   line-height: 0.94;
   letter-spacing: -0.055em;
@@ -319,24 +321,25 @@
 .v4-home .metric-label {
   display: block;
   font-size: 26px;
+  font-weight: 500;
   line-height: 1.25;
 }
 .v4-home .proof article > p:not(.proof-client) {
-  font-size: 15px;
-  line-height: 1.75;
+  font-size: 17px;
+  line-height: 1.7;
   color: var(--muted);
   max-width: 335px;
   margin-top: 24px;
 }
 .v4-home .proof article > p.time {
   font-family: Outfit, sans-serif;
-  font-weight: 400;
-  font-size: 21px;
+  font-weight: 500;
+  font-size: 22px;
   line-height: 1.35;
   color: var(--ink);
   margin-top: 21px;
 }
-.v4-home .time span { display: block; font-size: 15px; color: var(--mineral); }
+.v4-home .time span { display: block; font-size: 16px; font-weight: 400; color: var(--mineral); }
 
 .v4-home .earth-editorial {
   position: relative;
@@ -370,7 +373,7 @@
   position: relative;
   z-index: 2;
   font-family: Outfit, sans-serif !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   font-size: 76px !important;
   line-height: 1.05 !important;
   letter-spacing: -0.035em !important;
@@ -400,16 +403,16 @@
 .v4-home .moment:last-child { border-bottom: 1px solid var(--line); }
 .v4-home .moment-number {
   font-family: Outfit, sans-serif;
-  font-weight: 300;
-  font-size: 11px;
+  font-weight: 500;
+  font-size: 13px;
   line-height: 1.7;
   color: var(--gold);
   padding-top: 5px;
 }
 .v4-home .moment h3 {
   font-family: Outfit, sans-serif !important;
-  font-weight: 400 !important;
-  font-size: 21px !important;
+  font-weight: 500 !important;
+  font-size: 22px !important;
   line-height: 1.3 !important;
   letter-spacing: -0.01em !important;
   text-transform: none !important;
@@ -417,10 +420,10 @@
   margin-bottom: 12px;
 }
 .v4-home .moment p {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.7;
   color: var(--muted);
-  max-width: 450px;
+  max-width: 480px;
 }
 .v4-home .founder {
   overflow: hidden;
@@ -454,7 +457,7 @@
 }
 .v4-home .closer h2.v4-display:not(.section-display):not(.font-display):not(.red-display) {
   font-family: Outfit, sans-serif !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   font-size: 90px !important;
   line-height: 1.02 !important;
   letter-spacing: -0.04em !important;
@@ -463,7 +466,7 @@
 }
 .v4-home .closer > div { justify-self: end; padding-bottom: 8px; }
 .v4-home .closer p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.7;
   color: var(--muted);
   margin-bottom: 28px;
@@ -518,7 +521,7 @@
     width: 100%;
     padding: 0 24px 50px;
   }
-  .v4-home .hero .eyebrow { font-size: 9px; letter-spacing: 0.14em; margin-bottom: 21px; }
+  .v4-home .hero .eyebrow { font-size: 12px; letter-spacing: 0.14em; margin-bottom: 21px; }
   .v4-home .hero h1,
   .v4-home .hero h1:not(.section-display) {
     font-size: 41px !important;
@@ -526,7 +529,7 @@
     max-width: 342px;
   }
   .v4-home .hero h1 > span { display: inline; white-space: normal; }
-  .v4-home .hero-subline { font-size: 14px; line-height: 1.6; margin: 22px 0 25px; max-width: 300px; }
+  .v4-home .hero-subline { font-size: 16px; line-height: 1.6; margin: 22px 0 25px; max-width: 300px; }
   .v4-home .actions { align-items: flex-start; flex-direction: column; gap: 22px; }
   .v4-home .mineral { padding: 55px 24px 46px; }
   .v4-home .statement { padding-left: 22px; border-left-width: 4px; }
@@ -599,8 +602,8 @@
 }
 .v4-header nav a {
   font-family: Outfit, sans-serif;
-  font-weight: 400;
-  font-size: 12px;
+  font-weight: 500;
+  font-size: 14px;
   line-height: 1;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -616,7 +619,8 @@
   border: 1px solid rgba(226, 197, 122, 0.8);
   padding: 14px 18px;
   color: #e2c57a !important;
-  font-size: 11px !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
   letter-spacing: 0.08em !important;
 }
 .v4-nav-cta span { font-size: 18px; line-height: 1; }
@@ -625,13 +629,14 @@
   align-items: center;
   gap: 24px;
   font-family: Outfit, sans-serif;
-  font-size: 12px;
+  font-weight: 500;
+  font-size: 14px;
   border: 0;
   background: none;
   color: #e8eef6;
   padding: 12px 0;
 }
-.v4-menu span { font-size: 24px; font-weight: 300; }
+.v4-menu span { font-size: 24px; font-weight: 400; }
 .v4-header .scroll-progress { background: rgba(232, 238, 246, 0.16); }
 .v4-header .scroll-progress > div { background: #e2c57a; }
 
@@ -659,7 +664,8 @@ main#main-content:has(.v4-home) { padding-top: 0; }
 }
 .v4-footer-thesis {
   font-family: Outfit, sans-serif;
-  font-size: 11px;
+  font-weight: 500;
+  font-size: 13px;
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: #e2c57a;
@@ -667,9 +673,9 @@ main#main-content:has(.v4-home) { padding-top: 0; }
 }
 .v4-footer-intro > p:last-of-type,
 .v4-footer-direct {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
-  color: #9eadbe;
+  color: #b4c2d0;
   max-width: 330px;
 }
 .v4-footer-direct { display: flex; flex-direction: column; gap: 8px; margin-top: 18px; }
@@ -677,29 +683,29 @@ main#main-content:has(.v4-home) { padding-top: 0; }
 .v4-footer-nav a,
 .v4-footer-identifiers a,
 .v4-footer-bottom a {
-  color: #9eadbe;
+  color: #b4c2d0;
   text-decoration: none;
   font-family: Outfit, sans-serif;
 }
 .v4-footer a:hover { color: #e2c57a; }
-.v4-footer-nav { display: flex; flex-direction: column; gap: 12px; font-size: 12px; }
+.v4-footer-nav { display: flex; flex-direction: column; gap: 12px; font-size: 14px; }
 .v4-footer-identifiers {
   font-family: Outfit, sans-serif;
-  font-size: 10px;
+  font-size: 13px;
   line-height: 2;
   letter-spacing: 0.07em;
   text-align: right;
-  color: #9eadbe;
+  color: #b4c2d0;
 }
-.v4-footer-people { margin-top: 18px; display: flex; flex-direction: column; gap: 8px; text-transform: none; letter-spacing: 0.02em; font-size: 12px; line-height: 1.5; }
+.v4-footer-people { margin-top: 18px; display: flex; flex-direction: column; gap: 8px; text-transform: none; letter-spacing: 0.02em; font-size: 14px; line-height: 1.5; }
 .v4-footer-bottom {
   display: flex;
   justify-content: space-between;
   gap: 25px;
   border-top: 1px solid rgba(220, 227, 230, 0.2);
   padding: 24px 0 30px;
-  font-size: 10px;
-  color: #9eadbe;
+  font-size: 13px;
+  color: #b4c2d0;
 }
 .v4-footer-bottom p { max-width: 540px; }
 
@@ -721,7 +727,7 @@ main#main-content:has(.v4-home) { padding-top: 0; }
 .banner-stage .band-hero-copy h1,
 .banner-stage .band-hero-copy h1.hero-display {
   font-family: Outfit, sans-serif !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   text-transform: none !important;
   letter-spacing: -0.035em !important;
   line-height: 1.04 !important;
@@ -742,7 +748,7 @@ button.mi-btn,
   border-color: transparent !important;
   border-radius: 0 !important;
   font-family: Outfit, sans-serif !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   letter-spacing: 0.04em !important;
   text-transform: none !important;
 }
@@ -798,10 +804,10 @@ main .page-bands > section.band-steel :is(a.mi-btn, button.mi-btn) {
   border-radius: 0 !important;
   color: #e8eef6 !important;
   font-family: Outfit, sans-serif !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: 12px !important;
+  font-size: 14px !important;
 }
 main .page-bands > section.band-red {
   background: #001028 !important;
@@ -822,7 +828,7 @@ h1, h2.section-display, h2.font-display, .section-display {
 @media (max-width: 900px) {
   .v4-header { padding: 14px 24px; }
   .v4-header nav { gap: 16px; }
-  .v4-header nav a { font-size: 11px; letter-spacing: 0.06em; }
+  .v4-header nav a { font-size: 12px; letter-spacing: 0.06em; }
   .v4-footer { padding: 0 28px; }
   .v4-footer-main { grid-template-columns: 1fr 1fr; }
   .v4-footer-identifiers { grid-column: 1 / 3; text-align: left; }

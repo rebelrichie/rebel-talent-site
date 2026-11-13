@@ -19,12 +19,12 @@
   --type-display-size: clamp(2.2rem, 4vw, 3.6rem);
   --type-display-line: 1.08;
   --type-display-track: -0.02em;
-  --type-display-weight: 400;
+  --type-display-weight: 500;
 
   --type-h1-size: clamp(2.6rem, 5vw, 4.75rem);
   --type-h1-line: 1.04;
   --type-h1-track: -0.02em;
-  --type-h1-weight: 400;
+  --type-h1-weight: 500;
 
   --type-h2-size: 1.5rem;
   --type-h2-line: 1.25;
@@ -36,7 +36,7 @@
   --type-h3-track: -0.01em;
   --type-h3-weight: 600;
 
-  --type-body-size: 1.0625rem;
+  --type-body-size: 1.125rem;
   --type-body-line: 1.6;
   --type-body-weight: 400;
 
@@ -56,7 +56,7 @@
     --type-h2-line: 1.28;
     --type-h3-size: 1.125rem;
     --type-h3-line: 1.35;
-    --type-body-size: 1rem;
+    --type-body-size: 1.0625rem;
     --type-label-size: 0.875rem;
   }
 }
@@ -169,6 +169,13 @@ main .page-bands:has(.home-hero) > section:not(.band-red):not(.band-light) p.sec
   letter-spacing: var(--type-label-track) !important;
   line-height: var(--type-label-line) !important;
   text-transform: uppercase !important;
+}
+
+/* Readability floor: no text lighter than regular weight. */
+.font-thin,
+.font-extralight,
+.font-light {
+  font-weight: 400 !important;
 }
 
 /* Body and labels on navy stay at least 14px and 4.5:1. */

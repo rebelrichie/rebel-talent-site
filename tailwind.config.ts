@@ -116,13 +116,15 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
-      // Lift the base type scale slightly for marketing readability.
-      // text-xs: 12 -> 13, text-sm: 14 -> 15, text-base: 16 -> 17.
-      // Larger sizes (lg/xl/2xl/etc.) keep Tailwind defaults so headlines aren't disturbed.
+      // Marketing readability scale (2026-11 readability pass).
+      // text-xs: 14, text-sm: 16, text-base: 18, text-lg: 20, text-xl: 22.
+      // 2xl and up keep Tailwind defaults so headlines aren't disturbed.
       fontSize: {
-        xs:   ["0.8125rem", { lineHeight: "1.15rem" }],   // 13px
-        sm:   ["0.9375rem", { lineHeight: "1.4rem" }],    // 15px
-        base: ["1.0625rem", { lineHeight: "1.65rem" }],   // 17px
+        xs:   ["0.875rem",  { lineHeight: "1.3rem" }],    // 14px
+        sm:   ["1rem",      { lineHeight: "1.55rem" }],   // 16px
+        base: ["1.125rem",  { lineHeight: "1.75rem" }],   // 18px
+        lg:   ["1.25rem",   { lineHeight: "1.85rem" }],   // 20px
+        xl:   ["1.375rem",  { lineHeight: "1.95rem" }],   // 22px
       },
     },
   },
